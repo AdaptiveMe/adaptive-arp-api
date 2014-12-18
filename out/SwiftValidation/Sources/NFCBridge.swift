@@ -32,44 +32,40 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the NFC operations
    Auto-generated implementation of INFC specification.
 */
-public class NFCBridge extends BaseReaderBridge implements INFC, APIBridge {
+public class NFCBridge : BaseReaderBridge, INFC, APIBridge {
 
      /**
         API Delegate.
      */
-     private INFC delegate;
+     private var delegate : INFC = nil
 
      /**
         Constructor with delegate.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public NFCBridge(INFC delegate) {
-          super();
-          this.delegate = delegate;
+     public init(delegate : INFC) {
+          super.init()
+          self.delegate = delegate
      }
      /**
         Get the delegate implementation.
         @return INFC delegate that manages platform specific functions..
      */
-     public final INFC getDelegate() {
-          return this.delegate;
+     public final func getDelegate() -> INFC {
+          return self.delegate
      }
      /**
         Set the delegate implementation.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public final void setDelegate(INFC delegate) {
-          this.delegate = delegate;
+     public final func setDelegate(delegate : INFC) {
+          self.delegate = delegate;
      }
 
      /**
@@ -78,12 +74,12 @@ public class NFCBridge extends BaseReaderBridge implements INFC, APIBridge {
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public func invoke(request : APIRequest) -> String? {
+          var responseJSON : String = ""
           switch (request.getMethodName()) {
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseJSON = nil;
           }
           return responseJSON;
      }

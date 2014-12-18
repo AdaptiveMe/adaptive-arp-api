@@ -32,44 +32,40 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Compression operations
    Auto-generated implementation of ICompression specification.
 */
-public class CompressionBridge extends BaseUtilBridge implements ICompression, APIBridge {
+public class CompressionBridge : BaseUtilBridge, ICompression, APIBridge {
 
      /**
         API Delegate.
      */
-     private ICompression delegate;
+     private var delegate : ICompression = nil
 
      /**
         Constructor with delegate.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public CompressionBridge(ICompression delegate) {
-          super();
-          this.delegate = delegate;
+     public init(delegate : ICompression) {
+          super.init()
+          self.delegate = delegate
      }
      /**
         Get the delegate implementation.
         @return ICompression delegate that manages platform specific functions..
      */
-     public final ICompression getDelegate() {
-          return this.delegate;
+     public final func getDelegate() -> ICompression {
+          return self.delegate
      }
      /**
         Set the delegate implementation.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public final void setDelegate(ICompression delegate) {
-          this.delegate = delegate;
+     public final func setDelegate(delegate : ICompression) {
+          self.delegate = delegate;
      }
 
      /**
@@ -78,12 +74,12 @@ public class CompressionBridge extends BaseUtilBridge implements ICompression, A
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public func invoke(request : APIRequest) -> String? {
+          var responseJSON : String = ""
           switch (request.getMethodName()) {
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseJSON = nil;
           }
           return responseJSON;
      }

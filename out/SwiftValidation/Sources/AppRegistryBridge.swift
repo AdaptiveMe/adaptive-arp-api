@@ -32,65 +32,55 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface to retrieve auto-registered service implementation references.
    Auto-generated implementation of IAppRegistry specification.
 */
-public class AppRegistryBridge implements IAppRegistry {
+public class AppRegistryBridge : IAppRegistry {
 
      /**
         Group of API.
      */
-     private IAdaptiveRPGroup apiGroup = IAdaptiveRPGroup.Kernel;
+     private var apiGroup : IAdaptiveRPGroup = IAdaptiveRPGroup.Kernel;
 
      /**
         API Delegate.
      */
-     private IAppRegistry delegate;
+     private var delegate : IAppRegistry = nil
 
      /**
         Constructor with delegate.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public AppRegistryBridge(IAppRegistry delegate) {
-          super();
-          this.delegate = delegate;
+     public init(delegate : IAppRegistry) {
+          super.init()
+          self.delegate = delegate
      }
      /**
         Get the delegate implementation.
         @return IAppRegistry delegate that manages platform specific functions..
      */
-     public final IAppRegistry getDelegate() {
-          return this.delegate;
+     public final func getDelegate() -> IAppRegistry {
+          return self.delegate
      }
      /**
         Set the delegate implementation.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public final void setDelegate(IAppRegistry delegate) {
-          this.delegate = delegate;
+     public final func setDelegate(delegate : IAppRegistry) {
+          self.delegate = delegate;
      }
 
      /**
         Singleton instance.
      */
-     private static AppRegistryBridge singleton;
-
-     /**
-        Get singleton instance.
-        @return AppRegistryBridge singleton instance.
-     */
-     public static final AppRegistryBridge getInstance() {
-          if (singleton == null) {
-               singleton = new AppRegistryBridge(new AppRegistryDelegate());
+     class var sharedInstance : AppRegistryBridge {
+          struct Static {
+               static let instance : AppRegistryBridge = AppRegistryBridge()
           }
-          return singleton;
+          return Static.instance
      }
 
      /**
@@ -98,21 +88,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return AccelerationBridge reference or null if a bridge of this type is not registered.
      */
-     public final AccelerationBridge getAccelerationBridge() {
+     public final func getAccelerationBridge() -> Acceleration {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          AccelerationBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : AccelerationBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getAccelerationBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getAccelerationBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getAccelerationBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getAccelerationBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getAccelerationBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getAccelerationBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getAccelerationBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getAccelerationBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -120,21 +116,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return AdsBridge reference or null if a bridge of this type is not registered.
      */
-     public final AdsBridge getAdsBridge() {
+     public final func getAdsBridge() -> Ads {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          AdsBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : AdsBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getAdsBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getAdsBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getAdsBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getAdsBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getAdsBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getAdsBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getAdsBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getAdsBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -142,21 +144,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return AlarmBridge reference or null if a bridge of this type is not registered.
      */
-     public final AlarmBridge getAlarmBridge() {
+     public final func getAlarmBridge() -> Alarm {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          AlarmBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : AlarmBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getAlarmBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getAlarmBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getAlarmBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getAlarmBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getAlarmBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getAlarmBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getAlarmBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getAlarmBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -164,21 +172,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return AmbientLightBridge reference or null if a bridge of this type is not registered.
      */
-     public final AmbientLightBridge getAmbientLightBridge() {
+     public final func getAmbientLightBridge() -> AmbientLight {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          AmbientLightBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : AmbientLightBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getAmbientLightBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getAmbientLightBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getAmbientLightBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getAmbientLightBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getAmbientLightBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getAmbientLightBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getAmbientLightBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getAmbientLightBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -186,21 +200,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return AnalyticsBridge reference or null if a bridge of this type is not registered.
      */
-     public final AnalyticsBridge getAnalyticsBridge() {
+     public final func getAnalyticsBridge() -> Analytics {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          AnalyticsBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : AnalyticsBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getAnalyticsBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getAnalyticsBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getAnalyticsBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getAnalyticsBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getAnalyticsBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getAnalyticsBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getAnalyticsBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getAnalyticsBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -208,21 +228,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return AudioBridge reference or null if a bridge of this type is not registered.
      */
-     public final AudioBridge getAudioBridge() {
+     public final func getAudioBridge() -> Audio {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          AudioBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : AudioBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getAudioBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getAudioBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getAudioBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getAudioBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getAudioBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getAudioBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getAudioBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getAudioBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -230,21 +256,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return BarcodeBridge reference or null if a bridge of this type is not registered.
      */
-     public final BarcodeBridge getBarcodeBridge() {
+     public final func getBarcodeBridge() -> Barcode {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          BarcodeBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : BarcodeBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getBarcodeBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getBarcodeBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getBarcodeBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getBarcodeBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getBarcodeBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getBarcodeBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getBarcodeBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getBarcodeBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -252,21 +284,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return BarometerBridge reference or null if a bridge of this type is not registered.
      */
-     public final BarometerBridge getBarometerBridge() {
+     public final func getBarometerBridge() -> Barometer {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          BarometerBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : BarometerBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getBarometerBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getBarometerBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getBarometerBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getBarometerBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getBarometerBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getBarometerBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getBarometerBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getBarometerBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -274,21 +312,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return BluetoothBridge reference or null if a bridge of this type is not registered.
      */
-     public final BluetoothBridge getBluetoothBridge() {
+     public final func getBluetoothBridge() -> Bluetooth {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          BluetoothBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : BluetoothBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getBluetoothBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getBluetoothBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getBluetoothBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getBluetoothBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getBluetoothBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getBluetoothBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getBluetoothBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getBluetoothBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -296,21 +340,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return BrowserBridge reference or null if a bridge of this type is not registered.
      */
-     public final BrowserBridge getBrowserBridge() {
+     public final func getBrowserBridge() -> Browser {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          BrowserBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : BrowserBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getBrowserBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getBrowserBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getBrowserBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getBrowserBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getBrowserBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getBrowserBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getBrowserBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getBrowserBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -318,21 +368,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return CalendarBridge reference or null if a bridge of this type is not registered.
      */
-     public final CalendarBridge getCalendarBridge() {
+     public final func getCalendarBridge() -> Calendar {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          CalendarBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : CalendarBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getCalendarBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getCalendarBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getCalendarBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getCalendarBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getCalendarBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getCalendarBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getCalendarBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getCalendarBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -340,21 +396,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return CameraBridge reference or null if a bridge of this type is not registered.
      */
-     public final CameraBridge getCameraBridge() {
+     public final func getCameraBridge() -> Camera {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          CameraBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : CameraBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getCameraBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getCameraBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getCameraBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getCameraBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getCameraBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getCameraBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getCameraBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getCameraBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -362,21 +424,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return CapabilitiesBridge reference or null if a bridge of this type is not registered.
      */
-     public final CapabilitiesBridge getCapabilitiesBridge() {
+     public final func getCapabilitiesBridge() -> Capabilities {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          CapabilitiesBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : CapabilitiesBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getCapabilitiesBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getCapabilitiesBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getCapabilitiesBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getCapabilitiesBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getCapabilitiesBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getCapabilitiesBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getCapabilitiesBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getCapabilitiesBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -384,21 +452,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return CloudBridge reference or null if a bridge of this type is not registered.
      */
-     public final CloudBridge getCloudBridge() {
+     public final func getCloudBridge() -> Cloud {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          CloudBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : CloudBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getCloudBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getCloudBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getCloudBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getCloudBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getCloudBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getCloudBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getCloudBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getCloudBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -406,21 +480,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return CompressionBridge reference or null if a bridge of this type is not registered.
      */
-     public final CompressionBridge getCompressionBridge() {
+     public final func getCompressionBridge() -> Compression {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          CompressionBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : CompressionBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getCompressionBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getCompressionBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getCompressionBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getCompressionBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getCompressionBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getCompressionBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getCompressionBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getCompressionBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -428,21 +508,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return ConcurrentBridge reference or null if a bridge of this type is not registered.
      */
-     public final ConcurrentBridge getConcurrentBridge() {
+     public final func getConcurrentBridge() -> Concurrent {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          ConcurrentBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : ConcurrentBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getConcurrentBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getConcurrentBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getConcurrentBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getConcurrentBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getConcurrentBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getConcurrentBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getConcurrentBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getConcurrentBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -450,21 +536,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return ContactBridge reference or null if a bridge of this type is not registered.
      */
-     public final ContactBridge getContactBridge() {
+     public final func getContactBridge() -> Contact {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          ContactBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : ContactBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getContactBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getContactBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getContactBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getContactBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getContactBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getContactBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getContactBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getContactBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -472,21 +564,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return CryptoBridge reference or null if a bridge of this type is not registered.
      */
-     public final CryptoBridge getCryptoBridge() {
+     public final func getCryptoBridge() -> Crypto {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          CryptoBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : CryptoBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getCryptoBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getCryptoBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getCryptoBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getCryptoBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getCryptoBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getCryptoBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getCryptoBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getCryptoBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -494,21 +592,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return DataStreamBridge reference or null if a bridge of this type is not registered.
      */
-     public final DataStreamBridge getDataStreamBridge() {
+     public final func getDataStreamBridge() -> DataStream {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          DataStreamBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : DataStreamBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getDataStreamBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getDataStreamBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getDataStreamBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getDataStreamBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getDataStreamBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getDataStreamBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getDataStreamBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getDataStreamBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -516,21 +620,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return DatabaseBridge reference or null if a bridge of this type is not registered.
      */
-     public final DatabaseBridge getDatabaseBridge() {
+     public final func getDatabaseBridge() -> Database {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          DatabaseBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : DatabaseBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getDatabaseBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getDatabaseBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getDatabaseBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getDatabaseBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getDatabaseBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getDatabaseBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getDatabaseBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getDatabaseBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -538,21 +648,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return DesktopBridge reference or null if a bridge of this type is not registered.
      */
-     public final DesktopBridge getDesktopBridge() {
+     public final func getDesktopBridge() -> Desktop {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          DesktopBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : DesktopBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getDesktopBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getDesktopBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getDesktopBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getDesktopBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getDesktopBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getDesktopBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getDesktopBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getDesktopBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -560,21 +676,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return DeviceBridge reference or null if a bridge of this type is not registered.
      */
-     public final DeviceBridge getDeviceBridge() {
+     public final func getDeviceBridge() -> Device {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          DeviceBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : DeviceBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getDeviceBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getDeviceBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getDeviceBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getDeviceBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getDeviceBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getDeviceBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getDeviceBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getDeviceBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -582,21 +704,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return DisplayBridge reference or null if a bridge of this type is not registered.
      */
-     public final DisplayBridge getDisplayBridge() {
+     public final func getDisplayBridge() -> Display {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          DisplayBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : DisplayBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getDisplayBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getDisplayBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getDisplayBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getDisplayBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getDisplayBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getDisplayBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getDisplayBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getDisplayBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -604,21 +732,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return FacebookBridge reference or null if a bridge of this type is not registered.
      */
-     public final FacebookBridge getFacebookBridge() {
+     public final func getFacebookBridge() -> Facebook {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          FacebookBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : FacebookBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getFacebookBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getFacebookBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getFacebookBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getFacebookBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getFacebookBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getFacebookBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getFacebookBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getFacebookBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -626,21 +760,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return FileSystemBridge reference or null if a bridge of this type is not registered.
      */
-     public final FileSystemBridge getFileSystemBridge() {
+     public final func getFileSystemBridge() -> FileSystem {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          FileSystemBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : FileSystemBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getFileSystemBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getFileSystemBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getFileSystemBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getFileSystemBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getFileSystemBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getFileSystemBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getFileSystemBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getFileSystemBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -648,21 +788,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return GeolocationBridge reference or null if a bridge of this type is not registered.
      */
-     public final GeolocationBridge getGeolocationBridge() {
+     public final func getGeolocationBridge() -> Geolocation {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          GeolocationBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : GeolocationBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getGeolocationBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getGeolocationBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getGeolocationBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getGeolocationBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getGeolocationBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getGeolocationBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getGeolocationBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getGeolocationBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -670,21 +816,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return GlobalizationBridge reference or null if a bridge of this type is not registered.
      */
-     public final GlobalizationBridge getGlobalizationBridge() {
+     public final func getGlobalizationBridge() -> Globalization {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          GlobalizationBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : GlobalizationBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getGlobalizationBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getGlobalizationBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getGlobalizationBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getGlobalizationBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getGlobalizationBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getGlobalizationBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getGlobalizationBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getGlobalizationBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -692,21 +844,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return GooglePlusBridge reference or null if a bridge of this type is not registered.
      */
-     public final GooglePlusBridge getGooglePlusBridge() {
+     public final func getGooglePlusBridge() -> GooglePlus {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          GooglePlusBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : GooglePlusBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getGooglePlusBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getGooglePlusBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getGooglePlusBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getGooglePlusBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getGooglePlusBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getGooglePlusBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getGooglePlusBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getGooglePlusBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -714,21 +872,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return GyroscopeBridge reference or null if a bridge of this type is not registered.
      */
-     public final GyroscopeBridge getGyroscopeBridge() {
+     public final func getGyroscopeBridge() -> Gyroscope {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          GyroscopeBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : GyroscopeBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getGyroscopeBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getGyroscopeBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getGyroscopeBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getGyroscopeBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getGyroscopeBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getGyroscopeBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getGyroscopeBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getGyroscopeBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -736,21 +900,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return ImagingBridge reference or null if a bridge of this type is not registered.
      */
-     public final ImagingBridge getImagingBridge() {
+     public final func getImagingBridge() -> Imaging {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          ImagingBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : ImagingBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getImagingBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getImagingBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getImagingBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getImagingBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getImagingBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getImagingBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getImagingBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getImagingBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -758,21 +928,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return InternalStorageBridge reference or null if a bridge of this type is not registered.
      */
-     public final InternalStorageBridge getInternalStorageBridge() {
+     public final func getInternalStorageBridge() -> InternalStorage {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          InternalStorageBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : InternalStorageBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getInternalStorageBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getInternalStorageBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getInternalStorageBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getInternalStorageBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getInternalStorageBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getInternalStorageBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getInternalStorageBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getInternalStorageBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -780,21 +956,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return LifecycleBridge reference or null if a bridge of this type is not registered.
      */
-     public final LifecycleBridge getLifecycleBridge() {
+     public final func getLifecycleBridge() -> Lifecycle {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          LifecycleBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : LifecycleBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getLifecycleBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getLifecycleBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getLifecycleBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getLifecycleBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getLifecycleBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getLifecycleBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getLifecycleBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getLifecycleBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -802,21 +984,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return LinkedInBridge reference or null if a bridge of this type is not registered.
      */
-     public final LinkedInBridge getLinkedInBridge() {
+     public final func getLinkedInBridge() -> LinkedIn {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          LinkedInBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : LinkedInBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getLinkedInBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getLinkedInBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getLinkedInBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getLinkedInBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getLinkedInBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getLinkedInBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getLinkedInBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getLinkedInBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -824,21 +1012,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return LoggingBridge reference or null if a bridge of this type is not registered.
      */
-     public final LoggingBridge getLoggingBridge() {
+     public final func getLoggingBridge() -> Logging {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          LoggingBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : LoggingBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getLoggingBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getLoggingBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getLoggingBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getLoggingBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getLoggingBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getLoggingBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getLoggingBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getLoggingBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -846,21 +1040,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return MagnetometerBridge reference or null if a bridge of this type is not registered.
      */
-     public final MagnetometerBridge getMagnetometerBridge() {
+     public final func getMagnetometerBridge() -> Magnetometer {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          MagnetometerBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : MagnetometerBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getMagnetometerBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getMagnetometerBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getMagnetometerBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getMagnetometerBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getMagnetometerBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getMagnetometerBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getMagnetometerBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getMagnetometerBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -868,21 +1068,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return MailBridge reference or null if a bridge of this type is not registered.
      */
-     public final MailBridge getMailBridge() {
+     public final func getMailBridge() -> Mail {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          MailBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : MailBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getMailBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getMailBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getMailBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getMailBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getMailBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getMailBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getMailBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getMailBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -890,21 +1096,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return ManagementBridge reference or null if a bridge of this type is not registered.
      */
-     public final ManagementBridge getManagementBridge() {
+     public final func getManagementBridge() -> Management {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          ManagementBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : ManagementBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getManagementBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getManagementBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getManagementBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getManagementBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getManagementBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getManagementBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getManagementBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getManagementBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -912,21 +1124,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return MapBridge reference or null if a bridge of this type is not registered.
      */
-     public final MapBridge getMapBridge() {
+     public final func getMapBridge() -> Map {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          MapBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : MapBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getMapBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getMapBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getMapBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getMapBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getMapBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getMapBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getMapBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getMapBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -934,21 +1152,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return MessagingBridge reference or null if a bridge of this type is not registered.
      */
-     public final MessagingBridge getMessagingBridge() {
+     public final func getMessagingBridge() -> Messaging {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          MessagingBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : MessagingBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getMessagingBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getMessagingBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getMessagingBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getMessagingBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getMessagingBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getMessagingBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getMessagingBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getMessagingBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -956,21 +1180,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return NFCBridge reference or null if a bridge of this type is not registered.
      */
-     public final NFCBridge getNFCBridge() {
+     public final func getNFCBridge() -> NFC {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          NFCBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : NFCBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getNFCBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getNFCBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getNFCBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getNFCBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getNFCBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getNFCBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getNFCBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getNFCBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -978,21 +1208,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return NetworkInfoBridge reference or null if a bridge of this type is not registered.
      */
-     public final NetworkInfoBridge getNetworkInfoBridge() {
+     public final func getNetworkInfoBridge() -> NetworkInfo {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          NetworkInfoBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : NetworkInfoBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getNetworkInfoBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getNetworkInfoBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getNetworkInfoBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getNetworkInfoBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getNetworkInfoBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getNetworkInfoBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getNetworkInfoBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getNetworkInfoBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -1000,21 +1236,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return NetworkNamingBridge reference or null if a bridge of this type is not registered.
      */
-     public final NetworkNamingBridge getNetworkNamingBridge() {
+     public final func getNetworkNamingBridge() -> NetworkNaming {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          NetworkNamingBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : NetworkNamingBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getNetworkNamingBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getNetworkNamingBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getNetworkNamingBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getNetworkNamingBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getNetworkNamingBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getNetworkNamingBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getNetworkNamingBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getNetworkNamingBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -1022,21 +1264,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return NetworkReachabilityBridge reference or null if a bridge of this type is not registered.
      */
-     public final NetworkReachabilityBridge getNetworkReachabilityBridge() {
+     public final func getNetworkReachabilityBridge() -> NetworkReachability {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          NetworkReachabilityBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : NetworkReachabilityBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getNetworkReachabilityBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getNetworkReachabilityBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getNetworkReachabilityBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getNetworkReachabilityBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getNetworkReachabilityBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getNetworkReachabilityBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getNetworkReachabilityBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getNetworkReachabilityBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -1044,21 +1292,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return NetworkStatusBridge reference or null if a bridge of this type is not registered.
      */
-     public final NetworkStatusBridge getNetworkStatusBridge() {
+     public final func getNetworkStatusBridge() -> NetworkStatus {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          NetworkStatusBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : NetworkStatusBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getNetworkStatusBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getNetworkStatusBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getNetworkStatusBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getNetworkStatusBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getNetworkStatusBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getNetworkStatusBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getNetworkStatusBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getNetworkStatusBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -1066,21 +1320,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return NotificationBridge reference or null if a bridge of this type is not registered.
      */
-     public final NotificationBridge getNotificationBridge() {
+     public final func getNotificationBridge() -> Notification {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          NotificationBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : NotificationBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getNotificationBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getNotificationBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getNotificationBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getNotificationBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getNotificationBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getNotificationBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getNotificationBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getNotificationBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -1088,21 +1348,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return NotificationLocalBridge reference or null if a bridge of this type is not registered.
      */
-     public final NotificationLocalBridge getNotificationLocalBridge() {
+     public final func getNotificationLocalBridge() -> NotificationLocal {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          NotificationLocalBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : NotificationLocalBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getNotificationLocalBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getNotificationLocalBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getNotificationLocalBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getNotificationLocalBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getNotificationLocalBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getNotificationLocalBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getNotificationLocalBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getNotificationLocalBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -1110,21 +1376,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return OAuthBridge reference or null if a bridge of this type is not registered.
      */
-     public final OAuthBridge getOAuthBridge() {
+     public final func getOAuthBridge() -> OAuth {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          OAuthBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : OAuthBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getOAuthBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getOAuthBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getOAuthBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getOAuthBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getOAuthBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getOAuthBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getOAuthBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getOAuthBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -1132,21 +1404,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return OCRBridge reference or null if a bridge of this type is not registered.
      */
-     public final OCRBridge getOCRBridge() {
+     public final func getOCRBridge() -> OCR {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          OCRBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : OCRBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getOCRBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getOCRBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getOCRBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getOCRBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getOCRBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getOCRBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getOCRBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getOCRBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -1154,21 +1432,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return OSBridge reference or null if a bridge of this type is not registered.
      */
-     public final OSBridge getOSBridge() {
+     public final func getOSBridge() -> OS {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          OSBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : OSBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getOSBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getOSBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getOSBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getOSBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getOSBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getOSBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getOSBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getOSBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -1176,21 +1460,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return OpenIdBridge reference or null if a bridge of this type is not registered.
      */
-     public final OpenIdBridge getOpenIdBridge() {
+     public final func getOpenIdBridge() -> OpenId {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          OpenIdBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : OpenIdBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getOpenIdBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getOpenIdBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getOpenIdBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getOpenIdBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getOpenIdBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getOpenIdBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getOpenIdBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getOpenIdBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -1198,21 +1488,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return PrintingBridge reference or null if a bridge of this type is not registered.
      */
-     public final PrintingBridge getPrintingBridge() {
+     public final func getPrintingBridge() -> Printing {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          PrintingBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : PrintingBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getPrintingBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getPrintingBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getPrintingBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getPrintingBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getPrintingBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getPrintingBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getPrintingBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getPrintingBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -1220,21 +1516,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return ProximityBridge reference or null if a bridge of this type is not registered.
      */
-     public final ProximityBridge getProximityBridge() {
+     public final func getProximityBridge() -> Proximity {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          ProximityBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : ProximityBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getProximityBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getProximityBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getProximityBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getProximityBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getProximityBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getProximityBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getProximityBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getProximityBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -1242,21 +1544,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return QRCodeBridge reference or null if a bridge of this type is not registered.
      */
-     public final QRCodeBridge getQRCodeBridge() {
+     public final func getQRCodeBridge() -> QRCode {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          QRCodeBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : QRCodeBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getQRCodeBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getQRCodeBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getQRCodeBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getQRCodeBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getQRCodeBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getQRCodeBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getQRCodeBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getQRCodeBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -1264,21 +1572,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return RSSBridge reference or null if a bridge of this type is not registered.
      */
-     public final RSSBridge getRSSBridge() {
+     public final func getRSSBridge() -> RSS {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          RSSBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : RSSBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getRSSBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getRSSBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getRSSBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getRSSBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getRSSBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getRSSBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getRSSBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getRSSBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -1286,21 +1600,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return RuntimeBridge reference or null if a bridge of this type is not registered.
      */
-     public final RuntimeBridge getRuntimeBridge() {
+     public final func getRuntimeBridge() -> Runtime {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          RuntimeBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : RuntimeBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getRuntimeBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getRuntimeBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getRuntimeBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getRuntimeBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getRuntimeBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getRuntimeBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getRuntimeBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getRuntimeBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -1308,21 +1628,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return SecurityBridge reference or null if a bridge of this type is not registered.
      */
-     public final SecurityBridge getSecurityBridge() {
+     public final func getSecurityBridge() -> Security {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          SecurityBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : SecurityBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getSecurityBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getSecurityBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getSecurityBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getSecurityBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getSecurityBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getSecurityBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getSecurityBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getSecurityBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -1330,21 +1656,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return ServiceBridge reference or null if a bridge of this type is not registered.
      */
-     public final ServiceBridge getServiceBridge() {
+     public final func getServiceBridge() -> Service {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          ServiceBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : ServiceBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getServiceBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getServiceBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getServiceBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getServiceBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getServiceBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getServiceBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getServiceBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getServiceBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -1352,21 +1684,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return SettingsBridge reference or null if a bridge of this type is not registered.
      */
-     public final SettingsBridge getSettingsBridge() {
+     public final func getSettingsBridge() -> Settings {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          SettingsBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : SettingsBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getSettingsBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getSettingsBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getSettingsBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getSettingsBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getSettingsBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getSettingsBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getSettingsBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getSettingsBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -1374,21 +1712,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return SocketBridge reference or null if a bridge of this type is not registered.
      */
-     public final SocketBridge getSocketBridge() {
+     public final func getSocketBridge() -> Socket {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          SocketBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : SocketBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getSocketBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getSocketBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getSocketBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getSocketBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getSocketBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getSocketBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getSocketBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getSocketBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -1396,21 +1740,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return StoreBridge reference or null if a bridge of this type is not registered.
      */
-     public final StoreBridge getStoreBridge() {
+     public final func getStoreBridge() -> Store {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          StoreBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : StoreBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getStoreBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getStoreBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getStoreBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getStoreBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getStoreBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getStoreBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getStoreBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getStoreBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -1418,21 +1768,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return TelephonyBridge reference or null if a bridge of this type is not registered.
      */
-     public final TelephonyBridge getTelephonyBridge() {
+     public final func getTelephonyBridge() -> Telephony {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          TelephonyBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : TelephonyBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getTelephonyBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getTelephonyBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getTelephonyBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getTelephonyBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getTelephonyBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getTelephonyBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getTelephonyBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getTelephonyBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -1440,21 +1796,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return TimerBridge reference or null if a bridge of this type is not registered.
      */
-     public final TimerBridge getTimerBridge() {
+     public final func getTimerBridge() -> Timer {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          TimerBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : TimerBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getTimerBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getTimerBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getTimerBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getTimerBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getTimerBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getTimerBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getTimerBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getTimerBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -1462,21 +1824,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return TwitterBridge reference or null if a bridge of this type is not registered.
      */
-     public final TwitterBridge getTwitterBridge() {
+     public final func getTwitterBridge() -> Twitter {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          TwitterBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : TwitterBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getTwitterBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getTwitterBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getTwitterBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getTwitterBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getTwitterBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getTwitterBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getTwitterBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getTwitterBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -1484,21 +1852,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return UIBridge reference or null if a bridge of this type is not registered.
      */
-     public final UIBridge getUIBridge() {
+     public final func getUIBridge() -> UI {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          UIBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : UIBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getUIBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getUIBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getUIBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getUIBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getUIBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getUIBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getUIBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getUIBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -1506,21 +1880,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return UpdateBridge reference or null if a bridge of this type is not registered.
      */
-     public final UpdateBridge getUpdateBridge() {
+     public final func getUpdateBridge() -> Update {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          UpdateBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : UpdateBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getUpdateBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getUpdateBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getUpdateBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getUpdateBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getUpdateBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getUpdateBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getUpdateBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getUpdateBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -1528,21 +1908,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return VibrationBridge reference or null if a bridge of this type is not registered.
      */
-     public final VibrationBridge getVibrationBridge() {
+     public final func getVibrationBridge() -> Vibration {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          VibrationBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : VibrationBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getVibrationBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getVibrationBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getVibrationBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getVibrationBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getVibrationBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getVibrationBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getVibrationBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getVibrationBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -1550,21 +1936,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return VideoBridge reference or null if a bridge of this type is not registered.
      */
-     public final VideoBridge getVideoBridge() {
+     public final func getVideoBridge() -> Video {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          VideoBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : VideoBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getVideoBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getVideoBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getVideoBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getVideoBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getVideoBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getVideoBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getVideoBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getVideoBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -1572,21 +1964,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return WalletBridge reference or null if a bridge of this type is not registered.
      */
-     public final WalletBridge getWalletBridge() {
+     public final func getWalletBridge() -> Wallet {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          WalletBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : WalletBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getWalletBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getWalletBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getWalletBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getWalletBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getWalletBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getWalletBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getWalletBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getWalletBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -1594,21 +1992,27 @@ public class AppRegistryBridge implements IAppRegistry {
 
         @return XMLBridge reference or null if a bridge of this type is not registered.
      */
-     public final XMLBridge getXMLBridge() {
+     public final func getXMLBridge() -> XML {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          XMLBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : XMLBridge? = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getXMLBridge().");
-
-          if (this.delegate != null) {
-               result = this.delegate.getXMLBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getXMLBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getXMLBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getXMLBridge().")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getXMLBridge()
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getXMLBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getXMLBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -1617,21 +2021,27 @@ public class AppRegistryBridge implements IAppRegistry {
         @param bridgeType String with the interface name required.
         @return APIBridge That handles calls for the specified interface or null if the given bridge is not registered.
      */
-     public final APIBridge getBridge(String bridgeType) {
+     public final func getBridge(bridgeType : String) -> APIBridge {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-          APIBridge result = null;
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var result : APIBridge = nil
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getBridge("+bridgeType+").");
-
-          if (this.delegate != null) {
-               result = this.delegate.getBridge(bridgeType);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getBridge'.");
+          if (logger != nil) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getBridge(\(bridgeType)).")
           }
-          return result;          
+
+          if (this.delegate != nil) {
+               result = self.delegate.getBridge(bridgeType)
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+               }
+          } else {
+               if (logger!=nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getBridge'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -1640,21 +2050,27 @@ public class AppRegistryBridge implements IAppRegistry {
         @return Reference to the platform context
         @since ARP1.0
      */
-     public AppContextBridge getPlatformContext() {
+     public func getPlatformContext() -> AppContextBridge {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getPlatformContext.");
-
-          AppContextBridge result = null;
-          if (this.delegate != null) {
-               result = this.delegate.getPlatformContext();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getPlatformContext' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getPlatformContext'.");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"AppRegistryBridge executing getPlatformContext.")
           }
-          return result;          
+
+          var result : AppContextBridge = nil
+          if (self.delegate != nil) {
+               result = self.delegate.getPlatformContext()
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"AppRegistryBridge executed 'getPlatformContext' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
+          } else {
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"AppRegistryBridge no delegate for 'getPlatformContext'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -1663,21 +2079,27 @@ public class AppRegistryBridge implements IAppRegistry {
         @return Reference to the Webview Context
         @since ARP1.0
      */
-     public AppContextWebviewBridge getPlatformContextWeb() {
+     public func getPlatformContextWeb() -> AppContextWebviewBridge {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getPlatformContextWeb.");
-
-          AppContextWebviewBridge result = null;
-          if (this.delegate != null) {
-               result = this.delegate.getPlatformContextWeb();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getPlatformContextWeb' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getPlatformContextWeb'.");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"AppRegistryBridge executing getPlatformContextWeb.")
           }
-          return result;          
+
+          var result : AppContextWebviewBridge = nil
+          if (self.delegate != nil) {
+               result = self.delegate.getPlatformContextWeb()
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"AppRegistryBridge executed 'getPlatformContextWeb' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
+          } else {
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"AppRegistryBridge no delegate for 'getPlatformContextWeb'.")
+               }
+          }
+          return result          
      }
 
 }

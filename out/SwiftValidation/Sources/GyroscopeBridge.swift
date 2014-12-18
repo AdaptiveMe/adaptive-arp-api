@@ -32,44 +32,40 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Giroscope operations
    Auto-generated implementation of IGyroscope specification.
 */
-public class GyroscopeBridge extends BaseSensorBridge implements IGyroscope, APIBridge {
+public class GyroscopeBridge : BaseSensorBridge, IGyroscope, APIBridge {
 
      /**
         API Delegate.
      */
-     private IGyroscope delegate;
+     private var delegate : IGyroscope = nil
 
      /**
         Constructor with delegate.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public GyroscopeBridge(IGyroscope delegate) {
-          super();
-          this.delegate = delegate;
+     public init(delegate : IGyroscope) {
+          super.init()
+          self.delegate = delegate
      }
      /**
         Get the delegate implementation.
         @return IGyroscope delegate that manages platform specific functions..
      */
-     public final IGyroscope getDelegate() {
-          return this.delegate;
+     public final func getDelegate() -> IGyroscope {
+          return self.delegate
      }
      /**
         Set the delegate implementation.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public final void setDelegate(IGyroscope delegate) {
-          this.delegate = delegate;
+     public final func setDelegate(delegate : IGyroscope) {
+          self.delegate = delegate;
      }
 
      /**
@@ -78,12 +74,12 @@ public class GyroscopeBridge extends BaseSensorBridge implements IGyroscope, API
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public func invoke(request : APIRequest) -> String? {
+          var responseJSON : String = ""
           switch (request.getMethodName()) {
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseJSON = nil;
           }
           return responseJSON;
      }

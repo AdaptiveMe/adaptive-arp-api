@@ -32,44 +32,40 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for managinf the Ambient Light
    Auto-generated implementation of IAmbientLight specification.
 */
-public class AmbientLightBridge extends BaseSensorBridge implements IAmbientLight, APIBridge {
+public class AmbientLightBridge : BaseSensorBridge, IAmbientLight, APIBridge {
 
      /**
         API Delegate.
      */
-     private IAmbientLight delegate;
+     private var delegate : IAmbientLight = nil
 
      /**
         Constructor with delegate.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public AmbientLightBridge(IAmbientLight delegate) {
-          super();
-          this.delegate = delegate;
+     public init(delegate : IAmbientLight) {
+          super.init()
+          self.delegate = delegate
      }
      /**
         Get the delegate implementation.
         @return IAmbientLight delegate that manages platform specific functions..
      */
-     public final IAmbientLight getDelegate() {
-          return this.delegate;
+     public final func getDelegate() -> IAmbientLight {
+          return self.delegate
      }
      /**
         Set the delegate implementation.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public final void setDelegate(IAmbientLight delegate) {
-          this.delegate = delegate;
+     public final func setDelegate(delegate : IAmbientLight) {
+          self.delegate = delegate;
      }
 
      /**
@@ -78,12 +74,12 @@ public class AmbientLightBridge extends BaseSensorBridge implements IAmbientLigh
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public func invoke(request : APIRequest) -> String? {
+          var responseJSON : String = ""
           switch (request.getMethodName()) {
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseJSON = nil;
           }
           return responseJSON;
      }

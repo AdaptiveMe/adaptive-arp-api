@@ -32,44 +32,40 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Advertising purposes
    Auto-generated implementation of IAds specification.
 */
-public class AdsBridge extends BaseCommerceBridge implements IAds, APIBridge {
+public class AdsBridge : BaseCommerceBridge, IAds, APIBridge {
 
      /**
         API Delegate.
      */
-     private IAds delegate;
+     private var delegate : IAds = nil
 
      /**
         Constructor with delegate.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public AdsBridge(IAds delegate) {
-          super();
-          this.delegate = delegate;
+     public init(delegate : IAds) {
+          super.init()
+          self.delegate = delegate
      }
      /**
         Get the delegate implementation.
         @return IAds delegate that manages platform specific functions..
      */
-     public final IAds getDelegate() {
-          return this.delegate;
+     public final func getDelegate() -> IAds {
+          return self.delegate
      }
      /**
         Set the delegate implementation.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public final void setDelegate(IAds delegate) {
-          this.delegate = delegate;
+     public final func setDelegate(delegate : IAds) {
+          self.delegate = delegate;
      }
 
      /**
@@ -78,12 +74,12 @@ public class AdsBridge extends BaseCommerceBridge implements IAds, APIBridge {
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public func invoke(request : APIRequest) -> String? {
+          var responseJSON : String = ""
           switch (request.getMethodName()) {
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseJSON = nil;
           }
           return responseJSON;
      }

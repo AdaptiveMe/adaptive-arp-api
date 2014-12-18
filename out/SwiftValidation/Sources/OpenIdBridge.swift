@@ -32,44 +32,40 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the OpenID operations
    Auto-generated implementation of IOpenId specification.
 */
-public class OpenIdBridge extends BaseSecurityBridge implements IOpenId, APIBridge {
+public class OpenIdBridge : BaseSecurityBridge, IOpenId, APIBridge {
 
      /**
         API Delegate.
      */
-     private IOpenId delegate;
+     private var delegate : IOpenId = nil
 
      /**
         Constructor with delegate.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public OpenIdBridge(IOpenId delegate) {
-          super();
-          this.delegate = delegate;
+     public init(delegate : IOpenId) {
+          super.init()
+          self.delegate = delegate
      }
      /**
         Get the delegate implementation.
         @return IOpenId delegate that manages platform specific functions..
      */
-     public final IOpenId getDelegate() {
-          return this.delegate;
+     public final func getDelegate() -> IOpenId {
+          return self.delegate
      }
      /**
         Set the delegate implementation.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public final void setDelegate(IOpenId delegate) {
-          this.delegate = delegate;
+     public final func setDelegate(delegate : IOpenId) {
+          self.delegate = delegate;
      }
 
      /**
@@ -78,12 +74,12 @@ public class OpenIdBridge extends BaseSecurityBridge implements IOpenId, APIBrid
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public func invoke(request : APIRequest) -> String? {
+          var responseJSON : String = ""
           switch (request.getMethodName()) {
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseJSON = nil;
           }
           return responseJSON;
      }

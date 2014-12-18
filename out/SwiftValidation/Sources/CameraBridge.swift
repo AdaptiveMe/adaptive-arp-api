@@ -32,44 +32,40 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the camera operations
    Auto-generated implementation of ICamera specification.
 */
-public class CameraBridge extends BaseMediaBridge implements ICamera, APIBridge {
+public class CameraBridge : BaseMediaBridge, ICamera, APIBridge {
 
      /**
         API Delegate.
      */
-     private ICamera delegate;
+     private var delegate : ICamera = nil
 
      /**
         Constructor with delegate.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public CameraBridge(ICamera delegate) {
-          super();
-          this.delegate = delegate;
+     public init(delegate : ICamera) {
+          super.init()
+          self.delegate = delegate
      }
      /**
         Get the delegate implementation.
         @return ICamera delegate that manages platform specific functions..
      */
-     public final ICamera getDelegate() {
-          return this.delegate;
+     public final func getDelegate() -> ICamera {
+          return self.delegate
      }
      /**
         Set the delegate implementation.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public final void setDelegate(ICamera delegate) {
-          this.delegate = delegate;
+     public final func setDelegate(delegate : ICamera) {
+          self.delegate = delegate;
      }
 
      /**
@@ -78,12 +74,12 @@ public class CameraBridge extends BaseMediaBridge implements ICamera, APIBridge 
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public func invoke(request : APIRequest) -> String? {
+          var responseJSON : String = ""
           switch (request.getMethodName()) {
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseJSON = nil;
           }
           return responseJSON;
      }

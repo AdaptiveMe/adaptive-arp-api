@@ -32,44 +32,40 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Runtime operations
    Auto-generated implementation of IRuntime specification.
 */
-public class RuntimeBridge extends BaseSystemBridge implements IRuntime, APIBridge {
+public class RuntimeBridge : BaseSystemBridge, IRuntime, APIBridge {
 
      /**
         API Delegate.
      */
-     private IRuntime delegate;
+     private var delegate : IRuntime = nil
 
      /**
         Constructor with delegate.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public RuntimeBridge(IRuntime delegate) {
-          super();
-          this.delegate = delegate;
+     public init(delegate : IRuntime) {
+          super.init()
+          self.delegate = delegate
      }
      /**
         Get the delegate implementation.
         @return IRuntime delegate that manages platform specific functions..
      */
-     public final IRuntime getDelegate() {
-          return this.delegate;
+     public final func getDelegate() -> IRuntime {
+          return self.delegate
      }
      /**
         Set the delegate implementation.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public final void setDelegate(IRuntime delegate) {
-          this.delegate = delegate;
+     public final func setDelegate(delegate : IRuntime) {
+          self.delegate = delegate;
      }
 
      /**
@@ -77,18 +73,24 @@ public class RuntimeBridge extends BaseSystemBridge implements IRuntime, APIBrid
 
         @since ARP1.0
      */
-     public void dismissApplication() {
+     public func dismissApplication() {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing dismissApplication.");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"RuntimeBridge executing dismissApplication.")
+          }
 
-          if (this.delegate != null) {
-               this.delegate.dismissApplication();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'dismissApplication' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          if (self.delegate != nil) {
+               self.delegate.dismissApplication()
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"RuntimeBridge executed 'dismissApplication' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'dismissApplication'.");
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"RuntimeBridge no delegate for 'dismissApplication'.")
+               }
           }
           
      }
@@ -99,21 +101,27 @@ public class RuntimeBridge extends BaseSystemBridge implements IRuntime, APIBrid
         @return true if the application has dismissed the splash screen;false otherwise
         @since ARP1.0
      */
-     public Bool dismissSplashScreen() {
+     public func dismissSplashScreen() -> Bool {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing dismissSplashScreen.");
-
-          Bool result = false;
-          if (this.delegate != null) {
-               result = this.delegate.dismissSplashScreen();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'dismissSplashScreen' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'dismissSplashScreen'.");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"RuntimeBridge executing dismissSplashScreen.")
           }
-          return result;          
+
+          var result : Bool = false
+          if (self.delegate != nil) {
+               result = self.delegate.dismissSplashScreen()
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"RuntimeBridge executed 'dismissSplashScreen' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
+          } else {
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"RuntimeBridge no delegate for 'dismissSplashScreen'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -122,11 +130,11 @@ public class RuntimeBridge extends BaseSystemBridge implements IRuntime, APIBrid
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public func invoke(request : APIRequest) -> String? {
+          var responseJSON : String = ""
           switch (request.getMethodName()) {
                case "dismissApplication":
-                    this.dismissApplication();
+                    self.dismissApplication();
                     break;
                case "dismissSplashScreen":
                     Bool response1 = this.dismissSplashScreen();
@@ -134,7 +142,7 @@ public class RuntimeBridge extends BaseSystemBridge implements IRuntime, APIBrid
                     break;
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseJSON = nil;
           }
           return responseJSON;
      }

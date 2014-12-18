@@ -32,44 +32,40 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Network reachability operations
    Auto-generated implementation of INetworkReachability specification.
 */
-public class NetworkReachabilityBridge extends BaseCommunicationBridge implements INetworkReachability, APIBridge {
+public class NetworkReachabilityBridge : BaseCommunicationBridge, INetworkReachability, APIBridge {
 
      /**
         API Delegate.
      */
-     private INetworkReachability delegate;
+     private var delegate : INetworkReachability = nil
 
      /**
         Constructor with delegate.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public NetworkReachabilityBridge(INetworkReachability delegate) {
-          super();
-          this.delegate = delegate;
+     public init(delegate : INetworkReachability) {
+          super.init()
+          self.delegate = delegate
      }
      /**
         Get the delegate implementation.
         @return INetworkReachability delegate that manages platform specific functions..
      */
-     public final INetworkReachability getDelegate() {
-          return this.delegate;
+     public final func getDelegate() -> INetworkReachability {
+          return self.delegate
      }
      /**
         Set the delegate implementation.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public final void setDelegate(INetworkReachability delegate) {
-          this.delegate = delegate;
+     public final func setDelegate(delegate : INetworkReachability) {
+          self.delegate = delegate;
      }
 
      /**
@@ -79,18 +75,24 @@ public class NetworkReachabilityBridge extends BaseCommunicationBridge implement
         @param callback Callback called at the end.
         @since ARP1.0
      */
-     public void isNetworkReachable(String host, INetworkReachabilityCallback callback) {
+     public func isNetworkReachable(host : String , callback : INetworkReachabilityCallback ) {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing isNetworkReachable({"+host+"},{"+callback+"}).");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"NetworkReachabilityBridge executing isNetworkReachable({"+host+"},{"+callback+"}).")
+          }
 
-          if (this.delegate != null) {
-               this.delegate.isNetworkReachable(host, callback);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'isNetworkReachable' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          if (self.delegate != nil) {
+               self.delegate.isNetworkReachable(host, callback)
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"NetworkReachabilityBridge executed 'isNetworkReachable' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'isNetworkReachable'.");
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"NetworkReachabilityBridge no delegate for 'isNetworkReachable'.")
+               }
           }
           
      }
@@ -102,18 +104,24 @@ public class NetworkReachabilityBridge extends BaseCommunicationBridge implement
         @param callback Callback called at the end
         @since ARP1.0
      */
-     public void isNetworkServiceReachable(String url, INetworkReachabilityCallback callback) {
+     public func isNetworkServiceReachable(url : String , callback : INetworkReachabilityCallback ) {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing isNetworkServiceReachable({"+url+"},{"+callback+"}).");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"NetworkReachabilityBridge executing isNetworkServiceReachable({"+url+"},{"+callback+"}).")
+          }
 
-          if (this.delegate != null) {
-               this.delegate.isNetworkServiceReachable(url, callback);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'isNetworkServiceReachable' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          if (self.delegate != nil) {
+               self.delegate.isNetworkServiceReachable(url, callback)
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"NetworkReachabilityBridge executed 'isNetworkServiceReachable' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'isNetworkServiceReachable'.");
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"NetworkReachabilityBridge no delegate for 'isNetworkServiceReachable'.")
+               }
           }
           
      }
@@ -124,22 +132,22 @@ public class NetworkReachabilityBridge extends BaseCommunicationBridge implement
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public func invoke(request : APIRequest) -> String? {
+          var responseJSON : String = ""
           switch (request.getMethodName()) {
                case "isNetworkReachable":
-                    String host0 = this.gson.fromJson(request.getParameters()[0], String.class);
-                    INetworkReachabilityCallback callback0 = new NetworkReachabilityCallbackImpl(request.getAsyncId());
-                    this.isNetworkReachable(host0, callback0);
+                    var host0 : String = this.gson.fromJson(request.getParameters()[0], String.class);
+                    var callback0 : INetworkReachabilityCallback =  NetworkReachabilityCallbackImpl(request.getAsyncId());
+                    self.isNetworkReachable(host0, callback0);
                     break;
                case "isNetworkServiceReachable":
-                    String url1 = this.gson.fromJson(request.getParameters()[0], String.class);
-                    INetworkReachabilityCallback callback1 = new NetworkReachabilityCallbackImpl(request.getAsyncId());
-                    this.isNetworkServiceReachable(url1, callback1);
+                    var url1 : String = this.gson.fromJson(request.getParameters()[0], String.class);
+                    var callback1 : INetworkReachabilityCallback =  NetworkReachabilityCallbackImpl(request.getAsyncId());
+                    self.isNetworkServiceReachable(url1, callback1);
                     break;
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseJSON = nil;
           }
           return responseJSON;
      }

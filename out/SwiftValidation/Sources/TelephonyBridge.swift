@@ -32,44 +32,40 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Telephony operations
    Auto-generated implementation of ITelephony specification.
 */
-public class TelephonyBridge extends BaseCommunicationBridge implements ITelephony, APIBridge {
+public class TelephonyBridge : BaseCommunicationBridge, ITelephony, APIBridge {
 
      /**
         API Delegate.
      */
-     private ITelephony delegate;
+     private var delegate : ITelephony = nil
 
      /**
         Constructor with delegate.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public TelephonyBridge(ITelephony delegate) {
-          super();
-          this.delegate = delegate;
+     public init(delegate : ITelephony) {
+          super.init()
+          self.delegate = delegate
      }
      /**
         Get the delegate implementation.
         @return ITelephony delegate that manages platform specific functions..
      */
-     public final ITelephony getDelegate() {
-          return this.delegate;
+     public final func getDelegate() -> ITelephony {
+          return self.delegate
      }
      /**
         Set the delegate implementation.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public final void setDelegate(ITelephony delegate) {
-          this.delegate = delegate;
+     public final func setDelegate(delegate : ITelephony) {
+          self.delegate = delegate;
      }
 
      /**
@@ -79,21 +75,27 @@ public class TelephonyBridge extends BaseCommunicationBridge implements ITelepho
         @return Status of the call
         @since ARP1.0
      */
-     public ITelephonyStatus call(String number) {
+     public func call(number : String ) -> ITelephonyStatus {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing call({"+number+"}).");
-
-          ITelephonyStatus result = null;
-          if (this.delegate != null) {
-               result = this.delegate.call(number);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'call' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'call'.");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"TelephonyBridge executing call({"+number+"}).")
           }
-          return result;          
+
+          var result : ITelephonyStatus = nil
+          if (self.delegate != nil) {
+               result = self.delegate.call(number)
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"TelephonyBridge executed 'call' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
+          } else {
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"TelephonyBridge no delegate for 'call'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -102,21 +104,21 @@ public class TelephonyBridge extends BaseCommunicationBridge implements ITelepho
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public func invoke(request : APIRequest) -> String? {
+          var responseJSON : String = ""
           switch (request.getMethodName()) {
                case "call":
-                    String number0 = this.gson.fromJson(request.getParameters()[0], String.class);
+                    var number0 : String = this.gson.fromJson(request.getParameters()[0], String.class);
                     ITelephonyStatus response0 = this.call(number0);
                     if (response0 != null) {
                          responseJSON = this.gson.toJson(response0);
                     } else {
-                         responseJSON = null;
+                         responseJSON = nil;
                     }
                     break;
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseJSON = nil;
           }
           return responseJSON;
      }

@@ -32,44 +32,40 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Calendar operations
    Auto-generated implementation of ICalendar specification.
 */
-public class CalendarBridge extends BasePIMBridge implements ICalendar, APIBridge {
+public class CalendarBridge : BasePIMBridge, ICalendar, APIBridge {
 
      /**
         API Delegate.
      */
-     private ICalendar delegate;
+     private var delegate : ICalendar = nil
 
      /**
         Constructor with delegate.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public CalendarBridge(ICalendar delegate) {
-          super();
-          this.delegate = delegate;
+     public init(delegate : ICalendar) {
+          super.init()
+          self.delegate = delegate
      }
      /**
         Get the delegate implementation.
         @return ICalendar delegate that manages platform specific functions..
      */
-     public final ICalendar getDelegate() {
-          return this.delegate;
+     public final func getDelegate() -> ICalendar {
+          return self.delegate
      }
      /**
         Set the delegate implementation.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public final void setDelegate(ICalendar delegate) {
-          this.delegate = delegate;
+     public final func setDelegate(delegate : ICalendar) {
+          self.delegate = delegate;
      }
 
      /**
@@ -78,12 +74,12 @@ public class CalendarBridge extends BasePIMBridge implements ICalendar, APIBridg
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public func invoke(request : APIRequest) -> String? {
+          var responseJSON : String = ""
           switch (request.getMethodName()) {
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseJSON = nil;
           }
           return responseJSON;
      }

@@ -32,44 +32,40 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Contact operations
    Auto-generated implementation of IContact specification.
 */
-public class ContactBridge extends BasePIMBridge implements IContact, APIBridge {
+public class ContactBridge : BasePIMBridge, IContact, APIBridge {
 
      /**
         API Delegate.
      */
-     private IContact delegate;
+     private var delegate : IContact = nil
 
      /**
         Constructor with delegate.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public ContactBridge(IContact delegate) {
-          super();
-          this.delegate = delegate;
+     public init(delegate : IContact) {
+          super.init()
+          self.delegate = delegate
      }
      /**
         Get the delegate implementation.
         @return IContact delegate that manages platform specific functions..
      */
-     public final IContact getDelegate() {
-          return this.delegate;
+     public final func getDelegate() -> IContact {
+          return self.delegate
      }
      /**
         Set the delegate implementation.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public final void setDelegate(IContact delegate) {
-          this.delegate = delegate;
+     public final func setDelegate(delegate : IContact) {
+          self.delegate = delegate;
      }
 
      /**
@@ -79,18 +75,24 @@ public class ContactBridge extends BasePIMBridge implements IContact, APIBridge 
         @param callback called for return
         @since ARP1.0
      */
-     public void getContact(ContactUid contact, IContactResultCallback callback) {
+     public func getContact(contact : ContactUid , callback : IContactResultCallback ) {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getContact({"+contact+"},{"+callback+"}).");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"ContactBridge executing getContact({"+contact+"},{"+callback+"}).")
+          }
 
-          if (this.delegate != null) {
-               this.delegate.getContact(contact, callback);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getContact' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          if (self.delegate != nil) {
+               self.delegate.getContact(contact, callback)
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"ContactBridge executed 'getContact' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getContact'.");
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"ContactBridge no delegate for 'getContact'.")
+               }
           }
           
      }
@@ -102,18 +104,24 @@ public class ContactBridge extends BasePIMBridge implements IContact, APIBridge 
         @param callback called for return
         @since ARP1.0
      */
-     public void getContactPhoto(ContactUid contact, IContactPhotoResultCallback callback) {
+     public func getContactPhoto(contact : ContactUid , callback : IContactPhotoResultCallback ) {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getContactPhoto({"+contact+"},{"+callback+"}).");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"ContactBridge executing getContactPhoto({"+contact+"},{"+callback+"}).")
+          }
 
-          if (this.delegate != null) {
-               this.delegate.getContactPhoto(contact, callback);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getContactPhoto' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          if (self.delegate != nil) {
+               self.delegate.getContactPhoto(contact, callback)
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"ContactBridge executed 'getContactPhoto' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getContactPhoto'.");
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"ContactBridge no delegate for 'getContactPhoto'.")
+               }
           }
           
      }
@@ -124,18 +132,24 @@ public class ContactBridge extends BasePIMBridge implements IContact, APIBridge 
         @param callback called for return
         @since ARP1.0
      */
-     public void getContacts(IContactResultCallback callback) {
+     public func getContacts(callback : IContactResultCallback ) {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getContacts({"+callback+"}).");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"ContactBridge executing getContacts({"+callback+"}).")
+          }
 
-          if (this.delegate != null) {
-               this.delegate.getContacts(callback);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getContacts' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          if (self.delegate != nil) {
+               self.delegate.getContacts(callback)
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"ContactBridge executed 'getContacts' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getContacts'.");
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"ContactBridge no delegate for 'getContacts'.")
+               }
           }
           
      }
@@ -147,18 +161,24 @@ public class ContactBridge extends BasePIMBridge implements IContact, APIBridge 
         @param fields   to get for each Contact
         @since ARP1.0
      */
-     public void getContactsForFields(IContactResultCallback callback, [IContactFieldGroup] fields) {
+     public func getContactsForFields(callback : IContactResultCallback , fields : [IContactFieldGroup] ) {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getContactsForFields({"+callback+"},{"+fields+"}).");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"ContactBridge executing getContactsForFields({"+callback+"},{"+fields+"}).")
+          }
 
-          if (this.delegate != null) {
-               this.delegate.getContactsForFields(callback, fields);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getContactsForFields' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          if (self.delegate != nil) {
+               self.delegate.getContactsForFields(callback, fields)
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"ContactBridge executed 'getContactsForFields' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getContactsForFields'.");
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"ContactBridge no delegate for 'getContactsForFields'.")
+               }
           }
           
      }
@@ -171,18 +191,24 @@ public class ContactBridge extends BasePIMBridge implements IContact, APIBridge 
         @param filter   to search for
         @since ARP1.0
      */
-     public void getContactsWithFilter(IContactResultCallback callback, [IContactFieldGroup] fields, [IContactFilter] filter) {
+     public func getContactsWithFilter(callback : IContactResultCallback , fields : [IContactFieldGroup] , filter : [IContactFilter] ) {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getContactsWithFilter({"+callback+"},{"+fields+"},{"+filter+"}).");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"ContactBridge executing getContactsWithFilter({"+callback+"},{"+fields+"},{"+filter+"}).")
+          }
 
-          if (this.delegate != null) {
-               this.delegate.getContactsWithFilter(callback, fields, filter);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getContactsWithFilter' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          if (self.delegate != nil) {
+               self.delegate.getContactsWithFilter(callback, fields, filter)
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"ContactBridge executed 'getContactsWithFilter' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getContactsWithFilter'.");
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"ContactBridge no delegate for 'getContactsWithFilter'.")
+               }
           }
           
      }
@@ -194,18 +220,24 @@ public class ContactBridge extends BasePIMBridge implements IContact, APIBridge 
         @param callback called for return
         @since ARP1.0
      */
-     public void searchContacts(String term, IContactResultCallback callback) {
+     public func searchContacts(term : String , callback : IContactResultCallback ) {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing searchContacts({"+term+"},{"+callback+"}).");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"ContactBridge executing searchContacts({"+term+"},{"+callback+"}).")
+          }
 
-          if (this.delegate != null) {
-               this.delegate.searchContacts(term, callback);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'searchContacts' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          if (self.delegate != nil) {
+               self.delegate.searchContacts(term, callback)
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"ContactBridge executed 'searchContacts' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'searchContacts'.");
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"ContactBridge no delegate for 'searchContacts'.")
+               }
           }
           
      }
@@ -218,18 +250,24 @@ public class ContactBridge extends BasePIMBridge implements IContact, APIBridge 
         @param filter   to search for
         @since ARP1.0
      */
-     public void searchContactsWithFilter(String term, IContactResultCallback callback, [IContactFilter] filter) {
+     public func searchContactsWithFilter(term : String , callback : IContactResultCallback , filter : [IContactFilter] ) {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing searchContactsWithFilter({"+term+"},{"+callback+"},{"+filter+"}).");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"ContactBridge executing searchContactsWithFilter({"+term+"},{"+callback+"},{"+filter+"}).")
+          }
 
-          if (this.delegate != null) {
-               this.delegate.searchContactsWithFilter(term, callback, filter);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'searchContactsWithFilter' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          if (self.delegate != nil) {
+               self.delegate.searchContactsWithFilter(term, callback, filter)
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"ContactBridge executed 'searchContactsWithFilter' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'searchContactsWithFilter'.");
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"ContactBridge no delegate for 'searchContactsWithFilter'.")
+               }
           }
           
      }
@@ -242,21 +280,27 @@ public class ContactBridge extends BasePIMBridge implements IContact, APIBridge 
         @return true if set is successful;false otherwise
         @since ARP1.0
      */
-     public Bool setContactPhoto(ContactUid contact, [Byte] pngImage) {
+     public func setContactPhoto(contact : ContactUid , pngImage : [Byte] ) -> Bool {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing setContactPhoto({"+contact+"},{"+pngImage+"}).");
-
-          Bool result = false;
-          if (this.delegate != null) {
-               result = this.delegate.setContactPhoto(contact, pngImage);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'setContactPhoto' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'setContactPhoto'.");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"ContactBridge executing setContactPhoto({"+contact+"},{"+pngImage+"}).")
           }
-          return result;          
+
+          var result : Bool = false
+          if (self.delegate != nil) {
+               result = self.delegate.setContactPhoto(contact, pngImage)
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"ContactBridge executed 'setContactPhoto' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
+          } else {
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"ContactBridge no delegate for 'setContactPhoto'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -265,54 +309,54 @@ public class ContactBridge extends BasePIMBridge implements IContact, APIBridge 
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public func invoke(request : APIRequest) -> String? {
+          var responseJSON : String = ""
           switch (request.getMethodName()) {
                case "getContact":
-                    ContactUid contact0 = this.gson.fromJson(request.getParameters()[0], ContactUid.class);
-                    IContactResultCallback callback0 = new ContactResultCallbackImpl(request.getAsyncId());
-                    this.getContact(contact0, callback0);
+                    var contact0 : ContactUid = this.gson.fromJson(request.getParameters()[0], ContactUid.class);
+                    var callback0 : IContactResultCallback =  ContactResultCallbackImpl(request.getAsyncId());
+                    self.getContact(contact0, callback0);
                     break;
                case "getContactPhoto":
-                    ContactUid contact1 = this.gson.fromJson(request.getParameters()[0], ContactUid.class);
-                    IContactPhotoResultCallback callback1 = new ContactPhotoResultCallbackImpl(request.getAsyncId());
-                    this.getContactPhoto(contact1, callback1);
+                    var contact1 : ContactUid = this.gson.fromJson(request.getParameters()[0], ContactUid.class);
+                    var callback1 : IContactPhotoResultCallback =  ContactPhotoResultCallbackImpl(request.getAsyncId());
+                    self.getContactPhoto(contact1, callback1);
                     break;
                case "getContacts":
-                    IContactResultCallback callback2 = new ContactResultCallbackImpl(request.getAsyncId());
-                    this.getContacts(callback2);
+                    var callback2 : IContactResultCallback =  ContactResultCallbackImpl(request.getAsyncId());
+                    self.getContacts(callback2);
                     break;
                case "getContactsForFields":
-                    IContactResultCallback callback3 = new ContactResultCallbackImpl(request.getAsyncId());
-                    [IContactFieldGroup] fields3 = this.gson.fromJson(request.getParameters()[1], [IContactFieldGroup].class);
-                    this.getContactsForFields(callback3, fields3);
+                    var callback3 : IContactResultCallback =  ContactResultCallbackImpl(request.getAsyncId());
+                    var fields3 : [IContactFieldGroup] = this.gson.fromJson(request.getParameters()[1], [IContactFieldGroup].class);
+                    self.getContactsForFields(callback3, fields3);
                     break;
                case "getContactsWithFilter":
-                    IContactResultCallback callback4 = new ContactResultCallbackImpl(request.getAsyncId());
-                    [IContactFieldGroup] fields4 = this.gson.fromJson(request.getParameters()[1], [IContactFieldGroup].class);
-                    [IContactFilter] filter4 = this.gson.fromJson(request.getParameters()[2], [IContactFilter].class);
-                    this.getContactsWithFilter(callback4, fields4, filter4);
+                    var callback4 : IContactResultCallback =  ContactResultCallbackImpl(request.getAsyncId());
+                    var fields4 : [IContactFieldGroup] = this.gson.fromJson(request.getParameters()[1], [IContactFieldGroup].class);
+                    var filter4 : [IContactFilter] = this.gson.fromJson(request.getParameters()[2], [IContactFilter].class);
+                    self.getContactsWithFilter(callback4, fields4, filter4);
                     break;
                case "searchContacts":
-                    String term5 = this.gson.fromJson(request.getParameters()[0], String.class);
-                    IContactResultCallback callback5 = new ContactResultCallbackImpl(request.getAsyncId());
-                    this.searchContacts(term5, callback5);
+                    var term5 : String = this.gson.fromJson(request.getParameters()[0], String.class);
+                    var callback5 : IContactResultCallback =  ContactResultCallbackImpl(request.getAsyncId());
+                    self.searchContacts(term5, callback5);
                     break;
                case "searchContactsWithFilter":
-                    String term6 = this.gson.fromJson(request.getParameters()[0], String.class);
-                    IContactResultCallback callback6 = new ContactResultCallbackImpl(request.getAsyncId());
-                    [IContactFilter] filter6 = this.gson.fromJson(request.getParameters()[2], [IContactFilter].class);
-                    this.searchContactsWithFilter(term6, callback6, filter6);
+                    var term6 : String = this.gson.fromJson(request.getParameters()[0], String.class);
+                    var callback6 : IContactResultCallback =  ContactResultCallbackImpl(request.getAsyncId());
+                    var filter6 : [IContactFilter] = this.gson.fromJson(request.getParameters()[2], [IContactFilter].class);
+                    self.searchContactsWithFilter(term6, callback6, filter6);
                     break;
                case "setContactPhoto":
-                    ContactUid contact7 = this.gson.fromJson(request.getParameters()[0], ContactUid.class);
-                    [Byte] pngImage7 = this.gson.fromJson(request.getParameters()[1], [Byte].class);
+                    var contact7 : ContactUid = this.gson.fromJson(request.getParameters()[0], ContactUid.class);
+                    var pngImage7 : [Byte] = this.gson.fromJson(request.getParameters()[1], [Byte].class);
                     Bool response7 = this.setContactPhoto(contact7, pngImage7);
                     responseJSON = this.gson.toJson(response7);
                     break;
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseJSON = nil;
           }
           return responseJSON;
      }

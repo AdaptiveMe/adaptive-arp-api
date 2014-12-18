@@ -32,44 +32,40 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Geolocation operations
    Auto-generated implementation of IGeolocation specification.
 */
-public class GeolocationBridge extends BaseSensorBridge implements IGeolocation, APIBridge {
+public class GeolocationBridge : BaseSensorBridge, IGeolocation, APIBridge {
 
      /**
         API Delegate.
      */
-     private IGeolocation delegate;
+     private var delegate : IGeolocation = nil
 
      /**
         Constructor with delegate.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public GeolocationBridge(IGeolocation delegate) {
-          super();
-          this.delegate = delegate;
+     public init(delegate : IGeolocation) {
+          super.init()
+          self.delegate = delegate
      }
      /**
         Get the delegate implementation.
         @return IGeolocation delegate that manages platform specific functions..
      */
-     public final IGeolocation getDelegate() {
-          return this.delegate;
+     public final func getDelegate() -> IGeolocation {
+          return self.delegate
      }
      /**
         Set the delegate implementation.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public final void setDelegate(IGeolocation delegate) {
-          this.delegate = delegate;
+     public final func setDelegate(delegate : IGeolocation) {
+          self.delegate = delegate;
      }
 
      /**
@@ -78,18 +74,24 @@ public class GeolocationBridge extends BaseSensorBridge implements IGeolocation,
         @param listener to be registered.
         @since ARP1.0
      */
-     public void addGeolocationListener(IGeolocationListener listener) {
+     public func addGeolocationListener(listener : IGeolocationListener ) {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing addGeolocationListener({"+listener+"}).");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"GeolocationBridge executing addGeolocationListener({"+listener+"}).")
+          }
 
-          if (this.delegate != null) {
-               this.delegate.addGeolocationListener(listener);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'addGeolocationListener' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          if (self.delegate != nil) {
+               self.delegate.addGeolocationListener(listener)
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"GeolocationBridge executed 'addGeolocationListener' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'addGeolocationListener'.");
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"GeolocationBridge no delegate for 'addGeolocationListener'.")
+               }
           }
           
      }
@@ -100,18 +102,24 @@ public class GeolocationBridge extends BaseSensorBridge implements IGeolocation,
         @param listener to be registered.
         @since ARP1.0
      */
-     public void removeGeolocationListener(IGeolocationListener listener) {
+     public func removeGeolocationListener(listener : IGeolocationListener ) {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing removeGeolocationListener({"+listener+"}).");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"GeolocationBridge executing removeGeolocationListener({"+listener+"}).")
+          }
 
-          if (this.delegate != null) {
-               this.delegate.removeGeolocationListener(listener);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'removeGeolocationListener' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          if (self.delegate != nil) {
+               self.delegate.removeGeolocationListener(listener)
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"GeolocationBridge executed 'removeGeolocationListener' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'removeGeolocationListener'.");
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"GeolocationBridge no delegate for 'removeGeolocationListener'.")
+               }
           }
           
      }
@@ -121,18 +129,24 @@ public class GeolocationBridge extends BaseSensorBridge implements IGeolocation,
 
         @since ARP1.0
      */
-     public void removeGeolocationListeners() {
+     public func removeGeolocationListeners() {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing removeGeolocationListeners.");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"GeolocationBridge executing removeGeolocationListeners.")
+          }
 
-          if (this.delegate != null) {
-               this.delegate.removeGeolocationListeners();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'removeGeolocationListeners' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          if (self.delegate != nil) {
+               self.delegate.removeGeolocationListeners()
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"GeolocationBridge executed 'removeGeolocationListeners' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'removeGeolocationListeners'.");
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"GeolocationBridge no delegate for 'removeGeolocationListeners'.")
+               }
           }
           
      }
@@ -143,23 +157,23 @@ public class GeolocationBridge extends BaseSensorBridge implements IGeolocation,
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public func invoke(request : APIRequest) -> String? {
+          var responseJSON : String = ""
           switch (request.getMethodName()) {
                case "addGeolocationListener":
-                    IGeolocationListener listener0 = new GeolocationListenerImpl(request.getAsyncId());
-                    this.addGeolocationListener(listener0);
+                    var listener0 : IGeolocationListener =  GeolocationListenerImpl(request.getAsyncId());
+                    self.addGeolocationListener(listener0);
                     break;
                case "removeGeolocationListener":
-                    IGeolocationListener listener1 = new GeolocationListenerImpl(request.getAsyncId());
-                    this.removeGeolocationListener(listener1);
+                    var listener1 : IGeolocationListener =  GeolocationListenerImpl(request.getAsyncId());
+                    self.removeGeolocationListener(listener1);
                     break;
                case "removeGeolocationListeners":
-                    this.removeGeolocationListeners();
+                    self.removeGeolocationListeners();
                     break;
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseJSON = nil;
           }
           return responseJSON;
      }

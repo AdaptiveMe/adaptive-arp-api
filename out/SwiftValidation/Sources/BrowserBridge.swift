@@ -32,44 +32,40 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the browser operations
    Auto-generated implementation of IBrowser specification.
 */
-public class BrowserBridge extends BaseUIBridge implements IBrowser, APIBridge {
+public class BrowserBridge : BaseUIBridge, IBrowser, APIBridge {
 
      /**
         API Delegate.
      */
-     private IBrowser delegate;
+     private var delegate : IBrowser = nil
 
      /**
         Constructor with delegate.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public BrowserBridge(IBrowser delegate) {
-          super();
-          this.delegate = delegate;
+     public init(delegate : IBrowser) {
+          super.init()
+          self.delegate = delegate
      }
      /**
         Get the delegate implementation.
         @return IBrowser delegate that manages platform specific functions..
      */
-     public final IBrowser getDelegate() {
-          return this.delegate;
+     public final func getDelegate() -> IBrowser {
+          return self.delegate
      }
      /**
         Set the delegate implementation.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public final void setDelegate(IBrowser delegate) {
-          this.delegate = delegate;
+     public final func setDelegate(delegate : IBrowser) {
+          self.delegate = delegate;
      }
 
      /**
@@ -79,21 +75,27 @@ public class BrowserBridge extends BaseUIBridge implements IBrowser, APIBridge {
         @return The result of the operation
         @since ARP1.0
      */
-     public Bool openExtenalBrowser(String url) {
+     public func openExtenalBrowser(url : String ) -> Bool {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing openExtenalBrowser({"+url+"}).");
-
-          Bool result = false;
-          if (this.delegate != null) {
-               result = this.delegate.openExtenalBrowser(url);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'openExtenalBrowser' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'openExtenalBrowser'.");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"BrowserBridge executing openExtenalBrowser({"+url+"}).")
           }
-          return result;          
+
+          var result : Bool = false
+          if (self.delegate != nil) {
+               result = self.delegate.openExtenalBrowser(url)
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"BrowserBridge executed 'openExtenalBrowser' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
+          } else {
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"BrowserBridge no delegate for 'openExtenalBrowser'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -105,21 +107,27 @@ public class BrowserBridge extends BaseUIBridge implements IBrowser, APIBridge {
         @return The result of the operation
         @since ARP1.0
      */
-     public Bool openInternalBrowser(String url, String title, String backButtonText) {
+     public func openInternalBrowser(url : String , title : String , backButtonText : String ) -> Bool {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing openInternalBrowser({"+url+"},{"+title+"},{"+backButtonText+"}).");
-
-          Bool result = false;
-          if (this.delegate != null) {
-               result = this.delegate.openInternalBrowser(url, title, backButtonText);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'openInternalBrowser' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'openInternalBrowser'.");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"BrowserBridge executing openInternalBrowser({"+url+"},{"+title+"},{"+backButtonText+"}).")
           }
-          return result;          
+
+          var result : Bool = false
+          if (self.delegate != nil) {
+               result = self.delegate.openInternalBrowser(url, title, backButtonText)
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"BrowserBridge executed 'openInternalBrowser' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
+          } else {
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"BrowserBridge no delegate for 'openInternalBrowser'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -131,21 +139,27 @@ public class BrowserBridge extends BaseUIBridge implements IBrowser, APIBridge {
         @return The result of the operation
         @since ARP1.0
      */
-     public Bool openInternalBrowserModal(String url, String title, String backButtonText) {
+     public func openInternalBrowserModal(url : String , title : String , backButtonText : String ) -> Bool {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing openInternalBrowserModal({"+url+"},{"+title+"},{"+backButtonText+"}).");
-
-          Bool result = false;
-          if (this.delegate != null) {
-               result = this.delegate.openInternalBrowserModal(url, title, backButtonText);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'openInternalBrowserModal' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'openInternalBrowserModal'.");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"BrowserBridge executing openInternalBrowserModal({"+url+"},{"+title+"},{"+backButtonText+"}).")
           }
-          return result;          
+
+          var result : Bool = false
+          if (self.delegate != nil) {
+               result = self.delegate.openInternalBrowserModal(url, title, backButtonText)
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"BrowserBridge executed 'openInternalBrowserModal' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
+          } else {
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"BrowserBridge no delegate for 'openInternalBrowserModal'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -154,31 +168,31 @@ public class BrowserBridge extends BaseUIBridge implements IBrowser, APIBridge {
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public func invoke(request : APIRequest) -> String? {
+          var responseJSON : String = ""
           switch (request.getMethodName()) {
                case "openExtenalBrowser":
-                    String url0 = this.gson.fromJson(request.getParameters()[0], String.class);
+                    var url0 : String = this.gson.fromJson(request.getParameters()[0], String.class);
                     Bool response0 = this.openExtenalBrowser(url0);
                     responseJSON = this.gson.toJson(response0);
                     break;
                case "openInternalBrowser":
-                    String url1 = this.gson.fromJson(request.getParameters()[0], String.class);
-                    String title1 = this.gson.fromJson(request.getParameters()[1], String.class);
-                    String backButtonText1 = this.gson.fromJson(request.getParameters()[2], String.class);
+                    var url1 : String = this.gson.fromJson(request.getParameters()[0], String.class);
+                    var title1 : String = this.gson.fromJson(request.getParameters()[1], String.class);
+                    var backButtonText1 : String = this.gson.fromJson(request.getParameters()[2], String.class);
                     Bool response1 = this.openInternalBrowser(url1, title1, backButtonText1);
                     responseJSON = this.gson.toJson(response1);
                     break;
                case "openInternalBrowserModal":
-                    String url2 = this.gson.fromJson(request.getParameters()[0], String.class);
-                    String title2 = this.gson.fromJson(request.getParameters()[1], String.class);
-                    String backButtonText2 = this.gson.fromJson(request.getParameters()[2], String.class);
+                    var url2 : String = this.gson.fromJson(request.getParameters()[0], String.class);
+                    var title2 : String = this.gson.fromJson(request.getParameters()[1], String.class);
+                    var backButtonText2 : String = this.gson.fromJson(request.getParameters()[2], String.class);
                     Bool response2 = this.openInternalBrowserModal(url2, title2, backButtonText2);
                     responseJSON = this.gson.toJson(response2);
                     break;
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseJSON = nil;
           }
           return responseJSON;
      }

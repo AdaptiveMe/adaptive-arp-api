@@ -32,49 +32,45 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for context management purposes
    Auto-generated implementation of IAppContext specification.
 */
-public class AppContextBridge implements IAppContext {
+public class AppContextBridge : IAppContext {
 
      /**
         Group of API.
      */
-     private IAdaptiveRPGroup apiGroup = IAdaptiveRPGroup.Kernel;
+     private var apiGroup : IAdaptiveRPGroup = IAdaptiveRPGroup.Kernel;
 
      /**
         API Delegate.
      */
-     private IAppContext delegate;
+     private var delegate : IAppContext = nil
 
      /**
         Constructor with delegate.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public AppContextBridge(IAppContext delegate) {
-          super();
-          this.delegate = delegate;
+     public init(delegate : IAppContext) {
+          super.init()
+          self.delegate = delegate
      }
      /**
         Get the delegate implementation.
         @return IAppContext delegate that manages platform specific functions..
      */
-     public final IAppContext getDelegate() {
-          return this.delegate;
+     public final func getDelegate() -> IAppContext {
+          return self.delegate
      }
      /**
         Set the delegate implementation.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public final void setDelegate(IAppContext delegate) {
-          this.delegate = delegate;
+     public final func setDelegate(delegate : IAppContext) {
+          self.delegate = delegate;
      }
 
      /**
@@ -83,21 +79,27 @@ public class AppContextBridge implements IAppContext {
         @return Object representing the specific singleton application context provided by the OS.
         @since ARP1.0
      */
-     public AnyObject getContext() {
+     public func getContext() -> AnyObject {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getContext.");
-
-          AnyObject result = null;
-          if (this.delegate != null) {
-               result = this.delegate.getContext();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getContext' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getContext'.");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"AppContextBridge executing getContext.")
           }
-          return result;          
+
+          var result : AnyObject = nil
+          if (self.delegate != nil) {
+               result = self.delegate.getContext()
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"AppContextBridge executed 'getContext' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
+          } else {
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"AppContextBridge no delegate for 'getContext'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -106,21 +108,27 @@ public class AppContextBridge implements IAppContext {
         @return Type of platform context.
         @since ARP1.0
      */
-     public IOSType getContextType() {
+     public func getContextType() -> IOSType {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getContextType.");
-
-          IOSType result = null;
-          if (this.delegate != null) {
-               result = this.delegate.getContextType();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getContextType' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getContextType'.");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"AppContextBridge executing getContextType.")
           }
-          return result;          
+
+          var result : IOSType = nil
+          if (self.delegate != nil) {
+               result = self.delegate.getContextType()
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"AppContextBridge executed 'getContextType' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
+          } else {
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"AppContextBridge no delegate for 'getContextType'.")
+               }
+          }
+          return result          
      }
 
 }

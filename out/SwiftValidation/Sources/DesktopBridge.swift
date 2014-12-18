@@ -32,44 +32,40 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Desktop operations
    Auto-generated implementation of IDesktop specification.
 */
-public class DesktopBridge extends BaseUIBridge implements IDesktop, APIBridge {
+public class DesktopBridge : BaseUIBridge, IDesktop, APIBridge {
 
      /**
         API Delegate.
      */
-     private IDesktop delegate;
+     private var delegate : IDesktop = nil
 
      /**
         Constructor with delegate.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public DesktopBridge(IDesktop delegate) {
-          super();
-          this.delegate = delegate;
+     public init(delegate : IDesktop) {
+          super.init()
+          self.delegate = delegate
      }
      /**
         Get the delegate implementation.
         @return IDesktop delegate that manages platform specific functions..
      */
-     public final IDesktop getDelegate() {
-          return this.delegate;
+     public final func getDelegate() -> IDesktop {
+          return self.delegate
      }
      /**
         Set the delegate implementation.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public final void setDelegate(IDesktop delegate) {
-          this.delegate = delegate;
+     public final func setDelegate(delegate : IDesktop) {
+          self.delegate = delegate;
      }
 
      /**
@@ -78,12 +74,12 @@ public class DesktopBridge extends BaseUIBridge implements IDesktop, APIBridge {
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public func invoke(request : APIRequest) -> String? {
+          var responseJSON : String = ""
           switch (request.getMethodName()) {
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseJSON = nil;
           }
           return responseJSON;
      }

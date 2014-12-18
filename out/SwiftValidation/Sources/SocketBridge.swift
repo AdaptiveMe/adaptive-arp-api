@@ -32,44 +32,40 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Socket operations
    Auto-generated implementation of ISocket specification.
 */
-public class SocketBridge extends BaseCommunicationBridge implements ISocket, APIBridge {
+public class SocketBridge : BaseCommunicationBridge, ISocket, APIBridge {
 
      /**
         API Delegate.
      */
-     private ISocket delegate;
+     private var delegate : ISocket = nil
 
      /**
         Constructor with delegate.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public SocketBridge(ISocket delegate) {
-          super();
-          this.delegate = delegate;
+     public init(delegate : ISocket) {
+          super.init()
+          self.delegate = delegate
      }
      /**
         Get the delegate implementation.
         @return ISocket delegate that manages platform specific functions..
      */
-     public final ISocket getDelegate() {
-          return this.delegate;
+     public final func getDelegate() -> ISocket {
+          return self.delegate
      }
      /**
         Set the delegate implementation.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public final void setDelegate(ISocket delegate) {
-          this.delegate = delegate;
+     public final func setDelegate(delegate : ISocket) {
+          self.delegate = delegate;
      }
 
      /**
@@ -78,12 +74,12 @@ public class SocketBridge extends BaseCommunicationBridge implements ISocket, AP
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public func invoke(request : APIRequest) -> String? {
+          var responseJSON : String = ""
           switch (request.getMethodName()) {
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseJSON = nil;
           }
           return responseJSON;
      }

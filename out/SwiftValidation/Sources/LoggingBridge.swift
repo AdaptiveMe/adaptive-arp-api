@@ -32,44 +32,40 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Logging operations
    Auto-generated implementation of ILogging specification.
 */
-public class LoggingBridge extends BaseUtilBridge implements ILogging, APIBridge {
+public class LoggingBridge : BaseUtilBridge, ILogging, APIBridge {
 
      /**
         API Delegate.
      */
-     private ILogging delegate;
+     private var delegate : ILogging = nil
 
      /**
         Constructor with delegate.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public LoggingBridge(ILogging delegate) {
-          super();
-          this.delegate = delegate;
+     public init(delegate : ILogging) {
+          super.init()
+          self.delegate = delegate
      }
      /**
         Get the delegate implementation.
         @return ILogging delegate that manages platform specific functions..
      */
-     public final ILogging getDelegate() {
-          return this.delegate;
+     public final func getDelegate() -> ILogging {
+          return self.delegate
      }
      /**
         Set the delegate implementation.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public final void setDelegate(ILogging delegate) {
-          this.delegate = delegate;
+     public final func setDelegate(delegate : ILogging) {
+          self.delegate = delegate;
      }
 
      /**
@@ -79,18 +75,24 @@ public class LoggingBridge extends BaseUtilBridge implements ILogging, APIBridge
         @param message Message to be logged
         @since ARP1.0
      */
-     public void log(ILoggingLogLevel level, String message) {
+     public func log(level : ILoggingLogLevel , message : String ) {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing log({"+level+"},{"+message+"}).");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"LoggingBridge executing log({"+level+"},{"+message+"}).")
+          }
 
-          if (this.delegate != null) {
-               this.delegate.log(level, message);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'log' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          if (self.delegate != nil) {
+               self.delegate.log(level, message)
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"LoggingBridge executed 'log' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'log'.");
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"LoggingBridge no delegate for 'log'.")
+               }
           }
           
      }
@@ -103,18 +105,24 @@ public class LoggingBridge extends BaseUtilBridge implements ILogging, APIBridge
         @param message  Message to be logged
         @since ARP1.0
      */
-     public void log(ILoggingLogLevel level, String category, String message) {
+     public func log(level : ILoggingLogLevel , category : String , message : String ) {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing log({"+level+"},{"+category+"},{"+message+"}).");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"LoggingBridge executing log({"+level+"},{"+category+"},{"+message+"}).")
+          }
 
-          if (this.delegate != null) {
-               this.delegate.log(level, category, message);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'log' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          if (self.delegate != nil) {
+               self.delegate.log(level, category, message)
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"LoggingBridge executed 'log' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'log'.");
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"LoggingBridge no delegate for 'log'.")
+               }
           }
           
      }
@@ -125,8 +133,8 @@ public class LoggingBridge extends BaseUtilBridge implements ILogging, APIBridge
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public func invoke(request : APIRequest) -> String? {
+          var responseJSON : String = ""
           switch (request.getMethodName()) {
                case "log_level_message":
                     ILoggingLogLevel level0 = this.gson.fromJson(request.getParameters()[0], ILoggingLogLevel.class);
@@ -141,7 +149,7 @@ public class LoggingBridge extends BaseUtilBridge implements ILogging, APIBridge
                     break;
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseJSON = nil;
           }
           return responseJSON;
      }

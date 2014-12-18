@@ -32,44 +32,40 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Cloud operations
    Auto-generated implementation of IDatabase specification.
 */
-public class DatabaseBridge extends BaseDataBridge implements IDatabase, APIBridge {
+public class DatabaseBridge : BaseDataBridge, IDatabase, APIBridge {
 
      /**
         API Delegate.
      */
-     private IDatabase delegate;
+     private var delegate : IDatabase = nil
 
      /**
         Constructor with delegate.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public DatabaseBridge(IDatabase delegate) {
-          super();
-          this.delegate = delegate;
+     public init(delegate : IDatabase) {
+          super.init()
+          self.delegate = delegate
      }
      /**
         Get the delegate implementation.
         @return IDatabase delegate that manages platform specific functions..
      */
-     public final IDatabase getDelegate() {
-          return this.delegate;
+     public final func getDelegate() -> IDatabase {
+          return self.delegate
      }
      /**
         Set the delegate implementation.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public final void setDelegate(IDatabase delegate) {
-          this.delegate = delegate;
+     public final func setDelegate(delegate : IDatabase) {
+          self.delegate = delegate;
      }
 
      /**
@@ -79,18 +75,24 @@ public class DatabaseBridge extends BaseDataBridge implements IDatabase, APIBrid
         @param database Database object to create
         @since ARP1.0
      */
-     public void createDatabase(Database database, IDatabaseResultCallback callback) {
+     public func createDatabase(database : Database , callback : IDatabaseResultCallback ) {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing createDatabase({"+database+"},{"+callback+"}).");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"DatabaseBridge executing createDatabase({"+database+"},{"+callback+"}).")
+          }
 
-          if (this.delegate != null) {
-               this.delegate.createDatabase(database, callback);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'createDatabase' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          if (self.delegate != nil) {
+               self.delegate.createDatabase(database, callback)
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"DatabaseBridge executed 'createDatabase' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'createDatabase'.");
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"DatabaseBridge no delegate for 'createDatabase'.")
+               }
           }
           
      }
@@ -103,18 +105,24 @@ public class DatabaseBridge extends BaseDataBridge implements IDatabase, APIBrid
         @param callback      DatabaseTable callback with the response
         @since ARP1.0
      */
-     public void createTable(Database database, DatabaseTable databaseTable, IDatabaseTableResultCallback callback) {
+     public func createTable(database : Database , databaseTable : DatabaseTable , callback : IDatabaseTableResultCallback ) {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing createTable({"+database+"},{"+databaseTable+"},{"+callback+"}).");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"DatabaseBridge executing createTable({"+database+"},{"+databaseTable+"},{"+callback+"}).")
+          }
 
-          if (this.delegate != null) {
-               this.delegate.createTable(database, databaseTable, callback);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'createTable' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          if (self.delegate != nil) {
+               self.delegate.createTable(database, databaseTable, callback)
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"DatabaseBridge executed 'createTable' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'createTable'.");
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"DatabaseBridge no delegate for 'createTable'.")
+               }
           }
           
      }
@@ -126,18 +134,24 @@ public class DatabaseBridge extends BaseDataBridge implements IDatabase, APIBrid
         @param callback Asynchronous callback
         @since ARP1.0
      */
-     public void deleteDatabase(Database database, IDatabaseResultCallback callback) {
+     public func deleteDatabase(database : Database , callback : IDatabaseResultCallback ) {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing deleteDatabase({"+database+"},{"+callback+"}).");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"DatabaseBridge executing deleteDatabase({"+database+"},{"+callback+"}).")
+          }
 
-          if (this.delegate != null) {
-               this.delegate.deleteDatabase(database, callback);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'deleteDatabase' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          if (self.delegate != nil) {
+               self.delegate.deleteDatabase(database, callback)
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"DatabaseBridge executed 'deleteDatabase' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'deleteDatabase'.");
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"DatabaseBridge no delegate for 'deleteDatabase'.")
+               }
           }
           
      }
@@ -150,18 +164,24 @@ public class DatabaseBridge extends BaseDataBridge implements IDatabase, APIBrid
         @param callback      DatabaseTable callback with the response
         @since ARP1.0
      */
-     public void deleteTable(Database database, DatabaseTable databaseTable, IDatabaseTableResultCallback callback) {
+     public func deleteTable(database : Database , databaseTable : DatabaseTable , callback : IDatabaseTableResultCallback ) {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing deleteTable({"+database+"},{"+databaseTable+"},{"+callback+"}).");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"DatabaseBridge executing deleteTable({"+database+"},{"+databaseTable+"},{"+callback+"}).")
+          }
 
-          if (this.delegate != null) {
-               this.delegate.deleteTable(database, databaseTable, callback);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'deleteTable' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          if (self.delegate != nil) {
+               self.delegate.deleteTable(database, databaseTable, callback)
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"DatabaseBridge executed 'deleteTable' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'deleteTable'.");
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"DatabaseBridge no delegate for 'deleteTable'.")
+               }
           }
           
      }
@@ -176,18 +196,24 @@ should be passed as a parameter
         @param callback     DatabaseTable callback with the response.
         @since ARP1.0
      */
-     public void executeSqlStatement(Database database, String statement, [String] replacements, IDatabaseTableResultCallback callback) {
+     public func executeSqlStatement(database : Database , statement : String , replacements : [String] , callback : IDatabaseTableResultCallback ) {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing executeSqlStatement({"+database+"},{"+statement+"},{"+replacements+"},{"+callback+"}).");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"DatabaseBridge executing executeSqlStatement({"+database+"},{"+statement+"},{"+replacements+"},{"+callback+"}).")
+          }
 
-          if (this.delegate != null) {
-               this.delegate.executeSqlStatement(database, statement, replacements, callback);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'executeSqlStatement' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          if (self.delegate != nil) {
+               self.delegate.executeSqlStatement(database, statement, replacements, callback)
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"DatabaseBridge executed 'executeSqlStatement' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'executeSqlStatement'.");
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"DatabaseBridge no delegate for 'executeSqlStatement'.")
+               }
           }
           
      }
@@ -202,18 +228,24 @@ should be passed as a parameter
         @param callback     DatabaseTable callback with the response.
         @since ARP1.0
      */
-     public void executeSqlTransactions(Database database, [String] statements, Bool rollbackFlag, IDatabaseTableResultCallback callback) {
+     public func executeSqlTransactions(database : Database , statements : [String] , rollbackFlag : Bool , callback : IDatabaseTableResultCallback ) {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing executeSqlTransactions({"+database+"},{"+statements+"},{"+rollbackFlag+"},{"+callback+"}).");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"DatabaseBridge executing executeSqlTransactions({"+database+"},{"+statements+"},{"+rollbackFlag+"},{"+callback+"}).")
+          }
 
-          if (this.delegate != null) {
-               this.delegate.executeSqlTransactions(database, statements, rollbackFlag, callback);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'executeSqlTransactions' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          if (self.delegate != nil) {
+               self.delegate.executeSqlTransactions(database, statements, rollbackFlag, callback)
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"DatabaseBridge executed 'executeSqlTransactions' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'executeSqlTransactions'.");
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"DatabaseBridge no delegate for 'executeSqlTransactions'.")
+               }
           }
           
      }
@@ -225,21 +257,27 @@ should be passed as a parameter
         @return True if exists, false otherwise
         @since ARP1.0
      */
-     public Bool existsDatabase(Database database) {
+     public func existsDatabase(database : Database ) -> Bool {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing existsDatabase({"+database+"}).");
-
-          Bool result = false;
-          if (this.delegate != null) {
-               result = this.delegate.existsDatabase(database);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'existsDatabase' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'existsDatabase'.");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"DatabaseBridge executing existsDatabase({"+database+"}).")
           }
-          return result;          
+
+          var result : Bool = false
+          if (self.delegate != nil) {
+               result = self.delegate.existsDatabase(database)
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"DatabaseBridge executed 'existsDatabase' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
+          } else {
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"DatabaseBridge no delegate for 'existsDatabase'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -250,21 +288,27 @@ should be passed as a parameter
         @return True if exists, false otherwise
         @since ARP1.0
      */
-     public Bool existsTable(Database database, DatabaseTable databaseTable) {
+     public func existsTable(database : Database , databaseTable : DatabaseTable ) -> Bool {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing existsTable({"+database+"},{"+databaseTable+"}).");
-
-          Bool result = false;
-          if (this.delegate != null) {
-               result = this.delegate.existsTable(database, databaseTable);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'existsTable' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'existsTable'.");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"DatabaseBridge executing existsTable({"+database+"},{"+databaseTable+"}).")
           }
-          return result;          
+
+          var result : Bool = false
+          if (self.delegate != nil) {
+               result = self.delegate.existsTable(database, databaseTable)
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"DatabaseBridge executed 'existsTable' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
+          } else {
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"DatabaseBridge no delegate for 'existsTable'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -273,59 +317,59 @@ should be passed as a parameter
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public func invoke(request : APIRequest) -> String? {
+          var responseJSON : String = ""
           switch (request.getMethodName()) {
                case "createDatabase":
-                    Database database0 = this.gson.fromJson(request.getParameters()[0], Database.class);
-                    IDatabaseResultCallback callback0 = new DatabaseResultCallbackImpl(request.getAsyncId());
-                    this.createDatabase(database0, callback0);
+                    var database0 : Database = this.gson.fromJson(request.getParameters()[0], Database.class);
+                    var callback0 : IDatabaseResultCallback =  DatabaseResultCallbackImpl(request.getAsyncId());
+                    self.createDatabase(database0, callback0);
                     break;
                case "createTable":
-                    Database database1 = this.gson.fromJson(request.getParameters()[0], Database.class);
-                    DatabaseTable databaseTable1 = this.gson.fromJson(request.getParameters()[1], DatabaseTable.class);
-                    IDatabaseTableResultCallback callback1 = new DatabaseTableResultCallbackImpl(request.getAsyncId());
-                    this.createTable(database1, databaseTable1, callback1);
+                    var database1 : Database = this.gson.fromJson(request.getParameters()[0], Database.class);
+                    var databaseTable1 : DatabaseTable = this.gson.fromJson(request.getParameters()[1], DatabaseTable.class);
+                    var callback1 : IDatabaseTableResultCallback =  DatabaseTableResultCallbackImpl(request.getAsyncId());
+                    self.createTable(database1, databaseTable1, callback1);
                     break;
                case "deleteDatabase":
-                    Database database2 = this.gson.fromJson(request.getParameters()[0], Database.class);
-                    IDatabaseResultCallback callback2 = new DatabaseResultCallbackImpl(request.getAsyncId());
-                    this.deleteDatabase(database2, callback2);
+                    var database2 : Database = this.gson.fromJson(request.getParameters()[0], Database.class);
+                    var callback2 : IDatabaseResultCallback =  DatabaseResultCallbackImpl(request.getAsyncId());
+                    self.deleteDatabase(database2, callback2);
                     break;
                case "deleteTable":
-                    Database database3 = this.gson.fromJson(request.getParameters()[0], Database.class);
-                    DatabaseTable databaseTable3 = this.gson.fromJson(request.getParameters()[1], DatabaseTable.class);
-                    IDatabaseTableResultCallback callback3 = new DatabaseTableResultCallbackImpl(request.getAsyncId());
-                    this.deleteTable(database3, databaseTable3, callback3);
+                    var database3 : Database = this.gson.fromJson(request.getParameters()[0], Database.class);
+                    var databaseTable3 : DatabaseTable = this.gson.fromJson(request.getParameters()[1], DatabaseTable.class);
+                    var callback3 : IDatabaseTableResultCallback =  DatabaseTableResultCallbackImpl(request.getAsyncId());
+                    self.deleteTable(database3, databaseTable3, callback3);
                     break;
                case "executeSqlStatement":
-                    Database database4 = this.gson.fromJson(request.getParameters()[0], Database.class);
-                    String statement4 = this.gson.fromJson(request.getParameters()[1], String.class);
-                    [String] replacements4 = this.gson.fromJson(request.getParameters()[2], [String].class);
-                    IDatabaseTableResultCallback callback4 = new DatabaseTableResultCallbackImpl(request.getAsyncId());
-                    this.executeSqlStatement(database4, statement4, replacements4, callback4);
+                    var database4 : Database = this.gson.fromJson(request.getParameters()[0], Database.class);
+                    var statement4 : String = this.gson.fromJson(request.getParameters()[1], String.class);
+                    var replacements4 : [String] = this.gson.fromJson(request.getParameters()[2], [String].class);
+                    var callback4 : IDatabaseTableResultCallback =  DatabaseTableResultCallbackImpl(request.getAsyncId());
+                    self.executeSqlStatement(database4, statement4, replacements4, callback4);
                     break;
                case "executeSqlTransactions":
-                    Database database5 = this.gson.fromJson(request.getParameters()[0], Database.class);
-                    [String] statements5 = this.gson.fromJson(request.getParameters()[1], [String].class);
-                    Bool rollbackFlag5 = this.gson.fromJson(request.getParameters()[2], boolean.class);
-                    IDatabaseTableResultCallback callback5 = new DatabaseTableResultCallbackImpl(request.getAsyncId());
-                    this.executeSqlTransactions(database5, statements5, rollbackFlag5, callback5);
+                    var database5 : Database = this.gson.fromJson(request.getParameters()[0], Database.class);
+                    var statements5 : [String] = this.gson.fromJson(request.getParameters()[1], [String].class);
+                    var rollbackFlag5 : Bool = this.gson.fromJson(request.getParameters()[2], boolean.class);
+                    var callback5 : IDatabaseTableResultCallback =  DatabaseTableResultCallbackImpl(request.getAsyncId());
+                    self.executeSqlTransactions(database5, statements5, rollbackFlag5, callback5);
                     break;
                case "existsDatabase":
-                    Database database6 = this.gson.fromJson(request.getParameters()[0], Database.class);
+                    var database6 : Database = this.gson.fromJson(request.getParameters()[0], Database.class);
                     Bool response6 = this.existsDatabase(database6);
                     responseJSON = this.gson.toJson(response6);
                     break;
                case "existsTable":
-                    Database database7 = this.gson.fromJson(request.getParameters()[0], Database.class);
-                    DatabaseTable databaseTable7 = this.gson.fromJson(request.getParameters()[1], DatabaseTable.class);
+                    var database7 : Database = this.gson.fromJson(request.getParameters()[0], Database.class);
+                    var databaseTable7 : DatabaseTable = this.gson.fromJson(request.getParameters()[1], DatabaseTable.class);
                     Bool response7 = this.existsTable(database7, databaseTable7);
                     responseJSON = this.gson.toJson(response7);
                     break;
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseJSON = nil;
           }
           return responseJSON;
      }

@@ -32,44 +32,40 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Globalization results
    Auto-generated implementation of IGlobalization specification.
 */
-public class GlobalizationBridge extends BaseApplicationBridge implements IGlobalization, APIBridge {
+public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBridge {
 
      /**
         API Delegate.
      */
-     private IGlobalization delegate;
+     private var delegate : IGlobalization = nil
 
      /**
         Constructor with delegate.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public GlobalizationBridge(IGlobalization delegate) {
-          super();
-          this.delegate = delegate;
+     public init(delegate : IGlobalization) {
+          super.init()
+          self.delegate = delegate
      }
      /**
         Get the delegate implementation.
         @return IGlobalization delegate that manages platform specific functions..
      */
-     public final IGlobalization getDelegate() {
-          return this.delegate;
+     public final func getDelegate() -> IGlobalization {
+          return self.delegate
      }
      /**
         Set the delegate implementation.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public final void setDelegate(IGlobalization delegate) {
-          this.delegate = delegate;
+     public final func setDelegate(delegate : IGlobalization) {
+          self.delegate = delegate;
      }
 
      /**
@@ -78,21 +74,27 @@ public class GlobalizationBridge extends BaseApplicationBridge implements IGloba
         @return List of locales
         @since ARP1.0
      */
-     public [Locale] getLocaleSupportedDescriptors() {
+     public func getLocaleSupportedDescriptors() -> [Locale] {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getLocaleSupportedDescriptors.");
-
-          [Locale] result = null;
-          if (this.delegate != null) {
-               result = this.delegate.getLocaleSupportedDescriptors();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getLocaleSupportedDescriptors' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getLocaleSupportedDescriptors'.");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"GlobalizationBridge executing getLocaleSupportedDescriptors.")
           }
-          return result;          
+
+          var result : [Locale] = nil
+          if (self.delegate != nil) {
+               result = self.delegate.getLocaleSupportedDescriptors()
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"GlobalizationBridge executed 'getLocaleSupportedDescriptors' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
+          } else {
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"GlobalizationBridge no delegate for 'getLocaleSupportedDescriptors'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -103,21 +105,27 @@ public class GlobalizationBridge extends BaseApplicationBridge implements IGloba
         @return Localized text.
         @since ARP1.0
      */
-     public String getResourceLiteral(String key, Locale locale) {
+     public func getResourceLiteral(key : String , locale : Locale ) -> String {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getResourceLiteral({"+key+"},{"+locale+"}).");
-
-          String result = null;
-          if (this.delegate != null) {
-               result = this.delegate.getResourceLiteral(key, locale);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getResourceLiteral' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getResourceLiteral'.");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"GlobalizationBridge executing getResourceLiteral({"+key+"},{"+locale+"}).")
           }
-          return result;          
+
+          var result : String = nil
+          if (self.delegate != nil) {
+               result = self.delegate.getResourceLiteral(key, locale)
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"GlobalizationBridge executed 'getResourceLiteral' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
+          } else {
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"GlobalizationBridge no delegate for 'getResourceLiteral'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -127,21 +135,27 @@ public class GlobalizationBridge extends BaseApplicationBridge implements IGloba
         @return Localized texts in the form of an object.
         @since ARP1.0
      */
-     public [KeyPair] getResourceLiterals(Locale locale) {
+     public func getResourceLiterals(locale : Locale ) -> [KeyPair] {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getResourceLiterals({"+locale+"}).");
-
-          [KeyPair] result = null;
-          if (this.delegate != null) {
-               result = this.delegate.getResourceLiterals(locale);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getResourceLiterals' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getResourceLiterals'.");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"GlobalizationBridge executing getResourceLiterals({"+locale+"}).")
           }
-          return result;          
+
+          var result : [KeyPair] = nil
+          if (self.delegate != nil) {
+               result = self.delegate.getResourceLiterals(locale)
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"GlobalizationBridge executed 'getResourceLiterals' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
+          } else {
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"GlobalizationBridge no delegate for 'getResourceLiterals'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -150,39 +164,39 @@ public class GlobalizationBridge extends BaseApplicationBridge implements IGloba
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public func invoke(request : APIRequest) -> String? {
+          var responseJSON : String = ""
           switch (request.getMethodName()) {
                case "getLocaleSupportedDescriptors":
                     [Locale] response0 = this.getLocaleSupportedDescriptors();
                     if (response0 != null) {
                          responseJSON = this.gson.toJson(response0);
                     } else {
-                         responseJSON = null;
+                         responseJSON = nil;
                     }
                     break;
                case "getResourceLiteral":
-                    String key1 = this.gson.fromJson(request.getParameters()[0], String.class);
-                    Locale locale1 = this.gson.fromJson(request.getParameters()[1], Locale.class);
+                    var key1 : String = this.gson.fromJson(request.getParameters()[0], String.class);
+                    var locale1 : Locale = this.gson.fromJson(request.getParameters()[1], Locale.class);
                     String response1 = this.getResourceLiteral(key1, locale1);
                     if (response1 != null) {
                          responseJSON = this.gson.toJson(response1);
                     } else {
-                         responseJSON = null;
+                         responseJSON = nil;
                     }
                     break;
                case "getResourceLiterals":
-                    Locale locale2 = this.gson.fromJson(request.getParameters()[0], Locale.class);
+                    var locale2 : Locale = this.gson.fromJson(request.getParameters()[0], Locale.class);
                     [KeyPair] response2 = this.getResourceLiterals(locale2);
                     if (response2 != null) {
                          responseJSON = this.gson.toJson(response2);
                     } else {
-                         responseJSON = null;
+                         responseJSON = nil;
                     }
                     break;
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseJSON = nil;
           }
           return responseJSON;
      }

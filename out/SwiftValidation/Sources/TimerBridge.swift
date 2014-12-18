@@ -32,44 +32,40 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Timer operations
    Auto-generated implementation of ITimer specification.
 */
-public class TimerBridge extends BaseUtilBridge implements ITimer, APIBridge {
+public class TimerBridge : BaseUtilBridge, ITimer, APIBridge {
 
      /**
         API Delegate.
      */
-     private ITimer delegate;
+     private var delegate : ITimer = nil
 
      /**
         Constructor with delegate.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public TimerBridge(ITimer delegate) {
-          super();
-          this.delegate = delegate;
+     public init(delegate : ITimer) {
+          super.init()
+          self.delegate = delegate
      }
      /**
         Get the delegate implementation.
         @return ITimer delegate that manages platform specific functions..
      */
-     public final ITimer getDelegate() {
-          return this.delegate;
+     public final func getDelegate() -> ITimer {
+          return self.delegate
      }
      /**
         Set the delegate implementation.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public final void setDelegate(ITimer delegate) {
-          this.delegate = delegate;
+     public final func setDelegate(delegate : ITimer) {
+          self.delegate = delegate;
      }
 
      /**
@@ -78,12 +74,12 @@ public class TimerBridge extends BaseUtilBridge implements ITimer, APIBridge {
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public func invoke(request : APIRequest) -> String? {
+          var responseJSON : String = ""
           switch (request.getMethodName()) {
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseJSON = nil;
           }
           return responseJSON;
      }

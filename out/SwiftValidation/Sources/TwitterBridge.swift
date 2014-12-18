@@ -32,44 +32,40 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Twitter operations
    Auto-generated implementation of ITwitter specification.
 */
-public class TwitterBridge extends BaseSocialBridge implements ITwitter, APIBridge {
+public class TwitterBridge : BaseSocialBridge, ITwitter, APIBridge {
 
      /**
         API Delegate.
      */
-     private ITwitter delegate;
+     private var delegate : ITwitter = nil
 
      /**
         Constructor with delegate.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public TwitterBridge(ITwitter delegate) {
-          super();
-          this.delegate = delegate;
+     public init(delegate : ITwitter) {
+          super.init()
+          self.delegate = delegate
      }
      /**
         Get the delegate implementation.
         @return ITwitter delegate that manages platform specific functions..
      */
-     public final ITwitter getDelegate() {
-          return this.delegate;
+     public final func getDelegate() -> ITwitter {
+          return self.delegate
      }
      /**
         Set the delegate implementation.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public final void setDelegate(ITwitter delegate) {
-          this.delegate = delegate;
+     public final func setDelegate(delegate : ITwitter) {
+          self.delegate = delegate;
      }
 
      /**
@@ -78,12 +74,12 @@ public class TwitterBridge extends BaseSocialBridge implements ITwitter, APIBrid
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public func invoke(request : APIRequest) -> String? {
+          var responseJSON : String = ""
           switch (request.getMethodName()) {
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseJSON = nil;
           }
           return responseJSON;
      }

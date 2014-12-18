@@ -32,44 +32,40 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Video operations
    Auto-generated implementation of IVideo specification.
 */
-public class VideoBridge extends BaseMediaBridge implements IVideo, APIBridge {
+public class VideoBridge : BaseMediaBridge, IVideo, APIBridge {
 
      /**
         API Delegate.
      */
-     private IVideo delegate;
+     private var delegate : IVideo = nil
 
      /**
         Constructor with delegate.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public VideoBridge(IVideo delegate) {
-          super();
-          this.delegate = delegate;
+     public init(delegate : IVideo) {
+          super.init()
+          self.delegate = delegate
      }
      /**
         Get the delegate implementation.
         @return IVideo delegate that manages platform specific functions..
      */
-     public final IVideo getDelegate() {
-          return this.delegate;
+     public final func getDelegate() -> IVideo {
+          return self.delegate
      }
      /**
         Set the delegate implementation.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public final void setDelegate(IVideo delegate) {
-          this.delegate = delegate;
+     public final func setDelegate(delegate : IVideo) {
+          self.delegate = delegate;
      }
 
      /**
@@ -78,18 +74,24 @@ public class VideoBridge extends BaseMediaBridge implements IVideo, APIBridge {
         @param url of the video
         @since ARP1.0
      */
-     public void playStream(String url) {
+     public func playStream(url : String ) {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing playStream({"+url+"}).");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"VideoBridge executing playStream({"+url+"}).")
+          }
 
-          if (this.delegate != null) {
-               this.delegate.playStream(url);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'playStream' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          if (self.delegate != nil) {
+               self.delegate.playStream(url)
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"VideoBridge executed 'playStream' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'playStream'.");
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"VideoBridge no delegate for 'playStream'.")
+               }
           }
           
      }
@@ -100,16 +102,16 @@ public class VideoBridge extends BaseMediaBridge implements IVideo, APIBridge {
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public func invoke(request : APIRequest) -> String? {
+          var responseJSON : String = ""
           switch (request.getMethodName()) {
                case "playStream":
-                    String url0 = this.gson.fromJson(request.getParameters()[0], String.class);
-                    this.playStream(url0);
+                    var url0 : String = this.gson.fromJson(request.getParameters()[0], String.class);
+                    self.playStream(url0);
                     break;
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseJSON = nil;
           }
           return responseJSON;
      }

@@ -32,44 +32,40 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Internal Storage operations
    Auto-generated implementation of IInternalStorage specification.
 */
-public class InternalStorageBridge extends BaseDataBridge implements IInternalStorage, APIBridge {
+public class InternalStorageBridge : BaseDataBridge, IInternalStorage, APIBridge {
 
      /**
         API Delegate.
      */
-     private IInternalStorage delegate;
+     private var delegate : IInternalStorage = nil
 
      /**
         Constructor with delegate.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public InternalStorageBridge(IInternalStorage delegate) {
-          super();
-          this.delegate = delegate;
+     public init(delegate : IInternalStorage) {
+          super.init()
+          self.delegate = delegate
      }
      /**
         Get the delegate implementation.
         @return IInternalStorage delegate that manages platform specific functions..
      */
-     public final IInternalStorage getDelegate() {
-          return this.delegate;
+     public final func getDelegate() -> IInternalStorage {
+          return self.delegate
      }
      /**
         Set the delegate implementation.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public final void setDelegate(IInternalStorage delegate) {
-          this.delegate = delegate;
+     public final func setDelegate(delegate : IInternalStorage) {
+          self.delegate = delegate;
      }
 
      /**
@@ -78,12 +74,12 @@ public class InternalStorageBridge extends BaseDataBridge implements IInternalSt
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public func invoke(request : APIRequest) -> String? {
+          var responseJSON : String = ""
           switch (request.getMethodName()) {
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseJSON = nil;
           }
           return responseJSON;
      }

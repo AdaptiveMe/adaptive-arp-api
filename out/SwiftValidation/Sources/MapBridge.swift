@@ -32,44 +32,40 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Map operations
    Auto-generated implementation of IMap specification.
 */
-public class MapBridge extends BaseUIBridge implements IMap, APIBridge {
+public class MapBridge : BaseUIBridge, IMap, APIBridge {
 
      /**
         API Delegate.
      */
-     private IMap delegate;
+     private var delegate : IMap = nil
 
      /**
         Constructor with delegate.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public MapBridge(IMap delegate) {
-          super();
-          this.delegate = delegate;
+     public init(delegate : IMap) {
+          super.init()
+          self.delegate = delegate
      }
      /**
         Get the delegate implementation.
         @return IMap delegate that manages platform specific functions..
      */
-     public final IMap getDelegate() {
-          return this.delegate;
+     public final func getDelegate() -> IMap {
+          return self.delegate
      }
      /**
         Set the delegate implementation.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public final void setDelegate(IMap delegate) {
-          this.delegate = delegate;
+     public final func setDelegate(delegate : IMap) {
+          self.delegate = delegate;
      }
 
      /**
@@ -78,12 +74,12 @@ public class MapBridge extends BaseUIBridge implements IMap, APIBridge {
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public func invoke(request : APIRequest) -> String? {
+          var responseJSON : String = ""
           switch (request.getMethodName()) {
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseJSON = nil;
           }
           return responseJSON;
      }

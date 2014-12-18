@@ -32,44 +32,40 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Security operations
    Auto-generated implementation of ISecurity specification.
 */
-public class SecurityBridge extends BaseSecurityBridge implements ISecurity, APIBridge {
+public class SecurityBridge : BaseSecurityBridge, ISecurity, APIBridge {
 
      /**
         API Delegate.
      */
-     private ISecurity delegate;
+     private var delegate : ISecurity = nil
 
      /**
         Constructor with delegate.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public SecurityBridge(ISecurity delegate) {
-          super();
-          this.delegate = delegate;
+     public init(delegate : ISecurity) {
+          super.init()
+          self.delegate = delegate
      }
      /**
         Get the delegate implementation.
         @return ISecurity delegate that manages platform specific functions..
      */
-     public final ISecurity getDelegate() {
-          return this.delegate;
+     public final func getDelegate() -> ISecurity {
+          return self.delegate
      }
      /**
         Set the delegate implementation.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public final void setDelegate(ISecurity delegate) {
-          this.delegate = delegate;
+     public final func setDelegate(delegate : ISecurity) {
+          self.delegate = delegate;
      }
 
      /**
@@ -80,18 +76,24 @@ public class SecurityBridge extends BaseSecurityBridge implements ISecurity, API
         @param callback         callback to be executed upon function result.
         @since ARP 1.0
      */
-     public void deleteSecureKeyValuePairs([String] keys, String publicAccessName, ISecurityResultCallback callback) {
+     public func deleteSecureKeyValuePairs(keys : [String] , publicAccessName : String , callback : ISecurityResultCallback ) {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing deleteSecureKeyValuePairs({"+keys+"},{"+publicAccessName+"},{"+callback+"}).");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"SecurityBridge executing deleteSecureKeyValuePairs({"+keys+"},{"+publicAccessName+"},{"+callback+"}).")
+          }
 
-          if (this.delegate != null) {
-               this.delegate.deleteSecureKeyValuePairs(keys, publicAccessName, callback);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'deleteSecureKeyValuePairs' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          if (self.delegate != nil) {
+               self.delegate.deleteSecureKeyValuePairs(keys, publicAccessName, callback)
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"SecurityBridge executed 'deleteSecureKeyValuePairs' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'deleteSecureKeyValuePairs'.");
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"SecurityBridge no delegate for 'deleteSecureKeyValuePairs'.")
+               }
           }
           
      }
@@ -104,18 +106,24 @@ public class SecurityBridge extends BaseSecurityBridge implements ISecurity, API
         @param callback         callback to be executed upon function result.
         @since ARP 1.0
      */
-     public void getSecureKeyValuePairs([String] keys, String publicAccessName, ISecurityResultCallback callback) {
+     public func getSecureKeyValuePairs(keys : [String] , publicAccessName : String , callback : ISecurityResultCallback ) {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getSecureKeyValuePairs({"+keys+"},{"+publicAccessName+"},{"+callback+"}).");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"SecurityBridge executing getSecureKeyValuePairs({"+keys+"},{"+publicAccessName+"},{"+callback+"}).")
+          }
 
-          if (this.delegate != null) {
-               this.delegate.getSecureKeyValuePairs(keys, publicAccessName, callback);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getSecureKeyValuePairs' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          if (self.delegate != nil) {
+               self.delegate.getSecureKeyValuePairs(keys, publicAccessName, callback)
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"SecurityBridge executed 'getSecureKeyValuePairs' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getSecureKeyValuePairs'.");
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"SecurityBridge no delegate for 'getSecureKeyValuePairs'.")
+               }
           }
           
      }
@@ -126,21 +134,27 @@ public class SecurityBridge extends BaseSecurityBridge implements ISecurity, API
         @return true if the device has been modified; false otherwise
         @since ARP1.0
      */
-     public Bool isDeviceModified() {
+     public func isDeviceModified() -> Bool {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing isDeviceModified.");
-
-          Bool result = false;
-          if (this.delegate != null) {
-               result = this.delegate.isDeviceModified();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'isDeviceModified' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'isDeviceModified'.");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"SecurityBridge executing isDeviceModified.")
           }
-          return result;          
+
+          var result : Bool = false
+          if (self.delegate != nil) {
+               result = self.delegate.isDeviceModified()
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"SecurityBridge executed 'isDeviceModified' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
+          } else {
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"SecurityBridge no delegate for 'isDeviceModified'.")
+               }
+          }
+          return result          
      }
 
      /**
@@ -151,18 +165,24 @@ public class SecurityBridge extends BaseSecurityBridge implements ISecurity, API
         @param callback         callback to be executed upon function result.
         @since ARP 1.0
      */
-     public void setSecureKeyValuePairs([SecureKeyPair] keyValues, String publicAccessName, ISecurityResultCallback callback) {
+     public func setSecureKeyValuePairs(keyValues : [SecureKeyPair] , publicAccessName : String , callback : ISecurityResultCallback ) {
           // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing setSecureKeyValuePairs({"+keyValues+"},{"+publicAccessName+"},{"+callback+"}).");
+          if (logger!=null) {
+               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"SecurityBridge executing setSecureKeyValuePairs({"+keyValues+"},{"+publicAccessName+"},{"+callback+"}).")
+          }
 
-          if (this.delegate != null) {
-               this.delegate.setSecureKeyValuePairs(keyValues, publicAccessName, callback);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'setSecureKeyValuePairs' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          if (self.delegate != nil) {
+               self.delegate.setSecureKeyValuePairs(keyValues, publicAccessName, callback)
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"SecurityBridge executed 'setSecureKeyValuePairs' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                }
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'setSecureKeyValuePairs'.");
+               if (logger != nil) {
+                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"SecurityBridge no delegate for 'setSecureKeyValuePairs'.")
+               }
           }
           
      }
@@ -173,34 +193,34 @@ public class SecurityBridge extends BaseSecurityBridge implements ISecurity, API
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public func invoke(request : APIRequest) -> String? {
+          var responseJSON : String = ""
           switch (request.getMethodName()) {
                case "deleteSecureKeyValuePairs":
-                    [String] keys0 = this.gson.fromJson(request.getParameters()[0], [String].class);
-                    String publicAccessName0 = this.gson.fromJson(request.getParameters()[1], String.class);
-                    ISecurityResultCallback callback0 = new SecurityResultCallbackImpl(request.getAsyncId());
-                    this.deleteSecureKeyValuePairs(keys0, publicAccessName0, callback0);
+                    var keys0 : [String] = this.gson.fromJson(request.getParameters()[0], [String].class);
+                    var publicAccessName0 : String = this.gson.fromJson(request.getParameters()[1], String.class);
+                    var callback0 : ISecurityResultCallback =  SecurityResultCallbackImpl(request.getAsyncId());
+                    self.deleteSecureKeyValuePairs(keys0, publicAccessName0, callback0);
                     break;
                case "getSecureKeyValuePairs":
-                    [String] keys1 = this.gson.fromJson(request.getParameters()[0], [String].class);
-                    String publicAccessName1 = this.gson.fromJson(request.getParameters()[1], String.class);
-                    ISecurityResultCallback callback1 = new SecurityResultCallbackImpl(request.getAsyncId());
-                    this.getSecureKeyValuePairs(keys1, publicAccessName1, callback1);
+                    var keys1 : [String] = this.gson.fromJson(request.getParameters()[0], [String].class);
+                    var publicAccessName1 : String = this.gson.fromJson(request.getParameters()[1], String.class);
+                    var callback1 : ISecurityResultCallback =  SecurityResultCallbackImpl(request.getAsyncId());
+                    self.getSecureKeyValuePairs(keys1, publicAccessName1, callback1);
                     break;
                case "isDeviceModified":
                     Bool response2 = this.isDeviceModified();
                     responseJSON = this.gson.toJson(response2);
                     break;
                case "setSecureKeyValuePairs":
-                    [SecureKeyPair] keyValues3 = this.gson.fromJson(request.getParameters()[0], [SecureKeyPair].class);
-                    String publicAccessName3 = this.gson.fromJson(request.getParameters()[1], String.class);
-                    ISecurityResultCallback callback3 = new SecurityResultCallbackImpl(request.getAsyncId());
-                    this.setSecureKeyValuePairs(keyValues3, publicAccessName3, callback3);
+                    var keyValues3 : [SecureKeyPair] = this.gson.fromJson(request.getParameters()[0], [SecureKeyPair].class);
+                    var publicAccessName3 : String = this.gson.fromJson(request.getParameters()[1], String.class);
+                    var callback3 : ISecurityResultCallback =  SecurityResultCallbackImpl(request.getAsyncId());
+                    self.setSecureKeyValuePairs(keyValues3, publicAccessName3, callback3);
                     break;
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseJSON = nil;
           }
           return responseJSON;
      }

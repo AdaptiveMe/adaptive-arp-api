@@ -32,44 +32,40 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Update operations
    Auto-generated implementation of IUpdate specification.
 */
-public class UpdateBridge extends BaseApplicationBridge implements IUpdate, APIBridge {
+public class UpdateBridge : BaseApplicationBridge, IUpdate, APIBridge {
 
      /**
         API Delegate.
      */
-     private IUpdate delegate;
+     private var delegate : IUpdate = nil
 
      /**
         Constructor with delegate.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public UpdateBridge(IUpdate delegate) {
-          super();
-          this.delegate = delegate;
+     public init(delegate : IUpdate) {
+          super.init()
+          self.delegate = delegate
      }
      /**
         Get the delegate implementation.
         @return IUpdate delegate that manages platform specific functions..
      */
-     public final IUpdate getDelegate() {
-          return this.delegate;
+     public final func getDelegate() -> IUpdate {
+          return self.delegate
      }
      /**
         Set the delegate implementation.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public final void setDelegate(IUpdate delegate) {
-          this.delegate = delegate;
+     public final func setDelegate(delegate : IUpdate) {
+          self.delegate = delegate;
      }
 
      /**
@@ -78,12 +74,12 @@ public class UpdateBridge extends BaseApplicationBridge implements IUpdate, APIB
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public func invoke(request : APIRequest) -> String? {
+          var responseJSON : String = ""
           switch (request.getMethodName()) {
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseJSON = nil;
           }
           return responseJSON;
      }

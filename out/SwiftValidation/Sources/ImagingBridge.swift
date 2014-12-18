@@ -32,44 +32,40 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Imaging operations
    Auto-generated implementation of IImaging specification.
 */
-public class ImagingBridge extends BaseMediaBridge implements IImaging, APIBridge {
+public class ImagingBridge : BaseMediaBridge, IImaging, APIBridge {
 
      /**
         API Delegate.
      */
-     private IImaging delegate;
+     private var delegate : IImaging = nil
 
      /**
         Constructor with delegate.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public ImagingBridge(IImaging delegate) {
-          super();
-          this.delegate = delegate;
+     public init(delegate : IImaging) {
+          super.init()
+          self.delegate = delegate
      }
      /**
         Get the delegate implementation.
         @return IImaging delegate that manages platform specific functions..
      */
-     public final IImaging getDelegate() {
-          return this.delegate;
+     public final func getDelegate() -> IImaging {
+          return self.delegate
      }
      /**
         Set the delegate implementation.
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public final void setDelegate(IImaging delegate) {
-          this.delegate = delegate;
+     public final func setDelegate(delegate : IImaging) {
+          self.delegate = delegate;
      }
 
      /**
@@ -78,12 +74,12 @@ public class ImagingBridge extends BaseMediaBridge implements IImaging, APIBridg
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public func invoke(request : APIRequest) -> String? {
+          var responseJSON : String = ""
           switch (request.getMethodName()) {
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseJSON = nil;
           }
           return responseJSON;
      }

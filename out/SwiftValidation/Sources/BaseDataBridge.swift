@@ -32,48 +32,44 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Base application for Data purposes
    Auto-generated implementation of IBaseData specification.
 */
-public class BaseDataBridge implements IBaseData {
+public class BaseDataBridge : IBaseData {
 
      /**
         Group of API.
      */
-     protected IAdaptiveRPGroup apiGroup;
+     private var apiGroup : IAdaptiveRPGroup = nil;
 
      /**
         JSON API.
      */
-     protected Gson gson;
+     //protected Gson gson;
 
      /**
         Default constructor.
      */
-     public BaseDataBridge() {
+     public init() {
           this.apiGroup = IAdaptiveRPGroup.Data;
-          this.gson = new Gson();
+          //this.gson = new Gson();
      }
 
      /**
         Return the API group for the given interface.
      */
      @Override
-     public final IAdaptiveRPGroup getAPIGroup() {
-          return this.apiGroup;
+     public final func IAdaptiveRPGroup getAPIGroup() {
+          return self.apiGroup
      }
      /**
         Return the JSON serializer.
         @return Current JSON serializer.
      */
-     public final Gson getJSONAPI() {
-          return this.gson;
-     }
+     //public final Gson getJSONAPI() {
+          //return this.gson;
+     //}
 
      /**
         Invokes the given method specified in the API request object.
@@ -81,12 +77,12 @@ public class BaseDataBridge implements IBaseData {
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public func invoke(request : APIRequest) -> String? {
+          var responseJSON : String = ""
           switch (request.getMethodName()) {
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseJSON = nil;
           }
           return responseJSON;
      }
