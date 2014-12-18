@@ -43,8 +43,8 @@ public class GeolocationListenerImpl : BaseListenerImpl, IGeolocationListener {
 
         @param id  The id of the listener.
      */
-     public init(id : Int64) {
-          super.init(id);
+     public override init(id : Int64) {
+          super.init(id: id);
      }
 
      /**
@@ -54,7 +54,7 @@ public class GeolocationListenerImpl : BaseListenerImpl, IGeolocationListener {
         @since ARP1.0
      */
      public func onError(error : IGeolocationListenerError)  {
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleGeolocationListenerError( '\(+getId()+)', JSON.parse(\"\")" )
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleGeolocationListenerError( '\(getId())', JSON.parse(\"\")" )
           /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
@@ -65,7 +65,7 @@ public class GeolocationListenerImpl : BaseListenerImpl, IGeolocationListener {
         @since ARP1.0
      */
      public func onResult(geolocation : Geolocation)  {
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleGeolocationListenerResult( '\(+getId()+)', JSON.parse(\"\")" )
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleGeolocationListenerResult( '\(getId())', JSON.parse(\"\")" )
           /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
@@ -77,7 +77,7 @@ public class GeolocationListenerImpl : BaseListenerImpl, IGeolocationListener {
         @since ARP1.0
      */
      public func onWarning(geolocation : Geolocation, warning : IGeolocationListenerWarning)  {
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleGeolocationListenerWarning( '\(+getId()+)', JSON.parse(\"\"), JSON.parse(\"\")" )
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleGeolocationListenerWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
           /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 

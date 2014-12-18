@@ -48,7 +48,7 @@ public class ManagementBridge : BaseApplicationBridge, IManagement, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IManagement) {
+     public init(delegate : IManagement?) {
           super.init()
           self.delegate = delegate
      }

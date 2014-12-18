@@ -48,7 +48,7 @@ public class InternalStorageBridge : BaseDataBridge, IInternalStorage, APIBridge
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IInternalStorage) {
+     public init(delegate : IInternalStorage?) {
           super.init()
           self.delegate = delegate
      }

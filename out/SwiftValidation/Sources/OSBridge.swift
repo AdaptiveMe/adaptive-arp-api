@@ -48,7 +48,7 @@ public class OSBridge : BaseSystemBridge, IOS, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IOS) {
+     public init(delegate : IOS?) {
           super.init()
           self.delegate = delegate
      }
@@ -108,7 +108,7 @@ public class OSBridge : BaseSystemBridge, IOS, APIBridge {
           var responseJSON : String? = ""
           switch request.getMethodName()! {
                case "getOSInfo":
-                    var response0 : OSInfo = self.getOSInfo()
+                    var response0 : OSInfo? = self.getOSInfo()
                     if (response0 != nil) {
                          responseJSON = nil //TODO - Serialize this.gson.toJson(response0);
                     } else {

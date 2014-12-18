@@ -48,7 +48,7 @@ public class MagnetometerBridge : BaseSensorBridge, IMagnetometer, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IMagnetometer) {
+     public init(delegate : IMagnetometer?) {
           super.init()
           self.delegate = delegate
      }

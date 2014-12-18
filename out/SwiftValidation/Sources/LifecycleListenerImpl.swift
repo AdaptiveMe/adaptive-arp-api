@@ -43,8 +43,8 @@ public class LifecycleListenerImpl : BaseListenerImpl, ILifecycleListener {
 
         @param id  The id of the listener.
      */
-     public init(id : Int64) {
-          super.init(id);
+     public override init(id : Int64) {
+          super.init(id: id);
      }
 
      /**
@@ -54,7 +54,7 @@ public class LifecycleListenerImpl : BaseListenerImpl, ILifecycleListener {
         @since ARP1.0
      */
      public func onError(error : ILifecycleListenerError)  {
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleLifecycleListenerError( '\(+getId()+)', JSON.parse(\"\")" )
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleLifecycleListenerError( '\(getId())', JSON.parse(\"\")" )
           /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
@@ -65,7 +65,7 @@ public class LifecycleListenerImpl : BaseListenerImpl, ILifecycleListener {
         @since ARP1.0
      */
      public func onResult(lifecycle : Lifecycle)  {
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleLifecycleListenerResult( '\(+getId()+)', JSON.parse(\"\")" )
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleLifecycleListenerResult( '\(getId())', JSON.parse(\"\")" )
           /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
@@ -77,7 +77,7 @@ public class LifecycleListenerImpl : BaseListenerImpl, ILifecycleListener {
         @since ARP1.0
      */
      public func onWarning(lifecycle : Lifecycle, warning : ILifecycleListenerWarning)  {
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleLifecycleListenerWarning( '\(+getId()+)', JSON.parse(\"\"), JSON.parse(\"\")" )
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleLifecycleListenerWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
           /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 

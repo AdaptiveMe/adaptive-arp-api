@@ -48,7 +48,7 @@ public class LinkedInBridge : BaseSocialBridge, ILinkedIn, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : ILinkedIn) {
+     public init(delegate : ILinkedIn?) {
           super.init()
           self.delegate = delegate
      }

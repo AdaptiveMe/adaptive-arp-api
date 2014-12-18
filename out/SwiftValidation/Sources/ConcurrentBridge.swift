@@ -48,7 +48,7 @@ public class ConcurrentBridge : BaseUtilBridge, IConcurrent, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IConcurrent) {
+     public init(delegate : IConcurrent?) {
           super.init()
           self.delegate = delegate
      }

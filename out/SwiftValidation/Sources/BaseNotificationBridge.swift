@@ -41,7 +41,7 @@ public class BaseNotificationBridge : NSObject, IBaseNotification {
      /**
         Group of API.
      */
-     private var apiGroup : IAdaptiveRPGroup = nil
+     private var apiGroup : IAdaptiveRPGroup? = nil
 
      /**
         JSON API.
@@ -52,7 +52,7 @@ public class BaseNotificationBridge : NSObject, IBaseNotification {
         Default constructor.
      */
      public override init() {
-          this.apiGroup = IAdaptiveRPGroup.Notification;
+          self.apiGroup = IAdaptiveRPGroup.Notification
           //this.gson = new Gson();
      }
 
@@ -60,7 +60,7 @@ public class BaseNotificationBridge : NSObject, IBaseNotification {
         Return the API group for the given interface.
      */
      public final func getAPIGroup() -> IAdaptiveRPGroup {
-          return self.apiGroup
+          return self.apiGroup!
      }
      /**
         Return the JSON serializer.

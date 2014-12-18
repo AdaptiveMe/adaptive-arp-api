@@ -48,7 +48,7 @@ public class OAuthBridge : BaseSecurityBridge, IOAuth, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IOAuth) {
+     public init(delegate : IOAuth?) {
           super.init()
           self.delegate = delegate
      }

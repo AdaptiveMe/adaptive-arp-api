@@ -48,7 +48,7 @@ public class AlarmBridge : BaseNotificationBridge, IAlarm, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IAlarm) {
+     public init(delegate : IAlarm?) {
           super.init()
           self.delegate = delegate
      }

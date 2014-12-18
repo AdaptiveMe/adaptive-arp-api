@@ -48,7 +48,7 @@ public class CryptoBridge : BaseUtilBridge, ICrypto, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : ICrypto) {
+     public init(delegate : ICrypto?) {
           super.init()
           self.delegate = delegate
      }

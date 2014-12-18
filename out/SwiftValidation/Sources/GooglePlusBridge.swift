@@ -48,7 +48,7 @@ public class GooglePlusBridge : BaseSocialBridge, IGooglePlus, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IGooglePlus) {
+     public init(delegate : IGooglePlus?) {
           super.init()
           self.delegate = delegate
      }

@@ -42,7 +42,7 @@ public class BaseSecurityDelegate : NSObject, IBaseSecurity {
      /**
         Group of API.
      */
-     private var apiGroup : IAdaptiveRPGroup
+     private var apiGroup : IAdaptiveRPGroup?
 
      /**
         Default constructor.
@@ -55,7 +55,7 @@ public class BaseSecurityDelegate : NSObject, IBaseSecurity {
         Return the API group for the given interface.
      */
      public final func getAPIGroup() -> IAdaptiveRPGroup {
-          return self.apiGroup;
+          return self.apiGroup!
      }
 
 }

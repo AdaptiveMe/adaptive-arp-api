@@ -48,7 +48,7 @@ public class UpdateBridge : BaseApplicationBridge, IUpdate, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IUpdate) {
+     public init(delegate : IUpdate?) {
           super.init()
           self.delegate = delegate
      }

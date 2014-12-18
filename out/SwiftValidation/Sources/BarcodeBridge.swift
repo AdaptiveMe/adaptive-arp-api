@@ -48,7 +48,7 @@ public class BarcodeBridge : BaseReaderBridge, IBarcode, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IBarcode) {
+     public init(delegate : IBarcode?) {
           super.init()
           self.delegate = delegate
      }

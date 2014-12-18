@@ -48,7 +48,7 @@ public class NetworkStatusBridge : BaseCommunicationBridge, INetworkStatus, APIB
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : INetworkStatus) {
+     public init(delegate : INetworkStatus?) {
           super.init()
           self.delegate = delegate
      }

@@ -46,7 +46,7 @@ public class BaseCallbackImpl : NSObject, IBaseCallback {
      /**
         Group of API.
      */
-     private var apiGroup : IAdaptiveRPGroup
+     private var apiGroup : IAdaptiveRPGroup?
 
      /**
         JSON Serializer.
@@ -76,7 +76,7 @@ public class BaseCallbackImpl : NSObject, IBaseCallback {
         Return the API group for the given interface.
      */
      public func getAPIGroup() -> IAdaptiveRPGroup {
-          return self.apiGroup
+          return self.apiGroup!
      }
      /**
         Return the JSON serializer.

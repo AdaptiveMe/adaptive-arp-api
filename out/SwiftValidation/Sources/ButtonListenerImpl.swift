@@ -43,8 +43,8 @@ public class ButtonListenerImpl : BaseListenerImpl, IButtonListener {
 
         @param id  The id of the listener.
      */
-     public init(id : Int64) {
-          super.init(id);
+     public override init(id : Int64) {
+          super.init(id: id);
      }
 
      /**
@@ -54,7 +54,7 @@ public class ButtonListenerImpl : BaseListenerImpl, IButtonListener {
         @since ARP1.0
      */
      public func onError(error : IButtonListenerError)  {
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleButtonListenerError( '\(+getId()+)', JSON.parse(\"\")" )
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleButtonListenerError( '\(getId())', JSON.parse(\"\")" )
           /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
@@ -65,7 +65,7 @@ public class ButtonListenerImpl : BaseListenerImpl, IButtonListener {
         @since ARP1.0
      */
      public func onResult(button : Button)  {
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleButtonListenerResult( '\(+getId()+)', JSON.parse(\"\")" )
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleButtonListenerResult( '\(getId())', JSON.parse(\"\")" )
           /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
@@ -77,7 +77,7 @@ public class ButtonListenerImpl : BaseListenerImpl, IButtonListener {
         @since ARP1.0
      */
      public func onWarning(button : Button, warning : IButtonListenerWarning)  {
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleButtonListenerWarning( '\(+getId()+)', JSON.parse(\"\"), JSON.parse(\"\")" )
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleButtonListenerWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
           /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 

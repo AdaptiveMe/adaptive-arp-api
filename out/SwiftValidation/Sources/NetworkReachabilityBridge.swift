@@ -48,7 +48,7 @@ public class NetworkReachabilityBridge : BaseCommunicationBridge, INetworkReacha
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : INetworkReachability) {
+     public init(delegate : INetworkReachability?) {
           super.init()
           self.delegate = delegate
      }

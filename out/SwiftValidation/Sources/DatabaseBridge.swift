@@ -48,7 +48,7 @@ public class DatabaseBridge : BaseDataBridge, IDatabase, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IDatabase) {
+     public init(delegate : IDatabase?) {
           super.init()
           self.delegate = delegate
      }
@@ -353,12 +353,12 @@ should be passed as a parameter
                     self.executeSqlTransactions(database5!, statements: statements5!, rollbackFlag: rollbackFlag5!, callback: callback5!);
                case "existsDatabase":
                     var database6 : Database? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], Database.class)
-                    var response6 : Bool = self.existsDatabase(database6!)
+                    var response6 : Bool? = self.existsDatabase(database6!)
                     responseJSON = nil //TODO - Serialize this.gson.toJson(response6);
                case "existsTable":
                     var database7 : Database? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], Database.class)
                     var databaseTable7 : DatabaseTable? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[1], DatabaseTable.class)
-                    var response7 : Bool = self.existsTable(database7!, databaseTable: databaseTable7!)
+                    var response7 : Bool? = self.existsTable(database7!, databaseTable: databaseTable7!)
                     responseJSON = nil //TODO - Serialize this.gson.toJson(response7);
                default:
                     // 404 - response null.

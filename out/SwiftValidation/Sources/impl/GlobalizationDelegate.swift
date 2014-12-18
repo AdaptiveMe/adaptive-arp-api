@@ -62,6 +62,7 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
      public func getLocaleSupportedDescriptors() -> [Locale] {
           var response : [Locale]
           // TODO: Not implemented.
+          return [Locale]()
      }
 
      /**
@@ -75,6 +76,7 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
      public func getResourceLiteral(key : String, locale : Locale) -> String {
           var response : String
           // TODO: Not implemented.
+          return String()
      }
 
      /**
@@ -87,6 +89,7 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
      public func getResourceLiterals(locale : Locale) -> [KeyPair] {
           var response : [KeyPair]
           // TODO: Not implemented.
+          return [KeyPair]()
      }
 
 }

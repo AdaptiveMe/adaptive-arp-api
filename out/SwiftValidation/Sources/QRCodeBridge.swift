@@ -48,7 +48,7 @@ public class QRCodeBridge : BaseReaderBridge, IQRCode, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IQRCode) {
+     public init(delegate : IQRCode?) {
           super.init()
           self.delegate = delegate
      }

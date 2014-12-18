@@ -48,7 +48,7 @@ public class XMLBridge : BaseDataBridge, IXML, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IXML) {
+     public init(delegate : IXML?) {
           super.init()
           self.delegate = delegate
      }

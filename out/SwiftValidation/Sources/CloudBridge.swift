@@ -48,7 +48,7 @@ public class CloudBridge : BaseDataBridge, ICloud, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : ICloud) {
+     public init(delegate : ICloud?) {
           super.init()
           self.delegate = delegate
      }

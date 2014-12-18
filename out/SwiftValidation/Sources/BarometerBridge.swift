@@ -48,7 +48,7 @@ public class BarometerBridge : BaseSensorBridge, IBarometer, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IBarometer) {
+     public init(delegate : IBarometer?) {
           super.init()
           self.delegate = delegate
      }

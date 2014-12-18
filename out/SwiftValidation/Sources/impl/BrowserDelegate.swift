@@ -63,6 +63,7 @@ public class BrowserDelegate : BaseUIDelegate, IBrowser {
      public func openExtenalBrowser(url : String) -> Bool {
           var response : Bool
           // TODO: Not implemented.
+          return false
      }
 
      /**
@@ -77,6 +78,7 @@ public class BrowserDelegate : BaseUIDelegate, IBrowser {
      public func openInternalBrowser(url : String, title : String, backButtonText : String) -> Bool {
           var response : Bool
           // TODO: Not implemented.
+          return false
      }
 
      /**
@@ -91,6 +93,7 @@ public class BrowserDelegate : BaseUIDelegate, IBrowser {
      public func openInternalBrowserModal(url : String, title : String, backButtonText : String) -> Bool {
           var response : Bool
           // TODO: Not implemented.
+          return false
      }
 
 }

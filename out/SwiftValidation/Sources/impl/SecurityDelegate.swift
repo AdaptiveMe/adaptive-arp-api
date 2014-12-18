@@ -86,6 +86,7 @@ public class SecurityDelegate : BaseSecurityDelegate, ISecurity {
      public func isDeviceModified() -> Bool {
           var response : Bool
           // TODO: Not implemented.
+          return false
      }
 
      /**

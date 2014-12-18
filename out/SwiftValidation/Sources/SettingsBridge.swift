@@ -48,7 +48,7 @@ public class SettingsBridge : BaseApplicationBridge, ISettings, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : ISettings) {
+     public init(delegate : ISettings?) {
           super.init()
           self.delegate = delegate
      }

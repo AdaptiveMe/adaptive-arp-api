@@ -48,7 +48,7 @@ public class CameraBridge : BaseMediaBridge, ICamera, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : ICamera) {
+     public init(delegate : ICamera?) {
           super.init()
           self.delegate = delegate
      }

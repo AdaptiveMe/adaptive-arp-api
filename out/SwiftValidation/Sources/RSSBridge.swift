@@ -48,7 +48,7 @@ public class RSSBridge : BaseSocialBridge, IRSS, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IRSS) {
+     public init(delegate : IRSS?) {
           super.init()
           self.delegate = delegate
      }

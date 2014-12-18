@@ -48,7 +48,7 @@ public class NFCBridge : BaseReaderBridge, INFC, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : INFC) {
+     public init(delegate : INFC?) {
           super.init()
           self.delegate = delegate
      }

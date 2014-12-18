@@ -48,7 +48,7 @@ public class AccelerationBridge : BaseSensorBridge, IAcceleration, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IAcceleration) {
+     public init(delegate : IAcceleration?) {
           super.init()
           self.delegate = delegate
      }

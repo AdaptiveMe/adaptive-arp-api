@@ -41,7 +41,7 @@ public class BaseSocialBridge : NSObject, IBaseSocial {
      /**
         Group of API.
      */
-     private var apiGroup : IAdaptiveRPGroup = nil
+     private var apiGroup : IAdaptiveRPGroup? = nil
 
      /**
         JSON API.
@@ -52,7 +52,7 @@ public class BaseSocialBridge : NSObject, IBaseSocial {
         Default constructor.
      */
      public override init() {
-          this.apiGroup = IAdaptiveRPGroup.Social;
+          self.apiGroup = IAdaptiveRPGroup.Social
           //this.gson = new Gson();
      }
 
@@ -60,7 +60,7 @@ public class BaseSocialBridge : NSObject, IBaseSocial {
         Return the API group for the given interface.
      */
      public final func getAPIGroup() -> IAdaptiveRPGroup {
-          return self.apiGroup
+          return self.apiGroup!
      }
      /**
         Return the JSON serializer.

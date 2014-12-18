@@ -48,7 +48,7 @@ public class NotificationLocalBridge : BaseNotificationBridge, INotificationLoca
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : INotificationLocal) {
+     public init(delegate : INotificationLocal?) {
           super.init()
           self.delegate = delegate
      }

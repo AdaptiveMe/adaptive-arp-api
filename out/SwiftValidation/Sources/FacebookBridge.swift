@@ -48,7 +48,7 @@ public class FacebookBridge : BaseSocialBridge, IFacebook, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IFacebook) {
+     public init(delegate : IFacebook?) {
           super.init()
           self.delegate = delegate
      }

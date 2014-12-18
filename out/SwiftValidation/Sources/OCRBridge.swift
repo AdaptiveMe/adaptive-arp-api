@@ -48,7 +48,7 @@ public class OCRBridge : BaseReaderBridge, IOCR, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IOCR) {
+     public init(delegate : IOCR?) {
           super.init()
           self.delegate = delegate
      }

@@ -48,7 +48,7 @@ public class VibrationBridge : BaseNotificationBridge, IVibration, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IVibration) {
+     public init(delegate : IVibration?) {
           super.init()
           self.delegate = delegate
      }

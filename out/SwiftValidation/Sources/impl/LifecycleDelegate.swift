@@ -72,6 +72,7 @@ public class LifecycleDelegate : BaseApplicationDelegate, ILifecycle {
      public func isBackground() -> Bool {
           var response : Bool
           // TODO: Not implemented.
+          return false
      }
 
      /**

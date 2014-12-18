@@ -48,7 +48,7 @@ public class StoreBridge : BaseCommerceBridge, IStore, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IStore) {
+     public init(delegate : IStore?) {
           super.init()
           self.delegate = delegate
      }

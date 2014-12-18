@@ -37,7 +37,7 @@ Release:
    Interface to retrieve auto-registered service implementation references.
    Auto-generated implementation of IAppRegistry specification.
 */
-public class AppRegistryDelegate : IAppRegistry {
+public class AppRegistryDelegate : NSObject, IAppRegistry {
 
      /**
         Default Constructor.
@@ -126,9 +126,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getAccelerationBridge() -> AccelerationBridge {
            if(__accelerationBridge == nil) {
-               __accelerationBridge = AccelerationBridge(nil);
+               __accelerationBridge = AccelerationBridge(delegate: nil);
           }
-          return __accelerationBridge
+          return __accelerationBridge!
      }
 
      /**
@@ -138,9 +138,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getAdsBridge() -> AdsBridge {
            if(__adsBridge == nil) {
-               __adsBridge = AdsBridge(nil);
+               __adsBridge = AdsBridge(delegate: nil);
           }
-          return __adsBridge
+          return __adsBridge!
      }
 
      /**
@@ -150,9 +150,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getAlarmBridge() -> AlarmBridge {
            if(__alarmBridge == nil) {
-               __alarmBridge = AlarmBridge(nil);
+               __alarmBridge = AlarmBridge(delegate: nil);
           }
-          return __alarmBridge
+          return __alarmBridge!
      }
 
      /**
@@ -162,9 +162,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getAmbientLightBridge() -> AmbientLightBridge {
            if(__ambientlightBridge == nil) {
-               __ambientlightBridge = AmbientLightBridge(nil);
+               __ambientlightBridge = AmbientLightBridge(delegate: nil);
           }
-          return __ambientlightBridge
+          return __ambientlightBridge!
      }
 
      /**
@@ -174,9 +174,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getAnalyticsBridge() -> AnalyticsBridge {
            if(__analyticsBridge == nil) {
-               __analyticsBridge = AnalyticsBridge(nil);
+               __analyticsBridge = AnalyticsBridge(delegate: nil);
           }
-          return __analyticsBridge
+          return __analyticsBridge!
      }
 
      /**
@@ -186,9 +186,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getAudioBridge() -> AudioBridge {
            if(__audioBridge == nil) {
-               __audioBridge = AudioBridge(nil);
+               __audioBridge = AudioBridge(delegate: nil);
           }
-          return __audioBridge
+          return __audioBridge!
      }
 
      /**
@@ -198,9 +198,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getBarcodeBridge() -> BarcodeBridge {
            if(__barcodeBridge == nil) {
-               __barcodeBridge = BarcodeBridge(nil);
+               __barcodeBridge = BarcodeBridge(delegate: nil);
           }
-          return __barcodeBridge
+          return __barcodeBridge!
      }
 
      /**
@@ -210,9 +210,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getBarometerBridge() -> BarometerBridge {
            if(__barometerBridge == nil) {
-               __barometerBridge = BarometerBridge(nil);
+               __barometerBridge = BarometerBridge(delegate: nil);
           }
-          return __barometerBridge
+          return __barometerBridge!
      }
 
      /**
@@ -222,9 +222,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getBluetoothBridge() -> BluetoothBridge {
            if(__bluetoothBridge == nil) {
-               __bluetoothBridge = BluetoothBridge(nil);
+               __bluetoothBridge = BluetoothBridge(delegate: nil);
           }
-          return __bluetoothBridge
+          return __bluetoothBridge!
      }
 
      /**
@@ -234,9 +234,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getBrowserBridge() -> BrowserBridge {
            if(__browserBridge == nil) {
-               __browserBridge = BrowserBridge(nil);
+               __browserBridge = BrowserBridge(delegate: nil);
           }
-          return __browserBridge
+          return __browserBridge!
      }
 
      /**
@@ -246,9 +246,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getCalendarBridge() -> CalendarBridge {
            if(__calendarBridge == nil) {
-               __calendarBridge = CalendarBridge(nil);
+               __calendarBridge = CalendarBridge(delegate: nil);
           }
-          return __calendarBridge
+          return __calendarBridge!
      }
 
      /**
@@ -258,9 +258,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getCameraBridge() -> CameraBridge {
            if(__cameraBridge == nil) {
-               __cameraBridge = CameraBridge(nil);
+               __cameraBridge = CameraBridge(delegate: nil);
           }
-          return __cameraBridge
+          return __cameraBridge!
      }
 
      /**
@@ -270,9 +270,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getCapabilitiesBridge() -> CapabilitiesBridge {
            if(__capabilitiesBridge == nil) {
-               __capabilitiesBridge = CapabilitiesBridge(nil);
+               __capabilitiesBridge = CapabilitiesBridge(delegate: nil);
           }
-          return __capabilitiesBridge
+          return __capabilitiesBridge!
      }
 
      /**
@@ -282,9 +282,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getCloudBridge() -> CloudBridge {
            if(__cloudBridge == nil) {
-               __cloudBridge = CloudBridge(nil);
+               __cloudBridge = CloudBridge(delegate: nil);
           }
-          return __cloudBridge
+          return __cloudBridge!
      }
 
      /**
@@ -294,9 +294,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getCompressionBridge() -> CompressionBridge {
            if(__compressionBridge == nil) {
-               __compressionBridge = CompressionBridge(nil);
+               __compressionBridge = CompressionBridge(delegate: nil);
           }
-          return __compressionBridge
+          return __compressionBridge!
      }
 
      /**
@@ -306,9 +306,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getConcurrentBridge() -> ConcurrentBridge {
            if(__concurrentBridge == nil) {
-               __concurrentBridge = ConcurrentBridge(nil);
+               __concurrentBridge = ConcurrentBridge(delegate: nil);
           }
-          return __concurrentBridge
+          return __concurrentBridge!
      }
 
      /**
@@ -318,9 +318,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getContactBridge() -> ContactBridge {
            if(__contactBridge == nil) {
-               __contactBridge = ContactBridge(nil);
+               __contactBridge = ContactBridge(delegate: nil);
           }
-          return __contactBridge
+          return __contactBridge!
      }
 
      /**
@@ -330,9 +330,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getCryptoBridge() -> CryptoBridge {
            if(__cryptoBridge == nil) {
-               __cryptoBridge = CryptoBridge(nil);
+               __cryptoBridge = CryptoBridge(delegate: nil);
           }
-          return __cryptoBridge
+          return __cryptoBridge!
      }
 
      /**
@@ -342,9 +342,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getDataStreamBridge() -> DataStreamBridge {
            if(__datastreamBridge == nil) {
-               __datastreamBridge = DataStreamBridge(nil);
+               __datastreamBridge = DataStreamBridge(delegate: nil);
           }
-          return __datastreamBridge
+          return __datastreamBridge!
      }
 
      /**
@@ -354,9 +354,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getDatabaseBridge() -> DatabaseBridge {
            if(__databaseBridge == nil) {
-               __databaseBridge = DatabaseBridge(nil);
+               __databaseBridge = DatabaseBridge(delegate: nil);
           }
-          return __databaseBridge
+          return __databaseBridge!
      }
 
      /**
@@ -366,9 +366,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getDesktopBridge() -> DesktopBridge {
            if(__desktopBridge == nil) {
-               __desktopBridge = DesktopBridge(nil);
+               __desktopBridge = DesktopBridge(delegate: nil);
           }
-          return __desktopBridge
+          return __desktopBridge!
      }
 
      /**
@@ -378,9 +378,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getDeviceBridge() -> DeviceBridge {
            if(__deviceBridge == nil) {
-               __deviceBridge = DeviceBridge(nil);
+               __deviceBridge = DeviceBridge(delegate: nil);
           }
-          return __deviceBridge
+          return __deviceBridge!
      }
 
      /**
@@ -390,9 +390,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getDisplayBridge() -> DisplayBridge {
            if(__displayBridge == nil) {
-               __displayBridge = DisplayBridge(nil);
+               __displayBridge = DisplayBridge(delegate: nil);
           }
-          return __displayBridge
+          return __displayBridge!
      }
 
      /**
@@ -402,9 +402,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getFacebookBridge() -> FacebookBridge {
            if(__facebookBridge == nil) {
-               __facebookBridge = FacebookBridge(nil);
+               __facebookBridge = FacebookBridge(delegate: nil);
           }
-          return __facebookBridge
+          return __facebookBridge!
      }
 
      /**
@@ -414,9 +414,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getFileSystemBridge() -> FileSystemBridge {
            if(__filesystemBridge == nil) {
-               __filesystemBridge = FileSystemBridge(nil);
+               __filesystemBridge = FileSystemBridge(delegate: nil);
           }
-          return __filesystemBridge
+          return __filesystemBridge!
      }
 
      /**
@@ -426,9 +426,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getGeolocationBridge() -> GeolocationBridge {
            if(__geolocationBridge == nil) {
-               __geolocationBridge = GeolocationBridge(nil);
+               __geolocationBridge = GeolocationBridge(delegate: nil);
           }
-          return __geolocationBridge
+          return __geolocationBridge!
      }
 
      /**
@@ -438,9 +438,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getGlobalizationBridge() -> GlobalizationBridge {
            if(__globalizationBridge == nil) {
-               __globalizationBridge = GlobalizationBridge(nil);
+               __globalizationBridge = GlobalizationBridge(delegate: nil);
           }
-          return __globalizationBridge
+          return __globalizationBridge!
      }
 
      /**
@@ -450,9 +450,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getGooglePlusBridge() -> GooglePlusBridge {
            if(__googleplusBridge == nil) {
-               __googleplusBridge = GooglePlusBridge(nil);
+               __googleplusBridge = GooglePlusBridge(delegate: nil);
           }
-          return __googleplusBridge
+          return __googleplusBridge!
      }
 
      /**
@@ -462,9 +462,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getGyroscopeBridge() -> GyroscopeBridge {
            if(__gyroscopeBridge == nil) {
-               __gyroscopeBridge = GyroscopeBridge(nil);
+               __gyroscopeBridge = GyroscopeBridge(delegate: nil);
           }
-          return __gyroscopeBridge
+          return __gyroscopeBridge!
      }
 
      /**
@@ -474,9 +474,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getImagingBridge() -> ImagingBridge {
            if(__imagingBridge == nil) {
-               __imagingBridge = ImagingBridge(nil);
+               __imagingBridge = ImagingBridge(delegate: nil);
           }
-          return __imagingBridge
+          return __imagingBridge!
      }
 
      /**
@@ -486,9 +486,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getInternalStorageBridge() -> InternalStorageBridge {
            if(__internalstorageBridge == nil) {
-               __internalstorageBridge = InternalStorageBridge(nil);
+               __internalstorageBridge = InternalStorageBridge(delegate: nil);
           }
-          return __internalstorageBridge
+          return __internalstorageBridge!
      }
 
      /**
@@ -498,9 +498,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getLifecycleBridge() -> LifecycleBridge {
            if(__lifecycleBridge == nil) {
-               __lifecycleBridge = LifecycleBridge(nil);
+               __lifecycleBridge = LifecycleBridge(delegate: nil);
           }
-          return __lifecycleBridge
+          return __lifecycleBridge!
      }
 
      /**
@@ -510,9 +510,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getLinkedInBridge() -> LinkedInBridge {
            if(__linkedinBridge == nil) {
-               __linkedinBridge = LinkedInBridge(nil);
+               __linkedinBridge = LinkedInBridge(delegate: nil);
           }
-          return __linkedinBridge
+          return __linkedinBridge!
      }
 
      /**
@@ -522,9 +522,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getLoggingBridge() -> LoggingBridge {
            if(__loggingBridge == nil) {
-               __loggingBridge = LoggingBridge(nil);
+               __loggingBridge = LoggingBridge(delegate: nil);
           }
-          return __loggingBridge
+          return __loggingBridge!
      }
 
      /**
@@ -534,9 +534,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getMagnetometerBridge() -> MagnetometerBridge {
            if(__magnetometerBridge == nil) {
-               __magnetometerBridge = MagnetometerBridge(nil);
+               __magnetometerBridge = MagnetometerBridge(delegate: nil);
           }
-          return __magnetometerBridge
+          return __magnetometerBridge!
      }
 
      /**
@@ -546,9 +546,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getMailBridge() -> MailBridge {
            if(__mailBridge == nil) {
-               __mailBridge = MailBridge(nil);
+               __mailBridge = MailBridge(delegate: nil);
           }
-          return __mailBridge
+          return __mailBridge!
      }
 
      /**
@@ -558,9 +558,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getManagementBridge() -> ManagementBridge {
            if(__managementBridge == nil) {
-               __managementBridge = ManagementBridge(nil);
+               __managementBridge = ManagementBridge(delegate: nil);
           }
-          return __managementBridge
+          return __managementBridge!
      }
 
      /**
@@ -570,9 +570,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getMapBridge() -> MapBridge {
            if(__mapBridge == nil) {
-               __mapBridge = MapBridge(nil);
+               __mapBridge = MapBridge(delegate: nil);
           }
-          return __mapBridge
+          return __mapBridge!
      }
 
      /**
@@ -582,9 +582,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getMessagingBridge() -> MessagingBridge {
            if(__messagingBridge == nil) {
-               __messagingBridge = MessagingBridge(nil);
+               __messagingBridge = MessagingBridge(delegate: nil);
           }
-          return __messagingBridge
+          return __messagingBridge!
      }
 
      /**
@@ -594,9 +594,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getNFCBridge() -> NFCBridge {
            if(__nfcBridge == nil) {
-               __nfcBridge = NFCBridge(nil);
+               __nfcBridge = NFCBridge(delegate: nil);
           }
-          return __nfcBridge
+          return __nfcBridge!
      }
 
      /**
@@ -606,9 +606,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getNetworkInfoBridge() -> NetworkInfoBridge {
            if(__networkinfoBridge == nil) {
-               __networkinfoBridge = NetworkInfoBridge(nil);
+               __networkinfoBridge = NetworkInfoBridge(delegate: nil);
           }
-          return __networkinfoBridge
+          return __networkinfoBridge!
      }
 
      /**
@@ -618,9 +618,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getNetworkNamingBridge() -> NetworkNamingBridge {
            if(__networknamingBridge == nil) {
-               __networknamingBridge = NetworkNamingBridge(nil);
+               __networknamingBridge = NetworkNamingBridge(delegate: nil);
           }
-          return __networknamingBridge
+          return __networknamingBridge!
      }
 
      /**
@@ -630,9 +630,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getNetworkReachabilityBridge() -> NetworkReachabilityBridge {
            if(__networkreachabilityBridge == nil) {
-               __networkreachabilityBridge = NetworkReachabilityBridge(nil);
+               __networkreachabilityBridge = NetworkReachabilityBridge(delegate: nil);
           }
-          return __networkreachabilityBridge
+          return __networkreachabilityBridge!
      }
 
      /**
@@ -642,9 +642,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getNetworkStatusBridge() -> NetworkStatusBridge {
            if(__networkstatusBridge == nil) {
-               __networkstatusBridge = NetworkStatusBridge(nil);
+               __networkstatusBridge = NetworkStatusBridge(delegate: nil);
           }
-          return __networkstatusBridge
+          return __networkstatusBridge!
      }
 
      /**
@@ -654,9 +654,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getNotificationBridge() -> NotificationBridge {
            if(__notificationBridge == nil) {
-               __notificationBridge = NotificationBridge(nil);
+               __notificationBridge = NotificationBridge(delegate: nil);
           }
-          return __notificationBridge
+          return __notificationBridge!
      }
 
      /**
@@ -666,9 +666,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getNotificationLocalBridge() -> NotificationLocalBridge {
            if(__notificationlocalBridge == nil) {
-               __notificationlocalBridge = NotificationLocalBridge(nil);
+               __notificationlocalBridge = NotificationLocalBridge(delegate: nil);
           }
-          return __notificationlocalBridge
+          return __notificationlocalBridge!
      }
 
      /**
@@ -678,9 +678,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getOAuthBridge() -> OAuthBridge {
            if(__oauthBridge == nil) {
-               __oauthBridge = OAuthBridge(nil);
+               __oauthBridge = OAuthBridge(delegate: nil);
           }
-          return __oauthBridge
+          return __oauthBridge!
      }
 
      /**
@@ -690,9 +690,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getOCRBridge() -> OCRBridge {
            if(__ocrBridge == nil) {
-               __ocrBridge = OCRBridge(nil);
+               __ocrBridge = OCRBridge(delegate: nil);
           }
-          return __ocrBridge
+          return __ocrBridge!
      }
 
      /**
@@ -702,9 +702,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getOSBridge() -> OSBridge {
            if(__osBridge == nil) {
-               __osBridge = OSBridge(nil);
+               __osBridge = OSBridge(delegate: nil);
           }
-          return __osBridge
+          return __osBridge!
      }
 
      /**
@@ -714,9 +714,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getOpenIdBridge() -> OpenIdBridge {
            if(__openidBridge == nil) {
-               __openidBridge = OpenIdBridge(nil);
+               __openidBridge = OpenIdBridge(delegate: nil);
           }
-          return __openidBridge
+          return __openidBridge!
      }
 
      /**
@@ -726,9 +726,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getPrintingBridge() -> PrintingBridge {
            if(__printingBridge == nil) {
-               __printingBridge = PrintingBridge(nil);
+               __printingBridge = PrintingBridge(delegate: nil);
           }
-          return __printingBridge
+          return __printingBridge!
      }
 
      /**
@@ -738,9 +738,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getProximityBridge() -> ProximityBridge {
            if(__proximityBridge == nil) {
-               __proximityBridge = ProximityBridge(nil);
+               __proximityBridge = ProximityBridge(delegate: nil);
           }
-          return __proximityBridge
+          return __proximityBridge!
      }
 
      /**
@@ -750,9 +750,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getQRCodeBridge() -> QRCodeBridge {
            if(__qrcodeBridge == nil) {
-               __qrcodeBridge = QRCodeBridge(nil);
+               __qrcodeBridge = QRCodeBridge(delegate: nil);
           }
-          return __qrcodeBridge
+          return __qrcodeBridge!
      }
 
      /**
@@ -762,9 +762,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getRSSBridge() -> RSSBridge {
            if(__rssBridge == nil) {
-               __rssBridge = RSSBridge(nil);
+               __rssBridge = RSSBridge(delegate: nil);
           }
-          return __rssBridge
+          return __rssBridge!
      }
 
      /**
@@ -774,9 +774,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getRuntimeBridge() -> RuntimeBridge {
            if(__runtimeBridge == nil) {
-               __runtimeBridge = RuntimeBridge(nil);
+               __runtimeBridge = RuntimeBridge(delegate: nil);
           }
-          return __runtimeBridge
+          return __runtimeBridge!
      }
 
      /**
@@ -786,9 +786,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getSecurityBridge() -> SecurityBridge {
            if(__securityBridge == nil) {
-               __securityBridge = SecurityBridge(nil);
+               __securityBridge = SecurityBridge(delegate: nil);
           }
-          return __securityBridge
+          return __securityBridge!
      }
 
      /**
@@ -798,9 +798,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getServiceBridge() -> ServiceBridge {
            if(__serviceBridge == nil) {
-               __serviceBridge = ServiceBridge(nil);
+               __serviceBridge = ServiceBridge(delegate: nil);
           }
-          return __serviceBridge
+          return __serviceBridge!
      }
 
      /**
@@ -810,9 +810,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getSettingsBridge() -> SettingsBridge {
            if(__settingsBridge == nil) {
-               __settingsBridge = SettingsBridge(nil);
+               __settingsBridge = SettingsBridge(delegate: nil);
           }
-          return __settingsBridge
+          return __settingsBridge!
      }
 
      /**
@@ -822,9 +822,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getSocketBridge() -> SocketBridge {
            if(__socketBridge == nil) {
-               __socketBridge = SocketBridge(nil);
+               __socketBridge = SocketBridge(delegate: nil);
           }
-          return __socketBridge
+          return __socketBridge!
      }
 
      /**
@@ -834,9 +834,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getStoreBridge() -> StoreBridge {
            if(__storeBridge == nil) {
-               __storeBridge = StoreBridge(nil);
+               __storeBridge = StoreBridge(delegate: nil);
           }
-          return __storeBridge
+          return __storeBridge!
      }
 
      /**
@@ -846,9 +846,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getTelephonyBridge() -> TelephonyBridge {
            if(__telephonyBridge == nil) {
-               __telephonyBridge = TelephonyBridge(nil);
+               __telephonyBridge = TelephonyBridge(delegate: nil);
           }
-          return __telephonyBridge
+          return __telephonyBridge!
      }
 
      /**
@@ -858,9 +858,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getTimerBridge() -> TimerBridge {
            if(__timerBridge == nil) {
-               __timerBridge = TimerBridge(nil);
+               __timerBridge = TimerBridge(delegate: nil);
           }
-          return __timerBridge
+          return __timerBridge!
      }
 
      /**
@@ -870,9 +870,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getTwitterBridge() -> TwitterBridge {
            if(__twitterBridge == nil) {
-               __twitterBridge = TwitterBridge(nil);
+               __twitterBridge = TwitterBridge(delegate: nil);
           }
-          return __twitterBridge
+          return __twitterBridge!
      }
 
      /**
@@ -882,9 +882,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getUIBridge() -> UIBridge {
            if(__uiBridge == nil) {
-               __uiBridge = UIBridge(nil);
+               __uiBridge = UIBridge(delegate: nil);
           }
-          return __uiBridge
+          return __uiBridge!
      }
 
      /**
@@ -894,9 +894,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getUpdateBridge() -> UpdateBridge {
            if(__updateBridge == nil) {
-               __updateBridge = UpdateBridge(nil);
+               __updateBridge = UpdateBridge(delegate: nil);
           }
-          return __updateBridge
+          return __updateBridge!
      }
 
      /**
@@ -906,9 +906,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getVibrationBridge() -> VibrationBridge {
            if(__vibrationBridge == nil) {
-               __vibrationBridge = VibrationBridge(nil);
+               __vibrationBridge = VibrationBridge(delegate: nil);
           }
-          return __vibrationBridge
+          return __vibrationBridge!
      }
 
      /**
@@ -918,9 +918,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getVideoBridge() -> VideoBridge {
            if(__videoBridge == nil) {
-               __videoBridge = VideoBridge(nil);
+               __videoBridge = VideoBridge(delegate: nil);
           }
-          return __videoBridge
+          return __videoBridge!
      }
 
      /**
@@ -930,9 +930,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getWalletBridge() -> WalletBridge {
            if(__walletBridge == nil) {
-               __walletBridge = WalletBridge(nil);
+               __walletBridge = WalletBridge(delegate: nil);
           }
-          return __walletBridge
+          return __walletBridge!
      }
 
      /**
@@ -942,9 +942,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public final func getXMLBridge() -> XMLBridge {
            if(__xmlBridge == nil) {
-               __xmlBridge = XMLBridge(nil);
+               __xmlBridge = XMLBridge(delegate: nil);
           }
-          return __xmlBridge
+          return __xmlBridge!
      }
 
      /**
@@ -953,7 +953,7 @@ public class AppRegistryDelegate : IAppRegistry {
         @param bridgeType String with the interface name required.
         @return APIBridge That handles calls for the specified interface or nil if the given bridge is not registered.
      */
-     public final func getBridge(String bridgeType) -> APIBridge {
+     public final func getBridge(bridgeType : String) -> APIBridge? {
           switch(bridgeType) {
 
                case "IAcceleration":
@@ -1181,9 +1181,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public func getPlatformContext() -> AppContextBridge {
            if(__appcontextBridge == nil) {
-               __appcontextBridge = AppContextBridge(nil)
+               __appcontextBridge = AppContextBridge(delegate: nil)
           }
-          return __appcontextBridge
+          return __appcontextBridge!
      }
 
      /**
@@ -1199,9 +1199,9 @@ public class AppRegistryDelegate : IAppRegistry {
      */
      public func getPlatformContextWeb() -> AppContextWebviewBridge {
            if(__appcontextwebviewBridge == nil) {
-               __appcontextwebviewBridge = AppContextWebviewBridge(nil)
+               __appcontextwebviewBridge = AppContextWebviewBridge(delegate: nil)
           }
-          return __appcontextwebviewBridge
+          return __appcontextwebviewBridge!
      }
 
 }

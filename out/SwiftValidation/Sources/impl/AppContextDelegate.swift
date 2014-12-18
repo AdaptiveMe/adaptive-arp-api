@@ -37,7 +37,7 @@ Release:
    Interface for context management purposes
    Auto-generated implementation of IAppContext specification.
 */
-public class AppContextDelegate : IAppContext {
+public class AppContextDelegate : NSObject, IAppContext {
 
      /**
         Default Constructor.
@@ -55,6 +55,7 @@ public class AppContextDelegate : IAppContext {
      public func getContext() -> AnyObject {
           var response : AnyObject
           // TODO: Not implemented.
+          return ""
      }
 
      /**
@@ -66,6 +67,7 @@ public class AppContextDelegate : IAppContext {
      public func getContextType() -> IOSType {
           var response : IOSType
           // TODO: Not implemented.
+          return IOSType.Unknown
      }
 
 }

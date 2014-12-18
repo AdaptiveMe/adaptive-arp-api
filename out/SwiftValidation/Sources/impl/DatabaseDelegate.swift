@@ -137,6 +137,7 @@ should be passed as a parameter
      public func existsDatabase(database : Database) -> Bool {
           var response : Bool
           // TODO: Not implemented.
+          return false
      }
 
      /**
@@ -150,6 +151,7 @@ should be passed as a parameter
      public func existsTable(database : Database, databaseTable : DatabaseTable) -> Bool {
           var response : Bool
           // TODO: Not implemented.
+          return false
      }
 
 }

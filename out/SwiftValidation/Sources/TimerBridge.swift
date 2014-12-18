@@ -48,7 +48,7 @@ public class TimerBridge : BaseUtilBridge, ITimer, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : ITimer) {
+     public init(delegate : ITimer?) {
           super.init()
           self.delegate = delegate
      }

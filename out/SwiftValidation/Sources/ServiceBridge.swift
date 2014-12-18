@@ -48,7 +48,7 @@ public class ServiceBridge : BaseCommunicationBridge, IService, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IService) {
+     public init(delegate : IService?) {
           super.init()
           self.delegate = delegate
      }
@@ -283,7 +283,7 @@ public class ServiceBridge : BaseCommunicationBridge, IService, APIBridge {
           switch request.getMethodName()! {
                case "getService":
                     var serviceName0 : String? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], String.class)
-                    var response0 : Service = self.getService(serviceName0!)
+                    var response0 : Service? = self.getService(serviceName0!)
                     if (response0 != nil) {
                          responseJSON = nil //TODO - Serialize this.gson.toJson(response0);
                     } else {

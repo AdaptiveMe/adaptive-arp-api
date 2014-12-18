@@ -63,6 +63,7 @@ public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
      public func hasButtonSupport(type : ICapabilitiesButton) -> Bool {
           var response : Bool
           // TODO: Not implemented.
+          return false
      }
 
      /**
@@ -76,6 +77,7 @@ the device.
      public func hasCommunicationSupport(type : ICapabilitiesCommunication) -> Bool {
           var response : Bool
           // TODO: Not implemented.
+          return false
      }
 
      /**
@@ -88,6 +90,7 @@ the device.
      public func hasDataSupport(type : ICapabilitiesData) -> Bool {
           var response : Bool
           // TODO: Not implemented.
+          return false
      }
 
      /**
@@ -101,6 +104,7 @@ device.
      public func hasMediaSupport(type : ICapabilitiesMedia) -> Bool {
           var response : Bool
           // TODO: Not implemented.
+          return false
      }
 
      /**
@@ -113,6 +117,7 @@ device.
      public func hasNetSupport(type : ICapabilitiesNet) -> Bool {
           var response : Bool
           // TODO: Not implemented.
+          return false
      }
 
      /**
@@ -126,6 +131,7 @@ device.
      public func hasNotificationSupport(type : ICapabilitiesNotification) -> Bool {
           var response : Bool
           // TODO: Not implemented.
+          return false
      }
 
      /**
@@ -139,6 +145,7 @@ device.
      public func hasSensorSupport(type : ICapabilitiesSensor) -> Bool {
           var response : Bool
           // TODO: Not implemented.
+          return false
      }
 
 }

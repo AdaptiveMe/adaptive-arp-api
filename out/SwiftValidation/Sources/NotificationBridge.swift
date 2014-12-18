@@ -48,7 +48,7 @@ public class NotificationBridge : BaseNotificationBridge, INotification, APIBrid
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : INotification) {
+     public init(delegate : INotification?) {
           super.init()
           self.delegate = delegate
      }

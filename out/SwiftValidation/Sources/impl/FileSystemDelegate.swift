@@ -65,6 +65,7 @@ This method does not create the actual file in the specified folder.
      public func createFileDescriptor(parent : IFile, name : String) -> IFile {
           var response : IFile
           // TODO: Not implemented.
+          return IFile()
      }
 
      /**
@@ -78,6 +79,7 @@ This path is volatile and may be cleaned by the OS periodically.
      public func getApplicationCacheFolder() -> IFile {
           var response : IFile
           // TODO: Not implemented.
+          return IFile()
      }
 
      /**
@@ -90,6 +92,7 @@ This path must always be writable by the current application.
      public func getApplicationCloudFolder() -> IFile {
           var response : IFile
           // TODO: Not implemented.
+          return IFile()
      }
 
      /**
@@ -102,6 +105,7 @@ This path must always be writable by the current application.
      public func getApplicationDocumentsFolder() -> IFile {
           var response : IFile
           // TODO: Not implemented.
+          return IFile()
      }
 
      /**
@@ -114,6 +118,7 @@ This path may or may not be directly readable or writable - it usually contains 
      public func getApplicationFolder() -> IFile {
           var response : IFile
           // TODO: Not implemented.
+          return IFile()
      }
 
      /**
@@ -126,6 +131,7 @@ This path must always be writable by the current application.
      public func getApplicationProtectedFolder() -> IFile {
           var response : IFile
           // TODO: Not implemented.
+          return IFile()
      }
 
      /**
@@ -137,6 +143,7 @@ This path must always be writable by the current application.
      public func getSeparator() -> Character {
           var response : Character
           // TODO: Not implemented.
+          return " "
      }
 
      /**
@@ -151,6 +158,7 @@ This path may or may not be writable by the current application.
      public func getSystemExternalFolder() -> IFile {
           var response : IFile
           // TODO: Not implemented.
+          return IFile()
      }
 
 }

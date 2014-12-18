@@ -48,7 +48,7 @@ public class MapBridge : BaseUIBridge, IMap, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IMap) {
+     public init(delegate : IMap?) {
           super.init()
           self.delegate = delegate
      }

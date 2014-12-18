@@ -48,7 +48,7 @@ public class AnalyticsBridge : BaseApplicationBridge, IAnalytics, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IAnalytics) {
+     public init(delegate : IAnalytics?) {
           super.init()
           self.delegate = delegate
      }

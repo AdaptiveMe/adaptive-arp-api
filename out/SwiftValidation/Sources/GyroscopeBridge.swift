@@ -48,7 +48,7 @@ public class GyroscopeBridge : BaseSensorBridge, IGyroscope, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IGyroscope) {
+     public init(delegate : IGyroscope?) {
           super.init()
           self.delegate = delegate
      }

@@ -48,7 +48,7 @@ public class WalletBridge : BaseCommerceBridge, IWallet, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IWallet) {
+     public init(delegate : IWallet?) {
           super.init()
           self.delegate = delegate
      }

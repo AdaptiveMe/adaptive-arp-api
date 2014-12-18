@@ -48,7 +48,7 @@ public class DeviceBridge : BaseSystemBridge, IDevice, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IDevice) {
+     public init(delegate : IDevice?) {
           super.init()
           self.delegate = delegate
      }
@@ -223,14 +223,14 @@ public class DeviceBridge : BaseSystemBridge, IDevice, APIBridge {
                     var listener0 : IButtonListener? =  ButtonListenerImpl(id: request.getAsyncId()!)
                     self.addButtonListener(listener0!);
                case "getDeviceInfo":
-                    var response1 : DeviceInfo = self.getDeviceInfo()
+                    var response1 : DeviceInfo? = self.getDeviceInfo()
                     if (response1 != nil) {
                          responseJSON = nil //TODO - Serialize this.gson.toJson(response1);
                     } else {
                          responseJSON = nil
                     }
                case "getLocaleCurrent":
-                    var response2 : Locale = self.getLocaleCurrent()
+                    var response2 : Locale? = self.getLocaleCurrent()
                     if (response2 != nil) {
                          responseJSON = nil //TODO - Serialize this.gson.toJson(response2);
                     } else {

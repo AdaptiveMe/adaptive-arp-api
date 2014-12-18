@@ -48,7 +48,7 @@ public class SocketBridge : BaseCommunicationBridge, ISocket, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : ISocket) {
+     public init(delegate : ISocket?) {
           super.init()
           self.delegate = delegate
      }

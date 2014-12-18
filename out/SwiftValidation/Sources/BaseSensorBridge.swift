@@ -41,7 +41,7 @@ public class BaseSensorBridge : NSObject, IBaseSensor {
      /**
         Group of API.
      */
-     private var apiGroup : IAdaptiveRPGroup = nil
+     private var apiGroup : IAdaptiveRPGroup? = nil
 
      /**
         JSON API.
@@ -52,7 +52,7 @@ public class BaseSensorBridge : NSObject, IBaseSensor {
         Default constructor.
      */
      public override init() {
-          this.apiGroup = IAdaptiveRPGroup.Sensor;
+          self.apiGroup = IAdaptiveRPGroup.Sensor
           //this.gson = new Gson();
      }
 
@@ -60,7 +60,7 @@ public class BaseSensorBridge : NSObject, IBaseSensor {
         Return the API group for the given interface.
      */
      public final func getAPIGroup() -> IAdaptiveRPGroup {
-          return self.apiGroup
+          return self.apiGroup!
      }
      /**
         Return the JSON serializer.

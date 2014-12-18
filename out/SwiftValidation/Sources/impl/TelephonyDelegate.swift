@@ -63,6 +63,7 @@ public class TelephonyDelegate : BaseCommunicationDelegate, ITelephony {
      public func call(number : String) -> ITelephonyStatus {
           var response : ITelephonyStatus
           // TODO: Not implemented.
+          return ITelephonyStatus.Unknown
      }
 
 }

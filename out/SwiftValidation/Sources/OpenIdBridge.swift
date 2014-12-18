@@ -48,7 +48,7 @@ public class OpenIdBridge : BaseSecurityBridge, IOpenId, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IOpenId) {
+     public init(delegate : IOpenId?) {
           super.init()
           self.delegate = delegate
      }

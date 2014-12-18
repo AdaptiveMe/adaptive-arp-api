@@ -529,7 +529,7 @@ public protocol IAppRegistry : NSObjectProtocol {
         @param bridgeType String with the interface name required.
         @return APIBridge That handles calls for the specified interface or null if the given bridge is not registered.
      */
-     func getBridge(bridgeType : String) -> APIBridge
+     func getBridge(bridgeType : String) -> APIBridge?
 
      /**
         Returns a reference to the Platform Context

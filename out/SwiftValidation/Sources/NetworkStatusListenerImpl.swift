@@ -43,8 +43,8 @@ public class NetworkStatusListenerImpl : BaseListenerImpl, INetworkStatusListene
 
         @param id  The id of the listener.
      */
-     public init(id : Int64) {
-          super.init(id);
+     public override init(id : Int64) {
+          super.init(id: id);
      }
 
      /**
@@ -54,7 +54,7 @@ public class NetworkStatusListenerImpl : BaseListenerImpl, INetworkStatusListene
         @since ARP1.0
      */
      public func onError(error : INetworkStatusListenerError)  {
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerError( '\(+getId()+)', JSON.parse(\"\")" )
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerError( '\(getId())', JSON.parse(\"\")" )
           /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
@@ -65,7 +65,7 @@ public class NetworkStatusListenerImpl : BaseListenerImpl, INetworkStatusListene
         @since ARP1.0
      */
      public func onResult(network : ICapabilitiesNet)  {
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerResult( '\(+getId()+)', JSON.parse(\"\")" )
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerResult( '\(getId())', JSON.parse(\"\")" )
           /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
@@ -77,7 +77,7 @@ public class NetworkStatusListenerImpl : BaseListenerImpl, INetworkStatusListene
         @since ARP1.0
      */
      public func onWarning(network : ICapabilitiesNet, warning : INetworkStatusListenerWarning)  {
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerWarning( '\(+getId()+)', JSON.parse(\"\"), JSON.parse(\"\")" )
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
           /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 

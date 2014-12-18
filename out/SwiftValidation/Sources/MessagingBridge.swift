@@ -48,7 +48,7 @@ public class MessagingBridge : BasePIMBridge, IMessaging, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IMessaging) {
+     public init(delegate : IMessaging?) {
           super.init()
           self.delegate = delegate
      }

@@ -48,7 +48,7 @@ public class ImagingBridge : BaseMediaBridge, IImaging, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IImaging) {
+     public init(delegate : IImaging?) {
           super.init()
           self.delegate = delegate
      }

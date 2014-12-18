@@ -48,7 +48,7 @@ public class GeolocationBridge : BaseSensorBridge, IGeolocation, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IGeolocation) {
+     public init(delegate : IGeolocation?) {
           super.init()
           self.delegate = delegate
      }

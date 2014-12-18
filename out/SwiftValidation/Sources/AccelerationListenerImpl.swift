@@ -43,8 +43,8 @@ public class AccelerationListenerImpl : BaseListenerImpl, IAccelerationListener 
 
         @param id  The id of the listener.
      */
-     public init(id : Int64) {
-          super.init(id);
+     public override init(id : Int64) {
+          super.init(id: id);
      }
 
      /**
@@ -55,7 +55,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         @since ARP1.0
      */
      public func onError(error : IAccelerationListenerError)  {
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleAccelerationListenerError( '\(+getId()+)', JSON.parse(\"\")" )
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleAccelerationListenerError( '\(getId())', JSON.parse(\"\")" )
           /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
@@ -66,7 +66,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         @since ARP1.0
      */
      public func onResult(acceleration : Acceleration)  {
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleAccelerationListenerResult( '\(+getId()+)', JSON.parse(\"\")" )
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleAccelerationListenerResult( '\(getId())', JSON.parse(\"\")" )
           /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
@@ -78,7 +78,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         @since ARP1.0
      */
      public func onWarning(acceleration : Acceleration, warning : IAccelerationListenerWarning)  {
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleAccelerationListenerWarning( '\(+getId()+)', JSON.parse(\"\"), JSON.parse(\"\")" )
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleAccelerationListenerWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
           /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 

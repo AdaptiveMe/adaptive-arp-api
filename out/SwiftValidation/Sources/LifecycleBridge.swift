@@ -48,7 +48,7 @@ public class LifecycleBridge : BaseApplicationBridge, ILifecycle, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : ILifecycle) {
+     public init(delegate : ILifecycle?) {
           super.init()
           self.delegate = delegate
      }
@@ -194,7 +194,7 @@ public class LifecycleBridge : BaseApplicationBridge, ILifecycle, APIBridge {
                     var listener0 : ILifecycleListener? =  LifecycleListenerImpl(id: request.getAsyncId()!)
                     self.addLifecycleListener(listener0!);
                case "isBackground":
-                    var response1 : Bool = self.isBackground()
+                    var response1 : Bool? = self.isBackground()
                     responseJSON = nil //TODO - Serialize this.gson.toJson(response1);
                case "removeLifecycleListener":
                     var listener2 : ILifecycleListener? =  LifecycleListenerImpl(id: request.getAsyncId()!)

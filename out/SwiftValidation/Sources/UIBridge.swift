@@ -48,7 +48,7 @@ public class UIBridge : BaseUIBridge, IUI, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IUI) {
+     public init(delegate : IUI?) {
           super.init()
           self.delegate = delegate
      }

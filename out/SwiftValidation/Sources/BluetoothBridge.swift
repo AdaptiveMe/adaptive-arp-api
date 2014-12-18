@@ -48,7 +48,7 @@ public class BluetoothBridge : BaseCommunicationBridge, IBluetooth, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IBluetooth) {
+     public init(delegate : IBluetooth?) {
           super.init()
           self.delegate = delegate
      }

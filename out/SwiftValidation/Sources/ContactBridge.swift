@@ -48,7 +48,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IContact) {
+     public init(delegate : IContact?) {
           super.init()
           self.delegate = delegate
      }
@@ -345,7 +345,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
                case "setContactPhoto":
                     var contact7 : ContactUid? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], ContactUid.class)
                     var pngImage7 : [Byte]? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[1], [Byte].class)
-                    var response7 : Bool = self.setContactPhoto(contact7!, pngImage: pngImage7!)
+                    var response7 : Bool? = self.setContactPhoto(contact7!, pngImage: pngImage7!)
                     responseJSON = nil //TODO - Serialize this.gson.toJson(response7);
                default:
                     // 404 - response null.

@@ -48,7 +48,7 @@ public class MailBridge : BasePIMBridge, IMail, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IMail) {
+     public init(delegate : IMail?) {
           super.init()
           self.delegate = delegate
      }

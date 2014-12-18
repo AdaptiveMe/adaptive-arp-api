@@ -48,7 +48,7 @@ public class AudioBridge : BaseMediaBridge, IAudio, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IAudio) {
+     public init(delegate : IAudio?) {
           super.init()
           self.delegate = delegate
      }

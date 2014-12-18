@@ -48,7 +48,7 @@ public class ProximityBridge : BaseSensorBridge, IProximity, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IProximity) {
+     public init(delegate : IProximity?) {
           super.init()
           self.delegate = delegate
      }

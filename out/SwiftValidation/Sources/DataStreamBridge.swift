@@ -48,7 +48,7 @@ public class DataStreamBridge : BaseDataBridge, IDataStream, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IDataStream) {
+     public init(delegate : IDataStream?) {
           super.init()
           self.delegate = delegate
      }

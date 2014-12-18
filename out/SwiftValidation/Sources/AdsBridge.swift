@@ -48,7 +48,7 @@ public class AdsBridge : BaseCommerceBridge, IAds, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IAds) {
+     public init(delegate : IAds?) {
           super.init()
           self.delegate = delegate
      }

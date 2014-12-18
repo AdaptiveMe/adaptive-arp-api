@@ -72,6 +72,7 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
      public func getDeviceInfo() -> DeviceInfo {
           var response : DeviceInfo
           // TODO: Not implemented.
+          return DeviceInfo()
      }
 
      /**
@@ -83,6 +84,7 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
      public func getLocaleCurrent() -> Locale {
           var response : Locale
           // TODO: Not implemented.
+          return Locale()
      }
 
      /**

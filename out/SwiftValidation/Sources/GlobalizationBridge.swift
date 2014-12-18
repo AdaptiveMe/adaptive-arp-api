@@ -48,7 +48,7 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IGlobalization) {
+     public init(delegate : IGlobalization?) {
           super.init()
           self.delegate = delegate
      }
@@ -169,7 +169,7 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
           var responseJSON : String? = ""
           switch request.getMethodName()! {
                case "getLocaleSupportedDescriptors":
-                    var response0 : [Locale] = self.getLocaleSupportedDescriptors()
+                    var response0 : [Locale]? = self.getLocaleSupportedDescriptors()
                     if (response0 != nil) {
                          responseJSON = nil //TODO - Serialize this.gson.toJson(response0);
                     } else {
@@ -178,7 +178,7 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
                case "getResourceLiteral":
                     var key1 : String? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], String.class)
                     var locale1 : Locale? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[1], Locale.class)
-                    var response1 : String = self.getResourceLiteral(key1!, locale: locale1!)
+                    var response1 : String? = self.getResourceLiteral(key1!, locale: locale1!)
                     if (response1 != nil) {
                          responseJSON = nil //TODO - Serialize this.gson.toJson(response1);
                     } else {
@@ -186,7 +186,7 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
                     }
                case "getResourceLiterals":
                     var locale2 : Locale? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], Locale.class)
-                    var response2 : [KeyPair] = self.getResourceLiterals(locale2!)
+                    var response2 : [KeyPair]? = self.getResourceLiterals(locale2!)
                     if (response2 != nil) {
                          responseJSON = nil //TODO - Serialize this.gson.toJson(response2);
                     } else {

@@ -48,7 +48,7 @@ public class DesktopBridge : BaseUIBridge, IDesktop, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IDesktop) {
+     public init(delegate : IDesktop?) {
           super.init()
           self.delegate = delegate
      }

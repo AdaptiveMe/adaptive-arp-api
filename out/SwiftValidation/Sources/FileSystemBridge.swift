@@ -48,7 +48,7 @@ public class FileSystemBridge : BaseDataBridge, IFileSystem, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IFileSystem) {
+     public init(delegate : IFileSystem?) {
           super.init()
           self.delegate = delegate
      }
@@ -325,52 +325,52 @@ This path may or may not be writable by the current application.
                case "createFileDescriptor":
                     var parent0 : IFile? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], IFile.class)
                     var name0 : String? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[1], String.class)
-                    var response0 : IFile = self.createFileDescriptor(parent0!, name: name0!)
+                    var response0 : IFile? = self.createFileDescriptor(parent0!, name: name0!)
                     if (response0 != nil) {
                          responseJSON = nil //TODO - Serialize this.gson.toJson(response0);
                     } else {
                          responseJSON = nil
                     }
                case "getApplicationCacheFolder":
-                    var response1 : IFile = self.getApplicationCacheFolder()
+                    var response1 : IFile? = self.getApplicationCacheFolder()
                     if (response1 != nil) {
                          responseJSON = nil //TODO - Serialize this.gson.toJson(response1);
                     } else {
                          responseJSON = nil
                     }
                case "getApplicationCloudFolder":
-                    var response2 : IFile = self.getApplicationCloudFolder()
+                    var response2 : IFile? = self.getApplicationCloudFolder()
                     if (response2 != nil) {
                          responseJSON = nil //TODO - Serialize this.gson.toJson(response2);
                     } else {
                          responseJSON = nil
                     }
                case "getApplicationDocumentsFolder":
-                    var response3 : IFile = self.getApplicationDocumentsFolder()
+                    var response3 : IFile? = self.getApplicationDocumentsFolder()
                     if (response3 != nil) {
                          responseJSON = nil //TODO - Serialize this.gson.toJson(response3);
                     } else {
                          responseJSON = nil
                     }
                case "getApplicationFolder":
-                    var response4 : IFile = self.getApplicationFolder()
+                    var response4 : IFile? = self.getApplicationFolder()
                     if (response4 != nil) {
                          responseJSON = nil //TODO - Serialize this.gson.toJson(response4);
                     } else {
                          responseJSON = nil
                     }
                case "getApplicationProtectedFolder":
-                    var response5 : IFile = self.getApplicationProtectedFolder()
+                    var response5 : IFile? = self.getApplicationProtectedFolder()
                     if (response5 != nil) {
                          responseJSON = nil //TODO - Serialize this.gson.toJson(response5);
                     } else {
                          responseJSON = nil
                     }
                case "getSeparator":
-                    var response6 : Character = self.getSeparator()
+                    var response6 : Character? = self.getSeparator()
                     responseJSON = nil //TODO - Serialize this.gson.toJson(response6);
                case "getSystemExternalFolder":
-                    var response7 : IFile = self.getSystemExternalFolder()
+                    var response7 : IFile? = self.getSystemExternalFolder()
                     if (response7 != nil) {
                          responseJSON = nil //TODO - Serialize this.gson.toJson(response7);
                     } else {

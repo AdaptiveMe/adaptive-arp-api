@@ -63,6 +63,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
      public func getService(serviceName : String) -> Service {
           var response : Service
           // TODO: Not implemented.
+          return Service()
      }
 
      /**
@@ -87,6 +88,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
      public func isRegistered(service : Service) -> Bool {
           var response : Bool
           // TODO: Not implemented.
+          return false
      }
 
      /**
@@ -99,6 +101,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
      public func isRegistered(serviceName : String) -> Bool {
           var response : Bool
           // TODO: Not implemented.
+          return false
      }
 
      /**

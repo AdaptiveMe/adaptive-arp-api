@@ -48,7 +48,7 @@ public class PrintingBridge : BaseApplicationBridge, IPrinting, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IPrinting) {
+     public init(delegate : IPrinting?) {
           super.init()
           self.delegate = delegate
      }

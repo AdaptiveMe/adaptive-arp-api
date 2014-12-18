@@ -142,6 +142,7 @@ public class ContactDelegate : BasePIMDelegate, IContact {
      public func setContactPhoto(contact : ContactUid, pngImage : [Byte]) -> Bool {
           var response : Bool
           // TODO: Not implemented.
+          return false
      }
 
 }

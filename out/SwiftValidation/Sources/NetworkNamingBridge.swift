@@ -48,7 +48,7 @@ public class NetworkNamingBridge : BaseCommunicationBridge, INetworkNaming, APIB
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : INetworkNaming) {
+     public init(delegate : INetworkNaming?) {
           super.init()
           self.delegate = delegate
      }

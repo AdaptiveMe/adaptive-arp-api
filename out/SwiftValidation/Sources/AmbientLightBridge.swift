@@ -48,7 +48,7 @@ public class AmbientLightBridge : BaseSensorBridge, IAmbientLight, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IAmbientLight) {
+     public init(delegate : IAmbientLight?) {
           super.init()
           self.delegate = delegate
      }

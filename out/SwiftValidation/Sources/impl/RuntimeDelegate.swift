@@ -71,6 +71,7 @@ public class RuntimeDelegate : BaseSystemDelegate, IRuntime {
      public func dismissSplashScreen() -> Bool {
           var response : Bool
           // TODO: Not implemented.
+          return false
      }
 
 }

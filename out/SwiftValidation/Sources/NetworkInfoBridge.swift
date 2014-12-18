@@ -48,7 +48,7 @@ public class NetworkInfoBridge : BaseCommunicationBridge, INetworkInfo, APIBridg
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : INetworkInfo) {
+     public init(delegate : INetworkInfo?) {
           super.init()
           self.delegate = delegate
      }

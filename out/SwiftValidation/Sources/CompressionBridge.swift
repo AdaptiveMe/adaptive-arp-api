@@ -48,7 +48,7 @@ public class CompressionBridge : BaseUtilBridge, ICompression, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : ICompression) {
+     public init(delegate : ICompression?) {
           super.init()
           self.delegate = delegate
      }

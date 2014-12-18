@@ -48,7 +48,7 @@ public class CalendarBridge : BasePIMBridge, ICalendar, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : ICalendar) {
+     public init(delegate : ICalendar?) {
           super.init()
           self.delegate = delegate
      }

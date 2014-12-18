@@ -62,6 +62,7 @@ public class OSDelegate : BaseSystemDelegate, IOS {
      public func getOSInfo() -> OSInfo {
           var response : OSInfo
           // TODO: Not implemented.
+          return OSInfo()
      }
 
 }

@@ -36,12 +36,16 @@ Release:
    Interface for webview context management purposes
    Auto-generated implementation of IAppContextWebview specification.
 */
-public class AppContextWebviewBridge : IAppContextWebview {
+public class AppContextWebviewBridge : NSObject, IAppContextWebview {
 
      /**
         Group of API.
      */
      private var apiGroup : IAdaptiveRPGroup = IAdaptiveRPGroup.Kernel;
+
+     public func getAPIGroup() -> IAdaptiveRPGroup {
+          return self.apiGroup
+     }
 
      /**
         API Delegate.
@@ -53,7 +57,7 @@ public class AppContextWebviewBridge : IAppContextWebview {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IAppContextWebview) {
+     public init(delegate : IAppContextWebview?) {
           super.init()
           self.delegate = delegate
      }

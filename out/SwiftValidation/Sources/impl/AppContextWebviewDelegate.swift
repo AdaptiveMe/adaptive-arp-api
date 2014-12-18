@@ -37,7 +37,7 @@ Release:
    Interface for webview context management purposes
    Auto-generated implementation of IAppContextWebview specification.
 */
-public class AppContextWebviewDelegate : IAppContextWebview {
+public class AppContextWebviewDelegate : NSObject, IAppContextWebview {
 
      /**
         Default Constructor.
@@ -89,6 +89,7 @@ WebView, WKWebView, etc.
      public func getWebviewPrimary() -> AnyObject {
           var response : AnyObject
           // TODO: Not implemented.
+          return ""
      }
 
      /**
@@ -101,6 +102,7 @@ This method will always return at least one element; the primary webview.
      public func getWebviews() -> [AnyObject] {
           var response : [AnyObject]
           // TODO: Not implemented.
+          return [AnyObject]()
      }
 
      /**

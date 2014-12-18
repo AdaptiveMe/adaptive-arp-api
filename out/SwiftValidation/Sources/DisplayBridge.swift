@@ -48,7 +48,7 @@ public class DisplayBridge : BaseSystemBridge, IDisplay, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IDisplay) {
+     public init(delegate : IDisplay?) {
           super.init()
           self.delegate = delegate
      }

@@ -36,12 +36,16 @@ Release:
    Interface for context management purposes
    Auto-generated implementation of IAppContext specification.
 */
-public class AppContextBridge : IAppContext {
+public class AppContextBridge : NSObject, IAppContext {
 
      /**
         Group of API.
      */
      private var apiGroup : IAdaptiveRPGroup = IAdaptiveRPGroup.Kernel;
+
+     public func getAPIGroup() -> IAdaptiveRPGroup {
+          return self.apiGroup
+     }
 
      /**
         API Delegate.
@@ -53,7 +57,7 @@ public class AppContextBridge : IAppContext {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IAppContext) {
+     public init(delegate : IAppContext?) {
           super.init()
           self.delegate = delegate
      }

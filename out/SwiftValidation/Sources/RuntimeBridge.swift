@@ -48,7 +48,7 @@ public class RuntimeBridge : BaseSystemBridge, IRuntime, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : IRuntime) {
+     public init(delegate : IRuntime?) {
           super.init()
           self.delegate = delegate
      }
@@ -137,7 +137,7 @@ public class RuntimeBridge : BaseSystemBridge, IRuntime, APIBridge {
                case "dismissApplication":
                     self.dismissApplication();
                case "dismissSplashScreen":
-                    var response1 : Bool = self.dismissSplashScreen()
+                    var response1 : Bool? = self.dismissSplashScreen()
                     responseJSON = nil //TODO - Serialize this.gson.toJson(response1);
                default:
                     // 404 - response null.

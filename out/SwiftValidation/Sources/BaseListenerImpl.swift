@@ -36,7 +36,7 @@ Release:
    Base application for Listener purposes
    Auto-generated implementation of IBaseListener specification.
 */
-public class BaseListenerImpl : IBaseListener {
+public class BaseListenerImpl : NSObject, IBaseListener {
 
      /**
         Unique id of listener.
@@ -76,7 +76,7 @@ public class BaseListenerImpl : IBaseListener {
         Return the API group for the given interface.
      */
      public final func getAPIGroup() -> IAdaptiveRPGroup {
-          return self.apiGroup;
+          return self.apiGroup!
      }
      /**
         Return the JSON serializer.

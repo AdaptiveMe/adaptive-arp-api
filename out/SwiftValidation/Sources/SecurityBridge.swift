@@ -48,7 +48,7 @@ public class SecurityBridge : BaseSecurityBridge, ISecurity, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : ISecurity) {
+     public init(delegate : ISecurity?) {
           super.init()
           self.delegate = delegate
      }
@@ -208,7 +208,7 @@ public class SecurityBridge : BaseSecurityBridge, ISecurity, APIBridge {
                     var callback1 : ISecurityResultCallback? =  SecurityResultCallbackImpl(id: request.getAsyncId()!)
                     self.getSecureKeyValuePairs(keys1!, publicAccessName: publicAccessName1!, callback: callback1!);
                case "isDeviceModified":
-                    var response2 : Bool = self.isDeviceModified()
+                    var response2 : Bool? = self.isDeviceModified()
                     responseJSON = nil //TODO - Serialize this.gson.toJson(response2);
                case "setSecureKeyValuePairs":
                     var keyValues3 : [SecureKeyPair]? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], [SecureKeyPair].class)

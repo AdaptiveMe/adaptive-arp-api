@@ -48,7 +48,7 @@ public class TwitterBridge : BaseSocialBridge, ITwitter, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : ITwitter) {
+     public init(delegate : ITwitter?) {
           super.init()
           self.delegate = delegate
      }

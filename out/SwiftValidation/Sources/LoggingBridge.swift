@@ -48,7 +48,7 @@ public class LoggingBridge : BaseUtilBridge, ILogging, APIBridge {
 
         @param delegate The delegate implementing platform specific functions.
      */
-     public init(delegate : ILogging) {
+     public init(delegate : ILogging?) {
           super.init()
           self.delegate = delegate
      }
