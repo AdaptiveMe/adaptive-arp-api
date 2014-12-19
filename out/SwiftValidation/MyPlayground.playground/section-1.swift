@@ -2,11 +2,17 @@
 
 import UIKit
 
-var str = "Hello, playground"
-var t : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate() * 1000
-t.
-NSThread.sleepForTimeInterval(2)
-var t2 : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate() * 1000
-println("Result \(UInt64(t.distanceTo(t2)))")
+var dict = Dictionary<String, AnyObject>()
+
+// Own fields.
+dict["type"] = "{value: \"HomeButton\"}"
 
 
+var data = NSJSONSerialization.dataWithJSONObject(dict, options:NSJSONWritingOptions(0), error: nil)!
+
+NSString(data: data, encoding: NSUTF8StringEncoding)!
+
+var jsonString : NSMutableString = NSMutableString()
+jsonString.appendString("One")
+jsonString.appendString("Two")
+jsonString as String

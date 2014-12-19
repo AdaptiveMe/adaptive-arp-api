@@ -171,6 +171,32 @@ doesn't exist, this will be -1. Used internally.
      }
 
 
+     /**
+        JSON Serialization and deserialization support.
+     */
+     struct Serializer {
+          static func fromJSON(json : String) -> FileDescriptor {
+               return FileDescriptor()
+          }
+
+          static func toJSON(object: FileDescriptor) -> String {
+               var jsonString : NSMutableString = NSMutableString()
+               // Start Object to JSON
+               jsonString.appendString("{ ")
+
+               // Own fields.
+               object.name != nil ? jsonString.appendString("name: \"\(object.name!)\", ") : jsonString.appendString("name: null, ")
+               object.path != nil ? jsonString.appendString("path: \"\(object.path!)\", ") : jsonString.appendString("path: null, ")
+               object.pathAbsolute != nil ? jsonString.appendString("pathAbsolute: \"\(object.pathAbsolute!)\", ") : jsonString.appendString("pathAbsolute: null, ")
+               object.dateCreated != nil ? jsonString.appendString("dateCreated: \(object.dateCreated!), ") : jsonString.appendString("dateCreated: null, ")
+               object.dateModified != nil ? jsonString.appendString("dateModified: \(object.dateModified!), ") : jsonString.appendString("dateModified: null, ")
+               object.size != nil ? jsonString.appendString("size: \(object.size!)") : jsonString.appendString("size: null")
+
+               // End Object to JSON
+               jsonString.appendString(" }")
+               return jsonString
+          }
+     }
 }
 
 /**

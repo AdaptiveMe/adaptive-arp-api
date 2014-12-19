@@ -51,7 +51,7 @@ public class DatabaseRow extends APIBean {
     /**
      * The values of the row.
      */
-    private Object[] values;
+    private String[] values;
 
     /**
      * Default constructor
@@ -67,7 +67,7 @@ public class DatabaseRow extends APIBean {
      * @param values The values of the row
      * @since ARP1.0
      */
-    public DatabaseRow(Object[] values) {
+    public DatabaseRow(String[] values) {
         this.values = values;
     }
 
@@ -77,7 +77,7 @@ public class DatabaseRow extends APIBean {
      * @return The values of the row.
      * @since ARP1.0
      */
-    public Object[] getValues() {
+    public String[] getValues() {
         return values;
     }
 
@@ -87,7 +87,7 @@ public class DatabaseRow extends APIBean {
      * @param values The values of the row.
      * @since ARP1.0
      */
-    public void setValues(Object[] values) {
+    public void setValues(String[] values) {
         this.values = values;
     }
 }

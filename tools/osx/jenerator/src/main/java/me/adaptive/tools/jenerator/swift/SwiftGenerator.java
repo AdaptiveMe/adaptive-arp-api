@@ -283,16 +283,16 @@ public class SwiftGenerator extends GeneratorBase {
                             if (m.getReturnType().equals(Boolean.TYPE)) {
                                 println(10, "return false");
                             } else if (m.getReturnType().equals(Character.TYPE)) {
-                                println(10,"return \" \"");
+                                println(10, "return \" \"");
                             } else {
                                 println(10, "return UNHANDLED");
                             }
                         } else if (m.getReturnType().equals(Object.class)) {
                             println(10, "return \"\"");
                         } else if (m.getReturnType().isEnum()) {
-                            println(10, "return "+convertJavaToNativeType(m.getReturnType())+".Unknown");
+                            println(10, "return " + convertJavaToNativeType(m.getReturnType()) + ".Unknown");
                         } else {
-                            println(10, "return "+convertJavaToNativeType(m.getReturnType())+"()");
+                            println(10, "return " + convertJavaToNativeType(m.getReturnType()) + "()");
                         }
                     }
                     println(5, "}");
@@ -315,7 +315,7 @@ public class SwiftGenerator extends GeneratorBase {
     @Override
     protected void startCustomClass(String className, Class clazz, JavaClass javaClass, boolean implementation) {
         if (implementation) {
-            String parent = getOutputRootDirectory().getAbsolutePath().substring(0,getOutputRootDirectory().getAbsolutePath().lastIndexOf('.'))+".Impl";
+            String parent = getOutputRootDirectory().getAbsolutePath().substring(0, getOutputRootDirectory().getAbsolutePath().lastIndexOf('.')) + ".Impl";
             currentFile = new File(parent, File.separator + className + ".swift");
         } else {
             currentFile = new File(getOutputRootDirectory(), className + ".swift");
@@ -395,9 +395,9 @@ public class SwiftGenerator extends GeneratorBase {
                 endComment(5);
                 println(5, "private var apiGroup : IAdaptiveRPGroup = IAdaptiveRPGroup.Kernel;");
                 println();
-                println(5,"public func getAPIGroup() -> IAdaptiveRPGroup {");
-                println(10,"return self.apiGroup");
-                println(5,"}");
+                println(5, "public func getAPIGroup() -> IAdaptiveRPGroup {");
+                println(10, "return self.apiGroup");
+                println(5, "}");
             }
             println();
 
@@ -480,7 +480,7 @@ public class SwiftGenerator extends GeneratorBase {
                 endComment(5);
                 println(5, "class var sharedInstance : " + simpleName + " {");
                 println(10, "struct Static {");
-                println(15, "static let instance : " + simpleName + " = " + simpleName + "(delegate: "+clazz.getSimpleName().substring(1)+"Delegate())");
+                println(15, "static let instance : " + simpleName + " = " + simpleName + "(delegate: " + clazz.getSimpleName().substring(1) + "Delegate())");
                 println(10, "}");
                 println(10, "return Static.instance");
                 println(5, "}");
@@ -658,8 +658,8 @@ public class SwiftGenerator extends GeneratorBase {
                 print("self.delegate!." + m.getName() + "(");
                 for (int i = 0; i < m.getParameterCount(); i++) {
                     Parameter p = m.getParameters()[i];
-                    if (i>0) {
-                        print(p.getName()+": ");
+                    if (i > 0) {
+                        print(p.getName() + ": ");
                     }
                     print(p.getName());
                     if (i < m.getParameterCount() - 1) {
@@ -700,7 +700,7 @@ public class SwiftGenerator extends GeneratorBase {
             } else {
                 println(5, "public override func invoke(request : APIRequest) -> String? {");
             }
-                println(10, "//Gson gson = new Gson();");
+            println(10, "//Gson gson = new Gson();");
             println(10, "var responseJSON : String? = \"\"");
             println(10, "switch request.getMethodName()! {");
             List<Method> methodUniqueList = new ArrayList<>();
@@ -742,24 +742,24 @@ public class SwiftGenerator extends GeneratorBase {
                     print(20, "self." + m.getName() + "(");
                     for (int i = 0; i < m.getParameterCount(); i++) {
                         Parameter p = m.getParameters()[i];
-                        if(i>0) {
-                            print(p.getName()+": ");
+                        if (i > 0) {
+                            print(p.getName() + ": ");
                         }
-                        print(p.getName() + parameterIndex+"!");
+                        print(p.getName() + parameterIndex + "!");
                         if (i < m.getParameterCount() - 1) {
                             print(", ");
                         }
                     }
                     println(");");
                 } else {
-                    print(20, "var response"+parameterIndex+" : "+convertJavaToNativeType(m.getReturnType()) +"? = ");
+                    print(20, "var response" + parameterIndex + " : " + convertJavaToNativeType(m.getReturnType()) + "? = ");
                     print("self." + m.getName() + "(");
                     for (int i = 0; i < m.getParameterCount(); i++) {
                         Parameter p = m.getParameters()[i];
-                        if(i>0) {
-                            print(p.getName()+": ");
+                        if (i > 0) {
+                            print(p.getName() + ": ");
                         }
-                        print(p.getName() + parameterIndex+"!");
+                        print(p.getName() + parameterIndex + "!");
                         if (i < m.getParameterCount() - 1) {
                             print(", ");
                         }
@@ -796,7 +796,7 @@ public class SwiftGenerator extends GeneratorBase {
 
                 int pIndex = 0;
                 for (Parameter p : m.getParameters()) {
-                    print(20, "var " + p.getName() + parameterIndex + " : "+convertJavaToNativeType(p.getType())+"? = ");
+                    print(20, "var " + p.getName() + parameterIndex + " : " + convertJavaToNativeType(p.getType()) + "? = ");
                     if (p.getType().getSimpleName().endsWith("Callback") || p.getType().getSimpleName().endsWith("Listener")) {
                         print(p.getType().getSimpleName().substring(1) + "Impl(request.getAsyncId())");
                     } else {
@@ -814,24 +814,24 @@ public class SwiftGenerator extends GeneratorBase {
                     print(20, "self." + m.getName() + "(");
                     for (int i = 0; i < m.getParameterCount(); i++) {
                         Parameter p = m.getParameters()[i];
-                        if (i>0) {
-                            print(p.getName()+": ");
+                        if (i > 0) {
+                            print(p.getName() + ": ");
                         }
-                        print(p.getName() + parameterIndex+"!");
+                        print(p.getName() + parameterIndex + "!");
                         if (i < m.getParameterCount() - 1) {
                             print(", ");
                         }
                     }
                     println(")");
                 } else {
-                    print(20, "var response" + parameterIndex + " : "+convertJavaToNativeType(m.getReturnType())+" = ");
+                    print(20, "var response" + parameterIndex + " : " + convertJavaToNativeType(m.getReturnType()) + " = ");
                     print("self." + m.getName() + "(");
                     for (int i = 0; i < m.getParameterCount(); i++) {
                         Parameter p = m.getParameters()[i];
-                        if (i>0) {
-                            print(p.getName()+": ");
+                        if (i > 0) {
+                            print(p.getName() + ": ");
                         }
-                        print(p.getName() + parameterIndex+"!");
+                        print(p.getName() + parameterIndex + "!");
                         if (i < m.getParameterCount() - 1) {
                             print(", ");
                         }
@@ -969,7 +969,7 @@ public class SwiftGenerator extends GeneratorBase {
                 for (int i = 0; i < m.getParameterCount(); i++) {
                     Parameter p = m.getParameters()[i];
                     print(p.getName());
-                    print(" : "+convertJavaToNativeType(p.getType()));
+                    print(" : " + convertJavaToNativeType(p.getType()));
                     if (i < m.getParameterCount() - 1) {
                         print(", ");
                     }
@@ -992,7 +992,7 @@ public class SwiftGenerator extends GeneratorBase {
                     }
                 }
                 println("\" )");
-                println(10,todos.toString());
+                println(10, todos.toString());
                 println(5, "}");
                 println();
             }
@@ -1112,7 +1112,7 @@ public class SwiftGenerator extends GeneratorBase {
                 for (int i = 0; i < m.getParameterCount(); i++) {
                     Parameter p = m.getParameters()[i];
                     print(p.getName());
-                    print(" : "+convertJavaToNativeType(p.getType()));
+                    print(" : " + convertJavaToNativeType(p.getType()));
                     if (i < m.getParameterCount() - 1) {
                         print(", ");
                     }
@@ -1121,7 +1121,7 @@ public class SwiftGenerator extends GeneratorBase {
                 if (m.getReturnType().equals(Void.TYPE)) {
                     println(" {");
                 } else {
-                    print(" -> "+convertJavaToNativeType(m.getReturnType()) + " {");
+                    print(" -> " + convertJavaToNativeType(m.getReturnType()) + " {");
                 }
 
                 print(10, "AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript(\"handle" + m.getDeclaringClass().getSimpleName().substring(1) + m.getName().substring(2) + "( '\\(getId())', ");
@@ -1136,7 +1136,7 @@ public class SwiftGenerator extends GeneratorBase {
                     }
                 }
                 println("\" )");
-                println(10,todos.toString());
+                println(10, todos.toString());
                 println(5, "}");
                 println();
             }
@@ -1552,8 +1552,137 @@ public class SwiftGenerator extends GeneratorBase {
     }
 
 
+    private void handleJSONField(Field f, Class clazz, boolean last) {
+        if (f.getType().isArray()) {
+            println(15, "if (object." + f.getName() + " != nil) {");
+            println(20, "// Start array of objects.");
+            println(20, "jsonString.appendString(\""+f.getName()+": [\");");
+            println();
+            println(20, "for var i = 0; i < object."+f.getName()+"!.count; i++ {");
+
+            if (f.getType().getComponentType().isPrimitive()) {
+                println(25,"jsonString.appendString(\"\\(object."+f.getName()+"![i])\");");
+            } else if(f.getType().getComponentType().isEnum()) {
+                println(25,"jsonString.appendString(\"{ value: \\\"\\(object."+f.getName()+"![i].toString())\\\" }\");");
+            } else if(f.getType().getComponentType().equals(String.class)) {
+                println(25,"jsonString.appendString(\"\\\"\\(object."+f.getName()+"![i])\\\"\");");
+            } else {
+                println(25, "jsonString.appendString(" + f.getType().getComponentType().getSimpleName() + ".Serializer.toJSON(object."+f.getName()+"![i]))");
+            }
+            println(25, "if (i < object."+f.getName()+"!.count-1) {");
+            println(30, "jsonString.appendString(\", \");");
+            println(25, "}");
+            println(20, "}");
+            println();
+            println(20, "// End array of objects.");
+            print(20, "jsonString.appendString(\"]");
+            if (!last) {
+                println(", \");");
+            } else {
+                println("\");");
+            }
+            println(15, "} else {");
+            print(20, "jsonString.appendString(\"" + f.getName() + ": null");
+            if (!last) {
+                print(", \"");
+            } else {
+                print("\"");
+            }
+            println(")");
+            println(15, "}");
+        } else {
+            print(15, "object." + f.getName() + " != nil ? ");
+            print("jsonString.appendString(");
+            print("\"" + f.getName() + ": ");
+            if (f.getType().isPrimitive()) {
+                print("\\(object." + f.getName() + "!)");
+            } else if (f.getType().isEnum()) {
+                print("{ value: \\\"\\(object." + f.getName() + "!.toString())\\\"}");
+            } else if (f.getType().equals(String.class)) {
+                print("\\\"\\(object." + f.getName() + "!)\\\"");
+            } else {
+                print("\\(" + f.getType().getSimpleName() + ".Serializer.toJSON(object." + f.getName() + "!))");
+            }
+
+            if (!last) {
+                print(", \"");
+            } else {
+                print("\"");
+            }
+            print(")");
+            print(" : jsonString.appendString(\"");
+            print(f.getName() + ": null");
+            if (!last) {
+                println(", \")");
+            } else {
+                println("\")");
+            }
+        }
+    }
+
     @Override
     protected void endBean(String simpleName, Class clazz) {
+        if (!clazz.isEnum()) {
+            startComment(5);
+            println(8, "JSON Serialization and deserialization support.");
+            endComment(5);
+            println(5, "struct Serializer {");
+            println(10, "static func fromJSON(json : String) -> " + simpleName + " {");
+            println(15, "return " + simpleName + "()");
+            println(10, "}");
+            println();
+            println(10, "static func toJSON(object: " + simpleName + ") -> String {");
+            println(15, "var jsonString : NSMutableString = NSMutableString()");
+            println(15, "// Start Object to JSON");
+            println(15, "jsonString.appendString(\"{ \")");
+            if (clazz.getDeclaredFields().length > 0) {
+                println();
+                println(15, "// Own fields.");
+                boolean isLast = false;
+                for (int i = 0; i < clazz.getDeclaredFields().length; i++) {
+                    Field f = clazz.getDeclaredFields()[i];
+
+                    if (i < clazz.getDeclaredFields().length - 1) {
+                        isLast = false;
+                    } else {
+                        isLast = true;
+                        if (!clazz.getSuperclass().equals(Object.class)) {
+                            if (clazz.getSuperclass().getDeclaredFields().length > 0) {
+                                isLast = false;
+                            }
+                        }
+                    }
+
+                    handleJSONField(f, clazz, isLast);
+                }
+            }
+            if (!clazz.getSuperclass().equals(Object.class)) {
+                if (clazz.getSuperclass().getDeclaredFields().length > 0) {
+                    println();
+                    println(15, "// Superclass fields.");
+                    boolean isLast = false;
+                    for (int i = 0; i < clazz.getSuperclass().getDeclaredFields().length; i++) {
+                        Field f = clazz.getSuperclass().getDeclaredFields()[i];
+
+                        if (i < clazz.getSuperclass().getDeclaredFields().length - 1) {
+                            isLast = false;
+                        } else {
+                            isLast = true;
+                        }
+
+                        handleJSONField(f, clazz, isLast);
+                    }
+
+                }
+            }
+            println();
+            println(15, "// End Object to JSON");
+            println(15, "jsonString.appendString(\" }\")");
+            println(15, "return jsonString");
+            println(10, "}");
+            println(5, "}");
+
+        }
         println("}");
     }
 

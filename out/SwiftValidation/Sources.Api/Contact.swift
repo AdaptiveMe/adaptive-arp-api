@@ -280,6 +280,127 @@ public class Contact : ContactUid {
      }
 
 
+     /**
+        JSON Serialization and deserialization support.
+     */
+     struct Serializer {
+          static func fromJSON(json : String) -> Contact {
+               return Contact()
+          }
+
+          static func toJSON(object: Contact) -> String {
+               var jsonString : NSMutableString = NSMutableString()
+               // Start Object to JSON
+               jsonString.appendString("{ ")
+
+               // Own fields.
+               object.personalInfo != nil ? jsonString.appendString("personalInfo: \(ContactPersonalInfo.Serializer.toJSON(object.personalInfo!)), ") : jsonString.appendString("personalInfo: null, ")
+               object.professionalInfo != nil ? jsonString.appendString("professionalInfo: \(ContactProfessionalInfo.Serializer.toJSON(object.professionalInfo!)), ") : jsonString.appendString("professionalInfo: null, ")
+               if (object.contactAddresses != nil) {
+                    // Start array of objects.
+                    jsonString.appendString("contactAddresses: [");
+
+                    for var i = 0; i < object.contactAddresses!.count; i++ {
+                         jsonString.appendString(ContactAddress.Serializer.toJSON(object.contactAddresses![i]))
+                         if (i < object.contactAddresses!.count-1) {
+                              jsonString.appendString(", ");
+                         }
+                    }
+
+                    // End array of objects.
+                    jsonString.appendString("], ");
+               } else {
+                    jsonString.appendString("contactAddresses: null, ")
+               }
+               if (object.contactPhones != nil) {
+                    // Start array of objects.
+                    jsonString.appendString("contactPhones: [");
+
+                    for var i = 0; i < object.contactPhones!.count; i++ {
+                         jsonString.appendString(ContactPhone.Serializer.toJSON(object.contactPhones![i]))
+                         if (i < object.contactPhones!.count-1) {
+                              jsonString.appendString(", ");
+                         }
+                    }
+
+                    // End array of objects.
+                    jsonString.appendString("], ");
+               } else {
+                    jsonString.appendString("contactPhones: null, ")
+               }
+               if (object.contactEmails != nil) {
+                    // Start array of objects.
+                    jsonString.appendString("contactEmails: [");
+
+                    for var i = 0; i < object.contactEmails!.count; i++ {
+                         jsonString.appendString(ContactEmail.Serializer.toJSON(object.contactEmails![i]))
+                         if (i < object.contactEmails!.count-1) {
+                              jsonString.appendString(", ");
+                         }
+                    }
+
+                    // End array of objects.
+                    jsonString.appendString("], ");
+               } else {
+                    jsonString.appendString("contactEmails: null, ")
+               }
+               if (object.contactWebsites != nil) {
+                    // Start array of objects.
+                    jsonString.appendString("contactWebsites: [");
+
+                    for var i = 0; i < object.contactWebsites!.count; i++ {
+                         jsonString.appendString(ContactWebsite.Serializer.toJSON(object.contactWebsites![i]))
+                         if (i < object.contactWebsites!.count-1) {
+                              jsonString.appendString(", ");
+                         }
+                    }
+
+                    // End array of objects.
+                    jsonString.appendString("], ");
+               } else {
+                    jsonString.appendString("contactWebsites: null, ")
+               }
+               if (object.contactSocials != nil) {
+                    // Start array of objects.
+                    jsonString.appendString("contactSocials: [");
+
+                    for var i = 0; i < object.contactSocials!.count; i++ {
+                         jsonString.appendString(ContactSocial.Serializer.toJSON(object.contactSocials![i]))
+                         if (i < object.contactSocials!.count-1) {
+                              jsonString.appendString(", ");
+                         }
+                    }
+
+                    // End array of objects.
+                    jsonString.appendString("], ");
+               } else {
+                    jsonString.appendString("contactSocials: null, ")
+               }
+               if (object.contactTags != nil) {
+                    // Start array of objects.
+                    jsonString.appendString("contactTags: [");
+
+                    for var i = 0; i < object.contactTags!.count; i++ {
+                         jsonString.appendString(ContactTag.Serializer.toJSON(object.contactTags![i]))
+                         if (i < object.contactTags!.count-1) {
+                              jsonString.appendString(", ");
+                         }
+                    }
+
+                    // End array of objects.
+                    jsonString.appendString("], ");
+               } else {
+                    jsonString.appendString("contactTags: null, ")
+               }
+
+               // Superclass fields.
+               object.contactId != nil ? jsonString.appendString("contactId: \"\(object.contactId!)\"") : jsonString.appendString("contactId: null")
+
+               // End Object to JSON
+               jsonString.appendString(" }")
+               return jsonString
+          }
+     }
 }
 
 /**

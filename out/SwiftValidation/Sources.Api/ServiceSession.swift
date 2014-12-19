@@ -44,7 +44,7 @@ public class ServiceSession : NSObject {
      /**
         The attributes of the response
      */
-     var attributes : [AnyObject]?
+     var attributes : [String]?
      /**
         The cookies of the response
      */
@@ -66,7 +66,7 @@ public class ServiceSession : NSObject {
         @param attributes Attributes of the response
         @since ARP1.0
      */
-     public init(cookies: [ServiceCookie], attributes: [AnyObject]) {
+     public init(cookies: [ServiceCookie], attributes: [String]) {
           super.init()
           self.cookies = cookies
           self.attributes = attributes
@@ -78,7 +78,7 @@ public class ServiceSession : NSObject {
         @return Attributes of the response
         @since ARP1.0
      */
-     public func getAttributes() -> [AnyObject]? {
+     public func getAttributes() -> [String]? {
           return self.attributes
      }
 
@@ -88,7 +88,7 @@ public class ServiceSession : NSObject {
         @param attributes Attributes of the response
         @since ARP1.0
      */
-     public func setAttributes(attributes: [AnyObject]) {
+     public func setAttributes(attributes: [String]) {
           self.attributes = attributes
      }
 
@@ -113,6 +113,58 @@ public class ServiceSession : NSObject {
      }
 
 
+     /**
+        JSON Serialization and deserialization support.
+     */
+     struct Serializer {
+          static func fromJSON(json : String) -> ServiceSession {
+               return ServiceSession()
+          }
+
+          static func toJSON(object: ServiceSession) -> String {
+               var jsonString : NSMutableString = NSMutableString()
+               // Start Object to JSON
+               jsonString.appendString("{ ")
+
+               // Own fields.
+               if (object.cookies != nil) {
+                    // Start array of objects.
+                    jsonString.appendString("cookies: [");
+
+                    for var i = 0; i < object.cookies!.count; i++ {
+                         jsonString.appendString(ServiceCookie.Serializer.toJSON(object.cookies![i]))
+                         if (i < object.cookies!.count-1) {
+                              jsonString.appendString(", ");
+                         }
+                    }
+
+                    // End array of objects.
+                    jsonString.appendString("], ");
+               } else {
+                    jsonString.appendString("cookies: null, ")
+               }
+               if (object.attributes != nil) {
+                    // Start array of objects.
+                    jsonString.appendString("attributes: [");
+
+                    for var i = 0; i < object.attributes!.count; i++ {
+                         jsonString.appendString("\"\(object.attributes![i])\"");
+                         if (i < object.attributes!.count-1) {
+                              jsonString.appendString(", ");
+                         }
+                    }
+
+                    // End array of objects.
+                    jsonString.appendString("]");
+               } else {
+                    jsonString.appendString("attributes: null")
+               }
+
+               // End Object to JSON
+               jsonString.appendString(" }")
+               return jsonString
+          }
+     }
 }
 
 /**

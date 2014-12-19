@@ -113,6 +113,28 @@ public class ContactSocial : APIBean {
      }
 
 
+     /**
+        JSON Serialization and deserialization support.
+     */
+     struct Serializer {
+          static func fromJSON(json : String) -> ContactSocial {
+               return ContactSocial()
+          }
+
+          static func toJSON(object: ContactSocial) -> String {
+               var jsonString : NSMutableString = NSMutableString()
+               // Start Object to JSON
+               jsonString.appendString("{ ")
+
+               // Own fields.
+               object.socialNetwork != nil ? jsonString.appendString("socialNetwork: { value: \"\(object.socialNetwork!.toString())\"}, ") : jsonString.appendString("socialNetwork: null, ")
+               object.profileUrl != nil ? jsonString.appendString("profileUrl: \"\(object.profileUrl!)\"") : jsonString.appendString("profileUrl: null")
+
+               // End Object to JSON
+               jsonString.appendString(" }")
+               return jsonString
+          }
+     }
 }
 
 /**

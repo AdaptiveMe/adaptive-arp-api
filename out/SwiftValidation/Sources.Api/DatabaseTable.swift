@@ -202,6 +202,61 @@ public class DatabaseTable : APIBean {
      }
 
 
+     /**
+        JSON Serialization and deserialization support.
+     */
+     struct Serializer {
+          static func fromJSON(json : String) -> DatabaseTable {
+               return DatabaseTable()
+          }
+
+          static func toJSON(object: DatabaseTable) -> String {
+               var jsonString : NSMutableString = NSMutableString()
+               // Start Object to JSON
+               jsonString.appendString("{ ")
+
+               // Own fields.
+               object.name != nil ? jsonString.appendString("name: \"\(object.name!)\", ") : jsonString.appendString("name: null, ")
+               object.columnCount != nil ? jsonString.appendString("columnCount: \(object.columnCount!), ") : jsonString.appendString("columnCount: null, ")
+               object.rowCount != nil ? jsonString.appendString("rowCount: \(object.rowCount!), ") : jsonString.appendString("rowCount: null, ")
+               if (object.databaseColumns != nil) {
+                    // Start array of objects.
+                    jsonString.appendString("databaseColumns: [");
+
+                    for var i = 0; i < object.databaseColumns!.count; i++ {
+                         jsonString.appendString(DatabaseColumn.Serializer.toJSON(object.databaseColumns![i]))
+                         if (i < object.databaseColumns!.count-1) {
+                              jsonString.appendString(", ");
+                         }
+                    }
+
+                    // End array of objects.
+                    jsonString.appendString("], ");
+               } else {
+                    jsonString.appendString("databaseColumns: null, ")
+               }
+               if (object.databaseRows != nil) {
+                    // Start array of objects.
+                    jsonString.appendString("databaseRows: [");
+
+                    for var i = 0; i < object.databaseRows!.count; i++ {
+                         jsonString.appendString(DatabaseRow.Serializer.toJSON(object.databaseRows![i]))
+                         if (i < object.databaseRows!.count-1) {
+                              jsonString.appendString(", ");
+                         }
+                    }
+
+                    // End array of objects.
+                    jsonString.appendString("]");
+               } else {
+                    jsonString.appendString("databaseRows: null")
+               }
+
+               // End Object to JSON
+               jsonString.appendString(" }")
+               return jsonString
+          }
+     }
 }
 
 /**

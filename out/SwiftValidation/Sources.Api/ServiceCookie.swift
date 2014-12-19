@@ -282,6 +282,34 @@ public class ServiceCookie : APIBean {
      }
 
 
+     /**
+        JSON Serialization and deserialization support.
+     */
+     struct Serializer {
+          static func fromJSON(json : String) -> ServiceCookie {
+               return ServiceCookie()
+          }
+
+          static func toJSON(object: ServiceCookie) -> String {
+               var jsonString : NSMutableString = NSMutableString()
+               // Start Object to JSON
+               jsonString.appendString("{ ")
+
+               // Own fields.
+               object.name != nil ? jsonString.appendString("name: \"\(object.name!)\", ") : jsonString.appendString("name: null, ")
+               object.value != nil ? jsonString.appendString("value: \"\(object.value!)\", ") : jsonString.appendString("value: null, ")
+               object.domain != nil ? jsonString.appendString("domain: \"\(object.domain!)\", ") : jsonString.appendString("domain: null, ")
+               object.path != nil ? jsonString.appendString("path: \"\(object.path!)\", ") : jsonString.appendString("path: null, ")
+               object.scheme != nil ? jsonString.appendString("scheme: \"\(object.scheme!)\", ") : jsonString.appendString("scheme: null, ")
+               object.secure != nil ? jsonString.appendString("secure: \(object.secure!), ") : jsonString.appendString("secure: null, ")
+               object.expiry != nil ? jsonString.appendString("expiry: \(object.expiry!), ") : jsonString.appendString("expiry: null, ")
+               object.creation != nil ? jsonString.appendString("creation: \(object.creation!)") : jsonString.appendString("creation: null")
+
+               // End Object to JSON
+               jsonString.appendString(" }")
+               return jsonString
+          }
+     }
 }
 
 /**

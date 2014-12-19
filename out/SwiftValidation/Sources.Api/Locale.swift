@@ -113,6 +113,28 @@ public class Locale : APIBean {
      }
 
 
+     /**
+        JSON Serialization and deserialization support.
+     */
+     struct Serializer {
+          static func fromJSON(json : String) -> Locale {
+               return Locale()
+          }
+
+          static func toJSON(object: Locale) -> String {
+               var jsonString : NSMutableString = NSMutableString()
+               // Start Object to JSON
+               jsonString.appendString("{ ")
+
+               // Own fields.
+               object.country != nil ? jsonString.appendString("country: \"\(object.country!)\", ") : jsonString.appendString("country: null, ")
+               object.language != nil ? jsonString.appendString("language: \"\(object.language!)\"") : jsonString.appendString("language: null")
+
+               // End Object to JSON
+               jsonString.appendString(" }")
+               return jsonString
+          }
+     }
 }
 
 /**

@@ -113,6 +113,28 @@ public class SecureKeyPair : APIBean {
      }
 
 
+     /**
+        JSON Serialization and deserialization support.
+     */
+     struct Serializer {
+          static func fromJSON(json : String) -> SecureKeyPair {
+               return SecureKeyPair()
+          }
+
+          static func toJSON(object: SecureKeyPair) -> String {
+               var jsonString : NSMutableString = NSMutableString()
+               // Start Object to JSON
+               jsonString.appendString("{ ")
+
+               // Own fields.
+               object.secureKey != nil ? jsonString.appendString("secureKey: \"\(object.secureKey!)\", ") : jsonString.appendString("secureKey: null, ")
+               object.secureData != nil ? jsonString.appendString("secureData: \"\(object.secureData!)\"") : jsonString.appendString("secureData: null")
+
+               // End Object to JSON
+               jsonString.appendString(" }")
+               return jsonString
+          }
+     }
 }
 
 /**

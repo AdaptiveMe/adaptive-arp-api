@@ -87,6 +87,27 @@ public class EmailAddress : APIBean {
      }
 
 
+     /**
+        JSON Serialization and deserialization support.
+     */
+     struct Serializer {
+          static func fromJSON(json : String) -> EmailAddress {
+               return EmailAddress()
+          }
+
+          static func toJSON(object: EmailAddress) -> String {
+               var jsonString : NSMutableString = NSMutableString()
+               // Start Object to JSON
+               jsonString.appendString("{ ")
+
+               // Own fields.
+               object.address != nil ? jsonString.appendString("address: \"\(object.address!)\"") : jsonString.appendString("address: null")
+
+               // End Object to JSON
+               jsonString.appendString(" }")
+               return jsonString
+          }
+     }
 }
 
 /**

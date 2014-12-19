@@ -46,7 +46,7 @@ Structure representing a row for a data table.
 
      /**
         The values of the row.
-        Array objects must be of Object type.
+        Array objects must be of String type.
      */
      @property NSArray *values;
 

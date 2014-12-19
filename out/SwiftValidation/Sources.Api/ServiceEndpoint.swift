@@ -191,6 +191,31 @@ public class ServiceEndpoint : APIBean {
      }
 
 
+     /**
+        JSON Serialization and deserialization support.
+     */
+     struct Serializer {
+          static func fromJSON(json : String) -> ServiceEndpoint {
+               return ServiceEndpoint()
+          }
+
+          static func toJSON(object: ServiceEndpoint) -> String {
+               var jsonString : NSMutableString = NSMutableString()
+               // Start Object to JSON
+               jsonString.appendString("{ ")
+
+               // Own fields.
+               object.host != nil ? jsonString.appendString("host: \"\(object.host!)\", ") : jsonString.appendString("host: null, ")
+               object.path != nil ? jsonString.appendString("path: \"\(object.path!)\", ") : jsonString.appendString("path: null, ")
+               object.port != nil ? jsonString.appendString("port: \(object.port!), ") : jsonString.appendString("port: null, ")
+               object.proxy != nil ? jsonString.appendString("proxy: \"\(object.proxy!)\", ") : jsonString.appendString("proxy: null, ")
+               object.scheme != nil ? jsonString.appendString("scheme: \"\(object.scheme!)\"") : jsonString.appendString("scheme: null")
+
+               // End Object to JSON
+               jsonString.appendString(" }")
+               return jsonString
+          }
+     }
 }
 
 /**

@@ -46,7 +46,7 @@ Represents a session object for HTTP request and responses
 
      /**
         The attributes of the response
-        Array objects must be of Object type.
+        Array objects must be of String type.
      */
      @property NSArray *attributes;
      /**

@@ -136,6 +136,29 @@ public class OSInfo : APIBean {
      }
 
 
+     /**
+        JSON Serialization and deserialization support.
+     */
+     struct Serializer {
+          static func fromJSON(json : String) -> OSInfo {
+               return OSInfo()
+          }
+
+          static func toJSON(object: OSInfo) -> String {
+               var jsonString : NSMutableString = NSMutableString()
+               // Start Object to JSON
+               jsonString.appendString("{ ")
+
+               // Own fields.
+               object.name != nil ? jsonString.appendString("name: \"\(object.name!)\", ") : jsonString.appendString("name: null, ")
+               object.version != nil ? jsonString.appendString("version: \"\(object.version!)\", ") : jsonString.appendString("version: null, ")
+               object.vendor != nil ? jsonString.appendString("vendor: \"\(object.vendor!)\"") : jsonString.appendString("vendor: null")
+
+               // End Object to JSON
+               jsonString.appendString(" }")
+               return jsonString
+          }
+     }
 }
 
 /**

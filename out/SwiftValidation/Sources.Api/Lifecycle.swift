@@ -98,6 +98,27 @@ Possible lifecycle States:
      }
 
 
+     /**
+        JSON Serialization and deserialization support.
+     */
+     struct Serializer {
+          static func fromJSON(json : String) -> Lifecycle {
+               return Lifecycle()
+          }
+
+          static func toJSON(object: Lifecycle) -> String {
+               var jsonString : NSMutableString = NSMutableString()
+               // Start Object to JSON
+               jsonString.appendString("{ ")
+
+               // Own fields.
+               object.state != nil ? jsonString.appendString("state: { value: \"\(object.state!.toString())\"}") : jsonString.appendString("state: null")
+
+               // End Object to JSON
+               jsonString.appendString(" }")
+               return jsonString
+          }
+     }
 }
 
 /**

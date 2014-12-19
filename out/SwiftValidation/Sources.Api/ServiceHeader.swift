@@ -113,6 +113,28 @@ public class ServiceHeader : APIBean {
      }
 
 
+     /**
+        JSON Serialization and deserialization support.
+     */
+     struct Serializer {
+          static func fromJSON(json : String) -> ServiceHeader {
+               return ServiceHeader()
+          }
+
+          static func toJSON(object: ServiceHeader) -> String {
+               var jsonString : NSMutableString = NSMutableString()
+               // Start Object to JSON
+               jsonString.appendString("{ ")
+
+               // Own fields.
+               object.name != nil ? jsonString.appendString("name: \"\(object.name!)\", ") : jsonString.appendString("name: null, ")
+               object.data != nil ? jsonString.appendString("data: \"\(object.data!)\"") : jsonString.appendString("data: null")
+
+               // End Object to JSON
+               jsonString.appendString(" }")
+               return jsonString
+          }
+     }
 }
 
 /**

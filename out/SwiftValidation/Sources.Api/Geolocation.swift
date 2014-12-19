@@ -228,6 +228,32 @@ public class Geolocation : APIBean {
      }
 
 
+     /**
+        JSON Serialization and deserialization support.
+     */
+     struct Serializer {
+          static func fromJSON(json : String) -> Geolocation {
+               return Geolocation()
+          }
+
+          static func toJSON(object: Geolocation) -> String {
+               var jsonString : NSMutableString = NSMutableString()
+               // Start Object to JSON
+               jsonString.appendString("{ ")
+
+               // Own fields.
+               object.latitude != nil ? jsonString.appendString("latitude: \(object.latitude!), ") : jsonString.appendString("latitude: null, ")
+               object.longitude != nil ? jsonString.appendString("longitude: \(object.longitude!), ") : jsonString.appendString("longitude: null, ")
+               object.altitude != nil ? jsonString.appendString("altitude: \(object.altitude!), ") : jsonString.appendString("altitude: null, ")
+               object.xDoP != nil ? jsonString.appendString("xDoP: \(object.xDoP!), ") : jsonString.appendString("xDoP: null, ")
+               object.yDoP != nil ? jsonString.appendString("yDoP: \(object.yDoP!), ") : jsonString.appendString("yDoP: null, ")
+               object.timestamp != nil ? jsonString.appendString("timestamp: \(object.timestamp!)") : jsonString.appendString("timestamp: null")
+
+               // End Object to JSON
+               jsonString.appendString(" }")
+               return jsonString
+          }
+     }
 }
 
 /**

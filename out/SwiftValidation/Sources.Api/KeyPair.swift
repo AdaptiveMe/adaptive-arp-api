@@ -113,6 +113,28 @@ public class KeyPair : APIBean {
      }
 
 
+     /**
+        JSON Serialization and deserialization support.
+     */
+     struct Serializer {
+          static func fromJSON(json : String) -> KeyPair {
+               return KeyPair()
+          }
+
+          static func toJSON(object: KeyPair) -> String {
+               var jsonString : NSMutableString = NSMutableString()
+               // Start Object to JSON
+               jsonString.appendString("{ ")
+
+               // Own fields.
+               object.key != nil ? jsonString.appendString("key: \"\(object.key!)\", ") : jsonString.appendString("key: null, ")
+               object.value != nil ? jsonString.appendString("value: \"\(object.value!)\"") : jsonString.appendString("value: null")
+
+               // End Object to JSON
+               jsonString.appendString(" }")
+               return jsonString
+          }
+     }
 }
 
 /**

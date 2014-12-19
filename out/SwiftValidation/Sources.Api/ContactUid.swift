@@ -87,6 +87,27 @@ public class ContactUid : APIBean {
      }
 
 
+     /**
+        JSON Serialization and deserialization support.
+     */
+     struct Serializer {
+          static func fromJSON(json : String) -> ContactUid {
+               return ContactUid()
+          }
+
+          static func toJSON(object: ContactUid) -> String {
+               var jsonString : NSMutableString = NSMutableString()
+               // Start Object to JSON
+               jsonString.appendString("{ ")
+
+               // Own fields.
+               object.contactId != nil ? jsonString.appendString("contactId: \"\(object.contactId!)\"") : jsonString.appendString("contactId: null")
+
+               // End Object to JSON
+               jsonString.appendString(" }")
+               return jsonString
+          }
+     }
 }
 
 /**

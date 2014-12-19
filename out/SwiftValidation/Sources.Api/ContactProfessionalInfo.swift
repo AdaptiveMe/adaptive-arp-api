@@ -139,6 +139,29 @@ public class ContactProfessionalInfo : APIBean {
      }
 
 
+     /**
+        JSON Serialization and deserialization support.
+     */
+     struct Serializer {
+          static func fromJSON(json : String) -> ContactProfessionalInfo {
+               return ContactProfessionalInfo()
+          }
+
+          static func toJSON(object: ContactProfessionalInfo) -> String {
+               var jsonString : NSMutableString = NSMutableString()
+               // Start Object to JSON
+               jsonString.appendString("{ ")
+
+               // Own fields.
+               object.company != nil ? jsonString.appendString("company: \"\(object.company!)\", ") : jsonString.appendString("company: null, ")
+               object.jobTitle != nil ? jsonString.appendString("jobTitle: \"\(object.jobTitle!)\", ") : jsonString.appendString("jobTitle: null, ")
+               object.jobDescription != nil ? jsonString.appendString("jobDescription: \"\(object.jobDescription!)\"") : jsonString.appendString("jobDescription: null")
+
+               // End Object to JSON
+               jsonString.appendString(" }")
+               return jsonString
+          }
+     }
 }
 
 /**

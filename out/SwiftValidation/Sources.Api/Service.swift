@@ -165,6 +165,30 @@ public class Service : APIBean {
      }
 
 
+     /**
+        JSON Serialization and deserialization support.
+     */
+     struct Serializer {
+          static func fromJSON(json : String) -> Service {
+               return Service()
+          }
+
+          static func toJSON(object: Service) -> String {
+               var jsonString : NSMutableString = NSMutableString()
+               // Start Object to JSON
+               jsonString.appendString("{ ")
+
+               // Own fields.
+               object.serviceEndpoint != nil ? jsonString.appendString("serviceEndpoint: \(ServiceEndpoint.Serializer.toJSON(object.serviceEndpoint!)), ") : jsonString.appendString("serviceEndpoint: null, ")
+               object.name != nil ? jsonString.appendString("name: \"\(object.name!)\", ") : jsonString.appendString("name: null, ")
+               object.method != nil ? jsonString.appendString("method: { value: \"\(object.method!.toString())\"}, ") : jsonString.appendString("method: null, ")
+               object.type != nil ? jsonString.appendString("type: { value: \"\(object.type!.toString())\"}") : jsonString.appendString("type: null")
+
+               // End Object to JSON
+               jsonString.appendString(" }")
+               return jsonString
+          }
+     }
 }
 
 /**

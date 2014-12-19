@@ -87,6 +87,27 @@ public class ContactWebsite : APIBean {
      }
 
 
+     /**
+        JSON Serialization and deserialization support.
+     */
+     struct Serializer {
+          static func fromJSON(json : String) -> ContactWebsite {
+               return ContactWebsite()
+          }
+
+          static func toJSON(object: ContactWebsite) -> String {
+               var jsonString : NSMutableString = NSMutableString()
+               // Start Object to JSON
+               jsonString.appendString("{ ")
+
+               // Own fields.
+               object.url != nil ? jsonString.appendString("url: \"\(object.url!)\"") : jsonString.appendString("url: null")
+
+               // End Object to JSON
+               jsonString.appendString(" }")
+               return jsonString
+          }
+     }
 }
 
 /**

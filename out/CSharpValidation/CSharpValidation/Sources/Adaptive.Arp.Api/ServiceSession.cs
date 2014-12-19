@@ -49,7 +49,7 @@ namespace Adaptive.Arp.Api
           /**
              The attributes of the response
           */
-          public Object[] Attributes { get; set; }
+          public string[] Attributes { get; set; }
           /**
              The cookies of the response
           */
@@ -70,7 +70,7 @@ namespace Adaptive.Arp.Api
              @param Attributes Attributes of the response
              @since ARP1.0
           */
-          public ServiceSession(ServiceCookie[] Cookies, Object[] Attributes) : base () {
+          public ServiceSession(ServiceCookie[] Cookies, string[] Attributes) : base () {
                this.Cookies = Cookies;
                this.Attributes = Attributes;
           }
@@ -81,7 +81,7 @@ namespace Adaptive.Arp.Api
              @return Attributes of the response
              @since ARP1.0
           */
-          public Object[] GetAttributes() {
+          public string[] GetAttributes() {
                return this.Attributes;
           }
 
@@ -91,7 +91,7 @@ namespace Adaptive.Arp.Api
              @param Attributes Attributes of the response
              @since ARP1.0
           */
-          public void SetAttributes(Object[] Attributes) {
+          public void SetAttributes(string[] Attributes) {
                this.Attributes = Attributes;
           }
 

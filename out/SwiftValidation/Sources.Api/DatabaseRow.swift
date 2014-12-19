@@ -44,7 +44,7 @@ public class DatabaseRow : APIBean {
      /**
         The values of the row.
      */
-     var values : [AnyObject]?
+     var values : [String]?
 
      /**
         Default constructor
@@ -61,7 +61,7 @@ public class DatabaseRow : APIBean {
         @param values The values of the row
         @since ARP1.0
      */
-     public init(values: [AnyObject]) {
+     public init(values: [String]) {
           super.init()
           self.values = values
      }
@@ -72,7 +72,7 @@ public class DatabaseRow : APIBean {
         @return The values of the row.
         @since ARP1.0
      */
-     public func getValues() -> [AnyObject]? {
+     public func getValues() -> [String]? {
           return self.values
      }
 
@@ -82,11 +82,47 @@ public class DatabaseRow : APIBean {
         @param values The values of the row.
         @since ARP1.0
      */
-     public func setValues(values: [AnyObject]) {
+     public func setValues(values: [String]) {
           self.values = values
      }
 
 
+     /**
+        JSON Serialization and deserialization support.
+     */
+     struct Serializer {
+          static func fromJSON(json : String) -> DatabaseRow {
+               return DatabaseRow()
+          }
+
+          static func toJSON(object: DatabaseRow) -> String {
+               var jsonString : NSMutableString = NSMutableString()
+               // Start Object to JSON
+               jsonString.appendString("{ ")
+
+               // Own fields.
+               if (object.values != nil) {
+                    // Start array of objects.
+                    jsonString.appendString("values: [");
+
+                    for var i = 0; i < object.values!.count; i++ {
+                         jsonString.appendString("\"\(object.values![i])\"");
+                         if (i < object.values!.count-1) {
+                              jsonString.appendString(", ");
+                         }
+                    }
+
+                    // End array of objects.
+                    jsonString.appendString("]");
+               } else {
+                    jsonString.appendString("values: null")
+               }
+
+               // End Object to JSON
+               jsonString.appendString(" }")
+               return jsonString
+          }
+     }
 }
 
 /**

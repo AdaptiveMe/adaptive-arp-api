@@ -191,6 +191,46 @@ public class EmailAttachmentData : APIBean {
      }
 
 
+     /**
+        JSON Serialization and deserialization support.
+     */
+     struct Serializer {
+          static func fromJSON(json : String) -> EmailAttachmentData {
+               return EmailAttachmentData()
+          }
+
+          static func toJSON(object: EmailAttachmentData) -> String {
+               var jsonString : NSMutableString = NSMutableString()
+               // Start Object to JSON
+               jsonString.appendString("{ ")
+
+               // Own fields.
+               if (object.data != nil) {
+                    // Start array of objects.
+                    jsonString.appendString("data: [");
+
+                    for var i = 0; i < object.data!.count; i++ {
+                         jsonString.appendString("\(object.data![i])");
+                         if (i < object.data!.count-1) {
+                              jsonString.appendString(", ");
+                         }
+                    }
+
+                    // End array of objects.
+                    jsonString.appendString("], ");
+               } else {
+                    jsonString.appendString("data: null, ")
+               }
+               object.size != nil ? jsonString.appendString("size: \(object.size!), ") : jsonString.appendString("size: null, ")
+               object.fileName != nil ? jsonString.appendString("fileName: \"\(object.fileName!)\", ") : jsonString.appendString("fileName: null, ")
+               object.mimeType != nil ? jsonString.appendString("mimeType: \"\(object.mimeType!)\", ") : jsonString.appendString("mimeType: null, ")
+               object.referenceUrl != nil ? jsonString.appendString("referenceUrl: \"\(object.referenceUrl!)\"") : jsonString.appendString("referenceUrl: null")
+
+               // End Object to JSON
+               jsonString.appendString(" }")
+               return jsonString
+          }
+     }
 }
 
 /**

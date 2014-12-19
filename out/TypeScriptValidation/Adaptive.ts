@@ -2958,14 +2958,14 @@ listener.
           /**
              The values of the row.
           */
-          values : Array<any>;
+          values : Array<string>;
           /**
              Constructor for implementation using.
 
              @param values The values of the row
              @since ARP1.0
           */
-          constructor(values: Array<any>) {
+          constructor(values: Array<string>) {
                super();
                this.values = values;
           }
@@ -2975,7 +2975,7 @@ listener.
              @return The values of the row.
              @since ARP1.0
           */
-          getValues() : Array<any> {
+          getValues() : Array<string> {
                return this.values;
           }
 
@@ -2985,7 +2985,7 @@ listener.
              @param values The values of the row.
              @since ARP1.0
           */
-          setValues(values: Array<any>) {
+          setValues(values: Array<string>) {
                this.values = values;
           }
 
@@ -6321,7 +6321,7 @@ be unique for a specific instance of an application on a specific device.
           /**
              The attributes of the response
           */
-          attributes : Array<any>;
+          attributes : Array<string>;
           /**
              The cookies of the response
           */
@@ -6333,7 +6333,7 @@ be unique for a specific instance of an application on a specific device.
              @param attributes Attributes of the response
              @since ARP1.0
           */
-          constructor(cookies: Array<ServiceCookie>, attributes: Array<any>) {
+          constructor(cookies: Array<ServiceCookie>, attributes: Array<string>) {
                this.cookies = cookies;
                this.attributes = attributes;
           }
@@ -6343,7 +6343,7 @@ be unique for a specific instance of an application on a specific device.
              @return Attributes of the response
              @since ARP1.0
           */
-          getAttributes() : Array<any> {
+          getAttributes() : Array<string> {
                return this.attributes;
           }
 
@@ -6353,7 +6353,7 @@ be unique for a specific instance of an application on a specific device.
              @param attributes Attributes of the response
              @since ARP1.0
           */
-          setAttributes(attributes: Array<any>) {
+          setAttributes(attributes: Array<string>) {
                this.attributes = attributes;
           }
 

@@ -165,6 +165,30 @@ public class ContactPersonalInfo : APIBean {
      }
 
 
+     /**
+        JSON Serialization and deserialization support.
+     */
+     struct Serializer {
+          static func fromJSON(json : String) -> ContactPersonalInfo {
+               return ContactPersonalInfo()
+          }
+
+          static func toJSON(object: ContactPersonalInfo) -> String {
+               var jsonString : NSMutableString = NSMutableString()
+               // Start Object to JSON
+               jsonString.appendString("{ ")
+
+               // Own fields.
+               object.name != nil ? jsonString.appendString("name: \"\(object.name!)\", ") : jsonString.appendString("name: null, ")
+               object.middleName != nil ? jsonString.appendString("middleName: \"\(object.middleName!)\", ") : jsonString.appendString("middleName: null, ")
+               object.lastName != nil ? jsonString.appendString("lastName: \"\(object.lastName!)\", ") : jsonString.appendString("lastName: null, ")
+               object.title != nil ? jsonString.appendString("title: { value: \"\(object.title!.toString())\"}") : jsonString.appendString("title: null")
+
+               // End Object to JSON
+               jsonString.appendString(" }")
+               return jsonString
+          }
+     }
 }
 
 /**

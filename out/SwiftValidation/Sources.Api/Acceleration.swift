@@ -164,24 +164,31 @@ public class Acceleration : APIBean {
           self.z = z
      }
 
-    struct AccelerationSerialize {
-        static func fromJSON(json : String) -> Acceleration {
-            return Acceleration()
-        }
-        
-        static func toJSON(object: Acceleration) -> String {
-            var dict = Dictionary<String, AnyObject>()
-            dict["x"] = object.x
-            dict["y"] = object.y
-            dict["z"] = object.z
-            dict["timestamp"] = object.timestamp
-            
-            var data = NSJSONSerialization.dataWithJSONObject(dict, options:NSJSONWritingOptions(0), error: nil)!
-            
-            return NSString(data: data, encoding: NSUTF8StringEncoding)!
-        }
-    }
 
+     /**
+        JSON Serialization and deserialization support.
+     */
+     struct Serializer {
+          static func fromJSON(json : String) -> Acceleration {
+               return Acceleration()
+          }
+
+          static func toJSON(object: Acceleration) -> String {
+               var jsonString : NSMutableString = NSMutableString()
+               // Start Object to JSON
+               jsonString.appendString("{ ")
+
+               // Own fields.
+               object.x != nil ? jsonString.appendString("x: \(object.x!), ") : jsonString.appendString("x: null, ")
+               object.y != nil ? jsonString.appendString("y: \(object.y!), ") : jsonString.appendString("y: null, ")
+               object.z != nil ? jsonString.appendString("z: \(object.z!), ") : jsonString.appendString("z: null, ")
+               object.timestamp != nil ? jsonString.appendString("timestamp: \(object.timestamp!)") : jsonString.appendString("timestamp: null")
+
+               // End Object to JSON
+               jsonString.appendString(" }")
+               return jsonString
+          }
+     }
 }
 
 /**

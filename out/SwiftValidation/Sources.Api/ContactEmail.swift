@@ -139,6 +139,29 @@ public class ContactEmail : APIBean {
      }
 
 
+     /**
+        JSON Serialization and deserialization support.
+     */
+     struct Serializer {
+          static func fromJSON(json : String) -> ContactEmail {
+               return ContactEmail()
+          }
+
+          static func toJSON(object: ContactEmail) -> String {
+               var jsonString : NSMutableString = NSMutableString()
+               // Start Object to JSON
+               jsonString.appendString("{ ")
+
+               // Own fields.
+               object.type != nil ? jsonString.appendString("type: { value: \"\(object.type!.toString())\"}, ") : jsonString.appendString("type: null, ")
+               object.primary != nil ? jsonString.appendString("primary: \(object.primary!), ") : jsonString.appendString("primary: null, ")
+               object.email != nil ? jsonString.appendString("email: \"\(object.email!)\"") : jsonString.appendString("email: null")
+
+               // End Object to JSON
+               jsonString.appendString(" }")
+               return jsonString
+          }
+     }
 }
 
 /**

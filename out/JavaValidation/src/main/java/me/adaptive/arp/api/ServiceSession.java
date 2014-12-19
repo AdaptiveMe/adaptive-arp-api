@@ -46,7 +46,7 @@ public class ServiceSession {
      /**
         The attributes of the response
      */
-     private Object[] attributes;
+     private String[] attributes;
      /**
         The cookies of the response
      */
@@ -67,7 +67,7 @@ public class ServiceSession {
         @param attributes Attributes of the response
         @since ARP1.0
      */
-     public ServiceSession(ServiceCookie[] cookies, Object[] attributes) {
+     public ServiceSession(ServiceCookie[] cookies, String[] attributes) {
           this();
           this.cookies = cookies;
           this.attributes = attributes;
@@ -79,7 +79,7 @@ public class ServiceSession {
         @return Attributes of the response
         @since ARP1.0
      */
-     public Object[] getAttributes() {
+     public String[] getAttributes() {
           return this.attributes;
      }
 
@@ -89,7 +89,7 @@ public class ServiceSession {
         @param attributes Attributes of the response
         @since ARP1.0
      */
-     public void setAttributes(Object[] attributes) {
+     public void setAttributes(String[] attributes) {
           this.attributes = attributes;
      }
 

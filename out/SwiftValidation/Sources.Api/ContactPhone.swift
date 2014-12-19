@@ -113,6 +113,28 @@ public class ContactPhone : APIBean {
      }
 
 
+     /**
+        JSON Serialization and deserialization support.
+     */
+     struct Serializer {
+          static func fromJSON(json : String) -> ContactPhone {
+               return ContactPhone()
+          }
+
+          static func toJSON(object: ContactPhone) -> String {
+               var jsonString : NSMutableString = NSMutableString()
+               // Start Object to JSON
+               jsonString.appendString("{ ")
+
+               // Own fields.
+               object.phone != nil ? jsonString.appendString("phone: \"\(object.phone!)\", ") : jsonString.appendString("phone: null, ")
+               object.phoneType != nil ? jsonString.appendString("phoneType: { value: \"\(object.phoneType!.toString())\"}") : jsonString.appendString("phoneType: null")
+
+               // End Object to JSON
+               jsonString.appendString(" }")
+               return jsonString
+          }
+     }
 }
 
 /**

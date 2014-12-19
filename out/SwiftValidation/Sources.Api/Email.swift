@@ -258,6 +258,93 @@ public class Email : APIBean {
      }
 
 
+     /**
+        JSON Serialization and deserialization support.
+     */
+     struct Serializer {
+          static func fromJSON(json : String) -> Email {
+               return Email()
+          }
+
+          static func toJSON(object: Email) -> String {
+               var jsonString : NSMutableString = NSMutableString()
+               // Start Object to JSON
+               jsonString.appendString("{ ")
+
+               // Own fields.
+               if (object.toRecipients != nil) {
+                    // Start array of objects.
+                    jsonString.appendString("toRecipients: [");
+
+                    for var i = 0; i < object.toRecipients!.count; i++ {
+                         jsonString.appendString(EmailAddress.Serializer.toJSON(object.toRecipients![i]))
+                         if (i < object.toRecipients!.count-1) {
+                              jsonString.appendString(", ");
+                         }
+                    }
+
+                    // End array of objects.
+                    jsonString.appendString("], ");
+               } else {
+                    jsonString.appendString("toRecipients: null, ")
+               }
+               if (object.ccRecipients != nil) {
+                    // Start array of objects.
+                    jsonString.appendString("ccRecipients: [");
+
+                    for var i = 0; i < object.ccRecipients!.count; i++ {
+                         jsonString.appendString(EmailAddress.Serializer.toJSON(object.ccRecipients![i]))
+                         if (i < object.ccRecipients!.count-1) {
+                              jsonString.appendString(", ");
+                         }
+                    }
+
+                    // End array of objects.
+                    jsonString.appendString("], ");
+               } else {
+                    jsonString.appendString("ccRecipients: null, ")
+               }
+               if (object.bccRecipients != nil) {
+                    // Start array of objects.
+                    jsonString.appendString("bccRecipients: [");
+
+                    for var i = 0; i < object.bccRecipients!.count; i++ {
+                         jsonString.appendString(EmailAddress.Serializer.toJSON(object.bccRecipients![i]))
+                         if (i < object.bccRecipients!.count-1) {
+                              jsonString.appendString(", ");
+                         }
+                    }
+
+                    // End array of objects.
+                    jsonString.appendString("], ");
+               } else {
+                    jsonString.appendString("bccRecipients: null, ")
+               }
+               if (object.emailAttachmentData != nil) {
+                    // Start array of objects.
+                    jsonString.appendString("emailAttachmentData: [");
+
+                    for var i = 0; i < object.emailAttachmentData!.count; i++ {
+                         jsonString.appendString(EmailAttachmentData.Serializer.toJSON(object.emailAttachmentData![i]))
+                         if (i < object.emailAttachmentData!.count-1) {
+                              jsonString.appendString(", ");
+                         }
+                    }
+
+                    // End array of objects.
+                    jsonString.appendString("], ");
+               } else {
+                    jsonString.appendString("emailAttachmentData: null, ")
+               }
+               object.messageBody != nil ? jsonString.appendString("messageBody: \"\(object.messageBody!)\", ") : jsonString.appendString("messageBody: null, ")
+               object.messageBodyMimeType != nil ? jsonString.appendString("messageBodyMimeType: \"\(object.messageBodyMimeType!)\", ") : jsonString.appendString("messageBodyMimeType: null, ")
+               object.subject != nil ? jsonString.appendString("subject: \"\(object.subject!)\"") : jsonString.appendString("subject: null")
+
+               // End Object to JSON
+               jsonString.appendString(" }")
+               return jsonString
+          }
+     }
 }
 
 /**
