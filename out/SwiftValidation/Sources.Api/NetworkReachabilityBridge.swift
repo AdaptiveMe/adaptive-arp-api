@@ -87,7 +87,7 @@ public class NetworkReachabilityBridge : BaseCommunicationBridge, INetworkReacha
           if (self.delegate != nil) {
                self.delegate!.isNetworkReachable(host, callback: callback)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "NetworkReachabilityBridge executed 'isNetworkReachable' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "NetworkReachabilityBridge executed 'isNetworkReachable' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -116,7 +116,7 @@ public class NetworkReachabilityBridge : BaseCommunicationBridge, INetworkReacha
           if (self.delegate != nil) {
                self.delegate!.isNetworkServiceReachable(url, callback: callback)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "NetworkReachabilityBridge executed 'isNetworkServiceReachable' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "NetworkReachabilityBridge executed 'isNetworkServiceReachable' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {

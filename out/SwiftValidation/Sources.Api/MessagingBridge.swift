@@ -88,7 +88,7 @@ public class MessagingBridge : BasePIMBridge, IMessaging, APIBridge {
           if (self.delegate != nil) {
                self.delegate!.sendSMS(number, text: text, callback: callback)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "MessagingBridge executed 'sendSMS' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "MessagingBridge executed 'sendSMS' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {

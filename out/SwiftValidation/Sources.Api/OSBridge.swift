@@ -87,7 +87,7 @@ public class OSBridge : BaseSystemBridge, IOS, APIBridge {
           if (self.delegate != nil) {
                result = self.delegate!.getOSInfo()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "OSBridge executed 'getOSInfo' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "OSBridge executed 'getOSInfo' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {

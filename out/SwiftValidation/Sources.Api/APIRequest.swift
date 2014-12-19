@@ -44,7 +44,7 @@ public class APIRequest : NSObject {
      /**
         Identifier of callback or listener for async operations.
      */
-     var asyncId : Int64?
+     var asyncId : Int?
      /**
         String representing the method name to call
      */
@@ -87,7 +87,7 @@ public class APIRequest : NSObject {
         @param asyncId        Id of callback or listener or zero if none for synchronous calls.
         @since ARP1.0
      */
-     public init(methodName: String, parameters: [String], parameterTypes: [String], asyncId: Int64) {
+     public init(methodName: String, parameters: [String], parameterTypes: [String], asyncId: Int) {
           super.init()
           self.methodName = methodName
           self.parameters = parameters
@@ -101,7 +101,7 @@ listener.
 
         @return long with the unique id of the callback or listener, or zero if there is no associated async event.
      */
-     public func getAsyncId() -> Int64? {
+     public func getAsyncId() -> Int? {
           return self.asyncId
      }
 
@@ -110,7 +110,7 @@ listener.
 
         @param asyncId The unique id of the callback or listener.
      */
-     public func setAsyncId(asyncId: Int64) {
+     public func setAsyncId(asyncId: Int) {
           self.asyncId = asyncId
      }
 

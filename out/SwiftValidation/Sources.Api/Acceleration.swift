@@ -44,7 +44,7 @@ public class Acceleration : APIBean {
      /**
         Timestamp of the acceleration reading.
      */
-     var timestamp : Int64?
+     var timestamp : Int?
      /**
         X-axis component of the acceleration.
      */
@@ -76,7 +76,7 @@ public class Acceleration : APIBean {
         @param timestamp Timestamp
         @since ARP1.0
      */
-     public init(x: Double, y: Double, z: Double, timestamp: Int64) {
+     public init(x: Double, y: Double, z: Double, timestamp: Int) {
           super.init()
           self.x = x
           self.y = y
@@ -90,7 +90,7 @@ public class Acceleration : APIBean {
         @return Timestamp
         @since ARP1.0
      */
-     public func getTimestamp() -> Int64? {
+     public func getTimestamp() -> Int? {
           return self.timestamp
      }
 
@@ -100,7 +100,7 @@ public class Acceleration : APIBean {
         @param timestamp Timestamp
         @since ARP1.0
      */
-     public func setTimestamp(timestamp: Int64) {
+     public func setTimestamp(timestamp: Int) {
           self.timestamp = timestamp
      }
 
@@ -164,6 +164,23 @@ public class Acceleration : APIBean {
           self.z = z
      }
 
+    struct AccelerationSerialize {
+        static func fromJSON(json : String) -> Acceleration {
+            return Acceleration()
+        }
+        
+        static func toJSON(object: Acceleration) -> String {
+            var dict = Dictionary<String, AnyObject>()
+            dict["x"] = object.x
+            dict["y"] = object.y
+            dict["z"] = object.z
+            dict["timestamp"] = object.timestamp
+            
+            var data = NSJSONSerialization.dataWithJSONObject(dict, options:NSJSONWritingOptions(0), error: nil)!
+            
+            return NSString(data: data, encoding: NSUTF8StringEncoding)!
+        }
+    }
 
 }
 

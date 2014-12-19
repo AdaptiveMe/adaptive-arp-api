@@ -96,7 +96,7 @@ public class AppContextBridge : NSObject, IAppContext {
           if (self.delegate != nil) {
                result = self.delegate!.getContext()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextBridge executed 'getContext' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextBridge executed 'getContext' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -125,7 +125,7 @@ public class AppContextBridge : NSObject, IAppContext {
           if (self.delegate != nil) {
                result = self.delegate!.getContextType()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextBridge executed 'getContextType' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextBridge executed 'getContextType' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {

@@ -86,7 +86,7 @@ public class LifecycleBridge : BaseApplicationBridge, ILifecycle, APIBridge {
           if (self.delegate != nil) {
                self.delegate!.addLifecycleListener(listener)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "LifecycleBridge executed 'addLifecycleListener' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "LifecycleBridge executed 'addLifecycleListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -115,7 +115,7 @@ public class LifecycleBridge : BaseApplicationBridge, ILifecycle, APIBridge {
           if (self.delegate != nil) {
                result = self.delegate!.isBackground()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "LifecycleBridge executed 'isBackground' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "LifecycleBridge executed 'isBackground' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -143,7 +143,7 @@ public class LifecycleBridge : BaseApplicationBridge, ILifecycle, APIBridge {
           if (self.delegate != nil) {
                self.delegate!.removeLifecycleListener(listener)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "LifecycleBridge executed 'removeLifecycleListener' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "LifecycleBridge executed 'removeLifecycleListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -170,7 +170,7 @@ public class LifecycleBridge : BaseApplicationBridge, ILifecycle, APIBridge {
           if (self.delegate != nil) {
                self.delegate!.removeLifecycleListeners()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "LifecycleBridge executed 'removeLifecycleListeners' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "LifecycleBridge executed 'removeLifecycleListeners' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {

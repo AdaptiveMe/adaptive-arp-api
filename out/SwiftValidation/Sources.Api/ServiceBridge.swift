@@ -88,7 +88,7 @@ public class ServiceBridge : BaseCommunicationBridge, IService, APIBridge {
           if (self.delegate != nil) {
                result = self.delegate!.getService(serviceName)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ServiceBridge executed 'getService' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ServiceBridge executed 'getService' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -118,7 +118,7 @@ public class ServiceBridge : BaseCommunicationBridge, IService, APIBridge {
           if (self.delegate != nil) {
                self.delegate!.invokeService(serviceRequest, service: service, callback: callback)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ServiceBridge executed 'invokeService' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ServiceBridge executed 'invokeService' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -148,7 +148,7 @@ public class ServiceBridge : BaseCommunicationBridge, IService, APIBridge {
           if (self.delegate != nil) {
                result = self.delegate!.isRegistered(service)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ServiceBridge executed 'isRegistered' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ServiceBridge executed 'isRegistered' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -178,7 +178,7 @@ public class ServiceBridge : BaseCommunicationBridge, IService, APIBridge {
           if (self.delegate != nil) {
                result = self.delegate!.isRegistered(serviceName)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ServiceBridge executed 'isRegistered' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ServiceBridge executed 'isRegistered' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -206,7 +206,7 @@ public class ServiceBridge : BaseCommunicationBridge, IService, APIBridge {
           if (self.delegate != nil) {
                self.delegate!.registerService(service)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ServiceBridge executed 'registerService' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ServiceBridge executed 'registerService' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -234,7 +234,7 @@ public class ServiceBridge : BaseCommunicationBridge, IService, APIBridge {
           if (self.delegate != nil) {
                self.delegate!.unregisterService(service)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ServiceBridge executed 'unregisterService' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ServiceBridge executed 'unregisterService' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -261,7 +261,7 @@ public class ServiceBridge : BaseCommunicationBridge, IService, APIBridge {
           if (self.delegate != nil) {
                self.delegate!.unregisterServices()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ServiceBridge executed 'unregisterServices' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ServiceBridge executed 'unregisterServices' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {

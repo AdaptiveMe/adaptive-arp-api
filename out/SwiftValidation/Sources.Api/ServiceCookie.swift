@@ -44,7 +44,7 @@ public class ServiceCookie : APIBean {
      /**
         ServiceCookie creation timestamp in milliseconds.
      */
-     var creation : Int64?
+     var creation : Int?
      /**
         Domain for which the cookie is valid.
      */
@@ -52,7 +52,7 @@ public class ServiceCookie : APIBean {
      /**
         ServiceCookie expiry in milliseconds or -1 for session only.
      */
-     var expiry : Int64?
+     var expiry : Int?
      /**
         Name ot the cookie
      */
@@ -109,7 +109,7 @@ public class ServiceCookie : APIBean {
         @param creation Creation date of the cookie
         @since ARP1.0
      */
-     public init(name: String, value: String, domain: String, path: String, scheme: String, secure: Bool, expiry: Int64, creation: Int64) {
+     public init(name: String, value: String, domain: String, path: String, scheme: String, secure: Bool, expiry: Int, creation: Int) {
           super.init()
           self.name = name
           self.value = value
@@ -127,7 +127,7 @@ public class ServiceCookie : APIBean {
         @return Creation date of the cookie
         @since ARP1.0
      */
-     public func getCreation() -> Int64? {
+     public func getCreation() -> Int? {
           return self.creation
      }
 
@@ -137,7 +137,7 @@ public class ServiceCookie : APIBean {
         @param creation Creation date of the cookie
         @since ARP1.0
      */
-     public func setCreation(creation: Int64) {
+     public func setCreation(creation: Int) {
           self.creation = creation
      }
 
@@ -167,7 +167,7 @@ public class ServiceCookie : APIBean {
         @return expiry
         @since ARP1.0
      */
-     public func getExpiry() -> Int64? {
+     public func getExpiry() -> Int? {
           return self.expiry
      }
 
@@ -177,7 +177,7 @@ public class ServiceCookie : APIBean {
         @param expiry Expiration date of the cookie
         @since ARP1.0
      */
-     public func setExpiry(expiry: Int64) {
+     public func setExpiry(expiry: Int) {
           self.expiry = expiry
      }
 

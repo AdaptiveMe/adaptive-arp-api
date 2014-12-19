@@ -85,7 +85,7 @@ public class RuntimeBridge : BaseSystemBridge, IRuntime, APIBridge {
           if (self.delegate != nil) {
                self.delegate!.dismissApplication()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "RuntimeBridge executed 'dismissApplication' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "RuntimeBridge executed 'dismissApplication' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -114,7 +114,7 @@ public class RuntimeBridge : BaseSystemBridge, IRuntime, APIBridge {
           if (self.delegate != nil) {
                result = self.delegate!.dismissSplashScreen()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "RuntimeBridge executed 'dismissSplashScreen' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "RuntimeBridge executed 'dismissSplashScreen' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {

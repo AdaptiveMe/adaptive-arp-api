@@ -90,7 +90,7 @@ This method does not create the actual file in the specified folder.
           if (self.delegate != nil) {
                result = self.delegate!.createFileDescriptor(parent, name: name)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executed 'createFileDescriptor' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executed 'createFileDescriptor' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -121,7 +121,7 @@ This path is volatile and may be cleaned by the OS periodically.
           if (self.delegate != nil) {
                result = self.delegate!.getApplicationCacheFolder()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executed 'getApplicationCacheFolder' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executed 'getApplicationCacheFolder' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -151,7 +151,7 @@ This path must always be writable by the current application.
           if (self.delegate != nil) {
                result = self.delegate!.getApplicationCloudFolder()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executed 'getApplicationCloudFolder' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executed 'getApplicationCloudFolder' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -181,7 +181,7 @@ This path must always be writable by the current application.
           if (self.delegate != nil) {
                result = self.delegate!.getApplicationDocumentsFolder()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executed 'getApplicationDocumentsFolder' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executed 'getApplicationDocumentsFolder' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -211,7 +211,7 @@ This path may or may not be directly readable or writable - it usually contains 
           if (self.delegate != nil) {
                result = self.delegate!.getApplicationFolder()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executed 'getApplicationFolder' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executed 'getApplicationFolder' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -241,7 +241,7 @@ This path must always be writable by the current application.
           if (self.delegate != nil) {
                result = self.delegate!.getApplicationProtectedFolder()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executed 'getApplicationProtectedFolder' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executed 'getApplicationProtectedFolder' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -270,7 +270,7 @@ This path must always be writable by the current application.
           if (self.delegate != nil) {
                result = self.delegate!.getSeparator()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executed 'getSeparator' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executed 'getSeparator' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -302,7 +302,7 @@ This path may or may not be writable by the current application.
           if (self.delegate != nil) {
                result = self.delegate!.getSystemExternalFolder()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executed 'getSystemExternalFolder' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executed 'getSystemExternalFolder' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {

@@ -87,7 +87,7 @@ public class LoggingBridge : BaseUtilBridge, ILogging, APIBridge {
           if (self.delegate != nil) {
                self.delegate!.log(level, message: message)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "LoggingBridge executed 'log' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "LoggingBridge executed 'log' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -117,7 +117,7 @@ public class LoggingBridge : BaseUtilBridge, ILogging, APIBridge {
           if (self.delegate != nil) {
                self.delegate!.log(level, category: category, message: message)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "LoggingBridge executed 'log' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "LoggingBridge executed 'log' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {

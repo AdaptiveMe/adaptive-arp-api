@@ -98,7 +98,7 @@ not be added using this method.
           if (self.delegate != nil) {
                self.delegate!.addWebview(webView)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextWebviewBridge executed 'addWebview' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextWebviewBridge executed 'addWebview' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -125,7 +125,7 @@ not be added using this method.
           if (self.delegate != nil) {
                self.delegate!.executeJavaScript(javaScriptText)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextWebviewBridge executed 'executeJavaScript' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextWebviewBridge executed 'executeJavaScript' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -153,7 +153,7 @@ not be added using this method.
           if (self.delegate != nil) {
                self.delegate!.executeJavaScript(javaScriptText, webViewReference: webViewReference)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextWebviewBridge executed 'executeJavaScript' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextWebviewBridge executed 'executeJavaScript' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -184,7 +184,7 @@ WebView, WKWebView, etc.
           if (self.delegate != nil) {
                result = self.delegate!.getWebviewPrimary()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextWebviewBridge executed 'getWebviewPrimary' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextWebviewBridge executed 'getWebviewPrimary' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -214,7 +214,7 @@ This method will always return at least one element; the primary webview.
           if (self.delegate != nil) {
                result = self.delegate!.getWebviews()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextWebviewBridge executed 'getWebviews' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextWebviewBridge executed 'getWebviews' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -243,7 +243,7 @@ ARP functions and release resources. The primary webview can not be removed.
           if (self.delegate != nil) {
                self.delegate!.removeWebview(webView)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextWebviewBridge executed 'removeWebview' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextWebviewBridge executed 'removeWebview' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {

@@ -86,7 +86,7 @@ public class AccelerationBridge : BaseSensorBridge, IAcceleration, APIBridge {
           if (self.delegate != nil) {
                self.delegate!.addAccelerationListener(listener)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AccelerationBridge executed 'addAccelerationListener' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AccelerationBridge executed 'addAccelerationListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -114,7 +114,7 @@ public class AccelerationBridge : BaseSensorBridge, IAcceleration, APIBridge {
           if (self.delegate != nil) {
                self.delegate!.removeAccelerationListener(listener)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AccelerationBridge executed 'removeAccelerationListener' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AccelerationBridge executed 'removeAccelerationListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -141,7 +141,7 @@ public class AccelerationBridge : BaseSensorBridge, IAcceleration, APIBridge {
           if (self.delegate != nil) {
                self.delegate!.removeAccelerationListeners()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AccelerationBridge executed 'removeAccelerationListeners' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AccelerationBridge executed 'removeAccelerationListeners' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {

@@ -43,7 +43,7 @@ public class LifecycleListenerImpl : BaseListenerImpl, ILifecycleListener {
 
         @param id  The id of the listener.
      */
-     public override init(id : Int64) {
+     public override init(id : Int) {
           super.init(id: id);
      }
 

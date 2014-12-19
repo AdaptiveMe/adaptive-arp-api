@@ -87,7 +87,7 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
           if (self.delegate != nil) {
                result = self.delegate!.getLocaleSupportedDescriptors()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "GlobalizationBridge executed 'getLocaleSupportedDescriptors' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "GlobalizationBridge executed 'getLocaleSupportedDescriptors' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -118,7 +118,7 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
           if (self.delegate != nil) {
                result = self.delegate!.getResourceLiteral(key, locale: locale)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "GlobalizationBridge executed 'getResourceLiteral' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "GlobalizationBridge executed 'getResourceLiteral' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -148,7 +148,7 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
           if (self.delegate != nil) {
                result = self.delegate!.getResourceLiterals(locale)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "GlobalizationBridge executed 'getResourceLiterals' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "GlobalizationBridge executed 'getResourceLiterals' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {

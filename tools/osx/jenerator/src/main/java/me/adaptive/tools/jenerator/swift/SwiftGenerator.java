@@ -531,7 +531,7 @@ public class SwiftGenerator extends GeneratorBase {
                     println(10, "if (self.delegate != nil) {");
                     println(15, "result = self.delegate!.get" + serviceClass.getSimpleName().substring(1) + "Bridge()");
                     println(15, "if (logger != nil) {");
-                    println(20, "logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: \"" + simpleName + " executed 'get" + serviceClass.getSimpleName().substring(1) + "Bridge' in \\(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.\")");
+                    println(20, "logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: \"" + simpleName + " executed 'get" + serviceClass.getSimpleName().substring(1) + "Bridge' in \\(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.\")");
                     println(15, "}");
                     println(10, "} else {");
                     println(15, "if (logger != nil) {");
@@ -565,7 +565,7 @@ public class SwiftGenerator extends GeneratorBase {
                 println(10, "if (self.delegate != nil) {");
                 println(15, "result = self.delegate!.getBridge(bridgeType)");
                 println(15, "if (logger != nil) {");
-                println(20, "logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: \"" + simpleName + " executed 'getBridge' in \\(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.\")");
+                println(20, "logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: \"" + simpleName + " executed 'getBridge' in \\(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.\")");
                 println(15, "}");
                 println(10, "} else {");
                 println(15, "if (logger != nil) {");
@@ -668,7 +668,7 @@ public class SwiftGenerator extends GeneratorBase {
                 }
                 println(")");
                 println(15, "if (logger != nil) {");
-                println(20, "logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: \"" + simpleName + " executed '" + m.getName() + "' in \\(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.\")");
+                println(20, "logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: \"" + simpleName + " executed '" + m.getName() + "' in \\(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.\")");
                 println(15, " }");
                 println(10, "} else {");
                 println(15, "if (logger != nil) {");
@@ -875,7 +875,7 @@ public class SwiftGenerator extends GeneratorBase {
             startComment(5);
             println(8, "Unique id of callback.");
             endComment(5);
-            println(5, "private var id : Int64");
+            println(5, "private var id : Int");
             println();
 
             startComment(5);
@@ -895,7 +895,7 @@ public class SwiftGenerator extends GeneratorBase {
             println();
             println(8, "@param id  The id of the callback.");
             endComment(5);
-            println(5, "public init(id : Int64) {");
+            println(5, "public init(id : Int) {");
             println(10, "self.id = id");
             println(10, "self.apiGroup = IAdaptiveRPGroup.Application");
             println(10, "//TODO: this.gson = new Gson();");
@@ -906,7 +906,7 @@ public class SwiftGenerator extends GeneratorBase {
             println(8, "Get the callback id.");
             println(8, "@return long with the identifier of the callback.");
             endComment(5);
-            println(5, "public final func getId() -> Int64 {");
+            println(5, "public final func getId() -> Int {");
             println(10, "return self.id");
             println(5, "}");
             println();
@@ -933,7 +933,7 @@ public class SwiftGenerator extends GeneratorBase {
             println();
             println(8, "@param id  The id of the callback.");
             endComment(5);
-            println(5, "public override init(id : Int64) {");
+            println(5, "public override init(id : Int) {");
             println(10, "super.init(id: id)");
             println(5, "}");
         }
@@ -1017,7 +1017,7 @@ public class SwiftGenerator extends GeneratorBase {
             startComment(5);
             println(8, "Unique id of listener.");
             endComment(5);
-            println(5, "private var id : Int64");
+            println(5, "private var id : Int");
             println();
 
             startComment(5);
@@ -1037,7 +1037,7 @@ public class SwiftGenerator extends GeneratorBase {
             println();
             println(8, "@param id  The id of the listener.");
             endComment(5);
-            println(5, "public init(id : Int64) {");
+            println(5, "public init(id : Int) {");
             println(10, "self.id = id");
             println(10, "self.apiGroup = IAdaptiveRPGroup.Application");
             println(10, "// TODO: this.gson = new Gson();");
@@ -1048,7 +1048,7 @@ public class SwiftGenerator extends GeneratorBase {
             println(8, "Get the listener id.");
             println(8, "@return long with the identifier of the listener.");
             endComment(5);
-            println(5, "public final func getId() -> Int64 {");
+            println(5, "public final func getId() -> Int {");
             println(10, "return self.id");
             println(5, "}");
             println();
@@ -1075,7 +1075,7 @@ public class SwiftGenerator extends GeneratorBase {
             println();
             println(8, "@param id  The id of the listener.");
             endComment(5);
-            println(5, "public override init(id : Int64) {");
+            println(5, "public override init(id : Int) {");
             println(10, "super.init(id: id);");
             println(5, "}");
         }
@@ -1503,7 +1503,7 @@ public class SwiftGenerator extends GeneratorBase {
             } else if (classType.equals(Integer.TYPE)) {
                 return "Int";
             } else if (classType.equals(Long.TYPE)) {
-                return "Int64";
+                return "Int";
             } else if (classType.equals(Byte.TYPE)) {
                 return "Byte";
             } else if (classType.equals(Float.TYPE)) {

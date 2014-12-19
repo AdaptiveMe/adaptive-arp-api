@@ -105,7 +105,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getAccelerationBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getAccelerationBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getAccelerationBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -133,7 +133,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getAdsBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getAdsBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getAdsBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -161,7 +161,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getAlarmBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getAlarmBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getAlarmBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -189,7 +189,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getAmbientLightBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getAmbientLightBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getAmbientLightBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -217,7 +217,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getAnalyticsBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getAnalyticsBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getAnalyticsBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -245,7 +245,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getAudioBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getAudioBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getAudioBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -273,7 +273,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getBarcodeBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getBarcodeBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getBarcodeBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -301,7 +301,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getBarometerBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getBarometerBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getBarometerBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -329,7 +329,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getBluetoothBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getBluetoothBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getBluetoothBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -357,7 +357,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getBrowserBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getBrowserBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getBrowserBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -385,7 +385,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getCalendarBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getCalendarBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getCalendarBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -413,7 +413,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getCameraBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getCameraBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getCameraBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -441,7 +441,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getCapabilitiesBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getCapabilitiesBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getCapabilitiesBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -469,7 +469,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getCloudBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getCloudBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getCloudBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -497,7 +497,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getCompressionBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getCompressionBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getCompressionBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -525,7 +525,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getConcurrentBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getConcurrentBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getConcurrentBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -553,7 +553,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getContactBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getContactBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getContactBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -581,7 +581,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getCryptoBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getCryptoBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getCryptoBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -609,7 +609,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getDataStreamBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getDataStreamBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getDataStreamBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -637,7 +637,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getDatabaseBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getDatabaseBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getDatabaseBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -665,7 +665,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getDesktopBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getDesktopBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getDesktopBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -693,7 +693,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getDeviceBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getDeviceBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getDeviceBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -721,7 +721,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getDisplayBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getDisplayBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getDisplayBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -749,7 +749,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getFacebookBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getFacebookBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getFacebookBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -777,7 +777,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getFileSystemBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getFileSystemBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getFileSystemBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -805,7 +805,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getGeolocationBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getGeolocationBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getGeolocationBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -833,7 +833,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getGlobalizationBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getGlobalizationBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getGlobalizationBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -861,7 +861,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getGooglePlusBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getGooglePlusBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getGooglePlusBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -889,7 +889,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getGyroscopeBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getGyroscopeBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getGyroscopeBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -917,7 +917,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getImagingBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getImagingBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getImagingBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -945,7 +945,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getInternalStorageBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getInternalStorageBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getInternalStorageBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -973,7 +973,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getLifecycleBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getLifecycleBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getLifecycleBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -1001,7 +1001,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getLinkedInBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getLinkedInBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getLinkedInBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -1029,7 +1029,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getLoggingBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getLoggingBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getLoggingBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -1057,7 +1057,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getMagnetometerBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getMagnetometerBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getMagnetometerBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -1085,7 +1085,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getMailBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getMailBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getMailBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -1113,7 +1113,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getManagementBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getManagementBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getManagementBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -1141,7 +1141,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getMapBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getMapBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getMapBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -1169,7 +1169,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getMessagingBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getMessagingBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getMessagingBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -1197,7 +1197,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getNFCBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getNFCBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getNFCBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -1225,7 +1225,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getNetworkInfoBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getNetworkInfoBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getNetworkInfoBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -1253,7 +1253,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getNetworkNamingBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getNetworkNamingBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getNetworkNamingBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -1281,7 +1281,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getNetworkReachabilityBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getNetworkReachabilityBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getNetworkReachabilityBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -1309,7 +1309,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getNetworkStatusBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getNetworkStatusBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getNetworkStatusBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -1337,7 +1337,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getNotificationBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getNotificationBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getNotificationBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -1365,7 +1365,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getNotificationLocalBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getNotificationLocalBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getNotificationLocalBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -1393,7 +1393,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getOAuthBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getOAuthBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getOAuthBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -1421,7 +1421,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getOCRBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getOCRBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getOCRBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -1449,7 +1449,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getOSBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getOSBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getOSBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -1477,7 +1477,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getOpenIdBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getOpenIdBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getOpenIdBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -1505,7 +1505,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getPrintingBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getPrintingBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getPrintingBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -1533,7 +1533,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getProximityBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getProximityBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getProximityBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -1561,7 +1561,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getQRCodeBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getQRCodeBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getQRCodeBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -1589,7 +1589,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getRSSBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getRSSBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getRSSBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -1617,7 +1617,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getRuntimeBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getRuntimeBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getRuntimeBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -1645,7 +1645,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getSecurityBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getSecurityBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getSecurityBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -1673,7 +1673,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getServiceBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getServiceBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getServiceBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -1701,7 +1701,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getSettingsBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getSettingsBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getSettingsBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -1729,7 +1729,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getSocketBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getSocketBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getSocketBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -1757,7 +1757,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getStoreBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getStoreBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getStoreBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -1785,7 +1785,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getTelephonyBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getTelephonyBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getTelephonyBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -1813,7 +1813,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getTimerBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getTimerBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getTimerBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -1841,7 +1841,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getTwitterBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getTwitterBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getTwitterBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -1869,7 +1869,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getUIBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getUIBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getUIBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -1897,7 +1897,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getUpdateBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getUpdateBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getUpdateBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -1925,7 +1925,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getVibrationBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getVibrationBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getVibrationBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -1953,7 +1953,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getVideoBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getVideoBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getVideoBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -1981,7 +1981,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getWalletBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getWalletBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getWalletBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -2009,7 +2009,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getXMLBridge()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getXMLBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getXMLBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -2038,7 +2038,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getBridge(bridgeType)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger != nil) {
@@ -2067,7 +2067,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getPlatformContext()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getPlatformContext' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getPlatformContext' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -2096,7 +2096,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
           if (self.delegate != nil) {
                result = self.delegate!.getPlatformContextWeb()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getPlatformContextWeb' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getPlatformContextWeb' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {

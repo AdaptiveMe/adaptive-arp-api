@@ -86,7 +86,7 @@ public class DeviceBridge : BaseSystemBridge, IDevice, APIBridge {
           if (self.delegate != nil) {
                self.delegate!.addButtonListener(listener)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "DeviceBridge executed 'addButtonListener' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "DeviceBridge executed 'addButtonListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -115,7 +115,7 @@ public class DeviceBridge : BaseSystemBridge, IDevice, APIBridge {
           if (self.delegate != nil) {
                result = self.delegate!.getDeviceInfo()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "DeviceBridge executed 'getDeviceInfo' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "DeviceBridge executed 'getDeviceInfo' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -144,7 +144,7 @@ public class DeviceBridge : BaseSystemBridge, IDevice, APIBridge {
           if (self.delegate != nil) {
                result = self.delegate!.getLocaleCurrent()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "DeviceBridge executed 'getLocaleCurrent' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "DeviceBridge executed 'getLocaleCurrent' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -172,7 +172,7 @@ public class DeviceBridge : BaseSystemBridge, IDevice, APIBridge {
           if (self.delegate != nil) {
                self.delegate!.removeButtonListener(listener)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "DeviceBridge executed 'removeButtonListener' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "DeviceBridge executed 'removeButtonListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -199,7 +199,7 @@ public class DeviceBridge : BaseSystemBridge, IDevice, APIBridge {
           if (self.delegate != nil) {
                self.delegate!.removeButtonListeners()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "DeviceBridge executed 'removeButtonListeners' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "DeviceBridge executed 'removeButtonListeners' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {

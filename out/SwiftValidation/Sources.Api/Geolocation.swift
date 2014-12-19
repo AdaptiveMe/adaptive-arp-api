@@ -56,7 +56,7 @@ public class Geolocation : APIBean {
      /**
         Timestamp of the geolocation reading.
      */
-     var timestamp : Int64?
+     var timestamp : Int?
      /**
         Dilution of precision on the X measurement. Measured in meters.
      */
@@ -86,7 +86,7 @@ public class Geolocation : APIBean {
         @param timestamp Timestamp of the measurement
         @since ARP1.0
      */
-     public init(latitude: Double, longitude: Double, altitude: Double, xDoP: Float, yDoP: Float, timestamp: Int64) {
+     public init(latitude: Double, longitude: Double, altitude: Double, xDoP: Float, yDoP: Float, timestamp: Int) {
           super.init()
           self.latitude = latitude
           self.longitude = longitude
@@ -104,7 +104,7 @@ public class Geolocation : APIBean {
         @param timestamp Timestamp of the measurement
         @since ARP1.0
      */
-     public init(latitude: Double, longitude: Double, timestamp: Int64) {
+     public init(latitude: Double, longitude: Double, timestamp: Int) {
           super.init()
           self.latitude = latitude
           self.longitude = longitude
@@ -177,7 +177,7 @@ public class Geolocation : APIBean {
         @return Timestamp
         @since ARP1.0
      */
-     public func getTimestamp() -> Int64? {
+     public func getTimestamp() -> Int? {
           return self.timestamp
      }
 
@@ -187,7 +187,7 @@ public class Geolocation : APIBean {
         @param timestamp Timestamp
         @since ARP1.0
      */
-     public func setTimestamp(timestamp: Int64) {
+     public func setTimestamp(timestamp: Int) {
           self.timestamp = timestamp
      }
 

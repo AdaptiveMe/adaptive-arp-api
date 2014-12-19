@@ -88,7 +88,7 @@ public class SecurityBridge : BaseSecurityBridge, ISecurity, APIBridge {
           if (self.delegate != nil) {
                self.delegate!.deleteSecureKeyValuePairs(keys, publicAccessName: publicAccessName, callback: callback)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "SecurityBridge executed 'deleteSecureKeyValuePairs' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "SecurityBridge executed 'deleteSecureKeyValuePairs' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -118,7 +118,7 @@ public class SecurityBridge : BaseSecurityBridge, ISecurity, APIBridge {
           if (self.delegate != nil) {
                self.delegate!.getSecureKeyValuePairs(keys, publicAccessName: publicAccessName, callback: callback)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "SecurityBridge executed 'getSecureKeyValuePairs' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "SecurityBridge executed 'getSecureKeyValuePairs' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -147,7 +147,7 @@ public class SecurityBridge : BaseSecurityBridge, ISecurity, APIBridge {
           if (self.delegate != nil) {
                result = self.delegate!.isDeviceModified()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "SecurityBridge executed 'isDeviceModified' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "SecurityBridge executed 'isDeviceModified' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -177,7 +177,7 @@ public class SecurityBridge : BaseSecurityBridge, ISecurity, APIBridge {
           if (self.delegate != nil) {
                self.delegate!.setSecureKeyValuePairs(keyValues, publicAccessName: publicAccessName, callback: callback)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "SecurityBridge executed 'setSecureKeyValuePairs' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "SecurityBridge executed 'setSecureKeyValuePairs' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {

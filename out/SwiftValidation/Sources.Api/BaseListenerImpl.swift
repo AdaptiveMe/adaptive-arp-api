@@ -41,7 +41,7 @@ public class BaseListenerImpl : NSObject, IBaseListener {
      /**
         Unique id of listener.
      */
-     private var id : Int64
+     private var id : Int
 
      /**
         Group of API.
@@ -58,7 +58,7 @@ public class BaseListenerImpl : NSObject, IBaseListener {
 
         @param id  The id of the listener.
      */
-     public init(id : Int64) {
+     public init(id : Int) {
           self.id = id
           self.apiGroup = IAdaptiveRPGroup.Application
           // TODO: this.gson = new Gson();
@@ -68,7 +68,7 @@ public class BaseListenerImpl : NSObject, IBaseListener {
         Get the listener id.
         @return long with the identifier of the listener.
      */
-     public final func getId() -> Int64 {
+     public final func getId() -> Int {
           return self.id
      }
 

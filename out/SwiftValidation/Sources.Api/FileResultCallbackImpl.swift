@@ -43,7 +43,7 @@ public class FileResultCallbackImpl : BaseCallbackImpl, IFileResultCallback {
 
         @param id  The id of the callback.
      */
-     public override init(id : Int64) {
+     public override init(id : Int) {
           super.init(id: id)
      }
 

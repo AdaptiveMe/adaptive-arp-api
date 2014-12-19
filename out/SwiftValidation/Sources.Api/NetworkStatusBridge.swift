@@ -86,7 +86,7 @@ public class NetworkStatusBridge : BaseCommunicationBridge, INetworkStatus, APIB
           if (self.delegate != nil) {
                self.delegate!.addNetworkStatusListener(listener)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "NetworkStatusBridge executed 'addNetworkStatusListener' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "NetworkStatusBridge executed 'addNetworkStatusListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -114,7 +114,7 @@ public class NetworkStatusBridge : BaseCommunicationBridge, INetworkStatus, APIB
           if (self.delegate != nil) {
                self.delegate!.removeNetworkStatusListener(listener)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "NetworkStatusBridge executed 'removeNetworkStatusListener' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "NetworkStatusBridge executed 'removeNetworkStatusListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -141,7 +141,7 @@ public class NetworkStatusBridge : BaseCommunicationBridge, INetworkStatus, APIB
           if (self.delegate != nil) {
                self.delegate!.removeNetworkStatusListeners()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "NetworkStatusBridge executed 'removeNetworkStatusListeners' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "NetworkStatusBridge executed 'removeNetworkStatusListeners' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {

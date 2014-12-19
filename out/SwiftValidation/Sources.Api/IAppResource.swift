@@ -118,7 +118,7 @@ public protocol IAppResource : NSObjectProtocol {
         @return Size of the resource
         @since ARP1.0
      */
-     func getSize() -> Int64 
+     func getSize() -> Int 
 
      /**
         Returns the Size of the stored resource
@@ -126,7 +126,7 @@ public protocol IAppResource : NSObjectProtocol {
         @return Size of the Stored Resource
         @since ARP1.0
      */
-     func getSizeStored() -> Int64 
+     func getSizeStored() -> Int 
 
      /**
         Returns the timestamp of the resource
@@ -134,7 +134,7 @@ public protocol IAppResource : NSObjectProtocol {
         @return Timestamp of the resource
         @since ARP1.0
      */
-     func getTimestamp() -> Int64 
+     func getTimestamp() -> Int 
 
      /**
         Returns the type of the resource

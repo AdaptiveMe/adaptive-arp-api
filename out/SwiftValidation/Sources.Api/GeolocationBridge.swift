@@ -86,7 +86,7 @@ public class GeolocationBridge : BaseSensorBridge, IGeolocation, APIBridge {
           if (self.delegate != nil) {
                self.delegate!.addGeolocationListener(listener)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "GeolocationBridge executed 'addGeolocationListener' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "GeolocationBridge executed 'addGeolocationListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -114,7 +114,7 @@ public class GeolocationBridge : BaseSensorBridge, IGeolocation, APIBridge {
           if (self.delegate != nil) {
                self.delegate!.removeGeolocationListener(listener)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "GeolocationBridge executed 'removeGeolocationListener' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "GeolocationBridge executed 'removeGeolocationListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -141,7 +141,7 @@ public class GeolocationBridge : BaseSensorBridge, IGeolocation, APIBridge {
           if (self.delegate != nil) {
                self.delegate!.removeGeolocationListeners()
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "GeolocationBridge executed 'removeGeolocationListeners' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "GeolocationBridge executed 'removeGeolocationListeners' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {

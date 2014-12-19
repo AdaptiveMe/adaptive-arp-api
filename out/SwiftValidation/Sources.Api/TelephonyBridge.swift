@@ -88,7 +88,7 @@ public class TelephonyBridge : BaseCommunicationBridge, ITelephony, APIBridge {
           if (self.delegate != nil) {
                result = self.delegate!.call(number)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "TelephonyBridge executed 'call' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "TelephonyBridge executed 'call' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {

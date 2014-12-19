@@ -87,7 +87,7 @@ public class DatabaseBridge : BaseDataBridge, IDatabase, APIBridge {
           if (self.delegate != nil) {
                self.delegate!.createDatabase(database, callback: callback)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "DatabaseBridge executed 'createDatabase' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "DatabaseBridge executed 'createDatabase' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -117,7 +117,7 @@ public class DatabaseBridge : BaseDataBridge, IDatabase, APIBridge {
           if (self.delegate != nil) {
                self.delegate!.createTable(database, databaseTable: databaseTable, callback: callback)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "DatabaseBridge executed 'createTable' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "DatabaseBridge executed 'createTable' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -146,7 +146,7 @@ public class DatabaseBridge : BaseDataBridge, IDatabase, APIBridge {
           if (self.delegate != nil) {
                self.delegate!.deleteDatabase(database, callback: callback)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "DatabaseBridge executed 'deleteDatabase' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "DatabaseBridge executed 'deleteDatabase' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -176,7 +176,7 @@ public class DatabaseBridge : BaseDataBridge, IDatabase, APIBridge {
           if (self.delegate != nil) {
                self.delegate!.deleteTable(database, databaseTable: databaseTable, callback: callback)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "DatabaseBridge executed 'deleteTable' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "DatabaseBridge executed 'deleteTable' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -208,7 +208,7 @@ should be passed as a parameter
           if (self.delegate != nil) {
                self.delegate!.executeSqlStatement(database, statement: statement, replacements: replacements, callback: callback)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "DatabaseBridge executed 'executeSqlStatement' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "DatabaseBridge executed 'executeSqlStatement' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -240,7 +240,7 @@ should be passed as a parameter
           if (self.delegate != nil) {
                self.delegate!.executeSqlTransactions(database, statements: statements, rollbackFlag: rollbackFlag, callback: callback)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "DatabaseBridge executed 'executeSqlTransactions' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "DatabaseBridge executed 'executeSqlTransactions' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -270,7 +270,7 @@ should be passed as a parameter
           if (self.delegate != nil) {
                result = self.delegate!.existsDatabase(database)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "DatabaseBridge executed 'existsDatabase' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "DatabaseBridge executed 'existsDatabase' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -301,7 +301,7 @@ should be passed as a parameter
           if (self.delegate != nil) {
                result = self.delegate!.existsTable(database, databaseTable: databaseTable)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "DatabaseBridge executed 'existsTable' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "DatabaseBridge executed 'existsTable' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {

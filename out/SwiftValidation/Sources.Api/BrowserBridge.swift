@@ -88,7 +88,7 @@ public class BrowserBridge : BaseUIBridge, IBrowser, APIBridge {
           if (self.delegate != nil) {
                result = self.delegate!.openExtenalBrowser(url)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "BrowserBridge executed 'openExtenalBrowser' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "BrowserBridge executed 'openExtenalBrowser' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -120,7 +120,7 @@ public class BrowserBridge : BaseUIBridge, IBrowser, APIBridge {
           if (self.delegate != nil) {
                result = self.delegate!.openInternalBrowser(url, title: title, backButtonText: backButtonText)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "BrowserBridge executed 'openInternalBrowser' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "BrowserBridge executed 'openInternalBrowser' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -152,7 +152,7 @@ public class BrowserBridge : BaseUIBridge, IBrowser, APIBridge {
           if (self.delegate != nil) {
                result = self.delegate!.openInternalBrowserModal(url, title: title, backButtonText: backButtonText)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "BrowserBridge executed 'openInternalBrowserModal' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "BrowserBridge executed 'openInternalBrowserModal' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {

@@ -87,7 +87,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
           if (self.delegate != nil) {
                self.delegate!.getContact(contact, callback: callback)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ContactBridge executed 'getContact' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ContactBridge executed 'getContact' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -116,7 +116,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
           if (self.delegate != nil) {
                self.delegate!.getContactPhoto(contact, callback: callback)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ContactBridge executed 'getContactPhoto' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ContactBridge executed 'getContactPhoto' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -144,7 +144,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
           if (self.delegate != nil) {
                self.delegate!.getContacts(callback)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ContactBridge executed 'getContacts' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ContactBridge executed 'getContacts' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -173,7 +173,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
           if (self.delegate != nil) {
                self.delegate!.getContactsForFields(callback, fields: fields)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ContactBridge executed 'getContactsForFields' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ContactBridge executed 'getContactsForFields' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -203,7 +203,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
           if (self.delegate != nil) {
                self.delegate!.getContactsWithFilter(callback, fields: fields, filter: filter)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ContactBridge executed 'getContactsWithFilter' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ContactBridge executed 'getContactsWithFilter' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -232,7 +232,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
           if (self.delegate != nil) {
                self.delegate!.searchContacts(term, callback: callback)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ContactBridge executed 'searchContacts' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ContactBridge executed 'searchContacts' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -262,7 +262,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
           if (self.delegate != nil) {
                self.delegate!.searchContactsWithFilter(term, callback: callback, filter: filter)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ContactBridge executed 'searchContactsWithFilter' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ContactBridge executed 'searchContactsWithFilter' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
@@ -293,7 +293,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
           if (self.delegate != nil) {
                result = self.delegate!.setContactPhoto(contact, pngImage: pngImage)
                if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ContactBridge executed 'setContactPhoto' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ContactBridge executed 'setContactPhoto' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {

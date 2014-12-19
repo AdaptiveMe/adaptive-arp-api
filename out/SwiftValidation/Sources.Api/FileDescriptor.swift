@@ -41,12 +41,12 @@ Release:
 */
 public class FileDescriptor : NSObject {
 
-     var dateCreated : Int64?
-     var dateModified : Int64?
+     var dateCreated : Int?
+     var dateModified : Int?
      var name : String?
      var path : String?
      var pathAbsolute : String?
-     var size : Int64?
+     var size : Int?
 
      /**
         Default constructor.
@@ -61,7 +61,7 @@ public class FileDescriptor : NSObject {
         @return Timestamp in milliseconds.
         @since ARP1.0
      */
-     public func getDateCreated() -> Int64? {
+     public func getDateCreated() -> Int? {
           return self.dateCreated
      }
 
@@ -70,7 +70,7 @@ public class FileDescriptor : NSObject {
 
         @param dateCreated Timestamp of file creation or -1 if the file or folder doesn't exist.
      */
-     public func setDateCreated(dateCreated: Int64) {
+     public func setDateCreated(dateCreated: Int) {
           self.dateCreated = dateCreated
      }
 
@@ -80,7 +80,7 @@ public class FileDescriptor : NSObject {
         @return Timestamp in milliseconds.
         @since ARP1.0
      */
-     public func getDateModified() -> Int64? {
+     public func getDateModified() -> Int? {
           return self.dateModified
      }
 
@@ -89,7 +89,7 @@ public class FileDescriptor : NSObject {
 
         @param dateModified Timestamp of file modification or -1 if the file or folder doesn't exist.
      */
-     public func setDateModified(dateModified: Int64) {
+     public func setDateModified(dateModified: Int) {
           self.dateModified = dateModified
      }
 
@@ -156,7 +156,7 @@ public class FileDescriptor : NSObject {
         @return Size in bytes of file.
         @since ARP1.0
      */
-     public func getSize() -> Int64? {
+     public func getSize() -> Int? {
           return self.size
      }
 
@@ -166,7 +166,7 @@ doesn't exist, this will be -1. Used internally.
 
         @param size The size in bytes of the file.
      */
-     public func setSize(size: Int64) {
+     public func setSize(size: Int) {
           self.size = size
      }
 

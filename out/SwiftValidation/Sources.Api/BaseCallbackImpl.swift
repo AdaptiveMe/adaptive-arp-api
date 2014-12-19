@@ -41,7 +41,7 @@ public class BaseCallbackImpl : NSObject, IBaseCallback {
      /**
         Unique id of callback.
      */
-     private var id : Int64
+     private var id : Int
 
      /**
         Group of API.
@@ -58,7 +58,7 @@ public class BaseCallbackImpl : NSObject, IBaseCallback {
 
         @param id  The id of the callback.
      */
-     public init(id : Int64) {
+     public init(id : Int) {
           self.id = id
           self.apiGroup = IAdaptiveRPGroup.Application
           //TODO: this.gson = new Gson();
@@ -68,7 +68,7 @@ public class BaseCallbackImpl : NSObject, IBaseCallback {
         Get the callback id.
         @return long with the identifier of the callback.
      */
-     public final func getId() -> Int64 {
+     public final func getId() -> Int {
           return self.id
      }
 
