@@ -169,9 +169,23 @@ public class Acceleration : APIBean {
         JSON Serialization and deserialization support.
      */
      struct Serializer {
-          static func fromJSON(json : String) -> Acceleration {
-               return Acceleration()
-          }
+        static func fromJSON(json : String) -> Acceleration {
+            var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+            var jsonError: NSError?
+            let decodedJson = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+            return fromDictionary(decodedJson)
+        }
+        
+        static func fromDictionary(dictionary : NSDictionary) -> Acceleration {
+            // 1 check if key exists
+            // 2 check if value == "<null>", if null, eliminate key.
+            // 3 read values
+            // 3.1 primitive & string direct read.
+            // 3.2 arrays, cast to NSArray and recreate objects in array
+            // 3.3 Beans, delefare to Serializer.fromDictionary
+            // 3.4 Enums, dictionary["value"] Enum.toEnum(string)
+            return Acceleration()
+        }
 
           static func toJSON(object: Acceleration) -> String {
                var jsonString : NSMutableString = NSMutableString()
@@ -179,10 +193,10 @@ public class Acceleration : APIBean {
                jsonString.appendString("{ ")
 
                // Fields.
-               object.timestamp != nil ? jsonString.appendString("timestamp: \(object.timestamp!), ") : jsonString.appendString("timestamp: null, ")
-               object.x != nil ? jsonString.appendString("x: \(object.x!), ") : jsonString.appendString("x: null, ")
-               object.y != nil ? jsonString.appendString("y: \(object.y!), ") : jsonString.appendString("y: null, ")
-               object.z != nil ? jsonString.appendString("z: \(object.z!)") : jsonString.appendString("z: null")
+               object.timestamp != nil ? jsonString.appendString("\"timestamp\": \(object.timestamp!), ") : jsonString.appendString("\"timestamp\": null, ")
+               object.x != nil ? jsonString.appendString("\"x\": \(object.x!), ") : jsonString.appendString("\"x\": null, ")
+               object.y != nil ? jsonString.appendString("\"y\": \(object.y!), ") : jsonString.appendString("\"y\": null, ")
+               object.z != nil ? jsonString.appendString("\"z\": \(object.z!)") : jsonString.appendString("\"z\": null")
 
                // End Object to JSON
                jsonString.appendString(" }")

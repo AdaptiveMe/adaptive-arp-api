@@ -207,8 +207,16 @@ public class DatabaseTable : APIBean {
      */
      struct Serializer {
           static func fromJSON(json : String) -> DatabaseTable {
-               return DatabaseTable()
+            var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+            
+            var jsonError: NSError?
+            let decodedJson = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+            return fromDictionary(decodedJson)
           }
+        
+        static func fromDictionary(dictionary : NSDictionary) -> DatabaseTable {
+            return DatabaseTable()
+        }
 
           static func toJSON(object: DatabaseTable) -> String {
                var jsonString : NSMutableString = NSMutableString()
@@ -216,10 +224,10 @@ public class DatabaseTable : APIBean {
                jsonString.appendString("{ ")
 
                // Fields.
-               object.columnCount != nil ? jsonString.appendString("columnCount: \(object.columnCount!), ") : jsonString.appendString("columnCount: null, ")
+               object.columnCount != nil ? jsonString.appendString("\"columnCount\": \(object.columnCount!), ") : jsonString.appendString("\"columnCount\": null, ")
                if (object.databaseColumns != nil) {
                     // Start array of objects.
-                    jsonString.appendString("databaseColumns: [");
+                    jsonString.appendString("\"databaseColumns\": [");
 
                     for var i = 0; i < object.databaseColumns!.count; i++ {
                          jsonString.appendString(DatabaseColumn.Serializer.toJSON(object.databaseColumns![i]))
@@ -231,11 +239,11 @@ public class DatabaseTable : APIBean {
                     // End array of objects.
                     jsonString.appendString("], ");
                } else {
-                    jsonString.appendString("databaseColumns: null, ")
+                    jsonString.appendString("\"databaseColumns\": null, ")
                }
                if (object.databaseRows != nil) {
                     // Start array of objects.
-                    jsonString.appendString("databaseRows: [");
+                    jsonString.appendString("\"databaseRows\": [");
 
                     for var i = 0; i < object.databaseRows!.count; i++ {
                          jsonString.appendString(DatabaseRow.Serializer.toJSON(object.databaseRows![i]))
@@ -247,10 +255,10 @@ public class DatabaseTable : APIBean {
                     // End array of objects.
                     jsonString.appendString("], ");
                } else {
-                    jsonString.appendString("databaseRows: null, ")
+                    jsonString.appendString("\"databaseRows\": null, ")
                }
-               object.name != nil ? jsonString.appendString("name: \"\(object.name!)\", ") : jsonString.appendString("name: null, ")
-               object.rowCount != nil ? jsonString.appendString("rowCount: \(object.rowCount!)") : jsonString.appendString("rowCount: null")
+               object.name != nil ? jsonString.appendString("\"name\": \"\(object.name!)\", ") : jsonString.appendString("\"name\": null, ")
+               object.rowCount != nil ? jsonString.appendString("\"rowCount\": \(object.rowCount!)") : jsonString.appendString("\"rowCount\": null")
 
                // End Object to JSON
                jsonString.appendString(" }")

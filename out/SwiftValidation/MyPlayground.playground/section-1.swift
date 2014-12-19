@@ -2,17 +2,24 @@
 
 import UIKit
 
-var dict = Dictionary<String, AnyObject>()
-
-// Own fields.
-dict["type"] = "{value: \"HomeButton\"}"
 
 
-var data = NSJSONSerialization.dataWithJSONObject(dict, options:NSJSONWritingOptions(0), error: nil)!
+var str:String = "{\"name\":\"ferran\",\"age\":29,\"type\":{\"value\":\"HomeButton\"}, \"values\": [1,2,3,4,5,{\"name\":null,\"age\":29,\"type\":{\"value\":\"HomeButton\"}}]}"
 
-NSString(data: data, encoding: NSUTF8StringEncoding)!
+var data:NSData = str.dataUsingEncoding(NSUTF8StringEncoding)!
 
-var jsonString : NSMutableString = NSMutableString()
-jsonString.appendString("One")
-jsonString.appendString("Two")
-jsonString as String
+var jsonError: NSError?
+let decodedJson = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+
+var trash : NSMutableDictionary = NSMutableDictionary()
+trash["garbage"] = "huge trash"
+trash.removeObjectForKey("garbage")
+
+if !(jsonError != nil) {
+    decodedJson.objectForKey("burger") != nil ? println(decodedJson["burger"]!) : println(decodedJson["name"]!)
+    
+    println(decodedJson["age"]!)
+    println((decodedJson["values"]! as NSArray)[5])
+    println(((decodedJson["values"]! as NSArray)[5] as NSDictionary)["name"]!)
+    println((decodedJson["type"] as NSDictionary)["value"]!)
+}

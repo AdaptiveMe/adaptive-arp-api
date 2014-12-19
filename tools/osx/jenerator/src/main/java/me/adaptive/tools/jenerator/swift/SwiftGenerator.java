@@ -1556,14 +1556,14 @@ public class SwiftGenerator extends GeneratorBase {
         if (f.getType().isArray()) {
             println(15, "if (object." + f.getName() + " != nil) {");
             println(20, "// Start array of objects.");
-            println(20, "jsonString.appendString(\""+f.getName()+": [\");");
+            println(20, "jsonString.appendString(\"\\\""+f.getName()+"\\\": [\");");
             println();
             println(20, "for var i = 0; i < object."+f.getName()+"!.count; i++ {");
 
             if (f.getType().getComponentType().isPrimitive()) {
                 println(25,"jsonString.appendString(\"\\(object."+f.getName()+"![i])\");");
             } else if(f.getType().getComponentType().isEnum()) {
-                println(25,"jsonString.appendString(\"{ value: \\\"\\(object."+f.getName()+"![i].toString())\\\" }\");");
+                println(25,"jsonString.appendString(\"{ \"value\": \\\"\\(object."+f.getName()+"![i].toString())\\\" }\");");
             } else if(f.getType().getComponentType().equals(String.class)) {
                 println(25,"jsonString.appendString(\"\\\"\\(object."+f.getName()+"![i])\\\"\");");
             } else {
@@ -1582,7 +1582,7 @@ public class SwiftGenerator extends GeneratorBase {
                 println("\");");
             }
             println(15, "} else {");
-            print(20, "jsonString.appendString(\"" + f.getName() + ": null");
+            print(20, "jsonString.appendString(\"\\\"" + f.getName() + "\\\": null");
             if (!last) {
                 print(", \"");
             } else {
@@ -1593,11 +1593,11 @@ public class SwiftGenerator extends GeneratorBase {
         } else {
             print(15, "object." + f.getName() + " != nil ? ");
             print("jsonString.appendString(");
-            print("\"" + f.getName() + ": ");
+            print("\"\\\"" + f.getName() + "\\\": ");
             if (f.getType().isPrimitive()) {
                 print("\\(object." + f.getName() + "!)");
             } else if (f.getType().isEnum()) {
-                print("{ value: \\\"\\(object." + f.getName() + "!.toString())\\\"}");
+                print("{ \\\"value\\\": \\\"\\(object." + f.getName() + "!.toString())\\\"}");
             } else if (f.getType().equals(String.class)) {
                 print("\\\"\\(object." + f.getName() + "!)\\\"");
             } else {
@@ -1611,7 +1611,7 @@ public class SwiftGenerator extends GeneratorBase {
             }
             print(")");
             print(" : jsonString.appendString(\"");
-            print(f.getName() + ": null");
+            print("\\\""+f.getName() + "\\\": null");
             if (!last) {
                 println(", \")");
             } else {

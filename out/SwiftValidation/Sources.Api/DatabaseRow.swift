@@ -103,7 +103,7 @@ public class DatabaseRow : APIBean {
                // Fields.
                if (object.values != nil) {
                     // Start array of objects.
-                    jsonString.appendString("values: [");
+                    jsonString.appendString("\"values\": [");
 
                     for var i = 0; i < object.values!.count; i++ {
                          jsonString.appendString("\"\(object.values![i])\"");
@@ -115,7 +115,7 @@ public class DatabaseRow : APIBean {
                     // End array of objects.
                     jsonString.appendString("]");
                } else {
-                    jsonString.appendString("values: null")
+                    jsonString.appendString("\"values\": null")
                }
 
                // End Object to JSON

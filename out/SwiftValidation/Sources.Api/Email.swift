@@ -274,7 +274,7 @@ public class Email : APIBean {
                // Fields.
                if (object.bccRecipients != nil) {
                     // Start array of objects.
-                    jsonString.appendString("bccRecipients: [");
+                    jsonString.appendString("\"bccRecipients\": [");
 
                     for var i = 0; i < object.bccRecipients!.count; i++ {
                          jsonString.appendString(EmailAddress.Serializer.toJSON(object.bccRecipients![i]))
@@ -286,11 +286,11 @@ public class Email : APIBean {
                     // End array of objects.
                     jsonString.appendString("], ");
                } else {
-                    jsonString.appendString("bccRecipients: null, ")
+                    jsonString.appendString("\"bccRecipients\": null, ")
                }
                if (object.ccRecipients != nil) {
                     // Start array of objects.
-                    jsonString.appendString("ccRecipients: [");
+                    jsonString.appendString("\"ccRecipients\": [");
 
                     for var i = 0; i < object.ccRecipients!.count; i++ {
                          jsonString.appendString(EmailAddress.Serializer.toJSON(object.ccRecipients![i]))
@@ -302,11 +302,11 @@ public class Email : APIBean {
                     // End array of objects.
                     jsonString.appendString("], ");
                } else {
-                    jsonString.appendString("ccRecipients: null, ")
+                    jsonString.appendString("\"ccRecipients\": null, ")
                }
                if (object.emailAttachmentData != nil) {
                     // Start array of objects.
-                    jsonString.appendString("emailAttachmentData: [");
+                    jsonString.appendString("\"emailAttachmentData\": [");
 
                     for var i = 0; i < object.emailAttachmentData!.count; i++ {
                          jsonString.appendString(EmailAttachmentData.Serializer.toJSON(object.emailAttachmentData![i]))
@@ -318,14 +318,14 @@ public class Email : APIBean {
                     // End array of objects.
                     jsonString.appendString("], ");
                } else {
-                    jsonString.appendString("emailAttachmentData: null, ")
+                    jsonString.appendString("\"emailAttachmentData\": null, ")
                }
-               object.messageBody != nil ? jsonString.appendString("messageBody: \"\(object.messageBody!)\", ") : jsonString.appendString("messageBody: null, ")
-               object.messageBodyMimeType != nil ? jsonString.appendString("messageBodyMimeType: \"\(object.messageBodyMimeType!)\", ") : jsonString.appendString("messageBodyMimeType: null, ")
-               object.subject != nil ? jsonString.appendString("subject: \"\(object.subject!)\", ") : jsonString.appendString("subject: null, ")
+               object.messageBody != nil ? jsonString.appendString("\"messageBody\": \"\(object.messageBody!)\", ") : jsonString.appendString("\"messageBody\": null, ")
+               object.messageBodyMimeType != nil ? jsonString.appendString("\"messageBodyMimeType\": \"\(object.messageBodyMimeType!)\", ") : jsonString.appendString("\"messageBodyMimeType\": null, ")
+               object.subject != nil ? jsonString.appendString("\"subject\": \"\(object.subject!)\", ") : jsonString.appendString("\"subject\": null, ")
                if (object.toRecipients != nil) {
                     // Start array of objects.
-                    jsonString.appendString("toRecipients: [");
+                    jsonString.appendString("\"toRecipients\": [");
 
                     for var i = 0; i < object.toRecipients!.count; i++ {
                          jsonString.appendString(EmailAddress.Serializer.toJSON(object.toRecipients![i]))
@@ -337,7 +337,7 @@ public class Email : APIBean {
                     // End array of objects.
                     jsonString.appendString("]");
                } else {
-                    jsonString.appendString("toRecipients: null")
+                    jsonString.appendString("\"toRecipients\": null")
                }
 
                // End Object to JSON

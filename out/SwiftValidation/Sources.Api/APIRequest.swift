@@ -189,11 +189,11 @@ listener.
                jsonString.appendString("{ ")
 
                // Fields.
-               object.asyncId != nil ? jsonString.appendString("asyncId: \(object.asyncId!), ") : jsonString.appendString("asyncId: null, ")
-               object.methodName != nil ? jsonString.appendString("methodName: \"\(object.methodName!)\", ") : jsonString.appendString("methodName: null, ")
+               object.asyncId != nil ? jsonString.appendString("\"asyncId\": \(object.asyncId!), ") : jsonString.appendString("\"asyncId\": null, ")
+               object.methodName != nil ? jsonString.appendString("\"methodName\": \"\(object.methodName!)\", ") : jsonString.appendString("\"methodName\": null, ")
                if (object.parameterTypes != nil) {
                     // Start array of objects.
-                    jsonString.appendString("parameterTypes: [");
+                    jsonString.appendString("\"parameterTypes\": [");
 
                     for var i = 0; i < object.parameterTypes!.count; i++ {
                          jsonString.appendString("\"\(object.parameterTypes![i])\"");
@@ -205,11 +205,11 @@ listener.
                     // End array of objects.
                     jsonString.appendString("], ");
                } else {
-                    jsonString.appendString("parameterTypes: null, ")
+                    jsonString.appendString("\"parameterTypes\": null, ")
                }
                if (object.parameters != nil) {
                     // Start array of objects.
-                    jsonString.appendString("parameters: [");
+                    jsonString.appendString("\"parameters\": [");
 
                     for var i = 0; i < object.parameters!.count; i++ {
                          jsonString.appendString("\"\(object.parameters![i])\"");
@@ -221,7 +221,7 @@ listener.
                     // End array of objects.
                     jsonString.appendString("]");
                } else {
-                    jsonString.appendString("parameters: null")
+                    jsonString.appendString("\"parameters\": null")
                }
 
                // End Object to JSON

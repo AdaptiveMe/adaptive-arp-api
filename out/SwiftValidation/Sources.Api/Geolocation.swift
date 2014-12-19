@@ -242,12 +242,12 @@ public class Geolocation : APIBean {
                jsonString.appendString("{ ")
 
                // Fields.
-               object.altitude != nil ? jsonString.appendString("altitude: \(object.altitude!), ") : jsonString.appendString("altitude: null, ")
-               object.latitude != nil ? jsonString.appendString("latitude: \(object.latitude!), ") : jsonString.appendString("latitude: null, ")
-               object.longitude != nil ? jsonString.appendString("longitude: \(object.longitude!), ") : jsonString.appendString("longitude: null, ")
-               object.timestamp != nil ? jsonString.appendString("timestamp: \(object.timestamp!), ") : jsonString.appendString("timestamp: null, ")
-               object.xDoP != nil ? jsonString.appendString("xDoP: \(object.xDoP!), ") : jsonString.appendString("xDoP: null, ")
-               object.yDoP != nil ? jsonString.appendString("yDoP: \(object.yDoP!)") : jsonString.appendString("yDoP: null")
+               object.altitude != nil ? jsonString.appendString("\"altitude\": \(object.altitude!), ") : jsonString.appendString("\"altitude\": null, ")
+               object.latitude != nil ? jsonString.appendString("\"latitude\": \(object.latitude!), ") : jsonString.appendString("\"latitude\": null, ")
+               object.longitude != nil ? jsonString.appendString("\"longitude\": \(object.longitude!), ") : jsonString.appendString("\"longitude\": null, ")
+               object.timestamp != nil ? jsonString.appendString("\"timestamp\": \(object.timestamp!), ") : jsonString.appendString("\"timestamp\": null, ")
+               object.xDoP != nil ? jsonString.appendString("\"xDoP\": \(object.xDoP!), ") : jsonString.appendString("\"xDoP\": null, ")
+               object.yDoP != nil ? jsonString.appendString("\"yDoP\": \(object.yDoP!)") : jsonString.appendString("\"yDoP\": null")
 
                // End Object to JSON
                jsonString.appendString(" }")

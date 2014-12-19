@@ -101,7 +101,7 @@ public class ContactWebsite : APIBean {
                jsonString.appendString("{ ")
 
                // Fields.
-               object.url != nil ? jsonString.appendString("url: \"\(object.url!)\"") : jsonString.appendString("url: null")
+               object.url != nil ? jsonString.appendString("\"url\": \"\(object.url!)\"") : jsonString.appendString("\"url\": null")
 
                // End Object to JSON
                jsonString.appendString(" }")

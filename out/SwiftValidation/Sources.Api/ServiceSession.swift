@@ -129,7 +129,7 @@ public class ServiceSession : NSObject {
                // Fields.
                if (object.attributes != nil) {
                     // Start array of objects.
-                    jsonString.appendString("attributes: [");
+                    jsonString.appendString("\"attributes\": [");
 
                     for var i = 0; i < object.attributes!.count; i++ {
                          jsonString.appendString("\"\(object.attributes![i])\"");
@@ -141,11 +141,11 @@ public class ServiceSession : NSObject {
                     // End array of objects.
                     jsonString.appendString("], ");
                } else {
-                    jsonString.appendString("attributes: null, ")
+                    jsonString.appendString("\"attributes\": null, ")
                }
                if (object.cookies != nil) {
                     // Start array of objects.
-                    jsonString.appendString("cookies: [");
+                    jsonString.appendString("\"cookies\": [");
 
                     for var i = 0; i < object.cookies!.count; i++ {
                          jsonString.appendString(ServiceCookie.Serializer.toJSON(object.cookies![i]))
@@ -157,7 +157,7 @@ public class ServiceSession : NSObject {
                     // End array of objects.
                     jsonString.appendString("]");
                } else {
-                    jsonString.appendString("cookies: null")
+                    jsonString.appendString("\"cookies\": null")
                }
 
                // End Object to JSON

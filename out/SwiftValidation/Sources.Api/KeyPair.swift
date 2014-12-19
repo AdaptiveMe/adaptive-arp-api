@@ -127,8 +127,8 @@ public class KeyPair : APIBean {
                jsonString.appendString("{ ")
 
                // Fields.
-               object.key != nil ? jsonString.appendString("key: \"\(object.key!)\", ") : jsonString.appendString("key: null, ")
-               object.value != nil ? jsonString.appendString("value: \"\(object.value!)\"") : jsonString.appendString("value: null")
+               object.key != nil ? jsonString.appendString("\"key\": \"\(object.key!)\", ") : jsonString.appendString("\"key\": null, ")
+               object.value != nil ? jsonString.appendString("\"value\": \"\(object.value!)\"") : jsonString.appendString("\"value\": null")
 
                // End Object to JSON
                jsonString.appendString(" }")
