@@ -63,7 +63,7 @@ public interface IFileSystem extends IBaseData {
      * @return Path to the application folder.
      * @since ARP1.0
      */
-    public IFile getApplicationFolder();
+    public FileDescriptor getApplicationFolder();
 
     /**
      * Returns a reference to the cache folder for the current application.
@@ -73,7 +73,7 @@ public interface IFileSystem extends IBaseData {
      * @return Path to the application's cache folder.
      * @since ARP1.0
      */
-    public IFile getApplicationCacheFolder();
+    public FileDescriptor getApplicationCacheFolder();
 
     /**
      * Returns a reference to the documents folder for the current application.
@@ -82,7 +82,7 @@ public interface IFileSystem extends IBaseData {
      * @return Path to the application's documents folder.
      * @since ARP1.0
      */
-    public IFile getApplicationDocumentsFolder();
+    public FileDescriptor getApplicationDocumentsFolder();
 
     /**
      * Returns a reference to the cloud synchronizable folder for the current application.
@@ -91,7 +91,7 @@ public interface IFileSystem extends IBaseData {
      * @return Path to the application's cloud storage folder.
      * @since ARP1.0
      */
-    public IFile getApplicationCloudFolder();
+    public FileDescriptor getApplicationCloudFolder();
 
     /**
      * Returns a reference to the protected storage folder for the current application.
@@ -100,7 +100,7 @@ public interface IFileSystem extends IBaseData {
      * @return Path to the application's protected storage folder.
      * @since ARP1.0
      */
-    public IFile getApplicationProtectedFolder();
+    public FileDescriptor getApplicationProtectedFolder();
 
     /**
      * Returns a reference to the external storage folder provided by the OS. This may
@@ -111,7 +111,7 @@ public interface IFileSystem extends IBaseData {
      * @return Path to the application's documents folder.
      * @since ARP1.0
      */
-    public IFile getSystemExternalFolder();
+    public FileDescriptor getSystemExternalFolder();
 
     /**
      * Creates a new reference to a new or existing location in the filesystem.
@@ -122,7 +122,7 @@ public interface IFileSystem extends IBaseData {
      * @return A reference to a new or existing location in the filesystem.
      * @since ARP1.0
      */
-    public IFile createFileDescriptor(IFile parent, String name);
+    public FileDescriptor createFileDescriptor(FileDescriptor parent, String name);
 
     /**
      * Location of the file storage.

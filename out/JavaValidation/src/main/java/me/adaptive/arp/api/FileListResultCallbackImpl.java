@@ -67,7 +67,7 @@ public class FileListResultCallbackImpl extends BaseCallbackImpl implements IFil
         @param files Array of resulting files/folders.
         @since ARP1.0
      */
-     public void onResult(IFile[] files) {
+     public void onResult(FileDescriptor[] files) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileListResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(files) +") )");
      }
 
@@ -78,7 +78,7 @@ public class FileListResultCallbackImpl extends BaseCallbackImpl implements IFil
         @param warning Warning condition encountered.
         @since ARP1.0
      */
-     public void onWarning(IFile[] files, IFileListResultCallbackWarning warning) {
+     public void onWarning(FileDescriptor[] files, IFileListResultCallbackWarning warning) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileListResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(files) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
      }
 

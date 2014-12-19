@@ -32,42 +32,28 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
+#import <FileDescriptor.h>
 
 /**
-   Interface for Managing the File store operations callback
 
-   @author Carlos Lozano Diez
-   @since ARP1.0
-   @version 1.0
+@author Carlos Lozano Diez
+@since 1.0
+@version 1.0
 */
-public interface IFileDataStoreResultCallback extends IBaseCallback {
-     /**
-        Error processing data retrieval/storage operation.
+@implementation FileDescriptor
 
-        @param error Error condition encountered.
-        @since ARP1.0
-     */
-     void onError(IFileDataStoreResultCallbackError error);
 
      /**
-        Result of data storage operation.
-
-        @param file File reference to stored data.
-        @since ARP1.0
+        Default constructor.
      */
-     void onResult(FileDescriptor file);
+     - (id) init {
+          self = [self init];
+          return self;
+     }
 
-     /**
-        Result with warning of data retrieval/storage operation.
 
-        @param file    File being loaded/stored.
-        @param warning Warning condition encountered.
-        @since ARP1.0
-     */
-     void onWarning(FileDescriptor file, IFileDataStoreResultCallbackWarning warning);
 
-}
+@end
 
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

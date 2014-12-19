@@ -64,7 +64,7 @@ public class FileResultCallbackImpl : BaseCallbackImpl, IFileResultCallback {
         @param storageFile Reference to the resulting file.
         @since ARP1.0
      */
-     public func onResult(storageFile : IFile) { 
+     public func onResult(storageFile : FileDescriptor) { 
           AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileResultCallbackResult( '\(getId())', JSON.parse(\"\")" )
           /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
@@ -76,7 +76,7 @@ public class FileResultCallbackImpl : BaseCallbackImpl, IFileResultCallback {
         @param warning Warning processing the request.
         @since ARP1.0
      */
-     public func onWarning(file : IFile, warning : IFileResultCallbackWarning) { 
+     public func onWarning(file : FileDescriptor, warning : IFileResultCallbackWarning) { 
           AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileResultCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
           /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }

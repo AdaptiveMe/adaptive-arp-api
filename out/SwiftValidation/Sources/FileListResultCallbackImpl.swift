@@ -64,7 +64,7 @@ public class FileListResultCallbackImpl : BaseCallbackImpl, IFileListResultCallb
         @param files Array of resulting files/folders.
         @since ARP1.0
      */
-     public func onResult(files : [IFile]) { 
+     public func onResult(files : [FileDescriptor]) { 
           AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileListResultCallbackResult( '\(getId())', JSON.parse(\"\")" )
           /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
@@ -76,7 +76,7 @@ public class FileListResultCallbackImpl : BaseCallbackImpl, IFileListResultCallb
         @param warning Warning condition encountered.
         @since ARP1.0
      */
-     public func onWarning(files : [IFile], warning : IFileListResultCallbackWarning) { 
+     public func onWarning(files : [FileDescriptor], warning : IFileListResultCallbackWarning) { 
           AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileListResultCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
           /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }

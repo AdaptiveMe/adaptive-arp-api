@@ -32,42 +32,31 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
+#import <Foundation/Foundation.h>
 
 /**
-   Interface for Managing the File store operations callback
+Created by clozano on 19/12/14.
 
-   @author Carlos Lozano Diez
-   @since ARP1.0
-   @version 1.0
+@author Carlos Lozano Diez
+@since 1.0
+@version 1.0
 */
-public interface IFileDataStoreResultCallback extends IBaseCallback {
-     /**
-        Error processing data retrieval/storage operation.
+@interface FileDescriptor : NSObject
 
-        @param error Error condition encountered.
-        @since ARP1.0
-     */
-     void onError(IFileDataStoreResultCallbackError error);
-
-     /**
-        Result of data storage operation.
-
-        @param file File reference to stored data.
-        @since ARP1.0
-     */
-     void onResult(FileDescriptor file);
+     @property long *dateCreated;
+     @property long *dateModified;
+     @property NSString *name;
+     @property NSString *path;
+     @property NSString *pathAbsolute;
+     @property long *size;
 
      /**
-        Result with warning of data retrieval/storage operation.
-
-        @param file    File being loaded/stored.
-        @param warning Warning condition encountered.
-        @since ARP1.0
+        Default constructor.
      */
-     void onWarning(FileDescriptor file, IFileDataStoreResultCallbackWarning warning);
+     - (id) init;
 
-}
+
+@end
 
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

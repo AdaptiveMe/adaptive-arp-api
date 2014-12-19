@@ -10,6 +10,7 @@
 		4E248EC31A2E36180076821A /* SwiftValidation.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E248EC21A2E36180076821A /* SwiftValidation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4E248EC91A2E36180076821A /* SwiftValidation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E248EBD1A2E36180076821A /* SwiftValidation.framework */; };
 		4E248ED01A2E36180076821A /* SwiftValidationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E248ECF1A2E36180076821A /* SwiftValidationTests.swift */; };
+		4E43AC1E1A440F0A00E61B83 /* FileDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43ABF71A440F0A00E61B83 /* FileDescriptor.swift */; };
 		4ED660CF1A3AEF0A00D105B3 /* Acceleration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED65FFD1A3AEF0A00D105B3 /* Acceleration.swift */; };
 		4ED660D01A3AEF0A00D105B3 /* APIBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED65FFE1A3AEF0A00D105B3 /* APIBean.swift */; };
 		4ED660D11A3AEF0A00D105B3 /* APIBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED65FFF1A3AEF0A00D105B3 /* APIBridge.swift */; };
@@ -383,6 +384,7 @@
 		4E248EC81A2E36180076821A /* SwiftValidationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftValidationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E248ECE1A2E36180076821A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E248ECF1A2E36180076821A /* SwiftValidationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftValidationTests.swift; sourceTree = "<group>"; };
+		4E43ABF71A440F0A00E61B83 /* FileDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDescriptor.swift; sourceTree = "<group>"; };
 		4ED65FFD1A3AEF0A00D105B3 /* Acceleration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Acceleration.swift; sourceTree = "<group>"; };
 		4ED65FFE1A3AEF0A00D105B3 /* APIBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIBean.swift; sourceTree = "<group>"; };
 		4ED65FFF1A3AEF0A00D105B3 /* APIBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIBridge.swift; sourceTree = "<group>"; };
@@ -895,6 +897,7 @@
 				4ED662091A40CC7E00D105B3 /* FacebookBridge.swift */,
 				4ED6620A1A40CC7E00D105B3 /* FileDataLoadResultCallbackImpl.swift */,
 				4ED6620B1A40CC7E00D105B3 /* FileDataStoreResultCallbackImpl.swift */,
+				4E43ABF71A440F0A00E61B83 /* FileDescriptor.swift */,
 				4ED6620C1A40CC7E00D105B3 /* FileListResultCallbackImpl.swift */,
 				4ED6620D1A40CC7E00D105B3 /* FileResultCallbackImpl.swift */,
 				4ED6620E1A40CC7E00D105B3 /* FileSystemBridge.swift */,
@@ -1526,6 +1529,7 @@
 				4ED662B91A40CC7F00D105B3 /* ContactDelegate.swift in Sources */,
 				4ED661561A3AEF0A00D105B3 /* ILifecycle.swift in Sources */,
 				4ED661241A3AEF0A00D105B3 /* ICompression.swift in Sources */,
+				4E43AC1E1A440F0A00E61B83 /* FileDescriptor.swift in Sources */,
 				4ED6619D1A3AEF0A00D105B3 /* ServiceHeader.swift in Sources */,
 				4ED660D11A3AEF0A00D105B3 /* APIBridge.swift in Sources */,
 				4ED6610F1A3AEF0A00D105B3 /* IBaseSensor.swift in Sources */,

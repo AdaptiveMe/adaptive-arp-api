@@ -32,9 +32,9 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="FileDescriptor.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseCallback.ts"/>
-///<reference path="IFile.ts"/>
 ///<reference path="IFileResultCallbackError.ts"/>
 ///<reference path="IFileResultCallbackWarning.ts"/>
 
@@ -59,14 +59,14 @@ module Adaptive {
              @param storageFile Reference to the resulting file.
              @since ARP1.0
           */
-          onResult(storageFile:IFile);
+          onResult(storageFile:FileDescriptor);
           /**
              On partial result of a file operation, containing a warning.
              @param file    Reference to the offending file.
              @param warning Warning processing the request.
              @since ARP1.0
           */
-          onWarning(file:IFile, warning:IFileResultCallbackWarning);
+          onWarning(file:FileDescriptor, warning:IFileResultCallbackWarning);
      }
 }
 

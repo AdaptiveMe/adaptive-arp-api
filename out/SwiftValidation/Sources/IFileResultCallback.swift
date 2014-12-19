@@ -54,7 +54,7 @@ public protocol IFileResultCallback : IBaseCallback {
         @param storageFile Reference to the resulting file.
         @since ARP1.0
      */
-     func onResult(storageFile : IFile)
+     func onResult(storageFile : FileDescriptor)
 
      /**
         On partial result of a file operation, containing a warning.
@@ -63,7 +63,7 @@ public protocol IFileResultCallback : IBaseCallback {
         @param warning Warning processing the request.
         @since ARP1.0
      */
-     func onWarning(file : IFile, warning : IFileResultCallbackWarning)
+     func onWarning(file : FileDescriptor, warning : IFileResultCallbackWarning)
 
 }
 

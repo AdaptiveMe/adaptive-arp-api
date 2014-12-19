@@ -64,7 +64,7 @@ public class FileDataStoreResultCallbackImpl : BaseCallbackImpl, IFileDataStoreR
         @param file File reference to stored data.
         @since ARP1.0
      */
-     public func onResult(file : IFile) { 
+     public func onResult(file : FileDescriptor) { 
           AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileDataStoreResultCallbackResult( '\(getId())', JSON.parse(\"\")" )
           /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
@@ -76,7 +76,7 @@ public class FileDataStoreResultCallbackImpl : BaseCallbackImpl, IFileDataStoreR
         @param warning Warning condition encountered.
         @since ARP1.0
      */
-     public func onWarning(file : IFile, warning : IFileDataStoreResultCallbackWarning) { 
+     public func onWarning(file : FileDescriptor, warning : IFileDataStoreResultCallbackWarning) { 
           AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileDataStoreResultCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
           /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }

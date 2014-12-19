@@ -47,181 +47,148 @@ namespace Adaptive.Arp.Api
      /**
         Determine whether the current file/folder can be read from.
 
+        @param descriptor File descriptor of file or folder used for operation.
         @return True if the folder/file is readable, false otherwise.
         @since ARP1.0
      */
-     bool canRead();
+     bool canRead(FileDescriptor descriptor);
 
      /**
         Determine whether the current file/folder can be written to.
 
+        @param descriptor File descriptor of file or folder used for operation.
         @return True if the folder/file is writable, false otherwise.
         @since ARP1.0
      */
-     bool canWrite();
+     bool canWrite(FileDescriptor descriptor);
 
      /**
         Creates a file with the specified name.
 
+        @param descriptor File descriptor of file or folder used for operation.
         @param callback Result of the operation.
         @since ARP1.0
      */
-     void create(IFileResultCallback callback);
+     void create(FileDescriptor descriptor, IFileResultCallback callback);
 
      /**
         Deletes the given file or path. If the file is a directory and contains files and or subdirectories, these will be
 deleted if the cascade parameter is set to true.
 
+        @param descriptor File descriptor of file or folder used for operation.
         @param cascade Whether to delete sub-files and sub-folders.
         @return True if files (and sub-files and folders) whether deleted.
         @since ARP1.0
      */
-     bool delete(bool cascade);
+     bool delete(FileDescriptor descriptor, bool cascade);
 
      /**
         Check whether the file/path exists.
 
+        @param descriptor File descriptor of file or folder used for operation.
         @return True if the file exists in the filesystem, false otherwise.
         @since ARP1.0
      */
-     bool exists();
+     bool exists(FileDescriptor descriptor);
 
      /**
         Loads the content of the file.
 
+        @param descriptor File descriptor of file or folder used for operation.
         @param callback Result of the operation.
         @since ARP1.0
      */
-     void getContent(IFileDataLoadResultCallback callback);
-
-     /**
-        Returns the milliseconds passed since 1/1/1970 since the file was created.
-
-        @return Timestamp in milliseconds.
-        @since ARP1.0
-     */
-     long getDateCreated();
-
-     /**
-        Returns the milliseconds passed since 1/1/1970 since the file was modified.
-
-        @return Timestamp in milliseconds.
-        @since ARP1.0
-     */
-     long getDateModified();
+     void getContent(FileDescriptor descriptor, IFileDataLoadResultCallback callback);
 
      /**
         Returns the file storage type of the file
 
+        @param descriptor File descriptor of file or folder used for operation.
         @return Storage Type file
         @since ARP1.0
      */
-     IFileSystemStorageType getFileStorageType();
+     IFileSystemStorageType getFileStorageType(FileDescriptor descriptor);
 
      /**
         Returns the file type
 
+        @param descriptor File descriptor of file or folder used for operation.
         @return Returns the file type of the file
         @since ARP1.0
      */
-     IFileSystemType getFileType();
-
-     /**
-        Returns the name of the file if the reference is a file or the last path element of the folder.
-
-        @return The name of the file.
-        @since ARP1.0
-     */
-     string getName();
-
-     /**
-        Returns the path element of the file or folder (excluding the last path element if it's a directory).
-
-        @return The path to the file.
-        @since ARP1.0
-     */
-     string getPath();
-
-     /**
-        Returns the resolved absolute path elements of the file and/or folders (including the last path element).
-
-        @return The absolute path to the file.
-        @since ARP1.0
-     */
-     string getPathAbsolute();
+     IFileSystemType getFileType(FileDescriptor descriptor);
 
      /**
         Returns the security type of the file
 
+        @param descriptor File descriptor of file or folder used for operation.
         @return Security Level of the file
         @since ARP1.0
      */
-     IFileSystemSecurity getSecurityType();
-
-     /**
-        Returns the size in bytes of the file or -1 if the reference is a folder.
-
-        @return Size in bytes of file.
-        @since ARP1.0
-     */
-     long getSize();
+     IFileSystemSecurity getSecurityType(FileDescriptor descriptor);
 
      /**
         Check whether this is a path of a file.
 
+        @param descriptor File descriptor of file or folder used for operation.
         @return true if this is a path to a folder/directory, false if this is a path to a file.
         @since ARP1.0
      */
-     bool isDirectory();
+     bool isDirectory(FileDescriptor descriptor);
 
      /**
         List all the files matching the speficied regex filter within this file/path reference. If the reference
 is a file, it will not yield any results.
 
+        @param descriptor File descriptor of file or folder used for operation.
         @param regex    Filter (eg. *.jpg, *.png, Fil*) name string.
         @param callback Result of operation.
         @since ARP1.0
      */
-     void listFilesForRegex(string regex, IFileListResultCallback callback);
+     void listFilesForRegex(FileDescriptor descriptor, string regex, IFileListResultCallback callback);
 
      /**
         List all the files contained within this file/path reference. If the reference is a file, it will not yield
 any results.
 
+        @param descriptor File descriptor of file or folder used for operation.
         @param callback Result of operation.
         @since ARP1.0
      */
-     void listFiles(IFileListResultCallback callback);
+     void listFiles(FileDescriptor descriptor, IFileListResultCallback callback);
 
      /**
         Creates the parent path (or paths, if recursive) to the given file/path if it doesn't already exist.
 
+        @param descriptor File descriptor of file or folder used for operation.
         @param recursive Whether to create all parent path elements.
         @return True if the path was created, false otherwise (or it exists already).
         @since ARP1.0
      */
-     bool mkDir(bool recursive);
+     bool mkDir(FileDescriptor descriptor, bool recursive);
 
      /**
         Moves the current file to the given file destination, optionally overwriting and creating the path to the
 new destination file.
 
-        @param newFile    Destination path/file for the move.
+        @param source File descriptor of file or folder used for operation as source.
+        @param destination File descriptor of file or folder used for operation as destination.
         @param createPath True to create the path if it does not already exist.
         @param callback   Result of the operation.
         @param overwrite  True to create the path if it does not already exist.
         @since ARP1.0
      */
-     void move(IFile newFile, bool createPath, bool overwrite, IFileResultCallback callback);
+     void move(FileDescriptor source, FileDescriptor destination, bool createPath, bool overwrite, IFileResultCallback callback);
 
      /**
         Sets the content of the file.
 
+        @param descriptor File descriptor of file or folder used for operation.
         @param content  Binary content to store in the file.
         @param callback Result of the operation.
         @since ARP1.0
      */
-     void setContent(byte[] content, IFileDataStoreResultCallback callback);
+     void setContent(FileDescriptor descriptor, byte[] content, IFileDataStoreResultCallback callback);
 
      }
 }

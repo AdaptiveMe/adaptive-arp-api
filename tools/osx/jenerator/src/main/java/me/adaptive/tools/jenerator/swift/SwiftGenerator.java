@@ -1022,7 +1022,7 @@ public class SwiftGenerator extends GeneratorBase {
             startComment(5);
             println(8, "Group of API.");
             endComment(5);
-            println(5, "private var apiGroup : IAdaptiveRPGroup");
+            println(5, "private var apiGroup : IAdaptiveRPGroup?");
             println();
 
             startComment(5);

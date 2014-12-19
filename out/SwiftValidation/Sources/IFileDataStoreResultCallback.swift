@@ -54,7 +54,7 @@ public protocol IFileDataStoreResultCallback : IBaseCallback {
         @param file File reference to stored data.
         @since ARP1.0
      */
-     func onResult(file : IFile)
+     func onResult(file : FileDescriptor)
 
      /**
         Result with warning of data retrieval/storage operation.
@@ -63,7 +63,7 @@ public protocol IFileDataStoreResultCallback : IBaseCallback {
         @param warning Warning condition encountered.
         @since ARP1.0
      */
-     func onWarning(file : IFile, warning : IFileDataStoreResultCallbackWarning)
+     func onWarning(file : FileDescriptor, warning : IFileDataStoreResultCallbackWarning)
 
 }
 

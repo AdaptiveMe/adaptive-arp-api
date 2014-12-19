@@ -49,7 +49,7 @@ This method does not create the actual file in the specified folder.
         @return A reference to a new or existing location in the filesystem.
         @since ARP1.0
      */
-     func createFileDescriptor(parent : IFile, name : String) -> IFile 
+     func createFileDescriptor(parent : FileDescriptor, name : String) -> FileDescriptor 
 
      /**
         Returns a reference to the cache folder for the current application.
@@ -59,7 +59,7 @@ This path is volatile and may be cleaned by the OS periodically.
         @return Path to the application's cache folder.
         @since ARP1.0
      */
-     func getApplicationCacheFolder() -> IFile 
+     func getApplicationCacheFolder() -> FileDescriptor 
 
      /**
         Returns a reference to the cloud synchronizable folder for the current application.
@@ -68,7 +68,7 @@ This path must always be writable by the current application.
         @return Path to the application's cloud storage folder.
         @since ARP1.0
      */
-     func getApplicationCloudFolder() -> IFile 
+     func getApplicationCloudFolder() -> FileDescriptor 
 
      /**
         Returns a reference to the documents folder for the current application.
@@ -77,7 +77,7 @@ This path must always be writable by the current application.
         @return Path to the application's documents folder.
         @since ARP1.0
      */
-     func getApplicationDocumentsFolder() -> IFile 
+     func getApplicationDocumentsFolder() -> FileDescriptor 
 
      /**
         Returns a reference to the application installation folder.
@@ -86,7 +86,7 @@ This path may or may not be directly readable or writable - it usually contains 
         @return Path to the application folder.
         @since ARP1.0
      */
-     func getApplicationFolder() -> IFile 
+     func getApplicationFolder() -> FileDescriptor 
 
      /**
         Returns a reference to the protected storage folder for the current application.
@@ -95,7 +95,7 @@ This path must always be writable by the current application.
         @return Path to the application's protected storage folder.
         @since ARP1.0
      */
-     func getApplicationProtectedFolder() -> IFile 
+     func getApplicationProtectedFolder() -> FileDescriptor 
 
      /**
         Returns the file system dependent file separator.
@@ -114,7 +114,7 @@ This path may or may not be writable by the current application.
         @return Path to the application's documents folder.
         @since ARP1.0
      */
-     func getSystemExternalFolder() -> IFile 
+     func getSystemExternalFolder() -> FileDescriptor 
 
 }
 

@@ -62,10 +62,10 @@ This method does not create the actual file in the specified folder.
         @return A reference to a new or existing location in the filesystem.
         @since ARP1.0
      */
-     public func createFileDescriptor(parent : IFile, name : String) -> IFile {
-          var response : IFile
+     public func createFileDescriptor(parent : FileDescriptor, name : String) -> FileDescriptor {
+          var response : FileDescriptor
           // TODO: Not implemented.
-          return IFile()
+          return FileDescriptor()
      }
 
      /**
@@ -76,10 +76,10 @@ This path is volatile and may be cleaned by the OS periodically.
         @return Path to the application's cache folder.
         @since ARP1.0
      */
-     public func getApplicationCacheFolder() -> IFile {
-          var response : IFile
+     public func getApplicationCacheFolder() -> FileDescriptor {
+          var response : FileDescriptor
           // TODO: Not implemented.
-          return IFile()
+          return FileDescriptor()
      }
 
      /**
@@ -89,10 +89,10 @@ This path must always be writable by the current application.
         @return Path to the application's cloud storage folder.
         @since ARP1.0
      */
-     public func getApplicationCloudFolder() -> IFile {
-          var response : IFile
+     public func getApplicationCloudFolder() -> FileDescriptor {
+          var response : FileDescriptor
           // TODO: Not implemented.
-          return IFile()
+          return FileDescriptor()
      }
 
      /**
@@ -102,10 +102,10 @@ This path must always be writable by the current application.
         @return Path to the application's documents folder.
         @since ARP1.0
      */
-     public func getApplicationDocumentsFolder() -> IFile {
-          var response : IFile
+     public func getApplicationDocumentsFolder() -> FileDescriptor {
+          var response : FileDescriptor
           // TODO: Not implemented.
-          return IFile()
+          return FileDescriptor()
      }
 
      /**
@@ -115,10 +115,10 @@ This path may or may not be directly readable or writable - it usually contains 
         @return Path to the application folder.
         @since ARP1.0
      */
-     public func getApplicationFolder() -> IFile {
-          var response : IFile
+     public func getApplicationFolder() -> FileDescriptor {
+          var response : FileDescriptor
           // TODO: Not implemented.
-          return IFile()
+          return FileDescriptor()
      }
 
      /**
@@ -128,10 +128,10 @@ This path must always be writable by the current application.
         @return Path to the application's protected storage folder.
         @since ARP1.0
      */
-     public func getApplicationProtectedFolder() -> IFile {
-          var response : IFile
+     public func getApplicationProtectedFolder() -> FileDescriptor {
+          var response : FileDescriptor
           // TODO: Not implemented.
-          return IFile()
+          return FileDescriptor()
      }
 
      /**
@@ -155,10 +155,10 @@ This path may or may not be writable by the current application.
         @return Path to the application's documents folder.
         @since ARP1.0
      */
-     public func getSystemExternalFolder() -> IFile {
-          var response : IFile
+     public func getSystemExternalFolder() -> FileDescriptor {
+          var response : FileDescriptor
           // TODO: Not implemented.
-          return IFile()
+          return FileDescriptor()
      }
 
 }

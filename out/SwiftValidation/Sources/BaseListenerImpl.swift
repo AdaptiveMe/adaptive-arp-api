@@ -46,7 +46,7 @@ public class BaseListenerImpl : NSObject, IBaseListener {
      /**
         Group of API.
      */
-     private var apiGroup : IAdaptiveRPGroup
+     private var apiGroup : IAdaptiveRPGroup?
 
      /**
         JSON Serializer.

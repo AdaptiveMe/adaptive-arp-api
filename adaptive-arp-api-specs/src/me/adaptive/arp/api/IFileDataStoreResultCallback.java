@@ -53,7 +53,7 @@ public interface IFileDataStoreResultCallback extends IBaseCallback {
      * @param file File reference to stored data.
      * @since ARP1.0
      */
-    void onResult(IFile file);
+    void onResult(FileDescriptor file);
 
 
     /**
@@ -63,7 +63,7 @@ public interface IFileDataStoreResultCallback extends IBaseCallback {
      * @param warning Warning condition encountered.
      * @since ARP1.0
      */
-    void onWarning(IFile file, Warning warning);
+    void onWarning(FileDescriptor file, Warning warning);
 
     /**
      * Error processing data retrieval/storage operation.

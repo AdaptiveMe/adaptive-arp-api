@@ -58,7 +58,7 @@ namespace Adaptive.Arp.Api
         @param files Array of resulting files/folders.
         @since ARP1.0
      */
-     void onResult(IFile[] files);
+     void onResult(FileDescriptor[] files);
 
      /**
         On partial result of a file operation, containing a warning.
@@ -67,7 +67,7 @@ namespace Adaptive.Arp.Api
         @param warning Warning condition encountered.
         @since ARP1.0
      */
-     void onWarning(IFile[] files, IFileListResultCallbackWarning warning);
+     void onWarning(FileDescriptor[] files, IFileListResultCallbackWarning warning);
 
      }
 }

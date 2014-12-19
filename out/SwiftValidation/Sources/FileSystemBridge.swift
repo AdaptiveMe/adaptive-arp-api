@@ -77,7 +77,7 @@ This method does not create the actual file in the specified folder.
         @return A reference to a new or existing location in the filesystem.
         @since ARP1.0
      */
-     public func createFileDescriptor(parent : IFile , name : String ) -> IFile {
+     public func createFileDescriptor(parent : FileDescriptor , name : String ) -> FileDescriptor {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -86,7 +86,7 @@ This method does not create the actual file in the specified folder.
                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executing createFileDescriptor({\(parent)},{\(name)}).")
           }
 
-          var result : IFile? = nil
+          var result : FileDescriptor? = nil
           if (self.delegate != nil) {
                result = self.delegate!.createFileDescriptor(parent, name: name)
                if (logger != nil) {
@@ -108,7 +108,7 @@ This path is volatile and may be cleaned by the OS periodically.
         @return Path to the application's cache folder.
         @since ARP1.0
      */
-     public func getApplicationCacheFolder() -> IFile {
+     public func getApplicationCacheFolder() -> FileDescriptor {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -117,7 +117,7 @@ This path is volatile and may be cleaned by the OS periodically.
                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executing getApplicationCacheFolder.")
           }
 
-          var result : IFile? = nil
+          var result : FileDescriptor? = nil
           if (self.delegate != nil) {
                result = self.delegate!.getApplicationCacheFolder()
                if (logger != nil) {
@@ -138,7 +138,7 @@ This path must always be writable by the current application.
         @return Path to the application's cloud storage folder.
         @since ARP1.0
      */
-     public func getApplicationCloudFolder() -> IFile {
+     public func getApplicationCloudFolder() -> FileDescriptor {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -147,7 +147,7 @@ This path must always be writable by the current application.
                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executing getApplicationCloudFolder.")
           }
 
-          var result : IFile? = nil
+          var result : FileDescriptor? = nil
           if (self.delegate != nil) {
                result = self.delegate!.getApplicationCloudFolder()
                if (logger != nil) {
@@ -168,7 +168,7 @@ This path must always be writable by the current application.
         @return Path to the application's documents folder.
         @since ARP1.0
      */
-     public func getApplicationDocumentsFolder() -> IFile {
+     public func getApplicationDocumentsFolder() -> FileDescriptor {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -177,7 +177,7 @@ This path must always be writable by the current application.
                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executing getApplicationDocumentsFolder.")
           }
 
-          var result : IFile? = nil
+          var result : FileDescriptor? = nil
           if (self.delegate != nil) {
                result = self.delegate!.getApplicationDocumentsFolder()
                if (logger != nil) {
@@ -198,7 +198,7 @@ This path may or may not be directly readable or writable - it usually contains 
         @return Path to the application folder.
         @since ARP1.0
      */
-     public func getApplicationFolder() -> IFile {
+     public func getApplicationFolder() -> FileDescriptor {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -207,7 +207,7 @@ This path may or may not be directly readable or writable - it usually contains 
                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executing getApplicationFolder.")
           }
 
-          var result : IFile? = nil
+          var result : FileDescriptor? = nil
           if (self.delegate != nil) {
                result = self.delegate!.getApplicationFolder()
                if (logger != nil) {
@@ -228,7 +228,7 @@ This path must always be writable by the current application.
         @return Path to the application's protected storage folder.
         @since ARP1.0
      */
-     public func getApplicationProtectedFolder() -> IFile {
+     public func getApplicationProtectedFolder() -> FileDescriptor {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -237,7 +237,7 @@ This path must always be writable by the current application.
                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executing getApplicationProtectedFolder.")
           }
 
-          var result : IFile? = nil
+          var result : FileDescriptor? = nil
           if (self.delegate != nil) {
                result = self.delegate!.getApplicationProtectedFolder()
                if (logger != nil) {
@@ -289,7 +289,7 @@ This path may or may not be writable by the current application.
         @return Path to the application's documents folder.
         @since ARP1.0
      */
-     public func getSystemExternalFolder() -> IFile {
+     public func getSystemExternalFolder() -> FileDescriptor {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -298,7 +298,7 @@ This path may or may not be writable by the current application.
                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executing getSystemExternalFolder.")
           }
 
-          var result : IFile? = nil
+          var result : FileDescriptor? = nil
           if (self.delegate != nil) {
                result = self.delegate!.getSystemExternalFolder()
                if (logger != nil) {
@@ -323,44 +323,44 @@ This path may or may not be writable by the current application.
           var responseJSON : String? = ""
           switch request.getMethodName()! {
                case "createFileDescriptor":
-                    var parent0 : IFile? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], IFile.class)
+                    var parent0 : FileDescriptor? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], FileDescriptor.class)
                     var name0 : String? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[1], String.class)
-                    var response0 : IFile? = self.createFileDescriptor(parent0!, name: name0!)
+                    var response0 : FileDescriptor? = self.createFileDescriptor(parent0!, name: name0!)
                     if (response0 != nil) {
                          responseJSON = nil //TODO - Serialize this.gson.toJson(response0);
                     } else {
                          responseJSON = nil
                     }
                case "getApplicationCacheFolder":
-                    var response1 : IFile? = self.getApplicationCacheFolder()
+                    var response1 : FileDescriptor? = self.getApplicationCacheFolder()
                     if (response1 != nil) {
                          responseJSON = nil //TODO - Serialize this.gson.toJson(response1);
                     } else {
                          responseJSON = nil
                     }
                case "getApplicationCloudFolder":
-                    var response2 : IFile? = self.getApplicationCloudFolder()
+                    var response2 : FileDescriptor? = self.getApplicationCloudFolder()
                     if (response2 != nil) {
                          responseJSON = nil //TODO - Serialize this.gson.toJson(response2);
                     } else {
                          responseJSON = nil
                     }
                case "getApplicationDocumentsFolder":
-                    var response3 : IFile? = self.getApplicationDocumentsFolder()
+                    var response3 : FileDescriptor? = self.getApplicationDocumentsFolder()
                     if (response3 != nil) {
                          responseJSON = nil //TODO - Serialize this.gson.toJson(response3);
                     } else {
                          responseJSON = nil
                     }
                case "getApplicationFolder":
-                    var response4 : IFile? = self.getApplicationFolder()
+                    var response4 : FileDescriptor? = self.getApplicationFolder()
                     if (response4 != nil) {
                          responseJSON = nil //TODO - Serialize this.gson.toJson(response4);
                     } else {
                          responseJSON = nil
                     }
                case "getApplicationProtectedFolder":
-                    var response5 : IFile? = self.getApplicationProtectedFolder()
+                    var response5 : FileDescriptor? = self.getApplicationProtectedFolder()
                     if (response5 != nil) {
                          responseJSON = nil //TODO - Serialize this.gson.toJson(response5);
                     } else {
@@ -370,7 +370,7 @@ This path may or may not be writable by the current application.
                     var response6 : Character? = self.getSeparator()
                     responseJSON = nil //TODO - Serialize this.gson.toJson(response6);
                case "getSystemExternalFolder":
-                    var response7 : IFile? = self.getSystemExternalFolder()
+                    var response7 : FileDescriptor? = self.getSystemExternalFolder()
                     if (response7 != nil) {
                          responseJSON = nil //TODO - Serialize this.gson.toJson(response7);
                     } else {

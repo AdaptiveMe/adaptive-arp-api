@@ -56,7 +56,7 @@ public interface IFileResultCallback extends IBaseCallback {
         @param storageFile Reference to the resulting file.
         @since ARP1.0
      */
-     void onResult(IFile storageFile);
+     void onResult(FileDescriptor storageFile);
 
      /**
         On partial result of a file operation, containing a warning.
@@ -65,7 +65,7 @@ public interface IFileResultCallback extends IBaseCallback {
         @param warning Warning processing the request.
         @since ARP1.0
      */
-     void onWarning(IFile file, IFileResultCallbackWarning warning);
+     void onWarning(FileDescriptor file, IFileResultCallbackWarning warning);
 
 }
 

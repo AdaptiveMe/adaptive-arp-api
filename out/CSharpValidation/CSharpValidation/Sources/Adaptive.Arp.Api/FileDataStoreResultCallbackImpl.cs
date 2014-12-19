@@ -67,7 +67,7 @@ public class FileDataStoreResultCallbackImpl extends BaseCallbackImpl implements
         @param file File reference to stored data.
         @since ARP1.0
      */
-     public void onResult(IFile file) {
+     public void onResult(FileDescriptor file) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileDataStoreResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(file) +") )");
      }
 
@@ -78,7 +78,7 @@ public class FileDataStoreResultCallbackImpl extends BaseCallbackImpl implements
         @param warning Warning condition encountered.
         @since ARP1.0
      */
-     public void onWarning(IFile file, IFileDataStoreResultCallbackWarning warning) {
+     public void onWarning(FileDescriptor file, IFileDataStoreResultCallbackWarning warning) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileDataStoreResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(file) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
      }
 
