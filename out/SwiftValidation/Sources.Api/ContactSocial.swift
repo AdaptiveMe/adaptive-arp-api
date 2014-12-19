@@ -126,9 +126,9 @@ public class ContactSocial : APIBean {
                // Start Object to JSON
                jsonString.appendString("{ ")
 
-               // Own fields.
-               object.socialNetwork != nil ? jsonString.appendString("socialNetwork: { value: \"\(object.socialNetwork!.toString())\"}, ") : jsonString.appendString("socialNetwork: null, ")
-               object.profileUrl != nil ? jsonString.appendString("profileUrl: \"\(object.profileUrl!)\"") : jsonString.appendString("profileUrl: null")
+               // Fields.
+               object.profileUrl != nil ? jsonString.appendString("profileUrl: \"\(object.profileUrl!)\", ") : jsonString.appendString("profileUrl: null, ")
+               object.socialNetwork != nil ? jsonString.appendString("socialNetwork: { value: \"\(object.socialNetwork!.toString())\"}") : jsonString.appendString("socialNetwork: null")
 
                // End Object to JSON
                jsonString.appendString(" }")

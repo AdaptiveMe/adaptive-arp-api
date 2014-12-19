@@ -100,7 +100,7 @@ public class DatabaseRow : APIBean {
                // Start Object to JSON
                jsonString.appendString("{ ")
 
-               // Own fields.
+               // Fields.
                if (object.values != nil) {
                     // Start array of objects.
                     jsonString.appendString("values: [");

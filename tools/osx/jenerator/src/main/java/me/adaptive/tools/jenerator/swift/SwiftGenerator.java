@@ -1635,44 +1635,39 @@ public class SwiftGenerator extends GeneratorBase {
             println(15, "var jsonString : NSMutableString = NSMutableString()");
             println(15, "// Start Object to JSON");
             println(15, "jsonString.appendString(\"{ \")");
-            if (clazz.getDeclaredFields().length > 0) {
-                println();
-                println(15, "// Own fields.");
-                boolean isLast = false;
-                for (int i = 0; i < clazz.getDeclaredFields().length; i++) {
-                    Field f = clazz.getDeclaredFields()[i];
 
-                    if (i < clazz.getDeclaredFields().length - 1) {
-                        isLast = false;
-                    } else {
-                        isLast = true;
-                        if (!clazz.getSuperclass().equals(Object.class)) {
-                            if (clazz.getSuperclass().getDeclaredFields().length > 0) {
-                                isLast = false;
-                            }
-                        }
-                    }
-
-                    handleJSONField(f, clazz, isLast);
-                }
+            List<Field> fieldList = new ArrayList<>();
+            for (Field f : clazz.getDeclaredFields()) {
+                fieldList.add(f);
             }
             if (!clazz.getSuperclass().equals(Object.class)) {
                 if (clazz.getSuperclass().getDeclaredFields().length > 0) {
-                    println();
-                    println(15, "// Superclass fields.");
-                    boolean isLast = false;
-                    for (int i = 0; i < clazz.getSuperclass().getDeclaredFields().length; i++) {
-                        Field f = clazz.getSuperclass().getDeclaredFields()[i];
+                    for (Field f : clazz.getSuperclass().getDeclaredFields()) {
+                        fieldList.add(f);
+                    }
+                }
+            }
+            fieldList.sort(new Comparator<Field>() {
+                @Override
+                public int compare(Field o1, Field o2) {
+                    return o1.getName().compareTo(o2.getName());
+                }
+            });
 
-                        if (i < clazz.getSuperclass().getDeclaredFields().length - 1) {
-                            isLast = false;
-                        } else {
-                            isLast = true;
-                        }
+            if (fieldList.size() > 0) {
+                println();
+                println(15, "// Fields.");
+                boolean isLast = false;
+                for (int i = 0; i < fieldList.size(); i++) {
+                    Field f = fieldList.get(i);
 
-                        handleJSONField(f, clazz, isLast);
+                    if (i < fieldList.size() - 1) {
+                        isLast = false;
+                    } else {
+                        isLast = true;
                     }
 
+                    handleJSONField(f, clazz, isLast);
                 }
             }
             println();

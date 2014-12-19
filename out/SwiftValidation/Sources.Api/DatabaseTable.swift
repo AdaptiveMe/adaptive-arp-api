@@ -215,10 +215,8 @@ public class DatabaseTable : APIBean {
                // Start Object to JSON
                jsonString.appendString("{ ")
 
-               // Own fields.
-               object.name != nil ? jsonString.appendString("name: \"\(object.name!)\", ") : jsonString.appendString("name: null, ")
+               // Fields.
                object.columnCount != nil ? jsonString.appendString("columnCount: \(object.columnCount!), ") : jsonString.appendString("columnCount: null, ")
-               object.rowCount != nil ? jsonString.appendString("rowCount: \(object.rowCount!), ") : jsonString.appendString("rowCount: null, ")
                if (object.databaseColumns != nil) {
                     // Start array of objects.
                     jsonString.appendString("databaseColumns: [");
@@ -247,10 +245,12 @@ public class DatabaseTable : APIBean {
                     }
 
                     // End array of objects.
-                    jsonString.appendString("]");
+                    jsonString.appendString("], ");
                } else {
-                    jsonString.appendString("databaseRows: null")
+                    jsonString.appendString("databaseRows: null, ")
                }
+               object.name != nil ? jsonString.appendString("name: \"\(object.name!)\", ") : jsonString.appendString("name: null, ")
+               object.rowCount != nil ? jsonString.appendString("rowCount: \(object.rowCount!)") : jsonString.appendString("rowCount: null")
 
                // End Object to JSON
                jsonString.appendString(" }")

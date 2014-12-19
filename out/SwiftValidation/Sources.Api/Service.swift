@@ -178,10 +178,10 @@ public class Service : APIBean {
                // Start Object to JSON
                jsonString.appendString("{ ")
 
-               // Own fields.
-               object.serviceEndpoint != nil ? jsonString.appendString("serviceEndpoint: \(ServiceEndpoint.Serializer.toJSON(object.serviceEndpoint!)), ") : jsonString.appendString("serviceEndpoint: null, ")
-               object.name != nil ? jsonString.appendString("name: \"\(object.name!)\", ") : jsonString.appendString("name: null, ")
+               // Fields.
                object.method != nil ? jsonString.appendString("method: { value: \"\(object.method!.toString())\"}, ") : jsonString.appendString("method: null, ")
+               object.name != nil ? jsonString.appendString("name: \"\(object.name!)\", ") : jsonString.appendString("name: null, ")
+               object.serviceEndpoint != nil ? jsonString.appendString("serviceEndpoint: \(ServiceEndpoint.Serializer.toJSON(object.serviceEndpoint!)), ") : jsonString.appendString("serviceEndpoint: null, ")
                object.type != nil ? jsonString.appendString("type: { value: \"\(object.type!.toString())\"}") : jsonString.appendString("type: null")
 
                // End Object to JSON

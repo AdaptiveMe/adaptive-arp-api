@@ -178,10 +178,10 @@ public class ContactPersonalInfo : APIBean {
                // Start Object to JSON
                jsonString.appendString("{ ")
 
-               // Own fields.
-               object.name != nil ? jsonString.appendString("name: \"\(object.name!)\", ") : jsonString.appendString("name: null, ")
-               object.middleName != nil ? jsonString.appendString("middleName: \"\(object.middleName!)\", ") : jsonString.appendString("middleName: null, ")
+               // Fields.
                object.lastName != nil ? jsonString.appendString("lastName: \"\(object.lastName!)\", ") : jsonString.appendString("lastName: null, ")
+               object.middleName != nil ? jsonString.appendString("middleName: \"\(object.middleName!)\", ") : jsonString.appendString("middleName: null, ")
+               object.name != nil ? jsonString.appendString("name: \"\(object.name!)\", ") : jsonString.appendString("name: null, ")
                object.title != nil ? jsonString.appendString("title: { value: \"\(object.title!.toString())\"}") : jsonString.appendString("title: null")
 
                // End Object to JSON

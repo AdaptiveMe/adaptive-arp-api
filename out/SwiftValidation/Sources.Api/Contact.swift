@@ -293,9 +293,7 @@ public class Contact : ContactUid {
                // Start Object to JSON
                jsonString.appendString("{ ")
 
-               // Own fields.
-               object.personalInfo != nil ? jsonString.appendString("personalInfo: \(ContactPersonalInfo.Serializer.toJSON(object.personalInfo!)), ") : jsonString.appendString("personalInfo: null, ")
-               object.professionalInfo != nil ? jsonString.appendString("professionalInfo: \(ContactProfessionalInfo.Serializer.toJSON(object.professionalInfo!)), ") : jsonString.appendString("professionalInfo: null, ")
+               // Fields.
                if (object.contactAddresses != nil) {
                     // Start array of objects.
                     jsonString.appendString("contactAddresses: [");
@@ -311,22 +309,6 @@ public class Contact : ContactUid {
                     jsonString.appendString("], ");
                } else {
                     jsonString.appendString("contactAddresses: null, ")
-               }
-               if (object.contactPhones != nil) {
-                    // Start array of objects.
-                    jsonString.appendString("contactPhones: [");
-
-                    for var i = 0; i < object.contactPhones!.count; i++ {
-                         jsonString.appendString(ContactPhone.Serializer.toJSON(object.contactPhones![i]))
-                         if (i < object.contactPhones!.count-1) {
-                              jsonString.appendString(", ");
-                         }
-                    }
-
-                    // End array of objects.
-                    jsonString.appendString("], ");
-               } else {
-                    jsonString.appendString("contactPhones: null, ")
                }
                if (object.contactEmails != nil) {
                     // Start array of objects.
@@ -344,13 +326,14 @@ public class Contact : ContactUid {
                } else {
                     jsonString.appendString("contactEmails: null, ")
                }
-               if (object.contactWebsites != nil) {
+               object.contactId != nil ? jsonString.appendString("contactId: \"\(object.contactId!)\", ") : jsonString.appendString("contactId: null, ")
+               if (object.contactPhones != nil) {
                     // Start array of objects.
-                    jsonString.appendString("contactWebsites: [");
+                    jsonString.appendString("contactPhones: [");
 
-                    for var i = 0; i < object.contactWebsites!.count; i++ {
-                         jsonString.appendString(ContactWebsite.Serializer.toJSON(object.contactWebsites![i]))
-                         if (i < object.contactWebsites!.count-1) {
+                    for var i = 0; i < object.contactPhones!.count; i++ {
+                         jsonString.appendString(ContactPhone.Serializer.toJSON(object.contactPhones![i]))
+                         if (i < object.contactPhones!.count-1) {
                               jsonString.appendString(", ");
                          }
                     }
@@ -358,7 +341,7 @@ public class Contact : ContactUid {
                     // End array of objects.
                     jsonString.appendString("], ");
                } else {
-                    jsonString.appendString("contactWebsites: null, ")
+                    jsonString.appendString("contactPhones: null, ")
                }
                if (object.contactSocials != nil) {
                     // Start array of objects.
@@ -392,9 +375,24 @@ public class Contact : ContactUid {
                } else {
                     jsonString.appendString("contactTags: null, ")
                }
+               if (object.contactWebsites != nil) {
+                    // Start array of objects.
+                    jsonString.appendString("contactWebsites: [");
 
-               // Superclass fields.
-               object.contactId != nil ? jsonString.appendString("contactId: \"\(object.contactId!)\"") : jsonString.appendString("contactId: null")
+                    for var i = 0; i < object.contactWebsites!.count; i++ {
+                         jsonString.appendString(ContactWebsite.Serializer.toJSON(object.contactWebsites![i]))
+                         if (i < object.contactWebsites!.count-1) {
+                              jsonString.appendString(", ");
+                         }
+                    }
+
+                    // End array of objects.
+                    jsonString.appendString("], ");
+               } else {
+                    jsonString.appendString("contactWebsites: null, ")
+               }
+               object.personalInfo != nil ? jsonString.appendString("personalInfo: \(ContactPersonalInfo.Serializer.toJSON(object.personalInfo!)), ") : jsonString.appendString("personalInfo: null, ")
+               object.professionalInfo != nil ? jsonString.appendString("professionalInfo: \(ContactProfessionalInfo.Serializer.toJSON(object.professionalInfo!))") : jsonString.appendString("professionalInfo: null")
 
                // End Object to JSON
                jsonString.appendString(" }")

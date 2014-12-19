@@ -280,11 +280,8 @@ public class ServiceResponse : APIBean {
                // Start Object to JSON
                jsonString.appendString("{ ")
 
-               // Own fields.
+               // Fields.
                object.content != nil ? jsonString.appendString("content: \"\(object.content!)\", ") : jsonString.appendString("content: null, ")
-               object.contentType != nil ? jsonString.appendString("contentType: \"\(object.contentType!)\", ") : jsonString.appendString("contentType: null, ")
-               object.contentEncoding != nil ? jsonString.appendString("contentEncoding: \"\(object.contentEncoding!)\", ") : jsonString.appendString("contentEncoding: null, ")
-               object.contentLength != nil ? jsonString.appendString("contentLength: \(object.contentLength!), ") : jsonString.appendString("contentLength: null, ")
                if (object.contentBinary != nil) {
                     // Start array of objects.
                     jsonString.appendString("contentBinary: [");
@@ -302,6 +299,9 @@ public class ServiceResponse : APIBean {
                     jsonString.appendString("contentBinary: null, ")
                }
                object.contentBinaryLength != nil ? jsonString.appendString("contentBinaryLength: \(object.contentBinaryLength!), ") : jsonString.appendString("contentBinaryLength: null, ")
+               object.contentEncoding != nil ? jsonString.appendString("contentEncoding: \"\(object.contentEncoding!)\", ") : jsonString.appendString("contentEncoding: null, ")
+               object.contentLength != nil ? jsonString.appendString("contentLength: \(object.contentLength!), ") : jsonString.appendString("contentLength: null, ")
+               object.contentType != nil ? jsonString.appendString("contentType: \"\(object.contentType!)\", ") : jsonString.appendString("contentType: null, ")
                if (object.serviceHeaders != nil) {
                     // Start array of objects.
                     jsonString.appendString("serviceHeaders: [");

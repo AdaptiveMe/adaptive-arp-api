@@ -126,7 +126,7 @@ public class ContactPhone : APIBean {
                // Start Object to JSON
                jsonString.appendString("{ ")
 
-               // Own fields.
+               // Fields.
                object.phone != nil ? jsonString.appendString("phone: \"\(object.phone!)\", ") : jsonString.appendString("phone: null, ")
                object.phoneType != nil ? jsonString.appendString("phoneType: { value: \"\(object.phoneType!.toString())\"}") : jsonString.appendString("phoneType: null")
 

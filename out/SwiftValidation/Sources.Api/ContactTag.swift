@@ -126,7 +126,7 @@ public class ContactTag : APIBean {
                // Start Object to JSON
                jsonString.appendString("{ ")
 
-               // Own fields.
+               // Fields.
                object.name != nil ? jsonString.appendString("name: \"\(object.name!)\", ") : jsonString.appendString("name: null, ")
                object.value != nil ? jsonString.appendString("value: \"\(object.value!)\"") : jsonString.appendString("value: null")
 

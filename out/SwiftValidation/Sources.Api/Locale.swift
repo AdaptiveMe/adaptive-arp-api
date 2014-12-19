@@ -126,7 +126,7 @@ public class Locale : APIBean {
                // Start Object to JSON
                jsonString.appendString("{ ")
 
-               // Own fields.
+               // Fields.
                object.country != nil ? jsonString.appendString("country: \"\(object.country!)\", ") : jsonString.appendString("country: null, ")
                object.language != nil ? jsonString.appendString("language: \"\(object.language!)\"") : jsonString.appendString("language: null")
 

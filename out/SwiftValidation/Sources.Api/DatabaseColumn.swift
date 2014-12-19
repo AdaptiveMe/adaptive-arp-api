@@ -100,7 +100,7 @@ public class DatabaseColumn : APIBean {
                // Start Object to JSON
                jsonString.appendString("{ ")
 
-               // Own fields.
+               // Fields.
                object.name != nil ? jsonString.appendString("name: \"\(object.name!)\"") : jsonString.appendString("name: null")
 
                // End Object to JSON

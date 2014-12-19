@@ -204,7 +204,7 @@ public class ServiceEndpoint : APIBean {
                // Start Object to JSON
                jsonString.appendString("{ ")
 
-               // Own fields.
+               // Fields.
                object.host != nil ? jsonString.appendString("host: \"\(object.host!)\", ") : jsonString.appendString("host: null, ")
                object.path != nil ? jsonString.appendString("path: \"\(object.path!)\", ") : jsonString.appendString("path: null, ")
                object.port != nil ? jsonString.appendString("port: \(object.port!), ") : jsonString.appendString("port: null, ")

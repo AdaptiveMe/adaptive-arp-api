@@ -204,7 +204,7 @@ public class EmailAttachmentData : APIBean {
                // Start Object to JSON
                jsonString.appendString("{ ")
 
-               // Own fields.
+               // Fields.
                if (object.data != nil) {
                     // Start array of objects.
                     jsonString.appendString("data: [");
@@ -221,10 +221,10 @@ public class EmailAttachmentData : APIBean {
                } else {
                     jsonString.appendString("data: null, ")
                }
-               object.size != nil ? jsonString.appendString("size: \(object.size!), ") : jsonString.appendString("size: null, ")
                object.fileName != nil ? jsonString.appendString("fileName: \"\(object.fileName!)\", ") : jsonString.appendString("fileName: null, ")
                object.mimeType != nil ? jsonString.appendString("mimeType: \"\(object.mimeType!)\", ") : jsonString.appendString("mimeType: null, ")
-               object.referenceUrl != nil ? jsonString.appendString("referenceUrl: \"\(object.referenceUrl!)\"") : jsonString.appendString("referenceUrl: null")
+               object.referenceUrl != nil ? jsonString.appendString("referenceUrl: \"\(object.referenceUrl!)\", ") : jsonString.appendString("referenceUrl: null, ")
+               object.size != nil ? jsonString.appendString("size: \(object.size!)") : jsonString.appendString("size: null")
 
                // End Object to JSON
                jsonString.appendString(" }")

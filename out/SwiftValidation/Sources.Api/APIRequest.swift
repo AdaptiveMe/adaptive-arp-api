@@ -188,24 +188,9 @@ listener.
                // Start Object to JSON
                jsonString.appendString("{ ")
 
-               // Own fields.
+               // Fields.
+               object.asyncId != nil ? jsonString.appendString("asyncId: \(object.asyncId!), ") : jsonString.appendString("asyncId: null, ")
                object.methodName != nil ? jsonString.appendString("methodName: \"\(object.methodName!)\", ") : jsonString.appendString("methodName: null, ")
-               if (object.parameters != nil) {
-                    // Start array of objects.
-                    jsonString.appendString("parameters: [");
-
-                    for var i = 0; i < object.parameters!.count; i++ {
-                         jsonString.appendString("\"\(object.parameters![i])\"");
-                         if (i < object.parameters!.count-1) {
-                              jsonString.appendString(", ");
-                         }
-                    }
-
-                    // End array of objects.
-                    jsonString.appendString("], ");
-               } else {
-                    jsonString.appendString("parameters: null, ")
-               }
                if (object.parameterTypes != nil) {
                     // Start array of objects.
                     jsonString.appendString("parameterTypes: [");
@@ -222,7 +207,22 @@ listener.
                } else {
                     jsonString.appendString("parameterTypes: null, ")
                }
-               object.asyncId != nil ? jsonString.appendString("asyncId: \(object.asyncId!)") : jsonString.appendString("asyncId: null")
+               if (object.parameters != nil) {
+                    // Start array of objects.
+                    jsonString.appendString("parameters: [");
+
+                    for var i = 0; i < object.parameters!.count; i++ {
+                         jsonString.appendString("\"\(object.parameters![i])\"");
+                         if (i < object.parameters!.count-1) {
+                              jsonString.appendString(", ");
+                         }
+                    }
+
+                    // End array of objects.
+                    jsonString.appendString("]");
+               } else {
+                    jsonString.appendString("parameters: null")
+               }
 
                // End Object to JSON
                jsonString.appendString(" }")

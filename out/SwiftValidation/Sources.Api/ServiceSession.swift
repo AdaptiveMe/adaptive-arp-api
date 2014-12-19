@@ -126,23 +126,7 @@ public class ServiceSession : NSObject {
                // Start Object to JSON
                jsonString.appendString("{ ")
 
-               // Own fields.
-               if (object.cookies != nil) {
-                    // Start array of objects.
-                    jsonString.appendString("cookies: [");
-
-                    for var i = 0; i < object.cookies!.count; i++ {
-                         jsonString.appendString(ServiceCookie.Serializer.toJSON(object.cookies![i]))
-                         if (i < object.cookies!.count-1) {
-                              jsonString.appendString(", ");
-                         }
-                    }
-
-                    // End array of objects.
-                    jsonString.appendString("], ");
-               } else {
-                    jsonString.appendString("cookies: null, ")
-               }
+               // Fields.
                if (object.attributes != nil) {
                     // Start array of objects.
                     jsonString.appendString("attributes: [");
@@ -155,9 +139,25 @@ public class ServiceSession : NSObject {
                     }
 
                     // End array of objects.
+                    jsonString.appendString("], ");
+               } else {
+                    jsonString.appendString("attributes: null, ")
+               }
+               if (object.cookies != nil) {
+                    // Start array of objects.
+                    jsonString.appendString("cookies: [");
+
+                    for var i = 0; i < object.cookies!.count; i++ {
+                         jsonString.appendString(ServiceCookie.Serializer.toJSON(object.cookies![i]))
+                         if (i < object.cookies!.count-1) {
+                              jsonString.appendString(", ");
+                         }
+                    }
+
+                    // End array of objects.
                     jsonString.appendString("]");
                } else {
-                    jsonString.appendString("attributes: null")
+                    jsonString.appendString("cookies: null")
                }
 
                // End Object to JSON

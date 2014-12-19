@@ -100,7 +100,7 @@ public class Button : APIBean {
                // Start Object to JSON
                jsonString.appendString("{ ")
 
-               // Own fields.
+               // Fields.
                object.type != nil ? jsonString.appendString("type: { value: \"\(object.type!.toString())\"}") : jsonString.appendString("type: null")
 
                // End Object to JSON

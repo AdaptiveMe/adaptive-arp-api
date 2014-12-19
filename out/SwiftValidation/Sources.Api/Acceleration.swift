@@ -178,11 +178,11 @@ public class Acceleration : APIBean {
                // Start Object to JSON
                jsonString.appendString("{ ")
 
-               // Own fields.
+               // Fields.
+               object.timestamp != nil ? jsonString.appendString("timestamp: \(object.timestamp!), ") : jsonString.appendString("timestamp: null, ")
                object.x != nil ? jsonString.appendString("x: \(object.x!), ") : jsonString.appendString("x: null, ")
                object.y != nil ? jsonString.appendString("y: \(object.y!), ") : jsonString.appendString("y: null, ")
-               object.z != nil ? jsonString.appendString("z: \(object.z!), ") : jsonString.appendString("z: null, ")
-               object.timestamp != nil ? jsonString.appendString("timestamp: \(object.timestamp!)") : jsonString.appendString("timestamp: null")
+               object.z != nil ? jsonString.appendString("z: \(object.z!)") : jsonString.appendString("z: null")
 
                // End Object to JSON
                jsonString.appendString(" }")

@@ -100,7 +100,7 @@ public class ContactUid : APIBean {
                // Start Object to JSON
                jsonString.appendString("{ ")
 
-               // Own fields.
+               // Fields.
                object.contactId != nil ? jsonString.appendString("contactId: \"\(object.contactId!)\"") : jsonString.appendString("contactId: null")
 
                // End Object to JSON

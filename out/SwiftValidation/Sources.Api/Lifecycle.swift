@@ -111,7 +111,7 @@ Possible lifecycle States:
                // Start Object to JSON
                jsonString.appendString("{ ")
 
-               // Own fields.
+               // Fields.
                object.state != nil ? jsonString.appendString("state: { value: \"\(object.state!.toString())\"}") : jsonString.appendString("state: null")
 
                // End Object to JSON

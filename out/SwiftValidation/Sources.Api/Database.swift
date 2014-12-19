@@ -137,9 +137,9 @@ public class Database : APIBean {
                // Start Object to JSON
                jsonString.appendString("{ ")
 
-               // Own fields.
-               object.name != nil ? jsonString.appendString("name: \"\(object.name!)\", ") : jsonString.appendString("name: null, ")
-               object.compress != nil ? jsonString.appendString("compress: \(object.compress!)") : jsonString.appendString("compress: null")
+               // Fields.
+               object.compress != nil ? jsonString.appendString("compress: \(object.compress!), ") : jsonString.appendString("compress: null, ")
+               object.name != nil ? jsonString.appendString("name: \"\(object.name!)\"") : jsonString.appendString("name: null")
 
                // End Object to JSON
                jsonString.appendString(" }")

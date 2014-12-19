@@ -152,10 +152,10 @@ public class ContactProfessionalInfo : APIBean {
                // Start Object to JSON
                jsonString.appendString("{ ")
 
-               // Own fields.
+               // Fields.
                object.company != nil ? jsonString.appendString("company: \"\(object.company!)\", ") : jsonString.appendString("company: null, ")
-               object.jobTitle != nil ? jsonString.appendString("jobTitle: \"\(object.jobTitle!)\", ") : jsonString.appendString("jobTitle: null, ")
-               object.jobDescription != nil ? jsonString.appendString("jobDescription: \"\(object.jobDescription!)\"") : jsonString.appendString("jobDescription: null")
+               object.jobDescription != nil ? jsonString.appendString("jobDescription: \"\(object.jobDescription!)\", ") : jsonString.appendString("jobDescription: null, ")
+               object.jobTitle != nil ? jsonString.appendString("jobTitle: \"\(object.jobTitle!)\"") : jsonString.appendString("jobTitle: null")
 
                // End Object to JSON
                jsonString.appendString(" }")

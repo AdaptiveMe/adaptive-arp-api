@@ -295,15 +295,15 @@ public class ServiceCookie : APIBean {
                // Start Object to JSON
                jsonString.appendString("{ ")
 
-               // Own fields.
-               object.name != nil ? jsonString.appendString("name: \"\(object.name!)\", ") : jsonString.appendString("name: null, ")
-               object.value != nil ? jsonString.appendString("value: \"\(object.value!)\", ") : jsonString.appendString("value: null, ")
+               // Fields.
+               object.creation != nil ? jsonString.appendString("creation: \(object.creation!), ") : jsonString.appendString("creation: null, ")
                object.domain != nil ? jsonString.appendString("domain: \"\(object.domain!)\", ") : jsonString.appendString("domain: null, ")
+               object.expiry != nil ? jsonString.appendString("expiry: \(object.expiry!), ") : jsonString.appendString("expiry: null, ")
+               object.name != nil ? jsonString.appendString("name: \"\(object.name!)\", ") : jsonString.appendString("name: null, ")
                object.path != nil ? jsonString.appendString("path: \"\(object.path!)\", ") : jsonString.appendString("path: null, ")
                object.scheme != nil ? jsonString.appendString("scheme: \"\(object.scheme!)\", ") : jsonString.appendString("scheme: null, ")
                object.secure != nil ? jsonString.appendString("secure: \(object.secure!), ") : jsonString.appendString("secure: null, ")
-               object.expiry != nil ? jsonString.appendString("expiry: \(object.expiry!), ") : jsonString.appendString("expiry: null, ")
-               object.creation != nil ? jsonString.appendString("creation: \(object.creation!)") : jsonString.appendString("creation: null")
+               object.value != nil ? jsonString.appendString("value: \"\(object.value!)\"") : jsonString.appendString("value: null")
 
                // End Object to JSON
                jsonString.appendString(" }")

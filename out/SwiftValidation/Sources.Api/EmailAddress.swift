@@ -100,7 +100,7 @@ public class EmailAddress : APIBean {
                // Start Object to JSON
                jsonString.appendString("{ ")
 
-               // Own fields.
+               // Fields.
                object.address != nil ? jsonString.appendString("address: \"\(object.address!)\"") : jsonString.appendString("address: null")
 
                // End Object to JSON

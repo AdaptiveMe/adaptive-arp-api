@@ -126,9 +126,9 @@ public class ServiceHeader : APIBean {
                // Start Object to JSON
                jsonString.appendString("{ ")
 
-               // Own fields.
-               object.name != nil ? jsonString.appendString("name: \"\(object.name!)\", ") : jsonString.appendString("name: null, ")
-               object.data != nil ? jsonString.appendString("data: \"\(object.data!)\"") : jsonString.appendString("data: null")
+               // Fields.
+               object.data != nil ? jsonString.appendString("data: \"\(object.data!)\", ") : jsonString.appendString("data: null, ")
+               object.name != nil ? jsonString.appendString("name: \"\(object.name!)\"") : jsonString.appendString("name: null")
 
                // End Object to JSON
                jsonString.appendString(" }")

@@ -100,7 +100,7 @@ public class ContactWebsite : APIBean {
                // Start Object to JSON
                jsonString.appendString("{ ")
 
-               // Own fields.
+               // Fields.
                object.url != nil ? jsonString.appendString("url: \"\(object.url!)\"") : jsonString.appendString("url: null")
 
                // End Object to JSON

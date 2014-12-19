@@ -152,10 +152,10 @@ public class ContactEmail : APIBean {
                // Start Object to JSON
                jsonString.appendString("{ ")
 
-               // Own fields.
-               object.type != nil ? jsonString.appendString("type: { value: \"\(object.type!.toString())\"}, ") : jsonString.appendString("type: null, ")
+               // Fields.
+               object.email != nil ? jsonString.appendString("email: \"\(object.email!)\", ") : jsonString.appendString("email: null, ")
                object.primary != nil ? jsonString.appendString("primary: \(object.primary!), ") : jsonString.appendString("primary: null, ")
-               object.email != nil ? jsonString.appendString("email: \"\(object.email!)\"") : jsonString.appendString("email: null")
+               object.type != nil ? jsonString.appendString("type: { value: \"\(object.type!.toString())\"}") : jsonString.appendString("type: null")
 
                // End Object to JSON
                jsonString.appendString(" }")

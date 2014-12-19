@@ -149,10 +149,10 @@ public class OSInfo : APIBean {
                // Start Object to JSON
                jsonString.appendString("{ ")
 
-               // Own fields.
+               // Fields.
                object.name != nil ? jsonString.appendString("name: \"\(object.name!)\", ") : jsonString.appendString("name: null, ")
-               object.version != nil ? jsonString.appendString("version: \"\(object.version!)\", ") : jsonString.appendString("version: null, ")
-               object.vendor != nil ? jsonString.appendString("vendor: \"\(object.vendor!)\"") : jsonString.appendString("vendor: null")
+               object.vendor != nil ? jsonString.appendString("vendor: \"\(object.vendor!)\", ") : jsonString.appendString("vendor: null, ")
+               object.version != nil ? jsonString.appendString("version: \"\(object.version!)\"") : jsonString.appendString("version: null")
 
                // End Object to JSON
                jsonString.appendString(" }")

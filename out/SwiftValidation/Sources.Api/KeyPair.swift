@@ -126,7 +126,7 @@ public class KeyPair : APIBean {
                // Start Object to JSON
                jsonString.appendString("{ ")
 
-               // Own fields.
+               // Fields.
                object.key != nil ? jsonString.appendString("key: \"\(object.key!)\", ") : jsonString.appendString("key: null, ")
                object.value != nil ? jsonString.appendString("value: \"\(object.value!)\"") : jsonString.appendString("value: null")
 

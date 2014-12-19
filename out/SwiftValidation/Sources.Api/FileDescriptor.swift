@@ -184,12 +184,12 @@ doesn't exist, this will be -1. Used internally.
                // Start Object to JSON
                jsonString.appendString("{ ")
 
-               // Own fields.
+               // Fields.
+               object.dateCreated != nil ? jsonString.appendString("dateCreated: \(object.dateCreated!), ") : jsonString.appendString("dateCreated: null, ")
+               object.dateModified != nil ? jsonString.appendString("dateModified: \(object.dateModified!), ") : jsonString.appendString("dateModified: null, ")
                object.name != nil ? jsonString.appendString("name: \"\(object.name!)\", ") : jsonString.appendString("name: null, ")
                object.path != nil ? jsonString.appendString("path: \"\(object.path!)\", ") : jsonString.appendString("path: null, ")
                object.pathAbsolute != nil ? jsonString.appendString("pathAbsolute: \"\(object.pathAbsolute!)\", ") : jsonString.appendString("pathAbsolute: null, ")
-               object.dateCreated != nil ? jsonString.appendString("dateCreated: \(object.dateCreated!), ") : jsonString.appendString("dateCreated: null, ")
-               object.dateModified != nil ? jsonString.appendString("dateModified: \(object.dateModified!), ") : jsonString.appendString("dateModified: null, ")
                object.size != nil ? jsonString.appendString("size: \(object.size!)") : jsonString.appendString("size: null")
 
                // End Object to JSON
