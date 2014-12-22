@@ -54,7 +54,7 @@ public interface IFileListResultCallback extends IBaseCallback {
      * @param files Array of resulting files/folders.
      * @since ARP1.0
      */
-    void onResult(IFile[] files);
+    void onResult(FileDescriptor[] files);
 
     /**
      * On partial result of a file operation, containing a warning.
@@ -63,7 +63,7 @@ public interface IFileListResultCallback extends IBaseCallback {
      * @param warning Warning condition encountered.
      * @since ARP1.0
      */
-    void onWarning(IFile[] files, Warning warning);
+    void onWarning(FileDescriptor[] files, Warning warning);
 
     /**
      * On error result of a file operation.

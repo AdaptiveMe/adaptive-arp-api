@@ -58,7 +58,7 @@ namespace Adaptive.Arp.Api
         @param file File reference to stored data.
         @since ARP1.0
      */
-     void onResult(IFile file);
+     void onResult(FileDescriptor file);
 
      /**
         Result with warning of data retrieval/storage operation.
@@ -67,7 +67,7 @@ namespace Adaptive.Arp.Api
         @param warning Warning condition encountered.
         @since ARP1.0
      */
-     void onWarning(IFile file, IFileDataStoreResultCallbackWarning warning);
+     void onWarning(FileDescriptor file, IFileDataStoreResultCallbackWarning warning);
 
      }
 }

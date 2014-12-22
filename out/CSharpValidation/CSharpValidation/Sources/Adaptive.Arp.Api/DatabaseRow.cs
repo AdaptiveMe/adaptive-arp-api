@@ -49,7 +49,7 @@ namespace Adaptive.Arp.Api
           /**
              The values of the row.
           */
-          public Object[] Values { get; set; }
+          public string[] Values { get; set; }
 
           /**
              Default constructor
@@ -65,7 +65,7 @@ namespace Adaptive.Arp.Api
              @param Values The values of the row
              @since ARP1.0
           */
-          public DatabaseRow(Object[] Values) : base () {
+          public DatabaseRow(string[] Values) : base () {
                this.Values = Values;
           }
 
@@ -75,7 +75,7 @@ namespace Adaptive.Arp.Api
              @return The values of the row.
              @since ARP1.0
           */
-          public Object[] GetValues() {
+          public string[] GetValues() {
                return this.Values;
           }
 
@@ -85,7 +85,7 @@ namespace Adaptive.Arp.Api
              @param Values The values of the row.
              @since ARP1.0
           */
-          public void SetValues(Object[] Values) {
+          public void SetValues(string[] Values) {
                this.Values = Values;
           }
 

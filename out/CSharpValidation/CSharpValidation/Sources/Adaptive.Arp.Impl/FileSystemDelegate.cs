@@ -65,8 +65,8 @@ This method does not create the actual file in the specified folder.
         @return A reference to a new or existing location in the filesystem.
         @since ARP1.0
      */
-     public IFile createFileDescriptor(IFile parent, string name) {
-          IFile response;
+     public FileDescriptor createFileDescriptor(FileDescriptor parent, string name) {
+          FileDescriptor response;
           // TODO: Not implemented.
           throw new UnsupportedOperationException(this.getClass().getName()+":createFileDescriptor");
           // return response;
@@ -80,8 +80,8 @@ This path is volatile and may be cleaned by the OS periodically.
         @return Path to the application's cache folder.
         @since ARP1.0
      */
-     public IFile getApplicationCacheFolder() {
-          IFile response;
+     public FileDescriptor getApplicationCacheFolder() {
+          FileDescriptor response;
           // TODO: Not implemented.
           throw new UnsupportedOperationException(this.getClass().getName()+":getApplicationCacheFolder");
           // return response;
@@ -94,8 +94,8 @@ This path must always be writable by the current application.
         @return Path to the application's cloud storage folder.
         @since ARP1.0
      */
-     public IFile getApplicationCloudFolder() {
-          IFile response;
+     public FileDescriptor getApplicationCloudFolder() {
+          FileDescriptor response;
           // TODO: Not implemented.
           throw new UnsupportedOperationException(this.getClass().getName()+":getApplicationCloudFolder");
           // return response;
@@ -108,8 +108,8 @@ This path must always be writable by the current application.
         @return Path to the application's documents folder.
         @since ARP1.0
      */
-     public IFile getApplicationDocumentsFolder() {
-          IFile response;
+     public FileDescriptor getApplicationDocumentsFolder() {
+          FileDescriptor response;
           // TODO: Not implemented.
           throw new UnsupportedOperationException(this.getClass().getName()+":getApplicationDocumentsFolder");
           // return response;
@@ -122,8 +122,8 @@ This path may or may not be directly readable or writable - it usually contains 
         @return Path to the application folder.
         @since ARP1.0
      */
-     public IFile getApplicationFolder() {
-          IFile response;
+     public FileDescriptor getApplicationFolder() {
+          FileDescriptor response;
           // TODO: Not implemented.
           throw new UnsupportedOperationException(this.getClass().getName()+":getApplicationFolder");
           // return response;
@@ -136,8 +136,8 @@ This path must always be writable by the current application.
         @return Path to the application's protected storage folder.
         @since ARP1.0
      */
-     public IFile getApplicationProtectedFolder() {
-          IFile response;
+     public FileDescriptor getApplicationProtectedFolder() {
+          FileDescriptor response;
           // TODO: Not implemented.
           throw new UnsupportedOperationException(this.getClass().getName()+":getApplicationProtectedFolder");
           // return response;
@@ -165,8 +165,8 @@ This path may or may not be writable by the current application.
         @return Path to the application's documents folder.
         @since ARP1.0
      */
-     public IFile getSystemExternalFolder() {
-          IFile response;
+     public FileDescriptor getSystemExternalFolder() {
+          FileDescriptor response;
           // TODO: Not implemented.
           throw new UnsupportedOperationException(this.getClass().getName()+":getSystemExternalFolder");
           // return response;

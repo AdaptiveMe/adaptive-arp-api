@@ -48,7 +48,7 @@ module Adaptive {
           /**
              The attributes of the response
           */
-          attributes : Array<any>;
+          attributes : Array<string>;
           /**
              The cookies of the response
           */
@@ -60,7 +60,7 @@ module Adaptive {
              @param attributes Attributes of the response
              @since ARP1.0
           */
-          constructor(cookies: Array<ServiceCookie>, attributes: Array<any>) {
+          constructor(cookies: Array<ServiceCookie>, attributes: Array<string>) {
                this.cookies = cookies;
                this.attributes = attributes;
           }
@@ -71,7 +71,7 @@ module Adaptive {
              @return Attributes of the response
              @since ARP1.0
           */
-          getAttributes() : Array<any> {
+          getAttributes() : Array<string> {
                return this.attributes;
           }
 
@@ -81,7 +81,7 @@ module Adaptive {
              @param attributes Attributes of the response
              @since ARP1.0
           */
-          setAttributes(attributes: Array<any>) {
+          setAttributes(attributes: Array<string>) {
                this.attributes = attributes;
           }
 

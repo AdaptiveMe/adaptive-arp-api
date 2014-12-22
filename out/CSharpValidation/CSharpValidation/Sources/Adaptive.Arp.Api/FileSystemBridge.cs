@@ -81,14 +81,14 @@ This method does not create the actual file in the specified folder.
         @return A reference to a new or existing location in the filesystem.
         @since ARP1.0
      */
-     public IFile createFileDescriptor(IFile parent, string name) {
+     public FileDescriptor createFileDescriptor(FileDescriptor parent, string name) {
           // Start logging elapsed time.
           long tIn = System.currentTimeMillis();
           ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
 
           if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing createFileDescriptor({"+parent+"},{"+name+"}).");
 
-          IFile result = null;
+          FileDescriptor result = null;
           if (this.delegate != null) {
                result = this.delegate.createFileDescriptor(parent, name);
                if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'createFileDescriptor' in "+(System.currentTimeMillis()-tIn)+"ms.");
@@ -106,14 +106,14 @@ This path is volatile and may be cleaned by the OS periodically.
         @return Path to the application's cache folder.
         @since ARP1.0
      */
-     public IFile getApplicationCacheFolder() {
+     public FileDescriptor getApplicationCacheFolder() {
           // Start logging elapsed time.
           long tIn = System.currentTimeMillis();
           ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
 
           if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getApplicationCacheFolder.");
 
-          IFile result = null;
+          FileDescriptor result = null;
           if (this.delegate != null) {
                result = this.delegate.getApplicationCacheFolder();
                if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getApplicationCacheFolder' in "+(System.currentTimeMillis()-tIn)+"ms.");
@@ -130,14 +130,14 @@ This path must always be writable by the current application.
         @return Path to the application's cloud storage folder.
         @since ARP1.0
      */
-     public IFile getApplicationCloudFolder() {
+     public FileDescriptor getApplicationCloudFolder() {
           // Start logging elapsed time.
           long tIn = System.currentTimeMillis();
           ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
 
           if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getApplicationCloudFolder.");
 
-          IFile result = null;
+          FileDescriptor result = null;
           if (this.delegate != null) {
                result = this.delegate.getApplicationCloudFolder();
                if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getApplicationCloudFolder' in "+(System.currentTimeMillis()-tIn)+"ms.");
@@ -154,14 +154,14 @@ This path must always be writable by the current application.
         @return Path to the application's documents folder.
         @since ARP1.0
      */
-     public IFile getApplicationDocumentsFolder() {
+     public FileDescriptor getApplicationDocumentsFolder() {
           // Start logging elapsed time.
           long tIn = System.currentTimeMillis();
           ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
 
           if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getApplicationDocumentsFolder.");
 
-          IFile result = null;
+          FileDescriptor result = null;
           if (this.delegate != null) {
                result = this.delegate.getApplicationDocumentsFolder();
                if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getApplicationDocumentsFolder' in "+(System.currentTimeMillis()-tIn)+"ms.");
@@ -178,14 +178,14 @@ This path may or may not be directly readable or writable - it usually contains 
         @return Path to the application folder.
         @since ARP1.0
      */
-     public IFile getApplicationFolder() {
+     public FileDescriptor getApplicationFolder() {
           // Start logging elapsed time.
           long tIn = System.currentTimeMillis();
           ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
 
           if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getApplicationFolder.");
 
-          IFile result = null;
+          FileDescriptor result = null;
           if (this.delegate != null) {
                result = this.delegate.getApplicationFolder();
                if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getApplicationFolder' in "+(System.currentTimeMillis()-tIn)+"ms.");
@@ -202,14 +202,14 @@ This path must always be writable by the current application.
         @return Path to the application's protected storage folder.
         @since ARP1.0
      */
-     public IFile getApplicationProtectedFolder() {
+     public FileDescriptor getApplicationProtectedFolder() {
           // Start logging elapsed time.
           long tIn = System.currentTimeMillis();
           ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
 
           if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getApplicationProtectedFolder.");
 
-          IFile result = null;
+          FileDescriptor result = null;
           if (this.delegate != null) {
                result = this.delegate.getApplicationProtectedFolder();
                if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getApplicationProtectedFolder' in "+(System.currentTimeMillis()-tIn)+"ms.");
@@ -251,14 +251,14 @@ This path may or may not be writable by the current application.
         @return Path to the application's documents folder.
         @since ARP1.0
      */
-     public IFile getSystemExternalFolder() {
+     public FileDescriptor getSystemExternalFolder() {
           // Start logging elapsed time.
           long tIn = System.currentTimeMillis();
           ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
 
           if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getSystemExternalFolder.");
 
-          IFile result = null;
+          FileDescriptor result = null;
           if (this.delegate != null) {
                result = this.delegate.getSystemExternalFolder();
                if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getSystemExternalFolder' in "+(System.currentTimeMillis()-tIn)+"ms.");
@@ -278,9 +278,9 @@ This path may or may not be writable by the current application.
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "createFileDescriptor":
-                    IFile parent0 = this.gson.fromJson(request.getParameters()[0], IFile.class);
+                    FileDescriptor parent0 = this.gson.fromJson(request.getParameters()[0], FileDescriptor.class);
                     string name0 = this.gson.fromJson(request.getParameters()[1], string.class);
-                    IFile response0 = this.createFileDescriptor(parent0, name0);
+                    FileDescriptor response0 = this.createFileDescriptor(parent0, name0);
                     if (response0 != null) {
                          responseJSON = this.gson.toJson(response0);
                     } else {
@@ -288,7 +288,7 @@ This path may or may not be writable by the current application.
                     }
                     break;
                case "getApplicationCacheFolder":
-                    IFile response1 = this.getApplicationCacheFolder();
+                    FileDescriptor response1 = this.getApplicationCacheFolder();
                     if (response1 != null) {
                          responseJSON = this.gson.toJson(response1);
                     } else {
@@ -296,7 +296,7 @@ This path may or may not be writable by the current application.
                     }
                     break;
                case "getApplicationCloudFolder":
-                    IFile response2 = this.getApplicationCloudFolder();
+                    FileDescriptor response2 = this.getApplicationCloudFolder();
                     if (response2 != null) {
                          responseJSON = this.gson.toJson(response2);
                     } else {
@@ -304,7 +304,7 @@ This path may or may not be writable by the current application.
                     }
                     break;
                case "getApplicationDocumentsFolder":
-                    IFile response3 = this.getApplicationDocumentsFolder();
+                    FileDescriptor response3 = this.getApplicationDocumentsFolder();
                     if (response3 != null) {
                          responseJSON = this.gson.toJson(response3);
                     } else {
@@ -312,7 +312,7 @@ This path may or may not be writable by the current application.
                     }
                     break;
                case "getApplicationFolder":
-                    IFile response4 = this.getApplicationFolder();
+                    FileDescriptor response4 = this.getApplicationFolder();
                     if (response4 != null) {
                          responseJSON = this.gson.toJson(response4);
                     } else {
@@ -320,7 +320,7 @@ This path may or may not be writable by the current application.
                     }
                     break;
                case "getApplicationProtectedFolder":
-                    IFile response5 = this.getApplicationProtectedFolder();
+                    FileDescriptor response5 = this.getApplicationProtectedFolder();
                     if (response5 != null) {
                          responseJSON = this.gson.toJson(response5);
                     } else {
@@ -332,7 +332,7 @@ This path may or may not be writable by the current application.
                     responseJSON = this.gson.toJson(response6);
                     break;
                case "getSystemExternalFolder":
-                    IFile response7 = this.getSystemExternalFolder();
+                    FileDescriptor response7 = this.getSystemExternalFolder();
                     if (response7 != null) {
                          responseJSON = this.gson.toJson(response7);
                     } else {

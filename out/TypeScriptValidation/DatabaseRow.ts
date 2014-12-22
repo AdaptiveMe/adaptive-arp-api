@@ -48,14 +48,14 @@ module Adaptive {
           /**
              The values of the row.
           */
-          values : Array<any>;
+          values : Array<string>;
           /**
              Constructor for implementation using.
 
              @param values The values of the row
              @since ARP1.0
           */
-          constructor(values: Array<any>) {
+          constructor(values: Array<string>) {
                super();
                this.values = values;
           }
@@ -66,7 +66,7 @@ module Adaptive {
              @return The values of the row.
              @since ARP1.0
           */
-          getValues() : Array<any> {
+          getValues() : Array<string> {
                return this.values;
           }
 
@@ -76,7 +76,7 @@ module Adaptive {
              @param values The values of the row.
              @since ARP1.0
           */
-          setValues(values: Array<any>) {
+          setValues(values: Array<string>) {
                this.values = values;
           }
 

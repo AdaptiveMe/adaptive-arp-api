@@ -51,7 +51,7 @@ This method does not create the actual file in the specified folder.
         @return A reference to a new or existing location in the filesystem.
         @since ARP1.0
      */
-     IFile createFileDescriptor(IFile parent, String name);
+     FileDescriptor createFileDescriptor(FileDescriptor parent, String name);
 
      /**
         Returns a reference to the cache folder for the current application.
@@ -61,7 +61,7 @@ This path is volatile and may be cleaned by the OS periodically.
         @return Path to the application's cache folder.
         @since ARP1.0
      */
-     IFile getApplicationCacheFolder();
+     FileDescriptor getApplicationCacheFolder();
 
      /**
         Returns a reference to the cloud synchronizable folder for the current application.
@@ -70,7 +70,7 @@ This path must always be writable by the current application.
         @return Path to the application's cloud storage folder.
         @since ARP1.0
      */
-     IFile getApplicationCloudFolder();
+     FileDescriptor getApplicationCloudFolder();
 
      /**
         Returns a reference to the documents folder for the current application.
@@ -79,7 +79,7 @@ This path must always be writable by the current application.
         @return Path to the application's documents folder.
         @since ARP1.0
      */
-     IFile getApplicationDocumentsFolder();
+     FileDescriptor getApplicationDocumentsFolder();
 
      /**
         Returns a reference to the application installation folder.
@@ -88,7 +88,7 @@ This path may or may not be directly readable or writable - it usually contains 
         @return Path to the application folder.
         @since ARP1.0
      */
-     IFile getApplicationFolder();
+     FileDescriptor getApplicationFolder();
 
      /**
         Returns a reference to the protected storage folder for the current application.
@@ -97,7 +97,7 @@ This path must always be writable by the current application.
         @return Path to the application's protected storage folder.
         @since ARP1.0
      */
-     IFile getApplicationProtectedFolder();
+     FileDescriptor getApplicationProtectedFolder();
 
      /**
         Returns the file system dependent file separator.
@@ -116,7 +116,7 @@ This path may or may not be writable by the current application.
         @return Path to the application's documents folder.
         @since ARP1.0
      */
-     IFile getSystemExternalFolder();
+     FileDescriptor getSystemExternalFolder();
 
 }
 
