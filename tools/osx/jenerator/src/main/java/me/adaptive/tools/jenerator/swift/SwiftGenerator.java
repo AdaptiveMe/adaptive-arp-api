@@ -58,6 +58,7 @@ public class SwiftGenerator extends GeneratorBase {
 
     @Override
     protected void createDelegateImplementation(String simpleName, Class clazz, JavaClass javaClass) {
+        println(0, "import Foundation");
         println();
         startComment(0);
         if (javaClass.getComment() != null && javaClass.getComment().length() > 0) {
@@ -337,6 +338,8 @@ public class SwiftGenerator extends GeneratorBase {
 
     @Override
     protected void createHandlerImplementation(String simpleName, Class clazz, JavaClass javaClass) {
+        println(0, "import Foundation");
+        println();
         startComment(0);
         if (javaClass.getComment() != null && javaClass.getComment().length() > 0) {
             println(3, javaClass.getComment());
@@ -861,6 +864,8 @@ public class SwiftGenerator extends GeneratorBase {
 
     @Override
     protected void createCallbackImplementation(String simpleName, Class clazz, JavaClass javaClass) {
+        println(0, "import Foundation");
+        println();
         startComment(0);
         if (javaClass.getComment() != null && javaClass.getComment().length() > 0) {
             println(3, javaClass.getComment());
@@ -1003,6 +1008,8 @@ public class SwiftGenerator extends GeneratorBase {
 
     @Override
     protected void createListenerImplementation(String simpleName, Class clazz, JavaClass javaClass) {
+        println(0, "import Foundation");
+        println();
         startComment(0);
         if (javaClass.getComment() != null && javaClass.getComment().length() > 0) {
             println(3, javaClass.getComment());
@@ -1252,6 +1259,8 @@ public class SwiftGenerator extends GeneratorBase {
 
     @Override
     protected void startInterface(String simpleName, Class clazz, String classComment, List<DocletTag> tagList) {
+        println(0, "import Foundation");
+        println();
         startComment(0);
         println(3, classComment);
         if (tagList.size() > 0) {
@@ -1730,6 +1739,8 @@ public class SwiftGenerator extends GeneratorBase {
 
     @Override
     protected void startBean(String simpleName, Class clazz, String comment, List<DocletTag> tagList) {
+        println(0, "import Foundation");
+        println();
         startComment(0);
         println(3, comment);
         if (tagList.size() > 0) {
