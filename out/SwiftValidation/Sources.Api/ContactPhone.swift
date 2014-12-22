@@ -118,7 +118,28 @@ public class ContactPhone : APIBean {
      */
      struct Serializer {
           static func fromJSON(json : String) -> ContactPhone {
-               return ContactPhone()
+               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+               var jsonError: NSError?
+               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+               return fromDictionary(dict)
+          }
+
+          static func fromDictionary(dict : NSDictionary) -> ContactPhone {
+               var resultObject : ContactPhone = ContactPhone()
+
+               if let value : AnyObject = dict.objectForKey("phone") {
+                    if value as NSString != "<null>" {
+                         resultObject.phone = (value as String)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("phoneType") {
+                    if value as NSString != "<null>" {
+                         resultObject.phoneType = ContactPhoneType.toEnum(((value as NSDictionary)["value"]) as NSString)
+                    }
+               }
+
+               return resultObject
           }
 
           static func toJSON(object: ContactPhone) -> String {

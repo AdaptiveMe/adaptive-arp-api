@@ -118,7 +118,28 @@ public class Locale : APIBean {
      */
      struct Serializer {
           static func fromJSON(json : String) -> Locale {
-               return Locale()
+               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+               var jsonError: NSError?
+               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+               return fromDictionary(dict)
+          }
+
+          static func fromDictionary(dict : NSDictionary) -> Locale {
+               var resultObject : Locale = Locale()
+
+               if let value : AnyObject = dict.objectForKey("country") {
+                    if value as NSString != "<null>" {
+                         resultObject.country = (value as String)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("language") {
+                    if value as NSString != "<null>" {
+                         resultObject.language = (value as String)
+                    }
+               }
+
+               return resultObject
           }
 
           static func toJSON(object: Locale) -> String {

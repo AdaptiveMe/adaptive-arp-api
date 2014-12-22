@@ -196,7 +196,46 @@ public class ServiceEndpoint : APIBean {
      */
      struct Serializer {
           static func fromJSON(json : String) -> ServiceEndpoint {
-               return ServiceEndpoint()
+               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+               var jsonError: NSError?
+               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+               return fromDictionary(dict)
+          }
+
+          static func fromDictionary(dict : NSDictionary) -> ServiceEndpoint {
+               var resultObject : ServiceEndpoint = ServiceEndpoint()
+
+               if let value : AnyObject = dict.objectForKey("host") {
+                    if value as NSString != "<null>" {
+                         resultObject.host = (value as String)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("path") {
+                    if value as NSString != "<null>" {
+                         resultObject.path = (value as String)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("port") {
+                    if value as NSString != "<null>" {
+                         resultObject.port = (value as Int)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("proxy") {
+                    if value as NSString != "<null>" {
+                         resultObject.proxy = (value as String)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("scheme") {
+                    if value as NSString != "<null>" {
+                         resultObject.scheme = (value as String)
+                    }
+               }
+
+               return resultObject
           }
 
           static func toJSON(object: ServiceEndpoint) -> String {

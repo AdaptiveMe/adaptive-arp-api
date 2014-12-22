@@ -144,7 +144,34 @@ public class ContactProfessionalInfo : APIBean {
      */
      struct Serializer {
           static func fromJSON(json : String) -> ContactProfessionalInfo {
-               return ContactProfessionalInfo()
+               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+               var jsonError: NSError?
+               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+               return fromDictionary(dict)
+          }
+
+          static func fromDictionary(dict : NSDictionary) -> ContactProfessionalInfo {
+               var resultObject : ContactProfessionalInfo = ContactProfessionalInfo()
+
+               if let value : AnyObject = dict.objectForKey("company") {
+                    if value as NSString != "<null>" {
+                         resultObject.company = (value as String)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("jobDescription") {
+                    if value as NSString != "<null>" {
+                         resultObject.jobDescription = (value as String)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("jobTitle") {
+                    if value as NSString != "<null>" {
+                         resultObject.jobTitle = (value as String)
+                    }
+               }
+
+               return resultObject
           }
 
           static func toJSON(object: ContactProfessionalInfo) -> String {

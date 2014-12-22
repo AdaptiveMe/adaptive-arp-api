@@ -118,7 +118,28 @@ public class ServiceHeader : APIBean {
      */
      struct Serializer {
           static func fromJSON(json : String) -> ServiceHeader {
-               return ServiceHeader()
+               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+               var jsonError: NSError?
+               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+               return fromDictionary(dict)
+          }
+
+          static func fromDictionary(dict : NSDictionary) -> ServiceHeader {
+               var resultObject : ServiceHeader = ServiceHeader()
+
+               if let value : AnyObject = dict.objectForKey("data") {
+                    if value as NSString != "<null>" {
+                         resultObject.data = (value as String)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("name") {
+                    if value as NSString != "<null>" {
+                         resultObject.name = (value as String)
+                    }
+               }
+
+               return resultObject
           }
 
           static func toJSON(object: ServiceHeader) -> String {

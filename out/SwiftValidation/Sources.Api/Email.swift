@@ -263,7 +263,74 @@ public class Email : APIBean {
      */
      struct Serializer {
           static func fromJSON(json : String) -> Email {
-               return Email()
+               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+               var jsonError: NSError?
+               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+               return fromDictionary(dict)
+          }
+
+          static func fromDictionary(dict : NSDictionary) -> Email {
+               var resultObject : Email = Email()
+
+               if let value : AnyObject = dict.objectForKey("bccRecipients") {
+                    if value as NSString != "<null>" {
+                         var bccRecipients : [EmailAddress] = [EmailAddress]()
+                         for (var i = 0;i < (value as NSArray).count ; i++) {
+                              bccRecipients.append(EmailAddress.Serializer.fromDictionary((value as NSArray)[i] as NSDictionary))
+                         }
+                         resultObject.bccRecipients = bccRecipients
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("ccRecipients") {
+                    if value as NSString != "<null>" {
+                         var ccRecipients : [EmailAddress] = [EmailAddress]()
+                         for (var i = 0;i < (value as NSArray).count ; i++) {
+                              ccRecipients.append(EmailAddress.Serializer.fromDictionary((value as NSArray)[i] as NSDictionary))
+                         }
+                         resultObject.ccRecipients = ccRecipients
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("emailAttachmentData") {
+                    if value as NSString != "<null>" {
+                         var emailAttachmentData : [EmailAttachmentData] = [EmailAttachmentData]()
+                         for (var i = 0;i < (value as NSArray).count ; i++) {
+                              emailAttachmentData.append(EmailAttachmentData.Serializer.fromDictionary((value as NSArray)[i] as NSDictionary))
+                         }
+                         resultObject.emailAttachmentData = emailAttachmentData
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("messageBody") {
+                    if value as NSString != "<null>" {
+                         resultObject.messageBody = (value as String)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("messageBodyMimeType") {
+                    if value as NSString != "<null>" {
+                         resultObject.messageBodyMimeType = (value as String)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("subject") {
+                    if value as NSString != "<null>" {
+                         resultObject.subject = (value as String)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("toRecipients") {
+                    if value as NSString != "<null>" {
+                         var toRecipients : [EmailAddress] = [EmailAddress]()
+                         for (var i = 0;i < (value as NSArray).count ; i++) {
+                              toRecipients.append(EmailAddress.Serializer.fromDictionary((value as NSArray)[i] as NSDictionary))
+                         }
+                         resultObject.toRecipients = toRecipients
+                    }
+               }
+
+               return resultObject
           }
 
           static func toJSON(object: Email) -> String {

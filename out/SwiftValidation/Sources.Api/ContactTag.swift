@@ -118,7 +118,28 @@ public class ContactTag : APIBean {
      */
      struct Serializer {
           static func fromJSON(json : String) -> ContactTag {
-               return ContactTag()
+               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+               var jsonError: NSError?
+               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+               return fromDictionary(dict)
+          }
+
+          static func fromDictionary(dict : NSDictionary) -> ContactTag {
+               var resultObject : ContactTag = ContactTag()
+
+               if let value : AnyObject = dict.objectForKey("name") {
+                    if value as NSString != "<null>" {
+                         resultObject.name = (value as String)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("value") {
+                    if value as NSString != "<null>" {
+                         resultObject.value = (value as String)
+                    }
+               }
+
+               return resultObject
           }
 
           static func toJSON(object: ContactTag) -> String {

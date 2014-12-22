@@ -92,7 +92,22 @@ public class ContactWebsite : APIBean {
      */
      struct Serializer {
           static func fromJSON(json : String) -> ContactWebsite {
-               return ContactWebsite()
+               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+               var jsonError: NSError?
+               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+               return fromDictionary(dict)
+          }
+
+          static func fromDictionary(dict : NSDictionary) -> ContactWebsite {
+               var resultObject : ContactWebsite = ContactWebsite()
+
+               if let value : AnyObject = dict.objectForKey("url") {
+                    if value as NSString != "<null>" {
+                         resultObject.url = (value as String)
+                    }
+               }
+
+               return resultObject
           }
 
           static func toJSON(object: ContactWebsite) -> String {

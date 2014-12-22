@@ -118,7 +118,36 @@ public class ServiceSession : NSObject {
      */
      struct Serializer {
           static func fromJSON(json : String) -> ServiceSession {
-               return ServiceSession()
+               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+               var jsonError: NSError?
+               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+               return fromDictionary(dict)
+          }
+
+          static func fromDictionary(dict : NSDictionary) -> ServiceSession {
+               var resultObject : ServiceSession = ServiceSession()
+
+               if let value : AnyObject = dict.objectForKey("attributes") {
+                    if value as NSString != "<null>" {
+                         var attributes : [String] = [String]()
+                         for (var i = 0;i < (value as NSArray).count ; i++) {
+                              attributes.append((value as NSArray)[i] as String)
+                         }
+                         resultObject.attributes = attributes
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("cookies") {
+                    if value as NSString != "<null>" {
+                         var cookies : [ServiceCookie] = [ServiceCookie]()
+                         for (var i = 0;i < (value as NSArray).count ; i++) {
+                              cookies.append(ServiceCookie.Serializer.fromDictionary((value as NSArray)[i] as NSDictionary))
+                         }
+                         resultObject.cookies = cookies
+                    }
+               }
+
+               return resultObject
           }
 
           static func toJSON(object: ServiceSession) -> String {

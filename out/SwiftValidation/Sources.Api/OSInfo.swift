@@ -141,7 +141,34 @@ public class OSInfo : APIBean {
      */
      struct Serializer {
           static func fromJSON(json : String) -> OSInfo {
-               return OSInfo()
+               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+               var jsonError: NSError?
+               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+               return fromDictionary(dict)
+          }
+
+          static func fromDictionary(dict : NSDictionary) -> OSInfo {
+               var resultObject : OSInfo = OSInfo()
+
+               if let value : AnyObject = dict.objectForKey("name") {
+                    if value as NSString != "<null>" {
+                         resultObject.name = (value as String)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("vendor") {
+                    if value as NSString != "<null>" {
+                         resultObject.vendor = (value as String)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("version") {
+                    if value as NSString != "<null>" {
+                         resultObject.version = (value as String)
+                    }
+               }
+
+               return resultObject
           }
 
           static func toJSON(object: OSInfo) -> String {

@@ -92,7 +92,22 @@ public class Button : APIBean {
      */
      struct Serializer {
           static func fromJSON(json : String) -> Button {
-               return Button()
+               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+               var jsonError: NSError?
+               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+               return fromDictionary(dict)
+          }
+
+          static func fromDictionary(dict : NSDictionary) -> Button {
+               var resultObject : Button = Button()
+
+               if let value : AnyObject = dict.objectForKey("type") {
+                    if value as NSString != "<null>" {
+                         resultObject.type = ICapabilitiesButton.toEnum(((value as NSDictionary)["value"]) as NSString)
+                    }
+               }
+
+               return resultObject
           }
 
           static func toJSON(object: Button) -> String {

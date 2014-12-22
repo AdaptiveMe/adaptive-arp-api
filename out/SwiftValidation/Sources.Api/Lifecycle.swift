@@ -103,7 +103,22 @@ Possible lifecycle States:
      */
      struct Serializer {
           static func fromJSON(json : String) -> Lifecycle {
-               return Lifecycle()
+               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+               var jsonError: NSError?
+               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+               return fromDictionary(dict)
+          }
+
+          static func fromDictionary(dict : NSDictionary) -> Lifecycle {
+               var resultObject : Lifecycle = Lifecycle()
+
+               if let value : AnyObject = dict.objectForKey("state") {
+                    if value as NSString != "<null>" {
+                         resultObject.state = LifecycleState.toEnum(((value as NSDictionary)["value"]) as NSString)
+                    }
+               }
+
+               return resultObject
           }
 
           static func toJSON(object: Lifecycle) -> String {

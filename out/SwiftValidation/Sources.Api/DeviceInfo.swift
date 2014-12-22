@@ -169,7 +169,40 @@ be unique for a specific instance of an application on a specific device.
      */
      struct Serializer {
           static func fromJSON(json : String) -> DeviceInfo {
-               return DeviceInfo()
+               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+               var jsonError: NSError?
+               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+               return fromDictionary(dict)
+          }
+
+          static func fromDictionary(dict : NSDictionary) -> DeviceInfo {
+               var resultObject : DeviceInfo = DeviceInfo()
+
+               if let value : AnyObject = dict.objectForKey("model") {
+                    if value as NSString != "<null>" {
+                         resultObject.model = (value as String)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("name") {
+                    if value as NSString != "<null>" {
+                         resultObject.name = (value as String)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("uuid") {
+                    if value as NSString != "<null>" {
+                         resultObject.uuid = (value as String)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("vendor") {
+                    if value as NSString != "<null>" {
+                         resultObject.vendor = (value as String)
+                    }
+               }
+
+               return resultObject
           }
 
           static func toJSON(object: DeviceInfo) -> String {

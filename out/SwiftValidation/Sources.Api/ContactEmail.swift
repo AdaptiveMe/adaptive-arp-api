@@ -144,7 +144,34 @@ public class ContactEmail : APIBean {
      */
      struct Serializer {
           static func fromJSON(json : String) -> ContactEmail {
-               return ContactEmail()
+               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+               var jsonError: NSError?
+               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+               return fromDictionary(dict)
+          }
+
+          static func fromDictionary(dict : NSDictionary) -> ContactEmail {
+               var resultObject : ContactEmail = ContactEmail()
+
+               if let value : AnyObject = dict.objectForKey("email") {
+                    if value as NSString != "<null>" {
+                         resultObject.email = (value as String)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("primary") {
+                    if value as NSString != "<null>" {
+                         resultObject.primary = (value as Bool)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("type") {
+                    if value as NSString != "<null>" {
+                         resultObject.type = ContactEmailType.toEnum(((value as NSDictionary)["value"]) as NSString)
+                    }
+               }
+
+               return resultObject
           }
 
           static func toJSON(object: ContactEmail) -> String {

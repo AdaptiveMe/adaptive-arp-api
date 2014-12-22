@@ -118,7 +118,28 @@ public class ContactSocial : APIBean {
      */
      struct Serializer {
           static func fromJSON(json : String) -> ContactSocial {
-               return ContactSocial()
+               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+               var jsonError: NSError?
+               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+               return fromDictionary(dict)
+          }
+
+          static func fromDictionary(dict : NSDictionary) -> ContactSocial {
+               var resultObject : ContactSocial = ContactSocial()
+
+               if let value : AnyObject = dict.objectForKey("profileUrl") {
+                    if value as NSString != "<null>" {
+                         resultObject.profileUrl = (value as String)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("socialNetwork") {
+                    if value as NSString != "<null>" {
+                         resultObject.socialNetwork = ContactSocialNetwork.toEnum(((value as NSDictionary)["value"]) as NSString)
+                    }
+               }
+
+               return resultObject
           }
 
           static func toJSON(object: ContactSocial) -> String {

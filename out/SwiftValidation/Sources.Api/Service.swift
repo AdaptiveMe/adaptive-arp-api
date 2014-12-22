@@ -170,7 +170,40 @@ public class Service : APIBean {
      */
      struct Serializer {
           static func fromJSON(json : String) -> Service {
-               return Service()
+               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+               var jsonError: NSError?
+               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+               return fromDictionary(dict)
+          }
+
+          static func fromDictionary(dict : NSDictionary) -> Service {
+               var resultObject : Service = Service()
+
+               if let value : AnyObject = dict.objectForKey("method") {
+                    if value as NSString != "<null>" {
+                         resultObject.method = IServiceMethod.toEnum(((value as NSDictionary)["value"]) as NSString)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("name") {
+                    if value as NSString != "<null>" {
+                         resultObject.name = (value as String)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("serviceEndpoint") {
+                    if value as NSString != "<null>" {
+                         resultObject.serviceEndpoint = ServiceEndpoint.Serializer.fromDictionary(value as NSDictionary)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("type") {
+                    if value as NSString != "<null>" {
+                         resultObject.type = IServiceType.toEnum(((value as NSDictionary)["value"]) as NSString)
+                    }
+               }
+
+               return resultObject
           }
 
           static func toJSON(object: Service) -> String {

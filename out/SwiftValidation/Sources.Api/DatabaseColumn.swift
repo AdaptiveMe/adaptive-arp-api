@@ -92,7 +92,22 @@ public class DatabaseColumn : APIBean {
      */
      struct Serializer {
           static func fromJSON(json : String) -> DatabaseColumn {
-               return DatabaseColumn()
+               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+               var jsonError: NSError?
+               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+               return fromDictionary(dict)
+          }
+
+          static func fromDictionary(dict : NSDictionary) -> DatabaseColumn {
+               var resultObject : DatabaseColumn = DatabaseColumn()
+
+               if let value : AnyObject = dict.objectForKey("name") {
+                    if value as NSString != "<null>" {
+                         resultObject.name = (value as String)
+                    }
+               }
+
+               return resultObject
           }
 
           static func toJSON(object: DatabaseColumn) -> String {

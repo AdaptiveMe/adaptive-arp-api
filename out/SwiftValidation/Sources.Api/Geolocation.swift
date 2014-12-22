@@ -233,7 +233,52 @@ public class Geolocation : APIBean {
      */
      struct Serializer {
           static func fromJSON(json : String) -> Geolocation {
-               return Geolocation()
+               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+               var jsonError: NSError?
+               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+               return fromDictionary(dict)
+          }
+
+          static func fromDictionary(dict : NSDictionary) -> Geolocation {
+               var resultObject : Geolocation = Geolocation()
+
+               if let value : AnyObject = dict.objectForKey("altitude") {
+                    if value as NSString != "<null>" {
+                         resultObject.altitude = (value as Double)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("latitude") {
+                    if value as NSString != "<null>" {
+                         resultObject.latitude = (value as Double)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("longitude") {
+                    if value as NSString != "<null>" {
+                         resultObject.longitude = (value as Double)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("timestamp") {
+                    if value as NSString != "<null>" {
+                         resultObject.timestamp = (value as Int)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("xDoP") {
+                    if value as NSString != "<null>" {
+                         resultObject.xDoP = (value as Float)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("yDoP") {
+                    if value as NSString != "<null>" {
+                         resultObject.yDoP = (value as Float)
+                    }
+               }
+
+               return resultObject
           }
 
           static func toJSON(object: Geolocation) -> String {

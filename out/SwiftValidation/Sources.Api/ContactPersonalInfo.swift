@@ -170,7 +170,40 @@ public class ContactPersonalInfo : APIBean {
      */
      struct Serializer {
           static func fromJSON(json : String) -> ContactPersonalInfo {
-               return ContactPersonalInfo()
+               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+               var jsonError: NSError?
+               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+               return fromDictionary(dict)
+          }
+
+          static func fromDictionary(dict : NSDictionary) -> ContactPersonalInfo {
+               var resultObject : ContactPersonalInfo = ContactPersonalInfo()
+
+               if let value : AnyObject = dict.objectForKey("lastName") {
+                    if value as NSString != "<null>" {
+                         resultObject.lastName = (value as String)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("middleName") {
+                    if value as NSString != "<null>" {
+                         resultObject.middleName = (value as String)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("name") {
+                    if value as NSString != "<null>" {
+                         resultObject.name = (value as String)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("title") {
+                    if value as NSString != "<null>" {
+                         resultObject.title = ContactPersonalInfoTitle.toEnum(((value as NSDictionary)["value"]) as NSString)
+                    }
+               }
+
+               return resultObject
           }
 
           static func toJSON(object: ContactPersonalInfo) -> String {

@@ -57,7 +57,16 @@ public class APIBean : NSObject {
      */
      struct Serializer {
           static func fromJSON(json : String) -> APIBean {
-               return APIBean()
+               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+               var jsonError: NSError?
+               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+               return fromDictionary(dict)
+          }
+
+          static func fromDictionary(dict : NSDictionary) -> APIBean {
+               var resultObject : APIBean = APIBean()
+
+               return resultObject
           }
 
           static func toJSON(object: APIBean) -> String {

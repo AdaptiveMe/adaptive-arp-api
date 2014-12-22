@@ -169,23 +169,42 @@ public class Acceleration : APIBean {
         JSON Serialization and deserialization support.
      */
      struct Serializer {
-        static func fromJSON(json : String) -> Acceleration {
-            var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
-            var jsonError: NSError?
-            let decodedJson = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
-            return fromDictionary(decodedJson)
-        }
-        
-        static func fromDictionary(dictionary : NSDictionary) -> Acceleration {
-            // 1 check if key exists
-            // 2 check if value == "<null>", if null, eliminate key.
-            // 3 read values
-            // 3.1 primitive & string direct read.
-            // 3.2 arrays, cast to NSArray and recreate objects in array
-            // 3.3 Beans, delefare to Serializer.fromDictionary
-            // 3.4 Enums, dictionary["value"] Enum.toEnum(string)
-            return Acceleration()
-        }
+          static func fromJSON(json : String) -> Acceleration {
+               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+               var jsonError: NSError?
+               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+               return fromDictionary(dict)
+          }
+
+          static func fromDictionary(dict : NSDictionary) -> Acceleration {
+               var resultObject : Acceleration = Acceleration()
+
+               if let value : AnyObject = dict.objectForKey("timestamp") {
+                    if value as NSString != "<null>" {
+                         resultObject.timestamp = (value as Int)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("x") {
+                    if value as NSString != "<null>" {
+                         resultObject.x = (value as Double)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("y") {
+                    if value as NSString != "<null>" {
+                         resultObject.y = (value as Double)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("z") {
+                    if value as NSString != "<null>" {
+                         resultObject.z = (value as Double)
+                    }
+               }
+
+               return resultObject
+          }
 
           static func toJSON(object: Acceleration) -> String {
                var jsonString : NSMutableString = NSMutableString()

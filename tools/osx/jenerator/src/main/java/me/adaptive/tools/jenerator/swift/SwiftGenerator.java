@@ -1556,20 +1556,20 @@ public class SwiftGenerator extends GeneratorBase {
         if (f.getType().isArray()) {
             println(15, "if (object." + f.getName() + " != nil) {");
             println(20, "// Start array of objects.");
-            println(20, "jsonString.appendString(\"\\\""+f.getName()+"\\\": [\");");
+            println(20, "jsonString.appendString(\"\\\"" + f.getName() + "\\\": [\");");
             println();
-            println(20, "for var i = 0; i < object."+f.getName()+"!.count; i++ {");
+            println(20, "for var i = 0; i < object." + f.getName() + "!.count; i++ {");
 
             if (f.getType().getComponentType().isPrimitive()) {
-                println(25,"jsonString.appendString(\"\\(object."+f.getName()+"![i])\");");
-            } else if(f.getType().getComponentType().isEnum()) {
-                println(25,"jsonString.appendString(\"{ \"value\": \\\"\\(object."+f.getName()+"![i].toString())\\\" }\");");
-            } else if(f.getType().getComponentType().equals(String.class)) {
-                println(25,"jsonString.appendString(\"\\\"\\(object."+f.getName()+"![i])\\\"\");");
+                println(25, "jsonString.appendString(\"\\(object." + f.getName() + "![i])\");");
+            } else if (f.getType().getComponentType().isEnum()) {
+                println(25, "jsonString.appendString(\"{ \"value\": \\\"\\(object." + f.getName() + "![i].toString())\\\" }\");");
+            } else if (f.getType().getComponentType().equals(String.class)) {
+                println(25, "jsonString.appendString(\"\\\"\\(object." + f.getName() + "![i])\\\"\");");
             } else {
-                println(25, "jsonString.appendString(" + f.getType().getComponentType().getSimpleName() + ".Serializer.toJSON(object."+f.getName()+"![i]))");
+                println(25, "jsonString.appendString(" + f.getType().getComponentType().getSimpleName() + ".Serializer.toJSON(object." + f.getName() + "![i]))");
             }
-            println(25, "if (i < object."+f.getName()+"!.count-1) {");
+            println(25, "if (i < object." + f.getName() + "!.count-1) {");
             println(30, "jsonString.appendString(\", \");");
             println(25, "}");
             println(20, "}");
@@ -1611,7 +1611,7 @@ public class SwiftGenerator extends GeneratorBase {
             }
             print(")");
             print(" : jsonString.appendString(\"");
-            print("\\\""+f.getName() + "\\\": null");
+            print("\\\"" + f.getName() + "\\\": null");
             if (!last) {
                 println(", \")");
             } else {
@@ -1623,18 +1623,6 @@ public class SwiftGenerator extends GeneratorBase {
     @Override
     protected void endBean(String simpleName, Class clazz) {
         if (!clazz.isEnum()) {
-            startComment(5);
-            println(8, "JSON Serialization and deserialization support.");
-            endComment(5);
-            println(5, "struct Serializer {");
-            println(10, "static func fromJSON(json : String) -> " + simpleName + " {");
-            println(15, "return " + simpleName + "()");
-            println(10, "}");
-            println();
-            println(10, "static func toJSON(object: " + simpleName + ") -> String {");
-            println(15, "var jsonString : NSMutableString = NSMutableString()");
-            println(15, "// Start Object to JSON");
-            println(15, "jsonString.appendString(\"{ \")");
 
             List<Field> fieldList = new ArrayList<>();
             for (Field f : clazz.getDeclaredFields()) {
@@ -1653,6 +1641,65 @@ public class SwiftGenerator extends GeneratorBase {
                     return o1.getName().compareTo(o2.getName());
                 }
             });
+
+            startComment(5);
+            println(8, "JSON Serialization and deserialization support.");
+            endComment(5);
+            println(5, "struct Serializer {");
+            println(10, "static func fromJSON(json : String) -> " + simpleName + " {");
+            println(15, "var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!");
+            println(15, "var jsonError: NSError?");
+            println(15, "let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary");
+            println(15, "return fromDictionary(dict)");
+            println(10, "}");
+            println();
+            println(10, "static func fromDictionary(dict : NSDictionary) -> " + simpleName + " {");
+            println(15, "var resultObject : " + simpleName + " = " + simpleName + "()");
+            for (Field field : fieldList) {
+                println();
+                println(15, "if let value : AnyObject = dict.objectForKey(\"" + field.getName() + "\") {");
+                println(20, "if value as NSString != \"<null>\" {");
+                if (field.getType().isPrimitive() || field.getType().equals(String.class)) {
+                    println(25, "resultObject." + field.getName() + " = (value as " + convertJavaToNativeType(field.getType()) + ")");
+                } else if (field.getType().isEnum()) {
+                    println(25, "resultObject." + field.getName() + " = " + convertJavaToNativeType(field.getType()) + ".toEnum(((value as NSDictionary)[\"value\"]) as NSString)");
+                } else if (field.getType().isArray()) {
+                    if (!field.getType().getComponentType().equals(Byte.TYPE)) {
+                        println(25, "var " + field.getName() + " : " + convertJavaToNativeType(field.getType()) + " = " + convertJavaToNativeType(field.getType()) + "()");
+                        println(25, "for (var i = 0;i < (value as NSArray).count ; i++) {");
+                    }
+                    if (field.getType().getComponentType().isPrimitive() || field.getType().getComponentType().equals(String.class)) {
+                        if (field.getType().getComponentType().equals(Byte.TYPE)) {
+                            println(25, "var " + field.getName() + " : " + convertJavaToNativeType(field.getType()) + " = " + convertJavaToNativeType(field.getType()) + "(count: (value as NSArray).count, repeatedValue: 0)");
+                            println(25, "var "+field.getName()+"Data : NSData = (value as NSData)");
+                            println(25, field.getName()+"Data.getBytes(&"+field.getName()+", length: (value as NSArray).count * sizeof(UInt8))");
+                        } else {
+                            println(30, field.getName() + ".append((value as NSArray)[i] as " + convertJavaToNativeType(field.getType().getComponentType()) + ")");
+                        }
+                    } else if (field.getType().getComponentType().isEnum()) {
+                        println(30, field.getName()+".append("+convertJavaToNativeType(field.getType().getComponentType())+".toEnum(((value as NSDictionary)[\"value\"]) as NSString)");
+                    } else {
+                        println(30, field.getName()+".append("+convertJavaToNativeType(field.getType().getComponentType())+".Serializer.fromDictionary((value as NSArray)[i] as NSDictionary))");
+                    }
+                    if (!field.getType().getComponentType().equals(Byte.TYPE)) {
+                        println(25, "}");
+                    }
+                    println(25, "resultObject." + field.getName() + " = " + field.getName());
+                } else {
+                    println(25, "resultObject." + field.getName() + " = " + convertJavaToNativeType(field.getType()) + ".Serializer.fromDictionary(value as NSDictionary)");
+                }
+                println(20, "}");
+                println(15, "}");
+
+            }
+            println();
+            println(15, "return resultObject");
+            println(10, "}");
+            println();
+            println(10, "static func toJSON(object: " + simpleName + ") -> String {");
+            println(15, "var jsonString : NSMutableString = NSMutableString()");
+            println(15, "// Start Object to JSON");
+            println(15, "jsonString.appendString(\"{ \")");
 
             if (fieldList.size() > 0) {
                 println();

@@ -180,7 +180,48 @@ listener.
      */
      struct Serializer {
           static func fromJSON(json : String) -> APIRequest {
-               return APIRequest()
+               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+               var jsonError: NSError?
+               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+               return fromDictionary(dict)
+          }
+
+          static func fromDictionary(dict : NSDictionary) -> APIRequest {
+               var resultObject : APIRequest = APIRequest()
+
+               if let value : AnyObject = dict.objectForKey("asyncId") {
+                    if value as NSString != "<null>" {
+                         resultObject.asyncId = (value as Int)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("methodName") {
+                    if value as NSString != "<null>" {
+                         resultObject.methodName = (value as String)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("parameterTypes") {
+                    if value as NSString != "<null>" {
+                         var parameterTypes : [String] = [String]()
+                         for (var i = 0;i < (value as NSArray).count ; i++) {
+                              parameterTypes.append((value as NSArray)[i] as String)
+                         }
+                         resultObject.parameterTypes = parameterTypes
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("parameters") {
+                    if value as NSString != "<null>" {
+                         var parameters : [String] = [String]()
+                         for (var i = 0;i < (value as NSArray).count ; i++) {
+                              parameters.append((value as NSArray)[i] as String)
+                         }
+                         resultObject.parameters = parameters
+                    }
+               }
+
+               return resultObject
           }
 
           static func toJSON(object: APIRequest) -> String {

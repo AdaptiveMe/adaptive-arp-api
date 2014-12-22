@@ -207,7 +207,54 @@ public class DatabaseTable : APIBean {
      */
      struct Serializer {
           static func fromJSON(json : String) -> DatabaseTable {
-               return DatabaseTable()
+               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+               var jsonError: NSError?
+               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+               return fromDictionary(dict)
+          }
+
+          static func fromDictionary(dict : NSDictionary) -> DatabaseTable {
+               var resultObject : DatabaseTable = DatabaseTable()
+
+               if let value : AnyObject = dict.objectForKey("columnCount") {
+                    if value as NSString != "<null>" {
+                         resultObject.columnCount = (value as Int)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("databaseColumns") {
+                    if value as NSString != "<null>" {
+                         var databaseColumns : [DatabaseColumn] = [DatabaseColumn]()
+                         for (var i = 0;i < (value as NSArray).count ; i++) {
+                              databaseColumns.append(DatabaseColumn.Serializer.fromDictionary((value as NSArray)[i] as NSDictionary))
+                         }
+                         resultObject.databaseColumns = databaseColumns
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("databaseRows") {
+                    if value as NSString != "<null>" {
+                         var databaseRows : [DatabaseRow] = [DatabaseRow]()
+                         for (var i = 0;i < (value as NSArray).count ; i++) {
+                              databaseRows.append(DatabaseRow.Serializer.fromDictionary((value as NSArray)[i] as NSDictionary))
+                         }
+                         resultObject.databaseRows = databaseRows
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("name") {
+                    if value as NSString != "<null>" {
+                         resultObject.name = (value as String)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("rowCount") {
+                    if value as NSString != "<null>" {
+                         resultObject.rowCount = (value as Int)
+                    }
+               }
+
+               return resultObject
           }
 
           static func toJSON(object: DatabaseTable) -> String {

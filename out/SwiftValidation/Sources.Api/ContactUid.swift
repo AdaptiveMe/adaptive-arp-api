@@ -92,7 +92,22 @@ public class ContactUid : APIBean {
      */
      struct Serializer {
           static func fromJSON(json : String) -> ContactUid {
-               return ContactUid()
+               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+               var jsonError: NSError?
+               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+               return fromDictionary(dict)
+          }
+
+          static func fromDictionary(dict : NSDictionary) -> ContactUid {
+               var resultObject : ContactUid = ContactUid()
+
+               if let value : AnyObject = dict.objectForKey("contactId") {
+                    if value as NSString != "<null>" {
+                         resultObject.contactId = (value as String)
+                    }
+               }
+
+               return resultObject
           }
 
           static func toJSON(object: ContactUid) -> String {

@@ -118,7 +118,28 @@ public class SecureKeyPair : APIBean {
      */
      struct Serializer {
           static func fromJSON(json : String) -> SecureKeyPair {
-               return SecureKeyPair()
+               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+               var jsonError: NSError?
+               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+               return fromDictionary(dict)
+          }
+
+          static func fromDictionary(dict : NSDictionary) -> SecureKeyPair {
+               var resultObject : SecureKeyPair = SecureKeyPair()
+
+               if let value : AnyObject = dict.objectForKey("secureData") {
+                    if value as NSString != "<null>" {
+                         resultObject.secureData = (value as String)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("secureKey") {
+                    if value as NSString != "<null>" {
+                         resultObject.secureKey = (value as String)
+                    }
+               }
+
+               return resultObject
           }
 
           static func toJSON(object: SecureKeyPair) -> String {

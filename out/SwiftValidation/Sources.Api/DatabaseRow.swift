@@ -92,7 +92,26 @@ public class DatabaseRow : APIBean {
      */
      struct Serializer {
           static func fromJSON(json : String) -> DatabaseRow {
-               return DatabaseRow()
+               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+               var jsonError: NSError?
+               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+               return fromDictionary(dict)
+          }
+
+          static func fromDictionary(dict : NSDictionary) -> DatabaseRow {
+               var resultObject : DatabaseRow = DatabaseRow()
+
+               if let value : AnyObject = dict.objectForKey("values") {
+                    if value as NSString != "<null>" {
+                         var values : [String] = [String]()
+                         for (var i = 0;i < (value as NSArray).count ; i++) {
+                              values.append((value as NSArray)[i] as String)
+                         }
+                         resultObject.values = values
+                    }
+               }
+
+               return resultObject
           }
 
           static func toJSON(object: DatabaseRow) -> String {

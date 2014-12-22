@@ -326,7 +326,83 @@ public class ServiceRequest : APIBean {
      */
      struct Serializer {
           static func fromJSON(json : String) -> ServiceRequest {
-               return ServiceRequest()
+               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+               var jsonError: NSError?
+               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+               return fromDictionary(dict)
+          }
+
+          static func fromDictionary(dict : NSDictionary) -> ServiceRequest {
+               var resultObject : ServiceRequest = ServiceRequest()
+
+               if let value : AnyObject = dict.objectForKey("content") {
+                    if value as NSString != "<null>" {
+                         resultObject.content = (value as String)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("contentBinary") {
+                    if value as NSString != "<null>" {
+                         var contentBinary : [Byte] = [Byte](count: (value as NSArray).count, repeatedValue: 0)
+                         var contentBinaryData : NSData = (value as NSData)
+                         contentBinaryData.getBytes(&contentBinary, length: (value as NSArray).count * sizeof(UInt8))
+                         resultObject.contentBinary = contentBinary
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("contentBinaryLength") {
+                    if value as NSString != "<null>" {
+                         resultObject.contentBinaryLength = (value as Int)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("contentEncoding") {
+                    if value as NSString != "<null>" {
+                         resultObject.contentEncoding = (value as String)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("contentLength") {
+                    if value as NSString != "<null>" {
+                         resultObject.contentLength = (value as Int)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("contentType") {
+                    if value as NSString != "<null>" {
+                         resultObject.contentType = (value as String)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("method") {
+                    if value as NSString != "<null>" {
+                         resultObject.method = (value as String)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("protocolVersion") {
+                    if value as NSString != "<null>" {
+                         resultObject.protocolVersion = IServiceProtocolVersion.toEnum(((value as NSDictionary)["value"]) as NSString)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("serviceHeaders") {
+                    if value as NSString != "<null>" {
+                         var serviceHeaders : [ServiceHeader] = [ServiceHeader]()
+                         for (var i = 0;i < (value as NSArray).count ; i++) {
+                              serviceHeaders.append(ServiceHeader.Serializer.fromDictionary((value as NSArray)[i] as NSDictionary))
+                         }
+                         resultObject.serviceHeaders = serviceHeaders
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("serviceSession") {
+                    if value as NSString != "<null>" {
+                         resultObject.serviceSession = ServiceSession.Serializer.fromDictionary(value as NSDictionary)
+                    }
+               }
+
+               return resultObject
           }
 
           static func toJSON(object: ServiceRequest) -> String {

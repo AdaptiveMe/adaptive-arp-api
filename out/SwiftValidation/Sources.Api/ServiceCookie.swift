@@ -287,7 +287,64 @@ public class ServiceCookie : APIBean {
      */
      struct Serializer {
           static func fromJSON(json : String) -> ServiceCookie {
-               return ServiceCookie()
+               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+               var jsonError: NSError?
+               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+               return fromDictionary(dict)
+          }
+
+          static func fromDictionary(dict : NSDictionary) -> ServiceCookie {
+               var resultObject : ServiceCookie = ServiceCookie()
+
+               if let value : AnyObject = dict.objectForKey("creation") {
+                    if value as NSString != "<null>" {
+                         resultObject.creation = (value as Int)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("domain") {
+                    if value as NSString != "<null>" {
+                         resultObject.domain = (value as String)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("expiry") {
+                    if value as NSString != "<null>" {
+                         resultObject.expiry = (value as Int)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("name") {
+                    if value as NSString != "<null>" {
+                         resultObject.name = (value as String)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("path") {
+                    if value as NSString != "<null>" {
+                         resultObject.path = (value as String)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("scheme") {
+                    if value as NSString != "<null>" {
+                         resultObject.scheme = (value as String)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("secure") {
+                    if value as NSString != "<null>" {
+                         resultObject.secure = (value as Bool)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("value") {
+                    if value as NSString != "<null>" {
+                         resultObject.value = (value as String)
+                    }
+               }
+
+               return resultObject
           }
 
           static func toJSON(object: ServiceCookie) -> String {

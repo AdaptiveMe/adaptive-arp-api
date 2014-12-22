@@ -92,7 +92,22 @@ public class EmailAddress : APIBean {
      */
      struct Serializer {
           static func fromJSON(json : String) -> EmailAddress {
-               return EmailAddress()
+               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+               var jsonError: NSError?
+               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+               return fromDictionary(dict)
+          }
+
+          static func fromDictionary(dict : NSDictionary) -> EmailAddress {
+               var resultObject : EmailAddress = EmailAddress()
+
+               if let value : AnyObject = dict.objectForKey("address") {
+                    if value as NSString != "<null>" {
+                         resultObject.address = (value as String)
+                    }
+               }
+
+               return resultObject
           }
 
           static func toJSON(object: EmailAddress) -> String {

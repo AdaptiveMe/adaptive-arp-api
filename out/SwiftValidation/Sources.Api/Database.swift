@@ -129,7 +129,28 @@ public class Database : APIBean {
      */
      struct Serializer {
           static func fromJSON(json : String) -> Database {
-               return Database()
+               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+               var jsonError: NSError?
+               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+               return fromDictionary(dict)
+          }
+
+          static func fromDictionary(dict : NSDictionary) -> Database {
+               var resultObject : Database = Database()
+
+               if let value : AnyObject = dict.objectForKey("compress") {
+                    if value as NSString != "<null>" {
+                         resultObject.compress = (value as Bool)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("name") {
+                    if value as NSString != "<null>" {
+                         resultObject.name = (value as String)
+                    }
+               }
+
+               return resultObject
           }
 
           static func toJSON(object: Database) -> String {
