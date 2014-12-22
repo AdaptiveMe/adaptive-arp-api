@@ -72,7 +72,7 @@ public class Jenerator {
                 new CSharpGenerator(new File("/Users/clozano/Github/Runtime/adaptive-arp-api/out/CSharpValidation/CSharpValidation/Sources"), unmodifiableClassList, unmodifiableSourceList),
                 new JavaGenerator(new File("/Users/clozano/Github/Runtime/adaptive-arp-api/out/JavaValidation/src/main/java"), unmodifiableClassList, unmodifiableSourceList),
                 new ObjCGenerator(new File("/Users/clozano/Github/Runtime/adaptive-arp-api/out/ObjCValidation/Sources"), unmodifiableClassList, unmodifiableSourceList),
-                new SwiftGenerator(new File("/Users/clozano/Github/Runtime/adaptive-arp-api/out/SwiftValidation/Sources.Api"), unmodifiableClassList, unmodifiableSourceList),
+                new SwiftGenerator(new File("/Users/clozano/Github/Runtime/adaptive-arp-darwin/adaptive-arp-rt/Source/Sources.Api"), unmodifiableClassList, unmodifiableSourceList),
                 new TypeScriptGenerator(new File("/Users/clozano/Github/Runtime/adaptive-arp-api/out/TypeScriptValidation"), unmodifiableClassList, unmodifiableSourceList)
         };
         GeneratorCallback callback = new GeneratorCallbackImpl();
