@@ -35,7 +35,7 @@ Release:
 package me.adaptive.arp.api;
 
 /**
-   Structure representing the value of a http cookie.
+   Structure representing the cookieValue of a http cookie.
 
    @author Aryslan
    @since ARP1.0
@@ -43,6 +43,14 @@ package me.adaptive.arp.api;
 */
 public class ServiceCookie extends APIBean {
 
+     /**
+        Name ot the cookie
+     */
+     private String cookieName;
+     /**
+        Value of the ServiceCookie
+     */
+     private String cookieValue;
      /**
         ServiceCookie creation timestamp in milliseconds.
      */
@@ -56,10 +64,6 @@ public class ServiceCookie extends APIBean {
      */
      private long expiry;
      /**
-        Name ot the cookie
-     */
-     private String name;
-     /**
         URI path for which the cookie is valid.
      */
      private String path;
@@ -71,10 +75,6 @@ public class ServiceCookie extends APIBean {
         ServiceCookie is secure (https only)
      */
      private boolean secure;
-     /**
-        Value of the ServiceCookie
-     */
-     private String value;
 
      /**
         Default constructor
@@ -87,21 +87,21 @@ public class ServiceCookie extends APIBean {
      /**
         Constructor used by the implementation
 
-        @param name  Name of the cookie
-        @param value Value of the cookie
+        @param cookieName  Name of the cookie
+        @param cookieValue Value of the cookie
         @since ARP1.0
      */
-     public ServiceCookie(String name, String value) {
+     public ServiceCookie(String cookieName, String cookieValue) {
           super();
-          this.name = name;
-          this.value = value;
+          this.cookieName = cookieName;
+          this.cookieValue = cookieValue;
      }
 
      /**
         Contructor with fields
 
-        @param name     Name of the cookie
-        @param value    Value of the cookie
+        @param cookieName     Name of the cookie
+        @param cookieValue    Value of the cookie
         @param domain   Domain of the cookie
         @param path     Path of the cookie
         @param scheme   Scheme of the cookie
@@ -110,16 +110,56 @@ public class ServiceCookie extends APIBean {
         @param creation Creation date of the cookie
         @since ARP1.0
      */
-     public ServiceCookie(String name, String value, String domain, String path, String scheme, boolean secure, long expiry, long creation) {
+     public ServiceCookie(String cookieName, String cookieValue, String domain, String path, String scheme, boolean secure, long expiry, long creation) {
           super();
-          this.name = name;
-          this.value = value;
+          this.cookieName = cookieName;
+          this.cookieValue = cookieValue;
           this.domain = domain;
           this.path = path;
           this.scheme = scheme;
           this.secure = secure;
           this.expiry = expiry;
           this.creation = creation;
+     }
+
+     /**
+        Returns the cookie cookieName
+
+        @return cookieName Name of the cookie
+        @since ARP1.0
+     */
+     public String getCookieName() {
+          return this.cookieName;
+     }
+
+     /**
+        Set the cookie cookieName
+
+        @param cookieName Name of the cookie
+        @since ARP1.0
+     */
+     public void setCookieName(String cookieName) {
+          this.cookieName = cookieName;
+     }
+
+     /**
+        Returns the cookie cookieValue
+
+        @return Value of the cookie
+        @since ARP1.0
+     */
+     public String getCookieValue() {
+          return this.cookieValue;
+     }
+
+     /**
+        Set the cookie cookieValue
+
+        @param cookieValue Value of the cookie
+        @since ARP1.0
+     */
+     public void setCookieValue(String cookieValue) {
+          this.cookieValue = cookieValue;
      }
 
      /**
@@ -183,26 +223,6 @@ public class ServiceCookie extends APIBean {
      }
 
      /**
-        Returns the cookie name
-
-        @return name Name of the cookie
-        @since ARP1.0
-     */
-     public String getName() {
-          return this.name;
-     }
-
-     /**
-        Set the cookie name
-
-        @param name Name of the cookie
-        @since ARP1.0
-     */
-     public void setName(String name) {
-          this.name = name;
-     }
-
-     /**
         Returns the path
 
         @return path
@@ -260,26 +280,6 @@ public class ServiceCookie extends APIBean {
      */
      public void setSecure(boolean secure) {
           this.secure = secure;
-     }
-
-     /**
-        Returns the cookie value
-
-        @return Value of the cookie
-        @since ARP1.0
-     */
-     public String getValue() {
-          return this.value;
-     }
-
-     /**
-        Set the cookie value
-
-        @param value Value of the cookie
-        @since ARP1.0
-     */
-     public void setValue(String value) {
-          this.value = value;
      }
 
 

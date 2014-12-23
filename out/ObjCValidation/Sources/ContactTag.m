@@ -56,15 +56,15 @@ Release:
      /**
         Constructor used by the implementation
 
-        @param value Value of the tag
-        @param name  Name of the tag
+        @param tagValue Value of the tag
+        @param tagName  Name of the tag
         @since ARP1.0
      */
-     - (id) initWithNameValue:(NSString*)name value:(NSString*)value {
+     - (id) initWithTagNameTagValue:(NSString*)tagName tagValue:(NSString*)tagValue {
           self = [self init];
           if (self) {
-               [self setName:name];
-               [self setValue:value];
+               [self setTagName:tagName];
+               [self setTagValue:tagValue];
           }
           return self;
      }

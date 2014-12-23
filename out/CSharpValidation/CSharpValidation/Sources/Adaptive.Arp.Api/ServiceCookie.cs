@@ -37,7 +37,7 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-        Structure representing the value of a http cookie.
+        Structure representing the cookieValue of a http cookie.
 
         @author Aryslan
         @since ARP1.0
@@ -46,6 +46,14 @@ namespace Adaptive.Arp.Api
      public class ServiceCookie : APIBean
      {
 
+          /**
+             Name ot the cookie
+          */
+          public string CookieName { get; set; }
+          /**
+             Value of the ServiceCookie
+          */
+          public string CookieValue { get; set; }
           /**
              ServiceCookie creation timestamp in milliseconds.
           */
@@ -59,10 +67,6 @@ namespace Adaptive.Arp.Api
           */
           public long Expiry { get; set; }
           /**
-             Name ot the cookie
-          */
-          public string Name { get; set; }
-          /**
              URI path for which the cookie is valid.
           */
           public string Path { get; set; }
@@ -74,10 +78,6 @@ namespace Adaptive.Arp.Api
              ServiceCookie is secure (https only)
           */
           public bool Secure { get; set; }
-          /**
-             Value of the ServiceCookie
-          */
-          public string Value { get; set; }
 
           /**
              Default constructor
@@ -90,20 +90,20 @@ namespace Adaptive.Arp.Api
           /**
              Constructor used by the implementation
 
-             @param Name  Name of the cookie
-             @param Value Value of the cookie
+             @param CookieName  Name of the cookie
+             @param CookieValue Value of the cookie
              @since ARP1.0
           */
-          public ServiceCookie(string Name, string Value) : base () {
-               this.Name = Name;
-               this.Value = Value;
+          public ServiceCookie(string CookieName, string CookieValue) : base () {
+               this.CookieName = CookieName;
+               this.CookieValue = CookieValue;
           }
 
           /**
              Contructor with fields
 
-             @param Name     Name of the cookie
-             @param Value    Value of the cookie
+             @param CookieName     Name of the cookie
+             @param CookieValue    Value of the cookie
              @param Domain   Domain of the cookie
              @param Path     Path of the cookie
              @param Scheme   Scheme of the cookie
@@ -112,15 +112,55 @@ namespace Adaptive.Arp.Api
              @param Creation Creation date of the cookie
              @since ARP1.0
           */
-          public ServiceCookie(string Name, string Value, string Domain, string Path, string Scheme, bool Secure, long Expiry, long Creation) : base () {
-               this.Name = Name;
-               this.Value = Value;
+          public ServiceCookie(string CookieName, string CookieValue, string Domain, string Path, string Scheme, bool Secure, long Expiry, long Creation) : base () {
+               this.CookieName = CookieName;
+               this.CookieValue = CookieValue;
                this.Domain = Domain;
                this.Path = Path;
                this.Scheme = Scheme;
                this.Secure = Secure;
                this.Expiry = Expiry;
                this.Creation = Creation;
+          }
+
+          /**
+             Returns the cookie cookieName
+
+             @return CookieName Name of the cookie
+             @since ARP1.0
+          */
+          public string GetCookieName() {
+               return this.CookieName;
+          }
+
+          /**
+             Set the cookie cookieName
+
+             @param CookieName Name of the cookie
+             @since ARP1.0
+          */
+          public void SetCookieName(string CookieName) {
+               this.CookieName = CookieName;
+          }
+
+          /**
+             Returns the cookie cookieValue
+
+             @return Value of the cookie
+             @since ARP1.0
+          */
+          public string GetCookieValue() {
+               return this.CookieValue;
+          }
+
+          /**
+             Set the cookie cookieValue
+
+             @param CookieValue Value of the cookie
+             @since ARP1.0
+          */
+          public void SetCookieValue(string CookieValue) {
+               this.CookieValue = CookieValue;
           }
 
           /**
@@ -184,26 +224,6 @@ namespace Adaptive.Arp.Api
           }
 
           /**
-             Returns the cookie name
-
-             @return Name Name of the cookie
-             @since ARP1.0
-          */
-          public string GetName() {
-               return this.Name;
-          }
-
-          /**
-             Set the cookie name
-
-             @param Name Name of the cookie
-             @since ARP1.0
-          */
-          public void SetName(string Name) {
-               this.Name = Name;
-          }
-
-          /**
              Returns the path
 
              @return Path
@@ -261,26 +281,6 @@ namespace Adaptive.Arp.Api
           */
           public void SetSecure(bool Secure) {
                this.Secure = Secure;
-          }
-
-          /**
-             Returns the cookie value
-
-             @return Value of the cookie
-             @since ARP1.0
-          */
-          public string GetValue() {
-               return this.Value;
-          }
-
-          /**
-             Set the cookie value
-
-             @param Value Value of the cookie
-             @since ARP1.0
-          */
-          public void SetValue(string Value) {
-               this.Value = Value;
           }
 
 

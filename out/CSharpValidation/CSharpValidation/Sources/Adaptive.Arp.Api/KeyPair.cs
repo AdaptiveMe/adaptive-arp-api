@@ -37,7 +37,7 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-        Represents a basic bean to store key pair values
+        Represents a basic bean to store keyName pair values
 
         @author Ferran Vila Conesa
         @since ARP1.0
@@ -49,11 +49,11 @@ namespace Adaptive.Arp.Api
           /**
              Key of the element
           */
-          public string Key { get; set; }
+          public string KeyName { get; set; }
           /**
              Value of the element
           */
-          public string Value { get; set; }
+          public string KeyValue { get; set; }
 
           /**
              Default Constructor
@@ -66,53 +66,53 @@ namespace Adaptive.Arp.Api
           /**
              Constructor using fields
 
-             @param Key   Key of the element
-             @param Value Value of the element
+             @param KeyName   Key of the element
+             @param KeyValue Value of the element
              @since ARP1.0
           */
-          public KeyPair(string Key, string Value) : base () {
-               this.Key = Key;
-               this.Value = Value;
+          public KeyPair(string KeyName, string KeyValue) : base () {
+               this.KeyName = KeyName;
+               this.KeyValue = KeyValue;
           }
 
           /**
-             Returns the key of the element
+             Returns the keyName of the element
 
              @return Key of the element
              @since ARP1.0
           */
-          public string GetKey() {
-               return this.Key;
+          public string GetKeyName() {
+               return this.KeyName;
           }
 
           /**
-             Sets the key of the element
+             Sets the keyName of the element
 
-             @param Key Key of the element
+             @param KeyName Key of the element
              @since ARP1.0
           */
-          public void SetKey(string Key) {
-               this.Key = Key;
+          public void SetKeyName(string KeyName) {
+               this.KeyName = KeyName;
           }
 
           /**
-             Returns the value of the element
+             Returns the keyValue of the element
 
              @return Value of the element
              @since ARP1.0
           */
-          public string GetValue() {
-               return this.Value;
+          public string GetKeyValue() {
+               return this.KeyValue;
           }
 
           /**
-             Sets the value of the element
+             Sets the keyValue of the element
 
-             @param Value Value of the element
+             @param KeyValue Value of the element
              @since ARP1.0
           */
-          public void SetValue(string Value) {
-               this.Value = Value;
+          public void SetKeyValue(string KeyValue) {
+               this.KeyValue = KeyValue;
           }
 
 

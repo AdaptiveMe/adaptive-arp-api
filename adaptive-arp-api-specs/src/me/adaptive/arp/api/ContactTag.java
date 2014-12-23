@@ -49,14 +49,14 @@ package me.adaptive.arp.api;
 public class ContactTag extends APIBean {
 
     /**
-     * The name of the Tag
+     * The tagName of the Tag
      */
-    private String name;
+    private String tagName;
 
     /**
-     * The value of the Tag
+     * The tagValue of the Tag
      */
-    private String value;
+    private String tagValue;
 
     /**
      * Default constructor
@@ -69,53 +69,53 @@ public class ContactTag extends APIBean {
     /**
      * Constructor used by the implementation
      *
-     * @param value Value of the tag
-     * @param name  Name of the tag
+     * @param tagValue Value of the tag
+     * @param tagName  Name of the tag
      * @since ARP1.0
      */
-    public ContactTag(String name, String value) {
-        this.value = value;
-        this.name = name;
+    public ContactTag(String tagName, String tagValue) {
+        this.tagValue = tagValue;
+        this.tagName = tagName;
     }
 
     /**
-     * Returns the name of the Tag
+     * Returns the tagName of the Tag
      *
-     * @return name
+     * @return tagName
      * @since ARP1.0
      */
-    public String getName() {
-        return name;
+    public String getTagName() {
+        return tagName;
     }
 
     /**
-     * Set the name of the Tag
+     * Set the tagName of the Tag
      *
-     * @param name Name of the tag
+     * @param tagName Name of the tag
      * @since ARP1.0
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setTagName(String tagName) {
+        this.tagName = tagName;
     }
 
     /**
-     * Returns the value of the Tag
+     * Returns the tagValue of the Tag
      *
-     * @return value
+     * @return tagValue
      * @since ARP1.0
      */
-    public String getValue() {
-        return value;
+    public String getTagValue() {
+        return tagValue;
     }
 
     /**
-     * Set the value of the Tag
+     * Set the tagValue of the Tag
      *
-     * @param value Value of the tag
+     * @param tagValue Value of the tag
      * @since ARP1.0
      */
-    public void setValue(String value) {
-        this.value = value;
+    public void setTagValue(String tagValue) {
+        this.tagValue = tagValue;
     }
 }
 

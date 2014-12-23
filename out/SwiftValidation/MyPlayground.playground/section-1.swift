@@ -4,7 +4,7 @@ import UIKit
 
 
 
-var str:String = "{\"name\":\"ferran\",\"age\":29,\"type\":{\"value\":\"HomeButton\"}, \"values\": [1,2,3,4,5,{\"name\":null,\"age\":29,\"type\":{\"value\":\"HomeButton\"}}]}"
+var str:String = "{\"parameters\":[\"One\", \"Two\", [\"A1\",\"A2\",\"A3\"]]}"
 
 var data:NSData = str.dataUsingEncoding(NSUTF8StringEncoding)!
 
@@ -16,10 +16,11 @@ trash["garbage"] = "huge trash"
 trash.removeObjectForKey("garbage")
 
 if !(jsonError != nil) {
-    decodedJson.objectForKey("burger") != nil ? println(decodedJson["burger"]!) : println(decodedJson["name"]!)
     
-    println(decodedJson["age"]!)
-    println((decodedJson["values"]! as NSArray)[5])
-    println(((decodedJson["values"]! as NSArray)[5] as NSDictionary)["name"]!)
-    println((decodedJson["type"] as NSDictionary)["value"]!)
+    decodedJson["parameters"]!
+    var array : [String] = decodedJson["parameters"]![2] as [String]
+    decodedJson["parameters"]![2][0]
+    print(array[0])
+
 }
+

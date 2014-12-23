@@ -4479,63 +4479,63 @@ listener.
      */
      export class ContactTag extends APIBean {
           /**
-             The name of the Tag
+             The tagName of the Tag
           */
-          name : string;
+          tagName : string;
           /**
-             The value of the Tag
+             The tagValue of the Tag
           */
-          value : string;
+          tagValue : string;
           /**
              Constructor used by the implementation
 
-             @param value Value of the tag
-             @param name  Name of the tag
+             @param tagValue Value of the tag
+             @param tagName  Name of the tag
              @since ARP1.0
           */
-          constructor(name: string, value: string) {
+          constructor(tagName: string, tagValue: string) {
                super();
-               this.name = name;
-               this.value = value;
+               this.tagName = tagName;
+               this.tagValue = tagValue;
           }
           /**
-             Returns the name of the Tag
+             Returns the tagName of the Tag
 
-             @return name
+             @return tagName
              @since ARP1.0
           */
-          getName() : string {
-               return this.name;
-          }
-
-          /**
-             Set the name of the Tag
-
-             @param name Name of the tag
-             @since ARP1.0
-          */
-          setName(name: string) {
-               this.name = name;
+          getTagName() : string {
+               return this.tagName;
           }
 
           /**
-             Returns the value of the Tag
+             Set the tagName of the Tag
 
-             @return value
+             @param tagName Name of the tag
              @since ARP1.0
           */
-          getValue() : string {
-               return this.value;
+          setTagName(tagName: string) {
+               this.tagName = tagName;
           }
 
           /**
-             Set the value of the Tag
+             Returns the tagValue of the Tag
 
-             @param value Value of the tag
+             @return tagValue
              @since ARP1.0
           */
-          setValue(value: string) {
-               this.value = value;
+          getTagValue() : string {
+               return this.tagValue;
+          }
+
+          /**
+             Set the tagValue of the Tag
+
+             @param tagValue Value of the tag
+             @since ARP1.0
+          */
+          setTagValue(tagValue: string) {
+               this.tagValue = tagValue;
           }
 
      }
@@ -5694,13 +5694,21 @@ doesn't exist, this will be -1. Used internally.
 
      }
      /**
-        Structure representing the value of a http cookie.
+        Structure representing the cookieValue of a http cookie.
 
         @author Aryslan
         @since ARP1.0
         @version 1.0
      */
      export class ServiceCookie extends APIBean {
+          /**
+             Name ot the cookie
+          */
+          cookieName : string;
+          /**
+             Value of the ServiceCookie
+          */
+          cookieValue : string;
           /**
              ServiceCookie creation timestamp in milliseconds.
           */
@@ -5714,10 +5722,6 @@ doesn't exist, this will be -1. Used internally.
           */
           expiry : number;
           /**
-             Name ot the cookie
-          */
-          name : string;
-          /**
              URI path for which the cookie is valid.
           */
           path : string;
@@ -5730,14 +5734,10 @@ doesn't exist, this will be -1. Used internally.
           */
           secure : boolean;
           /**
-             Value of the ServiceCookie
-          */
-          value : string;
-          /**
              Contructor with fields
 
-             @param name     Name of the cookie
-             @param value    Value of the cookie
+             @param cookieName     Name of the cookie
+             @param cookieValue    Value of the cookie
              @param domain   Domain of the cookie
              @param path     Path of the cookie
              @param scheme   Scheme of the cookie
@@ -5746,10 +5746,10 @@ doesn't exist, this will be -1. Used internally.
              @param creation Creation date of the cookie
              @since ARP1.0
           */
-          constructor(name: string, value: string, domain: string, path: string, scheme: string, secure: boolean, expiry: number, creation: number) {
+          constructor(cookieName: string, cookieValue: string, domain: string, path: string, scheme: string, secure: boolean, expiry: number, creation: number) {
                super();
-               this.name = name;
-               this.value = value;
+               this.cookieName = cookieName;
+               this.cookieValue = cookieValue;
                this.domain = domain;
                this.path = path;
                this.scheme = scheme;
@@ -5757,6 +5757,46 @@ doesn't exist, this will be -1. Used internally.
                this.expiry = expiry;
                this.creation = creation;
           }
+          /**
+             Returns the cookie cookieName
+
+             @return cookieName Name of the cookie
+             @since ARP1.0
+          */
+          getCookieName() : string {
+               return this.cookieName;
+          }
+
+          /**
+             Set the cookie cookieName
+
+             @param cookieName Name of the cookie
+             @since ARP1.0
+          */
+          setCookieName(cookieName: string) {
+               this.cookieName = cookieName;
+          }
+
+          /**
+             Returns the cookie cookieValue
+
+             @return Value of the cookie
+             @since ARP1.0
+          */
+          getCookieValue() : string {
+               return this.cookieValue;
+          }
+
+          /**
+             Set the cookie cookieValue
+
+             @param cookieValue Value of the cookie
+             @since ARP1.0
+          */
+          setCookieValue(cookieValue: string) {
+               this.cookieValue = cookieValue;
+          }
+
           /**
              Returns the creation date
 
@@ -5818,26 +5858,6 @@ doesn't exist, this will be -1. Used internally.
           }
 
           /**
-             Returns the cookie name
-
-             @return name Name of the cookie
-             @since ARP1.0
-          */
-          getName() : string {
-               return this.name;
-          }
-
-          /**
-             Set the cookie name
-
-             @param name Name of the cookie
-             @since ARP1.0
-          */
-          setName(name: string) {
-               this.name = name;
-          }
-
-          /**
              Returns the path
 
              @return path
@@ -5895,26 +5915,6 @@ doesn't exist, this will be -1. Used internally.
           */
           setSecure(secure: boolean) {
                this.secure = secure;
-          }
-
-          /**
-             Returns the cookie value
-
-             @return Value of the cookie
-             @since ARP1.0
-          */
-          getValue() : string {
-               return this.value;
-          }
-
-          /**
-             Set the cookie value
-
-             @param value Value of the cookie
-             @since ARP1.0
-          */
-          setValue(value: string) {
-               this.value = value;
           }
 
      }
@@ -6169,7 +6169,7 @@ doesn't exist, this will be -1. Used internally.
 
      }
      /**
-        Represents a basic bean to store key pair values
+        Represents a basic bean to store keyName pair values
 
         @author Ferran Vila Conesa
         @since ARP1.0
@@ -6179,61 +6179,61 @@ doesn't exist, this will be -1. Used internally.
           /**
              Key of the element
           */
-          key : string;
+          keyName : string;
           /**
              Value of the element
           */
-          value : string;
+          keyValue : string;
           /**
              Constructor using fields
 
-             @param key   Key of the element
-             @param value Value of the element
+             @param keyName   Key of the element
+             @param keyValue Value of the element
              @since ARP1.0
           */
-          constructor(key: string, value: string) {
+          constructor(keyName: string, keyValue: string) {
                super();
-               this.key = key;
-               this.value = value;
+               this.keyName = keyName;
+               this.keyValue = keyValue;
           }
           /**
-             Returns the key of the element
+             Returns the keyName of the element
 
              @return Key of the element
              @since ARP1.0
           */
-          getKey() : string {
-               return this.key;
+          getKeyName() : string {
+               return this.keyName;
           }
 
           /**
-             Sets the key of the element
+             Sets the keyName of the element
 
-             @param key Key of the element
+             @param keyName Key of the element
              @since ARP1.0
           */
-          setKey(key: string) {
-               this.key = key;
+          setKeyName(keyName: string) {
+               this.keyName = keyName;
           }
 
           /**
-             Returns the value of the element
+             Returns the keyValue of the element
 
              @return Value of the element
              @since ARP1.0
           */
-          getValue() : string {
-               return this.value;
+          getKeyValue() : string {
+               return this.keyValue;
           }
 
           /**
-             Sets the value of the element
+             Sets the keyValue of the element
 
-             @param value Value of the element
+             @param keyValue Value of the element
              @since ARP1.0
           */
-          setValue(value: string) {
-               this.value = value;
+          setKeyValue(keyValue: string) {
+               this.keyValue = keyValue;
           }
 
      }

@@ -36,7 +36,7 @@ Release:
 #import <Foundation/Foundation.h>
 
 /**
-Represents a basic bean to store key pair values
+Represents a basic bean to store keyName pair values
 
 @author Ferran Vila Conesa
 @since ARP1.0
@@ -47,11 +47,11 @@ Represents a basic bean to store key pair values
      /**
         Key of the element
      */
-     @property NSString *key;
+     @property NSString *keyName;
      /**
         Value of the element
      */
-     @property NSString *value;
+     @property NSString *keyValue;
 
      /**
         Default Constructor
@@ -63,11 +63,11 @@ Represents a basic bean to store key pair values
      /**
         Constructor using fields
 
-        @param key   Key of the element
-        @param value Value of the element
+        @param keyName   Key of the element
+        @param keyValue Value of the element
         @since ARP1.0
      */
-     - (id) initWithKeyValue:(NSString*)key value:(NSString*)value;
+     - (id) initWithKeyNameKeyValue:(NSString*)keyName keyValue:(NSString*)keyValue;
 
 
 @end
