@@ -523,24 +523,32 @@ public class SwiftGenerator extends GeneratorBase {
                     println(8, "@return " + serviceClass.getSimpleName().substring(1) + "Bridge reference or null if a bridge of this type is not registered.");
                     endComment(5);
                     println(5, "public final func get" + serviceClass.getSimpleName().substring(1) + "Bridge() -> " + serviceClass.getSimpleName().substring(1) + "Bridge {");
-                    println(10, "// Start logging elapsed time.");
-                    println(10, "var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()");
-                    println(10, "var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()");
-                    println(10, "var result : " + serviceClass.getSimpleName().substring(1) + "Bridge? = nil");
-                    println();
-                    println(10, "if (logger != nil) {");
-                    println(15, "logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: \"" + simpleName + " executing get" + serviceClass.getSimpleName().substring(1) + "Bridge().\")");
-                    println(10, "}");
-                    println();
+
+                    boolean isLoggingClass = serviceClass.getSimpleName().startsWith("ILogging");
+                    if (!isLoggingClass) {
+                        println(10, "// Start logging elapsed time.");
+                        println(10, "var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()");
+                        println(10, "var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()");
+                    }
+                        println(10, "var result : " + serviceClass.getSimpleName().substring(1) + "Bridge? = nil");
+                    if (!isLoggingClass) {
+                        println();
+                        println(10, "if (logger != nil) {");
+                        println(15, "logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: \"" + simpleName + " executing get" + serviceClass.getSimpleName().substring(1) + "Bridge().\")");
+                        println(10, "}");
+                        println();
+                    }
                     println(10, "if (self.delegate != nil) {");
                     println(15, "result = self.delegate!.get" + serviceClass.getSimpleName().substring(1) + "Bridge()");
-                    println(15, "if (logger != nil) {");
-                    println(20, "logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: \"" + simpleName + " executed 'get" + serviceClass.getSimpleName().substring(1) + "Bridge' in \\(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.\")");
-                    println(15, "}");
-                    println(10, "} else {");
-                    println(15, "if (logger != nil) {");
-                    println(20, "logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: \"" + simpleName + " no delegate for 'get" + serviceClass.getSimpleName().substring(1) + "Bridge'.\")");
-                    println(15, "}");
+                    if (!isLoggingClass) {
+                        println(15, "if (logger != nil) {");
+                        println(20, "logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: \"" + simpleName + " executed 'get" + serviceClass.getSimpleName().substring(1) + "Bridge' in \\(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.\")");
+                        println(15, "}");
+                        println(10, "} else {");
+                        println(15, "if (logger != nil) {");
+                        println(20, "logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: \"" + simpleName + " no delegate for 'get" + serviceClass.getSimpleName().substring(1) + "Bridge'.\")");
+                        println(15, "}");
+                    }
                     println(10, "}");
                     if (!m.getReturnType().equals(Void.TYPE)) {
                         print(10, "return result!");
@@ -612,28 +620,31 @@ public class SwiftGenerator extends GeneratorBase {
                     }
                 }
                 println("{");
-                println(10, "// Start logging elapsed time.");
-                println(10, "var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()");
-                println(10, "var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()");
-                println();
-                println(10, "if (logger != nil) {");
-                print(15, "logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: \"" + simpleName + " executing " + m.getName() + "");
-                if (m.getParameterCount() > 0) {
-                    print("(");
-                }
-                for (int i = 0; i < m.getParameterCount(); i++) {
-                    Parameter p = m.getParameters()[i];
-                    print("{\\(" + p.getName() + ")}");
-                    if (i < m.getParameterCount() - 1) {
-                        print(",");
+                boolean isLoggingClass = clazz.getSimpleName().startsWith("ILogging");
+                if (!isLoggingClass) {
+                    println(10, "// Start logging elapsed time.");
+                    println(10, "var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()");
+                    println(10, "var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()");
+                    println();
+                    println(10, "if (logger != nil) {");
+                    print(15, "logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: \"" + simpleName + " executing " + m.getName() + "");
+                    if (m.getParameterCount() > 0) {
+                        print("(");
                     }
+                    for (int i = 0; i < m.getParameterCount(); i++) {
+                        Parameter p = m.getParameters()[i];
+                        print("{\\(" + p.getName() + ")}");
+                        if (i < m.getParameterCount() - 1) {
+                            print(",");
+                        }
+                    }
+                    if (m.getParameterCount() > 0) {
+                        print(")");
+                    }
+                    println(".\")");
+                    println(10, "}");
+                    println();
                 }
-                if (m.getParameterCount() > 0) {
-                    print(")");
-                }
-                println(".\")");
-                println(10, "}");
-                println();
                 if (!m.getReturnType().equals(Void.TYPE)) {
                     if (m.getReturnType().isPrimitive()) {
                         if (m.getReturnType().equals(Boolean.TYPE)) {
@@ -671,13 +682,15 @@ public class SwiftGenerator extends GeneratorBase {
                     }
                 }
                 println(")");
-                println(15, "if (logger != nil) {");
-                println(20, "logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: \"" + simpleName + " executed '" + m.getName() + "' in \\(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.\")");
-                println(15, " }");
-                println(10, "} else {");
-                println(15, "if (logger != nil) {");
-                println(20, "logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: \"" + simpleName + " no delegate for '" + m.getName() + "'.\")");
-                println(15, "}");
+                if (!isLoggingClass) {
+                    println(15, "if (logger != nil) {");
+                    println(20, "logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: \"" + simpleName + " executed '" + m.getName() + "' in \\(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.\")");
+                    println(15, " }");
+                    println(10, "} else {");
+                    println(15, "if (logger != nil) {");
+                    println(20, "logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: \"" + simpleName + " no delegate for '" + m.getName() + "'.\")");
+                    println(15, "}");
+                }
                 println(10, "}");
                 if (!m.getReturnType().equals(Void.TYPE)) {
                     if (m.getReturnType().isPrimitive()) {
@@ -686,7 +699,9 @@ public class SwiftGenerator extends GeneratorBase {
                         print(10, "return result!");
                     }
                 }
-                println(10, "");
+                if (!isLoggingClass) {
+                    println(10, "");
+                }
                 println(5, "}");
                 println();
             }
@@ -741,27 +756,27 @@ public class SwiftGenerator extends GeneratorBase {
                             print("request.getParameters()![" + pIndex + "]");
                         } else if (p.getType().isEnum()) {
                             print(convertJavaToNativeType(p.getType()) + ".toEnum(JSONUtil.dictionifyJSON(request.getParameters()![" + pIndex + "])[\"value\"] as String!)");
-                        } else if(p.getType().isArray()) {
-                            println(convertJavaToNativeType(p.getType())+"()");
+                        } else if (p.getType().isArray()) {
+                            println(convertJavaToNativeType(p.getType()) + "()");
                             println(20, "var " + p.getName() + "Array" + parameterIndex + " : [String] = JSONUtil.stringElementToArray(request.getParameters()![" + pIndex + "])");
-                            println(20, "for "+p.getName()+"Element"+parameterIndex+" in "+p.getName()+"Array"+parameterIndex+" {");
+                            println(20, "for " + p.getName() + "Element" + parameterIndex + " in " + p.getName() + "Array" + parameterIndex + " {");
                             if (p.getType().getComponentType().isPrimitive()) {
                                 if (p.getType().getComponentType().equals(Byte.TYPE)) {
-                                    println(25, p.getName() + parameterIndex+"!.append(Byte(("+p.getName()+"Element"+parameterIndex+" as NSString).intValue))");
+                                    println(25, p.getName() + parameterIndex + "!.append(Byte((" + p.getName() + "Element" + parameterIndex + " as NSString).intValue))");
                                 } else {
                                     println(25, "UNSUPPORTED. Donate generously.");
                                 }
                             } else if (p.getType().getComponentType().equals(String.class)) {
-                                println(25, p.getName() + parameterIndex+"!.append("+p.getName()+"Element"+parameterIndex+")");
+                                println(25, p.getName() + parameterIndex + "!.append(" + p.getName() + "Element" + parameterIndex + ")");
                             } else if (p.getType().getComponentType().isEnum()) {
-                                println(25, p.getName() + parameterIndex+"!.append("+convertJavaToNativeType(p.getType().getComponentType()) + ".toEnum(JSONUtil.dictionifyJSON("+p.getName()+"Element"+parameterIndex+")[\"value\"] as String!))");
+                                println(25, p.getName() + parameterIndex + "!.append(" + convertJavaToNativeType(p.getType().getComponentType()) + ".toEnum(JSONUtil.dictionifyJSON(" + p.getName() + "Element" + parameterIndex + ")[\"value\"] as String!))");
                             } else {
-                                println(25, p.getName() + parameterIndex + "!.append(" + convertJavaToNativeType(p.getType().getComponentType()) + ".Serializer.fromJSON("+p.getName()+"Element"+parameterIndex+"))");
+                                println(25, p.getName() + parameterIndex + "!.append(" + convertJavaToNativeType(p.getType().getComponentType()) + ".Serializer.fromJSON(" + p.getName() + "Element" + parameterIndex + "))");
                             }
 
                             print(20, "}");
                         } else {
-                            print(convertJavaToNativeType(p.getType())+".Serializer.fromJSON(request.getParameters()![" + pIndex + "])");
+                            print(convertJavaToNativeType(p.getType()) + ".Serializer.fromJSON(request.getParameters()![" + pIndex + "])");
                         }
                     }
                     println("");
@@ -1679,15 +1694,15 @@ public class SwiftGenerator extends GeneratorBase {
                     if (field.getType().getComponentType().isPrimitive() || field.getType().getComponentType().equals(String.class)) {
                         if (field.getType().getComponentType().equals(Byte.TYPE)) {
                             println(25, "var " + field.getName() + " : " + convertJavaToNativeType(field.getType()) + " = " + convertJavaToNativeType(field.getType()) + "(count: (value as NSArray).count, repeatedValue: 0)");
-                            println(25, "var "+field.getName()+"Data : NSData = (value as NSData)");
-                            println(25, field.getName()+"Data.getBytes(&"+field.getName()+", length: (value as NSArray).count * sizeof(UInt8))");
+                            println(25, "var " + field.getName() + "Data : NSData = (value as NSData)");
+                            println(25, field.getName() + "Data.getBytes(&" + field.getName() + ", length: (value as NSArray).count * sizeof(UInt8))");
                         } else {
                             println(30, field.getName() + ".append((value as NSArray)[i] as " + convertJavaToNativeType(field.getType().getComponentType()) + ")");
                         }
                     } else if (field.getType().getComponentType().isEnum()) {
-                        println(30, field.getName()+".append("+convertJavaToNativeType(field.getType().getComponentType())+".toEnum(((value as NSDictionary)[\"value\"]) as NSString)");
+                        println(30, field.getName() + ".append(" + convertJavaToNativeType(field.getType().getComponentType()) + ".toEnum(((value as NSDictionary)[\"value\"]) as NSString)");
                     } else {
-                        println(30, field.getName()+".append("+convertJavaToNativeType(field.getType().getComponentType())+".Serializer.fromDictionary((value as NSArray)[i] as NSDictionary))");
+                        println(30, field.getName() + ".append(" + convertJavaToNativeType(field.getType().getComponentType()) + ".Serializer.fromDictionary((value as NSArray)[i] as NSDictionary))");
                     }
                     if (!field.getType().getComponentType().equals(Byte.TYPE)) {
                         println(25, "}");
