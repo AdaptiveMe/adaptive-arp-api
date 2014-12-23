@@ -56,15 +56,15 @@ Release:
      /**
         Constructor using fields
 
-        @param key   Key of the element
-        @param value Value of the element
+        @param keyName   Key of the element
+        @param keyValue Value of the element
         @since ARP1.0
      */
-     - (id) initWithKeyValue:(NSString*)key value:(NSString*)value {
+     - (id) initWithKeyNameKeyValue:(NSString*)keyName keyValue:(NSString*)keyValue {
           self = [self init];
           if (self) {
-               [self setKey:key];
-               [self setValue:value];
+               [self setKeyName:keyName];
+               [self setKeyValue:keyValue];
           }
           return self;
      }

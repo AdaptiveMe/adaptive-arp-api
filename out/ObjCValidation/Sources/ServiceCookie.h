@@ -36,7 +36,7 @@ Release:
 #import <Foundation/Foundation.h>
 
 /**
-Structure representing the value of a http cookie.
+Structure representing the cookieValue of a http cookie.
 
 @author Aryslan
 @since ARP1.0
@@ -44,6 +44,14 @@ Structure representing the value of a http cookie.
 */
 @interface ServiceCookie : APIBean
 
+     /**
+        Name ot the cookie
+     */
+     @property NSString *cookieName;
+     /**
+        Value of the ServiceCookie
+     */
+     @property NSString *cookieValue;
      /**
         ServiceCookie creation timestamp in milliseconds.
      */
@@ -57,10 +65,6 @@ Structure representing the value of a http cookie.
      */
      @property long *expiry;
      /**
-        Name ot the cookie
-     */
-     @property NSString *name;
-     /**
         URI path for which the cookie is valid.
      */
      @property NSString *path;
@@ -72,10 +76,6 @@ Structure representing the value of a http cookie.
         ServiceCookie is secure (https only)
      */
      @property bool *secure;
-     /**
-        Value of the ServiceCookie
-     */
-     @property NSString *value;
 
      /**
         Default constructor
@@ -87,17 +87,17 @@ Structure representing the value of a http cookie.
      /**
         Constructor used by the implementation
 
-        @param name  Name of the cookie
-        @param value Value of the cookie
+        @param cookieName  Name of the cookie
+        @param cookieValue Value of the cookie
         @since ARP1.0
      */
-     - (id) initWithNameValue:(NSString*)name value:(NSString*)value;
+     - (id) initWithCookieNameCookieValue:(NSString*)cookieName cookieValue:(NSString*)cookieValue;
 
      /**
         Contructor with fields
 
-        @param name     Name of the cookie
-        @param value    Value of the cookie
+        @param cookieName     Name of the cookie
+        @param cookieValue    Value of the cookie
         @param domain   Domain of the cookie
         @param path     Path of the cookie
         @param scheme   Scheme of the cookie
@@ -106,7 +106,7 @@ Structure representing the value of a http cookie.
         @param creation Creation date of the cookie
         @since ARP1.0
      */
-     - (id) initWithNameValueDomainPathSchemeSecureExpiryCreation:(NSString*)name value:(NSString*)value domain:(NSString*)domain path:(NSString*)path scheme:(NSString*)scheme secure:(bool*)secure expiry:(long*)expiry creation:(long*)creation;
+     - (id) initWithCookieNameCookieValueDomainPathSchemeSecureExpiryCreation:(NSString*)cookieName cookieValue:(NSString*)cookieValue domain:(NSString*)domain path:(NSString*)path scheme:(NSString*)scheme secure:(bool*)secure expiry:(long*)expiry creation:(long*)creation;
 
 
 @end

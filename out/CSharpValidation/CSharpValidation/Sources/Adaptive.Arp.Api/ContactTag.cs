@@ -47,13 +47,13 @@ namespace Adaptive.Arp.Api
      {
 
           /**
-             The name of the Tag
+             The tagName of the Tag
           */
-          public string Name { get; set; }
+          public string TagName { get; set; }
           /**
-             The value of the Tag
+             The tagValue of the Tag
           */
-          public string Value { get; set; }
+          public string TagValue { get; set; }
 
           /**
              Default constructor
@@ -66,53 +66,53 @@ namespace Adaptive.Arp.Api
           /**
              Constructor used by the implementation
 
-             @param Value Value of the tag
-             @param Name  Name of the tag
+             @param TagValue Value of the tag
+             @param TagName  Name of the tag
              @since ARP1.0
           */
-          public ContactTag(string Name, string Value) : base () {
-               this.Name = Name;
-               this.Value = Value;
+          public ContactTag(string TagName, string TagValue) : base () {
+               this.TagName = TagName;
+               this.TagValue = TagValue;
           }
 
           /**
-             Returns the name of the Tag
+             Returns the tagName of the Tag
 
-             @return Name
+             @return TagName
              @since ARP1.0
           */
-          public string GetName() {
-               return this.Name;
+          public string GetTagName() {
+               return this.TagName;
           }
 
           /**
-             Set the name of the Tag
+             Set the tagName of the Tag
 
-             @param Name Name of the tag
+             @param TagName Name of the tag
              @since ARP1.0
           */
-          public void SetName(string Name) {
-               this.Name = Name;
+          public void SetTagName(string TagName) {
+               this.TagName = TagName;
           }
 
           /**
-             Returns the value of the Tag
+             Returns the tagValue of the Tag
 
-             @return Value
+             @return TagValue
              @since ARP1.0
           */
-          public string GetValue() {
-               return this.Value;
+          public string GetTagValue() {
+               return this.TagValue;
           }
 
           /**
-             Set the value of the Tag
+             Set the tagValue of the Tag
 
-             @param Value Value of the tag
+             @param TagValue Value of the tag
              @since ARP1.0
           */
-          public void SetValue(string Value) {
-               this.Value = Value;
+          public void SetTagValue(string TagValue) {
+               this.TagValue = TagValue;
           }
 
 

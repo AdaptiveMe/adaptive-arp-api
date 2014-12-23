@@ -37,7 +37,7 @@ Release:
 module Adaptive {
 
      /**
-        Represents a basic bean to store key pair values
+        Represents a basic bean to store keyName pair values
 
         @author Ferran Vila Conesa
         @since ARP1.0
@@ -48,62 +48,62 @@ module Adaptive {
           /**
              Key of the element
           */
-          key : string;
+          keyName : string;
           /**
              Value of the element
           */
-          value : string;
+          keyValue : string;
           /**
              Constructor using fields
 
-             @param key   Key of the element
-             @param value Value of the element
+             @param keyName   Key of the element
+             @param keyValue Value of the element
              @since ARP1.0
           */
-          constructor(key: string, value: string) {
+          constructor(keyName: string, keyValue: string) {
                super();
-               this.key = key;
-               this.value = value;
+               this.keyName = keyName;
+               this.keyValue = keyValue;
           }
 
           /**
-             Returns the key of the element
+             Returns the keyName of the element
 
              @return Key of the element
              @since ARP1.0
           */
-          getKey() : string {
-               return this.key;
+          getKeyName() : string {
+               return this.keyName;
           }
 
           /**
-             Sets the key of the element
+             Sets the keyName of the element
 
-             @param key Key of the element
+             @param keyName Key of the element
              @since ARP1.0
           */
-          setKey(key: string) {
-               this.key = key;
+          setKeyName(keyName: string) {
+               this.keyName = keyName;
           }
 
           /**
-             Returns the value of the element
+             Returns the keyValue of the element
 
              @return Value of the element
              @since ARP1.0
           */
-          getValue() : string {
-               return this.value;
+          getKeyValue() : string {
+               return this.keyValue;
           }
 
           /**
-             Sets the value of the element
+             Sets the keyValue of the element
 
-             @param value Value of the element
+             @param keyValue Value of the element
              @since ARP1.0
           */
-          setValue(value: string) {
-               this.value = value;
+          setKeyValue(keyValue: string) {
+               this.keyValue = keyValue;
           }
 
 

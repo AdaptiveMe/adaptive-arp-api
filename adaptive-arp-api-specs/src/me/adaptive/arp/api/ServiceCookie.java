@@ -41,7 +41,7 @@
 package me.adaptive.arp.api;
 
 /**
- * Structure representing the value of a http cookie.
+ * Structure representing the cookieValue of a http cookie.
  *
  * @author Aryslan
  * @since ARP1.0
@@ -51,12 +51,12 @@ public class ServiceCookie extends APIBean {
     /**
      * Name ot the cookie
      */
-    private String name;
+    private String cookieName;
 
     /**
      * Value of the ServiceCookie
      */
-    private String value;
+    private String cookieValue;
 
     /**
      * Domain for which the cookie is valid.
@@ -98,20 +98,20 @@ public class ServiceCookie extends APIBean {
     /**
      * Constructor used by the implementation
      *
-     * @param name  Name of the cookie
-     * @param value Value of the cookie
+     * @param cookieName  Name of the cookie
+     * @param cookieValue Value of the cookie
      * @since ARP1.0
      */
-    public ServiceCookie(String name, String value) {
-        this.name = name;
-        this.value = value;
+    public ServiceCookie(String cookieName, String cookieValue) {
+        this.cookieName = cookieName;
+        this.cookieValue = cookieValue;
     }
 
     /**
      * Contructor with fields
      *
-     * @param name     Name of the cookie
-     * @param value    Value of the cookie
+     * @param cookieName     Name of the cookie
+     * @param cookieValue    Value of the cookie
      * @param domain   Domain of the cookie
      * @param path     Path of the cookie
      * @param scheme   Scheme of the cookie
@@ -120,9 +120,9 @@ public class ServiceCookie extends APIBean {
      * @param creation Creation date of the cookie
      * @since ARP1.0
      */
-    public ServiceCookie(String name, String value, String domain, String path, String scheme, boolean secure, long expiry, long creation) {
-        this.name = name;
-        this.value = value;
+    public ServiceCookie(String cookieName, String cookieValue, String domain, String path, String scheme, boolean secure, long expiry, long creation) {
+        this.cookieName = cookieName;
+        this.cookieValue = cookieValue;
         this.domain = domain;
         this.path = path;
         this.scheme = scheme;
@@ -232,43 +232,43 @@ public class ServiceCookie extends APIBean {
     }
 
     /**
-     * Returns the cookie name
+     * Returns the cookie cookieName
      *
-     * @return name Name of the cookie
+     * @return cookieName Name of the cookie
      * @since ARP1.0
      */
-    public String getName() {
-        return name;
+    public String getCookieName() {
+        return cookieName;
     }
 
     /**
-     * Set the cookie name
+     * Set the cookie cookieName
      *
-     * @param name Name of the cookie
+     * @param cookieName Name of the cookie
      * @since ARP1.0
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setCookieName(String cookieName) {
+        this.cookieName = cookieName;
     }
 
     /**
-     * Returns the cookie value
+     * Returns the cookie cookieValue
      *
      * @return Value of the cookie
      * @since ARP1.0
      */
-    public String getValue() {
-        return value;
+    public String getCookieValue() {
+        return cookieValue;
     }
 
     /**
-     * Set the cookie value
+     * Set the cookie cookieValue
      *
-     * @param value Value of the cookie
+     * @param cookieValue Value of the cookie
      * @since ARP1.0
      */
-    public void setValue(String value) {
-        this.value = value;
+    public void setCookieValue(String cookieValue) {
+        this.cookieValue = cookieValue;
     }
 
     /**

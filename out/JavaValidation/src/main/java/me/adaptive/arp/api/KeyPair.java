@@ -35,7 +35,7 @@ Release:
 package me.adaptive.arp.api;
 
 /**
-   Represents a basic bean to store key pair values
+   Represents a basic bean to store keyName pair values
 
    @author Ferran Vila Conesa
    @since ARP1.0
@@ -46,11 +46,11 @@ public class KeyPair extends APIBean {
      /**
         Key of the element
      */
-     private String key;
+     private String keyName;
      /**
         Value of the element
      */
-     private String value;
+     private String keyValue;
 
      /**
         Default Constructor
@@ -63,54 +63,54 @@ public class KeyPair extends APIBean {
      /**
         Constructor using fields
 
-        @param key   Key of the element
-        @param value Value of the element
+        @param keyName   Key of the element
+        @param keyValue Value of the element
         @since ARP1.0
      */
-     public KeyPair(String key, String value) {
+     public KeyPair(String keyName, String keyValue) {
           super();
-          this.key = key;
-          this.value = value;
+          this.keyName = keyName;
+          this.keyValue = keyValue;
      }
 
      /**
-        Returns the key of the element
+        Returns the keyName of the element
 
         @return Key of the element
         @since ARP1.0
      */
-     public String getKey() {
-          return this.key;
+     public String getKeyName() {
+          return this.keyName;
      }
 
      /**
-        Sets the key of the element
+        Sets the keyName of the element
 
-        @param key Key of the element
+        @param keyName Key of the element
         @since ARP1.0
      */
-     public void setKey(String key) {
-          this.key = key;
+     public void setKeyName(String keyName) {
+          this.keyName = keyName;
      }
 
      /**
-        Returns the value of the element
+        Returns the keyValue of the element
 
         @return Value of the element
         @since ARP1.0
      */
-     public String getValue() {
-          return this.value;
+     public String getKeyValue() {
+          return this.keyValue;
      }
 
      /**
-        Sets the value of the element
+        Sets the keyValue of the element
 
-        @param value Value of the element
+        @param keyValue Value of the element
         @since ARP1.0
      */
-     public void setValue(String value) {
-          this.value = value;
+     public void setKeyValue(String keyValue) {
+          this.keyValue = keyValue;
      }
 
 

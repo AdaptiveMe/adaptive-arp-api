@@ -45,13 +45,13 @@ Structure representing the assigned tags data elements of a contact.
 @interface ContactTag : APIBean
 
      /**
-        The name of the Tag
+        The tagName of the Tag
      */
-     @property NSString *name;
+     @property NSString *tagName;
      /**
-        The value of the Tag
+        The tagValue of the Tag
      */
-     @property NSString *value;
+     @property NSString *tagValue;
 
      /**
         Default constructor
@@ -63,11 +63,11 @@ Structure representing the assigned tags data elements of a contact.
      /**
         Constructor used by the implementation
 
-        @param value Value of the tag
-        @param name  Name of the tag
+        @param tagValue Value of the tag
+        @param tagName  Name of the tag
         @since ARP1.0
      */
-     - (id) initWithNameValue:(NSString*)name value:(NSString*)value;
+     - (id) initWithTagNameTagValue:(NSString*)tagName tagValue:(NSString*)tagValue;
 
 
 @end

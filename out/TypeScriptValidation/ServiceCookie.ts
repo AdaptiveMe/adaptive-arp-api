@@ -37,7 +37,7 @@ Release:
 module Adaptive {
 
      /**
-        Structure representing the value of a http cookie.
+        Structure representing the cookieValue of a http cookie.
 
         @author Aryslan
         @since ARP1.0
@@ -45,6 +45,14 @@ module Adaptive {
      */
      export class ServiceCookie extends APIBean {
 
+          /**
+             Name ot the cookie
+          */
+          cookieName : string;
+          /**
+             Value of the ServiceCookie
+          */
+          cookieValue : string;
           /**
              ServiceCookie creation timestamp in milliseconds.
           */
@@ -58,10 +66,6 @@ module Adaptive {
           */
           expiry : number;
           /**
-             Name ot the cookie
-          */
-          name : string;
-          /**
              URI path for which the cookie is valid.
           */
           path : string;
@@ -74,14 +78,10 @@ module Adaptive {
           */
           secure : boolean;
           /**
-             Value of the ServiceCookie
-          */
-          value : string;
-          /**
              Contructor with fields
 
-             @param name     Name of the cookie
-             @param value    Value of the cookie
+             @param cookieName     Name of the cookie
+             @param cookieValue    Value of the cookie
              @param domain   Domain of the cookie
              @param path     Path of the cookie
              @param scheme   Scheme of the cookie
@@ -90,16 +90,56 @@ module Adaptive {
              @param creation Creation date of the cookie
              @since ARP1.0
           */
-          constructor(name: string, value: string, domain: string, path: string, scheme: string, secure: boolean, expiry: number, creation: number) {
+          constructor(cookieName: string, cookieValue: string, domain: string, path: string, scheme: string, secure: boolean, expiry: number, creation: number) {
                super();
-               this.name = name;
-               this.value = value;
+               this.cookieName = cookieName;
+               this.cookieValue = cookieValue;
                this.domain = domain;
                this.path = path;
                this.scheme = scheme;
                this.secure = secure;
                this.expiry = expiry;
                this.creation = creation;
+          }
+
+          /**
+             Returns the cookie cookieName
+
+             @return cookieName Name of the cookie
+             @since ARP1.0
+          */
+          getCookieName() : string {
+               return this.cookieName;
+          }
+
+          /**
+             Set the cookie cookieName
+
+             @param cookieName Name of the cookie
+             @since ARP1.0
+          */
+          setCookieName(cookieName: string) {
+               this.cookieName = cookieName;
+          }
+
+          /**
+             Returns the cookie cookieValue
+
+             @return Value of the cookie
+             @since ARP1.0
+          */
+          getCookieValue() : string {
+               return this.cookieValue;
+          }
+
+          /**
+             Set the cookie cookieValue
+
+             @param cookieValue Value of the cookie
+             @since ARP1.0
+          */
+          setCookieValue(cookieValue: string) {
+               this.cookieValue = cookieValue;
           }
 
           /**
@@ -163,26 +203,6 @@ module Adaptive {
           }
 
           /**
-             Returns the cookie name
-
-             @return name Name of the cookie
-             @since ARP1.0
-          */
-          getName() : string {
-               return this.name;
-          }
-
-          /**
-             Set the cookie name
-
-             @param name Name of the cookie
-             @since ARP1.0
-          */
-          setName(name: string) {
-               this.name = name;
-          }
-
-          /**
              Returns the path
 
              @return path
@@ -240,26 +260,6 @@ module Adaptive {
           */
           setSecure(secure: boolean) {
                this.secure = secure;
-          }
-
-          /**
-             Returns the cookie value
-
-             @return Value of the cookie
-             @since ARP1.0
-          */
-          getValue() : string {
-               return this.value;
-          }
-
-          /**
-             Set the cookie value
-
-             @param value Value of the cookie
-             @since ARP1.0
-          */
-          setValue(value: string) {
-               this.value = value;
           }
 
 

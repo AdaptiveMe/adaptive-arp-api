@@ -56,15 +56,15 @@ Release:
      /**
         Constructor used by the implementation
 
-        @param name  Name of the cookie
-        @param value Value of the cookie
+        @param cookieName  Name of the cookie
+        @param cookieValue Value of the cookie
         @since ARP1.0
      */
-     - (id) initWithNameValue:(NSString*)name value:(NSString*)value {
+     - (id) initWithCookieNameCookieValue:(NSString*)cookieName cookieValue:(NSString*)cookieValue {
           self = [self init];
           if (self) {
-               [self setName:name];
-               [self setValue:value];
+               [self setCookieName:cookieName];
+               [self setCookieValue:cookieValue];
           }
           return self;
      }
@@ -72,8 +72,8 @@ Release:
      /**
         Contructor with fields
 
-        @param name     Name of the cookie
-        @param value    Value of the cookie
+        @param cookieName     Name of the cookie
+        @param cookieValue    Value of the cookie
         @param domain   Domain of the cookie
         @param path     Path of the cookie
         @param scheme   Scheme of the cookie
@@ -82,11 +82,11 @@ Release:
         @param creation Creation date of the cookie
         @since ARP1.0
      */
-     - (id) initWithNameValueDomainPathSchemeSecureExpiryCreation:(NSString*)name value:(NSString*)value domain:(NSString*)domain path:(NSString*)path scheme:(NSString*)scheme secure:(bool*)secure expiry:(long*)expiry creation:(long*)creation {
+     - (id) initWithCookieNameCookieValueDomainPathSchemeSecureExpiryCreation:(NSString*)cookieName cookieValue:(NSString*)cookieValue domain:(NSString*)domain path:(NSString*)path scheme:(NSString*)scheme secure:(bool*)secure expiry:(long*)expiry creation:(long*)creation {
           self = [self init];
           if (self) {
-               [self setName:name];
-               [self setValue:value];
+               [self setCookieName:cookieName];
+               [self setCookieValue:cookieValue];
                [self setDomain:domain];
                [self setPath:path];
                [self setScheme:scheme];
