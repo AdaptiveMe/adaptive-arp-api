@@ -79,7 +79,7 @@ public interface INetworkStatusListener extends IBaseListener {
      * @since ARP1.0
      */
     public enum Error {
-        NoPermission, Unknown
+        NoPermission, Unreachable, Unknown
     }
 
     /**
