@@ -49,7 +49,12 @@ package me.adaptive.arp.api;
 public class APIRequest {
 
     /**
-     * String representing the method name to call
+     * String representing the bridge type to obtain.
+     */
+    private String bridgeType;
+
+    /**
+     * String representing the method name to call.
      */
     private String methodName;
 
@@ -59,7 +64,7 @@ public class APIRequest {
     private String[] parameters;
 
     /**
-     * Types of the request parameters
+     * Types of the request parameters.
      */
     private String[] parameterTypes;
 
@@ -101,6 +106,26 @@ public class APIRequest {
         this.parameters = parameters;
         this.parameterTypes = parameterTypes;
         this.asyncId = asyncId;
+    }
+
+    /**
+     * Bridge Type Getter
+     *
+     * @return Bridge Type
+     * @since ARP1.0
+     */
+    public String getBridgeType() {
+        return bridgeType;
+    }
+
+    /**
+     * Bridge Type Setter
+     *
+     * @param bridgeType Bridge Type
+     * @since ARP1.0
+     */
+    public void setBridgeType(String bridgeType) {
+        this.bridgeType = bridgeType;
     }
 
     /**
