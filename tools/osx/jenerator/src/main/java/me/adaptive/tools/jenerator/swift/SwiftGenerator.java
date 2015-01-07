@@ -811,12 +811,70 @@ public class SwiftGenerator extends GeneratorBase {
                     }
                     println(")");
                     if (m.getReturnType().isPrimitive()) {
-                        println(16, "responseJSON = nil //TODO - Serialize this.gson.toJson(response" + parameterIndex + ");");
-                    } else {
-                        println(16, "if (response" + parameterIndex + " != nil) {");
-                        println(20, "responseJSON = nil //TODO - Serialize this.gson.toJson(response" + parameterIndex + ");");
+                        if (m.getReturnType().equals(Boolean.TYPE)) {
+                            println(16, "if let response" + parameterIndex + " = response" + parameterIndex + " {");
+                            println(20, "responseJSON = \"{ \\(response" + parameterIndex + ") }\"");
+                            println(16, " } else {");
+                            println(20, "responseJSON = \"{ false }\"");
+                            println(16, " }");
+                        } else if (m.getReturnType().equals(Character.TYPE)) {
+                            println(16, "if let response" + parameterIndex + " = response" + parameterIndex + " {");
+                            println(20, "responseJSON = \"{ \\\"\\(response" + parameterIndex + ")\\\" }\"");
+                            println(16, " } else {");
+                            println(20, "responseJSON = \"{ \\\"\\\" }\"");
+                            println(16, " }");
+                        } else {
+                            println(16, "UNSUPPORTED. Please donate.");
+                        }
+                    } else if(m.getReturnType().equals(String.class)) {
+                        println(16, "if let response" + parameterIndex + " = response" + parameterIndex+" {");
+                        println(20, "responseJSON = \"{ \\\"\\(response"+parameterIndex+")\\\" }\"");
                         println(16, "} else {");
-                        println(20, "responseJSON = nil");
+                        println(20, "responseJSON = \"{ null }\"");
+                        println(16, "}");
+                    } else if (m.getReturnType().isEnum()) {
+                        println(16, "if let response" + parameterIndex + " = response" + parameterIndex + " {");
+                        println(20, "responseJSON = \"{ \\\"value\\\": \\\"\\(response" + parameterIndex + ".toString())\\\" }\"");
+                        println(16, "} else {");
+                        println(20, "responseJSON = \"{ \\\"value\\\": \\\"Unknown\\\" }\"");
+                        println(16, "}");
+                    } else if (m.getReturnType().isArray()) {
+                        println(16, "if let response" + parameterIndex + " = response" + parameterIndex + " {");
+                        println(20, "var response"+parameterIndex+"JSONArray : NSMutableString = NSMutableString()");
+                        println(20, "response"+parameterIndex+"JSONArray.appendString(\"{[ \")");
+                        println(20, "for (index, obj) in enumerate(response"+parameterIndex+") {");
+                        if (m.getReturnType().getComponentType().equals(Boolean.TYPE)) {
+                            println(24, "response" + parameterIndex + "JSONArray.appendString(\"\\(obj)\")");
+                        } else if (m.getReturnType().getComponentType().equals(Character.TYPE)) {
+                            println(24, "response" + parameterIndex + "JSONArray.appendString(\"\\\"\\(obj)\\\"\")");
+                        } else if (m.getReturnType().getComponentType().equals(String.class)) {
+                            println(24, "response" + parameterIndex + "JSONArray.appendString(\"\\\"\\(obj)\\\"\")");
+                        } else if (m.getReturnType().getComponentType().isEnum()) {
+                            println(24, "response" + parameterIndex + "JSONArray.appendString(\"\\\"value\\\": \\\"\\(obj.toString())\\\"\")");
+                        } else {
+                            println(24, "response" + parameterIndex + "JSONArray.appendString(" + convertJavaToNativeType(m.getReturnType().getComponentType()) + ".Serializer.toJSON(obj))");
+                        }
+
+                        println(24, "if index < response"+parameterIndex+".count-1 {");
+                        println(28, "response"+parameterIndex+"JSONArray.appendString(\", \")");
+                        println(24, "}");
+                        println(20, "}");
+                        println(20, "response"+parameterIndex+"JSONArray.appendString(\" ]}\")");
+                        println(20, "responseJSON = response"+parameterIndex+"JSONArray as String");
+                        println(16, "} else {");
+                        if (m.getReturnType().getComponentType().equals(Boolean.TYPE)) {
+                            println(20, "responseJSON = \"{ false }\"");
+                        } else if (m.getReturnType().getComponentType().isEnum()) {
+                            println(20, "responseJSON = \"{ \"value\": \"Unknown\" }\"");
+                        } else {
+                            println(20, "responseJSON = \"{ null }\"");
+                        }
+                        println(16, "}");
+                    } else {
+                        println(16, "if let response" + parameterIndex + " = response" + parameterIndex+" {");
+                        println(20, "responseJSON = "+convertJavaToNativeType(m.getReturnType()) + ".Serializer.toJSON(response"+ parameterIndex+")");
+                        println(16, "} else {");
+                        println(20, "responseJSON = \"{ null }\"");
                         println(16, "}");
                     }
                 }
@@ -843,12 +901,39 @@ public class SwiftGenerator extends GeneratorBase {
                 for (Parameter p : m.getParameters()) {
                     print(16, "var " + p.getName() + parameterIndex + " : " + convertJavaToNativeType(p.getType()) + "? = ");
                     if (p.getType().getSimpleName().endsWith("Callback") || p.getType().getSimpleName().endsWith("Listener")) {
-                        print(p.getType().getSimpleName().substring(1) + "Impl(request.getAsyncId())");
+                        print(" " + p.getType().getSimpleName().substring(1) + "Impl(id: request.getAsyncId()!)");
                     } else {
                         if (p.getType().isPrimitive()) {
-                            print("nil //TODO Deserialize this.gson.fromJson(request.getParameters()[" + pIndex + "], " + p.getType().getSimpleName() + ".class)");
+                            if (p.getType().equals(Boolean.TYPE)) {
+                                print("(request.getParameters()![" + pIndex + "] as NSString).boolValue");
+                            } else {
+                                print("UNSUPPORTED. Donate generously.");
+                            }
+                        } else if (p.getType().equals(String.class)) {
+                            print("request.getParameters()![" + pIndex + "]");
+                        } else if (p.getType().isEnum()) {
+                            print(convertJavaToNativeType(p.getType()) + ".toEnum(JSONUtil.dictionifyJSON(request.getParameters()![" + pIndex + "])[\"value\"] as String!)");
+                        } else if (p.getType().isArray()) {
+                            println(convertJavaToNativeType(p.getType()) + "()");
+                            println(16, "var " + p.getName() + "Array" + parameterIndex + " : [String] = JSONUtil.stringElementToArray(request.getParameters()![" + pIndex + "])");
+                            println(16, "for " + p.getName() + "Element" + parameterIndex + " in " + p.getName() + "Array" + parameterIndex + " {");
+                            if (p.getType().getComponentType().isPrimitive()) {
+                                if (p.getType().getComponentType().equals(Byte.TYPE)) {
+                                    println(20, p.getName() + parameterIndex + "!.append(Byte((" + p.getName() + "Element" + parameterIndex + " as NSString).intValue))");
+                                } else {
+                                    println(20, "UNSUPPORTED. Donate generously.");
+                                }
+                            } else if (p.getType().getComponentType().equals(String.class)) {
+                                println(20, p.getName() + parameterIndex + "!.append(" + p.getName() + "Element" + parameterIndex + ")");
+                            } else if (p.getType().getComponentType().isEnum()) {
+                                println(20, p.getName() + parameterIndex + "!.append(" + convertJavaToNativeType(p.getType().getComponentType()) + ".toEnum(JSONUtil.dictionifyJSON(" + p.getName() + "Element" + parameterIndex + ")[\"value\"] as String!))");
+                            } else {
+                                println(20, p.getName() + parameterIndex + "!.append(" + convertJavaToNativeType(p.getType().getComponentType()) + ".Serializer.fromJSON(" + p.getName() + "Element" + parameterIndex + "))");
+                            }
+
+                            print(16, "}");
                         } else {
-                            print("nil //TODO Deserialize this.gson.fromJson(request.getParameters()[" + pIndex + "], " + convertJavaToNativeType(p.getType()) + ".class)");
+                            print(convertJavaToNativeType(p.getType()) + ".Serializer.fromJSON(request.getParameters()![" + pIndex + "])");
                         }
                     }
                     println("");
@@ -867,7 +952,7 @@ public class SwiftGenerator extends GeneratorBase {
                             print(", ");
                         }
                     }
-                    println(")");
+                    println(");");
                 } else {
                     print(16, "var response" + parameterIndex + " : " + convertJavaToNativeType(m.getReturnType()) + "? = ");
                     print("self." + m.getName() + "(");
@@ -883,12 +968,70 @@ public class SwiftGenerator extends GeneratorBase {
                     }
                     println(")");
                     if (m.getReturnType().isPrimitive()) {
-                        println(16, "responseJSON = nil //TODO Serialize this.gson.toJson(response" + parameterIndex + ");");
-                    } else {
-                        println(16, "if (response" + parameterIndex + " != null) {");
-                        println(20, "responseJSON = nil //TODO Serialize this.gson.toJson(response" + parameterIndex + ");");
+                        if (m.getReturnType().equals(Boolean.TYPE)) {
+                            println(16, "if let response" + parameterIndex + " = response" + parameterIndex + " {");
+                            println(20, "responseJSON = \"{ \\(response" + parameterIndex + ") }\"");
+                            println(16, " } else {");
+                            println(20, "responseJSON = \"{ false }\"");
+                            println(16, " }");
+                        } else if (m.getReturnType().equals(Character.TYPE)) {
+                            println(16, "if let response" + parameterIndex + " = response" + parameterIndex + " {");
+                            println(20, "responseJSON = \"{ \\\"\\(response" + parameterIndex + ")\\\" }\"");
+                            println(16, " } else {");
+                            println(20, "responseJSON = \"{ \\\"\\\" }\"");
+                            println(16, " }");
+                        } else {
+                            println(16, "UNSUPPORTED. Please donate.");
+                        }
+                    } else if(m.getReturnType().equals(String.class)) {
+                        println(16, "if let response" + parameterIndex + " = response" + parameterIndex+" {");
+                        println(20, "responseJSON = \"{ \\\"\\(response"+parameterIndex+")\\\" }\"");
                         println(16, "} else {");
-                        println(20, "responseJSON = nil");
+                        println(20, "responseJSON = \"{ null }\"");
+                        println(16, "}");
+                    } else if (m.getReturnType().isEnum()) {
+                        println(16, "if let response" + parameterIndex + " = response" + parameterIndex + " {");
+                        println(20, "responseJSON = \"{ \\\"value\\\": \\\"\\(response" + parameterIndex + ".toString())\\\" }\"");
+                        println(16, "} else {");
+                        println(20, "responseJSON = \"{ \\\"value\\\": \\\"Unknown\\\" }\"");
+                        println(16, "}");
+                    } else if (m.getReturnType().isArray()) {
+                        println(16, "if let response" + parameterIndex + " = response" + parameterIndex + " {");
+                        println(20, "var response"+parameterIndex+"JSONArray : NSMutableString = NSMutableString()");
+                        println(20, "response"+parameterIndex+"JSONArray.appendString(\"{[ \")");
+                        println(20, "for (index, obj) in enumerate(response"+parameterIndex+") {");
+                        if (m.getReturnType().getComponentType().equals(Boolean.TYPE)) {
+                            println(24, "response" + parameterIndex + "JSONArray.appendString(\"\\(obj)\")");
+                        } else if (m.getReturnType().getComponentType().equals(Character.TYPE)) {
+                            println(24, "response" + parameterIndex + "JSONArray.appendString(\"\\\"\\(obj)\\\"\")");
+                        } else if (m.getReturnType().getComponentType().equals(String.class)) {
+                            println(24, "response" + parameterIndex + "JSONArray.appendString(\"\\\"\\(obj)\\\"\")");
+                        } else if (m.getReturnType().getComponentType().isEnum()) {
+                            println(24, "response" + parameterIndex + "JSONArray.appendString(\"\\\"value\\\": \\\"\\(obj.toString())\\\"\")");
+                        } else {
+                            println(24, "response" + parameterIndex + "JSONArray.appendString(" + convertJavaToNativeType(m.getReturnType().getComponentType()) + ".Serializer.toJSON(obj))");
+                        }
+
+                        println(24, "if index < response"+parameterIndex+".count-1 {");
+                        println(28, "response"+parameterIndex+"JSONArray.appendString(\", \")");
+                        println(24, "}");
+                        println(20, "}");
+                        println(20, "response"+parameterIndex+"JSONArray.appendString(\" ]}\")");
+                        println(20, "responseJSON = response"+parameterIndex+"JSONArray as String");
+                        println(16, "} else {");
+                        if (m.getReturnType().getComponentType().equals(Boolean.TYPE)) {
+                            println(20, "responseJSON = \"{ false }\"");
+                        } else if (m.getReturnType().getComponentType().isEnum()) {
+                            println(20, "responseJSON = \"{ \"value\": \"Unknown\" }\"");
+                        } else {
+                            println(20, "responseJSON = \"{ null }\"");
+                        }
+                        println(16, "}");
+                    } else {
+                        println(16, "if let response" + parameterIndex + " = response" + parameterIndex+" {");
+                        println(20, "responseJSON = "+convertJavaToNativeType(m.getReturnType()) + ".Serializer.toJSON(response"+ parameterIndex+")");
+                        println(16, "} else {");
+                        println(20, "responseJSON = \"{ null }\"");
                         println(16, "}");
                     }
                 }
