@@ -89,7 +89,7 @@ public class SwiftGenerator extends GeneratorBase {
             startComment(4);
             println(7, "Return the API group for the given interface.");
             endComment(4);
-            println(4, "public final func getAPIGroup() -> IAdaptiveRPGroup {");
+            println(4, "public final func getAPIGroup() -> IAdaptiveRPGroup? {");
             println(8, "return self.apiGroup!");
             println(4, "}");
         } else {
@@ -376,7 +376,7 @@ public class SwiftGenerator extends GeneratorBase {
             startComment(4);
             println(7, "Return the API group for the given interface.");
             endComment(4);
-            println(4, "public final func getAPIGroup() -> IAdaptiveRPGroup {");
+            println(4, "public final func getAPIGroup() -> IAdaptiveRPGroup? {");
             println(8, "return self.apiGroup!");
             println(4, "}");
             /*
@@ -399,7 +399,7 @@ public class SwiftGenerator extends GeneratorBase {
                 endComment(4);
                 println(4, "private var apiGroup : IAdaptiveRPGroup = IAdaptiveRPGroup.Kernel;");
                 println();
-                println(4, "public func getAPIGroup() -> IAdaptiveRPGroup {");
+                println(4, "public func getAPIGroup() -> IAdaptiveRPGroup? {");
                 println(8, "return self.apiGroup");
                 println(4, "}");
             }
@@ -534,7 +534,7 @@ public class SwiftGenerator extends GeneratorBase {
                     if (!isLoggingClass) {
                         println();
                         println(8, "if (logger != nil) {");
-                        println(12, "logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: \"" + simpleName + " executing get" + serviceClass.getSimpleName().substring(1) + "Bridge().\")");
+                        println(12, "logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: \"" + simpleName + " executing get" + serviceClass.getSimpleName().substring(1) + "Bridge().\")");
                         println(8, "}");
                         println();
                     }
@@ -542,11 +542,11 @@ public class SwiftGenerator extends GeneratorBase {
                     println(12, "result = self.delegate!.get" + serviceClass.getSimpleName().substring(1) + "Bridge()");
                     if (!isLoggingClass) {
                         println(12, "if (logger != nil) {");
-                        println(16, "logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: \"" + simpleName + " executed 'get" + serviceClass.getSimpleName().substring(1) + "Bridge' in \\(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.\")");
+                        println(16, "logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: \"" + simpleName + " executed 'get" + serviceClass.getSimpleName().substring(1) + "Bridge' in \\(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.\")");
                         println(12, "}");
                         println(8, "} else {");
                         println(12, "if (logger != nil) {");
-                        println(16, "logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: \"" + simpleName + " no delegate for 'get" + serviceClass.getSimpleName().substring(1) + "Bridge'.\")");
+                        println(16, "logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: \"" + simpleName + " no delegate for 'get" + serviceClass.getSimpleName().substring(1) + "Bridge'.\")");
                         println(12, "}");
                     }
                     println(8, "}");
@@ -571,17 +571,17 @@ public class SwiftGenerator extends GeneratorBase {
                 println(8, "var result : APIBridge? = nil");
                 println();
                 println(8, "if (logger != nil) {");
-                println(12, "logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: \"" + simpleName + " executing getBridge(\\(bridgeType)).\")");
+                println(12, "logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: \"" + simpleName + " executing getBridge(\\(bridgeType)).\")");
                 println(8, "}");
                 println();
                 println(8, "if (self.delegate != nil) {");
                 println(12, "result = self.delegate!.getBridge(bridgeType)");
                 println(12, "if (logger != nil) {");
-                println(16, "logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: \"" + simpleName + " executed 'getBridge' in \\(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.\")");
+                println(16, "logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: \"" + simpleName + " executed 'getBridge' in \\(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.\")");
                 println(12, "}");
                 println(8, "} else {");
                 println(12, "if (logger != nil) {");
-                println(16, "logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: \"" + simpleName + " no delegate for 'getBridge'.\")");
+                println(16, "logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: \"" + simpleName + " no delegate for 'getBridge'.\")");
                 println(12, "}");
                 println(8, "}");
                 if (!m.getReturnType().equals(Void.TYPE)) {
@@ -616,7 +616,7 @@ public class SwiftGenerator extends GeneratorBase {
                     if (simpleName.startsWith("AppRegistry")) {
                         print("-> " + m.getReturnType().getSimpleName().substring(1) + "Bridge ");
                     } else {
-                        print("-> " + convertJavaToNativeType(m.getReturnType()) + " ");
+                        print("-> " + convertJavaToNativeType(m.getReturnType()) + "? ");
                     }
                 }
                 println("{");
@@ -627,7 +627,7 @@ public class SwiftGenerator extends GeneratorBase {
                     println(8, "var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()");
                     println();
                     println(8, "if (logger != nil) {");
-                    print(12, "logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: \"" + simpleName + " executing " + m.getName() + "");
+                    print(12, "logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: \"" + simpleName + " executing " + m.getName() + "");
                     if (m.getParameterCount() > 0) {
                         print("(");
                     }
@@ -648,11 +648,11 @@ public class SwiftGenerator extends GeneratorBase {
                 if (!m.getReturnType().equals(Void.TYPE)) {
                     if (m.getReturnType().isPrimitive()) {
                         if (m.getReturnType().equals(Boolean.TYPE)) {
-                            println(8, "var result : " + convertJavaToNativeType(m.getReturnType()) + " = false");
+                            println(8, "var result : " + convertJavaToNativeType(m.getReturnType()) + "? = false");
                         } else if (m.getReturnType().equals(Character.TYPE)) {
-                            println(8, "var result : " + convertJavaToNativeType(m.getReturnType()) + " = \" \"");
+                            println(8, "var result : " + convertJavaToNativeType(m.getReturnType()) + "? = \" \"");
                         } else {
-                            println(8, "var result : " + convertJavaToNativeType(m.getReturnType()) + " = " + m.getReturnType());
+                            println(8, "var result : " + convertJavaToNativeType(m.getReturnType()) + "? = " + m.getReturnType());
                         }
                     } else {
                         if (simpleName.startsWith("AppRegistry")) {
@@ -684,11 +684,11 @@ public class SwiftGenerator extends GeneratorBase {
                 println(")");
                 if (!isLoggingClass) {
                     println(12, "if (logger != nil) {");
-                    println(16, "logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: \"" + simpleName + " executed '" + m.getName() + "' in \\(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.\")");
+                    println(16, "logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: \"" + simpleName + " executed '" + m.getName() + "' in \\(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.\")");
                     println(12, " }");
                     println(8, "} else {");
                     println(12, "if (logger != nil) {");
-                    println(16, "logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: \"" + simpleName + " no delegate for '" + m.getName() + "'.\")");
+                    println(16, "logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: \"" + simpleName + " no delegate for '" + m.getName() + "'.\")");
                     println(12, "}");
                 }
                 println(8, "}");
@@ -869,7 +869,7 @@ public class SwiftGenerator extends GeneratorBase {
                     }
                     println(")");
                 } else {
-                    print(16, "var response" + parameterIndex + " : " + convertJavaToNativeType(m.getReturnType()) + " = ");
+                    print(16, "var response" + parameterIndex + " : " + convertJavaToNativeType(m.getReturnType()) + "? = ");
                     print("self." + m.getName() + "(");
                     for (int i = 0; i < m.getParameterCount(); i++) {
                         Parameter p = m.getParameters()[i];
@@ -954,7 +954,7 @@ public class SwiftGenerator extends GeneratorBase {
             startComment(4);
             println(7, "Return the API group for the given interface.");
             endComment(4);
-            println(4, "public func getAPIGroup() -> IAdaptiveRPGroup {");
+            println(4, "public func getAPIGroup() -> IAdaptiveRPGroup? {");
             println(8, "return self.apiGroup!");
             println(4, "}");
 
@@ -1084,7 +1084,7 @@ public class SwiftGenerator extends GeneratorBase {
             startComment(4);
             println(7, "Return the API group for the given interface.");
             endComment(4);
-            println(4, "public final func getAPIGroup() -> IAdaptiveRPGroup {");
+            println(4, "public final func getAPIGroup() -> IAdaptiveRPGroup? {");
             println(8, "return self.apiGroup!");
             println(4, "}");
 
@@ -1258,7 +1258,7 @@ public class SwiftGenerator extends GeneratorBase {
                     } else if (simpleName.equals("APIBridge")) {
                         println(" -> " + convertJavaToNativeType(method.getReturnType()) + "?");
                     } else {
-                        println(" -> " + convertJavaToNativeType(method.getReturnType()) + " ");
+                        println(" -> " + convertJavaToNativeType(method.getReturnType()) + "?");
                     }
                 }
                 println();
