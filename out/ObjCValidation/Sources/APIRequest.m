@@ -56,12 +56,14 @@ Release:
      /**
         Constructor with method name. No parameters
 
+        @param bridgeType Name of the bridge to be invoked.
         @param methodName Name of the method
         @since ARP1.0
      */
-     - (id) initWithMethodName:(NSString*)methodName {
+     - (id) initWithBridgeTypeMethodName:(NSString*)bridgeType methodName:(NSString*)methodName {
           self = [self init];
           if (self) {
+               [self setBridgeType:bridgeType];
                [self setMethodName:methodName];
           }
           return self;
@@ -70,18 +72,18 @@ Release:
      /**
         Constructor with all the parameters
 
-        @param methodName     Name of the method
-        @param parameters     Array of parameters as JSON formatted strings.
-        @param parameterTypes Array of parameters types
-        @param asyncId        Id of callback or listener or zero if none for synchronous calls.
+        @param bridgeType Name of the bridge to be invoked.
+        @param methodName Name of the method
+        @param parameters Array of parameters as JSON formatted strings.
+        @param asyncId    Id of callback or listener or zero if none for synchronous calls.
         @since ARP1.0
      */
-     - (id) initWithMethodNameParametersParameterTypesAsyncId:(NSString*)methodName parameters:(NSArray*)parameters parameterTypes:(NSArray*)parameterTypes asyncId:(long*)asyncId {
+     - (id) initWithBridgeTypeMethodNameParametersAsyncId:(NSString*)bridgeType methodName:(NSString*)methodName parameters:(NSArray*)parameters asyncId:(long*)asyncId {
           self = [self init];
           if (self) {
+               [self setBridgeType:bridgeType];
                [self setMethodName:methodName];
                [self setParameters:parameters];
-               [self setParameterTypes:parameterTypes];
                [self setAsyncId:asyncId];
           }
           return self;

@@ -42,6 +42,7 @@ namespace Adaptive.Arp.Api
      public enum INetworkStatusListenerError {
 
           NoPermission,
+          Unreachable,
           Unknown
 
      }

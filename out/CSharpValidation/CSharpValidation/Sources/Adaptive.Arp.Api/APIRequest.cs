@@ -51,13 +51,13 @@ namespace Adaptive.Arp.Api
           */
           public long AsyncId { get; set; }
           /**
-             String representing the method name to call
+             String representing the bridge type to obtain.
+          */
+          public string BridgeType { get; set; }
+          /**
+             String representing the method name to call.
           */
           public string MethodName { get; set; }
-          /**
-             Types of the request parameters
-          */
-          public string[] ParameterTypes { get; set; }
           /**
              Parameters of the request as JSON formatted strings.
           */
@@ -74,26 +74,28 @@ namespace Adaptive.Arp.Api
           /**
              Constructor with method name. No parameters
 
+             @param BridgeType Name of the bridge to be invoked.
              @param MethodName Name of the method
              @since ARP1.0
           */
-          public APIRequest(string MethodName) : base () {
+          public APIRequest(string BridgeType, string MethodName) : base () {
+               this.BridgeType = BridgeType;
                this.MethodName = MethodName;
           }
 
           /**
              Constructor with all the parameters
 
-             @param MethodName     Name of the method
-             @param Parameters     Array of parameters as JSON formatted strings.
-             @param ParameterTypes Array of parameters types
-             @param AsyncId        Id of callback or listener or zero if none for synchronous calls.
+             @param BridgeType Name of the bridge to be invoked.
+             @param MethodName Name of the method
+             @param Parameters Array of parameters as JSON formatted strings.
+             @param AsyncId    Id of callback or listener or zero if none for synchronous calls.
              @since ARP1.0
           */
-          public APIRequest(string MethodName, string[] Parameters, string[] ParameterTypes, long AsyncId) : base () {
+          public APIRequest(string BridgeType, string MethodName, string[] Parameters, long AsyncId) : base () {
+               this.BridgeType = BridgeType;
                this.MethodName = MethodName;
                this.Parameters = Parameters;
-               this.ParameterTypes = ParameterTypes;
                this.AsyncId = AsyncId;
           }
 
@@ -117,6 +119,26 @@ listener.
           }
 
           /**
+             Bridge Type Getter
+
+             @return Bridge Type
+             @since ARP1.0
+          */
+          public string GetBridgeType() {
+               return this.BridgeType;
+          }
+
+          /**
+             Bridge Type Setter
+
+             @param BridgeType Bridge Type
+             @since ARP1.0
+          */
+          public void SetBridgeType(string BridgeType) {
+               this.BridgeType = BridgeType;
+          }
+
+          /**
              Method name Getter
 
              @return Method name
@@ -134,26 +156,6 @@ listener.
           */
           public void SetMethodName(string MethodName) {
                this.MethodName = MethodName;
-          }
-
-          /**
-             Parameter types Getter
-
-             @return Parameter types
-             @since ARP1.0
-          */
-          public string[] GetParameterTypes() {
-               return this.ParameterTypes;
-          }
-
-          /**
-             Parameter types setter
-
-             @param ParameterTypes Parameter types
-             @since ARP1.0
-          */
-          public void SetParameterTypes(string[] ParameterTypes) {
-               this.ParameterTypes = ParameterTypes;
           }
 
           /**

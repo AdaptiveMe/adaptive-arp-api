@@ -48,14 +48,13 @@ Structure representing a HTML5 request to the native API.
      */
      @property long *asyncId;
      /**
-        String representing the method name to call
+        String representing the bridge type to obtain.
+     */
+     @property NSString *bridgeType;
+     /**
+        String representing the method name to call.
      */
      @property NSString *methodName;
-     /**
-        Types of the request parameters
-        Array objects must be of String type.
-     */
-     @property NSArray *parameterTypes;
      /**
         Parameters of the request as JSON formatted strings.
         Array objects must be of String type.
@@ -72,21 +71,22 @@ Structure representing a HTML5 request to the native API.
      /**
         Constructor with method name. No parameters
 
+        @param bridgeType Name of the bridge to be invoked.
         @param methodName Name of the method
         @since ARP1.0
      */
-     - (id) initWithMethodName:(NSString*)methodName;
+     - (id) initWithBridgeTypeMethodName:(NSString*)bridgeType methodName:(NSString*)methodName;
 
      /**
         Constructor with all the parameters
 
-        @param methodName     Name of the method
-        @param parameters     Array of parameters as JSON formatted strings.
-        @param parameterTypes Array of parameters types
-        @param asyncId        Id of callback or listener or zero if none for synchronous calls.
+        @param bridgeType Name of the bridge to be invoked.
+        @param methodName Name of the method
+        @param parameters Array of parameters as JSON formatted strings.
+        @param asyncId    Id of callback or listener or zero if none for synchronous calls.
         @since ARP1.0
      */
-     - (id) initWithMethodNameParametersParameterTypesAsyncId:(NSString*)methodName parameters:(NSArray*)parameters parameterTypes:(NSArray*)parameterTypes asyncId:(long*)asyncId;
+     - (id) initWithBridgeTypeMethodNameParametersAsyncId:(NSString*)bridgeType methodName:(NSString*)methodName parameters:(NSArray*)parameters asyncId:(long*)asyncId;
 
 
 @end

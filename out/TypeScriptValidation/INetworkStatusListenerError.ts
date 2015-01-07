@@ -43,6 +43,7 @@ module Adaptive {
           toString(){return this.value;}
 
           static NoPermission = new INetworkStatusListenerError("NoPermission");
+          static Unreachable = new INetworkStatusListenerError("Unreachable");
           static Unknown = new INetworkStatusListenerError("Unknown");
 
      }

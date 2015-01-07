@@ -48,13 +48,13 @@ public class APIRequest {
      */
      private long asyncId;
      /**
-        String representing the method name to call
+        String representing the bridge type to obtain.
+     */
+     private String bridgeType;
+     /**
+        String representing the method name to call.
      */
      private String methodName;
-     /**
-        Types of the request parameters
-     */
-     private String[] parameterTypes;
      /**
         Parameters of the request as JSON formatted strings.
      */
@@ -71,28 +71,30 @@ public class APIRequest {
      /**
         Constructor with method name. No parameters
 
+        @param bridgeType Name of the bridge to be invoked.
         @param methodName Name of the method
         @since ARP1.0
      */
-     public APIRequest(String methodName) {
+     public APIRequest(String bridgeType, String methodName) {
           this();
+          this.bridgeType = bridgeType;
           this.methodName = methodName;
      }
 
      /**
         Constructor with all the parameters
 
-        @param methodName     Name of the method
-        @param parameters     Array of parameters as JSON formatted strings.
-        @param parameterTypes Array of parameters types
-        @param asyncId        Id of callback or listener or zero if none for synchronous calls.
+        @param bridgeType Name of the bridge to be invoked.
+        @param methodName Name of the method
+        @param parameters Array of parameters as JSON formatted strings.
+        @param asyncId    Id of callback or listener or zero if none for synchronous calls.
         @since ARP1.0
      */
-     public APIRequest(String methodName, String[] parameters, String[] parameterTypes, long asyncId) {
+     public APIRequest(String bridgeType, String methodName, String[] parameters, long asyncId) {
           this();
+          this.bridgeType = bridgeType;
           this.methodName = methodName;
           this.parameters = parameters;
-          this.parameterTypes = parameterTypes;
           this.asyncId = asyncId;
      }
 
@@ -116,6 +118,26 @@ listener.
      }
 
      /**
+        Bridge Type Getter
+
+        @return Bridge Type
+        @since ARP1.0
+     */
+     public String getBridgeType() {
+          return this.bridgeType;
+     }
+
+     /**
+        Bridge Type Setter
+
+        @param bridgeType Bridge Type
+        @since ARP1.0
+     */
+     public void setBridgeType(String bridgeType) {
+          this.bridgeType = bridgeType;
+     }
+
+     /**
         Method name Getter
 
         @return Method name
@@ -133,26 +155,6 @@ listener.
      */
      public void setMethodName(String methodName) {
           this.methodName = methodName;
-     }
-
-     /**
-        Parameter types Getter
-
-        @return Parameter types
-        @since ARP1.0
-     */
-     public String[] getParameterTypes() {
-          return this.parameterTypes;
-     }
-
-     /**
-        Parameter types setter
-
-        @param parameterTypes Parameter types
-        @since ARP1.0
-     */
-     public void setParameterTypes(String[] parameterTypes) {
-          this.parameterTypes = parameterTypes;
      }
 
      /**

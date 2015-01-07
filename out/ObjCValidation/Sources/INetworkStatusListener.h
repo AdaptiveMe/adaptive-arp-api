@@ -57,7 +57,8 @@ Interface for Managing the Network status listener events
 
      typedef NS_OPTIONS(NSUInteger, INetworkStatusListenerError) {
           INetworkStatusListenerError_NoPermission = 0,
-          INetworkStatusListenerError_Unknown = 1
+          INetworkStatusListenerError_Unreachable = 1,
+          INetworkStatusListenerError_Unknown = 2
      };
 
      typedef NS_OPTIONS(NSUInteger, INetworkStatusListenerWarning) {

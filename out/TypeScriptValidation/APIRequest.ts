@@ -48,13 +48,13 @@ module Adaptive {
           */
           asyncId : number;
           /**
-             String representing the method name to call
+             String representing the bridge type to obtain.
+          */
+          bridgeType : string;
+          /**
+             String representing the method name to call.
           */
           methodName : string;
-          /**
-             Types of the request parameters
-          */
-          parameterTypes : Array<string>;
           /**
              Parameters of the request as JSON formatted strings.
           */
@@ -62,16 +62,16 @@ module Adaptive {
           /**
              Constructor with all the parameters
 
-             @param methodName     Name of the method
-             @param parameters     Array of parameters as JSON formatted strings.
-             @param parameterTypes Array of parameters types
-             @param asyncId        Id of callback or listener or zero if none for synchronous calls.
+             @param bridgeType Name of the bridge to be invoked.
+             @param methodName Name of the method
+             @param parameters Array of parameters as JSON formatted strings.
+             @param asyncId    Id of callback or listener or zero if none for synchronous calls.
              @since ARP1.0
           */
-          constructor(methodName: string, parameters: Array<string>, parameterTypes: Array<string>, asyncId: number) {
+          constructor(bridgeType: string, methodName: string, parameters: Array<string>, asyncId: number) {
+               this.bridgeType = bridgeType;
                this.methodName = methodName;
                this.parameters = parameters;
-               this.parameterTypes = parameterTypes;
                this.asyncId = asyncId;
           }
 
@@ -95,6 +95,26 @@ listener.
           }
 
           /**
+             Bridge Type Getter
+
+             @return Bridge Type
+             @since ARP1.0
+          */
+          getBridgeType() : string {
+               return this.bridgeType;
+          }
+
+          /**
+             Bridge Type Setter
+
+             @param bridgeType Bridge Type
+             @since ARP1.0
+          */
+          setBridgeType(bridgeType: string) {
+               this.bridgeType = bridgeType;
+          }
+
+          /**
              Method name Getter
 
              @return Method name
@@ -112,26 +132,6 @@ listener.
           */
           setMethodName(methodName: string) {
                this.methodName = methodName;
-          }
-
-          /**
-             Parameter types Getter
-
-             @return Parameter types
-             @since ARP1.0
-          */
-          getParameterTypes() : Array<string> {
-               return this.parameterTypes;
-          }
-
-          /**
-             Parameter types setter
-
-             @param parameterTypes Parameter types
-             @since ARP1.0
-          */
-          setParameterTypes(parameterTypes: Array<string>) {
-               this.parameterTypes = parameterTypes;
           }
 
           /**

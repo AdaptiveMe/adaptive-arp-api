@@ -40,6 +40,7 @@ package me.adaptive.arp.api;
 public enum INetworkStatusListenerError {
 
      NoPermission,
+     Unreachable,
      Unknown
 
 }
