@@ -357,13 +357,7 @@ public class SwiftGenerator extends GeneratorBase {
             endComment(4);
             println(4, "private var apiGroup : IAdaptiveRPGroup? = nil");
             println();
-            /*
-            startComment(4);
-            println(7, "JSON API.");
-            endComment(4);
-            println(4, "//protected Gson gson;");
-            println();
-            */
+
             startComment(4);
             println(7, "Default constructor.");
             endComment(4);
@@ -379,15 +373,7 @@ public class SwiftGenerator extends GeneratorBase {
             println(4, "public final func getAPIGroup() -> IAdaptiveRPGroup? {");
             println(8, "return self.apiGroup!");
             println(4, "}");
-            /*
-            startComment(4);
-            println(7, "Return the JSON serializer.");
-            println(7, "@return Current JSON serializer.");
-            endComment(4);
-            println(4, "//public final Gson getJSONAPI() {");
-            println(8, "//return this.gson;");
-            println(4, "//}");
-            */
+
         } else {
             if (clazz.getInterfaces().length > 0) {
                 println("public class " + simpleName + " : " + clazz.getInterfaces()[0].getSimpleName().substring(1) + "Bridge, " + clazz.getSimpleName() + ", APIBridge {");
@@ -1115,6 +1101,13 @@ public class SwiftGenerator extends GeneratorBase {
         }
         println();
 
+        createListenerCallbackBody(clazz, javaClass);
+
+        println("}");
+
+    }
+
+    private void createListenerCallbackBody(Class clazz, JavaClass javaClass) {
         List<Method> classMethods = new ArrayList<>();
         Map<Method, JavaMethod> javaMethods = new HashMap<>();
         for (Method m : clazz.getDeclaredMethods()) {
@@ -1157,24 +1150,47 @@ public class SwiftGenerator extends GeneratorBase {
                     println("-> " + convertJavaToNativeType(m.getReturnType()) + " {");
                 }
 
-                print(8, "AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript(\"handle" + m.getDeclaringClass().getSimpleName().substring(1) + m.getName().substring(2) + "( '\\(getId())', ");
-                StringBuffer todos = new StringBuffer();
+                println(8, "var responseJS : NSMutableString = NSMutableString()");
+                
                 for (int i = 0; i < m.getParameterCount(); i++) {
                     Parameter p = m.getParameters()[i];
-                    print("JSON.parse(\\\"\\\")");
-                    todos.append("/** TODO: this.gson.toJson(\" + p.getName() + \")**/ ");
+                    println(8, "responseJS.appendString(\"JSON.parse(\\\"\")");
+
+                    if (p.getType().isPrimitive()) {
+                        println(8, "responseJS.appendString(\"{ \\("+p.getName()+") }\")");
+                    } else if (p.getType().equals(String.class)) {
+                        println(8, "responseJS.appendString(\"{ \\\"\\("+p.getName()+")\\\" }\")");
+                    } else if (p.getType().isEnum()) {
+                        println(8, "responseJS.appendString(\"{ \\\"value\\\": \\\"\\("+p.getName()+".toString())\\\" }\")");
+                    } else if (p.getType().isArray()) {
+                        println(8, "responseJS.appendString(\"{[\")");
+                        println(8, "for (index,obj) in enumerate("+p.getName()+") {");
+
+                        if (p.getType().getComponentType().equals(Byte.TYPE)) {
+                            println(12, "responseJS.appendString(\"\\(obj.value)\")");
+                        } else {
+                            println(12, "responseJS.appendString("+convertJavaToNativeType(p.getType().getComponentType())+".Serializer.toJSON(obj))");
+                        }
+
+                        println(12, "if index < "+p.getName()+".count-1 {");
+                        println(16, "responseJS.appendString(\", \")");
+                        println(12, "}");
+                        println(8, "}");
+                        println(8, "responseJS.appendString(\"]}\")");
+                    } else {
+                        println(8, "responseJS.appendString("+convertJavaToNativeType(p.getType())+".Serializer.toJSON("+p.getName()+"))");
+                    }
+
+                    println(8, "responseJS.appendString(\"\\\")\")");
                     if (i < m.getParameterCount() - 1) {
-                        print(", ");
+                        println(8,"responseJS.appendString(\", \")");
                     }
                 }
-                println("\" )");
-                println(8, todos.toString());
+                println(8, "AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript(\"handle" + m.getDeclaringClass().getSimpleName().substring(1) + m.getName().substring(2) + "( \\\"\\(getId())\\\", \\(responseJS as String))\")");
                 println(4, "}");
                 println();
             }
         }
-        println("}");
-
     }
 
     @Override
@@ -1245,66 +1261,8 @@ public class SwiftGenerator extends GeneratorBase {
         }
         println();
 
-        List<Method> classMethods = new ArrayList<>();
-        Map<Method, JavaMethod> javaMethods = new HashMap<>();
-        for (Method m : clazz.getDeclaredMethods()) {
-            classMethods.add(m);
-            for (JavaMethod jm : javaClass.getMethods()) {
-                if (jm.getName().equals(m.getName()) && jm.getParameters().size() == m.getParameterCount()) {
-                    javaMethods.put(m, jm);
-                }
-            }
-        }
-        classMethods.sort(new Comparator<Method>() {
-            @Override
-            public int compare(Method o1, Method o2) {
-                return (o1.getName() + o1.getParameterCount()).compareTo((o2.getName() + o2.getParameterCount()));
-            }
-        });
-        for (Method m : classMethods) {
-            if (javaMethods.get(m) != null) {
-                startComment(4);
-                println(7, javaMethods.get(m).getComment());
-                println();
-                for (DocletTag tag : javaMethods.get(m).getTags()) {
-                    println(7, "@" + tag.getName() + " " + tag.getValue());
-                }
-                endComment(4);
-                print(4, "public func ");
+        createListenerCallbackBody(clazz, javaClass);
 
-                print(m.getName() + "(");
-                for (int i = 0; i < m.getParameterCount(); i++) {
-                    Parameter p = m.getParameters()[i];
-                    print(p.getName());
-                    print(" : " + convertJavaToNativeType(p.getType()));
-                    if (i < m.getParameterCount() - 1) {
-                        print(", ");
-                    }
-                }
-                print(") ");
-                if (m.getReturnType().equals(Void.TYPE)) {
-                    println(" {");
-                } else {
-                    print(" -> " + convertJavaToNativeType(m.getReturnType()) + " {");
-                }
-
-                print(8, "AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript(\"handle" + m.getDeclaringClass().getSimpleName().substring(1) + m.getName().substring(2) + "( '\\(getId())', ");
-
-                StringBuffer todos = new StringBuffer();
-                for (int i = 0; i < m.getParameterCount(); i++) {
-                    Parameter p = m.getParameters()[i];
-                    print("JSON.parse(\\\"\\\")");
-                    todos.append("/** TODO: this.gson.toJson(\" + p.getName() + \")**/ ");
-                    if (i < m.getParameterCount() - 1) {
-                        print(", ");
-                    }
-                }
-                println("\" )");
-                println(8, todos.toString());
-                println(4, "}");
-                println();
-            }
-        }
         println("}");
     }
 
