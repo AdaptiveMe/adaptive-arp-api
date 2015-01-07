@@ -64,11 +64,6 @@ public class APIRequest {
     private String[] parameters;
 
     /**
-     * Types of the request parameters.
-     */
-    private String[] parameterTypes;
-
-    /**
      * Identifier of callback or listener for async operations.
      */
     private long asyncId;
@@ -85,26 +80,28 @@ public class APIRequest {
     /**
      * Constructor with method name. No parameters
      *
+     * @param bridgeType Name of the bridge to be invoked.
      * @param methodName Name of the method
      * @since ARP1.0
      */
-    public APIRequest(String methodName) {
+    public APIRequest(String bridgeType, String methodName) {
+        this.bridgeType = bridgeType;
         this.methodName = methodName;
     }
 
     /**
      * Constructor with all the parameters
      *
-     * @param methodName     Name of the method
-     * @param parameters     Array of parameters as JSON formatted strings.
-     * @param parameterTypes Array of parameters types
-     * @param asyncId        Id of callback or listener or zero if none for synchronous calls.
+     * @param bridgeType Name of the bridge to be invoked.
+     * @param methodName Name of the method
+     * @param parameters Array of parameters as JSON formatted strings.
+     * @param asyncId    Id of callback or listener or zero if none for synchronous calls.
      * @since ARP1.0
      */
-    public APIRequest(String methodName, String[] parameters, String[] parameterTypes, long asyncId) {
+    public APIRequest(String bridgeType, String methodName, String[] parameters, long asyncId) {
+        this.bridgeType = bridgeType;
         this.methodName = methodName;
         this.parameters = parameters;
-        this.parameterTypes = parameterTypes;
         this.asyncId = asyncId;
     }
 
@@ -166,26 +163,6 @@ public class APIRequest {
      */
     public void setParameters(String[] parameters) {
         this.parameters = parameters;
-    }
-
-    /**
-     * Parameter types Getter
-     *
-     * @return Parameter types
-     * @since ARP1.0
-     */
-    public String[] getParameterTypes() {
-        return parameterTypes;
-    }
-
-    /**
-     * Parameter types setter
-     *
-     * @param parameterTypes Parameter types
-     * @since ARP1.0
-     */
-    public void setParameterTypes(String[] parameterTypes) {
-        this.parameterTypes = parameterTypes;
     }
 
     /**
