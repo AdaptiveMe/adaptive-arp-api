@@ -100,6 +100,7 @@
         <item url="file://$PROJECT_DIR$/ServiceResponse.js" />
         <item url="file://$PROJECT_DIR$/IFileListResultCallbackError.js" />
         <item url="file://$PROJECT_DIR$/IAmbientLight.js" />
+        <item url="file://$PROJECT_DIR$/Adaptive.js" />
         <item url="file://$PROJECT_DIR$/IServiceMethod.js" />
         <item url="file://$PROJECT_DIR$/IDatabaseResultCallbackError.js" />
         <item url="file://$PROJECT_DIR$/IDatabaseTableResultCallbackWarning.js" />
@@ -165,8 +166,8 @@
         <item url="file://$PROJECT_DIR$/IMessagingCallbackWarning.js" />
         <item url="file://$PROJECT_DIR$/IBasePIM.js" />
         <item url="file://$PROJECT_DIR$/IFileDataStoreResultCallbackWarning.js" />
-        <item url="file://$PROJECT_DIR$/IFileDataLoadResultCallback.js" />
         <item url="file://$PROJECT_DIR$/IMessagingCallbackError.js" />
+        <item url="file://$PROJECT_DIR$/IFileDataLoadResultCallback.js" />
         <item url="file://$PROJECT_DIR$/IDevice.js" />
         <item url="file://$PROJECT_DIR$/IFileSystemStorageType.js" />
         <item url="file://$PROJECT_DIR$/EmailAddress.js" />
@@ -202,8 +203,8 @@
         <item url="file://$PROJECT_DIR$/INetworkReachability.js" />
         <item url="file://$PROJECT_DIR$/IUI.js" />
         <item url="file://$PROJECT_DIR$/IBaseSecurity.js" />
-        <item url="file://$PROJECT_DIR$/IOAuth.js" />
         <item url="file://$PROJECT_DIR$/IFileListResultCallback.js" />
+        <item url="file://$PROJECT_DIR$/IOAuth.js" />
         <item url="file://$PROJECT_DIR$/ICapabilitiesMedia.js" />
         <item url="file://$PROJECT_DIR$/ContactUid.js" />
       </sourceFilesUrls>
@@ -371,6 +372,7 @@
       <root url="file://$PROJECT_DIR$/ServiceResponse.js" />
       <root url="file://$PROJECT_DIR$/IFileListResultCallbackError.js" />
       <root url="file://$PROJECT_DIR$/IAmbientLight.js" />
+      <root url="file://$PROJECT_DIR$/Adaptive.js" />
       <root url="file://$PROJECT_DIR$/IServiceMethod.js" />
       <root url="file://$PROJECT_DIR$/IDatabaseResultCallbackError.js" />
       <root url="file://$PROJECT_DIR$/IDatabaseTableResultCallbackWarning.js" />
@@ -436,8 +438,8 @@
       <root url="file://$PROJECT_DIR$/IFileDataLoadResultCallbackError.js" />
       <root url="file://$PROJECT_DIR$/IFileDataStoreResultCallbackWarning.js" />
       <root url="file://$PROJECT_DIR$/IBasePIM.js" />
-      <root url="file://$PROJECT_DIR$/IMessagingCallbackError.js" />
       <root url="file://$PROJECT_DIR$/IFileDataLoadResultCallback.js" />
+      <root url="file://$PROJECT_DIR$/IMessagingCallbackError.js" />
       <root url="file://$PROJECT_DIR$/IDevice.js" />
       <root url="file://$PROJECT_DIR$/IFileSystemStorageType.js" />
       <root url="file://$PROJECT_DIR$/EmailAddress.js" />
@@ -473,8 +475,8 @@
       <root url="file://$PROJECT_DIR$/IUI.js" />
       <root url="file://$PROJECT_DIR$/INetworkReachability.js" />
       <root url="file://$PROJECT_DIR$/IBaseSecurity.js" />
-      <root url="file://$PROJECT_DIR$/IFileListResultCallback.js" />
       <root url="file://$PROJECT_DIR$/IOAuth.js" />
+      <root url="file://$PROJECT_DIR$/IFileListResultCallback.js" />
       <root url="file://$PROJECT_DIR$/ICapabilitiesMedia.js" />
       <root url="file://$PROJECT_DIR$/ContactUid.js" />
     </CLASSES>

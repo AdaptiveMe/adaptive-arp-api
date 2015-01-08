@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2b62424-c85f-4dbf-8462-3858f1398c98" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.d.ts" afterPath="$PROJECT_DIR$/Adaptive.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.js.map" afterPath="$PROJECT_DIR$/Adaptive.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.js" afterPath="$PROJECT_DIR$/Adaptive.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.ts" afterPath="$PROJECT_DIR$/Adaptive.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/GeneratorBase.java" afterPath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/GeneratorBase.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/GeneratorCompiler.java" afterPath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/GeneratorCompiler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/join.sh" afterPath="$PROJECT_DIR$/join.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TypeScriptValidation.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,7 +26,69 @@
     <favorites_list name="TypeScriptValidation" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="Adaptive.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Adaptive.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="14.933219" vertical-offset="32154" max-vertical-offset="108525">
+              <caret line="2725" column="0" selection-start-line="2725" selection-start-column="0" selection-end-line="2725" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Adaptive.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Adaptive.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2025" max-vertical-offset="64080">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1420712524000" expanded="true" signature="1132:1259" placeholder="/**Structure representing a native response to the HTML5 ...*/" />
+                <marker date="1420712524000" expanded="true" signature="1313:1372" placeholder="/**Default constructor ...*/" />
+                <marker date="1420712524000" expanded="true" signature="2658:2821" placeholder="/**Structure representing the personal info data elements of a contact. ...*/" />
+                <marker date="1420712524000" expanded="true" signature="4499:4664" placeholder="/**Returns the middle name of the Contact ...*/" />
+                <marker date="1420712524000" expanded="true" signature="4754:4864" placeholder="/**Set the middle name of the Contact ...*/" />
+                <marker date="1420712524000" expanded="true" signature="7160:7300" placeholder="/**Returns the url of the website ...*/" />
+                <marker date="1420712524000" expanded="true" signature="7411:7561" placeholder="/**Set the url of the website ...*/" />
+                <marker date="1420712524000" expanded="true" signature="9296:24668" placeholder="{...}" />
+                <marker date="1420712524000" expanded="true" signature="25722:25985" placeholder="/**Constructor with parameters ...*/" />
+                <marker date="1420712524000" expanded="true" signature="27294:27452" placeholder="/**Returns the platform dependent UUID of the device. ...*/" />
+                <marker date="1420712524000" expanded="true" signature="30744:30783" placeholder="{...}" />
+                <marker date="1420712524000" expanded="true" signature="30970:31155" placeholder="/**Set the address of the Contact ...*/" />
+                <marker date="1420712524000" expanded="true" signature="32535:32713" placeholder="/**Sets the name of the table ...*/" />
+                <marker date="1420712524000" expanded="true" signature="32778:32976" placeholder="/**Get the number of databaseRows ...*/" />
+                <marker date="1420712524000" expanded="true" signature="33076:33213" placeholder="/**Sets the number of databaseRows ...*/" />
+                <marker date="1420712524000" expanded="true" signature="33852:34057" placeholder="/**Returns the milliseconds passed since 1/1/1970 since the file was created. ...*/" />
+                <marker date="1420712524000" expanded="true" signature="34184:34340" placeholder="/**Sets the creation timestamp in milliseconds. Used internally. ...*/" />
+                <marker date="1420712524000" expanded="true" signature="34436:34572" placeholder="/**Returns the milliseconds passed since 1/1/1970 since the file was modified. ...*/" />
+                <marker date="1420712524000" expanded="true" signature="35021:35548" placeholder="/**Sets the file or folder modification timestamp in milliseconds. Used internally. ...*/" />
+                <marker date="1420712524000" expanded="true" signature="36144:36270" placeholder="/**Sets the name of the file. Used internally. ...*/" />
+                <marker date="1420712524000" expanded="true" signature="37842:37925" placeholder="/**Constructor with fields ...*/" />
+                <marker date="1420712524000" expanded="true" signature="38161:38186" placeholder="{...}" />
+                <marker date="1420712524000" expanded="true" signature="38281:38488" placeholder="/**Structure representing the data of a single acceleration reading. ...*/" />
+                <marker date="1420712524000" expanded="true" signature="40106:40206" placeholder="{...}" />
+                <marker date="1420712524000" expanded="true" signature="40622:40674" placeholder="{...}" />
+                <marker date="1420712524000" expanded="true" signature="43022:43277" placeholder="{...}" />
+                <marker date="1420712524000" expanded="true" signature="44823:44870" placeholder="{...}" />
+                <marker date="1420712524000" expanded="true" signature="45152:45203" placeholder="{...}" />
+                <marker date="1420712524000" expanded="true" signature="45545:45696" placeholder="/**Setter for service session ...*/" />
+                <marker date="1420712524000" expanded="true" signature="45893:46135" placeholder="/**Structure representing the data elements of an email. ...*/" />
+                <marker date="1420712524000" expanded="true" signature="46201:46497" placeholder="/**Constructor used by the implementation ...*/" />
+                <marker date="1420712524000" expanded="true" signature="49532:49678" placeholder="/**Represents a local or remote service request. ...*/" />
+                <marker date="1420712524000" expanded="true" signature="52663:52840" placeholder="/**Setter for service session ...*/" />
+                <marker date="1420712524000" expanded="true" signature="53155:53242" placeholder="{...}" />
+                <marker date="1420712524000" expanded="true" signature="53398:53434" placeholder="{...}" />
+                <marker date="1420712524000" expanded="true" signature="53613:53645" placeholder="{...}" />
+                <marker date="1420712524000" expanded="true" signature="53819:53881" placeholder="{...}" />
+                <marker date="1420712524000" expanded="true" signature="54078:54162" placeholder="{...}" />
+                <marker date="1420712524000" expanded="true" signature="71521:71641" placeholder="/**Constructor for implementation using. ...*/" />
+                <marker date="1420712524000" expanded="true" signature="88079:88106" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -215,14 +271,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-2528" y="-180" width="2461" height="1379" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.097521335" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.097521335" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.50233644" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -258,14 +314,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Adaptive.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.3682487" vertical-offset="4492" max-vertical-offset="64080">
-          <caret line="203" column="10" selection-start-line="203" selection-start-column="10" selection-end-line="203" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/IServiceResultCallback.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5646481" vertical-offset="0" max-vertical-offset="1215">
@@ -282,10 +330,59 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Adaptive.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="64080">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1420712524000" expanded="true" signature="1132:1259" placeholder="/**Structure representing a native response to the HTML5 ...*/" />
+            <marker date="1420712524000" expanded="true" signature="1313:1372" placeholder="/**Default constructor ...*/" />
+            <marker date="1420712524000" expanded="true" signature="2658:2821" placeholder="/**Structure representing the personal info data elements of a contact. ...*/" />
+            <marker date="1420712524000" expanded="true" signature="4499:4664" placeholder="/**Returns the middle name of the Contact ...*/" />
+            <marker date="1420712524000" expanded="true" signature="4754:4864" placeholder="/**Set the middle name of the Contact ...*/" />
+            <marker date="1420712524000" expanded="true" signature="7160:7300" placeholder="/**Returns the url of the website ...*/" />
+            <marker date="1420712524000" expanded="true" signature="7411:7561" placeholder="/**Set the url of the website ...*/" />
+            <marker date="1420712524000" expanded="true" signature="9296:24668" placeholder="{...}" />
+            <marker date="1420712524000" expanded="true" signature="25722:25985" placeholder="/**Constructor with parameters ...*/" />
+            <marker date="1420712524000" expanded="true" signature="27294:27452" placeholder="/**Returns the platform dependent UUID of the device. ...*/" />
+            <marker date="1420712524000" expanded="true" signature="30744:30783" placeholder="{...}" />
+            <marker date="1420712524000" expanded="true" signature="30970:31155" placeholder="/**Set the address of the Contact ...*/" />
+            <marker date="1420712524000" expanded="true" signature="32535:32713" placeholder="/**Sets the name of the table ...*/" />
+            <marker date="1420712524000" expanded="true" signature="32778:32976" placeholder="/**Get the number of databaseRows ...*/" />
+            <marker date="1420712524000" expanded="true" signature="33076:33213" placeholder="/**Sets the number of databaseRows ...*/" />
+            <marker date="1420712524000" expanded="true" signature="33852:34057" placeholder="/**Returns the milliseconds passed since 1/1/1970 since the file was created. ...*/" />
+            <marker date="1420712524000" expanded="true" signature="34184:34340" placeholder="/**Sets the creation timestamp in milliseconds. Used internally. ...*/" />
+            <marker date="1420712524000" expanded="true" signature="34436:34572" placeholder="/**Returns the milliseconds passed since 1/1/1970 since the file was modified. ...*/" />
+            <marker date="1420712524000" expanded="true" signature="35021:35548" placeholder="/**Sets the file or folder modification timestamp in milliseconds. Used internally. ...*/" />
+            <marker date="1420712524000" expanded="true" signature="36144:36270" placeholder="/**Sets the name of the file. Used internally. ...*/" />
+            <marker date="1420712524000" expanded="true" signature="37842:37925" placeholder="/**Constructor with fields ...*/" />
+            <marker date="1420712524000" expanded="true" signature="38161:38186" placeholder="{...}" />
+            <marker date="1420712524000" expanded="true" signature="38281:38488" placeholder="/**Structure representing the data of a single acceleration reading. ...*/" />
+            <marker date="1420712524000" expanded="true" signature="40106:40206" placeholder="{...}" />
+            <marker date="1420712524000" expanded="true" signature="40622:40674" placeholder="{...}" />
+            <marker date="1420712524000" expanded="true" signature="43022:43277" placeholder="{...}" />
+            <marker date="1420712524000" expanded="true" signature="44823:44870" placeholder="{...}" />
+            <marker date="1420712524000" expanded="true" signature="45152:45203" placeholder="{...}" />
+            <marker date="1420712524000" expanded="true" signature="45545:45696" placeholder="/**Setter for service session ...*/" />
+            <marker date="1420712524000" expanded="true" signature="45893:46135" placeholder="/**Structure representing the data elements of an email. ...*/" />
+            <marker date="1420712524000" expanded="true" signature="46201:46497" placeholder="/**Constructor used by the implementation ...*/" />
+            <marker date="1420712524000" expanded="true" signature="49532:49678" placeholder="/**Represents a local or remote service request. ...*/" />
+            <marker date="1420712524000" expanded="true" signature="52663:52840" placeholder="/**Setter for service session ...*/" />
+            <marker date="1420712524000" expanded="true" signature="53155:53242" placeholder="{...}" />
+            <marker date="1420712524000" expanded="true" signature="53398:53434" placeholder="{...}" />
+            <marker date="1420712524000" expanded="true" signature="53613:53645" placeholder="{...}" />
+            <marker date="1420712524000" expanded="true" signature="53819:53881" placeholder="{...}" />
+            <marker date="1420712524000" expanded="true" signature="54078:54162" placeholder="{...}" />
+            <marker date="1420712524000" expanded="true" signature="71521:71641" placeholder="/**Constructor for implementation using. ...*/" />
+            <marker date="1420712524000" expanded="true" signature="88079:88106" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Adaptive.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44189852" vertical-offset="2565" max-vertical-offset="108525">
-          <caret line="189" column="6" selection-start-line="189" selection-start-column="6" selection-end-line="189" selection-end-column="6" />
+        <state vertical-scroll-proportion="14.933219" vertical-offset="32154" max-vertical-offset="108525">
+          <caret line="2725" column="0" selection-start-line="2725" selection-start-column="0" selection-end-line="2725" selection-end-column="0" />
           <folding />
         </state>
       </provider>

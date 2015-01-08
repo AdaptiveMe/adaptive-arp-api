@@ -10,7 +10,7 @@ public class InterfaceComparator implements Comparator<Class> {
         final Class c2 = (Class) o2;
 
         if (c1.getSimpleName().startsWith("Contact") || c2.getSimpleName().startsWith("Contact")) {
-            System.out.println("Comparing: "+c1.getSimpleName()+" to "+c2.getSimpleName());
+            //System.out.println("Comparing: " + c1.getSimpleName() + " to " + c2.getSimpleName());
         }
 
         // Both are the same
@@ -25,13 +25,22 @@ public class InterfaceComparator implements Comparator<Class> {
             if (c1.isAssignableFrom(c2)) {
                 return -1;
             } else {
-                return 1;
+                //return 1;
+
+                if (c1.getInterfaces().length == 0 && c2.getInterfaces().length == 0) {
+                    return c1.getName().compareTo(c2.getName());
+                } else {
+                    return 1;
+                }
+
             }
         }
         // Both Classes
-        if (c1.isInterface() && c2.isInterface()) {
-            // Is there inheritance between these interfaces?
-            if (c1.isAssignableFrom(c2)) {
+        if (!c1.isInterface() && !c2.isInterface()) {
+            // Is there inheritance between these classes?
+            if (c1.getSuperclass().equals(c2.getSuperclass())) {
+                return c1.getName().compareTo(c2.getName());
+            } else if (c1.isAssignableFrom(c2)) {
                 return -1;
             } else {
                 return 1;
