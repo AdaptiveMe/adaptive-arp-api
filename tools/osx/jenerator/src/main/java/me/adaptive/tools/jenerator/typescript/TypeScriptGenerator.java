@@ -587,7 +587,7 @@ public class TypeScriptGenerator extends GeneratorBase {
         println();
 
         for (String name : arrayOfClasses) {
-            println("// " + name);
+            println("# " + name);
         }
 
         indentPrintStream.flush();

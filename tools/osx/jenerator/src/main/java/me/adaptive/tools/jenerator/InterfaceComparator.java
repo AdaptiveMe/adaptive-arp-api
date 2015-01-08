@@ -25,22 +25,14 @@ public class InterfaceComparator implements Comparator<Class> {
             if (c1.isAssignableFrom(c2)) {
                 return -1;
             } else {
-                //return 1;
-
-                if (c1.getInterfaces().length == 0 && c2.getInterfaces().length == 0) {
-                    return c1.getName().compareTo(c2.getName());
-                } else {
-                    return 1;
-                }
-
+                return 1;
             }
         }
+
         // Both Classes
         if (!c1.isInterface() && !c2.isInterface()) {
             // Is there inheritance between these classes?
-            if (c1.getSuperclass().equals(c2.getSuperclass())) {
-                return c1.getName().compareTo(c2.getName());
-            } else if (c1.isAssignableFrom(c2)) {
+            if (c1.isAssignableFrom(c2)) {
                 return -1;
             } else {
                 return 1;
@@ -54,47 +46,5 @@ public class InterfaceComparator implements Comparator<Class> {
             return -1;
         }
 
-        // Reached here... don't know!
-        //System.out.println(c1.getSimpleName()+" : "+c2.getSimpleName());
-
-            /*
-            if (c1.isAssignableFrom(c2)) {
-                return -1;
-            } else {
-                if (!c2.isAssignableFrom(c2)) {
-                    throw new IllegalArgumentException("The classes share no relation");
-                }
-                if (c1.isInterface() && !c2.isInterface()) {
-                    return -1;
-                }
-                if (!c1.isInterface() && c2.isInterface()) {
-                    return 1;
-                }
-                if (c1.isInterface() && c2.isInterface()) {
-                    return c1.getName().compareTo(c2.getName());
-                }
-
-                if (!c1.isInterface() && !c2.isInterface()) {
-                    if (c1.getSuperclass().equals(c2)) {
-                        return -1;
-                    } else {
-                        return c1.getName().compareTo(c2.getName());
-                    }
-                }
-
-                if (c1.getInterfaces().length == 1 && c2.getInterfaces().length == 1) {
-                    return this.compare(c1.getInterfaces()[0], c2.getInterfaces()[0]);
-                } else {
-                    if (c1.getInterfaces().length > 1 && c2.getInterfaces().length == 0) {
-                        return 1;
-                    } else if (c1.getInterfaces().length == 0 && c2.getInterfaces().length > 1) {
-                        return -1;
-                    } else {
-                        return 1;
-                    }
-                }
-
-            }
-            */
     }
 }
