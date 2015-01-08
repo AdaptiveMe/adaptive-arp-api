@@ -64,6 +64,707 @@ module Adaptive {
           getAPIGroup() : IAdaptiveRPGroup;
      }
      /**
+        Interface for context management purposes
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+        @version 1.0
+     */
+     export interface IAppContext {
+          /**
+             The main application context. This should be cast to the platform specific implementation.
+             @return Object representing the specific singleton application context provided by the OS.
+             @since ARP1.0
+          */
+          getContext() : any;
+          /**
+             The type of context provided by the getContext method.
+             @return Type of platform context.
+             @since ARP1.0
+          */
+          getContextType() : IOSType;
+     }
+     /**
+        Interface for webview context management purposes
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+        @version 1.0
+     */
+     export interface IAppContextWebview {
+          /**
+             Additional views may be added to an application - a separate activity - and if these will make calls to the
+ARP methods, they must be registered by adding them to the context. When they are added to the context, ARP
+methods are bound to the webview so that they're callable from the HTML application. The primary webview should
+not be added using this method.
+             @param webView Platform specific webview reference (WebView, UIWebView, WKWebView,etc.)
+             @since ARP1.0
+          */
+          addWebview(webView:any);
+          /**
+             Evaluate the specified javascript on the main webview of the application.
+             @param javaScriptText    The javascript expression to execute on the webview.
+          */
+          executeJavaScript(javaScriptText:string);
+          /**
+             Evaluate the specified javascript on the specified webview of the application.
+             @param javaScriptText    The javascript expression to execute on the webview.
+             @param webViewReference  The target webview on which to execute the expression.
+          */
+          executeJavaScript(javaScriptText:string, webViewReference:any);
+          /**
+             Returns a reference to the main application webview. This is the first application webview and can not be removed
+with the removeWebview method. The object returned should be cast to the platform specific implementation
+WebView, WKWebView, etc.
+             @return Object representing the specific and primary webview instance of the application.
+             @since ARP1.0
+          */
+          getWebviewPrimary() : any;
+          /**
+             Returns an array of webviews currently managed by the context - composed of primary and the list of those added.
+This method will always return at least one element; the primary webview.
+             @return Array with all the Webview instances being managed by ARP.
+             @since ARP1.0
+          */
+          getWebviews() : Array<any>;
+          /**
+             When a webview is disposed - no longer in use from an external activity - the webview should be removed to unbind
+ARP functions and release resources. The primary webview can not be removed.
+             @param webView The instance of the webview to be removed from the binding.
+             @since ARP1.0
+          */
+          removeWebview(webView:any);
+     }
+     /**
+        Interface to retrieve auto-registered service implementation references.
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+        @version 1.0
+     */
+     export interface IAppRegistry {
+          /**
+             Returns a reference to the registered AccelerationHandler.
+
+             @return AccelerationHandler reference or null if a handler of this type is not registered.
+          */
+          getAccelerationHandler() : IAcceleration
+
+          /**
+             Returns a reference to the registered AdsHandler.
+
+             @return AdsHandler reference or null if a handler of this type is not registered.
+          */
+          getAdsHandler() : IAds
+
+          /**
+             Returns a reference to the registered AlarmHandler.
+
+             @return AlarmHandler reference or null if a handler of this type is not registered.
+          */
+          getAlarmHandler() : IAlarm
+
+          /**
+             Returns a reference to the registered AmbientLightHandler.
+
+             @return AmbientLightHandler reference or null if a handler of this type is not registered.
+          */
+          getAmbientLightHandler() : IAmbientLight
+
+          /**
+             Returns a reference to the registered AnalyticsHandler.
+
+             @return AnalyticsHandler reference or null if a handler of this type is not registered.
+          */
+          getAnalyticsHandler() : IAnalytics
+
+          /**
+             Returns a reference to the registered AudioHandler.
+
+             @return AudioHandler reference or null if a handler of this type is not registered.
+          */
+          getAudioHandler() : IAudio
+
+          /**
+             Returns a reference to the registered BarcodeHandler.
+
+             @return BarcodeHandler reference or null if a handler of this type is not registered.
+          */
+          getBarcodeHandler() : IBarcode
+
+          /**
+             Returns a reference to the registered BarometerHandler.
+
+             @return BarometerHandler reference or null if a handler of this type is not registered.
+          */
+          getBarometerHandler() : IBarometer
+
+          /**
+             Returns a reference to the registered BluetoothHandler.
+
+             @return BluetoothHandler reference or null if a handler of this type is not registered.
+          */
+          getBluetoothHandler() : IBluetooth
+
+          /**
+             Returns a reference to the registered BrowserHandler.
+
+             @return BrowserHandler reference or null if a handler of this type is not registered.
+          */
+          getBrowserHandler() : IBrowser
+
+          /**
+             Returns a reference to the registered CalendarHandler.
+
+             @return CalendarHandler reference or null if a handler of this type is not registered.
+          */
+          getCalendarHandler() : ICalendar
+
+          /**
+             Returns a reference to the registered CameraHandler.
+
+             @return CameraHandler reference or null if a handler of this type is not registered.
+          */
+          getCameraHandler() : ICamera
+
+          /**
+             Returns a reference to the registered CapabilitiesHandler.
+
+             @return CapabilitiesHandler reference or null if a handler of this type is not registered.
+          */
+          getCapabilitiesHandler() : ICapabilities
+
+          /**
+             Returns a reference to the registered CloudHandler.
+
+             @return CloudHandler reference or null if a handler of this type is not registered.
+          */
+          getCloudHandler() : ICloud
+
+          /**
+             Returns a reference to the registered CompressionHandler.
+
+             @return CompressionHandler reference or null if a handler of this type is not registered.
+          */
+          getCompressionHandler() : ICompression
+
+          /**
+             Returns a reference to the registered ConcurrentHandler.
+
+             @return ConcurrentHandler reference or null if a handler of this type is not registered.
+          */
+          getConcurrentHandler() : IConcurrent
+
+          /**
+             Returns a reference to the registered ContactHandler.
+
+             @return ContactHandler reference or null if a handler of this type is not registered.
+          */
+          getContactHandler() : IContact
+
+          /**
+             Returns a reference to the registered CryptoHandler.
+
+             @return CryptoHandler reference or null if a handler of this type is not registered.
+          */
+          getCryptoHandler() : ICrypto
+
+          /**
+             Returns a reference to the registered DataStreamHandler.
+
+             @return DataStreamHandler reference or null if a handler of this type is not registered.
+          */
+          getDataStreamHandler() : IDataStream
+
+          /**
+             Returns a reference to the registered DatabaseHandler.
+
+             @return DatabaseHandler reference or null if a handler of this type is not registered.
+          */
+          getDatabaseHandler() : IDatabase
+
+          /**
+             Returns a reference to the registered DesktopHandler.
+
+             @return DesktopHandler reference or null if a handler of this type is not registered.
+          */
+          getDesktopHandler() : IDesktop
+
+          /**
+             Returns a reference to the registered DeviceHandler.
+
+             @return DeviceHandler reference or null if a handler of this type is not registered.
+          */
+          getDeviceHandler() : IDevice
+
+          /**
+             Returns a reference to the registered DisplayHandler.
+
+             @return DisplayHandler reference or null if a handler of this type is not registered.
+          */
+          getDisplayHandler() : IDisplay
+
+          /**
+             Returns a reference to the registered FacebookHandler.
+
+             @return FacebookHandler reference or null if a handler of this type is not registered.
+          */
+          getFacebookHandler() : IFacebook
+
+          /**
+             Returns a reference to the registered FileSystemHandler.
+
+             @return FileSystemHandler reference or null if a handler of this type is not registered.
+          */
+          getFileSystemHandler() : IFileSystem
+
+          /**
+             Returns a reference to the registered GeolocationHandler.
+
+             @return GeolocationHandler reference or null if a handler of this type is not registered.
+          */
+          getGeolocationHandler() : IGeolocation
+
+          /**
+             Returns a reference to the registered GlobalizationHandler.
+
+             @return GlobalizationHandler reference or null if a handler of this type is not registered.
+          */
+          getGlobalizationHandler() : IGlobalization
+
+          /**
+             Returns a reference to the registered GooglePlusHandler.
+
+             @return GooglePlusHandler reference or null if a handler of this type is not registered.
+          */
+          getGooglePlusHandler() : IGooglePlus
+
+          /**
+             Returns a reference to the registered GyroscopeHandler.
+
+             @return GyroscopeHandler reference or null if a handler of this type is not registered.
+          */
+          getGyroscopeHandler() : IGyroscope
+
+          /**
+             Returns a reference to the registered ImagingHandler.
+
+             @return ImagingHandler reference or null if a handler of this type is not registered.
+          */
+          getImagingHandler() : IImaging
+
+          /**
+             Returns a reference to the registered InternalStorageHandler.
+
+             @return InternalStorageHandler reference or null if a handler of this type is not registered.
+          */
+          getInternalStorageHandler() : IInternalStorage
+
+          /**
+             Returns a reference to the registered LifecycleHandler.
+
+             @return LifecycleHandler reference or null if a handler of this type is not registered.
+          */
+          getLifecycleHandler() : ILifecycle
+
+          /**
+             Returns a reference to the registered LinkedInHandler.
+
+             @return LinkedInHandler reference or null if a handler of this type is not registered.
+          */
+          getLinkedInHandler() : ILinkedIn
+
+          /**
+             Returns a reference to the registered LoggingHandler.
+
+             @return LoggingHandler reference or null if a handler of this type is not registered.
+          */
+          getLoggingHandler() : ILogging
+
+          /**
+             Returns a reference to the registered MagnetometerHandler.
+
+             @return MagnetometerHandler reference or null if a handler of this type is not registered.
+          */
+          getMagnetometerHandler() : IMagnetometer
+
+          /**
+             Returns a reference to the registered MailHandler.
+
+             @return MailHandler reference or null if a handler of this type is not registered.
+          */
+          getMailHandler() : IMail
+
+          /**
+             Returns a reference to the registered ManagementHandler.
+
+             @return ManagementHandler reference or null if a handler of this type is not registered.
+          */
+          getManagementHandler() : IManagement
+
+          /**
+             Returns a reference to the registered MapHandler.
+
+             @return MapHandler reference or null if a handler of this type is not registered.
+          */
+          getMapHandler() : IMap
+
+          /**
+             Returns a reference to the registered MessagingHandler.
+
+             @return MessagingHandler reference or null if a handler of this type is not registered.
+          */
+          getMessagingHandler() : IMessaging
+
+          /**
+             Returns a reference to the registered NFCHandler.
+
+             @return NFCHandler reference or null if a handler of this type is not registered.
+          */
+          getNFCHandler() : INFC
+
+          /**
+             Returns a reference to the registered NetworkInfoHandler.
+
+             @return NetworkInfoHandler reference or null if a handler of this type is not registered.
+          */
+          getNetworkInfoHandler() : INetworkInfo
+
+          /**
+             Returns a reference to the registered NetworkNamingHandler.
+
+             @return NetworkNamingHandler reference or null if a handler of this type is not registered.
+          */
+          getNetworkNamingHandler() : INetworkNaming
+
+          /**
+             Returns a reference to the registered NetworkReachabilityHandler.
+
+             @return NetworkReachabilityHandler reference or null if a handler of this type is not registered.
+          */
+          getNetworkReachabilityHandler() : INetworkReachability
+
+          /**
+             Returns a reference to the registered NetworkStatusHandler.
+
+             @return NetworkStatusHandler reference or null if a handler of this type is not registered.
+          */
+          getNetworkStatusHandler() : INetworkStatus
+
+          /**
+             Returns a reference to the registered NotificationHandler.
+
+             @return NotificationHandler reference or null if a handler of this type is not registered.
+          */
+          getNotificationHandler() : INotification
+
+          /**
+             Returns a reference to the registered NotificationLocalHandler.
+
+             @return NotificationLocalHandler reference or null if a handler of this type is not registered.
+          */
+          getNotificationLocalHandler() : INotificationLocal
+
+          /**
+             Returns a reference to the registered OAuthHandler.
+
+             @return OAuthHandler reference or null if a handler of this type is not registered.
+          */
+          getOAuthHandler() : IOAuth
+
+          /**
+             Returns a reference to the registered OCRHandler.
+
+             @return OCRHandler reference or null if a handler of this type is not registered.
+          */
+          getOCRHandler() : IOCR
+
+          /**
+             Returns a reference to the registered OSHandler.
+
+             @return OSHandler reference or null if a handler of this type is not registered.
+          */
+          getOSHandler() : IOS
+
+          /**
+             Returns a reference to the registered OpenIdHandler.
+
+             @return OpenIdHandler reference or null if a handler of this type is not registered.
+          */
+          getOpenIdHandler() : IOpenId
+
+          /**
+             Returns a reference to the registered PrintingHandler.
+
+             @return PrintingHandler reference or null if a handler of this type is not registered.
+          */
+          getPrintingHandler() : IPrinting
+
+          /**
+             Returns a reference to the registered ProximityHandler.
+
+             @return ProximityHandler reference or null if a handler of this type is not registered.
+          */
+          getProximityHandler() : IProximity
+
+          /**
+             Returns a reference to the registered QRCodeHandler.
+
+             @return QRCodeHandler reference or null if a handler of this type is not registered.
+          */
+          getQRCodeHandler() : IQRCode
+
+          /**
+             Returns a reference to the registered RSSHandler.
+
+             @return RSSHandler reference or null if a handler of this type is not registered.
+          */
+          getRSSHandler() : IRSS
+
+          /**
+             Returns a reference to the registered RuntimeHandler.
+
+             @return RuntimeHandler reference or null if a handler of this type is not registered.
+          */
+          getRuntimeHandler() : IRuntime
+
+          /**
+             Returns a reference to the registered SecurityHandler.
+
+             @return SecurityHandler reference or null if a handler of this type is not registered.
+          */
+          getSecurityHandler() : ISecurity
+
+          /**
+             Returns a reference to the registered ServiceHandler.
+
+             @return ServiceHandler reference or null if a handler of this type is not registered.
+          */
+          getServiceHandler() : IService
+
+          /**
+             Returns a reference to the registered SettingsHandler.
+
+             @return SettingsHandler reference or null if a handler of this type is not registered.
+          */
+          getSettingsHandler() : ISettings
+
+          /**
+             Returns a reference to the registered SocketHandler.
+
+             @return SocketHandler reference or null if a handler of this type is not registered.
+          */
+          getSocketHandler() : ISocket
+
+          /**
+             Returns a reference to the registered StoreHandler.
+
+             @return StoreHandler reference or null if a handler of this type is not registered.
+          */
+          getStoreHandler() : IStore
+
+          /**
+             Returns a reference to the registered TelephonyHandler.
+
+             @return TelephonyHandler reference or null if a handler of this type is not registered.
+          */
+          getTelephonyHandler() : ITelephony
+
+          /**
+             Returns a reference to the registered TimerHandler.
+
+             @return TimerHandler reference or null if a handler of this type is not registered.
+          */
+          getTimerHandler() : ITimer
+
+          /**
+             Returns a reference to the registered TwitterHandler.
+
+             @return TwitterHandler reference or null if a handler of this type is not registered.
+          */
+          getTwitterHandler() : ITwitter
+
+          /**
+             Returns a reference to the registered UIHandler.
+
+             @return UIHandler reference or null if a handler of this type is not registered.
+          */
+          getUIHandler() : IUI
+
+          /**
+             Returns a reference to the registered UpdateHandler.
+
+             @return UpdateHandler reference or null if a handler of this type is not registered.
+          */
+          getUpdateHandler() : IUpdate
+
+          /**
+             Returns a reference to the registered VibrationHandler.
+
+             @return VibrationHandler reference or null if a handler of this type is not registered.
+          */
+          getVibrationHandler() : IVibration
+
+          /**
+             Returns a reference to the registered VideoHandler.
+
+             @return VideoHandler reference or null if a handler of this type is not registered.
+          */
+          getVideoHandler() : IVideo
+
+          /**
+             Returns a reference to the registered WalletHandler.
+
+             @return WalletHandler reference or null if a handler of this type is not registered.
+          */
+          getWalletHandler() : IWallet
+
+          /**
+             Returns a reference to the registered XMLHandler.
+
+             @return XMLHandler reference or null if a handler of this type is not registered.
+          */
+          getXMLHandler() : IXML
+
+          /**
+             Returns a reference to the Platform Context
+             @return Reference to the platform context
+             @since ARP1.0
+          */
+          getPlatformContext() : IAppContext;
+          /**
+             Returns a reference to the Webview platform context
+             @return Reference to the Webview Context
+             @since ARP1.0
+          */
+          getPlatformContextWeb() : IAppContextWebview;
+     }
+     /**
+        Interface for Managing the File operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+        @version 1.0
+     */
+     export interface IFile {
+          /**
+             Determine whether the current file/folder can be read from.
+             @param descriptor File descriptor of file or folder used for operation.
+             @return True if the folder/file is readable, false otherwise.
+             @since ARP1.0
+          */
+          canRead(descriptor:FileDescriptor) : boolean;
+          /**
+             Determine whether the current file/folder can be written to.
+             @param descriptor File descriptor of file or folder used for operation.
+             @return True if the folder/file is writable, false otherwise.
+             @since ARP1.0
+          */
+          canWrite(descriptor:FileDescriptor) : boolean;
+          /**
+             Creates a file with the specified name.
+             @param descriptor File descriptor of file or folder used for operation.
+             @param callback Result of the operation.
+             @since ARP1.0
+          */
+          create(descriptor:FileDescriptor, callback:IFileResultCallback);
+          /**
+             Deletes the given file or path. If the file is a directory and contains files and or subdirectories, these will be
+deleted if the cascade parameter is set to true.
+             @param descriptor File descriptor of file or folder used for operation.
+             @param cascade Whether to delete sub-files and sub-folders.
+             @return True if files (and sub-files and folders) whether deleted.
+             @since ARP1.0
+          */
+          delete(descriptor:FileDescriptor, cascade:boolean) : boolean;
+          /**
+             Check whether the file/path exists.
+             @param descriptor File descriptor of file or folder used for operation.
+             @return True if the file exists in the filesystem, false otherwise.
+             @since ARP1.0
+          */
+          exists(descriptor:FileDescriptor) : boolean;
+          /**
+             Loads the content of the file.
+             @param descriptor File descriptor of file or folder used for operation.
+             @param callback Result of the operation.
+             @since ARP1.0
+          */
+          getContent(descriptor:FileDescriptor, callback:IFileDataLoadResultCallback);
+          /**
+             Returns the file storage type of the file
+             @param descriptor File descriptor of file or folder used for operation.
+             @return Storage Type file
+             @since ARP1.0
+          */
+          getFileStorageType(descriptor:FileDescriptor) : IFileSystemStorageType;
+          /**
+             Returns the file type
+             @param descriptor File descriptor of file or folder used for operation.
+             @return Returns the file type of the file
+             @since ARP1.0
+          */
+          getFileType(descriptor:FileDescriptor) : IFileSystemType;
+          /**
+             Returns the security type of the file
+             @param descriptor File descriptor of file or folder used for operation.
+             @return Security Level of the file
+             @since ARP1.0
+          */
+          getSecurityType(descriptor:FileDescriptor) : IFileSystemSecurity;
+          /**
+             Check whether this is a path of a file.
+             @param descriptor File descriptor of file or folder used for operation.
+             @return true if this is a path to a folder/directory, false if this is a path to a file.
+             @since ARP1.0
+          */
+          isDirectory(descriptor:FileDescriptor) : boolean;
+          /**
+             List all the files matching the speficied regex filter within this file/path reference. If the reference
+is a file, it will not yield any results.
+             @param descriptor File descriptor of file or folder used for operation.
+             @param regex    Filter (eg. *.jpg, *.png, Fil*) name string.
+             @param callback Result of operation.
+             @since ARP1.0
+          */
+          listFilesForRegex(descriptor:FileDescriptor, regex:string, callback:IFileListResultCallback);
+          /**
+             List all the files contained within this file/path reference. If the reference is a file, it will not yield
+any results.
+             @param descriptor File descriptor of file or folder used for operation.
+             @param callback Result of operation.
+             @since ARP1.0
+          */
+          listFiles(descriptor:FileDescriptor, callback:IFileListResultCallback);
+          /**
+             Creates the parent path (or paths, if recursive) to the given file/path if it doesn't already exist.
+             @param descriptor File descriptor of file or folder used for operation.
+             @param recursive Whether to create all parent path elements.
+             @return True if the path was created, false otherwise (or it exists already).
+             @since ARP1.0
+          */
+          mkDir(descriptor:FileDescriptor, recursive:boolean) : boolean;
+          /**
+             Moves the current file to the given file destination, optionally overwriting and creating the path to the
+new destination file.
+             @param source File descriptor of file or folder used for operation as source.
+             @param destination File descriptor of file or folder used for operation as destination.
+             @param createPath True to create the path if it does not already exist.
+             @param callback   Result of the operation.
+             @param overwrite  True to create the path if it does not already exist.
+             @since ARP1.0
+          */
+          move(source:FileDescriptor, destination:FileDescriptor, createPath:boolean, overwrite:boolean, callback:IFileResultCallback);
+          /**
+             Sets the content of the file.
+             @param descriptor File descriptor of file or folder used for operation.
+             @param content  Binary content to store in the file.
+             @param callback Result of the operation.
+             @since ARP1.0
+          */
+          setContent(descriptor:FileDescriptor, content:Array<number>, callback:IFileDataStoreResultCallback);
+     }
+     /**
         Base application for Application purposes
 
         @author Carlos Lozano Diez
@@ -1341,6 +2042,15 @@ listener and subsequently, the listener will be deactivated and removed from the
           sendSMS(number:string, text:string, callback:IMessagingCallback);
      }
      /**
+        Interface for Barcode Reading purposes
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+        @version 1.0
+     */
+     export interface IBarcode extends IBaseReader {
+     }
+     /**
         Interface for Managing the NFC operations
 
         @author Carlos Lozano Diez
@@ -1460,589 +2170,66 @@ listener and subsequently, the listener will be deactivated and removed from the
      export interface IAmbientLight extends IBaseSensor {
      }
      /**
-        Interface for context management purposes
+        Interface for Barometer management purposes
 
         @author Carlos Lozano Diez
         @since ARP1.0
         @version 1.0
      */
-     export interface IAppContext {
-          /**
-             The main application context. This should be cast to the platform specific implementation.
-             @return Object representing the specific singleton application context provided by the OS.
-             @since ARP1.0
-          */
-          getContext() : any;
-          /**
-             The type of context provided by the getContext method.
-             @return Type of platform context.
-             @since ARP1.0
-          */
-          getContextType() : IOSType;
+     export interface IBarometer extends IBaseSensor {
      }
      /**
-        Interface for webview context management purposes
+        Interface for Managing the Geolocation operations
 
-        @author Carlos Lozano Diez
+        @author Francisco Javier Martin Bueno
         @since ARP1.0
         @version 1.0
      */
-     export interface IAppContextWebview {
+     export interface IGeolocation extends IBaseSensor {
           /**
-             Additional views may be added to an application - a separate activity - and if these will make calls to the
-ARP methods, they must be registered by adding them to the context. When they are added to the context, ARP
-methods are bound to the webview so that they're callable from the HTML application. The primary webview should
-not be added using this method.
-             @param webView Platform specific webview reference (WebView, UIWebView, WKWebView,etc.)
+             Register a new listener that will receive geolocation events.
+             @param listener to be registered.
              @since ARP1.0
           */
-          addWebview(webView:any);
+          addGeolocationListener(listener:IGeolocationListener);
           /**
-             Evaluate the specified javascript on the main webview of the application.
-             @param javaScriptText    The javascript expression to execute on the webview.
-          */
-          executeJavaScript(javaScriptText:string);
-          /**
-             Evaluate the specified javascript on the specified webview of the application.
-             @param javaScriptText    The javascript expression to execute on the webview.
-             @param webViewReference  The target webview on which to execute the expression.
-          */
-          executeJavaScript(javaScriptText:string, webViewReference:any);
-          /**
-             Returns a reference to the main application webview. This is the first application webview and can not be removed
-with the removeWebview method. The object returned should be cast to the platform specific implementation
-WebView, WKWebView, etc.
-             @return Object representing the specific and primary webview instance of the application.
+             De-registers an existing listener from receiving geolocation events.
+             @param listener to be registered.
              @since ARP1.0
           */
-          getWebviewPrimary() : any;
+          removeGeolocationListener(listener:IGeolocationListener);
           /**
-             Returns an array of webviews currently managed by the context - composed of primary and the list of those added.
-This method will always return at least one element; the primary webview.
-             @return Array with all the Webview instances being managed by ARP.
+             Removed all existing listeners from receiving geolocation events.
              @since ARP1.0
           */
-          getWebviews() : Array<any>;
-          /**
-             When a webview is disposed - no longer in use from an external activity - the webview should be removed to unbind
-ARP functions and release resources. The primary webview can not be removed.
-             @param webView The instance of the webview to be removed from the binding.
-             @since ARP1.0
-          */
-          removeWebview(webView:any);
+          removeGeolocationListeners();
      }
      /**
-        Interface to retrieve auto-registered service implementation references.
+        Interface for Managing the Giroscope operations
 
         @author Carlos Lozano Diez
         @since ARP1.0
         @version 1.0
      */
-     export interface IAppRegistry {
-          /**
-             Returns a reference to the registered AccelerationHandler.
-
-             @return AccelerationHandler reference or null if a handler of this type is not registered.
-          */
-          getAccelerationHandler() : IAcceleration
-
-          /**
-             Returns a reference to the registered AdsHandler.
-
-             @return AdsHandler reference or null if a handler of this type is not registered.
-          */
-          getAdsHandler() : IAds
-
-          /**
-             Returns a reference to the registered AlarmHandler.
-
-             @return AlarmHandler reference or null if a handler of this type is not registered.
-          */
-          getAlarmHandler() : IAlarm
-
-          /**
-             Returns a reference to the registered AmbientLightHandler.
-
-             @return AmbientLightHandler reference or null if a handler of this type is not registered.
-          */
-          getAmbientLightHandler() : IAmbientLight
-
-          /**
-             Returns a reference to the registered AnalyticsHandler.
-
-             @return AnalyticsHandler reference or null if a handler of this type is not registered.
-          */
-          getAnalyticsHandler() : IAnalytics
-
-          /**
-             Returns a reference to the registered AudioHandler.
-
-             @return AudioHandler reference or null if a handler of this type is not registered.
-          */
-          getAudioHandler() : IAudio
-
-          /**
-             Returns a reference to the registered BarcodeHandler.
-
-             @return BarcodeHandler reference or null if a handler of this type is not registered.
-          */
-          getBarcodeHandler() : IBarcode
-
-          /**
-             Returns a reference to the registered BarometerHandler.
-
-             @return BarometerHandler reference or null if a handler of this type is not registered.
-          */
-          getBarometerHandler() : IBarometer
-
-          /**
-             Returns a reference to the registered BluetoothHandler.
-
-             @return BluetoothHandler reference or null if a handler of this type is not registered.
-          */
-          getBluetoothHandler() : IBluetooth
-
-          /**
-             Returns a reference to the registered BrowserHandler.
-
-             @return BrowserHandler reference or null if a handler of this type is not registered.
-          */
-          getBrowserHandler() : IBrowser
-
-          /**
-             Returns a reference to the registered CalendarHandler.
-
-             @return CalendarHandler reference or null if a handler of this type is not registered.
-          */
-          getCalendarHandler() : ICalendar
-
-          /**
-             Returns a reference to the registered CameraHandler.
-
-             @return CameraHandler reference or null if a handler of this type is not registered.
-          */
-          getCameraHandler() : ICamera
-
-          /**
-             Returns a reference to the registered CapabilitiesHandler.
-
-             @return CapabilitiesHandler reference or null if a handler of this type is not registered.
-          */
-          getCapabilitiesHandler() : ICapabilities
-
-          /**
-             Returns a reference to the registered CloudHandler.
-
-             @return CloudHandler reference or null if a handler of this type is not registered.
-          */
-          getCloudHandler() : ICloud
-
-          /**
-             Returns a reference to the registered CompressionHandler.
-
-             @return CompressionHandler reference or null if a handler of this type is not registered.
-          */
-          getCompressionHandler() : ICompression
-
-          /**
-             Returns a reference to the registered ConcurrentHandler.
-
-             @return ConcurrentHandler reference or null if a handler of this type is not registered.
-          */
-          getConcurrentHandler() : IConcurrent
-
-          /**
-             Returns a reference to the registered ContactHandler.
-
-             @return ContactHandler reference or null if a handler of this type is not registered.
-          */
-          getContactHandler() : IContact
-
-          /**
-             Returns a reference to the registered CryptoHandler.
-
-             @return CryptoHandler reference or null if a handler of this type is not registered.
-          */
-          getCryptoHandler() : ICrypto
-
-          /**
-             Returns a reference to the registered DataStreamHandler.
-
-             @return DataStreamHandler reference or null if a handler of this type is not registered.
-          */
-          getDataStreamHandler() : IDataStream
-
-          /**
-             Returns a reference to the registered DatabaseHandler.
-
-             @return DatabaseHandler reference or null if a handler of this type is not registered.
-          */
-          getDatabaseHandler() : IDatabase
-
-          /**
-             Returns a reference to the registered DesktopHandler.
-
-             @return DesktopHandler reference or null if a handler of this type is not registered.
-          */
-          getDesktopHandler() : IDesktop
-
-          /**
-             Returns a reference to the registered DeviceHandler.
-
-             @return DeviceHandler reference or null if a handler of this type is not registered.
-          */
-          getDeviceHandler() : IDevice
-
-          /**
-             Returns a reference to the registered DisplayHandler.
-
-             @return DisplayHandler reference or null if a handler of this type is not registered.
-          */
-          getDisplayHandler() : IDisplay
-
-          /**
-             Returns a reference to the registered FacebookHandler.
-
-             @return FacebookHandler reference or null if a handler of this type is not registered.
-          */
-          getFacebookHandler() : IFacebook
-
-          /**
-             Returns a reference to the registered FileSystemHandler.
-
-             @return FileSystemHandler reference or null if a handler of this type is not registered.
-          */
-          getFileSystemHandler() : IFileSystem
-
-          /**
-             Returns a reference to the registered GeolocationHandler.
-
-             @return GeolocationHandler reference or null if a handler of this type is not registered.
-          */
-          getGeolocationHandler() : IGeolocation
-
-          /**
-             Returns a reference to the registered GlobalizationHandler.
-
-             @return GlobalizationHandler reference or null if a handler of this type is not registered.
-          */
-          getGlobalizationHandler() : IGlobalization
-
-          /**
-             Returns a reference to the registered GooglePlusHandler.
-
-             @return GooglePlusHandler reference or null if a handler of this type is not registered.
-          */
-          getGooglePlusHandler() : IGooglePlus
-
-          /**
-             Returns a reference to the registered GyroscopeHandler.
-
-             @return GyroscopeHandler reference or null if a handler of this type is not registered.
-          */
-          getGyroscopeHandler() : IGyroscope
-
-          /**
-             Returns a reference to the registered ImagingHandler.
-
-             @return ImagingHandler reference or null if a handler of this type is not registered.
-          */
-          getImagingHandler() : IImaging
-
-          /**
-             Returns a reference to the registered InternalStorageHandler.
-
-             @return InternalStorageHandler reference or null if a handler of this type is not registered.
-          */
-          getInternalStorageHandler() : IInternalStorage
-
-          /**
-             Returns a reference to the registered LifecycleHandler.
-
-             @return LifecycleHandler reference or null if a handler of this type is not registered.
-          */
-          getLifecycleHandler() : ILifecycle
-
-          /**
-             Returns a reference to the registered LinkedInHandler.
-
-             @return LinkedInHandler reference or null if a handler of this type is not registered.
-          */
-          getLinkedInHandler() : ILinkedIn
-
-          /**
-             Returns a reference to the registered LoggingHandler.
-
-             @return LoggingHandler reference or null if a handler of this type is not registered.
-          */
-          getLoggingHandler() : ILogging
-
-          /**
-             Returns a reference to the registered MagnetometerHandler.
-
-             @return MagnetometerHandler reference or null if a handler of this type is not registered.
-          */
-          getMagnetometerHandler() : IMagnetometer
-
-          /**
-             Returns a reference to the registered MailHandler.
-
-             @return MailHandler reference or null if a handler of this type is not registered.
-          */
-          getMailHandler() : IMail
-
-          /**
-             Returns a reference to the registered ManagementHandler.
-
-             @return ManagementHandler reference or null if a handler of this type is not registered.
-          */
-          getManagementHandler() : IManagement
-
-          /**
-             Returns a reference to the registered MapHandler.
-
-             @return MapHandler reference or null if a handler of this type is not registered.
-          */
-          getMapHandler() : IMap
-
-          /**
-             Returns a reference to the registered MessagingHandler.
-
-             @return MessagingHandler reference or null if a handler of this type is not registered.
-          */
-          getMessagingHandler() : IMessaging
-
-          /**
-             Returns a reference to the registered NFCHandler.
-
-             @return NFCHandler reference or null if a handler of this type is not registered.
-          */
-          getNFCHandler() : INFC
-
-          /**
-             Returns a reference to the registered NetworkInfoHandler.
-
-             @return NetworkInfoHandler reference or null if a handler of this type is not registered.
-          */
-          getNetworkInfoHandler() : INetworkInfo
-
-          /**
-             Returns a reference to the registered NetworkNamingHandler.
-
-             @return NetworkNamingHandler reference or null if a handler of this type is not registered.
-          */
-          getNetworkNamingHandler() : INetworkNaming
-
-          /**
-             Returns a reference to the registered NetworkReachabilityHandler.
-
-             @return NetworkReachabilityHandler reference or null if a handler of this type is not registered.
-          */
-          getNetworkReachabilityHandler() : INetworkReachability
-
-          /**
-             Returns a reference to the registered NetworkStatusHandler.
-
-             @return NetworkStatusHandler reference or null if a handler of this type is not registered.
-          */
-          getNetworkStatusHandler() : INetworkStatus
-
-          /**
-             Returns a reference to the registered NotificationHandler.
-
-             @return NotificationHandler reference or null if a handler of this type is not registered.
-          */
-          getNotificationHandler() : INotification
-
-          /**
-             Returns a reference to the registered NotificationLocalHandler.
-
-             @return NotificationLocalHandler reference or null if a handler of this type is not registered.
-          */
-          getNotificationLocalHandler() : INotificationLocal
-
-          /**
-             Returns a reference to the registered OAuthHandler.
-
-             @return OAuthHandler reference or null if a handler of this type is not registered.
-          */
-          getOAuthHandler() : IOAuth
-
-          /**
-             Returns a reference to the registered OCRHandler.
-
-             @return OCRHandler reference or null if a handler of this type is not registered.
-          */
-          getOCRHandler() : IOCR
-
-          /**
-             Returns a reference to the registered OSHandler.
-
-             @return OSHandler reference or null if a handler of this type is not registered.
-          */
-          getOSHandler() : IOS
-
-          /**
-             Returns a reference to the registered OpenIdHandler.
-
-             @return OpenIdHandler reference or null if a handler of this type is not registered.
-          */
-          getOpenIdHandler() : IOpenId
-
-          /**
-             Returns a reference to the registered PrintingHandler.
-
-             @return PrintingHandler reference or null if a handler of this type is not registered.
-          */
-          getPrintingHandler() : IPrinting
-
-          /**
-             Returns a reference to the registered ProximityHandler.
-
-             @return ProximityHandler reference or null if a handler of this type is not registered.
-          */
-          getProximityHandler() : IProximity
-
-          /**
-             Returns a reference to the registered QRCodeHandler.
-
-             @return QRCodeHandler reference or null if a handler of this type is not registered.
-          */
-          getQRCodeHandler() : IQRCode
-
-          /**
-             Returns a reference to the registered RSSHandler.
-
-             @return RSSHandler reference or null if a handler of this type is not registered.
-          */
-          getRSSHandler() : IRSS
-
-          /**
-             Returns a reference to the registered RuntimeHandler.
-
-             @return RuntimeHandler reference or null if a handler of this type is not registered.
-          */
-          getRuntimeHandler() : IRuntime
-
-          /**
-             Returns a reference to the registered SecurityHandler.
-
-             @return SecurityHandler reference or null if a handler of this type is not registered.
-          */
-          getSecurityHandler() : ISecurity
-
-          /**
-             Returns a reference to the registered ServiceHandler.
-
-             @return ServiceHandler reference or null if a handler of this type is not registered.
-          */
-          getServiceHandler() : IService
-
-          /**
-             Returns a reference to the registered SettingsHandler.
-
-             @return SettingsHandler reference or null if a handler of this type is not registered.
-          */
-          getSettingsHandler() : ISettings
-
-          /**
-             Returns a reference to the registered SocketHandler.
-
-             @return SocketHandler reference or null if a handler of this type is not registered.
-          */
-          getSocketHandler() : ISocket
-
-          /**
-             Returns a reference to the registered StoreHandler.
-
-             @return StoreHandler reference or null if a handler of this type is not registered.
-          */
-          getStoreHandler() : IStore
-
-          /**
-             Returns a reference to the registered TelephonyHandler.
-
-             @return TelephonyHandler reference or null if a handler of this type is not registered.
-          */
-          getTelephonyHandler() : ITelephony
-
-          /**
-             Returns a reference to the registered TimerHandler.
-
-             @return TimerHandler reference or null if a handler of this type is not registered.
-          */
-          getTimerHandler() : ITimer
-
-          /**
-             Returns a reference to the registered TwitterHandler.
-
-             @return TwitterHandler reference or null if a handler of this type is not registered.
-          */
-          getTwitterHandler() : ITwitter
-
-          /**
-             Returns a reference to the registered UIHandler.
-
-             @return UIHandler reference or null if a handler of this type is not registered.
-          */
-          getUIHandler() : IUI
-
-          /**
-             Returns a reference to the registered UpdateHandler.
-
-             @return UpdateHandler reference or null if a handler of this type is not registered.
-          */
-          getUpdateHandler() : IUpdate
-
-          /**
-             Returns a reference to the registered VibrationHandler.
-
-             @return VibrationHandler reference or null if a handler of this type is not registered.
-          */
-          getVibrationHandler() : IVibration
-
-          /**
-             Returns a reference to the registered VideoHandler.
-
-             @return VideoHandler reference or null if a handler of this type is not registered.
-          */
-          getVideoHandler() : IVideo
-
-          /**
-             Returns a reference to the registered WalletHandler.
-
-             @return WalletHandler reference or null if a handler of this type is not registered.
-          */
-          getWalletHandler() : IWallet
-
-          /**
-             Returns a reference to the registered XMLHandler.
-
-             @return XMLHandler reference or null if a handler of this type is not registered.
-          */
-          getXMLHandler() : IXML
-
-          /**
-             Returns a reference to the Platform Context
-             @return Reference to the platform context
-             @since ARP1.0
-          */
-          getPlatformContext() : IAppContext;
-          /**
-             Returns a reference to the Webview platform context
-             @return Reference to the Webview Context
-             @since ARP1.0
-          */
-          getPlatformContextWeb() : IAppContextWebview;
+     export interface IGyroscope extends IBaseSensor {
      }
      /**
-        Interface for Barcode Reading purposes
+        Interface for Managing the Magnetometer operations
 
         @author Carlos Lozano Diez
         @since ARP1.0
         @version 1.0
      */
-     export interface IBarcode extends IBaseReader {
+     export interface IMagnetometer extends IBaseSensor {
+     }
+     /**
+        Interface for Managing the Proximity operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+        @version 1.0
+     */
+     export interface IProximity extends IBaseSensor {
      }
      /**
         Interface for Managing the Facebook operations
@@ -2052,6 +2239,42 @@ ARP functions and release resources. The primary webview can not be removed.
         @version 1.0
      */
      export interface IFacebook extends IBaseSocial {
+     }
+     /**
+        Interface for Managing the Google Plus operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+        @version 1.0
+     */
+     export interface IGooglePlus extends IBaseSocial {
+     }
+     /**
+        Interface for Managing the Linkedin operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+        @version 1.0
+     */
+     export interface ILinkedIn extends IBaseSocial {
+     }
+     /**
+        Interface for Managing the RSS operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+        @version 1.0
+     */
+     export interface IRSS extends IBaseSocial {
+     }
+     /**
+        Interface for Managing the Twitter operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+        @version 1.0
+     */
+     export interface ITwitter extends IBaseSocial {
      }
      /**
         Interface for testing the Capabilities operations
@@ -2163,6 +2386,41 @@ device.
      export interface IDisplay extends IBaseSystem {
      }
      /**
+        Interface for Managing the OS operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+        @version 1.0
+     */
+     export interface IOS extends IBaseSystem {
+          /**
+             Returns the OSInfo for the current operating system.
+             @return OSInfo with name, version and vendor of the OS.
+             @since ARP1.0
+          */
+          getOSInfo() : OSInfo;
+     }
+     /**
+        Interface for Managing the Runtime operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+        @version 1.0
+     */
+     export interface IRuntime extends IBaseSystem {
+          /**
+             Dismiss the current Application
+             @since ARP1.0
+          */
+          dismissApplication();
+          /**
+             Whether the application dismiss the splash screen successfully or not
+             @return true if the application has dismissed the splash screen;false otherwise
+             @since ARP1.0
+          */
+          dismissSplashScreen() : boolean;
+     }
+     /**
         Interface for Managing the browser operations
 
         @author Francisco Javier Martin Bueno
@@ -2206,6 +2464,24 @@ device.
      export interface IDesktop extends IBaseUI {
      }
      /**
+        Interface for Managing the Map operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+        @version 1.0
+     */
+     export interface IMap extends IBaseUI {
+     }
+     /**
+        Interface for Managing the UI operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+        @version 1.0
+     */
+     export interface IUI extends IBaseUI {
+     }
+     /**
         Interface for Managing the Compression operations
 
         @author Carlos Lozano Diez
@@ -2231,282 +2507,6 @@ device.
         @version 1.0
      */
      export interface ICrypto extends IBaseUtil {
-     }
-     /**
-        Interface for Managing the File operations
-
-        @author Carlos Lozano Diez
-        @since ARP1.0
-        @version 1.0
-     */
-     export interface IFile {
-          /**
-             Determine whether the current file/folder can be read from.
-             @param descriptor File descriptor of file or folder used for operation.
-             @return True if the folder/file is readable, false otherwise.
-             @since ARP1.0
-          */
-          canRead(descriptor:FileDescriptor) : boolean;
-          /**
-             Determine whether the current file/folder can be written to.
-             @param descriptor File descriptor of file or folder used for operation.
-             @return True if the folder/file is writable, false otherwise.
-             @since ARP1.0
-          */
-          canWrite(descriptor:FileDescriptor) : boolean;
-          /**
-             Creates a file with the specified name.
-             @param descriptor File descriptor of file or folder used for operation.
-             @param callback Result of the operation.
-             @since ARP1.0
-          */
-          create(descriptor:FileDescriptor, callback:IFileResultCallback);
-          /**
-             Deletes the given file or path. If the file is a directory and contains files and or subdirectories, these will be
-deleted if the cascade parameter is set to true.
-             @param descriptor File descriptor of file or folder used for operation.
-             @param cascade Whether to delete sub-files and sub-folders.
-             @return True if files (and sub-files and folders) whether deleted.
-             @since ARP1.0
-          */
-          delete(descriptor:FileDescriptor, cascade:boolean) : boolean;
-          /**
-             Check whether the file/path exists.
-             @param descriptor File descriptor of file or folder used for operation.
-             @return True if the file exists in the filesystem, false otherwise.
-             @since ARP1.0
-          */
-          exists(descriptor:FileDescriptor) : boolean;
-          /**
-             Loads the content of the file.
-             @param descriptor File descriptor of file or folder used for operation.
-             @param callback Result of the operation.
-             @since ARP1.0
-          */
-          getContent(descriptor:FileDescriptor, callback:IFileDataLoadResultCallback);
-          /**
-             Returns the file storage type of the file
-             @param descriptor File descriptor of file or folder used for operation.
-             @return Storage Type file
-             @since ARP1.0
-          */
-          getFileStorageType(descriptor:FileDescriptor) : IFileSystemStorageType;
-          /**
-             Returns the file type
-             @param descriptor File descriptor of file or folder used for operation.
-             @return Returns the file type of the file
-             @since ARP1.0
-          */
-          getFileType(descriptor:FileDescriptor) : IFileSystemType;
-          /**
-             Returns the security type of the file
-             @param descriptor File descriptor of file or folder used for operation.
-             @return Security Level of the file
-             @since ARP1.0
-          */
-          getSecurityType(descriptor:FileDescriptor) : IFileSystemSecurity;
-          /**
-             Check whether this is a path of a file.
-             @param descriptor File descriptor of file or folder used for operation.
-             @return true if this is a path to a folder/directory, false if this is a path to a file.
-             @since ARP1.0
-          */
-          isDirectory(descriptor:FileDescriptor) : boolean;
-          /**
-             List all the files matching the speficied regex filter within this file/path reference. If the reference
-is a file, it will not yield any results.
-             @param descriptor File descriptor of file or folder used for operation.
-             @param regex    Filter (eg. *.jpg, *.png, Fil*) name string.
-             @param callback Result of operation.
-             @since ARP1.0
-          */
-          listFilesForRegex(descriptor:FileDescriptor, regex:string, callback:IFileListResultCallback);
-          /**
-             List all the files contained within this file/path reference. If the reference is a file, it will not yield
-any results.
-             @param descriptor File descriptor of file or folder used for operation.
-             @param callback Result of operation.
-             @since ARP1.0
-          */
-          listFiles(descriptor:FileDescriptor, callback:IFileListResultCallback);
-          /**
-             Creates the parent path (or paths, if recursive) to the given file/path if it doesn't already exist.
-             @param descriptor File descriptor of file or folder used for operation.
-             @param recursive Whether to create all parent path elements.
-             @return True if the path was created, false otherwise (or it exists already).
-             @since ARP1.0
-          */
-          mkDir(descriptor:FileDescriptor, recursive:boolean) : boolean;
-          /**
-             Moves the current file to the given file destination, optionally overwriting and creating the path to the
-new destination file.
-             @param source File descriptor of file or folder used for operation as source.
-             @param destination File descriptor of file or folder used for operation as destination.
-             @param createPath True to create the path if it does not already exist.
-             @param callback   Result of the operation.
-             @param overwrite  True to create the path if it does not already exist.
-             @since ARP1.0
-          */
-          move(source:FileDescriptor, destination:FileDescriptor, createPath:boolean, overwrite:boolean, callback:IFileResultCallback);
-          /**
-             Sets the content of the file.
-             @param descriptor File descriptor of file or folder used for operation.
-             @param content  Binary content to store in the file.
-             @param callback Result of the operation.
-             @since ARP1.0
-          */
-          setContent(descriptor:FileDescriptor, content:Array<number>, callback:IFileDataStoreResultCallback);
-     }
-     /**
-        Interface for Barometer management purposes
-
-        @author Carlos Lozano Diez
-        @since ARP1.0
-        @version 1.0
-     */
-     export interface IBarometer extends IBaseSensor {
-     }
-     /**
-        Interface for Managing the Geolocation operations
-
-        @author Francisco Javier Martin Bueno
-        @since ARP1.0
-        @version 1.0
-     */
-     export interface IGeolocation extends IBaseSensor {
-          /**
-             Register a new listener that will receive geolocation events.
-             @param listener to be registered.
-             @since ARP1.0
-          */
-          addGeolocationListener(listener:IGeolocationListener);
-          /**
-             De-registers an existing listener from receiving geolocation events.
-             @param listener to be registered.
-             @since ARP1.0
-          */
-          removeGeolocationListener(listener:IGeolocationListener);
-          /**
-             Removed all existing listeners from receiving geolocation events.
-             @since ARP1.0
-          */
-          removeGeolocationListeners();
-     }
-     /**
-        Interface for Managing the Giroscope operations
-
-        @author Carlos Lozano Diez
-        @since ARP1.0
-        @version 1.0
-     */
-     export interface IGyroscope extends IBaseSensor {
-     }
-     /**
-        Interface for Managing the Magnetometer operations
-
-        @author Carlos Lozano Diez
-        @since ARP1.0
-        @version 1.0
-     */
-     export interface IMagnetometer extends IBaseSensor {
-     }
-     /**
-        Interface for Managing the Proximity operations
-
-        @author Carlos Lozano Diez
-        @since ARP1.0
-        @version 1.0
-     */
-     export interface IProximity extends IBaseSensor {
-     }
-     /**
-        Interface for Managing the Google Plus operations
-
-        @author Carlos Lozano Diez
-        @since ARP1.0
-        @version 1.0
-     */
-     export interface IGooglePlus extends IBaseSocial {
-     }
-     /**
-        Interface for Managing the Linkedin operations
-
-        @author Carlos Lozano Diez
-        @since ARP1.0
-        @version 1.0
-     */
-     export interface ILinkedIn extends IBaseSocial {
-     }
-     /**
-        Interface for Managing the RSS operations
-
-        @author Carlos Lozano Diez
-        @since ARP1.0
-        @version 1.0
-     */
-     export interface IRSS extends IBaseSocial {
-     }
-     /**
-        Interface for Managing the Twitter operations
-
-        @author Carlos Lozano Diez
-        @since ARP1.0
-        @version 1.0
-     */
-     export interface ITwitter extends IBaseSocial {
-     }
-     /**
-        Interface for Managing the OS operations
-
-        @author Carlos Lozano Diez
-        @since ARP1.0
-        @version 1.0
-     */
-     export interface IOS extends IBaseSystem {
-          /**
-             Returns the OSInfo for the current operating system.
-             @return OSInfo with name, version and vendor of the OS.
-             @since ARP1.0
-          */
-          getOSInfo() : OSInfo;
-     }
-     /**
-        Interface for Managing the Runtime operations
-
-        @author Carlos Lozano Diez
-        @since ARP1.0
-        @version 1.0
-     */
-     export interface IRuntime extends IBaseSystem {
-          /**
-             Dismiss the current Application
-             @since ARP1.0
-          */
-          dismissApplication();
-          /**
-             Whether the application dismiss the splash screen successfully or not
-             @return true if the application has dismissed the splash screen;false otherwise
-             @since ARP1.0
-          */
-          dismissSplashScreen() : boolean;
-     }
-     /**
-        Interface for Managing the Map operations
-
-        @author Carlos Lozano Diez
-        @since ARP1.0
-        @version 1.0
-     */
-     export interface IMap extends IBaseUI {
-     }
-     /**
-        Interface for Managing the UI operations
-
-        @author Carlos Lozano Diez
-        @since ARP1.0
-        @version 1.0
-     */
-     export interface IUI extends IBaseUI {
      }
      /**
         Interface for Managing the Logging operations

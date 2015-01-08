@@ -34,7 +34,7 @@ public class InheritanceComparator implements Comparator<Class> {
                         return this.compare(c1.getInterfaces()[0], c2.getInterfaces()[0]);
                     }
                 } else if (c1.getInterfaces().length == 0 && c2.getInterfaces().length > 0) {
-                    return 1;
+                    return -1;
                 } else {
                     return 1;
                 }
