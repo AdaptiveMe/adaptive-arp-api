@@ -63,106 +63,6 @@ declare module Adaptive {
         getAPIGroup(): IAdaptiveRPGroup;
     }
     /**
-       Interface defining methods about the acceleration sensor
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IAcceleration extends IBaseSensor {
-        /**
-           Register a new listener that will receive acceleration events.
-           @param listener to be registered.
-           @since ARP1.0
-        */
-        addAccelerationListener(listener: IAccelerationListener): any;
-        /**
-           De-registers an existing listener from receiving acceleration events.
-           @param listener to be registered.
-           @since ARP1.0
-        */
-        removeAccelerationListener(listener: IAccelerationListener): any;
-        /**
-           Removed all existing listeners from receiving acceleration events.
-           @since ARP1.0
-        */
-        removeAccelerationListeners(): any;
-    }
-    /**
-       Interface defines the response methods of the acceleration operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IAccelerationListener extends IBaseListener {
-        /**
-           No data received - error condition, not authorized or hardware not available. This will be reported once for the
-listener and subsequently, the listener will be deactivated and removed from the internal list of listeners.
-           @param error Error fired
-           @since ARP1.0
-        */
-        onError(error: IAccelerationListenerError): any;
-        /**
-           Correct data received.
-           @param acceleration Acceleration received
-           @since ARP1.0
-        */
-        onResult(acceleration: Acceleration): any;
-        /**
-           Data received with warning - ie. Needs calibration.
-           @param acceleration Acceleration received
-           @param warning      Warning fired
-           @since ARP1.0
-        */
-        onWarning(acceleration: Acceleration, warning: IAccelerationListenerWarning): any;
-    }
-    /**
-       Interface for Advertising purposes
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IAds extends IBaseCommerce {
-    }
-    /**
-       Interface for Alarm purposes
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IAlarm extends IBaseNotification {
-    }
-    /**
-       Interface for managinf the Ambient Light
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IAmbientLight extends IBaseSensor {
-    }
-    /**
-       Base application for Application purposes
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IBaseApplication extends IAdaptiveRP {
-    }
-    /**
-       Interface for Analytics purposes
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IAnalytics extends IBaseApplication {
-    }
-    /**
        Interface for context management purposes
 
        @author Carlos Lozano Diez
@@ -386,6 +286,12 @@ ARP functions and release resources. The primary webview can not be removed.
            @return FacebookHandler reference or null if a handler of this type is not registered.
         */
         getFacebookHandler(): IFacebook;
+        /**
+           Returns a reference to the registered FileHandler.
+
+           @return FileHandler reference or null if a handler of this type is not registered.
+        */
+        getFileHandler(): IFile;
         /**
            Returns a reference to the registered FileSystemHandler.
 
@@ -670,31 +576,13 @@ ARP functions and release resources. The primary webview can not be removed.
         getPlatformContextWeb(): IAppContextWebview;
     }
     /**
-       Interface for Audio purposes
+       Base application for Application purposes
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface IAudio extends IBaseMedia {
-    }
-    /**
-       Interface for Barcode Reading purposes
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IBarcode extends IBaseReader {
-    }
-    /**
-       Interface for Barometer management purposes
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IBarometer extends IBaseSensor {
+    interface IBaseApplication extends IAdaptiveRP {
     }
     /**
        Base application for Callback purposes
@@ -832,249 +720,111 @@ ARP functions and release resources. The primary webview can not be removed.
     interface IBaseUtil extends IAdaptiveRP {
     }
     /**
-       Interface for Bluetooth purposes
+       Interface for Analytics purposes
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface IBluetooth extends IBaseCommunication {
+    interface IAnalytics extends IBaseApplication {
     }
     /**
-       Interface for Managing the browser operations
+       Interface for Managing the Globalization results
 
        @author Francisco Javier Martin Bueno
        @since ARP1.0
        @version 1.0
     */
-    interface IBrowser extends IBaseUI {
+    interface IGlobalization extends IBaseApplication {
         /**
-           Method for opening a URL like a link in the native default browser
-           @param url Url to open
-           @return The result of the operation
+           List of supported locales for the application
+           @return List of locales
            @since ARP1.0
         */
-        openExtenalBrowser(url: string): boolean;
+        getLocaleSupportedDescriptors(): Locale[];
         /**
-           Method for opening a browser embedded into the application in a modal window
-           @param url            Url to open
-           @param title          Title of the Navigation bar
-           @param backButtonText Title of the Back button bar
-           @return The result of the operation
+           Gets the text/message corresponding to the given key and locale.
+           @param key    to match text
+           @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
+           @return Localized text.
            @since ARP1.0
         */
-        openInternalBrowserModal(url: string, title: string, backButtonText: string): boolean;
+        getResourceLiteral(key: string, locale: Locale): string;
         /**
-           Method for opening a browser embedded into the application
-           @param url            Url to open
-           @param title          Title of the Navigation bar
-           @param backButtonText Title of the Back button bar
-           @return The result of the operation
+           Gets the full application configured literals (key/message pairs) corresponding to the given locale.
+           @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
+           @return Localized texts in the form of an object.
            @since ARP1.0
         */
-        openInternalBrowser(url: string, title: string, backButtonText: string): boolean;
+        getResourceLiterals(locale: Locale): KeyPair[];
     }
     /**
-       Interface for Managing the button  operations
+       Interface for Managing the Lifecycle listeners
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface IButtonListener extends IBaseListener {
+    interface ILifecycle extends IBaseApplication {
         /**
-           No data received
-           @param error occurred
+           Add the listener for the lifecycle of the app
+           @param listener Lifecycle listener
            @since ARP1.0
         */
-        onError(error: IButtonListenerError): any;
+        addLifecycleListener(listener: ILifecycleListener): any;
         /**
-           Called on button pressed
-           @param button pressed
+           Whether the application is in background or not
+           @return true if the application is in background;false otherwise
            @since ARP1.0
         */
-        onResult(button: Button): any;
+        isBackground(): boolean;
         /**
-           Data received with warning
-           @param button  pressed
-           @param warning happened
+           Un-registers an existing listener from receiving lifecycle events.
+           @param listener Lifecycle listener
            @since ARP1.0
         */
-        onWarning(button: Button, warning: IButtonListenerWarning): any;
+        removeLifecycleListener(listener: ILifecycleListener): any;
+        /**
+           Removes all existing listeners from receiving lifecycle events.
+           @since ARP1.0
+        */
+        removeLifecycleListeners(): any;
     }
     /**
-       Interface for Managing the Calendar operations
+       Interface for Managing the Management operations
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface ICalendar extends IBasePIM {
+    interface IManagement extends IBaseApplication {
     }
     /**
-       Interface for Managing the camera operations
+       Interface for Managing the Printing operations
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface ICamera extends IBaseMedia {
+    interface IPrinting extends IBaseApplication {
     }
     /**
-       Interface for testing the Capabilities operations
+       Interface for Managing the Settings operations
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface ICapabilities extends IBaseSystem {
-        /**
-           Determines whether a specific hardware button is supported for interaction.
-           @param type Type of feature to check.
-           @return true is supported, false otherwise.
-           @since ARP1.0
-        */
-        hasButtonSupport(type: ICapabilitiesButton): boolean;
-        /**
-           Determines whether a specific Communication capability is supported by
-the device.
-           @param type Type of feature to check.
-           @return true if supported, false otherwise.
-           @since ARP1.0
-        */
-        hasCommunicationSupport(type: ICapabilitiesCommunication): boolean;
-        /**
-           Determines whether a specific Data capability is supported by the device.
-           @param type Type of feature to check.
-           @return true if supported, false otherwise.
-           @since ARP1.0
-        */
-        hasDataSupport(type: ICapabilitiesData): boolean;
-        /**
-           Determines whether a specific Media capability is supported by the
-device.
-           @param type Type of feature to check.
-           @return true if supported, false otherwise.
-           @since ARP1.0
-        */
-        hasMediaSupport(type: ICapabilitiesMedia): boolean;
-        /**
-           Determines whether a specific Net capability is supported by the device.
-           @param type Type of feature to check.
-           @return true if supported, false otherwise.
-           @since ARP1.0
-        */
-        hasNetSupport(type: ICapabilitiesNet): boolean;
-        /**
-           Determines whether a specific Notification capability is supported by the
-device.
-           @param type Type of feature to check.
-           @return true if supported, false otherwise.
-           @since ARP1.0
-        */
-        hasNotificationSupport(type: ICapabilitiesNotification): boolean;
-        /**
-           Determines whether a specific Sensor capability is supported by the
-device.
-           @param type Type of feature to check.
-           @return true if supported, false otherwise.
-           @since ARP1.0
-        */
-        hasSensorSupport(type: ICapabilitiesSensor): boolean;
+    interface ISettings extends IBaseApplication {
     }
     /**
-       Interface for Managing the Cloud operations
+       Interface for Managing the Update operations
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface ICloud extends IBaseData {
-    }
-    /**
-       Interface for Managing the Compression operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface ICompression extends IBaseUtil {
-    }
-    /**
-       Interface for Managing the Concurrent operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IConcurrent extends IBaseUtil {
-    }
-    /**
-       Interface for Managing the Contact operations
-
-       @author Francisco Javier Martin Bueno
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IContact extends IBasePIM {
-        /**
-           Get the contact photo
-           @param contact  id to search for
-           @param callback called for return
-           @since ARP1.0
-        */
-        getContactPhoto(contact: ContactUid, callback: IContactPhotoResultCallback): any;
-        /**
-           Get all the details of a contact according to its id
-           @param contact  id to search for
-           @param callback called for return
-           @since ARP1.0
-        */
-        getContact(contact: ContactUid, callback: IContactResultCallback): any;
-        /**
-           Get marked fields of all contacts
-           @param callback called for return
-           @param fields   to get for each Contact
-           @since ARP1.0
-        */
-        getContactsForFields(callback: IContactResultCallback, fields: IContactFieldGroup[]): any;
-        /**
-           Get marked fields of all contacts according to a filter
-           @param callback called for return
-           @param fields   to get for each Contact
-           @param filter   to search for
-           @since ARP1.0
-        */
-        getContactsWithFilter(callback: IContactResultCallback, fields: IContactFieldGroup[], filter: IContactFilter[]): any;
-        /**
-           Get all contacts
-           @param callback called for return
-           @since ARP1.0
-        */
-        getContacts(callback: IContactResultCallback): any;
-        /**
-           Search contacts according to a term with a filter and send it to the callback
-           @param term     string to search
-           @param callback called for return
-           @param filter   to search for
-           @since ARP1.0
-        */
-        searchContactsWithFilter(term: string, callback: IContactResultCallback, filter: IContactFilter[]): any;
-        /**
-           Search contacts according to a term and send it to the callback
-           @param term     string to search
-           @param callback called for return
-           @since ARP1.0
-        */
-        searchContacts(term: string, callback: IContactResultCallback): any;
-        /**
-           Set the contact photo
-           @param contact  id to assign the photo
-           @param pngImage photo as byte array
-           @return true if set is successful;false otherwise
-           @since ARP1.0
-        */
-        setContactPhoto(contact: ContactUid, pngImage: number[]): boolean;
+    interface IUpdate extends IBaseApplication {
     }
     /**
        Interface for Managing the Contact operations
@@ -1135,11 +885,474 @@ device.
     /**
        Interface for Managing the Cloud operations
 
+       @author Ferran Vila Conesa
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IDatabaseResultCallback extends IBaseCallback {
+        /**
+           Result callback for error responses
+           @param error Returned error
+           @since ARP1.0
+        */
+        onError(error: IDatabaseResultCallbackError): any;
+        /**
+           Result callback for correct responses
+           @param database Returns the database
+           @since ARP1.0
+        */
+        onResult(database: Database): any;
+        /**
+           Result callback for warning responses
+           @param database Returns the database
+           @param warning  Returned Warning
+           @since ARP1.0
+        */
+        onWarning(database: Database, warning: IDatabaseResultCallbackWarning): any;
+    }
+    /**
+       Interface for Managing the Cloud operations
+
+       @author Ferran Vila Conesa
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IDatabaseTableResultCallback extends IBaseCallback {
+        /**
+           Result callback for error responses
+           @param error Returned error
+           @since ARP1.0
+        */
+        onError(error: IDatabaseTableResultCallbackError): any;
+        /**
+           Result callback for correct responses
+           @param databaseTable Returns the databaseTable
+           @since ARP1.0
+        */
+        onResult(databaseTable: DatabaseTable): any;
+        /**
+           Result callback for warning responses
+           @param databaseTable Returns the databaseTable
+           @param warning       Returned Warning
+           @since ARP1.0
+        */
+        onWarning(databaseTable: DatabaseTable, warning: IDatabaseTableResultCallbackWarning): any;
+    }
+    /**
+       Interface for Managing the File loading callback responses
+
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface ICrypto extends IBaseUtil {
+    interface IFileDataLoadResultCallback extends IBaseCallback {
+        /**
+           Error processing data retrieval/storage operation.
+           @param error Error condition encountered.
+           @since ARP1.0
+        */
+        onError(error: IFileDataLoadResultCallbackError): any;
+        /**
+           Result of data retrieval operation.
+           @param data Data loaded.
+           @since ARP1.0
+        */
+        onResult(data: number[]): any;
+        /**
+           Result with warning of data retrieval/storage operation.
+           @param data    File being loaded.
+           @param warning Warning condition encountered.
+           @since ARP1.0
+        */
+        onWarning(data: number[], warning: IFileDataLoadResultCallbackWarning): any;
+    }
+    /**
+       Interface for Managing the File store operations callback
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IFileDataStoreResultCallback extends IBaseCallback {
+        /**
+           Error processing data retrieval/storage operation.
+           @param error Error condition encountered.
+           @since ARP1.0
+        */
+        onError(error: IFileDataStoreResultCallbackError): any;
+        /**
+           Result of data storage operation.
+           @param file File reference to stored data.
+           @since ARP1.0
+        */
+        onResult(file: FileDescriptor): any;
+        /**
+           Result with warning of data retrieval/storage operation.
+           @param file    File being loaded/stored.
+           @param warning Warning condition encountered.
+           @since ARP1.0
+        */
+        onWarning(file: FileDescriptor, warning: IFileDataStoreResultCallbackWarning): any;
+    }
+    /**
+       Interface for Managing the File result operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IFileListResultCallback extends IBaseCallback {
+        /**
+           On error result of a file operation.
+           @param error Error processing the request.
+           @since ARP1.0
+        */
+        onError(error: IFileListResultCallbackError): any;
+        /**
+           On correct result of a file operation.
+           @param files Array of resulting files/folders.
+           @since ARP1.0
+        */
+        onResult(files: FileDescriptor[]): any;
+        /**
+           On partial result of a file operation, containing a warning.
+           @param files   Array of resulting files/folders.
+           @param warning Warning condition encountered.
+           @since ARP1.0
+        */
+        onWarning(files: FileDescriptor[], warning: IFileListResultCallbackWarning): any;
+    }
+    /**
+       Interface for Managing the File operations callback
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IFileResultCallback extends IBaseCallback {
+        /**
+           On error result of a file operation.
+           @param error Error processing the request.
+           @since ARP1.0
+        */
+        onError(error: IFileResultCallbackError): any;
+        /**
+           On correct result of a file operation.
+           @param storageFile Reference to the resulting file.
+           @since ARP1.0
+        */
+        onResult(storageFile: FileDescriptor): any;
+        /**
+           On partial result of a file operation, containing a warning.
+           @param file    Reference to the offending file.
+           @param warning Warning processing the request.
+           @since ARP1.0
+        */
+        onWarning(file: FileDescriptor, warning: IFileResultCallbackWarning): any;
+    }
+    /**
+       Interface for Managing the Messaging responses
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IMessagingCallback extends IBaseCallback {
+        /**
+           This method is called on Error
+           @param error returned by the platform
+           @since ARP1.0
+        */
+        onError(error: IMessagingCallbackError): any;
+        /**
+           This method is called on Result
+           @param success true if sent;false otherwise
+           @since ARP1.0
+        */
+        onResult(success: boolean): any;
+        /**
+           This method is called on Warning
+           @param success true if sent;false otherwise
+           @param warning returned by the platform
+           @since ARP1.0
+        */
+        onWarning(success: boolean, warning: IMessagingCallbackWarning): any;
+    }
+    /**
+       Interface for Managing the Network reachability callback result
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface INetworkReachabilityCallback extends IBaseCallback {
+        /**
+           No data received - error condition, not authorized .
+           @param error Error value
+           @since ARP1.0
+        */
+        onError(error: INetworkReachabilityCallbackError): any;
+        /**
+           Correct data received.
+           @param reachable Indicates if the host is reachable
+           @since ARP1.0
+        */
+        onResult(reachable: boolean): any;
+        /**
+           Data received with warning - ie Found entries with existing key and values have been overriden
+           @param reachable Indicates if the host is reachable
+           @param warning   Warning value
+           @since ARP1.0
+        */
+        onWarning(reachable: boolean, warning: INetworkReachabilityCallbackWarning): any;
+    }
+    /**
+       Interface for Managing the Security result callback
+
+       @author Aryslan
+       @since ARP1.0
+       @version 1.0
+    */
+    interface ISecurityResultCallback extends IBaseCallback {
+        /**
+           No data received - error condition, not authorized .
+           @param error Error values
+           @since ARP1.0
+        */
+        onError(error: ISecurityResultCallbackError): any;
+        /**
+           Correct data received.
+           @param keyValues key and values
+           @since ARP1.0
+        */
+        onResult(keyValues: SecureKeyPair[]): any;
+        /**
+           Data received with warning - ie Found entries with existing key and values have been overriden
+           @param keyValues key and values
+           @param warning   Warning values
+           @since ARP1.0
+        */
+        onWarning(keyValues: SecureKeyPair[], warning: ISecurityResultCallbackWarning): any;
+    }
+    /**
+       Interface for Managing the Services operations
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IServiceResultCallback extends IBaseCallback {
+        /**
+           This method is called on Error
+           @param error returned by the platform
+           @since ARP1.0
+        */
+        onError(error: IServiceResultCallbackError): any;
+        /**
+           This method is called on Result
+           @param response data
+           @since ARP1.0
+        */
+        onResult(response: ServiceResponse): any;
+        /**
+           This method is called on Warning
+           @param response data
+           @param warning  returned by the platform
+           @since ARP1.0
+        */
+        onWarning(response: ServiceResponse, warning: IServiceResultCallbackWarning): any;
+    }
+    /**
+       Interface for Advertising purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IAds extends IBaseCommerce {
+    }
+    /**
+       Interface for Managing the Store operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IStore extends IBaseCommerce {
+    }
+    /**
+       Interface for Managing the Wallet operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IWallet extends IBaseCommerce {
+    }
+    /**
+       Interface for Bluetooth purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IBluetooth extends IBaseCommunication {
+    }
+    /**
+       Interface for Managing the Network information operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface INetworkInfo extends IBaseCommunication {
+    }
+    /**
+       Interface for Managing the Network naming operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface INetworkNaming extends IBaseCommunication {
+    }
+    /**
+       Interface for Managing the Network reachability operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface INetworkReachability extends IBaseCommunication {
+        /**
+           Whether there is connectivity to a host, via domain name or ip address, or not.
+           @param host     domain name or ip address of host.
+           @param callback Callback called at the end.
+           @since ARP1.0
+        */
+        isNetworkReachable(host: string, callback: INetworkReachabilityCallback): any;
+        /**
+           Whether there is connectivity to an url of a service or not.
+           @param url      to look for
+           @param callback Callback called at the end
+           @since ARP1.0
+        */
+        isNetworkServiceReachable(url: string, callback: INetworkReachabilityCallback): any;
+    }
+    /**
+       Interface for Managing the Network status
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface INetworkStatus extends IBaseCommunication {
+        /**
+           Add the listener for network status changes of the app
+           @param listener Listener with the result
+           @since ARP1.0
+        */
+        addNetworkStatusListener(listener: INetworkStatusListener): any;
+        /**
+           Un-registers an existing listener from receiving network status events.
+           @param listener Listener with the result
+           @since ARP1.0
+        */
+        removeNetworkStatusListener(listener: INetworkStatusListener): any;
+        /**
+           Removes all existing listeners from receiving network status events.
+           @since ARP1.0
+        */
+        removeNetworkStatusListeners(): any;
+    }
+    /**
+       Interface for Managing the Services operations
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IService extends IBaseCommunication {
+        /**
+           Get a reference to a registered service by name.
+           @param serviceName Name of service.
+           @return A service, if registered, or null of the service does not exist.
+           @since ARP1.0
+        */
+        getService(serviceName: string): Service;
+        /**
+           Request async a service for an Url
+           @param serviceRequest Service Request to invoke
+           @param service        Service to call
+           @param callback       Callback to execute with the result
+           @since ARP1.0
+        */
+        invokeService(serviceRequest: ServiceRequest, service: Service, callback: IServiceResultCallback): any;
+        /**
+           Check whether a service by the given name is registered.
+           @param serviceName Name of service.
+           @return True if the service is registered, false otherwise.
+           @since ARP1.0
+        */
+        isRegistered(serviceName: string): boolean;
+        /**
+           Check whether a service by the given name is registered.
+           @param serviceName Name of service.
+           @return True if the service is registered, false otherwise.
+           @since ARP1.0
+        */
+        isRegistered(service: Service): boolean;
+        /**
+           Register a new service
+           @param service to register
+           @since ARP1.0
+        */
+        registerService(service: Service): any;
+        /**
+           Unregister all services.
+           @since ARP1.0
+        */
+        unregisterServices(): any;
+        /**
+           Unregister a service
+           @param service to unregister
+           @since ARP1.0
+        */
+        unregisterService(service: Service): any;
+    }
+    /**
+       Interface for Managing the Socket operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface ISocket extends IBaseCommunication {
+    }
+    /**
+       Interface for Managing the Telephony operations
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+       @version 1.0
+    */
+    interface ITelephony extends IBaseCommunication {
+        /**
+           Invoke a phone call
+           @param number to call
+           @return Status of the call
+           @since ARP1.0
+        */
+        call(number: string): ITelephonyStatus;
+    }
+    /**
+       Interface for Managing the Cloud operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface ICloud extends IBaseData {
     }
     /**
        Interface for Managing the DataStream operations
@@ -1225,134 +1438,13 @@ should be passed as a parameter
         existsTable(database: Database, databaseTable: DatabaseTable): boolean;
     }
     /**
-       Interface for Managing the Cloud operations
-
-       @author Ferran Vila Conesa
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IDatabaseResultCallback extends IBaseCallback {
-        /**
-           Result callback for error responses
-           @param error Returned error
-           @since ARP1.0
-        */
-        onError(error: IDatabaseResultCallbackError): any;
-        /**
-           Result callback for correct responses
-           @param database Returns the database
-           @since ARP1.0
-        */
-        onResult(database: Database): any;
-        /**
-           Result callback for warning responses
-           @param database Returns the database
-           @param warning  Returned Warning
-           @since ARP1.0
-        */
-        onWarning(database: Database, warning: IDatabaseResultCallbackWarning): any;
-    }
-    /**
-       Interface for Managing the Cloud operations
-
-       @author Ferran Vila Conesa
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IDatabaseTableResultCallback extends IBaseCallback {
-        /**
-           Result callback for error responses
-           @param error Returned error
-           @since ARP1.0
-        */
-        onError(error: IDatabaseTableResultCallbackError): any;
-        /**
-           Result callback for correct responses
-           @param databaseTable Returns the databaseTable
-           @since ARP1.0
-        */
-        onResult(databaseTable: DatabaseTable): any;
-        /**
-           Result callback for warning responses
-           @param databaseTable Returns the databaseTable
-           @param warning       Returned Warning
-           @since ARP1.0
-        */
-        onWarning(databaseTable: DatabaseTable, warning: IDatabaseTableResultCallbackWarning): any;
-    }
-    /**
-       Interface for Managing the Desktop operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IDesktop extends IBaseUI {
-    }
-    /**
-       Interface for Managing the Device operations
-
-       @author Francisco Javier Martin Bueno
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IDevice extends IBaseSystem {
-        /**
-           Register a new listener that will receive button events.
-           @param listener to be registered.
-           @since ARP1.0
-        */
-        addButtonListener(listener: IButtonListener): any;
-        /**
-           Returns the device information for the current device executing the runtime.
-           @return DeviceInfo for the current device.
-           @since ARP1.0
-        */
-        getDeviceInfo(): DeviceInfo;
-        /**
-           Gets the current Locale for the device.
-           @return The current Locale information.
-           @since ARP1.0
-        */
-        getLocaleCurrent(): Locale;
-        /**
-           De-registers an existing listener from receiving button events.
-           @param listener to be removed.
-           @since ARP1.0
-        */
-        removeButtonListener(listener: IButtonListener): any;
-        /**
-           Removed all existing listeners from receiving button events.
-           @since ARP1.0
-        */
-        removeButtonListeners(): any;
-    }
-    /**
-       Interface for Managing the Display operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IDisplay extends IBaseSystem {
-    }
-    /**
-       Interface for Managing the Facebook operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IFacebook extends IBaseSocial {
-    }
-    /**
        Interface for Managing the File operations
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface IFile {
+    interface IFile extends IBaseData {
         /**
            Determine whether the current file/folder can be read from.
            @param descriptor File descriptor of file or folder used for operation.
@@ -1471,118 +1563,6 @@ new destination file.
         setContent(descriptor: FileDescriptor, content: number[], callback: IFileDataStoreResultCallback): any;
     }
     /**
-       Interface for Managing the File loading callback responses
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IFileDataLoadResultCallback extends IBaseCallback {
-        /**
-           Error processing data retrieval/storage operation.
-           @param error Error condition encountered.
-           @since ARP1.0
-        */
-        onError(error: IFileDataLoadResultCallbackError): any;
-        /**
-           Result of data retrieval operation.
-           @param data Data loaded.
-           @since ARP1.0
-        */
-        onResult(data: number[]): any;
-        /**
-           Result with warning of data retrieval/storage operation.
-           @param data    File being loaded.
-           @param warning Warning condition encountered.
-           @since ARP1.0
-        */
-        onWarning(data: number[], warning: IFileDataLoadResultCallbackWarning): any;
-    }
-    /**
-       Interface for Managing the File store operations callback
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IFileDataStoreResultCallback extends IBaseCallback {
-        /**
-           Error processing data retrieval/storage operation.
-           @param error Error condition encountered.
-           @since ARP1.0
-        */
-        onError(error: IFileDataStoreResultCallbackError): any;
-        /**
-           Result of data storage operation.
-           @param file File reference to stored data.
-           @since ARP1.0
-        */
-        onResult(file: FileDescriptor): any;
-        /**
-           Result with warning of data retrieval/storage operation.
-           @param file    File being loaded/stored.
-           @param warning Warning condition encountered.
-           @since ARP1.0
-        */
-        onWarning(file: FileDescriptor, warning: IFileDataStoreResultCallbackWarning): any;
-    }
-    /**
-       Interface for Managing the File result operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IFileListResultCallback extends IBaseCallback {
-        /**
-           On error result of a file operation.
-           @param error Error processing the request.
-           @since ARP1.0
-        */
-        onError(error: IFileListResultCallbackError): any;
-        /**
-           On correct result of a file operation.
-           @param files Array of resulting files/folders.
-           @since ARP1.0
-        */
-        onResult(files: FileDescriptor[]): any;
-        /**
-           On partial result of a file operation, containing a warning.
-           @param files   Array of resulting files/folders.
-           @param warning Warning condition encountered.
-           @since ARP1.0
-        */
-        onWarning(files: FileDescriptor[], warning: IFileListResultCallbackWarning): any;
-    }
-    /**
-       Interface for Managing the File operations callback
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IFileResultCallback extends IBaseCallback {
-        /**
-           On error result of a file operation.
-           @param error Error processing the request.
-           @since ARP1.0
-        */
-        onError(error: IFileResultCallbackError): any;
-        /**
-           On correct result of a file operation.
-           @param storageFile Reference to the resulting file.
-           @since ARP1.0
-        */
-        onResult(storageFile: FileDescriptor): any;
-        /**
-           On partial result of a file operation, containing a warning.
-           @param file    Reference to the offending file.
-           @param warning Warning processing the request.
-           @since ARP1.0
-        */
-        onWarning(file: FileDescriptor, warning: IFileResultCallbackWarning): any;
-    }
-    /**
        Interface for Managing the File System operations
 
        @author Carlos Lozano Diez
@@ -1652,30 +1632,79 @@ This path may or may not be writable by the current application.
         getSystemExternalFolder(): FileDescriptor;
     }
     /**
-       Interface for Managing the Geolocation operations
+       Interface for Managing the Internal Storage operations
 
-       @author Francisco Javier Martin Bueno
+       @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface IGeolocation extends IBaseSensor {
+    interface IInternalStorage extends IBaseData {
+    }
+    /**
+       Interface for Managing the XML operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IXML extends IBaseData {
+    }
+    /**
+       Interface defines the response methods of the acceleration operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IAccelerationListener extends IBaseListener {
         /**
-           Register a new listener that will receive geolocation events.
-           @param listener to be registered.
+           No data received - error condition, not authorized or hardware not available. This will be reported once for the
+listener and subsequently, the listener will be deactivated and removed from the internal list of listeners.
+           @param error Error fired
            @since ARP1.0
         */
-        addGeolocationListener(listener: IGeolocationListener): any;
+        onError(error: IAccelerationListenerError): any;
         /**
-           De-registers an existing listener from receiving geolocation events.
-           @param listener to be registered.
+           Correct data received.
+           @param acceleration Acceleration received
            @since ARP1.0
         */
-        removeGeolocationListener(listener: IGeolocationListener): any;
+        onResult(acceleration: Acceleration): any;
         /**
-           Removed all existing listeners from receiving geolocation events.
+           Data received with warning - ie. Needs calibration.
+           @param acceleration Acceleration received
+           @param warning      Warning fired
            @since ARP1.0
         */
-        removeGeolocationListeners(): any;
+        onWarning(acceleration: Acceleration, warning: IAccelerationListenerWarning): any;
+    }
+    /**
+       Interface for Managing the button  operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IButtonListener extends IBaseListener {
+        /**
+           No data received
+           @param error occurred
+           @since ARP1.0
+        */
+        onError(error: IButtonListenerError): any;
+        /**
+           Called on button pressed
+           @param button pressed
+           @since ARP1.0
+        */
+        onResult(button: Button): any;
+        /**
+           Data received with warning
+           @param button  pressed
+           @param warning happened
+           @since ARP1.0
+        */
+        onWarning(button: Button, warning: IButtonListenerWarning): any;
     }
     /**
        Interface for Managing the Geolocation results
@@ -1706,104 +1735,6 @@ This path may or may not be writable by the current application.
         onWarning(geolocation: Geolocation, warning: IGeolocationListenerWarning): any;
     }
     /**
-       Interface for Managing the Globalization results
-
-       @author Francisco Javier Martin Bueno
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IGlobalization extends IBaseApplication {
-        /**
-           List of supported locales for the application
-           @return List of locales
-           @since ARP1.0
-        */
-        getLocaleSupportedDescriptors(): Locale[];
-        /**
-           Gets the text/message corresponding to the given key and locale.
-           @param key    to match text
-           @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
-           @return Localized text.
-           @since ARP1.0
-        */
-        getResourceLiteral(key: string, locale: Locale): string;
-        /**
-           Gets the full application configured literals (key/message pairs) corresponding to the given locale.
-           @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
-           @return Localized texts in the form of an object.
-           @since ARP1.0
-        */
-        getResourceLiterals(locale: Locale): KeyPair[];
-    }
-    /**
-       Interface for Managing the Google Plus operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IGooglePlus extends IBaseSocial {
-    }
-    /**
-       Interface for Managing the Giroscope operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IGyroscope extends IBaseSensor {
-    }
-    /**
-       Interface for Managing the Imaging operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IImaging extends IBaseMedia {
-    }
-    /**
-       Interface for Managing the Internal Storage operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IInternalStorage extends IBaseData {
-    }
-    /**
-       Interface for Managing the Lifecycle listeners
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface ILifecycle extends IBaseApplication {
-        /**
-           Add the listener for the lifecycle of the app
-           @param listener Lifecycle listener
-           @since ARP1.0
-        */
-        addLifecycleListener(listener: ILifecycleListener): any;
-        /**
-           Whether the application is in background or not
-           @return true if the application is in background;false otherwise
-           @since ARP1.0
-        */
-        isBackground(): boolean;
-        /**
-           Un-registers an existing listener from receiving lifecycle events.
-           @param listener Lifecycle listener
-           @since ARP1.0
-        */
-        removeLifecycleListener(listener: ILifecycleListener): any;
-        /**
-           Removes all existing listeners from receiving lifecycle events.
-           @since ARP1.0
-        */
-        removeLifecycleListeners(): any;
-    }
-    /**
        Interface for Managing the Lifecycle listeners
 
        @author Carlos Lozano Diez
@@ -1830,231 +1761,6 @@ This path may or may not be writable by the current application.
            @since ARP1.0
         */
         onWarning(lifecycle: Lifecycle, warning: ILifecycleListenerWarning): any;
-    }
-    /**
-       Interface for Managing the Linkedin operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface ILinkedIn extends IBaseSocial {
-    }
-    /**
-       Interface for Managing the Logging operations
-
-       @author Ferran Vila Conesa
-       @since ARP1.0
-       @version 1.0
-    */
-    interface ILogging extends IBaseUtil {
-        /**
-           Logs the given message, with the given log level if specified, to the standard platform/environment.
-           @param level    Log level
-           @param category Category/tag name to identify/filter the log.
-           @param message  Message to be logged
-           @since ARP1.0
-        */
-        log(level: ILoggingLogLevel, category: string, message: string): any;
-        /**
-           Logs the given message, with the given log level if specified, to the standard platform/environment.
-           @param level   Log level
-           @param message Message to be logged
-           @since ARP1.0
-        */
-        log(level: ILoggingLogLevel, message: string): any;
-    }
-    /**
-       Interface for Managing the Magnetometer operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IMagnetometer extends IBaseSensor {
-    }
-    /**
-       Interface for Managing the Mail operations
-
-       @author Francisco Javier Martin Bueno
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IMail extends IBasePIM {
-        /**
-           Send an Email
-           @param data     Payload of the email
-           @param callback Result callback of the operation
-           @since ARP1.0
-        */
-        sendEmail(data: Email, callback: IMessagingCallback): any;
-    }
-    /**
-       Interface for Managing the Management operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IManagement extends IBaseApplication {
-    }
-    /**
-       Interface for Managing the Map operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IMap extends IBaseUI {
-    }
-    /**
-       Interface for Managing the Messaging operations
-
-       @author Francisco Javier Martin Bueno
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IMessaging extends IBasePIM {
-        /**
-           Send text SMS
-           @param number   to send
-           @param text     to send
-           @param callback with the result
-           @since ARP1.0
-        */
-        sendSMS(number: string, text: string, callback: IMessagingCallback): any;
-    }
-    /**
-       Interface for Managing the Messaging responses
-
-       @author Francisco Javier Martin Bueno
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IMessagingCallback extends IBaseCallback {
-        /**
-           This method is called on Error
-           @param error returned by the platform
-           @since ARP1.0
-        */
-        onError(error: IMessagingCallbackError): any;
-        /**
-           This method is called on Result
-           @param success true if sent;false otherwise
-           @since ARP1.0
-        */
-        onResult(success: boolean): any;
-        /**
-           This method is called on Warning
-           @param success true if sent;false otherwise
-           @param warning returned by the platform
-           @since ARP1.0
-        */
-        onWarning(success: boolean, warning: IMessagingCallbackWarning): any;
-    }
-    /**
-       Interface for Managing the NFC operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface INFC extends IBaseReader {
-    }
-    /**
-       Interface for Managing the Network information operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface INetworkInfo extends IBaseCommunication {
-    }
-    /**
-       Interface for Managing the Network naming operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface INetworkNaming extends IBaseCommunication {
-    }
-    /**
-       Interface for Managing the Network reachability operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface INetworkReachability extends IBaseCommunication {
-        /**
-           Whether there is connectivity to a host, via domain name or ip address, or not.
-           @param host     domain name or ip address of host.
-           @param callback Callback called at the end.
-           @since ARP1.0
-        */
-        isNetworkReachable(host: string, callback: INetworkReachabilityCallback): any;
-        /**
-           Whether there is connectivity to an url of a service or not.
-           @param url      to look for
-           @param callback Callback called at the end
-           @since ARP1.0
-        */
-        isNetworkServiceReachable(url: string, callback: INetworkReachabilityCallback): any;
-    }
-    /**
-       Interface for Managing the Network reachability callback result
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface INetworkReachabilityCallback extends IBaseCallback {
-        /**
-           No data received - error condition, not authorized .
-           @param error Error value
-           @since ARP1.0
-        */
-        onError(error: INetworkReachabilityCallbackError): any;
-        /**
-           Correct data received.
-           @param reachable Indicates if the host is reachable
-           @since ARP1.0
-        */
-        onResult(reachable: boolean): any;
-        /**
-           Data received with warning - ie Found entries with existing key and values have been overriden
-           @param reachable Indicates if the host is reachable
-           @param warning   Warning value
-           @since ARP1.0
-        */
-        onWarning(reachable: boolean, warning: INetworkReachabilityCallbackWarning): any;
-    }
-    /**
-       Interface for Managing the Network status
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface INetworkStatus extends IBaseCommunication {
-        /**
-           Add the listener for network status changes of the app
-           @param listener Listener with the result
-           @since ARP1.0
-        */
-        addNetworkStatusListener(listener: INetworkStatusListener): any;
-        /**
-           Un-registers an existing listener from receiving network status events.
-           @param listener Listener with the result
-           @since ARP1.0
-        */
-        removeNetworkStatusListener(listener: INetworkStatusListener): any;
-        /**
-           Removes all existing listeners from receiving network status events.
-           @since ARP1.0
-        */
-        removeNetworkStatusListeners(): any;
     }
     /**
        Interface for Managing the Network status listener events
@@ -2085,6 +1791,57 @@ This path may or may not be writable by the current application.
         onWarning(network: ICapabilitiesNet, warning: INetworkStatusListenerWarning): any;
     }
     /**
+       Interface for Audio purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IAudio extends IBaseMedia {
+    }
+    /**
+       Interface for Managing the camera operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface ICamera extends IBaseMedia {
+    }
+    /**
+       Interface for Managing the Imaging operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IImaging extends IBaseMedia {
+    }
+    /**
+       Interface for Managing the Video operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IVideo extends IBaseMedia {
+        /**
+           Play url video stream
+           @param url of the video
+           @since ARP1.0
+        */
+        playStream(url: string): any;
+    }
+    /**
+       Interface for Alarm purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IAlarm extends IBaseNotification {
+    }
+    /**
        Interface for Managing the Notification operations
 
        @author Carlos Lozano Diez
@@ -2103,13 +1860,140 @@ This path may or may not be writable by the current application.
     interface INotificationLocal extends IBaseNotification {
     }
     /**
-       Interface for Managing the OAuth operations
+       Interface for Managing the Vibration operations
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface IOAuth extends IBaseSecurity {
+    interface IVibration extends IBaseNotification {
+    }
+    /**
+       Interface for Managing the Calendar operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface ICalendar extends IBasePIM {
+    }
+    /**
+       Interface for Managing the Contact operations
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IContact extends IBasePIM {
+        /**
+           Get the contact photo
+           @param contact  id to search for
+           @param callback called for return
+           @since ARP1.0
+        */
+        getContactPhoto(contact: ContactUid, callback: IContactPhotoResultCallback): any;
+        /**
+           Get all the details of a contact according to its id
+           @param contact  id to search for
+           @param callback called for return
+           @since ARP1.0
+        */
+        getContact(contact: ContactUid, callback: IContactResultCallback): any;
+        /**
+           Get marked fields of all contacts
+           @param callback called for return
+           @param fields   to get for each Contact
+           @since ARP1.0
+        */
+        getContactsForFields(callback: IContactResultCallback, fields: IContactFieldGroup[]): any;
+        /**
+           Get marked fields of all contacts according to a filter
+           @param callback called for return
+           @param fields   to get for each Contact
+           @param filter   to search for
+           @since ARP1.0
+        */
+        getContactsWithFilter(callback: IContactResultCallback, fields: IContactFieldGroup[], filter: IContactFilter[]): any;
+        /**
+           Get all contacts
+           @param callback called for return
+           @since ARP1.0
+        */
+        getContacts(callback: IContactResultCallback): any;
+        /**
+           Search contacts according to a term with a filter and send it to the callback
+           @param term     string to search
+           @param callback called for return
+           @param filter   to search for
+           @since ARP1.0
+        */
+        searchContactsWithFilter(term: string, callback: IContactResultCallback, filter: IContactFilter[]): any;
+        /**
+           Search contacts according to a term and send it to the callback
+           @param term     string to search
+           @param callback called for return
+           @since ARP1.0
+        */
+        searchContacts(term: string, callback: IContactResultCallback): any;
+        /**
+           Set the contact photo
+           @param contact  id to assign the photo
+           @param pngImage photo as byte array
+           @return true if set is successful;false otherwise
+           @since ARP1.0
+        */
+        setContactPhoto(contact: ContactUid, pngImage: number[]): boolean;
+    }
+    /**
+       Interface for Managing the Mail operations
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IMail extends IBasePIM {
+        /**
+           Send an Email
+           @param data     Payload of the email
+           @param callback Result callback of the operation
+           @since ARP1.0
+        */
+        sendEmail(data: Email, callback: IMessagingCallback): any;
+    }
+    /**
+       Interface for Managing the Messaging operations
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IMessaging extends IBasePIM {
+        /**
+           Send text SMS
+           @param number   to send
+           @param text     to send
+           @param callback with the result
+           @since ARP1.0
+        */
+        sendSMS(number: string, text: string, callback: IMessagingCallback): any;
+    }
+    /**
+       Interface for Barcode Reading purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IBarcode extends IBaseReader {
+    }
+    /**
+       Interface for Managing the NFC operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface INFC extends IBaseReader {
     }
     /**
        Interface for Managing the OCR operations
@@ -2121,48 +2005,6 @@ This path may or may not be writable by the current application.
     interface IOCR extends IBaseReader {
     }
     /**
-       Interface for Managing the OS operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IOS extends IBaseSystem {
-        /**
-           Returns the OSInfo for the current operating system.
-           @return OSInfo with name, version and vendor of the OS.
-           @since ARP1.0
-        */
-        getOSInfo(): OSInfo;
-    }
-    /**
-       Interface for Managing the OpenID operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IOpenId extends IBaseSecurity {
-    }
-    /**
-       Interface for Managing the Printing operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IPrinting extends IBaseApplication {
-    }
-    /**
-       Interface for Managing the Proximity operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IProximity extends IBaseSensor {
-    }
-    /**
        Interface for Managing the QR Code operations
 
        @author Carlos Lozano Diez
@@ -2172,33 +2014,22 @@ This path may or may not be writable by the current application.
     interface IQRCode extends IBaseReader {
     }
     /**
-       Interface for Managing the RSS operations
+       Interface for Managing the OAuth operations
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface IRSS extends IBaseSocial {
+    interface IOAuth extends IBaseSecurity {
     }
     /**
-       Interface for Managing the Runtime operations
+       Interface for Managing the OpenID operations
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface IRuntime extends IBaseSystem {
-        /**
-           Dismiss the current Application
-           @since ARP1.0
-        */
-        dismissApplication(): any;
-        /**
-           Whether the application dismiss the splash screen successfully or not
-           @return true if the application has dismissed the splash screen;false otherwise
-           @since ARP1.0
-        */
-        dismissSplashScreen(): boolean;
+    interface IOpenId extends IBaseSecurity {
     }
     /**
        Interface for Managing the Security operations
@@ -2240,167 +2071,137 @@ This path may or may not be writable by the current application.
         setSecureKeyValuePairs(keyValues: SecureKeyPair[], publicAccessName: string, callback: ISecurityResultCallback): any;
     }
     /**
-       Interface for Managing the Security result callback
+       Interface defining methods about the acceleration sensor
 
-       @author Aryslan
+       @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface ISecurityResultCallback extends IBaseCallback {
+    interface IAcceleration extends IBaseSensor {
         /**
-           No data received - error condition, not authorized .
-           @param error Error values
+           Register a new listener that will receive acceleration events.
+           @param listener to be registered.
            @since ARP1.0
         */
-        onError(error: ISecurityResultCallbackError): any;
+        addAccelerationListener(listener: IAccelerationListener): any;
         /**
-           Correct data received.
-           @param keyValues key and values
+           De-registers an existing listener from receiving acceleration events.
+           @param listener to be registered.
            @since ARP1.0
         */
-        onResult(keyValues: SecureKeyPair[]): any;
+        removeAccelerationListener(listener: IAccelerationListener): any;
         /**
-           Data received with warning - ie Found entries with existing key and values have been overriden
-           @param keyValues key and values
-           @param warning   Warning values
+           Removed all existing listeners from receiving acceleration events.
            @since ARP1.0
         */
-        onWarning(keyValues: SecureKeyPair[], warning: ISecurityResultCallbackWarning): any;
+        removeAccelerationListeners(): any;
     }
     /**
-       Interface for Managing the Services operations
+       Interface for managinf the Ambient Light
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IAmbientLight extends IBaseSensor {
+    }
+    /**
+       Interface for Barometer management purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IBarometer extends IBaseSensor {
+    }
+    /**
+       Interface for Managing the Geolocation operations
 
        @author Francisco Javier Martin Bueno
        @since ARP1.0
        @version 1.0
     */
-    interface IService extends IBaseCommunication {
+    interface IGeolocation extends IBaseSensor {
         /**
-           Get a reference to a registered service by name.
-           @param serviceName Name of service.
-           @return A service, if registered, or null of the service does not exist.
+           Register a new listener that will receive geolocation events.
+           @param listener to be registered.
            @since ARP1.0
         */
-        getService(serviceName: string): Service;
+        addGeolocationListener(listener: IGeolocationListener): any;
         /**
-           Request async a service for an Url
-           @param serviceRequest Service Request to invoke
-           @param service        Service to call
-           @param callback       Callback to execute with the result
+           De-registers an existing listener from receiving geolocation events.
+           @param listener to be registered.
            @since ARP1.0
         */
-        invokeService(serviceRequest: ServiceRequest, service: Service, callback: IServiceResultCallback): any;
+        removeGeolocationListener(listener: IGeolocationListener): any;
         /**
-           Check whether a service by the given name is registered.
-           @param serviceName Name of service.
-           @return True if the service is registered, false otherwise.
+           Removed all existing listeners from receiving geolocation events.
            @since ARP1.0
         */
-        isRegistered(serviceName: string): boolean;
-        /**
-           Check whether a service by the given name is registered.
-           @param serviceName Name of service.
-           @return True if the service is registered, false otherwise.
-           @since ARP1.0
-        */
-        isRegistered(service: Service): boolean;
-        /**
-           Register a new service
-           @param service to register
-           @since ARP1.0
-        */
-        registerService(service: Service): any;
-        /**
-           Unregister all services.
-           @since ARP1.0
-        */
-        unregisterServices(): any;
-        /**
-           Unregister a service
-           @param service to unregister
-           @since ARP1.0
-        */
-        unregisterService(service: Service): any;
+        removeGeolocationListeners(): any;
     }
     /**
-       Interface for Managing the Services operations
-
-       @author Francisco Javier Martin Bueno
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IServiceResultCallback extends IBaseCallback {
-        /**
-           This method is called on Error
-           @param error returned by the platform
-           @since ARP1.0
-        */
-        onError(error: IServiceResultCallbackError): any;
-        /**
-           This method is called on Result
-           @param response data
-           @since ARP1.0
-        */
-        onResult(response: ServiceResponse): any;
-        /**
-           This method is called on Warning
-           @param response data
-           @param warning  returned by the platform
-           @since ARP1.0
-        */
-        onWarning(response: ServiceResponse, warning: IServiceResultCallbackWarning): any;
-    }
-    /**
-       Interface for Managing the Settings operations
+       Interface for Managing the Giroscope operations
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface ISettings extends IBaseApplication {
+    interface IGyroscope extends IBaseSensor {
     }
     /**
-       Interface for Managing the Socket operations
+       Interface for Managing the Magnetometer operations
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface ISocket extends IBaseCommunication {
+    interface IMagnetometer extends IBaseSensor {
     }
     /**
-       Interface for Managing the Store operations
+       Interface for Managing the Proximity operations
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface IStore extends IBaseCommerce {
+    interface IProximity extends IBaseSensor {
     }
     /**
-       Interface for Managing the Telephony operations
-
-       @author Francisco Javier Martin Bueno
-       @since ARP1.0
-       @version 1.0
-    */
-    interface ITelephony extends IBaseCommunication {
-        /**
-           Invoke a phone call
-           @param number to call
-           @return Status of the call
-           @since ARP1.0
-        */
-        call(number: string): ITelephonyStatus;
-    }
-    /**
-       Interface for Managing the Timer operations
+       Interface for Managing the Facebook operations
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface ITimer extends IBaseUtil {
+    interface IFacebook extends IBaseSocial {
+    }
+    /**
+       Interface for Managing the Google Plus operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IGooglePlus extends IBaseSocial {
+    }
+    /**
+       Interface for Managing the Linkedin operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface ILinkedIn extends IBaseSocial {
+    }
+    /**
+       Interface for Managing the RSS operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IRSS extends IBaseSocial {
     }
     /**
        Interface for Managing the Twitter operations
@@ -2412,6 +2213,202 @@ This path may or may not be writable by the current application.
     interface ITwitter extends IBaseSocial {
     }
     /**
+       Interface for testing the Capabilities operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface ICapabilities extends IBaseSystem {
+        /**
+           Determines whether a specific hardware button is supported for interaction.
+           @param type Type of feature to check.
+           @return true is supported, false otherwise.
+           @since ARP1.0
+        */
+        hasButtonSupport(type: ICapabilitiesButton): boolean;
+        /**
+           Determines whether a specific Communication capability is supported by
+the device.
+           @param type Type of feature to check.
+           @return true if supported, false otherwise.
+           @since ARP1.0
+        */
+        hasCommunicationSupport(type: ICapabilitiesCommunication): boolean;
+        /**
+           Determines whether a specific Data capability is supported by the device.
+           @param type Type of feature to check.
+           @return true if supported, false otherwise.
+           @since ARP1.0
+        */
+        hasDataSupport(type: ICapabilitiesData): boolean;
+        /**
+           Determines whether a specific Media capability is supported by the
+device.
+           @param type Type of feature to check.
+           @return true if supported, false otherwise.
+           @since ARP1.0
+        */
+        hasMediaSupport(type: ICapabilitiesMedia): boolean;
+        /**
+           Determines whether a specific Net capability is supported by the device.
+           @param type Type of feature to check.
+           @return true if supported, false otherwise.
+           @since ARP1.0
+        */
+        hasNetSupport(type: ICapabilitiesNet): boolean;
+        /**
+           Determines whether a specific Notification capability is supported by the
+device.
+           @param type Type of feature to check.
+           @return true if supported, false otherwise.
+           @since ARP1.0
+        */
+        hasNotificationSupport(type: ICapabilitiesNotification): boolean;
+        /**
+           Determines whether a specific Sensor capability is supported by the
+device.
+           @param type Type of feature to check.
+           @return true if supported, false otherwise.
+           @since ARP1.0
+        */
+        hasSensorSupport(type: ICapabilitiesSensor): boolean;
+    }
+    /**
+       Interface for Managing the Device operations
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IDevice extends IBaseSystem {
+        /**
+           Register a new listener that will receive button events.
+           @param listener to be registered.
+           @since ARP1.0
+        */
+        addButtonListener(listener: IButtonListener): any;
+        /**
+           Returns the device information for the current device executing the runtime.
+           @return DeviceInfo for the current device.
+           @since ARP1.0
+        */
+        getDeviceInfo(): DeviceInfo;
+        /**
+           Gets the current Locale for the device.
+           @return The current Locale information.
+           @since ARP1.0
+        */
+        getLocaleCurrent(): Locale;
+        /**
+           De-registers an existing listener from receiving button events.
+           @param listener to be removed.
+           @since ARP1.0
+        */
+        removeButtonListener(listener: IButtonListener): any;
+        /**
+           Removed all existing listeners from receiving button events.
+           @since ARP1.0
+        */
+        removeButtonListeners(): any;
+    }
+    /**
+       Interface for Managing the Display operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IDisplay extends IBaseSystem {
+    }
+    /**
+       Interface for Managing the OS operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IOS extends IBaseSystem {
+        /**
+           Returns the OSInfo for the current operating system.
+           @return OSInfo with name, version and vendor of the OS.
+           @since ARP1.0
+        */
+        getOSInfo(): OSInfo;
+    }
+    /**
+       Interface for Managing the Runtime operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IRuntime extends IBaseSystem {
+        /**
+           Dismiss the current Application
+           @since ARP1.0
+        */
+        dismissApplication(): any;
+        /**
+           Whether the application dismiss the splash screen successfully or not
+           @return true if the application has dismissed the splash screen;false otherwise
+           @since ARP1.0
+        */
+        dismissSplashScreen(): boolean;
+    }
+    /**
+       Interface for Managing the browser operations
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IBrowser extends IBaseUI {
+        /**
+           Method for opening a URL like a link in the native default browser
+           @param url Url to open
+           @return The result of the operation
+           @since ARP1.0
+        */
+        openExtenalBrowser(url: string): boolean;
+        /**
+           Method for opening a browser embedded into the application in a modal window
+           @param url            Url to open
+           @param title          Title of the Navigation bar
+           @param backButtonText Title of the Back button bar
+           @return The result of the operation
+           @since ARP1.0
+        */
+        openInternalBrowserModal(url: string, title: string, backButtonText: string): boolean;
+        /**
+           Method for opening a browser embedded into the application
+           @param url            Url to open
+           @param title          Title of the Navigation bar
+           @param backButtonText Title of the Back button bar
+           @return The result of the operation
+           @since ARP1.0
+        */
+        openInternalBrowser(url: string, title: string, backButtonText: string): boolean;
+    }
+    /**
+       Interface for Managing the Desktop operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IDesktop extends IBaseUI {
+    }
+    /**
+       Interface for Managing the Map operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IMap extends IBaseUI {
+    }
+    /**
        Interface for Managing the UI operations
 
        @author Carlos Lozano Diez
@@ -2421,55 +2418,64 @@ This path may or may not be writable by the current application.
     interface IUI extends IBaseUI {
     }
     /**
-       Interface for Managing the Update operations
+       Interface for Managing the Compression operations
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface IUpdate extends IBaseApplication {
+    interface ICompression extends IBaseUtil {
     }
     /**
-       Interface for Managing the Vibration operations
+       Interface for Managing the Concurrent operations
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface IVibration extends IBaseNotification {
+    interface IConcurrent extends IBaseUtil {
     }
     /**
-       Interface for Managing the Video operations
+       Interface for Managing the Cloud operations
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface IVideo extends IBaseMedia {
+    interface ICrypto extends IBaseUtil {
+    }
+    /**
+       Interface for Managing the Logging operations
+
+       @author Ferran Vila Conesa
+       @since ARP1.0
+       @version 1.0
+    */
+    interface ILogging extends IBaseUtil {
         /**
-           Play url video stream
-           @param url of the video
+           Logs the given message, with the given log level if specified, to the standard platform/environment.
+           @param level    Log level
+           @param category Category/tag name to identify/filter the log.
+           @param message  Message to be logged
            @since ARP1.0
         */
-        playStream(url: string): any;
+        log(level: ILoggingLogLevel, category: string, message: string): any;
+        /**
+           Logs the given message, with the given log level if specified, to the standard platform/environment.
+           @param level   Log level
+           @param message Message to be logged
+           @since ARP1.0
+        */
+        log(level: ILoggingLogLevel, message: string): any;
     }
     /**
-       Interface for Managing the Wallet operations
+       Interface for Managing the Timer operations
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface IWallet extends IBaseCommerce {
-    }
-    /**
-       Interface for Managing the XML operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IXML extends IBaseData {
+    interface ITimer extends IBaseUtil {
     }
     /**
        Structure representing a native response to the HTML5
@@ -2700,174 +2706,6 @@ listener.
            @since ARP1.0
         */
         setType(type: ICapabilitiesButton): void;
-    }
-    /**
-       Structure representing the data elements of a contact.
-
-       @author Francisco Javier Martin Bueno
-       @since ARP1.0
-       @version 1.0
-    */
-    class Contact extends ContactUid {
-        /**
-           The adresses from the contact
-        */
-        contactAddresses: ContactAddress[];
-        /**
-           The emails from the contact
-        */
-        contactEmails: ContactEmail[];
-        /**
-           The phones from the contact
-        */
-        contactPhones: ContactPhone[];
-        /**
-           The social network info from the contact
-        */
-        contactSocials: ContactSocial[];
-        /**
-           The aditional tags from the contact
-        */
-        contactTags: ContactTag[];
-        /**
-           The websites from the contact
-        */
-        contactWebsites: ContactWebsite[];
-        /**
-           The personal info from the contact
-        */
-        personalInfo: ContactPersonalInfo;
-        /**
-           The professional info from the contact
-        */
-        professionalInfo: ContactProfessionalInfo;
-        /**
-           Constructor with all the fields
-
-           @param contactId        Identifier of the contact
-           @param personalInfo     Personal Information
-           @param professionalInfo Professional Information
-           @param contactAddresses Addresses of the contact
-           @param contactPhones    Phones of the contact
-           @param contactEmails    Emails of the contact
-           @param contactWebsites  Websites of the contact
-           @param contactSocials   Social Networks of the contact
-           @param contactTags      Tags of the contact
-           @since ARP1.0
-        */
-        constructor(contactId: string, personalInfo: ContactPersonalInfo, professionalInfo: ContactProfessionalInfo, contactAddresses: ContactAddress[], contactPhones: ContactPhone[], contactEmails: ContactEmail[], contactWebsites: ContactWebsite[], contactSocials: ContactSocial[], contactTags: ContactTag[]);
-        /**
-           Returns all the addresses of the Contact
-
-           @return ContactAddress[]
-           @since ARP1.0
-        */
-        getContactAddresses(): ContactAddress[];
-        /**
-           Set the addresses of the Contact
-
-           @param contactAddresses Addresses of the contact
-           @since ARP1.0
-        */
-        setContactAddresses(contactAddresses: ContactAddress[]): void;
-        /**
-           Returns all the emails of the Contact
-
-           @return ContactEmail[]
-           @since ARP1.0
-        */
-        getContactEmails(): ContactEmail[];
-        /**
-           Set the emails of the Contact
-
-           @param contactEmails Emails of the contact
-           @since ARP1.0
-        */
-        setContactEmails(contactEmails: ContactEmail[]): void;
-        /**
-           Returns all the phones of the Contact
-
-           @return ContactPhone[]
-           @since ARP1.0
-        */
-        getContactPhones(): ContactPhone[];
-        /**
-           Set the phones of the Contact
-
-           @param contactPhones Phones of the contact
-           @since ARP1.0
-        */
-        setContactPhones(contactPhones: ContactPhone[]): void;
-        /**
-           Returns all the social network info of the Contact
-
-           @return ContactSocial[]
-           @since ARP1.0
-        */
-        getContactSocials(): ContactSocial[];
-        /**
-           Set the social network info of the Contact
-
-           @param contactSocials Social Networks of the contact
-           @since ARP1.0
-        */
-        setContactSocials(contactSocials: ContactSocial[]): void;
-        /**
-           Returns the additional tags of the Contact
-
-           @return ContactTag[]
-           @since ARP1.0
-        */
-        getContactTags(): ContactTag[];
-        /**
-           Set the additional tags of the Contact
-
-           @param contactTags Tags of the contact
-           @since ARP1.0
-        */
-        setContactTags(contactTags: ContactTag[]): void;
-        /**
-           Returns all the websites of the Contact
-
-           @return ContactWebsite[]
-           @since ARP1.0
-        */
-        getContactWebsites(): ContactWebsite[];
-        /**
-           Set the websites of the Contact
-
-           @param contactWebsites Websites of the contact
-           @since ARP1.0
-        */
-        setContactWebsites(contactWebsites: ContactWebsite[]): void;
-        /**
-           Returns the personal info of the Contact
-
-           @return ContactPersonalInfo of the Contact
-           @since ARP1.0
-        */
-        getPersonalInfo(): ContactPersonalInfo;
-        /**
-           Set the personal info of the Contact
-
-           @param personalInfo Personal Information
-           @since ARP1.0
-        */
-        setPersonalInfo(personalInfo: ContactPersonalInfo): void;
-        /**
-           Returns the professional info of the Contact
-
-           @return Array of personal info
-           @since ARP1.0
-        */
-        getProfessionalInfo(): ContactProfessionalInfo;
-        /**
-           Set the professional info of the Contact
-
-           @param professionalInfo Professional Information
-           @since ARP1.0
-        */
-        setProfessionalInfo(professionalInfo: ContactProfessionalInfo): void;
     }
     /**
        Structure representing the address data elements of a contact.
@@ -3998,13 +3836,13 @@ be unique for a specific instance of an application on a specific device.
         setSize(size: number): void;
     }
     /**
-       Created by clozano on 19/12/14.
+       Implementation of FileDescriptor bean.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    class FileDescriptor {
+    class FileDescriptor extends APIBean {
         dateCreated: number;
         dateModified: number;
         name: string;
@@ -5293,7 +5131,7 @@ Possible lifecycle States:
        @since ARP1.0
        @version 1.0
     */
-    class ServiceSession {
+    class ServiceSession extends APIBean {
         /**
            The attributes of the response
         */
@@ -5338,6 +5176,174 @@ Possible lifecycle States:
            @since ARP1.0
         */
         setCookies(cookies: ServiceCookie[]): void;
+    }
+    /**
+       Structure representing the data elements of a contact.
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+       @version 1.0
+    */
+    class Contact extends ContactUid {
+        /**
+           The adresses from the contact
+        */
+        contactAddresses: ContactAddress[];
+        /**
+           The emails from the contact
+        */
+        contactEmails: ContactEmail[];
+        /**
+           The phones from the contact
+        */
+        contactPhones: ContactPhone[];
+        /**
+           The social network info from the contact
+        */
+        contactSocials: ContactSocial[];
+        /**
+           The aditional tags from the contact
+        */
+        contactTags: ContactTag[];
+        /**
+           The websites from the contact
+        */
+        contactWebsites: ContactWebsite[];
+        /**
+           The personal info from the contact
+        */
+        personalInfo: ContactPersonalInfo;
+        /**
+           The professional info from the contact
+        */
+        professionalInfo: ContactProfessionalInfo;
+        /**
+           Constructor with all the fields
+
+           @param contactId        Identifier of the contact
+           @param personalInfo     Personal Information
+           @param professionalInfo Professional Information
+           @param contactAddresses Addresses of the contact
+           @param contactPhones    Phones of the contact
+           @param contactEmails    Emails of the contact
+           @param contactWebsites  Websites of the contact
+           @param contactSocials   Social Networks of the contact
+           @param contactTags      Tags of the contact
+           @since ARP1.0
+        */
+        constructor(contactId: string, personalInfo: ContactPersonalInfo, professionalInfo: ContactProfessionalInfo, contactAddresses: ContactAddress[], contactPhones: ContactPhone[], contactEmails: ContactEmail[], contactWebsites: ContactWebsite[], contactSocials: ContactSocial[], contactTags: ContactTag[]);
+        /**
+           Returns all the addresses of the Contact
+
+           @return ContactAddress[]
+           @since ARP1.0
+        */
+        getContactAddresses(): ContactAddress[];
+        /**
+           Set the addresses of the Contact
+
+           @param contactAddresses Addresses of the contact
+           @since ARP1.0
+        */
+        setContactAddresses(contactAddresses: ContactAddress[]): void;
+        /**
+           Returns all the emails of the Contact
+
+           @return ContactEmail[]
+           @since ARP1.0
+        */
+        getContactEmails(): ContactEmail[];
+        /**
+           Set the emails of the Contact
+
+           @param contactEmails Emails of the contact
+           @since ARP1.0
+        */
+        setContactEmails(contactEmails: ContactEmail[]): void;
+        /**
+           Returns all the phones of the Contact
+
+           @return ContactPhone[]
+           @since ARP1.0
+        */
+        getContactPhones(): ContactPhone[];
+        /**
+           Set the phones of the Contact
+
+           @param contactPhones Phones of the contact
+           @since ARP1.0
+        */
+        setContactPhones(contactPhones: ContactPhone[]): void;
+        /**
+           Returns all the social network info of the Contact
+
+           @return ContactSocial[]
+           @since ARP1.0
+        */
+        getContactSocials(): ContactSocial[];
+        /**
+           Set the social network info of the Contact
+
+           @param contactSocials Social Networks of the contact
+           @since ARP1.0
+        */
+        setContactSocials(contactSocials: ContactSocial[]): void;
+        /**
+           Returns the additional tags of the Contact
+
+           @return ContactTag[]
+           @since ARP1.0
+        */
+        getContactTags(): ContactTag[];
+        /**
+           Set the additional tags of the Contact
+
+           @param contactTags Tags of the contact
+           @since ARP1.0
+        */
+        setContactTags(contactTags: ContactTag[]): void;
+        /**
+           Returns all the websites of the Contact
+
+           @return ContactWebsite[]
+           @since ARP1.0
+        */
+        getContactWebsites(): ContactWebsite[];
+        /**
+           Set the websites of the Contact
+
+           @param contactWebsites Websites of the contact
+           @since ARP1.0
+        */
+        setContactWebsites(contactWebsites: ContactWebsite[]): void;
+        /**
+           Returns the personal info of the Contact
+
+           @return ContactPersonalInfo of the Contact
+           @since ARP1.0
+        */
+        getPersonalInfo(): ContactPersonalInfo;
+        /**
+           Set the personal info of the Contact
+
+           @param personalInfo Personal Information
+           @since ARP1.0
+        */
+        setPersonalInfo(personalInfo: ContactPersonalInfo): void;
+        /**
+           Returns the professional info of the Contact
+
+           @return Array of personal info
+           @since ARP1.0
+        */
+        getProfessionalInfo(): ContactProfessionalInfo;
+        /**
+           Set the professional info of the Contact
+
+           @param professionalInfo Professional Information
+           @since ARP1.0
+        */
+        setProfessionalInfo(professionalInfo: ContactProfessionalInfo): void;
     }
     /**
        Enumeration ContactAddressType

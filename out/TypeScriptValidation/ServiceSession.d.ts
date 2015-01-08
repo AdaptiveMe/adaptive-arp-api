@@ -1,3 +1,4 @@
+/// <reference path="APIBean.d.ts" />
 /// <reference path="ServiceCookie.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
@@ -40,7 +41,7 @@ declare module Adaptive {
        @since ARP1.0
        @version 1.0
     */
-    class ServiceSession {
+    class ServiceSession extends APIBean {
         /**
            The attributes of the response
         */

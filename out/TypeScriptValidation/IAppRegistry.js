@@ -57,6 +57,7 @@ Release:
 ///<reference path="IDevice.ts"/>
 ///<reference path="IDisplay.ts"/>
 ///<reference path="IFacebook.ts"/>
+///<reference path="IFile.ts"/>
 ///<reference path="IFileSystem.ts"/>
 ///<reference path="IGeolocation.ts"/>
 ///<reference path="IGlobalization.ts"/>

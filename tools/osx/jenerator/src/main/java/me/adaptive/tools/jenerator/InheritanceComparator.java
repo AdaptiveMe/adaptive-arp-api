@@ -8,7 +8,7 @@ public class InheritanceComparator implements Comparator<Class> {
     public int compare(Class o1, Class o2) {
         final Class c1 = (Class) o1;
         final Class c2 = (Class) o2;
-        
+
         // Both are the same
         if (c1.equals(c2)) {
             return 0;

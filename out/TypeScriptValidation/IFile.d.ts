@@ -1,4 +1,6 @@
 /// <reference path="FileDescriptor.d.ts" />
+/// <reference path="IAdaptiveRPGroup.d.ts" />
+/// <reference path="IBaseData.d.ts" />
 /// <reference path="IFileDataLoadResultCallback.d.ts" />
 /// <reference path="IFileDataStoreResultCallback.d.ts" />
 /// <reference path="IFileListResultCallback.d.ts" />
@@ -47,7 +49,7 @@ declare module Adaptive {
        @since ARP1.0
        @version 1.0
     */
-    interface IFile {
+    interface IFile extends IBaseData {
         /**
            Determine whether the current file/folder can be read from.
            @param descriptor File descriptor of file or folder used for operation.

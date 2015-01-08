@@ -589,7 +589,7 @@ public abstract class GeneratorBase {
             endCustomClass(className, clazz, mapClassSource.get(clazz));
             callback.onSuccess(this, clazz);
         }
-        /*
+
         for (Class clazz : delegateClasses) {
             if (clazz.getSimpleName().contains("Base") || clazz.getDeclaredMethods().length > 0) {
                 String className = clazz.getSimpleName();
@@ -602,15 +602,15 @@ public abstract class GeneratorBase {
                 callback.onSuccess(this, clazz);
             }
         }
-        */
+
 
         /**
          * Special delegates
          */
         delegateClasses.clear();
         delegateClasses.add(Class.forName("me.adaptive.arp.api.IAppRegistry"));
-        //delegateClasses.add(Class.forName("me.adaptive.arp.api.IAppContext"));
-        //delegateClasses.add(Class.forName("me.adaptive.arp.api.IAppContextWebview"));
+        delegateClasses.add(Class.forName("me.adaptive.arp.api.IAppContext"));
+        delegateClasses.add(Class.forName("me.adaptive.arp.api.IAppContextWebview"));
         for (Class clazz : delegateClasses) {
             String className = clazz.getSimpleName();
             if (className.startsWith("I")) className = className.substring(1);

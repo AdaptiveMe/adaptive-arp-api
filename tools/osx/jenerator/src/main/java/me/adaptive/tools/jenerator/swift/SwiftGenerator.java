@@ -273,7 +273,7 @@ public class SwiftGenerator extends GeneratorBase {
                     if (m.getReturnType().equals(Void.TYPE)) {
                         println("{");
                     } else {
-                        println("-> " + convertJavaToNativeType(m.getReturnType()) + " {");
+                        println("-> " + convertJavaToNativeType(m.getReturnType()) + "? {");
                     }
 
                     if (m.getReturnType().equals(Void.TYPE)) {
@@ -812,9 +812,9 @@ public class SwiftGenerator extends GeneratorBase {
                         } else {
                             println(16, "UNSUPPORTED. Please donate.");
                         }
-                    } else if(m.getReturnType().equals(String.class)) {
-                        println(16, "if let response" + parameterIndex + " = response" + parameterIndex+" {");
-                        println(20, "responseJSON = \"{ \\\"\\(response"+parameterIndex+")\\\" }\"");
+                    } else if (m.getReturnType().equals(String.class)) {
+                        println(16, "if let response" + parameterIndex + " = response" + parameterIndex + " {");
+                        println(20, "responseJSON = \"{ \\\"\\(response" + parameterIndex + ")\\\" }\"");
                         println(16, "} else {");
                         println(20, "responseJSON = \"{ null }\"");
                         println(16, "}");
@@ -826,9 +826,9 @@ public class SwiftGenerator extends GeneratorBase {
                         println(16, "}");
                     } else if (m.getReturnType().isArray()) {
                         println(16, "if let response" + parameterIndex + " = response" + parameterIndex + " {");
-                        println(20, "var response"+parameterIndex+"JSONArray : NSMutableString = NSMutableString()");
-                        println(20, "response"+parameterIndex+"JSONArray.appendString(\"{[ \")");
-                        println(20, "for (index, obj) in enumerate(response"+parameterIndex+") {");
+                        println(20, "var response" + parameterIndex + "JSONArray : NSMutableString = NSMutableString()");
+                        println(20, "response" + parameterIndex + "JSONArray.appendString(\"{[ \")");
+                        println(20, "for (index, obj) in enumerate(response" + parameterIndex + ") {");
                         if (m.getReturnType().getComponentType().equals(Boolean.TYPE)) {
                             println(24, "response" + parameterIndex + "JSONArray.appendString(\"\\(obj)\")");
                         } else if (m.getReturnType().getComponentType().equals(Character.TYPE)) {
@@ -841,12 +841,12 @@ public class SwiftGenerator extends GeneratorBase {
                             println(24, "response" + parameterIndex + "JSONArray.appendString(" + convertJavaToNativeType(m.getReturnType().getComponentType()) + ".Serializer.toJSON(obj))");
                         }
 
-                        println(24, "if index < response"+parameterIndex+".count-1 {");
-                        println(28, "response"+parameterIndex+"JSONArray.appendString(\", \")");
+                        println(24, "if index < response" + parameterIndex + ".count-1 {");
+                        println(28, "response" + parameterIndex + "JSONArray.appendString(\", \")");
                         println(24, "}");
                         println(20, "}");
-                        println(20, "response"+parameterIndex+"JSONArray.appendString(\" ]}\")");
-                        println(20, "responseJSON = response"+parameterIndex+"JSONArray as String");
+                        println(20, "response" + parameterIndex + "JSONArray.appendString(\" ]}\")");
+                        println(20, "responseJSON = response" + parameterIndex + "JSONArray as String");
                         println(16, "} else {");
                         if (m.getReturnType().getComponentType().equals(Boolean.TYPE)) {
                             println(20, "responseJSON = \"{ false }\"");
@@ -857,8 +857,8 @@ public class SwiftGenerator extends GeneratorBase {
                         }
                         println(16, "}");
                     } else {
-                        println(16, "if let response" + parameterIndex + " = response" + parameterIndex+" {");
-                        println(20, "responseJSON = "+convertJavaToNativeType(m.getReturnType()) + ".Serializer.toJSON(response"+ parameterIndex+")");
+                        println(16, "if let response" + parameterIndex + " = response" + parameterIndex + " {");
+                        println(20, "responseJSON = " + convertJavaToNativeType(m.getReturnType()) + ".Serializer.toJSON(response" + parameterIndex + ")");
                         println(16, "} else {");
                         println(20, "responseJSON = \"{ null }\"");
                         println(16, "}");
@@ -969,9 +969,9 @@ public class SwiftGenerator extends GeneratorBase {
                         } else {
                             println(16, "UNSUPPORTED. Please donate.");
                         }
-                    } else if(m.getReturnType().equals(String.class)) {
-                        println(16, "if let response" + parameterIndex + " = response" + parameterIndex+" {");
-                        println(20, "responseJSON = \"{ \\\"\\(response"+parameterIndex+")\\\" }\"");
+                    } else if (m.getReturnType().equals(String.class)) {
+                        println(16, "if let response" + parameterIndex + " = response" + parameterIndex + " {");
+                        println(20, "responseJSON = \"{ \\\"\\(response" + parameterIndex + ")\\\" }\"");
                         println(16, "} else {");
                         println(20, "responseJSON = \"{ null }\"");
                         println(16, "}");
@@ -983,9 +983,9 @@ public class SwiftGenerator extends GeneratorBase {
                         println(16, "}");
                     } else if (m.getReturnType().isArray()) {
                         println(16, "if let response" + parameterIndex + " = response" + parameterIndex + " {");
-                        println(20, "var response"+parameterIndex+"JSONArray : NSMutableString = NSMutableString()");
-                        println(20, "response"+parameterIndex+"JSONArray.appendString(\"{[ \")");
-                        println(20, "for (index, obj) in enumerate(response"+parameterIndex+") {");
+                        println(20, "var response" + parameterIndex + "JSONArray : NSMutableString = NSMutableString()");
+                        println(20, "response" + parameterIndex + "JSONArray.appendString(\"{[ \")");
+                        println(20, "for (index, obj) in enumerate(response" + parameterIndex + ") {");
                         if (m.getReturnType().getComponentType().equals(Boolean.TYPE)) {
                             println(24, "response" + parameterIndex + "JSONArray.appendString(\"\\(obj)\")");
                         } else if (m.getReturnType().getComponentType().equals(Character.TYPE)) {
@@ -998,12 +998,12 @@ public class SwiftGenerator extends GeneratorBase {
                             println(24, "response" + parameterIndex + "JSONArray.appendString(" + convertJavaToNativeType(m.getReturnType().getComponentType()) + ".Serializer.toJSON(obj))");
                         }
 
-                        println(24, "if index < response"+parameterIndex+".count-1 {");
-                        println(28, "response"+parameterIndex+"JSONArray.appendString(\", \")");
+                        println(24, "if index < response" + parameterIndex + ".count-1 {");
+                        println(28, "response" + parameterIndex + "JSONArray.appendString(\", \")");
                         println(24, "}");
                         println(20, "}");
-                        println(20, "response"+parameterIndex+"JSONArray.appendString(\" ]}\")");
-                        println(20, "responseJSON = response"+parameterIndex+"JSONArray as String");
+                        println(20, "response" + parameterIndex + "JSONArray.appendString(\" ]}\")");
+                        println(20, "responseJSON = response" + parameterIndex + "JSONArray as String");
                         println(16, "} else {");
                         if (m.getReturnType().getComponentType().equals(Boolean.TYPE)) {
                             println(20, "responseJSON = \"{ false }\"");
@@ -1014,8 +1014,8 @@ public class SwiftGenerator extends GeneratorBase {
                         }
                         println(16, "}");
                     } else {
-                        println(16, "if let response" + parameterIndex + " = response" + parameterIndex+" {");
-                        println(20, "responseJSON = "+convertJavaToNativeType(m.getReturnType()) + ".Serializer.toJSON(response"+ parameterIndex+")");
+                        println(16, "if let response" + parameterIndex + " = response" + parameterIndex + " {");
+                        println(20, "responseJSON = " + convertJavaToNativeType(m.getReturnType()) + ".Serializer.toJSON(response" + parameterIndex + ")");
                         println(16, "} else {");
                         println(20, "responseJSON = \"{ null }\"");
                         println(16, "}");
@@ -1151,39 +1151,39 @@ public class SwiftGenerator extends GeneratorBase {
                 }
 
                 println(8, "var responseJS : NSMutableString = NSMutableString()");
-                
+
                 for (int i = 0; i < m.getParameterCount(); i++) {
                     Parameter p = m.getParameters()[i];
                     println(8, "responseJS.appendString(\"JSON.parse(\\\"\")");
 
                     if (p.getType().isPrimitive()) {
-                        println(8, "responseJS.appendString(\"{ \\("+p.getName()+") }\")");
+                        println(8, "responseJS.appendString(\"{ \\(" + p.getName() + ") }\")");
                     } else if (p.getType().equals(String.class)) {
-                        println(8, "responseJS.appendString(\"{ \\\"\\("+p.getName()+")\\\" }\")");
+                        println(8, "responseJS.appendString(\"{ \\\"\\(" + p.getName() + ")\\\" }\")");
                     } else if (p.getType().isEnum()) {
-                        println(8, "responseJS.appendString(\"{ \\\"value\\\": \\\"\\("+p.getName()+".toString())\\\" }\")");
+                        println(8, "responseJS.appendString(\"{ \\\"value\\\": \\\"\\(" + p.getName() + ".toString())\\\" }\")");
                     } else if (p.getType().isArray()) {
                         println(8, "responseJS.appendString(\"{[\")");
-                        println(8, "for (index,obj) in enumerate("+p.getName()+") {");
+                        println(8, "for (index,obj) in enumerate(" + p.getName() + ") {");
 
                         if (p.getType().getComponentType().equals(Byte.TYPE)) {
                             println(12, "responseJS.appendString(\"\\(obj.value)\")");
                         } else {
-                            println(12, "responseJS.appendString("+convertJavaToNativeType(p.getType().getComponentType())+".Serializer.toJSON(obj))");
+                            println(12, "responseJS.appendString(" + convertJavaToNativeType(p.getType().getComponentType()) + ".Serializer.toJSON(obj))");
                         }
 
-                        println(12, "if index < "+p.getName()+".count-1 {");
+                        println(12, "if index < " + p.getName() + ".count-1 {");
                         println(16, "responseJS.appendString(\", \")");
                         println(12, "}");
                         println(8, "}");
                         println(8, "responseJS.appendString(\"]}\")");
                     } else {
-                        println(8, "responseJS.appendString("+convertJavaToNativeType(p.getType())+".Serializer.toJSON("+p.getName()+"))");
+                        println(8, "responseJS.appendString(" + convertJavaToNativeType(p.getType()) + ".Serializer.toJSON(" + p.getName() + "))");
                     }
 
                     println(8, "responseJS.appendString(\"\\\")\")");
                     if (i < m.getParameterCount() - 1) {
-                        println(8,"responseJS.appendString(\", \")");
+                        println(8, "responseJS.appendString(\", \")");
                     }
                 }
                 println(8, "AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript(\"handle" + m.getDeclaringClass().getSimpleName().substring(1) + m.getName().substring(2) + "( \\\"\\(getId())\\\", \\(responseJS as String))\")");

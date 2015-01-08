@@ -1,3 +1,4 @@
+/// <reference path="APIBean.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -33,13 +34,13 @@ Release:
 */
 declare module Adaptive {
     /**
-       Created by clozano on 19/12/14.
+       Implementation of FileDescriptor bean.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    class FileDescriptor {
+    class FileDescriptor extends APIBean {
         dateCreated: number;
         dateModified: number;
         name: string;

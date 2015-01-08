@@ -31,20 +31,29 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="APIBean.ts"/>
 var Adaptive;
 (function (Adaptive) {
     /**
-       Created by clozano on 19/12/14.
+       Implementation of FileDescriptor bean.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    var FileDescriptor = (function () {
+    var FileDescriptor = (function (_super) {
+        __extends(FileDescriptor, _super);
         /**
            Default constructor.
         */
         function FileDescriptor() {
+            _super.call(this);
         }
         /**
            Returns the milliseconds passed since 1/1/1970 since the file was created.
@@ -150,7 +159,7 @@ doesn't exist, this will be -1. Used internally.
             this.size = size;
         };
         return FileDescriptor;
-    })();
+    })(Adaptive.APIBean);
     Adaptive.FileDescriptor = FileDescriptor;
 })(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=FileDescriptor.js.map

@@ -31,6 +31,13 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="APIBean.ts"/>
 ///<reference path="ServiceCookie.ts"/>
 var Adaptive;
 (function (Adaptive) {
@@ -41,7 +48,8 @@ var Adaptive;
        @since ARP1.0
        @version 1.0
     */
-    var ServiceSession = (function () {
+    var ServiceSession = (function (_super) {
+        __extends(ServiceSession, _super);
         /**
            Constructor with fields
 
@@ -50,6 +58,7 @@ var Adaptive;
            @since ARP1.0
         */
         function ServiceSession(cookies, attributes) {
+            _super.call(this);
             this.cookies = cookies;
             this.attributes = attributes;
         }
@@ -90,7 +99,7 @@ var Adaptive;
             this.cookies = cookies;
         };
         return ServiceSession;
-    })();
+    })(Adaptive.APIBean);
     Adaptive.ServiceSession = ServiceSession;
 })(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=ServiceSession.js.map
