@@ -32,16 +32,17 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+#import <APIBean.h>
 #import <Foundation/Foundation.h>
 
 /**
-Created by clozano on 19/12/14.
+Implementation of FileDescriptor bean.
 
 @author Carlos Lozano Diez
 @since 1.0
 @version 1.0
 */
-@interface FileDescriptor : NSObject
+@interface FileDescriptor : APIBean
 
      @property long *dateCreated;
      @property long *dateModified;

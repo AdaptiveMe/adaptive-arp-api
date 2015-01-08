@@ -43,7 +43,7 @@ namespace Adaptive.Arp.Api
         @since ARP1.0
         @version 1.0
      */
-     public interface IFile {
+     public interface IFile : IBaseData {
      /**
         Determine whether the current file/folder can be read from.
 

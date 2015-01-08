@@ -32,6 +32,7 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="APIBean.ts"/>
 ///<reference path="ServiceCookie.ts"/>
 
 module Adaptive {
@@ -43,7 +44,7 @@ module Adaptive {
         @since ARP1.0
         @version 1.0
      */
-     export class ServiceSession {
+     export class ServiceSession extends APIBean {
 
           /**
              The attributes of the response
@@ -61,6 +62,7 @@ module Adaptive {
              @since ARP1.0
           */
           constructor(cookies: Array<ServiceCookie>, attributes: Array<string>) {
+               super();
                this.cookies = cookies;
                this.attributes = attributes;
           }

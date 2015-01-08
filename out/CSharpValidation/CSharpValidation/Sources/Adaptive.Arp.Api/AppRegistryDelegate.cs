@@ -74,6 +74,7 @@ public class AppRegistryDelegate implements IAppRegistry {
      private DeviceBridge __deviceBridge = null;
      private DisplayBridge __displayBridge = null;
      private FacebookBridge __facebookBridge = null;
+     private FileBridge __fileBridge = null;
      private FileSystemBridge __filesystemBridge = null;
      private GeolocationBridge __geolocationBridge = null;
      private GlobalizationBridge __globalizationBridge = null;
@@ -406,6 +407,18 @@ public class AppRegistryDelegate implements IAppRegistry {
                __facebookBridge = new FacebookBridge(null);
           }
           return __facebookBridge;
+     }
+
+     /**
+        Returns a reference to the registered FileBridge.
+
+        @return FileBridge reference or null if a bridge of this type is not registered.
+     */
+     public final FileBridge getFileBridge() {
+           if(__fileBridge == null) {
+               __fileBridge = new FileBridge(null);
+          }
+          return __fileBridge;
      }
 
      /**
@@ -1028,6 +1041,9 @@ public class AppRegistryDelegate implements IAppRegistry {
 
                case "IFacebook":
                     return getFacebookBridge();
+
+               case "IFile":
+                    return getFileBridge();
 
                case "IFileSystem":
                     return getFileSystemBridge();

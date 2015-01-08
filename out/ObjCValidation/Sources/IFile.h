@@ -33,6 +33,7 @@ Release:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseData.h>
 
 /**
 Interface for Managing the File operations
@@ -41,7 +42,7 @@ Interface for Managing the File operations
 @since ARP1.0
 @version 1.0
 */
-@protocol IFile <NSObject>
+@protocol IFile <IBaseData>
 
 @end
 

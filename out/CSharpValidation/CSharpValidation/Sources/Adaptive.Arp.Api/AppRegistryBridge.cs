@@ -622,6 +622,28 @@ public class AppRegistryBridge implements IAppRegistry {
      }
 
      /**
+        Returns a reference to the registered FileBridge.
+
+        @return FileBridge reference or null if a bridge of this type is not registered.
+     */
+     public final FileBridge getFileBridge() {
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+          FileBridge result = null;
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getFileBridge().");
+
+          if (this.delegate != null) {
+               result = this.delegate.getFileBridge();
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getFileBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getFileBridge'.");
+          }
+          return result;          
+     }
+
+     /**
         Returns a reference to the registered FileSystemBridge.
 
         @return FileSystemBridge reference or null if a bridge of this type is not registered.

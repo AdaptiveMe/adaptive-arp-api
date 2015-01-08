@@ -47,7 +47,19 @@ public class InheritanceComparator implements Comparator<Class> {
             if (c1.isAssignableFrom(c2)) {
                 return -1;
             } else {
-                return 1;
+                if (c1.getSuperclass().equals(Object.class) && c2.getSuperclass().equals(Object.class)) {
+                    return c1.getName().compareTo(c2.getName());
+                } else if (!c1.getSuperclass().equals(Object.class) && !c2.getSuperclass().equals(Object.class)) {
+                    if (c1.getSuperclass().equals(c2.getSuperclass())) {
+                        return c1.getName().compareTo(c2.getName());
+                    } else {
+                        return this.compare(c1.getSuperclass(), c2.getSuperclass());
+                    }
+                } else if (c1.getSuperclass().equals(Object.class) && !c2.getSuperclass().equals(Object.class)) {
+                    return -1;
+                } else {
+                    return 1;
+                }
             }
         }
 

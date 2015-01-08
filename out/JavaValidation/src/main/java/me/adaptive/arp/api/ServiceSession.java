@@ -41,7 +41,7 @@ package me.adaptive.arp.api;
    @since ARP1.0
    @version 1.0
 */
-public class ServiceSession {
+public class ServiceSession extends APIBean {
 
      /**
         The attributes of the response
@@ -68,7 +68,7 @@ public class ServiceSession {
         @since ARP1.0
      */
      public ServiceSession(ServiceCookie[] cookies, String[] attributes) {
-          this();
+          super();
           this.cookies = cookies;
           this.attributes = attributes;
      }

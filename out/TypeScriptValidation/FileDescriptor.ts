@@ -32,16 +32,18 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="APIBean.ts"/>
+
 module Adaptive {
 
      /**
-        Created by clozano on 19/12/14.
+        Implementation of FileDescriptor bean.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export class FileDescriptor {
+     export class FileDescriptor extends APIBean {
 
           dateCreated : number;
           dateModified : number;
@@ -53,6 +55,7 @@ module Adaptive {
              Default constructor.
           */
           constructor() {
+               super();
           }
 
           /**

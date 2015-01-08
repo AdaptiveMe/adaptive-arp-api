@@ -39,10 +39,7 @@
  */
 package me.adaptive.arp.api;
 
-/**
- * Created by clozano on 19/12/14.
- */
-public class FileDescriptor {
+public class FileDescriptor extends APIBean {
 
     private String name;
     private String path;

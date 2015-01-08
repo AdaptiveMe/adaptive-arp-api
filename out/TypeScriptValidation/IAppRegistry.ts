@@ -58,6 +58,7 @@ Release:
 ///<reference path="IDevice.ts"/>
 ///<reference path="IDisplay.ts"/>
 ///<reference path="IFacebook.ts"/>
+///<reference path="IFile.ts"/>
 ///<reference path="IFileSystem.ts"/>
 ///<reference path="IGeolocation.ts"/>
 ///<reference path="IGlobalization.ts"/>
@@ -281,6 +282,13 @@ module Adaptive {
              @return FacebookHandler reference or null if a handler of this type is not registered.
           */
           getFacebookHandler() : IFacebook
+
+          /**
+             Returns a reference to the registered FileHandler.
+
+             @return FileHandler reference or null if a handler of this type is not registered.
+          */
+          getFileHandler() : IFile
 
           /**
              Returns a reference to the registered FileSystemHandler.

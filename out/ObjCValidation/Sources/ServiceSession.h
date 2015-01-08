@@ -32,6 +32,7 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+#import <APIBean.h>
 #import <Foundation/Foundation.h>
 #import <ServiceCookie.h>
 
@@ -42,7 +43,7 @@ Represents a session object for HTTP request and responses
 @since ARP1.0
 @version 1.0
 */
-@interface ServiceSession : NSObject
+@interface ServiceSession : APIBean
 
      /**
         The attributes of the response

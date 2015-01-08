@@ -552,7 +552,7 @@ public abstract class GeneratorBase {
         }
 
         List<Class> listenerClasses = getListeners();
-        listenerClasses.sort(new InterfaceComparator());
+        listenerClasses.sort(new InheritanceComparator());
         for (Class clazz : listenerClasses) {
             String className = clazz.getSimpleName();
             if (className.startsWith("I")) className = className.substring(1);
@@ -565,7 +565,7 @@ public abstract class GeneratorBase {
         }
 
         List<Class> callbackClasses = getCallbacks();
-        callbackClasses.sort(new InterfaceComparator());
+        callbackClasses.sort(new InheritanceComparator());
         for (Class clazz : callbackClasses) {
             String className = clazz.getSimpleName();
             if (className.startsWith("I")) className = className.substring(1);
@@ -578,7 +578,7 @@ public abstract class GeneratorBase {
         }
 
         List<Class> delegateClasses = getDelegates();
-        delegateClasses.sort(new InterfaceComparator());
+        delegateClasses.sort(new InheritanceComparator());
         for (Class clazz : delegateClasses) {
             String className = clazz.getSimpleName();
             if (className.startsWith("I")) className = className.substring(1);
@@ -589,7 +589,7 @@ public abstract class GeneratorBase {
             endCustomClass(className, clazz, mapClassSource.get(clazz));
             callback.onSuccess(this, clazz);
         }
-
+        /*
         for (Class clazz : delegateClasses) {
             if (clazz.getSimpleName().contains("Base") || clazz.getDeclaredMethods().length > 0) {
                 String className = clazz.getSimpleName();
@@ -602,13 +602,15 @@ public abstract class GeneratorBase {
                 callback.onSuccess(this, clazz);
             }
         }
+        */
+
         /**
          * Special delegates
          */
         delegateClasses.clear();
         delegateClasses.add(Class.forName("me.adaptive.arp.api.IAppRegistry"));
-        delegateClasses.add(Class.forName("me.adaptive.arp.api.IAppContext"));
-        delegateClasses.add(Class.forName("me.adaptive.arp.api.IAppContextWebview"));
+        //delegateClasses.add(Class.forName("me.adaptive.arp.api.IAppContext"));
+        //delegateClasses.add(Class.forName("me.adaptive.arp.api.IAppContextWebview"));
         for (Class clazz : delegateClasses) {
             String className = clazz.getSimpleName();
             if (className.startsWith("I")) className = className.substring(1);
@@ -619,6 +621,7 @@ public abstract class GeneratorBase {
             endCustomClass(className, clazz, mapClassSource.get(clazz));
             callback.onSuccess(this, clazz);
         }
+
         for (Class clazz : delegateClasses) {
             String className = clazz.getSimpleName();
             if (className.startsWith("I")) className = className.substring(1);
@@ -632,6 +635,7 @@ public abstract class GeneratorBase {
             endCustomClass(className, clazz, mapClassSource.get(clazz));
             callback.onSuccess(this, clazz);
         }
+
         endGeneration();
         callback.onSuccess(this, this.getClass());
     }
@@ -900,34 +904,4 @@ public abstract class GeneratorBase {
         return new FileInputStream(new File(url.toURI()));
     }
 
-    class InterfaceComparator implements Comparator<Class> {
-
-        @Override
-        public int compare(Class o1, Class o2) {
-            final Class c1 = (Class) o1;
-            final Class c2 = (Class) o2;
-
-            if (c1.equals(c2)) {
-                return 0;
-            }
-            if (c1.isAssignableFrom(c2)) {
-                return -1;
-            } else {
-                if (!c2.isAssignableFrom(c2)) {
-                    throw new IllegalArgumentException("The classes share no relation");
-                }
-                if (c1.getInterfaces().length == 1 && c2.getInterfaces().length == 1) {
-                    return this.compare(c1.getInterfaces()[0], c2.getInterfaces()[0]);
-                } else {
-                    if (c1.getInterfaces().length == 1 && c2.getInterfaces().length == 0) {
-                        return 1;
-                    } else if (c1.getInterfaces().length == 0 && c2.getInterfaces().length == 1) {
-                        return -1;
-                    } else {
-                        return 1;
-                    }
-                }
-            }
-        }
-    }
 }

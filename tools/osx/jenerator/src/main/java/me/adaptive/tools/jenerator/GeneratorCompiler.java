@@ -118,6 +118,9 @@ public class GeneratorCompiler {
                     }
                 });
 
+                Collections.sort(allClasses, new NameComparator());
+                Collections.sort(allClasses, new InheritanceComparator());
+
                 Collections.sort(allInterfaces, new Comparator<Class<? extends Object>>() {
                     @Override
                     public int compare(Class<? extends Object> o1, Class<? extends Object> o2) {
@@ -147,6 +150,9 @@ public class GeneratorCompiler {
                         }
                     }
                 });
+                Collections.sort(allInterfaces, new NameComparator());
+                Collections.sort(allInterfaces, new InheritanceComparator());
+
                 targetClassList.addAll(0, allInterfaces);
                 targetClassList.addAll(allClasses);
             }

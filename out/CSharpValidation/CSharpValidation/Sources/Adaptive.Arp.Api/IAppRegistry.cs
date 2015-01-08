@@ -213,6 +213,13 @@ namespace Adaptive.Arp.Api
      FacebookBridge getFacebookBridge();
 
      /**
+        Returns a reference to the registered FileBridge.
+
+        @return FileBridge reference or null if a bridge of this type is not registered.
+     */
+     FileBridge getFileBridge();
+
+     /**
         Returns a reference to the registered FileSystemBridge.
 
         @return FileSystemBridge reference or null if a bridge of this type is not registered.

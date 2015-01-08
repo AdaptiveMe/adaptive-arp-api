@@ -312,6 +312,13 @@ ARP functions and release resources. The primary webview can not be removed.
           getFacebookHandler() : IFacebook
 
           /**
+             Returns a reference to the registered FileHandler.
+
+             @return FileHandler reference or null if a handler of this type is not registered.
+          */
+          getFileHandler() : IFile
+
+          /**
              Returns a reference to the registered FileSystemHandler.
 
              @return FileSystemHandler reference or null if a handler of this type is not registered.
@@ -638,131 +645,6 @@ ARP functions and release resources. The primary webview can not be removed.
              @since ARP1.0
           */
           getPlatformContextWeb() : IAppContextWebview;
-     }
-     /**
-        Interface for Managing the File operations
-
-        @author Carlos Lozano Diez
-        @since ARP1.0
-        @version 1.0
-     */
-     export interface IFile {
-          /**
-             Determine whether the current file/folder can be read from.
-             @param descriptor File descriptor of file or folder used for operation.
-             @return True if the folder/file is readable, false otherwise.
-             @since ARP1.0
-          */
-          canRead(descriptor:FileDescriptor) : boolean;
-          /**
-             Determine whether the current file/folder can be written to.
-             @param descriptor File descriptor of file or folder used for operation.
-             @return True if the folder/file is writable, false otherwise.
-             @since ARP1.0
-          */
-          canWrite(descriptor:FileDescriptor) : boolean;
-          /**
-             Creates a file with the specified name.
-             @param descriptor File descriptor of file or folder used for operation.
-             @param callback Result of the operation.
-             @since ARP1.0
-          */
-          create(descriptor:FileDescriptor, callback:IFileResultCallback);
-          /**
-             Deletes the given file or path. If the file is a directory and contains files and or subdirectories, these will be
-deleted if the cascade parameter is set to true.
-             @param descriptor File descriptor of file or folder used for operation.
-             @param cascade Whether to delete sub-files and sub-folders.
-             @return True if files (and sub-files and folders) whether deleted.
-             @since ARP1.0
-          */
-          delete(descriptor:FileDescriptor, cascade:boolean) : boolean;
-          /**
-             Check whether the file/path exists.
-             @param descriptor File descriptor of file or folder used for operation.
-             @return True if the file exists in the filesystem, false otherwise.
-             @since ARP1.0
-          */
-          exists(descriptor:FileDescriptor) : boolean;
-          /**
-             Loads the content of the file.
-             @param descriptor File descriptor of file or folder used for operation.
-             @param callback Result of the operation.
-             @since ARP1.0
-          */
-          getContent(descriptor:FileDescriptor, callback:IFileDataLoadResultCallback);
-          /**
-             Returns the file storage type of the file
-             @param descriptor File descriptor of file or folder used for operation.
-             @return Storage Type file
-             @since ARP1.0
-          */
-          getFileStorageType(descriptor:FileDescriptor) : IFileSystemStorageType;
-          /**
-             Returns the file type
-             @param descriptor File descriptor of file or folder used for operation.
-             @return Returns the file type of the file
-             @since ARP1.0
-          */
-          getFileType(descriptor:FileDescriptor) : IFileSystemType;
-          /**
-             Returns the security type of the file
-             @param descriptor File descriptor of file or folder used for operation.
-             @return Security Level of the file
-             @since ARP1.0
-          */
-          getSecurityType(descriptor:FileDescriptor) : IFileSystemSecurity;
-          /**
-             Check whether this is a path of a file.
-             @param descriptor File descriptor of file or folder used for operation.
-             @return true if this is a path to a folder/directory, false if this is a path to a file.
-             @since ARP1.0
-          */
-          isDirectory(descriptor:FileDescriptor) : boolean;
-          /**
-             List all the files matching the speficied regex filter within this file/path reference. If the reference
-is a file, it will not yield any results.
-             @param descriptor File descriptor of file or folder used for operation.
-             @param regex    Filter (eg. *.jpg, *.png, Fil*) name string.
-             @param callback Result of operation.
-             @since ARP1.0
-          */
-          listFilesForRegex(descriptor:FileDescriptor, regex:string, callback:IFileListResultCallback);
-          /**
-             List all the files contained within this file/path reference. If the reference is a file, it will not yield
-any results.
-             @param descriptor File descriptor of file or folder used for operation.
-             @param callback Result of operation.
-             @since ARP1.0
-          */
-          listFiles(descriptor:FileDescriptor, callback:IFileListResultCallback);
-          /**
-             Creates the parent path (or paths, if recursive) to the given file/path if it doesn't already exist.
-             @param descriptor File descriptor of file or folder used for operation.
-             @param recursive Whether to create all parent path elements.
-             @return True if the path was created, false otherwise (or it exists already).
-             @since ARP1.0
-          */
-          mkDir(descriptor:FileDescriptor, recursive:boolean) : boolean;
-          /**
-             Moves the current file to the given file destination, optionally overwriting and creating the path to the
-new destination file.
-             @param source File descriptor of file or folder used for operation as source.
-             @param destination File descriptor of file or folder used for operation as destination.
-             @param createPath True to create the path if it does not already exist.
-             @param callback   Result of the operation.
-             @param overwrite  True to create the path if it does not already exist.
-             @since ARP1.0
-          */
-          move(source:FileDescriptor, destination:FileDescriptor, createPath:boolean, overwrite:boolean, callback:IFileResultCallback);
-          /**
-             Sets the content of the file.
-             @param descriptor File descriptor of file or folder used for operation.
-             @param content  Binary content to store in the file.
-             @param callback Result of the operation.
-             @since ARP1.0
-          */
-          setContent(descriptor:FileDescriptor, content:Array<number>, callback:IFileDataStoreResultCallback);
      }
      /**
         Base application for Application purposes
@@ -1625,6 +1507,131 @@ should be passed as a parameter
              @since ARP1.0
           */
           existsTable(database:Database, databaseTable:DatabaseTable) : boolean;
+     }
+     /**
+        Interface for Managing the File operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+        @version 1.0
+     */
+     export interface IFile extends IBaseData {
+          /**
+             Determine whether the current file/folder can be read from.
+             @param descriptor File descriptor of file or folder used for operation.
+             @return True if the folder/file is readable, false otherwise.
+             @since ARP1.0
+          */
+          canRead(descriptor:FileDescriptor) : boolean;
+          /**
+             Determine whether the current file/folder can be written to.
+             @param descriptor File descriptor of file or folder used for operation.
+             @return True if the folder/file is writable, false otherwise.
+             @since ARP1.0
+          */
+          canWrite(descriptor:FileDescriptor) : boolean;
+          /**
+             Creates a file with the specified name.
+             @param descriptor File descriptor of file or folder used for operation.
+             @param callback Result of the operation.
+             @since ARP1.0
+          */
+          create(descriptor:FileDescriptor, callback:IFileResultCallback);
+          /**
+             Deletes the given file or path. If the file is a directory and contains files and or subdirectories, these will be
+deleted if the cascade parameter is set to true.
+             @param descriptor File descriptor of file or folder used for operation.
+             @param cascade Whether to delete sub-files and sub-folders.
+             @return True if files (and sub-files and folders) whether deleted.
+             @since ARP1.0
+          */
+          delete(descriptor:FileDescriptor, cascade:boolean) : boolean;
+          /**
+             Check whether the file/path exists.
+             @param descriptor File descriptor of file or folder used for operation.
+             @return True if the file exists in the filesystem, false otherwise.
+             @since ARP1.0
+          */
+          exists(descriptor:FileDescriptor) : boolean;
+          /**
+             Loads the content of the file.
+             @param descriptor File descriptor of file or folder used for operation.
+             @param callback Result of the operation.
+             @since ARP1.0
+          */
+          getContent(descriptor:FileDescriptor, callback:IFileDataLoadResultCallback);
+          /**
+             Returns the file storage type of the file
+             @param descriptor File descriptor of file or folder used for operation.
+             @return Storage Type file
+             @since ARP1.0
+          */
+          getFileStorageType(descriptor:FileDescriptor) : IFileSystemStorageType;
+          /**
+             Returns the file type
+             @param descriptor File descriptor of file or folder used for operation.
+             @return Returns the file type of the file
+             @since ARP1.0
+          */
+          getFileType(descriptor:FileDescriptor) : IFileSystemType;
+          /**
+             Returns the security type of the file
+             @param descriptor File descriptor of file or folder used for operation.
+             @return Security Level of the file
+             @since ARP1.0
+          */
+          getSecurityType(descriptor:FileDescriptor) : IFileSystemSecurity;
+          /**
+             Check whether this is a path of a file.
+             @param descriptor File descriptor of file or folder used for operation.
+             @return true if this is a path to a folder/directory, false if this is a path to a file.
+             @since ARP1.0
+          */
+          isDirectory(descriptor:FileDescriptor) : boolean;
+          /**
+             List all the files matching the speficied regex filter within this file/path reference. If the reference
+is a file, it will not yield any results.
+             @param descriptor File descriptor of file or folder used for operation.
+             @param regex    Filter (eg. *.jpg, *.png, Fil*) name string.
+             @param callback Result of operation.
+             @since ARP1.0
+          */
+          listFilesForRegex(descriptor:FileDescriptor, regex:string, callback:IFileListResultCallback);
+          /**
+             List all the files contained within this file/path reference. If the reference is a file, it will not yield
+any results.
+             @param descriptor File descriptor of file or folder used for operation.
+             @param callback Result of operation.
+             @since ARP1.0
+          */
+          listFiles(descriptor:FileDescriptor, callback:IFileListResultCallback);
+          /**
+             Creates the parent path (or paths, if recursive) to the given file/path if it doesn't already exist.
+             @param descriptor File descriptor of file or folder used for operation.
+             @param recursive Whether to create all parent path elements.
+             @return True if the path was created, false otherwise (or it exists already).
+             @since ARP1.0
+          */
+          mkDir(descriptor:FileDescriptor, recursive:boolean) : boolean;
+          /**
+             Moves the current file to the given file destination, optionally overwriting and creating the path to the
+new destination file.
+             @param source File descriptor of file or folder used for operation as source.
+             @param destination File descriptor of file or folder used for operation as destination.
+             @param createPath True to create the path if it does not already exist.
+             @param callback   Result of the operation.
+             @param overwrite  True to create the path if it does not already exist.
+             @since ARP1.0
+          */
+          move(source:FileDescriptor, destination:FileDescriptor, createPath:boolean, overwrite:boolean, callback:IFileResultCallback);
+          /**
+             Sets the content of the file.
+             @param descriptor File descriptor of file or folder used for operation.
+             @param content  Binary content to store in the file.
+             @param callback Result of the operation.
+             @since ARP1.0
+          */
+          setContent(descriptor:FileDescriptor, content:Array<number>, callback:IFileDataStoreResultCallback);
      }
      /**
         Interface for Managing the File System operations
@@ -2837,232 +2844,6 @@ listener.
           */
           setType(type: ICapabilitiesButton) {
                this.type = type;
-          }
-
-     }
-     /**
-        Structure representing the data elements of a contact.
-
-        @author Francisco Javier Martin Bueno
-        @since ARP1.0
-        @version 1.0
-     */
-     export class Contact extends ContactUid {
-          /**
-             The adresses from the contact
-          */
-          contactAddresses : Array<ContactAddress>;
-          /**
-             The emails from the contact
-          */
-          contactEmails : Array<ContactEmail>;
-          /**
-             The phones from the contact
-          */
-          contactPhones : Array<ContactPhone>;
-          /**
-             The social network info from the contact
-          */
-          contactSocials : Array<ContactSocial>;
-          /**
-             The aditional tags from the contact
-          */
-          contactTags : Array<ContactTag>;
-          /**
-             The websites from the contact
-          */
-          contactWebsites : Array<ContactWebsite>;
-          /**
-             The personal info from the contact
-          */
-          personalInfo : ContactPersonalInfo;
-          /**
-             The professional info from the contact
-          */
-          professionalInfo : ContactProfessionalInfo;
-          /**
-             Constructor with all the fields
-
-             @param contactId        Identifier of the contact
-             @param personalInfo     Personal Information
-             @param professionalInfo Professional Information
-             @param contactAddresses Addresses of the contact
-             @param contactPhones    Phones of the contact
-             @param contactEmails    Emails of the contact
-             @param contactWebsites  Websites of the contact
-             @param contactSocials   Social Networks of the contact
-             @param contactTags      Tags of the contact
-             @since ARP1.0
-          */
-          constructor(contactId: string, personalInfo: ContactPersonalInfo, professionalInfo: ContactProfessionalInfo, contactAddresses: Array<ContactAddress>, contactPhones: Array<ContactPhone>, contactEmails: Array<ContactEmail>, contactWebsites: Array<ContactWebsite>, contactSocials: Array<ContactSocial>, contactTags: Array<ContactTag>) {
-               super(contactId);
-               this.personalInfo = personalInfo;
-               this.professionalInfo = professionalInfo;
-               this.contactAddresses = contactAddresses;
-               this.contactPhones = contactPhones;
-               this.contactEmails = contactEmails;
-               this.contactWebsites = contactWebsites;
-               this.contactSocials = contactSocials;
-               this.contactTags = contactTags;
-          }
-          /**
-             Returns all the addresses of the Contact
-
-             @return ContactAddress[]
-             @since ARP1.0
-          */
-          getContactAddresses() : Array<ContactAddress> {
-               return this.contactAddresses;
-          }
-
-          /**
-             Set the addresses of the Contact
-
-             @param contactAddresses Addresses of the contact
-             @since ARP1.0
-          */
-          setContactAddresses(contactAddresses: Array<ContactAddress>) {
-               this.contactAddresses = contactAddresses;
-          }
-
-          /**
-             Returns all the emails of the Contact
-
-             @return ContactEmail[]
-             @since ARP1.0
-          */
-          getContactEmails() : Array<ContactEmail> {
-               return this.contactEmails;
-          }
-
-          /**
-             Set the emails of the Contact
-
-             @param contactEmails Emails of the contact
-             @since ARP1.0
-          */
-          setContactEmails(contactEmails: Array<ContactEmail>) {
-               this.contactEmails = contactEmails;
-          }
-
-          /**
-             Returns all the phones of the Contact
-
-             @return ContactPhone[]
-             @since ARP1.0
-          */
-          getContactPhones() : Array<ContactPhone> {
-               return this.contactPhones;
-          }
-
-          /**
-             Set the phones of the Contact
-
-             @param contactPhones Phones of the contact
-             @since ARP1.0
-          */
-          setContactPhones(contactPhones: Array<ContactPhone>) {
-               this.contactPhones = contactPhones;
-          }
-
-          /**
-             Returns all the social network info of the Contact
-
-             @return ContactSocial[]
-             @since ARP1.0
-          */
-          getContactSocials() : Array<ContactSocial> {
-               return this.contactSocials;
-          }
-
-          /**
-             Set the social network info of the Contact
-
-             @param contactSocials Social Networks of the contact
-             @since ARP1.0
-          */
-          setContactSocials(contactSocials: Array<ContactSocial>) {
-               this.contactSocials = contactSocials;
-          }
-
-          /**
-             Returns the additional tags of the Contact
-
-             @return ContactTag[]
-             @since ARP1.0
-          */
-          getContactTags() : Array<ContactTag> {
-               return this.contactTags;
-          }
-
-          /**
-             Set the additional tags of the Contact
-
-             @param contactTags Tags of the contact
-             @since ARP1.0
-          */
-          setContactTags(contactTags: Array<ContactTag>) {
-               this.contactTags = contactTags;
-          }
-
-          /**
-             Returns all the websites of the Contact
-
-             @return ContactWebsite[]
-             @since ARP1.0
-          */
-          getContactWebsites() : Array<ContactWebsite> {
-               return this.contactWebsites;
-          }
-
-          /**
-             Set the websites of the Contact
-
-             @param contactWebsites Websites of the contact
-             @since ARP1.0
-          */
-          setContactWebsites(contactWebsites: Array<ContactWebsite>) {
-               this.contactWebsites = contactWebsites;
-          }
-
-          /**
-             Returns the personal info of the Contact
-
-             @return ContactPersonalInfo of the Contact
-             @since ARP1.0
-          */
-          getPersonalInfo() : ContactPersonalInfo {
-               return this.personalInfo;
-          }
-
-          /**
-             Set the personal info of the Contact
-
-             @param personalInfo Personal Information
-             @since ARP1.0
-          */
-          setPersonalInfo(personalInfo: ContactPersonalInfo) {
-               this.personalInfo = personalInfo;
-          }
-
-          /**
-             Returns the professional info of the Contact
-
-             @return Array of personal info
-             @since ARP1.0
-          */
-          getProfessionalInfo() : ContactProfessionalInfo {
-               return this.professionalInfo;
-          }
-
-          /**
-             Set the professional info of the Contact
-
-             @param professionalInfo Professional Information
-             @since ARP1.0
-          */
-          setProfessionalInfo(professionalInfo: ContactProfessionalInfo) {
-               this.professionalInfo = professionalInfo;
           }
 
      }
@@ -4551,13 +4332,13 @@ be unique for a specific instance of an application on a specific device.
 
      }
      /**
-        Created by clozano on 19/12/14.
+        Implementation of FileDescriptor bean.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export class FileDescriptor {
+     export class FileDescriptor extends APIBean {
           dateCreated : number;
           dateModified : number;
           name : string;
@@ -4568,6 +4349,7 @@ be unique for a specific instance of an application on a specific device.
              Default constructor.
           */
           constructor() {
+               super();
           }
           /**
              Returns the milliseconds passed since 1/1/1970 since the file was created.
@@ -6278,7 +6060,7 @@ Possible lifecycle States:
         @since ARP1.0
         @version 1.0
      */
-     export class ServiceSession {
+     export class ServiceSession extends APIBean {
           /**
              The attributes of the response
           */
@@ -6295,6 +6077,7 @@ Possible lifecycle States:
              @since ARP1.0
           */
           constructor(cookies: Array<ServiceCookie>, attributes: Array<string>) {
+               super();
                this.cookies = cookies;
                this.attributes = attributes;
           }
@@ -6336,6 +6119,232 @@ Possible lifecycle States:
           */
           setCookies(cookies: Array<ServiceCookie>) {
                this.cookies = cookies;
+          }
+
+     }
+     /**
+        Structure representing the data elements of a contact.
+
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
+        @version 1.0
+     */
+     export class Contact extends ContactUid {
+          /**
+             The adresses from the contact
+          */
+          contactAddresses : Array<ContactAddress>;
+          /**
+             The emails from the contact
+          */
+          contactEmails : Array<ContactEmail>;
+          /**
+             The phones from the contact
+          */
+          contactPhones : Array<ContactPhone>;
+          /**
+             The social network info from the contact
+          */
+          contactSocials : Array<ContactSocial>;
+          /**
+             The aditional tags from the contact
+          */
+          contactTags : Array<ContactTag>;
+          /**
+             The websites from the contact
+          */
+          contactWebsites : Array<ContactWebsite>;
+          /**
+             The personal info from the contact
+          */
+          personalInfo : ContactPersonalInfo;
+          /**
+             The professional info from the contact
+          */
+          professionalInfo : ContactProfessionalInfo;
+          /**
+             Constructor with all the fields
+
+             @param contactId        Identifier of the contact
+             @param personalInfo     Personal Information
+             @param professionalInfo Professional Information
+             @param contactAddresses Addresses of the contact
+             @param contactPhones    Phones of the contact
+             @param contactEmails    Emails of the contact
+             @param contactWebsites  Websites of the contact
+             @param contactSocials   Social Networks of the contact
+             @param contactTags      Tags of the contact
+             @since ARP1.0
+          */
+          constructor(contactId: string, personalInfo: ContactPersonalInfo, professionalInfo: ContactProfessionalInfo, contactAddresses: Array<ContactAddress>, contactPhones: Array<ContactPhone>, contactEmails: Array<ContactEmail>, contactWebsites: Array<ContactWebsite>, contactSocials: Array<ContactSocial>, contactTags: Array<ContactTag>) {
+               super(contactId);
+               this.personalInfo = personalInfo;
+               this.professionalInfo = professionalInfo;
+               this.contactAddresses = contactAddresses;
+               this.contactPhones = contactPhones;
+               this.contactEmails = contactEmails;
+               this.contactWebsites = contactWebsites;
+               this.contactSocials = contactSocials;
+               this.contactTags = contactTags;
+          }
+          /**
+             Returns all the addresses of the Contact
+
+             @return ContactAddress[]
+             @since ARP1.0
+          */
+          getContactAddresses() : Array<ContactAddress> {
+               return this.contactAddresses;
+          }
+
+          /**
+             Set the addresses of the Contact
+
+             @param contactAddresses Addresses of the contact
+             @since ARP1.0
+          */
+          setContactAddresses(contactAddresses: Array<ContactAddress>) {
+               this.contactAddresses = contactAddresses;
+          }
+
+          /**
+             Returns all the emails of the Contact
+
+             @return ContactEmail[]
+             @since ARP1.0
+          */
+          getContactEmails() : Array<ContactEmail> {
+               return this.contactEmails;
+          }
+
+          /**
+             Set the emails of the Contact
+
+             @param contactEmails Emails of the contact
+             @since ARP1.0
+          */
+          setContactEmails(contactEmails: Array<ContactEmail>) {
+               this.contactEmails = contactEmails;
+          }
+
+          /**
+             Returns all the phones of the Contact
+
+             @return ContactPhone[]
+             @since ARP1.0
+          */
+          getContactPhones() : Array<ContactPhone> {
+               return this.contactPhones;
+          }
+
+          /**
+             Set the phones of the Contact
+
+             @param contactPhones Phones of the contact
+             @since ARP1.0
+          */
+          setContactPhones(contactPhones: Array<ContactPhone>) {
+               this.contactPhones = contactPhones;
+          }
+
+          /**
+             Returns all the social network info of the Contact
+
+             @return ContactSocial[]
+             @since ARP1.0
+          */
+          getContactSocials() : Array<ContactSocial> {
+               return this.contactSocials;
+          }
+
+          /**
+             Set the social network info of the Contact
+
+             @param contactSocials Social Networks of the contact
+             @since ARP1.0
+          */
+          setContactSocials(contactSocials: Array<ContactSocial>) {
+               this.contactSocials = contactSocials;
+          }
+
+          /**
+             Returns the additional tags of the Contact
+
+             @return ContactTag[]
+             @since ARP1.0
+          */
+          getContactTags() : Array<ContactTag> {
+               return this.contactTags;
+          }
+
+          /**
+             Set the additional tags of the Contact
+
+             @param contactTags Tags of the contact
+             @since ARP1.0
+          */
+          setContactTags(contactTags: Array<ContactTag>) {
+               this.contactTags = contactTags;
+          }
+
+          /**
+             Returns all the websites of the Contact
+
+             @return ContactWebsite[]
+             @since ARP1.0
+          */
+          getContactWebsites() : Array<ContactWebsite> {
+               return this.contactWebsites;
+          }
+
+          /**
+             Set the websites of the Contact
+
+             @param contactWebsites Websites of the contact
+             @since ARP1.0
+          */
+          setContactWebsites(contactWebsites: Array<ContactWebsite>) {
+               this.contactWebsites = contactWebsites;
+          }
+
+          /**
+             Returns the personal info of the Contact
+
+             @return ContactPersonalInfo of the Contact
+             @since ARP1.0
+          */
+          getPersonalInfo() : ContactPersonalInfo {
+               return this.personalInfo;
+          }
+
+          /**
+             Set the personal info of the Contact
+
+             @param personalInfo Personal Information
+             @since ARP1.0
+          */
+          setPersonalInfo(personalInfo: ContactPersonalInfo) {
+               this.personalInfo = personalInfo;
+          }
+
+          /**
+             Returns the professional info of the Contact
+
+             @return Array of personal info
+             @since ARP1.0
+          */
+          getProfessionalInfo() : ContactProfessionalInfo {
+               return this.professionalInfo;
+          }
+
+          /**
+             Set the professional info of the Contact
+
+             @param professionalInfo Professional Information
+             @since ARP1.0
+          */
+          setProfessionalInfo(professionalInfo: ContactProfessionalInfo) {
+               this.professionalInfo = professionalInfo;
           }
 
      }

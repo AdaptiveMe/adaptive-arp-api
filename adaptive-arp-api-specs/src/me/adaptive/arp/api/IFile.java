@@ -46,7 +46,7 @@ package me.adaptive.arp.api;
  * @author Carlos Lozano Diez
  * @since ARP1.0
  */
-public interface IFile {
+public interface IFile extends IBaseData {
 
     /**
      * Check whether this is a path of a file.
