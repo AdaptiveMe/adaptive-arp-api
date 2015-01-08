@@ -2,24 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2b62424-c85f-4dbf-8462-3858f1398c98" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.d.ts" afterPath="$PROJECT_DIR$/Adaptive.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.js.map" afterPath="$PROJECT_DIR$/Adaptive.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.js" afterPath="$PROJECT_DIR$/Adaptive.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileDescriptor.d.ts" afterPath="$PROJECT_DIR$/FileDescriptor.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileDescriptor.js.map" afterPath="$PROJECT_DIR$/FileDescriptor.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileDescriptor.js" afterPath="$PROJECT_DIR$/FileDescriptor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/GeneratorBase.java" afterPath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/GeneratorBase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAppRegistry.d.ts" afterPath="$PROJECT_DIR$/IAppRegistry.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAppRegistry.js.map" afterPath="$PROJECT_DIR$/IAppRegistry.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAppRegistry.js" afterPath="$PROJECT_DIR$/IAppRegistry.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFile.d.ts" afterPath="$PROJECT_DIR$/IFile.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFile.js.map" afterPath="$PROJECT_DIR$/IFile.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFile.js" afterPath="$PROJECT_DIR$/IFile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/InheritanceComparator.java" afterPath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/InheritanceComparator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceSession.d.ts" afterPath="$PROJECT_DIR$/ServiceSession.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceSession.js.map" afterPath="$PROJECT_DIR$/ServiceSession.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceSession.js" afterPath="$PROJECT_DIR$/ServiceSession.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/swift/SwiftGenerator.java" afterPath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/swift/SwiftGenerator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TypeScriptValidation.iws" />
@@ -43,31 +25,7 @@
     <favorites_list name="TypeScriptValidation" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Adaptive.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Adaptive.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2040" max-vertical-offset="108660">
-              <caret line="159" column="13" selection-start-line="159" selection-start-column="13" selection-end-line="159" selection-end-column="13" />
-              <folding>
-                <marker date="1420721568000" expanded="true" signature="1144:1178" placeholder="/**Evaluate the specified javascript on the main webview of the application. ...*/" />
-                <marker date="1420721568000" expanded="true" signature="1314:1326" placeholder="/**Interface for webview context management purposes ...*/" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Adaptive.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Adaptive.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-102.060555" vertical-offset="62884" max-vertical-offset="64140">
-              <caret line="35" column="21" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -97,10 +55,10 @@
         <option value="$PROJECT_DIR$/Contact.ts" />
         <option value="$PROJECT_DIR$/IAdaptiveRP.ts" />
         <option value="$PROJECT_DIR$/IServiceResultCallback.ts" />
-        <option value="$PROJECT_DIR$/Adaptive.js" />
         <option value="$PROJECT_DIR$/DatabaseRow.ts" />
         <option value="$PROJECT_DIR$/join.sh" />
         <option value="$PROJECT_DIR$/Adaptive.ts" />
+        <option value="$PROJECT_DIR$/Adaptive.js" />
       </list>
     </option>
   </component>
@@ -109,7 +67,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-2528" />
-    <option name="y" value="-180" />
+    <option name="y" value="23" />
     <option name="width" value="2461" />
     <option name="height" value="1379" />
   </component>
@@ -189,14 +147,10 @@
       <ConfigurationWrapper RunnerId="Basic" />
       <method />
     </configuration>
-    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
-      <method />
-    </configuration>
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <method />
     </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
-      <envs />
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <method />
     </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
@@ -204,6 +158,10 @@
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="Chrome" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
@@ -249,17 +207,17 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2528" y="-180" width="2461" height="1379" extended-state="0" />
-    <editor active="true" />
+    <frame x="-2528" y="23" width="2461" height="1379" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.097521335" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1243397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.50233644" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.50233644" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -295,11 +253,116 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Adaptive.ts">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2385" max-vertical-offset="13500">
+          <caret line="159" column="13" selection-start-line="159" selection-start-column="13" selection-end-line="159" selection-end-column="13" />
+          <folding>
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The title of the Contact ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Structure representing a remote or local service access end-point. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The remote service path (to be added to the host and port url). ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The proxy url - if needed - to access the remote service. If IP and port are used, use the following syntax: &quot;http://&lt;IP&gt;:&lt;Port&gt;&quot;. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Name of device - equivalent to brand. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Timestamp of the acceleration reading. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Structure representing the binary attachment data. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The data size (in bytes) of the current file attachment ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Represents a local or remote service response. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Request/Response data content (plain text). ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The byte[] representing the binary Content. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The length in bytes for the binary Content. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The length in bytes for the Content field. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Represents a local or remote service request. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The HTTP procotol version to be used for this request. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Request/Response data content (plain text). ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Encoding of the binary payload - by default assumed to be UTF8. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The length in bytes for the Content field. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The headers array (name,value pairs) to be included on the I/O service request. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Represents a data table composed of columns and rows. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Definition of columns. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Structure representing the professional info data elements of a contact. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The method used ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Structure representing the data a single geolocation reading. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The Y coordinate (or latitude). Measured in degrees. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Indicates if database was created or needs to be created as Compressed. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Database Name (name of the .db local file). ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Structure representing the email data elements of a contact. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The values of the row. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Structure representing the data elements of an email. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Message body ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Structure representing the data of a http cookie. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Cookie creation timestamp in milliseconds. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Cookie expiry in milliseconds or -1 for session only. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**URI path for which the cookie is valid. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Scheme of the domain - http/https - for which the cookie is valid. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Cookie is secure (https only) ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The professional info from the contact ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Enumeration ContactPersonalInfoTitle ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Enumeration ContactAddressType ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Enumeration ContactSocialNetwork ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Enumeration ContactPhoneType ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Enumeration ICapabilitiesButton ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Adaptive.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="9465">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Adaptive.ts">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="108660">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1420721568000" expanded="true" signature="1144:1178" placeholder="/**Evaluate the specified javascript on the main webview of the application. ...*/" />
-            <marker date="1420721568000" expanded="true" signature="1314:1326" placeholder="/**Interface for webview context management purposes ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The title of the Contact ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Structure representing a remote or local service access end-point. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The remote service path (to be added to the host and port url). ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The proxy url - if needed - to access the remote service. If IP and port are used, use the following syntax: &quot;http://&lt;IP&gt;:&lt;Port&gt;&quot;. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Name of device - equivalent to brand. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Timestamp of the acceleration reading. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Structure representing the binary attachment data. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The data size (in bytes) of the current file attachment ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Represents a local or remote service response. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Request/Response data content (plain text). ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The byte[] representing the binary Content. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The length in bytes for the binary Content. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The length in bytes for the Content field. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Represents a local or remote service request. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The HTTP procotol version to be used for this request. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Request/Response data content (plain text). ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Encoding of the binary payload - by default assumed to be UTF8. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The length in bytes for the Content field. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The headers array (name,value pairs) to be included on the I/O service request. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Represents a data table composed of columns and rows. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Definition of columns. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Structure representing the professional info data elements of a contact. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The method used ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Structure representing the data a single geolocation reading. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The Y coordinate (or latitude). Measured in degrees. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Indicates if database was created or needs to be created as Compressed. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Database Name (name of the .db local file). ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Structure representing the email data elements of a contact. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The values of the row. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Structure representing the data elements of an email. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Message body ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Structure representing the data of a http cookie. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Cookie creation timestamp in milliseconds. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Cookie expiry in milliseconds or -1 for session only. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**URI path for which the cookie is valid. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Scheme of the domain - http/https - for which the cookie is valid. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Cookie is secure (https only) ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The professional info from the contact ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Enumeration ContactPersonalInfoTitle ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Enumeration ContactAddressType ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Enumeration ContactSocialNetwork ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Enumeration ContactPhoneType ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Enumeration ICapabilitiesButton ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -309,17 +372,52 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="108525">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1420721568000" expanded="true" signature="1144:1178" placeholder="/**Evaluate the specified javascript on the main webview of the application. ...*/" />
-            <marker date="1420721568000" expanded="true" signature="1314:1326" placeholder="/**Interface for webview context management purposes ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The title of the Contact ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Structure representing a remote or local service access end-point. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The remote service path (to be added to the host and port url). ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The proxy url - if needed - to access the remote service. If IP and port are used, use the following syntax: &quot;http://&lt;IP&gt;:&lt;Port&gt;&quot;. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Name of device - equivalent to brand. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Timestamp of the acceleration reading. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Structure representing the binary attachment data. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The data size (in bytes) of the current file attachment ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Represents a local or remote service response. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Request/Response data content (plain text). ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The byte[] representing the binary Content. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The length in bytes for the binary Content. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The length in bytes for the Content field. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Represents a local or remote service request. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The HTTP procotol version to be used for this request. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Request/Response data content (plain text). ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Encoding of the binary payload - by default assumed to be UTF8. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The length in bytes for the Content field. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The headers array (name,value pairs) to be included on the I/O service request. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Represents a data table composed of columns and rows. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Definition of columns. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Structure representing the professional info data elements of a contact. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The method used ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Structure representing the data a single geolocation reading. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The Y coordinate (or latitude). Measured in degrees. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Indicates if database was created or needs to be created as Compressed. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Database Name (name of the .db local file). ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Structure representing the email data elements of a contact. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The values of the row. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Structure representing the data elements of an email. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Message body ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Structure representing the data of a http cookie. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Cookie creation timestamp in milliseconds. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Cookie expiry in milliseconds or -1 for session only. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**URI path for which the cookie is valid. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Scheme of the domain - http/https - for which the cookie is valid. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Cookie is secure (https only) ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The professional info from the contact ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Enumeration ContactPersonalInfoTitle ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Enumeration ContactAddressType ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Enumeration ContactSocialNetwork ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Enumeration ContactPhoneType ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Enumeration ICapabilitiesButton ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/APIRequest.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2535">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -336,8 +434,51 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="32154" max-vertical-offset="108525">
           <caret line="2725" column="0" selection-start-line="2725" selection-start-column="0" selection-end-line="2725" selection-end-column="0" />
           <folding>
-            <marker date="1420721568000" expanded="true" signature="1144:1178" placeholder="/**Evaluate the specified javascript on the main webview of the application. ...*/" />
-            <marker date="1420721568000" expanded="true" signature="1314:1326" placeholder="/**Interface for webview context management purposes ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The title of the Contact ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Structure representing a remote or local service access end-point. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The remote service path (to be added to the host and port url). ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The proxy url - if needed - to access the remote service. If IP and port are used, use the following syntax: &quot;http://&lt;IP&gt;:&lt;Port&gt;&quot;. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Name of device - equivalent to brand. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Timestamp of the acceleration reading. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Structure representing the binary attachment data. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The data size (in bytes) of the current file attachment ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Represents a local or remote service response. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Request/Response data content (plain text). ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The byte[] representing the binary Content. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The length in bytes for the binary Content. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The length in bytes for the Content field. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Represents a local or remote service request. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The HTTP procotol version to be used for this request. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Request/Response data content (plain text). ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Encoding of the binary payload - by default assumed to be UTF8. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The length in bytes for the Content field. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The headers array (name,value pairs) to be included on the I/O service request. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Represents a data table composed of columns and rows. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Definition of columns. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Structure representing the professional info data elements of a contact. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The method used ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Structure representing the data a single geolocation reading. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The Y coordinate (or latitude). Measured in degrees. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Indicates if database was created or needs to be created as Compressed. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Database Name (name of the .db local file). ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Structure representing the email data elements of a contact. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The values of the row. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Structure representing the data elements of an email. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Message body ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Structure representing the data of a http cookie. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Cookie creation timestamp in milliseconds. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Cookie expiry in milliseconds or -1 for session only. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**URI path for which the cookie is valid. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Scheme of the domain - http/https - for which the cookie is valid. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Cookie is secure (https only) ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The professional info from the contact ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Enumeration ContactPersonalInfoTitle ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Enumeration ContactAddressType ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Enumeration ContactSocialNetwork ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Enumeration ContactPhoneType ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Enumeration ICapabilitiesButton ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -346,15 +487,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/APIRequest.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2535">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -374,46 +506,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DatabaseRow.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7610475" vertical-offset="345" max-vertical-offset="1425">
-          <caret line="54" column="48" selection-start-line="54" selection-start-column="48" selection-end-line="54" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/APIRequest.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2535">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/join.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3343949" vertical-offset="0" max-vertical-offset="2385">
           <caret line="28" column="18" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Adaptive.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1995" max-vertical-offset="64140">
+          <caret line="133" column="21" selection-start-line="133" selection-start-column="21" selection-end-line="133" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Adaptive.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2040" max-vertical-offset="108660">
-          <caret line="159" column="13" selection-start-line="159" selection-start-column="13" selection-end-line="159" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="15900" max-vertical-offset="108660">
+          <caret line="1060" column="13" selection-start-line="1060" selection-start-column="13" selection-end-line="1060" selection-end-column="13" />
           <folding>
-            <marker date="1420721568000" expanded="true" signature="1144:1178" placeholder="/**Evaluate the specified javascript on the main webview of the application. ...*/" />
-            <marker date="1420721568000" expanded="true" signature="1314:1326" placeholder="/**Interface for webview context management purposes ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The title of the Contact ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Structure representing a remote or local service access end-point. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The remote service path (to be added to the host and port url). ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The proxy url - if needed - to access the remote service. If IP and port are used, use the following syntax: &quot;http://&lt;IP&gt;:&lt;Port&gt;&quot;. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Name of device - equivalent to brand. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Timestamp of the acceleration reading. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Structure representing the binary attachment data. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The data size (in bytes) of the current file attachment ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Represents a local or remote service response. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Request/Response data content (plain text). ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The byte[] representing the binary Content. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The length in bytes for the binary Content. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The length in bytes for the Content field. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Represents a local or remote service request. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The HTTP procotol version to be used for this request. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Request/Response data content (plain text). ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Encoding of the binary payload - by default assumed to be UTF8. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The length in bytes for the Content field. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The headers array (name,value pairs) to be included on the I/O service request. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Represents a data table composed of columns and rows. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Definition of columns. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Structure representing the professional info data elements of a contact. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The method used ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Structure representing the data a single geolocation reading. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The Y coordinate (or latitude). Measured in degrees. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Indicates if database was created or needs to be created as Compressed. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Database Name (name of the .db local file). ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Structure representing the email data elements of a contact. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The values of the row. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Structure representing the data elements of an email. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Message body ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Structure representing the data of a http cookie. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Cookie creation timestamp in milliseconds. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Cookie expiry in milliseconds or -1 for session only. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**URI path for which the cookie is valid. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Scheme of the domain - http/https - for which the cookie is valid. ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Cookie is secure (https only) ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**The professional info from the contact ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Enumeration ContactPersonalInfoTitle ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Enumeration ContactAddressType ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Enumeration ContactSocialNetwork ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Enumeration ContactPhoneType ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="/**Enumeration ICapabilitiesButton ...*/" />
+            <marker date="1420740335000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Adaptive.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-102.060555" vertical-offset="62884" max-vertical-offset="64140">
-          <caret line="35" column="21" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
