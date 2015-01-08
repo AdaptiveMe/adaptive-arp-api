@@ -116,494 +116,494 @@ module Adaptive {
      */
      export interface IAppRegistry {
           /**
-             Returns a reference to the registered AccelerationHandler.
+             Returns a reference to the registered AccelerationBridge.
 
-             @return AccelerationHandler reference or null if a handler of this type is not registered.
+             @return AccelerationBridge reference or null if a bridge of this type is not registered.
           */
-          getAccelerationHandler() : IAcceleration
+          getAccelerationBridge() : IAcceleration
 
           /**
-             Returns a reference to the registered AdsHandler.
+             Returns a reference to the registered AdsBridge.
 
-             @return AdsHandler reference or null if a handler of this type is not registered.
+             @return AdsBridge reference or null if a bridge of this type is not registered.
           */
-          getAdsHandler() : IAds
+          getAdsBridge() : IAds
 
           /**
-             Returns a reference to the registered AlarmHandler.
+             Returns a reference to the registered AlarmBridge.
 
-             @return AlarmHandler reference or null if a handler of this type is not registered.
+             @return AlarmBridge reference or null if a bridge of this type is not registered.
           */
-          getAlarmHandler() : IAlarm
+          getAlarmBridge() : IAlarm
 
           /**
-             Returns a reference to the registered AmbientLightHandler.
+             Returns a reference to the registered AmbientLightBridge.
 
-             @return AmbientLightHandler reference or null if a handler of this type is not registered.
+             @return AmbientLightBridge reference or null if a bridge of this type is not registered.
           */
-          getAmbientLightHandler() : IAmbientLight
+          getAmbientLightBridge() : IAmbientLight
 
           /**
-             Returns a reference to the registered AnalyticsHandler.
+             Returns a reference to the registered AnalyticsBridge.
 
-             @return AnalyticsHandler reference or null if a handler of this type is not registered.
+             @return AnalyticsBridge reference or null if a bridge of this type is not registered.
           */
-          getAnalyticsHandler() : IAnalytics
+          getAnalyticsBridge() : IAnalytics
 
           /**
-             Returns a reference to the registered AudioHandler.
+             Returns a reference to the registered AudioBridge.
 
-             @return AudioHandler reference or null if a handler of this type is not registered.
+             @return AudioBridge reference or null if a bridge of this type is not registered.
           */
-          getAudioHandler() : IAudio
+          getAudioBridge() : IAudio
 
           /**
-             Returns a reference to the registered BarcodeHandler.
+             Returns a reference to the registered BarcodeBridge.
 
-             @return BarcodeHandler reference or null if a handler of this type is not registered.
+             @return BarcodeBridge reference or null if a bridge of this type is not registered.
           */
-          getBarcodeHandler() : IBarcode
+          getBarcodeBridge() : IBarcode
 
           /**
-             Returns a reference to the registered BarometerHandler.
+             Returns a reference to the registered BarometerBridge.
 
-             @return BarometerHandler reference or null if a handler of this type is not registered.
+             @return BarometerBridge reference or null if a bridge of this type is not registered.
           */
-          getBarometerHandler() : IBarometer
+          getBarometerBridge() : IBarometer
 
           /**
-             Returns a reference to the registered BluetoothHandler.
+             Returns a reference to the registered BluetoothBridge.
 
-             @return BluetoothHandler reference or null if a handler of this type is not registered.
+             @return BluetoothBridge reference or null if a bridge of this type is not registered.
           */
-          getBluetoothHandler() : IBluetooth
+          getBluetoothBridge() : IBluetooth
 
           /**
-             Returns a reference to the registered BrowserHandler.
+             Returns a reference to the registered BrowserBridge.
 
-             @return BrowserHandler reference or null if a handler of this type is not registered.
+             @return BrowserBridge reference or null if a bridge of this type is not registered.
           */
-          getBrowserHandler() : IBrowser
+          getBrowserBridge() : IBrowser
 
           /**
-             Returns a reference to the registered CalendarHandler.
+             Returns a reference to the registered CalendarBridge.
 
-             @return CalendarHandler reference or null if a handler of this type is not registered.
+             @return CalendarBridge reference or null if a bridge of this type is not registered.
           */
-          getCalendarHandler() : ICalendar
+          getCalendarBridge() : ICalendar
 
           /**
-             Returns a reference to the registered CameraHandler.
+             Returns a reference to the registered CameraBridge.
 
-             @return CameraHandler reference or null if a handler of this type is not registered.
+             @return CameraBridge reference or null if a bridge of this type is not registered.
           */
-          getCameraHandler() : ICamera
+          getCameraBridge() : ICamera
 
           /**
-             Returns a reference to the registered CapabilitiesHandler.
+             Returns a reference to the registered CapabilitiesBridge.
 
-             @return CapabilitiesHandler reference or null if a handler of this type is not registered.
+             @return CapabilitiesBridge reference or null if a bridge of this type is not registered.
           */
-          getCapabilitiesHandler() : ICapabilities
+          getCapabilitiesBridge() : ICapabilities
 
           /**
-             Returns a reference to the registered CloudHandler.
+             Returns a reference to the registered CloudBridge.
 
-             @return CloudHandler reference or null if a handler of this type is not registered.
+             @return CloudBridge reference or null if a bridge of this type is not registered.
           */
-          getCloudHandler() : ICloud
+          getCloudBridge() : ICloud
 
           /**
-             Returns a reference to the registered CompressionHandler.
+             Returns a reference to the registered CompressionBridge.
 
-             @return CompressionHandler reference or null if a handler of this type is not registered.
+             @return CompressionBridge reference or null if a bridge of this type is not registered.
           */
-          getCompressionHandler() : ICompression
+          getCompressionBridge() : ICompression
 
           /**
-             Returns a reference to the registered ConcurrentHandler.
+             Returns a reference to the registered ConcurrentBridge.
 
-             @return ConcurrentHandler reference or null if a handler of this type is not registered.
+             @return ConcurrentBridge reference or null if a bridge of this type is not registered.
           */
-          getConcurrentHandler() : IConcurrent
+          getConcurrentBridge() : IConcurrent
 
           /**
-             Returns a reference to the registered ContactHandler.
+             Returns a reference to the registered ContactBridge.
 
-             @return ContactHandler reference or null if a handler of this type is not registered.
+             @return ContactBridge reference or null if a bridge of this type is not registered.
           */
-          getContactHandler() : IContact
+          getContactBridge() : IContact
 
           /**
-             Returns a reference to the registered CryptoHandler.
+             Returns a reference to the registered CryptoBridge.
 
-             @return CryptoHandler reference or null if a handler of this type is not registered.
+             @return CryptoBridge reference or null if a bridge of this type is not registered.
           */
-          getCryptoHandler() : ICrypto
+          getCryptoBridge() : ICrypto
 
           /**
-             Returns a reference to the registered DataStreamHandler.
+             Returns a reference to the registered DataStreamBridge.
 
-             @return DataStreamHandler reference or null if a handler of this type is not registered.
+             @return DataStreamBridge reference or null if a bridge of this type is not registered.
           */
-          getDataStreamHandler() : IDataStream
+          getDataStreamBridge() : IDataStream
 
           /**
-             Returns a reference to the registered DatabaseHandler.
+             Returns a reference to the registered DatabaseBridge.
 
-             @return DatabaseHandler reference or null if a handler of this type is not registered.
+             @return DatabaseBridge reference or null if a bridge of this type is not registered.
           */
-          getDatabaseHandler() : IDatabase
+          getDatabaseBridge() : IDatabase
 
           /**
-             Returns a reference to the registered DesktopHandler.
+             Returns a reference to the registered DesktopBridge.
 
-             @return DesktopHandler reference or null if a handler of this type is not registered.
+             @return DesktopBridge reference or null if a bridge of this type is not registered.
           */
-          getDesktopHandler() : IDesktop
+          getDesktopBridge() : IDesktop
 
           /**
-             Returns a reference to the registered DeviceHandler.
+             Returns a reference to the registered DeviceBridge.
 
-             @return DeviceHandler reference or null if a handler of this type is not registered.
+             @return DeviceBridge reference or null if a bridge of this type is not registered.
           */
-          getDeviceHandler() : IDevice
+          getDeviceBridge() : IDevice
 
           /**
-             Returns a reference to the registered DisplayHandler.
+             Returns a reference to the registered DisplayBridge.
 
-             @return DisplayHandler reference or null if a handler of this type is not registered.
+             @return DisplayBridge reference or null if a bridge of this type is not registered.
           */
-          getDisplayHandler() : IDisplay
+          getDisplayBridge() : IDisplay
 
           /**
-             Returns a reference to the registered FacebookHandler.
+             Returns a reference to the registered FacebookBridge.
 
-             @return FacebookHandler reference or null if a handler of this type is not registered.
+             @return FacebookBridge reference or null if a bridge of this type is not registered.
           */
-          getFacebookHandler() : IFacebook
+          getFacebookBridge() : IFacebook
 
           /**
-             Returns a reference to the registered FileHandler.
+             Returns a reference to the registered FileBridge.
 
-             @return FileHandler reference or null if a handler of this type is not registered.
+             @return FileBridge reference or null if a bridge of this type is not registered.
           */
-          getFileHandler() : IFile
+          getFileBridge() : IFile
 
           /**
-             Returns a reference to the registered FileSystemHandler.
+             Returns a reference to the registered FileSystemBridge.
 
-             @return FileSystemHandler reference or null if a handler of this type is not registered.
+             @return FileSystemBridge reference or null if a bridge of this type is not registered.
           */
-          getFileSystemHandler() : IFileSystem
+          getFileSystemBridge() : IFileSystem
 
           /**
-             Returns a reference to the registered GeolocationHandler.
+             Returns a reference to the registered GeolocationBridge.
 
-             @return GeolocationHandler reference or null if a handler of this type is not registered.
+             @return GeolocationBridge reference or null if a bridge of this type is not registered.
           */
-          getGeolocationHandler() : IGeolocation
+          getGeolocationBridge() : IGeolocation
 
           /**
-             Returns a reference to the registered GlobalizationHandler.
+             Returns a reference to the registered GlobalizationBridge.
 
-             @return GlobalizationHandler reference or null if a handler of this type is not registered.
+             @return GlobalizationBridge reference or null if a bridge of this type is not registered.
           */
-          getGlobalizationHandler() : IGlobalization
+          getGlobalizationBridge() : IGlobalization
 
           /**
-             Returns a reference to the registered GooglePlusHandler.
+             Returns a reference to the registered GooglePlusBridge.
 
-             @return GooglePlusHandler reference or null if a handler of this type is not registered.
+             @return GooglePlusBridge reference or null if a bridge of this type is not registered.
           */
-          getGooglePlusHandler() : IGooglePlus
+          getGooglePlusBridge() : IGooglePlus
 
           /**
-             Returns a reference to the registered GyroscopeHandler.
+             Returns a reference to the registered GyroscopeBridge.
 
-             @return GyroscopeHandler reference or null if a handler of this type is not registered.
+             @return GyroscopeBridge reference or null if a bridge of this type is not registered.
           */
-          getGyroscopeHandler() : IGyroscope
+          getGyroscopeBridge() : IGyroscope
 
           /**
-             Returns a reference to the registered ImagingHandler.
+             Returns a reference to the registered ImagingBridge.
 
-             @return ImagingHandler reference or null if a handler of this type is not registered.
+             @return ImagingBridge reference or null if a bridge of this type is not registered.
           */
-          getImagingHandler() : IImaging
+          getImagingBridge() : IImaging
 
           /**
-             Returns a reference to the registered InternalStorageHandler.
+             Returns a reference to the registered InternalStorageBridge.
 
-             @return InternalStorageHandler reference or null if a handler of this type is not registered.
+             @return InternalStorageBridge reference or null if a bridge of this type is not registered.
           */
-          getInternalStorageHandler() : IInternalStorage
+          getInternalStorageBridge() : IInternalStorage
 
           /**
-             Returns a reference to the registered LifecycleHandler.
+             Returns a reference to the registered LifecycleBridge.
 
-             @return LifecycleHandler reference or null if a handler of this type is not registered.
+             @return LifecycleBridge reference or null if a bridge of this type is not registered.
           */
-          getLifecycleHandler() : ILifecycle
+          getLifecycleBridge() : ILifecycle
 
           /**
-             Returns a reference to the registered LinkedInHandler.
+             Returns a reference to the registered LinkedInBridge.
 
-             @return LinkedInHandler reference or null if a handler of this type is not registered.
+             @return LinkedInBridge reference or null if a bridge of this type is not registered.
           */
-          getLinkedInHandler() : ILinkedIn
+          getLinkedInBridge() : ILinkedIn
 
           /**
-             Returns a reference to the registered LoggingHandler.
+             Returns a reference to the registered LoggingBridge.
 
-             @return LoggingHandler reference or null if a handler of this type is not registered.
+             @return LoggingBridge reference or null if a bridge of this type is not registered.
           */
-          getLoggingHandler() : ILogging
+          getLoggingBridge() : ILogging
 
           /**
-             Returns a reference to the registered MagnetometerHandler.
+             Returns a reference to the registered MagnetometerBridge.
 
-             @return MagnetometerHandler reference or null if a handler of this type is not registered.
+             @return MagnetometerBridge reference or null if a bridge of this type is not registered.
           */
-          getMagnetometerHandler() : IMagnetometer
+          getMagnetometerBridge() : IMagnetometer
 
           /**
-             Returns a reference to the registered MailHandler.
+             Returns a reference to the registered MailBridge.
 
-             @return MailHandler reference or null if a handler of this type is not registered.
+             @return MailBridge reference or null if a bridge of this type is not registered.
           */
-          getMailHandler() : IMail
+          getMailBridge() : IMail
 
           /**
-             Returns a reference to the registered ManagementHandler.
+             Returns a reference to the registered ManagementBridge.
 
-             @return ManagementHandler reference or null if a handler of this type is not registered.
+             @return ManagementBridge reference or null if a bridge of this type is not registered.
           */
-          getManagementHandler() : IManagement
+          getManagementBridge() : IManagement
 
           /**
-             Returns a reference to the registered MapHandler.
+             Returns a reference to the registered MapBridge.
 
-             @return MapHandler reference or null if a handler of this type is not registered.
+             @return MapBridge reference or null if a bridge of this type is not registered.
           */
-          getMapHandler() : IMap
+          getMapBridge() : IMap
 
           /**
-             Returns a reference to the registered MessagingHandler.
+             Returns a reference to the registered MessagingBridge.
 
-             @return MessagingHandler reference or null if a handler of this type is not registered.
+             @return MessagingBridge reference or null if a bridge of this type is not registered.
           */
-          getMessagingHandler() : IMessaging
+          getMessagingBridge() : IMessaging
 
           /**
-             Returns a reference to the registered NFCHandler.
+             Returns a reference to the registered NFCBridge.
 
-             @return NFCHandler reference or null if a handler of this type is not registered.
+             @return NFCBridge reference or null if a bridge of this type is not registered.
           */
-          getNFCHandler() : INFC
+          getNFCBridge() : INFC
 
           /**
-             Returns a reference to the registered NetworkInfoHandler.
+             Returns a reference to the registered NetworkInfoBridge.
 
-             @return NetworkInfoHandler reference or null if a handler of this type is not registered.
+             @return NetworkInfoBridge reference or null if a bridge of this type is not registered.
           */
-          getNetworkInfoHandler() : INetworkInfo
+          getNetworkInfoBridge() : INetworkInfo
 
           /**
-             Returns a reference to the registered NetworkNamingHandler.
+             Returns a reference to the registered NetworkNamingBridge.
 
-             @return NetworkNamingHandler reference or null if a handler of this type is not registered.
+             @return NetworkNamingBridge reference or null if a bridge of this type is not registered.
           */
-          getNetworkNamingHandler() : INetworkNaming
+          getNetworkNamingBridge() : INetworkNaming
 
           /**
-             Returns a reference to the registered NetworkReachabilityHandler.
+             Returns a reference to the registered NetworkReachabilityBridge.
 
-             @return NetworkReachabilityHandler reference or null if a handler of this type is not registered.
+             @return NetworkReachabilityBridge reference or null if a bridge of this type is not registered.
           */
-          getNetworkReachabilityHandler() : INetworkReachability
+          getNetworkReachabilityBridge() : INetworkReachability
 
           /**
-             Returns a reference to the registered NetworkStatusHandler.
+             Returns a reference to the registered NetworkStatusBridge.
 
-             @return NetworkStatusHandler reference or null if a handler of this type is not registered.
+             @return NetworkStatusBridge reference or null if a bridge of this type is not registered.
           */
-          getNetworkStatusHandler() : INetworkStatus
+          getNetworkStatusBridge() : INetworkStatus
 
           /**
-             Returns a reference to the registered NotificationHandler.
+             Returns a reference to the registered NotificationBridge.
 
-             @return NotificationHandler reference or null if a handler of this type is not registered.
+             @return NotificationBridge reference or null if a bridge of this type is not registered.
           */
-          getNotificationHandler() : INotification
+          getNotificationBridge() : INotification
 
           /**
-             Returns a reference to the registered NotificationLocalHandler.
+             Returns a reference to the registered NotificationLocalBridge.
 
-             @return NotificationLocalHandler reference or null if a handler of this type is not registered.
+             @return NotificationLocalBridge reference or null if a bridge of this type is not registered.
           */
-          getNotificationLocalHandler() : INotificationLocal
+          getNotificationLocalBridge() : INotificationLocal
 
           /**
-             Returns a reference to the registered OAuthHandler.
+             Returns a reference to the registered OAuthBridge.
 
-             @return OAuthHandler reference or null if a handler of this type is not registered.
+             @return OAuthBridge reference or null if a bridge of this type is not registered.
           */
-          getOAuthHandler() : IOAuth
+          getOAuthBridge() : IOAuth
 
           /**
-             Returns a reference to the registered OCRHandler.
+             Returns a reference to the registered OCRBridge.
 
-             @return OCRHandler reference or null if a handler of this type is not registered.
+             @return OCRBridge reference or null if a bridge of this type is not registered.
           */
-          getOCRHandler() : IOCR
+          getOCRBridge() : IOCR
 
           /**
-             Returns a reference to the registered OSHandler.
+             Returns a reference to the registered OSBridge.
 
-             @return OSHandler reference or null if a handler of this type is not registered.
+             @return OSBridge reference or null if a bridge of this type is not registered.
           */
-          getOSHandler() : IOS
+          getOSBridge() : IOS
 
           /**
-             Returns a reference to the registered OpenIdHandler.
+             Returns a reference to the registered OpenIdBridge.
 
-             @return OpenIdHandler reference or null if a handler of this type is not registered.
+             @return OpenIdBridge reference or null if a bridge of this type is not registered.
           */
-          getOpenIdHandler() : IOpenId
+          getOpenIdBridge() : IOpenId
 
           /**
-             Returns a reference to the registered PrintingHandler.
+             Returns a reference to the registered PrintingBridge.
 
-             @return PrintingHandler reference or null if a handler of this type is not registered.
+             @return PrintingBridge reference or null if a bridge of this type is not registered.
           */
-          getPrintingHandler() : IPrinting
+          getPrintingBridge() : IPrinting
 
           /**
-             Returns a reference to the registered ProximityHandler.
+             Returns a reference to the registered ProximityBridge.
 
-             @return ProximityHandler reference or null if a handler of this type is not registered.
+             @return ProximityBridge reference or null if a bridge of this type is not registered.
           */
-          getProximityHandler() : IProximity
+          getProximityBridge() : IProximity
 
           /**
-             Returns a reference to the registered QRCodeHandler.
+             Returns a reference to the registered QRCodeBridge.
 
-             @return QRCodeHandler reference or null if a handler of this type is not registered.
+             @return QRCodeBridge reference or null if a bridge of this type is not registered.
           */
-          getQRCodeHandler() : IQRCode
+          getQRCodeBridge() : IQRCode
 
           /**
-             Returns a reference to the registered RSSHandler.
+             Returns a reference to the registered RSSBridge.
 
-             @return RSSHandler reference or null if a handler of this type is not registered.
+             @return RSSBridge reference or null if a bridge of this type is not registered.
           */
-          getRSSHandler() : IRSS
+          getRSSBridge() : IRSS
 
           /**
-             Returns a reference to the registered RuntimeHandler.
+             Returns a reference to the registered RuntimeBridge.
 
-             @return RuntimeHandler reference or null if a handler of this type is not registered.
+             @return RuntimeBridge reference or null if a bridge of this type is not registered.
           */
-          getRuntimeHandler() : IRuntime
+          getRuntimeBridge() : IRuntime
 
           /**
-             Returns a reference to the registered SecurityHandler.
+             Returns a reference to the registered SecurityBridge.
 
-             @return SecurityHandler reference or null if a handler of this type is not registered.
+             @return SecurityBridge reference or null if a bridge of this type is not registered.
           */
-          getSecurityHandler() : ISecurity
+          getSecurityBridge() : ISecurity
 
           /**
-             Returns a reference to the registered ServiceHandler.
+             Returns a reference to the registered ServiceBridge.
 
-             @return ServiceHandler reference or null if a handler of this type is not registered.
+             @return ServiceBridge reference or null if a bridge of this type is not registered.
           */
-          getServiceHandler() : IService
+          getServiceBridge() : IService
 
           /**
-             Returns a reference to the registered SettingsHandler.
+             Returns a reference to the registered SettingsBridge.
 
-             @return SettingsHandler reference or null if a handler of this type is not registered.
+             @return SettingsBridge reference or null if a bridge of this type is not registered.
           */
-          getSettingsHandler() : ISettings
+          getSettingsBridge() : ISettings
 
           /**
-             Returns a reference to the registered SocketHandler.
+             Returns a reference to the registered SocketBridge.
 
-             @return SocketHandler reference or null if a handler of this type is not registered.
+             @return SocketBridge reference or null if a bridge of this type is not registered.
           */
-          getSocketHandler() : ISocket
+          getSocketBridge() : ISocket
 
           /**
-             Returns a reference to the registered StoreHandler.
+             Returns a reference to the registered StoreBridge.
 
-             @return StoreHandler reference or null if a handler of this type is not registered.
+             @return StoreBridge reference or null if a bridge of this type is not registered.
           */
-          getStoreHandler() : IStore
+          getStoreBridge() : IStore
 
           /**
-             Returns a reference to the registered TelephonyHandler.
+             Returns a reference to the registered TelephonyBridge.
 
-             @return TelephonyHandler reference or null if a handler of this type is not registered.
+             @return TelephonyBridge reference or null if a bridge of this type is not registered.
           */
-          getTelephonyHandler() : ITelephony
+          getTelephonyBridge() : ITelephony
 
           /**
-             Returns a reference to the registered TimerHandler.
+             Returns a reference to the registered TimerBridge.
 
-             @return TimerHandler reference or null if a handler of this type is not registered.
+             @return TimerBridge reference or null if a bridge of this type is not registered.
           */
-          getTimerHandler() : ITimer
+          getTimerBridge() : ITimer
 
           /**
-             Returns a reference to the registered TwitterHandler.
+             Returns a reference to the registered TwitterBridge.
 
-             @return TwitterHandler reference or null if a handler of this type is not registered.
+             @return TwitterBridge reference or null if a bridge of this type is not registered.
           */
-          getTwitterHandler() : ITwitter
+          getTwitterBridge() : ITwitter
 
           /**
-             Returns a reference to the registered UIHandler.
+             Returns a reference to the registered UIBridge.
 
-             @return UIHandler reference or null if a handler of this type is not registered.
+             @return UIBridge reference or null if a bridge of this type is not registered.
           */
-          getUIHandler() : IUI
+          getUIBridge() : IUI
 
           /**
-             Returns a reference to the registered UpdateHandler.
+             Returns a reference to the registered UpdateBridge.
 
-             @return UpdateHandler reference or null if a handler of this type is not registered.
+             @return UpdateBridge reference or null if a bridge of this type is not registered.
           */
-          getUpdateHandler() : IUpdate
+          getUpdateBridge() : IUpdate
 
           /**
-             Returns a reference to the registered VibrationHandler.
+             Returns a reference to the registered VibrationBridge.
 
-             @return VibrationHandler reference or null if a handler of this type is not registered.
+             @return VibrationBridge reference or null if a bridge of this type is not registered.
           */
-          getVibrationHandler() : IVibration
+          getVibrationBridge() : IVibration
 
           /**
-             Returns a reference to the registered VideoHandler.
+             Returns a reference to the registered VideoBridge.
 
-             @return VideoHandler reference or null if a handler of this type is not registered.
+             @return VideoBridge reference or null if a bridge of this type is not registered.
           */
-          getVideoHandler() : IVideo
+          getVideoBridge() : IVideo
 
           /**
-             Returns a reference to the registered WalletHandler.
+             Returns a reference to the registered WalletBridge.
 
-             @return WalletHandler reference or null if a handler of this type is not registered.
+             @return WalletBridge reference or null if a bridge of this type is not registered.
           */
-          getWalletHandler() : IWallet
+          getWalletBridge() : IWallet
 
           /**
-             Returns a reference to the registered XMLHandler.
+             Returns a reference to the registered XMLBridge.
 
-             @return XMLHandler reference or null if a handler of this type is not registered.
+             @return XMLBridge reference or null if a bridge of this type is not registered.
           */
-          getXMLHandler() : IXML
+          getXMLBridge() : IXML
 
           /**
              Returns a reference to the Platform Context

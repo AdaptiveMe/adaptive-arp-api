@@ -34,6 +34,7 @@ import org.reflections.util.ClasspathHelper;
 import org.reflections.util.ConfigurationBuilder;
 import org.reflections.util.FilterBuilder;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -76,36 +77,40 @@ public class TypeScriptGenerator extends GeneratorBase {
 
     @Override
     protected void startCustomClass(String className, Class clazz, JavaClass javaClass, boolean implementation) {
-        currentFile = new File(getOutputRootDirectory(), className + ".ts");
-        if (currentFile.exists()) {
-            currentFile.delete();
-        }
-        try {
-            indentPrintStream = new IndentPrintStream(new FileOutputStream(currentFile));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        if (currentFileGlobal == null) {
-            currentFileGlobal = new File(getOutputRootDirectory(), "Adaptive.ts");
-            if (currentFileGlobal.exists()) {
-                currentFileGlobal.delete();
+        if (className.contains("Delegate")) {
+            indentPrintStream = new IndentPrintStream(new ByteArrayOutputStream());
+        } else {
+            currentFile = new File(getOutputRootDirectory(), className + ".ts");
+            if (currentFile.exists()) {
+                currentFile.delete();
             }
             try {
-                indentPrintStreamGlobal = new IndentPrintStream(new FileOutputStream(currentFileGlobal));
+                indentPrintStream = new IndentPrintStream(new FileOutputStream(currentFile));
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
-            indentPrintStreamGlobal.println("/**");
-            indentPrintStreamGlobal.println(super.getSourceHeader());
-            indentPrintStreamGlobal.println("*/");
-            indentPrintStreamGlobal.println("module Adaptive {");
-            indentPrintStreamGlobal.println();
+            if (currentFileGlobal == null) {
+                currentFileGlobal = new File(getOutputRootDirectory(), "Adaptive.ts");
+                if (currentFileGlobal.exists()) {
+                    currentFileGlobal.delete();
+                }
+                try {
+                    indentPrintStreamGlobal = new IndentPrintStream(new FileOutputStream(currentFileGlobal));
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+                indentPrintStreamGlobal.println("/**");
+                indentPrintStreamGlobal.println(super.getSourceHeader());
+                indentPrintStreamGlobal.println("*/");
+                indentPrintStreamGlobal.println("module Adaptive {");
+                indentPrintStreamGlobal.println();
+            }
+            this.arrayOfClasses.add(className + ".ts");
+            startComment(0);
+            applyClassHeader(clazz, getSourceHeader());
+            endComment(0);
+            println();
         }
-        this.arrayOfClasses.add(clazz.getSimpleName() + ".ts");
-        startComment(0);
-        applyClassHeader(clazz, getSourceHeader());
-        endComment(0);
-        println();
     }
 
     @Override
@@ -120,86 +125,70 @@ public class TypeScriptGenerator extends GeneratorBase {
 
     @Override
     protected void createListenerImplementation(String simpleName, Class clazz, JavaClass javaClass) {
-        println("package " + clazz.getPackage().getName() + ";");
+        println("module Adaptive {");
         println();
-        println("import com.google.gson.Gson;");
-        println();
-        startComment(0);
+        startComment(5);
         if (javaClass.getComment() != null && javaClass.getComment().length() > 0) {
-            println(3, javaClass.getComment());
+            println(8, javaClass.getComment());
         }
-        println(3, "Auto-generated implementation of " + clazz.getSimpleName() + " specification.");
-        endComment(0);
+        println(8, "Auto-generated implementation of " + clazz.getSimpleName() + " specification.");
+        endComment(5);
 
         if (clazz.getSimpleName().equals("IBaseListener")) {
-            println("public class " + simpleName + " implements " + clazz.getSimpleName() + " {");
+            println(5, "export class " + simpleName + " implements " + clazz.getSimpleName() + " {");
             println();
 
-            startComment(5);
-            println(8, "Unique id of listener.");
-            endComment(5);
-            println(5, "private long id;");
+            startComment(10);
+            println(13, "Unique id of listener.");
+            endComment(10);
+            println(10, "id : number;");
             println();
 
-            startComment(5);
-            println(8, "Group of API.");
-            endComment(5);
-            println(5, "private IAdaptiveRPGroup apiGroup;");
+            startComment(10);
+            println(13, "Group of API.");
+            endComment(10);
+            println(10, "apiGroup : IAdaptiveRPGroup;");
             println();
 
-            startComment(5);
-            println(8, "JSON Serializer.");
-            endComment(5);
-            println(5, "protected Gson gson;");
+
+            startComment(10);
+            println(13, "Constructor with listener id.");
+            println();
+            println(13, "@param id  The id of the listener.");
+            endComment(10);
+            println(10, "constructor(id : number) {");
+            println(15, "this.id = id;");
+            println(15, "this.apiGroup = IAdaptiveRPGroup.Application;");
+            println(10, "}");
             println();
 
-            startComment(5);
-            println(8, "Constructor with listener id.");
-            println();
-            println(8, "@param id  The id of the listener.");
-            endComment(5);
-            println(5, "public " + simpleName + "(long id) {");
-            println(10, "this.id = id;");
-            println(10, "this.apiGroup = IAdaptiveRPGroup.Application;");
-            println(10, "this.gson = new Gson();");
-            println(5, "}");
+            startComment(10);
+            println(13, "Get the listener id.");
+            println(13, "@return long with the identifier of the listener.");
+            endComment(10);
+            println(10, "getId() : number {");
+            println(15, "return this.id;");
+            println(10, "}");
             println();
 
-            startComment(5);
-            println(8, "Get the listener id.");
-            println(8, "@return long with the identifier of the listener.");
-            endComment(5);
-            println(5, "public final long getId() {");
-            println(10, "return this.id;");
-            println(5, "}");
-            println();
+            startComment(10);
+            println(13, "Return the API group for the given interface.");
+            endComment(10);
+            println(10, "getAPIGroup() : IAdaptiveRPGroup {");
+            println(15, "return this.apiGroup;");
+            println(10, "}");
 
-            startComment(5);
-            println(8, "Return the API group for the given interface.");
-            endComment(5);
-            println(5, "@Override");
-            println(5, "public final IAdaptiveRPGroup getAPIGroup() {");
-            println(10, "return this.apiGroup;");
-            println(5, "}");
-
-            startComment(5);
-            println(8, "Return the JSON serializer.");
-            println(8, "@return Current JSON serializer.");
-            endComment(5);
-            println(5, "public final Gson getJSONAPI() {");
-            println(10, "return this.gson;");
-            println(5, "}");
         } else {
-            println("public class " + simpleName + " extends BaseListenerImpl implements " + clazz.getSimpleName() + " {");
+            println(5, "export class " + simpleName + " extends BaseListenerImpl implements " + clazz.getSimpleName() + " {");
             println();
-            startComment(5);
-            println(8, "Constructor with listener id.");
+            startComment(10);
+            println(13, "Constructor with listener id.");
             println();
-            println(8, "@param id  The id of the listener.");
-            endComment(5);
-            println(5, "public " + simpleName + "(long id) {");
-            println(10, "super(id);");
-            println(5, "}");
+            println(13, "@param id  The id of the listener.");
+            endComment(10);
+            println(10, "constructor(id : number) {");
+            println(15, "super(id);");
+            println(10, "}");
         }
         println();
 
@@ -221,43 +210,36 @@ public class TypeScriptGenerator extends GeneratorBase {
         });
         for (Method m : classMethods) {
             if (javaMethods.get(m) != null) {
-                startComment(5);
-                println(8, javaMethods.get(m).getComment());
+                startComment(10);
+                println(13, javaMethods.get(m).getComment());
                 println();
                 for (DocletTag tag : javaMethods.get(m).getTags()) {
-                    println(8, "@" + tag.getName() + " " + tag.getValue());
+                    println(13, "@" + tag.getName() + " " + tag.getValue());
                 }
-                endComment(5);
-                print(5, "public ");
-                if (m.getReturnType().equals(Void.TYPE)) {
-                    print("void ");
-                } else {
-                    print(convertJavaToNativeType(m.getReturnType()) + " ");
-                }
+                endComment(10);
+                print(10, "public ");
                 print(m.getName() + "(");
                 for (int i = 0; i < m.getParameterCount(); i++) {
                     Parameter p = m.getParameters()[i];
-                    print(convertJavaToNativeType(p.getType()) + " ");
                     print(p.getName());
+                    print(" : "+convertJavaToNativeType(p.getType()));
                     if (i < m.getParameterCount() - 1) {
                         print(", ");
                     }
                 }
-                println(") {");
+                print(") ");
 
-                print(10, "AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript(\"handle" + m.getDeclaringClass().getSimpleName().substring(1) + m.getName().substring(2) + "( '\"+getId()+\"', ");
-                for (int i = 0; i < m.getParameterCount(); i++) {
-                    Parameter p = m.getParameters()[i];
-                    print("JSON.parse(\" + this.gson.toJson(" + p.getName() + ") +\")");
-                    if (i < m.getParameterCount() - 1) {
-                        print(", ");
-                    }
+                if (m.getReturnType().equals(Void.TYPE)) {
+                    println("{");
+                } else {
+                    println(": "+ convertJavaToNativeType(m.getReturnType()) + " {");
                 }
-                println(" )\");");
-                println(5, "}");
+
+                println(10, "}");
                 println();
             }
         }
+        println(5, "}");
         println("}");
     }
 
