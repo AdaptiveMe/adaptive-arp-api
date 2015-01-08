@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2b62424-c85f-4dbf-8462-3858f1398c98" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.d.ts" afterPath="$PROJECT_DIR$/Adaptive.d.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.js.map" afterPath="$PROJECT_DIR$/Adaptive.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.js" afterPath="$PROJECT_DIR$/Adaptive.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.ts" afterPath="$PROJECT_DIR$/Adaptive.ts" />
@@ -35,9 +34,11 @@
       <file leaf-file-name="Adaptive.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Adaptive.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="11.582191" vertical-offset="32761" max-vertical-offset="108525">
-              <caret line="2635" column="25" selection-start-line="2635" selection-start-column="12" selection-end-line="2635" selection-end-column="25" />
-              <folding />
+            <state vertical-scroll-proportion="0.33273703" vertical-offset="91644" max-vertical-offset="108525">
+              <caret line="6122" column="26" selection-start-line="6122" selection-start-column="12" selection-end-line="6122" selection-end-column="26" />
+              <folding>
+                <marker date="1420709118000" expanded="true" signature="1314:1326" placeholder="/**This is a marker interface for bridge classes that invoke delegates. ...*/" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -285,9 +286,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Adaptive.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="11.582191" vertical-offset="32761" max-vertical-offset="108525">
-          <caret line="2635" column="25" selection-start-line="2635" selection-start-column="12" selection-end-line="2635" selection-end-column="25" />
-          <folding />
+        <state vertical-scroll-proportion="0.33273703" vertical-offset="91644" max-vertical-offset="108525">
+          <caret line="6122" column="26" selection-start-line="6122" selection-start-column="12" selection-end-line="6122" selection-end-column="26" />
+          <folding>
+            <marker date="1420709118000" expanded="true" signature="1314:1326" placeholder="/**This is a marker interface for bridge classes that invoke delegates. ...*/" />
+          </folding>
         </state>
       </provider>
     </entry>
