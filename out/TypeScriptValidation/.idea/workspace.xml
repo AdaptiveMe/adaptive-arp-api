@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2b62424-c85f-4dbf-8462-3858f1398c98" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.js.map" afterPath="$PROJECT_DIR$/Adaptive.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.js" afterPath="$PROJECT_DIR$/Adaptive.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.ts" afterPath="$PROJECT_DIR$/Adaptive.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/GeneratorBase.java" afterPath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/GeneratorBase.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/join.sh" afterPath="$PROJECT_DIR$/join.sh" />
@@ -29,70 +31,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="IServiceResultCallback.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/IServiceResultCallback.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1215">
-              <caret line="23" column="50" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Adaptive.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Adaptive.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="108525">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1420705005000" expanded="true" signature="1314:1326" placeholder="/**This is a marker interface for bridge classes that invoke delegates. ...*/" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Adaptive.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Adaptive.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2280" max-vertical-offset="64080">
-              <caret line="298" column="6" selection-start-line="298" selection-start-column="6" selection-end-line="298" selection-end-column="6" />
-              <folding>
-                <marker date="1420704952000" expanded="true" signature="9211:9218" placeholder="{...}" />
-                <marker date="1420704952000" expanded="true" signature="15648:16938" placeholder="{...}" />
-                <marker date="1420704952000" expanded="true" signature="15902:15982" placeholder="{...}" />
-                <marker date="1420704952000" expanded="true" signature="15989:16102" placeholder="/**Returns the tagName of the Tag ...*/" />
-                <marker date="1420704952000" expanded="true" signature="16421:16436" placeholder="{...}" />
-                <marker date="1420704952000" expanded="true" signature="19997:20190" placeholder="/**Gets Dilution of precision on the X measurement. Measured in meters. ...*/" />
-                <marker date="1420704952000" expanded="true" signature="24748:24752" placeholder="{...}" />
-                <marker date="1420704952000" expanded="true" signature="28679:28824" placeholder="/**Represents a session object for HTTP request and responses ...*/" />
-                <marker date="1420704952000" expanded="true" signature="28891:30280" placeholder="{...}" />
-                <marker date="1420704952000" expanded="true" signature="29139:29204" placeholder="{...}" />
-                <marker date="1420704952000" expanded="true" signature="29414:29455" placeholder="{...}" />
-                <marker date="1420704952000" expanded="true" signature="29693:29734" placeholder="{...}" />
-                <marker date="1420704952000" expanded="true" signature="40769:40880" placeholder="/**Returns the name of the table ...*/" />
-                <marker date="1420704952000" expanded="true" signature="46053:46153" placeholder="/**Constructor with fields ...*/" />
-                <marker date="1420704952000" expanded="true" signature="46765:46917" placeholder="/**Structure representing the data of a single acceleration reading. ...*/" />
-                <marker date="1420704952000" expanded="true" signature="49788:49831" placeholder="{...}" />
-                <marker date="1420704952000" expanded="true" signature="54658:54695" placeholder="{...}" />
-                <marker date="1420704952000" expanded="true" signature="54891:54924" placeholder="{...}" />
-                <marker date="1420704952000" expanded="true" signature="55180:55213" placeholder="{...}" />
-                <marker date="1420704952000" expanded="true" signature="55428:55461" placeholder="{...}" />
-                <marker date="1420704952000" expanded="true" signature="55782:55815" placeholder="{...}" />
-                <marker date="1420704952000" expanded="true" signature="56024:56068" placeholder="{...}" />
-                <marker date="1420704952000" expanded="true" signature="56304:56359" placeholder="{...}" />
-                <marker date="1420704952000" expanded="true" signature="62082:62188" placeholder="{...}" />
-                <marker date="1420704952000" expanded="true" signature="65112:65539" placeholder="{...}" />
-                <marker date="1420704952000" expanded="true" signature="71248:72539" placeholder="{...}" />
-                <marker date="1420704952000" expanded="true" signature="71496:71575" placeholder="{...}" />
-                <marker date="1420704952000" expanded="true" signature="71582:71711" placeholder="/**Returns if the table is compressed ...*/" />
-                <marker date="1420704952000" expanded="true" signature="71773:71806" placeholder="{...}" />
-                <marker date="1420704952000" expanded="true" signature="72048:72065" placeholder="{...}" />
-                <marker date="1420704952000" expanded="true" signature="90188:90227" placeholder="{...}" />
-                <marker date="1420704952000" expanded="true" signature="92762:92805" placeholder="{...}" />
-                <marker date="1420704952000" expanded="true" signature="93004:93044" placeholder="{...}" />
-                <marker date="1420704952000" expanded="true" signature="93615:93652" placeholder="{...}" />
-                <marker date="1420704952000" expanded="true" signature="93950:93995" placeholder="{...}" />
-              </folding>
+            <state vertical-scroll-proportion="0.33273703" vertical-offset="38304" max-vertical-offset="108525">
+              <caret line="2566" column="13" selection-start-line="2566" selection-start-column="12" selection-end-line="2566" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -126,9 +70,9 @@
         <option value="$PROJECT_DIR$/Dictionary.ts" />
         <option value="$PROJECT_DIR$/Locale.ts" />
         <option value="$PROJECT_DIR$/Contact.ts" />
-        <option value="$PROJECT_DIR$/Adaptive.js" />
         <option value="$PROJECT_DIR$/IAdaptiveRP.ts" />
         <option value="$PROJECT_DIR$/IServiceResultCallback.ts" />
+        <option value="$PROJECT_DIR$/Adaptive.js" />
         <option value="$PROJECT_DIR$/Adaptive.ts" />
       </list>
     </option>
@@ -286,7 +230,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.097521335" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.097521335" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.50233644" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -322,65 +266,27 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Adaptive.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.3682487" vertical-offset="4492" max-vertical-offset="64080">
+          <caret line="203" column="10" selection-start-line="203" selection-start-column="10" selection-end-line="203" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/IServiceResultCallback.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1215">
+        <state vertical-scroll-proportion="0.5646481" vertical-offset="0" max-vertical-offset="1215">
           <caret line="23" column="50" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Adaptive.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2280" max-vertical-offset="64080">
-          <caret line="298" column="6" selection-start-line="298" selection-start-column="6" selection-end-line="298" selection-end-column="6" />
-          <folding>
-            <marker date="1420704952000" expanded="true" signature="9211:9218" placeholder="{...}" />
-            <marker date="1420704952000" expanded="true" signature="15648:16938" placeholder="{...}" />
-            <marker date="1420704952000" expanded="true" signature="15902:15982" placeholder="{...}" />
-            <marker date="1420704952000" expanded="true" signature="15989:16102" placeholder="/**Returns the tagName of the Tag ...*/" />
-            <marker date="1420704952000" expanded="true" signature="16421:16436" placeholder="{...}" />
-            <marker date="1420704952000" expanded="true" signature="19997:20190" placeholder="/**Gets Dilution of precision on the X measurement. Measured in meters. ...*/" />
-            <marker date="1420704952000" expanded="true" signature="24748:24752" placeholder="{...}" />
-            <marker date="1420704952000" expanded="true" signature="28679:28824" placeholder="/**Represents a session object for HTTP request and responses ...*/" />
-            <marker date="1420704952000" expanded="true" signature="28891:30280" placeholder="{...}" />
-            <marker date="1420704952000" expanded="true" signature="29139:29204" placeholder="{...}" />
-            <marker date="1420704952000" expanded="true" signature="29414:29455" placeholder="{...}" />
-            <marker date="1420704952000" expanded="true" signature="29693:29734" placeholder="{...}" />
-            <marker date="1420704952000" expanded="true" signature="40769:40880" placeholder="/**Returns the name of the table ...*/" />
-            <marker date="1420704952000" expanded="true" signature="46053:46153" placeholder="/**Constructor with fields ...*/" />
-            <marker date="1420704952000" expanded="true" signature="46765:46917" placeholder="/**Structure representing the data of a single acceleration reading. ...*/" />
-            <marker date="1420704952000" expanded="true" signature="49788:49831" placeholder="{...}" />
-            <marker date="1420704952000" expanded="true" signature="54658:54695" placeholder="{...}" />
-            <marker date="1420704952000" expanded="true" signature="54891:54924" placeholder="{...}" />
-            <marker date="1420704952000" expanded="true" signature="55180:55213" placeholder="{...}" />
-            <marker date="1420704952000" expanded="true" signature="55428:55461" placeholder="{...}" />
-            <marker date="1420704952000" expanded="true" signature="55782:55815" placeholder="{...}" />
-            <marker date="1420704952000" expanded="true" signature="56024:56068" placeholder="{...}" />
-            <marker date="1420704952000" expanded="true" signature="56304:56359" placeholder="{...}" />
-            <marker date="1420704952000" expanded="true" signature="62082:62188" placeholder="{...}" />
-            <marker date="1420704952000" expanded="true" signature="65112:65539" placeholder="{...}" />
-            <marker date="1420704952000" expanded="true" signature="71248:72539" placeholder="{...}" />
-            <marker date="1420704952000" expanded="true" signature="71496:71575" placeholder="{...}" />
-            <marker date="1420704952000" expanded="true" signature="71582:71711" placeholder="/**Returns if the table is compressed ...*/" />
-            <marker date="1420704952000" expanded="true" signature="71773:71806" placeholder="{...}" />
-            <marker date="1420704952000" expanded="true" signature="72048:72065" placeholder="{...}" />
-            <marker date="1420704952000" expanded="true" signature="90188:90227" placeholder="{...}" />
-            <marker date="1420704952000" expanded="true" signature="92762:92805" placeholder="{...}" />
-            <marker date="1420704952000" expanded="true" signature="93004:93044" placeholder="{...}" />
-            <marker date="1420704952000" expanded="true" signature="93615:93652" placeholder="{...}" />
-            <marker date="1420704952000" expanded="true" signature="93950:93995" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Adaptive.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="108525">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1420705005000" expanded="true" signature="1314:1326" placeholder="/**This is a marker interface for bridge classes that invoke delegates. ...*/" />
-          </folding>
+        <state vertical-scroll-proportion="0.33273703" vertical-offset="38304" max-vertical-offset="108525">
+          <caret line="2566" column="13" selection-start-line="2566" selection-start-column="12" selection-end-line="2566" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
