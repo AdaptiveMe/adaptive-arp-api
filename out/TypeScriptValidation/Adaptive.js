@@ -40,458 +40,165 @@ Release:
 var Adaptive;
 (function (Adaptive) {
     /**
-       Structure representing a native response to the HTML5
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    var APIBean = (function () {
-        /**
-           Default constructor
-
-           @since ARP1.0
-        */
-        function APIBean() {
-        }
-        return APIBean;
-    })();
-    Adaptive.APIBean = APIBean;
-    /**
-       Structure representing the assigned tags data elements of a contact.
+       Structure representing the binary attachment data.
 
        @author Francisco Javier Martin Bueno
        @since ARP1.0
        @version 1.0
     */
-    var ContactTag = (function (_super) {
-        __extends(ContactTag, _super);
+    var EmailAttachmentData = (function (_super) {
+        __extends(EmailAttachmentData, _super);
         /**
-           Constructor used by the implementation
+           Constructor with fields
 
-           @param tagValue Value of the tag
-           @param tagName  Name of the tag
+           @param data         raw data of the file attachment
+           @param size         size of the file attachment
+           @param fileName     name of the file attachment
+           @param mimeType     mime type of the file attachment
+           @param referenceUrl relative url of the file attachment
            @since ARP1.0
         */
-        function ContactTag(tagName, tagValue) {
+        function EmailAttachmentData(data, size, fileName, mimeType, referenceUrl) {
             _super.call(this);
-            this.tagName = tagName;
-            this.tagValue = tagValue;
+            this.data = data;
+            this.size = size;
+            this.fileName = fileName;
+            this.mimeType = mimeType;
+            this.referenceUrl = referenceUrl;
         }
         /**
-           Returns the tagName of the Tag
+           Returns the raw data in byte[]
 
-           @return tagName
+           @return data Octet-binary content of the attachment payload.
            @since ARP1.0
         */
-        ContactTag.prototype.getTagName = function () {
-            return this.tagName;
+        EmailAttachmentData.prototype.getData = function () {
+            return this.data;
         };
         /**
-           Set the tagName of the Tag
+           Set the data of the attachment as a byte[]
 
-           @param tagName Name of the tag
+           @param data Sets the octet-binary content of the attachment.
            @since ARP1.0
         */
-        ContactTag.prototype.setTagName = function (tagName) {
-            this.tagName = tagName;
+        EmailAttachmentData.prototype.setData = function (data) {
+            this.data = data;
         };
         /**
-           Returns the tagValue of the Tag
+           Returns the filename of the attachment
 
-           @return tagValue
+           @return fileName Name of the attachment.
            @since ARP1.0
         */
-        ContactTag.prototype.getTagValue = function () {
-            return this.tagValue;
+        EmailAttachmentData.prototype.getFileName = function () {
+            return this.fileName;
         };
         /**
-           Set the tagValue of the Tag
+           Set the name of the file attachment
 
-           @param tagValue Value of the tag
+           @param fileName Name of the attachment.
            @since ARP1.0
         */
-        ContactTag.prototype.setTagValue = function (tagValue) {
-            this.tagValue = tagValue;
+        EmailAttachmentData.prototype.setFileName = function (fileName) {
+            this.fileName = fileName;
         };
-        return ContactTag;
-    })(APIBean);
-    Adaptive.ContactTag = ContactTag;
-    /**
-       Created by clozano on 19/12/14.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    var FileDescriptor = (function () {
         /**
-           Default constructor.
-        */
-        function FileDescriptor() {
-        }
-        /**
-           Returns the milliseconds passed since 1/1/1970 since the file was created.
+           Returns the mime type of the attachment
 
-           @return Timestamp in milliseconds.
+           @return mimeType
            @since ARP1.0
         */
-        FileDescriptor.prototype.getDateCreated = function () {
-            return this.dateCreated;
+        EmailAttachmentData.prototype.getMimeType = function () {
+            return this.mimeType;
         };
         /**
-           Sets the creation timestamp in milliseconds. Used internally.
+           Set the mime type of the attachment
 
-           @param dateCreated Timestamp of file creation or -1 if the file or folder doesn't exist.
-        */
-        FileDescriptor.prototype.setDateCreated = function (dateCreated) {
-            this.dateCreated = dateCreated;
-        };
-        /**
-           Returns the milliseconds passed since 1/1/1970 since the file was modified.
-
-           @return Timestamp in milliseconds.
+           @param mimeType Mime-type of the attachment.
            @since ARP1.0
         */
-        FileDescriptor.prototype.getDateModified = function () {
-            return this.dateModified;
+        EmailAttachmentData.prototype.setMimeType = function (mimeType) {
+            this.mimeType = mimeType;
         };
         /**
-           Sets the file or folder modification timestamp in milliseconds. Used internally.
+           Returns the absolute url of the file attachment
 
-           @param dateModified Timestamp of file modification or -1 if the file or folder doesn't exist.
-        */
-        FileDescriptor.prototype.setDateModified = function (dateModified) {
-            this.dateModified = dateModified;
-        };
-        /**
-           Returns the name of the file if the reference is a file or the last path element of the folder.
-
-           @return The name of the file.
+           @return referenceUrl Absolute URL of the file attachment for either file:// or http:// access.
            @since ARP1.0
         */
-        FileDescriptor.prototype.getName = function () {
-            return this.name;
+        EmailAttachmentData.prototype.getReferenceUrl = function () {
+            return this.referenceUrl;
         };
         /**
-           Sets the name of the file. Used internally.
+           Set the absolute url of the attachment
 
-           @param name Name of the file or last folder path element.
-        */
-        FileDescriptor.prototype.setName = function (name) {
-            this.name = name;
-        };
-        /**
-           Returns the path element of the file or folder (excluding the last path element if it's a directory).
-
-           @return The path to the file.
+           @param referenceUrl Absolute URL of the file attachment for either file:// or http:// access.
            @since ARP1.0
         */
-        FileDescriptor.prototype.getPath = function () {
-            return this.path;
+        EmailAttachmentData.prototype.setReferenceUrl = function (referenceUrl) {
+            this.referenceUrl = referenceUrl;
         };
         /**
-           Sets the path of the file or folder. Used internally.
+           Returns the size of the attachment as a long
 
-           @param path The path element of the file or folder.
-        */
-        FileDescriptor.prototype.setPath = function (path) {
-            this.path = path;
-        };
-        /**
-           Returns the resolved absolute path elements of the file and/or folders (including the last path element).
-
-           @return The absolute path to the file.
+           @return size Length in bytes of the octet-binary content.
            @since ARP1.0
         */
-        FileDescriptor.prototype.getPathAbsolute = function () {
-            return this.pathAbsolute;
-        };
-        /**
-           Sets the absolute path of the file or folder. Used internally.
-
-           @param pathAbsolute String with the absolute path of file or folder.
-        */
-        FileDescriptor.prototype.setPathAbsolute = function (pathAbsolute) {
-            this.pathAbsolute = pathAbsolute;
-        };
-        /**
-           Returns the size in bytes of the file or -1 if the reference is a folder.
-
-           @return Size in bytes of file.
-           @since ARP1.0
-        */
-        FileDescriptor.prototype.getSize = function () {
+        EmailAttachmentData.prototype.getSize = function () {
             return this.size;
         };
         /**
-           Sets the file size in bytes of the file. If the file is a folder, this will be 0. If the file
-doesn't exist, this will be -1. Used internally.
+           Set the size of the attachment as a long
 
-           @param size The size in bytes of the file.
+           @param size Length in bytes of the octet-binary content ( should be same as data array length.)
+           @since ARP1.0
         */
-        FileDescriptor.prototype.setSize = function (size) {
+        EmailAttachmentData.prototype.setSize = function (size) {
             this.size = size;
         };
-        return FileDescriptor;
-    })();
-    Adaptive.FileDescriptor = FileDescriptor;
+        return EmailAttachmentData;
+    })(APIBean);
+    Adaptive.EmailAttachmentData = EmailAttachmentData;
     /**
-       Structure representing the professional info data elements of a contact.
+       Represents a specific application life-cycle stage.
 
        @author Francisco Javier Martin Bueno
        @since ARP1.0
        @version 1.0
     */
-    var ContactProfessionalInfo = (function (_super) {
-        __extends(ContactProfessionalInfo, _super);
+    var Lifecycle = (function (_super) {
+        __extends(Lifecycle, _super);
         /**
-           Constructor used by implementation to set the ContactProfessionalInfo.
+           Constructor used by the implementation
 
-           @param jobTitle       The job title
-           @param jobDescription The job description
-           @param company        The company of the job
+           @param state of the app
            @since ARP1.0
         */
-        function ContactProfessionalInfo(jobTitle, jobDescription, company) {
+        function Lifecycle(state) {
             _super.call(this);
-            this.jobTitle = jobTitle;
-            this.jobDescription = jobDescription;
-            this.company = company;
+            this.state = state;
         }
         /**
-           Returns the company of the job
+           Returns the state of the application
 
-           @return company
+           @return state of the app
            @since ARP1.0
         */
-        ContactProfessionalInfo.prototype.getCompany = function () {
-            return this.company;
+        Lifecycle.prototype.getState = function () {
+            return this.state;
         };
         /**
-           Set the company of the job
+           Set the State of the application
 
-           @param company The company of the job
+           @param state of the app
            @since ARP1.0
         */
-        ContactProfessionalInfo.prototype.setCompany = function (company) {
-            this.company = company;
+        Lifecycle.prototype.setState = function (state) {
+            this.state = state;
         };
-        /**
-           Returns the description of the job
-
-           @return description
-           @since ARP1.0
-        */
-        ContactProfessionalInfo.prototype.getJobDescription = function () {
-            return this.jobDescription;
-        };
-        /**
-           Set the description of the job
-
-           @param jobDescription The job description
-           @since ARP1.0
-        */
-        ContactProfessionalInfo.prototype.setJobDescription = function (jobDescription) {
-            this.jobDescription = jobDescription;
-        };
-        /**
-           Returns the title of the job
-
-           @return title
-           @since ARP1.0
-        */
-        ContactProfessionalInfo.prototype.getJobTitle = function () {
-            return this.jobTitle;
-        };
-        /**
-           Set the title of the job
-
-           @param jobTitle The job title
-           @since ARP1.0
-        */
-        ContactProfessionalInfo.prototype.setJobTitle = function (jobTitle) {
-            this.jobTitle = jobTitle;
-        };
-        return ContactProfessionalInfo;
+        return Lifecycle;
     })(APIBean);
-    Adaptive.ContactProfessionalInfo = ContactProfessionalInfo;
-    /**
-       Structure representing the internal unique identifier data elements of a contact.
-
-       @author Francisco Javier Martin Bueno
-       @since ARP1.0
-       @version 1.0
-    */
-    var ContactUid = (function (_super) {
-        __extends(ContactUid, _super);
-        /**
-           Constructor used by implementation to set the Contact id.
-
-           @param contactId Internal unique contact id.
-           @since ARP1.0
-        */
-        function ContactUid(contactId) {
-            _super.call(this);
-            this.contactId = contactId;
-        }
-        /**
-           Returns the contact id
-
-           @return Contactid Internal unique contact id.
-           @since ARP1.0
-        */
-        ContactUid.prototype.getContactId = function () {
-            return this.contactId;
-        };
-        /**
-           Set the id of the Contact
-
-           @param contactId Internal unique contact id.
-           @since ARP1.0
-        */
-        ContactUid.prototype.setContactId = function (contactId) {
-            this.contactId = contactId;
-        };
-        return ContactUid;
-    })(APIBean);
-    Adaptive.ContactUid = ContactUid;
-    /**
-       Structure representing the data a single geolocation reading.
-
-       @author Francisco Javier Martin Bueno
-       @since ARP1.0
-       @version 1.0
-    */
-    var Geolocation = (function (_super) {
-        __extends(Geolocation, _super);
-        /**
-           Constructor with parameters
-
-           @param latitude  Latitude of the measurement
-           @param longitude Longitude of the measurement
-           @param altitude  Altitude of the measurement
-           @param xDoP      Dilution of precision on the X measurement
-           @param yDoP      Dilution of precision on the Y measurement
-           @param timestamp Timestamp of the measurement
-           @since ARP1.0
-        */
-        function Geolocation(latitude, longitude, altitude, xDoP, yDoP, timestamp) {
-            _super.call(this);
-            this.latitude = latitude;
-            this.longitude = longitude;
-            this.altitude = altitude;
-            this.xDoP = xDoP;
-            this.yDoP = yDoP;
-            this.timestamp = timestamp;
-        }
-        /**
-           Returns altitude in meters
-
-           @return Altitude of the measurement
-           @since ARP1.0
-        */
-        Geolocation.prototype.getAltitude = function () {
-            return this.altitude;
-        };
-        /**
-           Set altitude in meters
-
-           @param altitude Altitude of the measurement
-           @since ARP1.0
-        */
-        Geolocation.prototype.setAltitude = function (altitude) {
-            this.altitude = altitude;
-        };
-        /**
-           Returns the latitude in degrees
-
-           @return Latitude of the measurement
-           @since ARP1.0
-        */
-        Geolocation.prototype.getLatitude = function () {
-            return this.latitude;
-        };
-        /**
-           Set the latitude in degrees
-
-           @param latitude Latitude of the measurement
-           @since ARP1.0
-        */
-        Geolocation.prototype.setLatitude = function (latitude) {
-            this.latitude = latitude;
-        };
-        /**
-           Returns the longitude in degrees
-
-           @return Longitude of the measurement
-           @since ARP1.0
-        */
-        Geolocation.prototype.getLongitude = function () {
-            return this.longitude;
-        };
-        /**
-           Returns the latitude in degrees
-
-           @param longitude Longitude of the measurement
-           @since ARP1.0
-        */
-        Geolocation.prototype.setLongitude = function (longitude) {
-            this.longitude = longitude;
-        };
-        /**
-           Timestamp Getter
-
-           @return Timestamp
-           @since ARP1.0
-        */
-        Geolocation.prototype.getTimestamp = function () {
-            return this.timestamp;
-        };
-        /**
-           Timestamp Setter
-
-           @param timestamp Timestamp
-           @since ARP1.0
-        */
-        Geolocation.prototype.setTimestamp = function (timestamp) {
-            this.timestamp = timestamp;
-        };
-        /**
-           Gets Dilution of precision on the X measurement. Measured in meters.
-
-           @return xDoP Dilution of precision on the X measurement. Measured in meters.
-        */
-        Geolocation.prototype.getXDoP = function () {
-            return this.xDoP;
-        };
-        /**
-           Sets Dilution of precision on the X measurement. Measured in meters.
-
-           @param xDoP Dilution of precision on the X measurement. Measured in meters.
-        */
-        Geolocation.prototype.setXDoP = function (xDoP) {
-            this.xDoP = xDoP;
-        };
-        /**
-           Gets Dilution of precision on the Y measurement. Measured in meters.
-
-           @return yDoP Dilution of precision on the Y measurement. Measured in meters.
-        */
-        Geolocation.prototype.getYDoP = function () {
-            return this.yDoP;
-        };
-        /**
-           Sets Dilution of precision on the Y measurement. Measured in meters.
-
-           @param yDoP Dilution of precision on the Y measurement. Measured in meters.
-        */
-        Geolocation.prototype.setYDoP = function (yDoP) {
-            this.yDoP = yDoP;
-        };
-        return Geolocation;
-    })(APIBean);
-    Adaptive.Geolocation = Geolocation;
+    Adaptive.Lifecycle = Lifecycle;
     /**
        Structure representing a remote or local service access end-point.
 
@@ -613,145 +320,565 @@ doesn't exist, this will be -1. Used internally.
     })(APIBean);
     Adaptive.ServiceEndpoint = ServiceEndpoint;
     /**
-       Structure representing the a physical or logical button on a device.
+       Represents a specific user or system locate.
+
+       @author Aryslan
+       @since ARP1.0
+       @version 1.0
+    */
+    var Locale = (function (_super) {
+        __extends(Locale, _super);
+        /**
+           Constructor used by the implementation
+
+           @param country  Country of the Locale
+           @param language Language of the Locale
+           @since ARP1.0
+        */
+        function Locale(language, country) {
+            _super.call(this);
+            this.language = language;
+            this.country = country;
+        }
+        /**
+           Returns the country code
+
+           @return country code
+           @since ARP1.0
+        */
+        Locale.prototype.getCountry = function () {
+            return this.country;
+        };
+        /**
+           Set the country code
+
+           @param country code
+           @since ARP1.0
+        */
+        Locale.prototype.setCountry = function (country) {
+            this.country = country;
+        };
+        /**
+           Returns the language code
+
+           @return language code
+           @since ARP1.0
+        */
+        Locale.prototype.getLanguage = function () {
+            return this.language;
+        };
+        /**
+           Set the language code
+
+           @param language code
+           @since ARP1.0
+        */
+        Locale.prototype.setLanguage = function (language) {
+            this.language = language;
+        };
+        return Locale;
+    })(APIBean);
+    Adaptive.Locale = Locale;
+    /**
+       Structure representing the column specification of a data column.
+
+       @author Ferran Vila Conesa
+       @since ARP1.0
+       @version 1.0
+    */
+    var DatabaseColumn = (function (_super) {
+        __extends(DatabaseColumn, _super);
+        /**
+           Constructor with fields
+
+           @param name Name of the column
+           @since ARP1.0
+        */
+        function DatabaseColumn(name) {
+            _super.call(this);
+            this.name = name;
+        }
+        /**
+           Returns the name of the column.
+
+           @return The name of the column.
+           @since ARP1.0
+        */
+        DatabaseColumn.prototype.getName = function () {
+            return this.name;
+        };
+        /**
+           Sets the name of the column.
+
+           @param name The name of the column.
+           @since ARP1.0
+        */
+        DatabaseColumn.prototype.setName = function (name) {
+            this.name = name;
+        };
+        return DatabaseColumn;
+    })(APIBean);
+    Adaptive.DatabaseColumn = DatabaseColumn;
+    /**
+       Structure representing a row for a data table.
+
+       @author Ferran Vila Conesa
+       @since ARP1.0
+       @version 1.0
+    */
+    var DatabaseRow = (function (_super) {
+        __extends(DatabaseRow, _super);
+        /**
+           Constructor for implementation using.
+
+           @param values The values of the row
+           @since ARP1.0
+        */
+        function DatabaseRow(values) {
+            _super.call(this);
+            this.values = values;
+        }
+        /**
+           Returns the values of the row.
+
+           @return The values of the row.
+           @since ARP1.0
+        */
+        DatabaseRow.prototype.getValues = function () {
+            return this.values;
+        };
+        /**
+           Sets the values of the row.
+
+           @param values The values of the row.
+           @since ARP1.0
+        */
+        DatabaseRow.prototype.setValues = function (values) {
+            this.values = values;
+        };
+        return DatabaseRow;
+    })(APIBean);
+    Adaptive.DatabaseRow = DatabaseRow;
+    /**
+       Structure representing the internal unique identifier data elements of a contact.
 
        @author Francisco Javier Martin Bueno
        @since ARP1.0
        @version 1.0
     */
-    var Button = (function (_super) {
-        __extends(Button, _super);
+    var ContactUid = (function (_super) {
+        __extends(ContactUid, _super);
         /**
-           Constructor with fields
+           Constructor used by implementation to set the Contact id.
 
-           @param type Button type.
+           @param contactId Internal unique contact id.
            @since ARP1.0
         */
-        function Button(type) {
+        function ContactUid(contactId) {
             _super.call(this);
-            this.type = type;
+            this.contactId = contactId;
         }
         /**
-           Returns the button type
+           Returns the contact id
 
-           @return type Button type.
+           @return Contactid Internal unique contact id.
            @since ARP1.0
         */
-        Button.prototype.getType = function () {
-            return this.type;
+        ContactUid.prototype.getContactId = function () {
+            return this.contactId;
         };
         /**
-           Setter for the button type
+           Set the id of the Contact
 
-           @param type Button Type
+           @param contactId Internal unique contact id.
            @since ARP1.0
         */
-        Button.prototype.setType = function (type) {
-            this.type = type;
+        ContactUid.prototype.setContactId = function (contactId) {
+            this.contactId = contactId;
         };
-        return Button;
+        return ContactUid;
     })(APIBean);
-    Adaptive.Button = Button;
+    Adaptive.ContactUid = ContactUid;
     /**
-       Structure representing the data of a single acceleration reading.
+       Structure representing the professional info data elements of a contact.
 
-       @author Carlos Lozano Diez
+       @author Francisco Javier Martin Bueno
        @since ARP1.0
        @version 1.0
     */
-    var Acceleration = (function (_super) {
-        __extends(Acceleration, _super);
+    var ContactProfessionalInfo = (function (_super) {
+        __extends(ContactProfessionalInfo, _super);
         /**
-           Constructor with fields
+           Constructor used by implementation to set the ContactProfessionalInfo.
 
-           @param x         X Coordinate
-           @param y         Y Coordinate
-           @param z         Z Coordinate
-           @param timestamp Timestamp
+           @param jobTitle       The job title
+           @param jobDescription The job description
+           @param company        The company of the job
            @since ARP1.0
         */
-        function Acceleration(x, y, z, timestamp) {
+        function ContactProfessionalInfo(jobTitle, jobDescription, company) {
             _super.call(this);
-            this.x = x;
-            this.y = y;
-            this.z = z;
-            this.timestamp = timestamp;
+            this.jobTitle = jobTitle;
+            this.jobDescription = jobDescription;
+            this.company = company;
         }
         /**
-           Timestamp Getter
+           Returns the company of the job
 
-           @return Timestamp
+           @return company
            @since ARP1.0
         */
-        Acceleration.prototype.getTimestamp = function () {
-            return this.timestamp;
+        ContactProfessionalInfo.prototype.getCompany = function () {
+            return this.company;
         };
         /**
-           Timestamp Setter
+           Set the company of the job
 
-           @param timestamp Timestamp
+           @param company The company of the job
            @since ARP1.0
         */
-        Acceleration.prototype.setTimestamp = function (timestamp) {
-            this.timestamp = timestamp;
+        ContactProfessionalInfo.prototype.setCompany = function (company) {
+            this.company = company;
         };
         /**
-           X Coordinate Getter
+           Returns the description of the job
 
-           @return X-axis component of the acceleration.
+           @return description
            @since ARP1.0
         */
-        Acceleration.prototype.getX = function () {
-            return this.x;
+        ContactProfessionalInfo.prototype.getJobDescription = function () {
+            return this.jobDescription;
         };
         /**
-           X Coordinate Setter
+           Set the description of the job
 
-           @param x X-axis component of the acceleration.
+           @param jobDescription The job description
            @since ARP1.0
         */
-        Acceleration.prototype.setX = function (x) {
-            this.x = x;
+        ContactProfessionalInfo.prototype.setJobDescription = function (jobDescription) {
+            this.jobDescription = jobDescription;
         };
         /**
-           Y Coordinate Getter
+           Returns the title of the job
 
-           @return Y-axis component of the acceleration.
+           @return title
            @since ARP1.0
         */
-        Acceleration.prototype.getY = function () {
-            return this.y;
+        ContactProfessionalInfo.prototype.getJobTitle = function () {
+            return this.jobTitle;
         };
         /**
-           Y Coordinate Setter
+           Set the title of the job
 
-           @param y Y-axis component of the acceleration.
+           @param jobTitle The job title
            @since ARP1.0
         */
-        Acceleration.prototype.setY = function (y) {
-            this.y = y;
+        ContactProfessionalInfo.prototype.setJobTitle = function (jobTitle) {
+            this.jobTitle = jobTitle;
         };
-        /**
-           Z Coordinate Getter
-
-           @return Z-axis component of the acceleration.
-           @since ARP1.0
-        */
-        Acceleration.prototype.getZ = function () {
-            return this.z;
-        };
-        /**
-           Z Coordinate Setter
-
-           @param z Z Coordinate
-           @since ARP1.0
-        */
-        Acceleration.prototype.setZ = function (z) {
-            this.z = z;
-        };
-        return Acceleration;
+        return ContactProfessionalInfo;
     })(APIBean);
-    Adaptive.Acceleration = Acceleration;
+    Adaptive.ContactProfessionalInfo = ContactProfessionalInfo;
+    /**
+       Structure representing the phone data elements of a contact.
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+       @version 1.0
+    */
+    var ContactPhone = (function (_super) {
+        __extends(ContactPhone, _super);
+        /**
+           Constructor used by implementation to set the contact Phone
+
+           @param phone     Phone number
+           @param phoneType Type of Phone number
+           @since ARP1.0
+        */
+        function ContactPhone(phone, phoneType) {
+            _super.call(this);
+            this.phone = phone;
+            this.phoneType = phoneType;
+        }
+        /**
+           Returns the phone phoneType
+
+           @return phoneType
+           @since ARP1.0
+        */
+        ContactPhone.prototype.getPhoneType = function () {
+            return this.phoneType;
+        };
+        /**
+           Set the phoneType of the phone number
+
+           @param phoneType Type of Phone number
+           @since ARP1.0
+        */
+        ContactPhone.prototype.setPhoneType = function (phoneType) {
+            this.phoneType = phoneType;
+        };
+        /**
+           Returns the phone number
+
+           @return phone number
+           @since ARP1.0
+        */
+        ContactPhone.prototype.getPhone = function () {
+            return this.phone;
+        };
+        /**
+           Set the phone number
+
+           @param phone number
+           @since ARP1.0
+        */
+        ContactPhone.prototype.setPhone = function (phone) {
+            this.phone = phone;
+        };
+        return ContactPhone;
+    })(APIBean);
+    Adaptive.ContactPhone = ContactPhone;
+    /**
+       Structure representing the cookieValue of a http cookie.
+
+       @author Aryslan
+       @since ARP1.0
+       @version 1.0
+    */
+    var ServiceCookie = (function (_super) {
+        __extends(ServiceCookie, _super);
+        /**
+           Contructor with fields
+
+           @param cookieName     Name of the cookie
+           @param cookieValue    Value of the cookie
+           @param domain   Domain of the cookie
+           @param path     Path of the cookie
+           @param scheme   Scheme of the cookie
+           @param secure   Privacy of the cookie
+           @param expiry   Expiration date of the cookie
+           @param creation Creation date of the cookie
+           @since ARP1.0
+        */
+        function ServiceCookie(cookieName, cookieValue, domain, path, scheme, secure, expiry, creation) {
+            _super.call(this);
+            this.cookieName = cookieName;
+            this.cookieValue = cookieValue;
+            this.domain = domain;
+            this.path = path;
+            this.scheme = scheme;
+            this.secure = secure;
+            this.expiry = expiry;
+            this.creation = creation;
+        }
+        /**
+           Returns the cookie cookieName
+
+           @return cookieName Name of the cookie
+           @since ARP1.0
+        */
+        ServiceCookie.prototype.getCookieName = function () {
+            return this.cookieName;
+        };
+        /**
+           Set the cookie cookieName
+
+           @param cookieName Name of the cookie
+           @since ARP1.0
+        */
+        ServiceCookie.prototype.setCookieName = function (cookieName) {
+            this.cookieName = cookieName;
+        };
+        /**
+           Returns the cookie cookieValue
+
+           @return Value of the cookie
+           @since ARP1.0
+        */
+        ServiceCookie.prototype.getCookieValue = function () {
+            return this.cookieValue;
+        };
+        /**
+           Set the cookie cookieValue
+
+           @param cookieValue Value of the cookie
+           @since ARP1.0
+        */
+        ServiceCookie.prototype.setCookieValue = function (cookieValue) {
+            this.cookieValue = cookieValue;
+        };
+        /**
+           Returns the creation date
+
+           @return Creation date of the cookie
+           @since ARP1.0
+        */
+        ServiceCookie.prototype.getCreation = function () {
+            return this.creation;
+        };
+        /**
+           Sets the creation date
+
+           @param creation Creation date of the cookie
+           @since ARP1.0
+        */
+        ServiceCookie.prototype.setCreation = function (creation) {
+            this.creation = creation;
+        };
+        /**
+           Returns the domain
+
+           @return domain
+           @since ARP1.0
+        */
+        ServiceCookie.prototype.getDomain = function () {
+            return this.domain;
+        };
+        /**
+           Set the domain
+
+           @param domain Domain of the cookie
+           @since ARP1.0
+        */
+        ServiceCookie.prototype.setDomain = function (domain) {
+            this.domain = domain;
+        };
+        /**
+           Returns the expiration date in milis
+
+           @return expiry
+           @since ARP1.0
+        */
+        ServiceCookie.prototype.getExpiry = function () {
+            return this.expiry;
+        };
+        /**
+           Set the expiration date in milis
+
+           @param expiry Expiration date of the cookie
+           @since ARP1.0
+        */
+        ServiceCookie.prototype.setExpiry = function (expiry) {
+            this.expiry = expiry;
+        };
+        /**
+           Returns the path
+
+           @return path
+           @since ARP1.0
+        */
+        ServiceCookie.prototype.getPath = function () {
+            return this.path;
+        };
+        /**
+           Set the path
+
+           @param path Path of the cookie
+           @since ARP1.0
+        */
+        ServiceCookie.prototype.setPath = function (path) {
+            this.path = path;
+        };
+        /**
+           Returns the scheme
+
+           @return scheme
+           @since ARP1.0
+        */
+        ServiceCookie.prototype.getScheme = function () {
+            return this.scheme;
+        };
+        /**
+           Set the scheme
+
+           @param scheme Scheme of the cookie
+           @since ARP1.0
+        */
+        ServiceCookie.prototype.setScheme = function (scheme) {
+            this.scheme = scheme;
+        };
+        /**
+           Returns whether the cookie is secure or not
+
+           @return true if the cookie is secure; false otherwise
+           @since ARP1.0
+        */
+        ServiceCookie.prototype.getSecure = function () {
+            return this.secure;
+        };
+        /**
+           Set whether the cookie is secure or not
+
+           @param secure Privacy of the cookie
+           @since ARP1.0
+        */
+        ServiceCookie.prototype.setSecure = function (secure) {
+            this.secure = secure;
+        };
+        return ServiceCookie;
+    })(APIBean);
+    Adaptive.ServiceCookie = ServiceCookie;
+    /**
+       Structure representing a database reference.
+
+       @author Ferran Vila Conesa
+       @since ARP1.0
+       @version 1.0
+    */
+    var Database = (function (_super) {
+        __extends(Database, _super);
+        /**
+           Constructor using fields.
+
+           @param name     Name of the DatabaseTable.
+           @param compress Compression enabled.
+           @since ARP1.0
+        */
+        function Database(name, compress) {
+            _super.call(this);
+            this.name = name;
+            this.compress = compress;
+        }
+        /**
+           Returns if the table is compressed
+
+           @return Compression enabled
+           @since ARP1.0
+        */
+        Database.prototype.getCompress = function () {
+            return this.compress;
+        };
+        /**
+           Sets if the table is compressed or not.
+
+           @param compress Compression enabled
+           @since ARP1.0
+        */
+        Database.prototype.setCompress = function (compress) {
+            this.compress = compress;
+        };
+        /**
+           Returns the name.
+
+           @return The name of the table.
+           @since ARP1.0
+        */
+        Database.prototype.getName = function () {
+            return this.name;
+        };
+        /**
+           Sets the name of the table.
+
+           @param name The name of the table.
+           @since ARP1.0
+        */
+        Database.prototype.setName = function (name) {
+            this.name = name;
+        };
+        return Database;
+    })(APIBean);
+    Adaptive.Database = Database;
     /**
        Represents a local or remote service request.
 
@@ -973,422 +1100,242 @@ doesn't exist, this will be -1. Used internally.
     })(APIBean);
     Adaptive.ServiceRequest = ServiceRequest;
     /**
-       Structure representing the social data elements of a contact.
+       Represents the basic information about the operating system.
 
        @author Francisco Javier Martin Bueno
        @since ARP1.0
        @version 1.0
     */
-    var ContactSocial = (function (_super) {
-        __extends(ContactSocial, _super);
+    var OSInfo = (function (_super) {
+        __extends(OSInfo, _super);
         /**
-           Constructor used by the implementation
+           Constructor used by implementation to set the OS information.
 
-           @param socialNetwork of the profile
-           @param profileUrl    of the user
+           @param name    of the OS.
+           @param version of the OS.
+           @param vendor  of the OS.
            @since ARP1.0
         */
-        function ContactSocial(socialNetwork, profileUrl) {
-            _super.call(this);
-            this.socialNetwork = socialNetwork;
-            this.profileUrl = profileUrl;
-        }
-        /**
-           Returns the social network
-
-           @return socialNetwork
-           @since ARP1.0
-        */
-        ContactSocial.prototype.getSocialNetwork = function () {
-            return this.socialNetwork;
-        };
-        /**
-           Set the social network
-
-           @param socialNetwork of the profile
-           @since ARP1.0
-        */
-        ContactSocial.prototype.setSocialNetwork = function (socialNetwork) {
-            this.socialNetwork = socialNetwork;
-        };
-        /**
-           Returns the profile url of the user
-
-           @return profileUrl
-           @since ARP1.0
-        */
-        ContactSocial.prototype.getProfileUrl = function () {
-            return this.profileUrl;
-        };
-        /**
-           Set the profile url of the iser
-
-           @param profileUrl of the user
-           @since ARP1.0
-        */
-        ContactSocial.prototype.setProfileUrl = function (profileUrl) {
-            this.profileUrl = profileUrl;
-        };
-        return ContactSocial;
-    })(APIBean);
-    Adaptive.ContactSocial = ContactSocial;
-    /**
-       Structure representing the address data elements of a contact.
-
-       @author Francisco Javier Martin Bueno
-       @since ARP1.0
-       @version 1.0
-    */
-    var ContactAddress = (function (_super) {
-        __extends(ContactAddress, _super);
-        /**
-           Constructor with fields
-
-           @param address Address data.
-           @param type    Address type.
-           @since ARP1.0
-        */
-        function ContactAddress(address, type) {
-            _super.call(this);
-            this.address = address;
-            this.type = type;
-        }
-        /**
-           Returns the type of the address
-
-           @return AddressType Address type.
-           @since ARP1.0
-        */
-        ContactAddress.prototype.getType = function () {
-            return this.type;
-        };
-        /**
-           Set the address type
-
-           @param type Address type.
-           @since ARP1.0
-        */
-        ContactAddress.prototype.setType = function (type) {
-            this.type = type;
-        };
-        /**
-           Returns the Contact address
-
-           @return address Address data.
-           @since ARP1.0
-        */
-        ContactAddress.prototype.getAddress = function () {
-            return this.address;
-        };
-        /**
-           Set the address of the Contact
-
-           @param address Address data.
-           @since ARP1.0
-        */
-        ContactAddress.prototype.setAddress = function (address) {
-            this.address = address;
-        };
-        return ContactAddress;
-    })(APIBean);
-    Adaptive.ContactAddress = ContactAddress;
-    /**
-       Structure representing a HTML5 request to the native API.
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    var APIRequest = (function () {
-        /**
-           Constructor with all the parameters
-
-           @param bridgeType Name of the bridge to be invoked.
-           @param methodName Name of the method
-           @param parameters Array of parameters as JSON formatted strings.
-           @param asyncId    Id of callback or listener or zero if none for synchronous calls.
-           @since ARP1.0
-        */
-        function APIRequest(bridgeType, methodName, parameters, asyncId) {
-            this.bridgeType = bridgeType;
-            this.methodName = methodName;
-            this.parameters = parameters;
-            this.asyncId = asyncId;
-        }
-        /**
-           Returns the callback or listener id assigned to this request OR zero if there is no associated callback or
-listener.
-
-           @return long with the unique id of the callback or listener, or zero if there is no associated async event.
-        */
-        APIRequest.prototype.getAsyncId = function () {
-            return this.asyncId;
-        };
-        /**
-           Sets the callback or listener id to the request.
-
-           @param asyncId The unique id of the callback or listener.
-        */
-        APIRequest.prototype.setAsyncId = function (asyncId) {
-            this.asyncId = asyncId;
-        };
-        /**
-           Bridge Type Getter
-
-           @return Bridge Type
-           @since ARP1.0
-        */
-        APIRequest.prototype.getBridgeType = function () {
-            return this.bridgeType;
-        };
-        /**
-           Bridge Type Setter
-
-           @param bridgeType Bridge Type
-           @since ARP1.0
-        */
-        APIRequest.prototype.setBridgeType = function (bridgeType) {
-            this.bridgeType = bridgeType;
-        };
-        /**
-           Method name Getter
-
-           @return Method name
-           @since ARP1.0
-        */
-        APIRequest.prototype.getMethodName = function () {
-            return this.methodName;
-        };
-        /**
-           Method name Setter
-
-           @param methodName Method name
-           @since ARP1.0
-        */
-        APIRequest.prototype.setMethodName = function (methodName) {
-            this.methodName = methodName;
-        };
-        /**
-           Parameters Getter
-
-           @return Parameters
-           @since ARP1.0
-        */
-        APIRequest.prototype.getParameters = function () {
-            return this.parameters;
-        };
-        /**
-           Parameters Setter
-
-           @param parameters Parameters, JSON formatted strings of objects.
-           @since ARP1.0
-        */
-        APIRequest.prototype.setParameters = function (parameters) {
-            this.parameters = parameters;
-        };
-        return APIRequest;
-    })();
-    Adaptive.APIRequest = APIRequest;
-    /**
-       Structure representing the personal info data elements of a contact.
-
-       @author Francisco Javier Martin Bueno
-       @since ARP1.0
-       @version 1.0
-    */
-    var ContactPersonalInfo = (function (_super) {
-        __extends(ContactPersonalInfo, _super);
-        /**
-           The Constructor used by the implementation
-
-           @param name       of the Contact
-           @param middleName of the Contact
-           @param lastName   of the Contact
-           @param title      of the Contact
-           @since ARP1.0
-        */
-        function ContactPersonalInfo(name, middleName, lastName, title) {
+        function OSInfo(name, version, vendor) {
             _super.call(this);
             this.name = name;
-            this.middleName = middleName;
-            this.lastName = lastName;
-            this.title = title;
+            this.version = version;
+            this.vendor = vendor;
         }
         /**
-           Returns the title of the Contact
+           Returns the name of the operating system.
 
-           @return Title
+           @return OS name.
            @since ARP1.0
         */
-        ContactPersonalInfo.prototype.getTitle = function () {
-            return this.title;
-        };
-        /**
-           Set the Title of the Contact
-
-           @param title of the Contact
-           @since ARP1.0
-        */
-        ContactPersonalInfo.prototype.setTitle = function (title) {
-            this.title = title;
-        };
-        /**
-           Returns the last name of the Contact
-
-           @return lastName
-           @since ARP1.0
-        */
-        ContactPersonalInfo.prototype.getLastName = function () {
-            return this.lastName;
-        };
-        /**
-           Set the last name of the Contact
-
-           @param lastName of the Contact
-           @since ARP1.0
-        */
-        ContactPersonalInfo.prototype.setLastName = function (lastName) {
-            this.lastName = lastName;
-        };
-        /**
-           Returns the middle name of the Contact
-
-           @return middelName
-           @since ARP1.0
-        */
-        ContactPersonalInfo.prototype.getMiddleName = function () {
-            return this.middleName;
-        };
-        /**
-           Set the middle name of the Contact
-
-           @param middleName of the Contact
-           @since ARP1.0
-        */
-        ContactPersonalInfo.prototype.setMiddleName = function (middleName) {
-            this.middleName = middleName;
-        };
-        /**
-           Returns the name of the Contact
-
-           @return name
-           @since ARP1.0
-        */
-        ContactPersonalInfo.prototype.getName = function () {
+        OSInfo.prototype.getName = function () {
             return this.name;
         };
         /**
-           Set the name of the Contact
+           Sets The name of the operating system.
 
-           @param name of the Contact
-           @since ARP1.0
+           @param name The name of the operating system.
         */
-        ContactPersonalInfo.prototype.setName = function (name) {
+        OSInfo.prototype.setName = function (name) {
             this.name = name;
         };
-        return ContactPersonalInfo;
+        /**
+           Returns the vendor of the operating system.
+
+           @return OS vendor.
+           @since ARP1.0
+        */
+        OSInfo.prototype.getVendor = function () {
+            return this.vendor;
+        };
+        /**
+           Sets The vendor of the operating system.
+
+           @param vendor The vendor of the operating system.
+        */
+        OSInfo.prototype.setVendor = function (vendor) {
+            this.vendor = vendor;
+        };
+        /**
+           Returns the version of the operating system.
+
+           @return OS version.
+           @since ARP1.0
+        */
+        OSInfo.prototype.getVersion = function () {
+            return this.version;
+        };
+        /**
+           Sets The version/identifier of the operating system.
+
+           @param version The version/identifier of the operating system.
+        */
+        OSInfo.prototype.setVersion = function (version) {
+            this.version = version;
+        };
+        return OSInfo;
     })(APIBean);
-    Adaptive.ContactPersonalInfo = ContactPersonalInfo;
+    Adaptive.OSInfo = OSInfo;
     /**
-       Structure representing the phone data elements of a contact.
+       Structure representing the data elements of an email.
 
        @author Francisco Javier Martin Bueno
        @since ARP1.0
        @version 1.0
     */
-    var ContactPhone = (function (_super) {
-        __extends(ContactPhone, _super);
-        /**
-           Constructor used by implementation to set the contact Phone
-
-           @param phone     Phone number
-           @param phoneType Type of Phone number
-           @since ARP1.0
-        */
-        function ContactPhone(phone, phoneType) {
-            _super.call(this);
-            this.phone = phone;
-            this.phoneType = phoneType;
-        }
-        /**
-           Returns the phone phoneType
-
-           @return phoneType
-           @since ARP1.0
-        */
-        ContactPhone.prototype.getPhoneType = function () {
-            return this.phoneType;
-        };
-        /**
-           Set the phoneType of the phone number
-
-           @param phoneType Type of Phone number
-           @since ARP1.0
-        */
-        ContactPhone.prototype.setPhoneType = function (phoneType) {
-            this.phoneType = phoneType;
-        };
-        /**
-           Returns the phone number
-
-           @return phone number
-           @since ARP1.0
-        */
-        ContactPhone.prototype.getPhone = function () {
-            return this.phone;
-        };
-        /**
-           Set the phone number
-
-           @param phone number
-           @since ARP1.0
-        */
-        ContactPhone.prototype.setPhone = function (phone) {
-            this.phone = phone;
-        };
-        return ContactPhone;
-    })(APIBean);
-    Adaptive.ContactPhone = ContactPhone;
-    /**
-       Represents a specific application life-cycle stage.
-
-       @author Francisco Javier Martin Bueno
-       @since ARP1.0
-       @version 1.0
-    */
-    var Lifecycle = (function (_super) {
-        __extends(Lifecycle, _super);
+    var Email = (function (_super) {
+        __extends(Email, _super);
         /**
            Constructor used by the implementation
 
-           @param state of the app
+           @param toRecipients        array of recipients
+           @param ccRecipients        array of cc recipients
+           @param bccRecipients       array of bcc recipients
+           @param emailAttachmentData array of attatchments
+           @param messageBody         body of the email
+           @param messageBodyMimeType mime type of the body
+           @param subject             of the email
            @since ARP1.0
         */
-        function Lifecycle(state) {
+        function Email(toRecipients, ccRecipients, bccRecipients, emailAttachmentData, messageBody, messageBodyMimeType, subject) {
             _super.call(this);
-            this.state = state;
+            this.toRecipients = toRecipients;
+            this.ccRecipients = ccRecipients;
+            this.bccRecipients = bccRecipients;
+            this.emailAttachmentData = emailAttachmentData;
+            this.messageBody = messageBody;
+            this.messageBodyMimeType = messageBodyMimeType;
+            this.subject = subject;
         }
         /**
-           Returns the state of the application
+           Returns the array of recipients
 
-           @return state of the app
+           @return bccRecipients array of bcc recipients
            @since ARP1.0
         */
-        Lifecycle.prototype.getState = function () {
-            return this.state;
+        Email.prototype.getBccRecipients = function () {
+            return this.bccRecipients;
         };
         /**
-           Set the State of the application
+           Set the array of recipients
 
-           @param state of the app
+           @param bccRecipients array of bcc recipients
            @since ARP1.0
         */
-        Lifecycle.prototype.setState = function (state) {
-            this.state = state;
+        Email.prototype.setBccRecipients = function (bccRecipients) {
+            this.bccRecipients = bccRecipients;
         };
-        return Lifecycle;
+        /**
+           Returns the array of recipients
+
+           @return ccRecipients array of cc recipients
+           @since ARP1.0
+        */
+        Email.prototype.getCcRecipients = function () {
+            return this.ccRecipients;
+        };
+        /**
+           Set the array of recipients
+
+           @param ccRecipients array of cc recipients
+           @since ARP1.0
+        */
+        Email.prototype.setCcRecipients = function (ccRecipients) {
+            this.ccRecipients = ccRecipients;
+        };
+        /**
+           Returns an array of attachments
+
+           @return emailAttachmentData array with the email attachments
+           @since ARP1.0
+        */
+        Email.prototype.getEmailAttachmentData = function () {
+            return this.emailAttachmentData;
+        };
+        /**
+           Set the email attachment data array
+
+           @param emailAttachmentData array of email attatchments
+           @since ARP1.0
+        */
+        Email.prototype.setEmailAttachmentData = function (emailAttachmentData) {
+            this.emailAttachmentData = emailAttachmentData;
+        };
+        /**
+           Returns the message body of the email
+
+           @return message Body string of the email
+           @since ARP1.0
+        */
+        Email.prototype.getMessageBody = function () {
+            return this.messageBody;
+        };
+        /**
+           Set the message body of the email
+
+           @param messageBody message body of the email
+           @since ARP1.0
+        */
+        Email.prototype.setMessageBody = function (messageBody) {
+            this.messageBody = messageBody;
+        };
+        /**
+           Returns the myme type of the message body
+
+           @return mime type string of the message boddy
+           @since ARP1.0
+        */
+        Email.prototype.getMessageBodyMimeType = function () {
+            return this.messageBodyMimeType;
+        };
+        /**
+           Set the mime type for the message body
+
+           @param messageBodyMimeType type of the body message
+           @since ARP1.0
+        */
+        Email.prototype.setMessageBodyMimeType = function (messageBodyMimeType) {
+            this.messageBodyMimeType = messageBodyMimeType;
+        };
+        /**
+           Returns the subject of the email
+
+           @return subject string of the email
+           @since ARP1.0
+        */
+        Email.prototype.getSubject = function () {
+            return this.subject;
+        };
+        /**
+           Set the subject of the email
+
+           @param subject of the email
+           @since ARP1.0
+        */
+        Email.prototype.setSubject = function (subject) {
+            this.subject = subject;
+        };
+        /**
+           Returns the array of recipients
+
+           @return toRecipients array of recipients
+           @since ARP1.0
+        */
+        Email.prototype.getToRecipients = function () {
+            return this.toRecipients;
+        };
+        /**
+           Set the array of recipients
+
+           @param toRecipients array of recipients
+           @since ARP1.0
+        */
+        Email.prototype.setToRecipients = function (toRecipients) {
+            this.toRecipients = toRecipients;
+        };
+        return Email;
     })(APIBean);
-    Adaptive.Lifecycle = Lifecycle;
+    Adaptive.Email = Email;
     /**
        Represents a local or remote service response.
 
@@ -1570,126 +1517,6 @@ listener.
     })(APIBean);
     Adaptive.ServiceResponse = ServiceResponse;
     /**
-       Represents a specific user or system locate.
-
-       @author Aryslan
-       @since ARP1.0
-       @version 1.0
-    */
-    var Locale = (function (_super) {
-        __extends(Locale, _super);
-        /**
-           Constructor used by the implementation
-
-           @param country  Country of the Locale
-           @param language Language of the Locale
-           @since ARP1.0
-        */
-        function Locale(language, country) {
-            _super.call(this);
-            this.language = language;
-            this.country = country;
-        }
-        /**
-           Returns the country code
-
-           @return country code
-           @since ARP1.0
-        */
-        Locale.prototype.getCountry = function () {
-            return this.country;
-        };
-        /**
-           Set the country code
-
-           @param country code
-           @since ARP1.0
-        */
-        Locale.prototype.setCountry = function (country) {
-            this.country = country;
-        };
-        /**
-           Returns the language code
-
-           @return language code
-           @since ARP1.0
-        */
-        Locale.prototype.getLanguage = function () {
-            return this.language;
-        };
-        /**
-           Set the language code
-
-           @param language code
-           @since ARP1.0
-        */
-        Locale.prototype.setLanguage = function (language) {
-            this.language = language;
-        };
-        return Locale;
-    })(APIBean);
-    Adaptive.Locale = Locale;
-    /**
-       Structure representing the data of a http request or response header.
-
-       @author Aryslan
-       @since ARP1.0
-       @version 1.0
-    */
-    var ServiceHeader = (function (_super) {
-        __extends(ServiceHeader, _super);
-        /**
-           Constructor with fields
-
-           @param name Name of the header
-           @param data Value of the header
-           @since ARP1.0
-        */
-        function ServiceHeader(name, data) {
-            _super.call(this);
-            this.name = name;
-            this.data = data;
-        }
-        /**
-           Returns the header value
-
-           @return ServiceHeader value
-           @since ARP1.0
-        */
-        ServiceHeader.prototype.getData = function () {
-            return this.data;
-        };
-        /**
-           Set the header value
-
-           @param data ServiceHeader value
-           @since ARP1.0
-        */
-        ServiceHeader.prototype.setData = function (data) {
-            this.data = data;
-        };
-        /**
-           Returns the header name
-
-           @return ServiceHeader name
-           @since ARP1.0
-        */
-        ServiceHeader.prototype.getName = function () {
-            return this.name;
-        };
-        /**
-           Set the header name
-
-           @param name Name of the header
-           @since ARP1.0
-        */
-        ServiceHeader.prototype.setName = function (name) {
-            this.name = name;
-        };
-        return ServiceHeader;
-    })(APIBean);
-    Adaptive.ServiceHeader = ServiceHeader;
-    /**
        Structure representing the data elements of an email addressee.
 
        @author Francisco Javier Martin Bueno
@@ -1729,6 +1556,265 @@ listener.
         return EmailAddress;
     })(APIBean);
     Adaptive.EmailAddress = EmailAddress;
+    /**
+       Structure representing the data of a single acceleration reading.
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    var Acceleration = (function (_super) {
+        __extends(Acceleration, _super);
+        /**
+           Constructor with fields
+
+           @param x         X Coordinate
+           @param y         Y Coordinate
+           @param z         Z Coordinate
+           @param timestamp Timestamp
+           @since ARP1.0
+        */
+        function Acceleration(x, y, z, timestamp) {
+            _super.call(this);
+            this.x = x;
+            this.y = y;
+            this.z = z;
+            this.timestamp = timestamp;
+        }
+        /**
+           Timestamp Getter
+
+           @return Timestamp
+           @since ARP1.0
+        */
+        Acceleration.prototype.getTimestamp = function () {
+            return this.timestamp;
+        };
+        /**
+           Timestamp Setter
+
+           @param timestamp Timestamp
+           @since ARP1.0
+        */
+        Acceleration.prototype.setTimestamp = function (timestamp) {
+            this.timestamp = timestamp;
+        };
+        /**
+           X Coordinate Getter
+
+           @return X-axis component of the acceleration.
+           @since ARP1.0
+        */
+        Acceleration.prototype.getX = function () {
+            return this.x;
+        };
+        /**
+           X Coordinate Setter
+
+           @param x X-axis component of the acceleration.
+           @since ARP1.0
+        */
+        Acceleration.prototype.setX = function (x) {
+            this.x = x;
+        };
+        /**
+           Y Coordinate Getter
+
+           @return Y-axis component of the acceleration.
+           @since ARP1.0
+        */
+        Acceleration.prototype.getY = function () {
+            return this.y;
+        };
+        /**
+           Y Coordinate Setter
+
+           @param y Y-axis component of the acceleration.
+           @since ARP1.0
+        */
+        Acceleration.prototype.setY = function (y) {
+            this.y = y;
+        };
+        /**
+           Z Coordinate Getter
+
+           @return Z-axis component of the acceleration.
+           @since ARP1.0
+        */
+        Acceleration.prototype.getZ = function () {
+            return this.z;
+        };
+        /**
+           Z Coordinate Setter
+
+           @param z Z Coordinate
+           @since ARP1.0
+        */
+        Acceleration.prototype.setZ = function (z) {
+            this.z = z;
+        };
+        return Acceleration;
+    })(APIBean);
+    Adaptive.Acceleration = Acceleration;
+    /**
+       Structure representing the a physical or logical button on a device.
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+       @version 1.0
+    */
+    var Button = (function (_super) {
+        __extends(Button, _super);
+        /**
+           Constructor with fields
+
+           @param type Button type.
+           @since ARP1.0
+        */
+        function Button(type) {
+            _super.call(this);
+            this.type = type;
+        }
+        /**
+           Returns the button type
+
+           @return type Button type.
+           @since ARP1.0
+        */
+        Button.prototype.getType = function () {
+            return this.type;
+        };
+        /**
+           Setter for the button type
+
+           @param type Button Type
+           @since ARP1.0
+        */
+        Button.prototype.setType = function (type) {
+            this.type = type;
+        };
+        return Button;
+    })(APIBean);
+    Adaptive.Button = Button;
+    /**
+       Created by clozano on 19/12/14.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    var FileDescriptor = (function () {
+        /**
+           Default constructor.
+        */
+        function FileDescriptor() {
+        }
+        /**
+           Returns the milliseconds passed since 1/1/1970 since the file was created.
+
+           @return Timestamp in milliseconds.
+           @since ARP1.0
+        */
+        FileDescriptor.prototype.getDateCreated = function () {
+            return this.dateCreated;
+        };
+        /**
+           Sets the creation timestamp in milliseconds. Used internally.
+
+           @param dateCreated Timestamp of file creation or -1 if the file or folder doesn't exist.
+        */
+        FileDescriptor.prototype.setDateCreated = function (dateCreated) {
+            this.dateCreated = dateCreated;
+        };
+        /**
+           Returns the milliseconds passed since 1/1/1970 since the file was modified.
+
+           @return Timestamp in milliseconds.
+           @since ARP1.0
+        */
+        FileDescriptor.prototype.getDateModified = function () {
+            return this.dateModified;
+        };
+        /**
+           Sets the file or folder modification timestamp in milliseconds. Used internally.
+
+           @param dateModified Timestamp of file modification or -1 if the file or folder doesn't exist.
+        */
+        FileDescriptor.prototype.setDateModified = function (dateModified) {
+            this.dateModified = dateModified;
+        };
+        /**
+           Returns the name of the file if the reference is a file or the last path element of the folder.
+
+           @return The name of the file.
+           @since ARP1.0
+        */
+        FileDescriptor.prototype.getName = function () {
+            return this.name;
+        };
+        /**
+           Sets the name of the file. Used internally.
+
+           @param name Name of the file or last folder path element.
+        */
+        FileDescriptor.prototype.setName = function (name) {
+            this.name = name;
+        };
+        /**
+           Returns the path element of the file or folder (excluding the last path element if it's a directory).
+
+           @return The path to the file.
+           @since ARP1.0
+        */
+        FileDescriptor.prototype.getPath = function () {
+            return this.path;
+        };
+        /**
+           Sets the path of the file or folder. Used internally.
+
+           @param path The path element of the file or folder.
+        */
+        FileDescriptor.prototype.setPath = function (path) {
+            this.path = path;
+        };
+        /**
+           Returns the resolved absolute path elements of the file and/or folders (including the last path element).
+
+           @return The absolute path to the file.
+           @since ARP1.0
+        */
+        FileDescriptor.prototype.getPathAbsolute = function () {
+            return this.pathAbsolute;
+        };
+        /**
+           Sets the absolute path of the file or folder. Used internally.
+
+           @param pathAbsolute String with the absolute path of file or folder.
+        */
+        FileDescriptor.prototype.setPathAbsolute = function (pathAbsolute) {
+            this.pathAbsolute = pathAbsolute;
+        };
+        /**
+           Returns the size in bytes of the file or -1 if the reference is a folder.
+
+           @return Size in bytes of file.
+           @since ARP1.0
+        */
+        FileDescriptor.prototype.getSize = function () {
+            return this.size;
+        };
+        /**
+           Sets the file size in bytes of the file. If the file is a folder, this will be 0. If the file
+doesn't exist, this will be -1. Used internally.
+
+           @param size The size in bytes of the file.
+        */
+        FileDescriptor.prototype.setSize = function (size) {
+            this.size = size;
+        };
+        return FileDescriptor;
+    })();
+    Adaptive.FileDescriptor = FileDescriptor;
     /**
        Represents a data table composed of databaseColumns and databaseRows.
 
@@ -1850,6 +1936,126 @@ listener.
     })(APIBean);
     Adaptive.DatabaseTable = DatabaseTable;
     /**
+       Represents a basic bean to store keyName pair values
+
+       @author Ferran Vila Conesa
+       @since ARP1.0
+       @version 1.0
+    */
+    var KeyPair = (function (_super) {
+        __extends(KeyPair, _super);
+        /**
+           Constructor using fields
+
+           @param keyName   Key of the element
+           @param keyValue Value of the element
+           @since ARP1.0
+        */
+        function KeyPair(keyName, keyValue) {
+            _super.call(this);
+            this.keyName = keyName;
+            this.keyValue = keyValue;
+        }
+        /**
+           Returns the keyName of the element
+
+           @return Key of the element
+           @since ARP1.0
+        */
+        KeyPair.prototype.getKeyName = function () {
+            return this.keyName;
+        };
+        /**
+           Sets the keyName of the element
+
+           @param keyName Key of the element
+           @since ARP1.0
+        */
+        KeyPair.prototype.setKeyName = function (keyName) {
+            this.keyName = keyName;
+        };
+        /**
+           Returns the keyValue of the element
+
+           @return Value of the element
+           @since ARP1.0
+        */
+        KeyPair.prototype.getKeyValue = function () {
+            return this.keyValue;
+        };
+        /**
+           Sets the keyValue of the element
+
+           @param keyValue Value of the element
+           @since ARP1.0
+        */
+        KeyPair.prototype.setKeyValue = function (keyValue) {
+            this.keyValue = keyValue;
+        };
+        return KeyPair;
+    })(APIBean);
+    Adaptive.KeyPair = KeyPair;
+    /**
+       Structure representing the address data elements of a contact.
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+       @version 1.0
+    */
+    var ContactAddress = (function (_super) {
+        __extends(ContactAddress, _super);
+        /**
+           Constructor with fields
+
+           @param address Address data.
+           @param type    Address type.
+           @since ARP1.0
+        */
+        function ContactAddress(address, type) {
+            _super.call(this);
+            this.address = address;
+            this.type = type;
+        }
+        /**
+           Returns the type of the address
+
+           @return AddressType Address type.
+           @since ARP1.0
+        */
+        ContactAddress.prototype.getType = function () {
+            return this.type;
+        };
+        /**
+           Set the address type
+
+           @param type Address type.
+           @since ARP1.0
+        */
+        ContactAddress.prototype.setType = function (type) {
+            this.type = type;
+        };
+        /**
+           Returns the Contact address
+
+           @return address Address data.
+           @since ARP1.0
+        */
+        ContactAddress.prototype.getAddress = function () {
+            return this.address;
+        };
+        /**
+           Set the address of the Contact
+
+           @param address Address data.
+           @since ARP1.0
+        */
+        ContactAddress.prototype.setAddress = function (address) {
+            this.address = address;
+        };
+        return ContactAddress;
+    })(APIBean);
+    Adaptive.ContactAddress = ContactAddress;
+    /**
        Represents a single secureKey-value pair.
 
        @author Aryslan
@@ -1910,145 +2116,258 @@ listener.
     })(APIBean);
     Adaptive.SecureKeyPair = SecureKeyPair;
     /**
-       Structure representing the email data elements of a contact.
+       Structure representing a HTML5 request to the native API.
 
-       @author Francisco Javier Martin Bueno
+       @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    var ContactEmail = (function (_super) {
-        __extends(ContactEmail, _super);
+    var APIRequest = (function () {
         /**
-           Constructor used by the implementation
+           Constructor with all the parameters
 
-           @param type    Type of the email
-           @param primary Is email primary
-           @param email   Email of the contact
+           @param bridgeType Name of the bridge to be invoked.
+           @param methodName Name of the method
+           @param parameters Array of parameters as JSON formatted strings.
+           @param asyncId    Id of callback or listener or zero if none for synchronous calls.
            @since ARP1.0
         */
-        function ContactEmail(type, primary, email) {
-            _super.call(this);
-            this.type = type;
-            this.primary = primary;
-            this.email = email;
+        function APIRequest(bridgeType, methodName, parameters, asyncId) {
+            this.bridgeType = bridgeType;
+            this.methodName = methodName;
+            this.parameters = parameters;
+            this.asyncId = asyncId;
         }
         /**
-           Returns the type of the email
+           Returns the callback or listener id assigned to this request OR zero if there is no associated callback or
+listener.
 
-           @return EmailType
-           @since ARP1.0
+           @return long with the unique id of the callback or listener, or zero if there is no associated async event.
         */
-        ContactEmail.prototype.getType = function () {
-            return this.type;
+        APIRequest.prototype.getAsyncId = function () {
+            return this.asyncId;
         };
         /**
-           Set the type of the email
+           Sets the callback or listener id to the request.
 
-           @param type Type of the email
-           @since ARP1.0
+           @param asyncId The unique id of the callback or listener.
         */
-        ContactEmail.prototype.setType = function (type) {
-            this.type = type;
+        APIRequest.prototype.setAsyncId = function (asyncId) {
+            this.asyncId = asyncId;
         };
         /**
-           Returns the email of the Contact
+           Bridge Type Getter
 
-           @return email
+           @return Bridge Type
            @since ARP1.0
         */
-        ContactEmail.prototype.getEmail = function () {
-            return this.email;
+        APIRequest.prototype.getBridgeType = function () {
+            return this.bridgeType;
         };
         /**
-           Set the email of the Contact
+           Bridge Type Setter
 
-           @param email Email of the contact
+           @param bridgeType Bridge Type
            @since ARP1.0
         */
-        ContactEmail.prototype.setEmail = function (email) {
-            this.email = email;
+        APIRequest.prototype.setBridgeType = function (bridgeType) {
+            this.bridgeType = bridgeType;
         };
         /**
-           Returns if the email is primary
+           Method name Getter
 
-           @return true if the email is primary; false otherwise
+           @return Method name
            @since ARP1.0
         */
-        ContactEmail.prototype.getPrimary = function () {
-            return this.primary;
+        APIRequest.prototype.getMethodName = function () {
+            return this.methodName;
         };
         /**
-           Set if the email
+           Method name Setter
 
-           @param primary true if the email is primary; false otherwise
+           @param methodName Method name
            @since ARP1.0
         */
-        ContactEmail.prototype.setPrimary = function (primary) {
-            this.primary = primary;
+        APIRequest.prototype.setMethodName = function (methodName) {
+            this.methodName = methodName;
         };
-        return ContactEmail;
-    })(APIBean);
-    Adaptive.ContactEmail = ContactEmail;
+        /**
+           Parameters Getter
+
+           @return Parameters
+           @since ARP1.0
+        */
+        APIRequest.prototype.getParameters = function () {
+            return this.parameters;
+        };
+        /**
+           Parameters Setter
+
+           @param parameters Parameters, JSON formatted strings of objects.
+           @since ARP1.0
+        */
+        APIRequest.prototype.setParameters = function (parameters) {
+            this.parameters = parameters;
+        };
+        return APIRequest;
+    })();
+    Adaptive.APIRequest = APIRequest;
     /**
-       Represents a basic bean to store keyName pair values
+       Represents a session object for HTTP request and responses
 
        @author Ferran Vila Conesa
        @since ARP1.0
        @version 1.0
     */
-    var KeyPair = (function (_super) {
-        __extends(KeyPair, _super);
+    var ServiceSession = (function () {
         /**
-           Constructor using fields
+           Constructor with fields
 
-           @param keyName   Key of the element
-           @param keyValue Value of the element
+           @param cookies    The cookies of the response
+           @param attributes Attributes of the response
            @since ARP1.0
         */
-        function KeyPair(keyName, keyValue) {
-            _super.call(this);
-            this.keyName = keyName;
-            this.keyValue = keyValue;
+        function ServiceSession(cookies, attributes) {
+            this.cookies = cookies;
+            this.attributes = attributes;
         }
         /**
-           Returns the keyName of the element
+           Gets the attributes of the response
 
-           @return Key of the element
+           @return Attributes of the response
            @since ARP1.0
         */
-        KeyPair.prototype.getKeyName = function () {
-            return this.keyName;
+        ServiceSession.prototype.getAttributes = function () {
+            return this.attributes;
         };
         /**
-           Sets the keyName of the element
+           Sets the attributes for the response
 
-           @param keyName Key of the element
+           @param attributes Attributes of the response
            @since ARP1.0
         */
-        KeyPair.prototype.setKeyName = function (keyName) {
-            this.keyName = keyName;
+        ServiceSession.prototype.setAttributes = function (attributes) {
+            this.attributes = attributes;
         };
         /**
-           Returns the keyValue of the element
+           Returns the cookies of the response
 
-           @return Value of the element
+           @return The cookies of the response
            @since ARP1.0
         */
-        KeyPair.prototype.getKeyValue = function () {
-            return this.keyValue;
+        ServiceSession.prototype.getCookies = function () {
+            return this.cookies;
         };
         /**
-           Sets the keyValue of the element
+           Sets the cookies of the response
 
-           @param keyValue Value of the element
+           @param cookies The cookies of the response
            @since ARP1.0
         */
-        KeyPair.prototype.setKeyValue = function (keyValue) {
-            this.keyValue = keyValue;
+        ServiceSession.prototype.setCookies = function (cookies) {
+            this.cookies = cookies;
         };
-        return KeyPair;
+        return ServiceSession;
+    })();
+    Adaptive.ServiceSession = ServiceSession;
+    /**
+       Structure representing the basic device information.
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+       @version 1.0
+    */
+    var DeviceInfo = (function (_super) {
+        __extends(DeviceInfo, _super);
+        /**
+           Constructor for the implementation of the platform.
+
+           @param name   or brand of the device.
+           @param model  of the device.
+           @param vendor of the device.
+           @param uuid   unique* identifier (* platform dependent).
+           @since ARP1.0
+        */
+        function DeviceInfo(name, model, vendor, uuid) {
+            _super.call(this);
+            this.name = name;
+            this.model = model;
+            this.vendor = vendor;
+            this.uuid = uuid;
+        }
+        /**
+           Returns the model of the device.
+
+           @return String with the model of the device.
+           @since ARP1.0
+        */
+        DeviceInfo.prototype.getModel = function () {
+            return this.model;
+        };
+        /**
+           Sets Model of device - equivalent to device release or version.
+
+           @param model Model of device - equivalent to device release or version.
+        */
+        DeviceInfo.prototype.setModel = function (model) {
+            this.model = model;
+        };
+        /**
+           Returns the name of the device.
+
+           @return String with device name.
+           @since ARP1.0
+        */
+        DeviceInfo.prototype.getName = function () {
+            return this.name;
+        };
+        /**
+           Sets Name of device - equivalent to brand.
+
+           @param name Name of device - equivalent to brand.
+        */
+        DeviceInfo.prototype.setName = function (name) {
+            this.name = name;
+        };
+        /**
+           Returns the platform dependent UUID of the device.
+
+           @return String with the 128-bit device identifier.
+           @since ARP1.0
+        */
+        DeviceInfo.prototype.getUuid = function () {
+            return this.uuid;
+        };
+        /**
+           Sets Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
+be unique for a specific instance of an application on a specific device.
+
+           @param uuid Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
+be unique for a specific instance of an application on a specific device.
+        */
+        DeviceInfo.prototype.setUuid = function (uuid) {
+            this.uuid = uuid;
+        };
+        /**
+           Returns the vendor of the device.
+
+           @return String with the vendor name.
+           @since ARP1.0
+        */
+        DeviceInfo.prototype.getVendor = function () {
+            return this.vendor;
+        };
+        /**
+           Sets Vendor of the device hardware.
+
+           @param vendor Vendor of the device hardware.
+        */
+        DeviceInfo.prototype.setVendor = function (vendor) {
+            this.vendor = vendor;
+        };
+        return DeviceInfo;
     })(APIBean);
-    Adaptive.KeyPair = KeyPair;
+    Adaptive.DeviceInfo = DeviceInfo;
     /**
        Represents an instance of a service.
 
@@ -2150,165 +2469,261 @@ listener.
     })(APIBean);
     Adaptive.Service = Service;
     /**
-       Structure representing the data elements of an email.
+       Structure representing the social data elements of a contact.
 
        @author Francisco Javier Martin Bueno
        @since ARP1.0
        @version 1.0
     */
-    var Email = (function (_super) {
-        __extends(Email, _super);
+    var ContactSocial = (function (_super) {
+        __extends(ContactSocial, _super);
         /**
            Constructor used by the implementation
 
-           @param toRecipients        array of recipients
-           @param ccRecipients        array of cc recipients
-           @param bccRecipients       array of bcc recipients
-           @param emailAttachmentData array of attatchments
-           @param messageBody         body of the email
-           @param messageBodyMimeType mime type of the body
-           @param subject             of the email
+           @param socialNetwork of the profile
+           @param profileUrl    of the user
            @since ARP1.0
         */
-        function Email(toRecipients, ccRecipients, bccRecipients, emailAttachmentData, messageBody, messageBodyMimeType, subject) {
+        function ContactSocial(socialNetwork, profileUrl) {
             _super.call(this);
-            this.toRecipients = toRecipients;
-            this.ccRecipients = ccRecipients;
-            this.bccRecipients = bccRecipients;
-            this.emailAttachmentData = emailAttachmentData;
-            this.messageBody = messageBody;
-            this.messageBodyMimeType = messageBodyMimeType;
-            this.subject = subject;
+            this.socialNetwork = socialNetwork;
+            this.profileUrl = profileUrl;
         }
         /**
-           Returns the array of recipients
+           Returns the social network
 
-           @return bccRecipients array of bcc recipients
+           @return socialNetwork
            @since ARP1.0
         */
-        Email.prototype.getBccRecipients = function () {
-            return this.bccRecipients;
+        ContactSocial.prototype.getSocialNetwork = function () {
+            return this.socialNetwork;
         };
         /**
-           Set the array of recipients
+           Set the social network
 
-           @param bccRecipients array of bcc recipients
+           @param socialNetwork of the profile
            @since ARP1.0
         */
-        Email.prototype.setBccRecipients = function (bccRecipients) {
-            this.bccRecipients = bccRecipients;
+        ContactSocial.prototype.setSocialNetwork = function (socialNetwork) {
+            this.socialNetwork = socialNetwork;
         };
         /**
-           Returns the array of recipients
+           Returns the profile url of the user
 
-           @return ccRecipients array of cc recipients
+           @return profileUrl
            @since ARP1.0
         */
-        Email.prototype.getCcRecipients = function () {
-            return this.ccRecipients;
+        ContactSocial.prototype.getProfileUrl = function () {
+            return this.profileUrl;
         };
         /**
-           Set the array of recipients
+           Set the profile url of the iser
 
-           @param ccRecipients array of cc recipients
+           @param profileUrl of the user
            @since ARP1.0
         */
-        Email.prototype.setCcRecipients = function (ccRecipients) {
-            this.ccRecipients = ccRecipients;
+        ContactSocial.prototype.setProfileUrl = function (profileUrl) {
+            this.profileUrl = profileUrl;
         };
-        /**
-           Returns an array of attachments
-
-           @return emailAttachmentData array with the email attachments
-           @since ARP1.0
-        */
-        Email.prototype.getEmailAttachmentData = function () {
-            return this.emailAttachmentData;
-        };
-        /**
-           Set the email attachment data array
-
-           @param emailAttachmentData array of email attatchments
-           @since ARP1.0
-        */
-        Email.prototype.setEmailAttachmentData = function (emailAttachmentData) {
-            this.emailAttachmentData = emailAttachmentData;
-        };
-        /**
-           Returns the message body of the email
-
-           @return message Body string of the email
-           @since ARP1.0
-        */
-        Email.prototype.getMessageBody = function () {
-            return this.messageBody;
-        };
-        /**
-           Set the message body of the email
-
-           @param messageBody message body of the email
-           @since ARP1.0
-        */
-        Email.prototype.setMessageBody = function (messageBody) {
-            this.messageBody = messageBody;
-        };
-        /**
-           Returns the myme type of the message body
-
-           @return mime type string of the message boddy
-           @since ARP1.0
-        */
-        Email.prototype.getMessageBodyMimeType = function () {
-            return this.messageBodyMimeType;
-        };
-        /**
-           Set the mime type for the message body
-
-           @param messageBodyMimeType type of the body message
-           @since ARP1.0
-        */
-        Email.prototype.setMessageBodyMimeType = function (messageBodyMimeType) {
-            this.messageBodyMimeType = messageBodyMimeType;
-        };
-        /**
-           Returns the subject of the email
-
-           @return subject string of the email
-           @since ARP1.0
-        */
-        Email.prototype.getSubject = function () {
-            return this.subject;
-        };
-        /**
-           Set the subject of the email
-
-           @param subject of the email
-           @since ARP1.0
-        */
-        Email.prototype.setSubject = function (subject) {
-            this.subject = subject;
-        };
-        /**
-           Returns the array of recipients
-
-           @return toRecipients array of recipients
-           @since ARP1.0
-        */
-        Email.prototype.getToRecipients = function () {
-            return this.toRecipients;
-        };
-        /**
-           Set the array of recipients
-
-           @param toRecipients array of recipients
-           @since ARP1.0
-        */
-        Email.prototype.setToRecipients = function (toRecipients) {
-            this.toRecipients = toRecipients;
-        };
-        return Email;
+        return ContactSocial;
     })(APIBean);
-    Adaptive.Email = Email;
+    Adaptive.ContactSocial = ContactSocial;
+    /**
+       Structure representing the data a single geolocation reading.
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+       @version 1.0
+    */
+    var Geolocation = (function (_super) {
+        __extends(Geolocation, _super);
+        /**
+           Constructor with parameters
+
+           @param latitude  Latitude of the measurement
+           @param longitude Longitude of the measurement
+           @param altitude  Altitude of the measurement
+           @param xDoP      Dilution of precision on the X measurement
+           @param yDoP      Dilution of precision on the Y measurement
+           @param timestamp Timestamp of the measurement
+           @since ARP1.0
+        */
+        function Geolocation(latitude, longitude, altitude, xDoP, yDoP, timestamp) {
+            _super.call(this);
+            this.latitude = latitude;
+            this.longitude = longitude;
+            this.altitude = altitude;
+            this.xDoP = xDoP;
+            this.yDoP = yDoP;
+            this.timestamp = timestamp;
+        }
+        /**
+           Returns altitude in meters
+
+           @return Altitude of the measurement
+           @since ARP1.0
+        */
+        Geolocation.prototype.getAltitude = function () {
+            return this.altitude;
+        };
+        /**
+           Set altitude in meters
+
+           @param altitude Altitude of the measurement
+           @since ARP1.0
+        */
+        Geolocation.prototype.setAltitude = function (altitude) {
+            this.altitude = altitude;
+        };
+        /**
+           Returns the latitude in degrees
+
+           @return Latitude of the measurement
+           @since ARP1.0
+        */
+        Geolocation.prototype.getLatitude = function () {
+            return this.latitude;
+        };
+        /**
+           Set the latitude in degrees
+
+           @param latitude Latitude of the measurement
+           @since ARP1.0
+        */
+        Geolocation.prototype.setLatitude = function (latitude) {
+            this.latitude = latitude;
+        };
+        /**
+           Returns the longitude in degrees
+
+           @return Longitude of the measurement
+           @since ARP1.0
+        */
+        Geolocation.prototype.getLongitude = function () {
+            return this.longitude;
+        };
+        /**
+           Returns the latitude in degrees
+
+           @param longitude Longitude of the measurement
+           @since ARP1.0
+        */
+        Geolocation.prototype.setLongitude = function (longitude) {
+            this.longitude = longitude;
+        };
+        /**
+           Timestamp Getter
+
+           @return Timestamp
+           @since ARP1.0
+        */
+        Geolocation.prototype.getTimestamp = function () {
+            return this.timestamp;
+        };
+        /**
+           Timestamp Setter
+
+           @param timestamp Timestamp
+           @since ARP1.0
+        */
+        Geolocation.prototype.setTimestamp = function (timestamp) {
+            this.timestamp = timestamp;
+        };
+        /**
+           Gets Dilution of precision on the X measurement. Measured in meters.
+
+           @return xDoP Dilution of precision on the X measurement. Measured in meters.
+        */
+        Geolocation.prototype.getXDoP = function () {
+            return this.xDoP;
+        };
+        /**
+           Sets Dilution of precision on the X measurement. Measured in meters.
+
+           @param xDoP Dilution of precision on the X measurement. Measured in meters.
+        */
+        Geolocation.prototype.setXDoP = function (xDoP) {
+            this.xDoP = xDoP;
+        };
+        /**
+           Gets Dilution of precision on the Y measurement. Measured in meters.
+
+           @return yDoP Dilution of precision on the Y measurement. Measured in meters.
+        */
+        Geolocation.prototype.getYDoP = function () {
+            return this.yDoP;
+        };
+        /**
+           Sets Dilution of precision on the Y measurement. Measured in meters.
+
+           @param yDoP Dilution of precision on the Y measurement. Measured in meters.
+        */
+        Geolocation.prototype.setYDoP = function (yDoP) {
+            this.yDoP = yDoP;
+        };
+        return Geolocation;
+    })(APIBean);
+    Adaptive.Geolocation = Geolocation;
+    /**
+       Structure representing the assigned tags data elements of a contact.
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+       @version 1.0
+    */
+    var ContactTag = (function (_super) {
+        __extends(ContactTag, _super);
+        /**
+           Constructor used by the implementation
+
+           @param tagValue Value of the tag
+           @param tagName  Name of the tag
+           @since ARP1.0
+        */
+        function ContactTag(tagName, tagValue) {
+            _super.call(this);
+            this.tagName = tagName;
+            this.tagValue = tagValue;
+        }
+        /**
+           Returns the tagName of the Tag
+
+           @return tagName
+           @since ARP1.0
+        */
+        ContactTag.prototype.getTagName = function () {
+            return this.tagName;
+        };
+        /**
+           Set the tagName of the Tag
+
+           @param tagName Name of the tag
+           @since ARP1.0
+        */
+        ContactTag.prototype.setTagName = function (tagName) {
+            this.tagName = tagName;
+        };
+        /**
+           Returns the tagValue of the Tag
+
+           @return tagValue
+           @since ARP1.0
+        */
+        ContactTag.prototype.getTagValue = function () {
+            return this.tagValue;
+        };
+        /**
+           Set the tagValue of the Tag
+
+           @param tagValue Value of the tag
+           @since ARP1.0
+        */
+        ContactTag.prototype.setTagValue = function (tagValue) {
+            this.tagValue = tagValue;
+        };
+        return ContactTag;
+    })(APIBean);
+    Adaptive.ContactTag = ContactTag;
     /**
        Structure representing the website data elements of a contact.
 
@@ -2350,678 +2765,185 @@ listener.
     })(APIBean);
     Adaptive.ContactWebsite = ContactWebsite;
     /**
-       Structure representing the binary attachment data.
+       Structure representing the email data elements of a contact.
 
        @author Francisco Javier Martin Bueno
        @since ARP1.0
        @version 1.0
     */
-    var EmailAttachmentData = (function (_super) {
-        __extends(EmailAttachmentData, _super);
+    var ContactEmail = (function (_super) {
+        __extends(ContactEmail, _super);
         /**
-           Constructor with fields
+           Constructor used by the implementation
 
-           @param data         raw data of the file attachment
-           @param size         size of the file attachment
-           @param fileName     name of the file attachment
-           @param mimeType     mime type of the file attachment
-           @param referenceUrl relative url of the file attachment
+           @param type    Type of the email
+           @param primary Is email primary
+           @param email   Email of the contact
            @since ARP1.0
         */
-        function EmailAttachmentData(data, size, fileName, mimeType, referenceUrl) {
+        function ContactEmail(type, primary, email) {
             _super.call(this);
-            this.data = data;
-            this.size = size;
-            this.fileName = fileName;
-            this.mimeType = mimeType;
-            this.referenceUrl = referenceUrl;
+            this.type = type;
+            this.primary = primary;
+            this.email = email;
         }
         /**
-           Returns the raw data in byte[]
+           Returns the type of the email
 
-           @return data Octet-binary content of the attachment payload.
+           @return EmailType
            @since ARP1.0
         */
-        EmailAttachmentData.prototype.getData = function () {
-            return this.data;
+        ContactEmail.prototype.getType = function () {
+            return this.type;
         };
         /**
-           Set the data of the attachment as a byte[]
+           Set the type of the email
 
-           @param data Sets the octet-binary content of the attachment.
+           @param type Type of the email
            @since ARP1.0
         */
-        EmailAttachmentData.prototype.setData = function (data) {
-            this.data = data;
+        ContactEmail.prototype.setType = function (type) {
+            this.type = type;
         };
         /**
-           Returns the filename of the attachment
+           Returns the email of the Contact
 
-           @return fileName Name of the attachment.
+           @return email
            @since ARP1.0
         */
-        EmailAttachmentData.prototype.getFileName = function () {
-            return this.fileName;
+        ContactEmail.prototype.getEmail = function () {
+            return this.email;
         };
         /**
-           Set the name of the file attachment
+           Set the email of the Contact
 
-           @param fileName Name of the attachment.
+           @param email Email of the contact
            @since ARP1.0
         */
-        EmailAttachmentData.prototype.setFileName = function (fileName) {
-            this.fileName = fileName;
+        ContactEmail.prototype.setEmail = function (email) {
+            this.email = email;
         };
         /**
-           Returns the mime type of the attachment
+           Returns if the email is primary
 
-           @return mimeType
+           @return true if the email is primary; false otherwise
            @since ARP1.0
         */
-        EmailAttachmentData.prototype.getMimeType = function () {
-            return this.mimeType;
+        ContactEmail.prototype.getPrimary = function () {
+            return this.primary;
         };
         /**
-           Set the mime type of the attachment
+           Set if the email
 
-           @param mimeType Mime-type of the attachment.
+           @param primary true if the email is primary; false otherwise
            @since ARP1.0
         */
-        EmailAttachmentData.prototype.setMimeType = function (mimeType) {
-            this.mimeType = mimeType;
+        ContactEmail.prototype.setPrimary = function (primary) {
+            this.primary = primary;
         };
-        /**
-           Returns the absolute url of the file attachment
-
-           @return referenceUrl Absolute URL of the file attachment for either file:// or http:// access.
-           @since ARP1.0
-        */
-        EmailAttachmentData.prototype.getReferenceUrl = function () {
-            return this.referenceUrl;
-        };
-        /**
-           Set the absolute url of the attachment
-
-           @param referenceUrl Absolute URL of the file attachment for either file:// or http:// access.
-           @since ARP1.0
-        */
-        EmailAttachmentData.prototype.setReferenceUrl = function (referenceUrl) {
-            this.referenceUrl = referenceUrl;
-        };
-        /**
-           Returns the size of the attachment as a long
-
-           @return size Length in bytes of the octet-binary content.
-           @since ARP1.0
-        */
-        EmailAttachmentData.prototype.getSize = function () {
-            return this.size;
-        };
-        /**
-           Set the size of the attachment as a long
-
-           @param size Length in bytes of the octet-binary content ( should be same as data array length.)
-           @since ARP1.0
-        */
-        EmailAttachmentData.prototype.setSize = function (size) {
-            this.size = size;
-        };
-        return EmailAttachmentData;
+        return ContactEmail;
     })(APIBean);
-    Adaptive.EmailAttachmentData = EmailAttachmentData;
+    Adaptive.ContactEmail = ContactEmail;
     /**
-       Structure representing a row for a data table.
-
-       @author Ferran Vila Conesa
-       @since ARP1.0
-       @version 1.0
-    */
-    var DatabaseRow = (function (_super) {
-        __extends(DatabaseRow, _super);
-        /**
-           Constructor for implementation using.
-
-           @param values The values of the row
-           @since ARP1.0
-        */
-        function DatabaseRow(values) {
-            _super.call(this);
-            this.values = values;
-        }
-        /**
-           Returns the values of the row.
-
-           @return The values of the row.
-           @since ARP1.0
-        */
-        DatabaseRow.prototype.getValues = function () {
-            return this.values;
-        };
-        /**
-           Sets the values of the row.
-
-           @param values The values of the row.
-           @since ARP1.0
-        */
-        DatabaseRow.prototype.setValues = function (values) {
-            this.values = values;
-        };
-        return DatabaseRow;
-    })(APIBean);
-    Adaptive.DatabaseRow = DatabaseRow;
-    /**
-       Structure representing the cookieValue of a http cookie.
-
-       @author Aryslan
-       @since ARP1.0
-       @version 1.0
-    */
-    var ServiceCookie = (function (_super) {
-        __extends(ServiceCookie, _super);
-        /**
-           Contructor with fields
-
-           @param cookieName     Name of the cookie
-           @param cookieValue    Value of the cookie
-           @param domain   Domain of the cookie
-           @param path     Path of the cookie
-           @param scheme   Scheme of the cookie
-           @param secure   Privacy of the cookie
-           @param expiry   Expiration date of the cookie
-           @param creation Creation date of the cookie
-           @since ARP1.0
-        */
-        function ServiceCookie(cookieName, cookieValue, domain, path, scheme, secure, expiry, creation) {
-            _super.call(this);
-            this.cookieName = cookieName;
-            this.cookieValue = cookieValue;
-            this.domain = domain;
-            this.path = path;
-            this.scheme = scheme;
-            this.secure = secure;
-            this.expiry = expiry;
-            this.creation = creation;
-        }
-        /**
-           Returns the cookie cookieName
-
-           @return cookieName Name of the cookie
-           @since ARP1.0
-        */
-        ServiceCookie.prototype.getCookieName = function () {
-            return this.cookieName;
-        };
-        /**
-           Set the cookie cookieName
-
-           @param cookieName Name of the cookie
-           @since ARP1.0
-        */
-        ServiceCookie.prototype.setCookieName = function (cookieName) {
-            this.cookieName = cookieName;
-        };
-        /**
-           Returns the cookie cookieValue
-
-           @return Value of the cookie
-           @since ARP1.0
-        */
-        ServiceCookie.prototype.getCookieValue = function () {
-            return this.cookieValue;
-        };
-        /**
-           Set the cookie cookieValue
-
-           @param cookieValue Value of the cookie
-           @since ARP1.0
-        */
-        ServiceCookie.prototype.setCookieValue = function (cookieValue) {
-            this.cookieValue = cookieValue;
-        };
-        /**
-           Returns the creation date
-
-           @return Creation date of the cookie
-           @since ARP1.0
-        */
-        ServiceCookie.prototype.getCreation = function () {
-            return this.creation;
-        };
-        /**
-           Sets the creation date
-
-           @param creation Creation date of the cookie
-           @since ARP1.0
-        */
-        ServiceCookie.prototype.setCreation = function (creation) {
-            this.creation = creation;
-        };
-        /**
-           Returns the domain
-
-           @return domain
-           @since ARP1.0
-        */
-        ServiceCookie.prototype.getDomain = function () {
-            return this.domain;
-        };
-        /**
-           Set the domain
-
-           @param domain Domain of the cookie
-           @since ARP1.0
-        */
-        ServiceCookie.prototype.setDomain = function (domain) {
-            this.domain = domain;
-        };
-        /**
-           Returns the expiration date in milis
-
-           @return expiry
-           @since ARP1.0
-        */
-        ServiceCookie.prototype.getExpiry = function () {
-            return this.expiry;
-        };
-        /**
-           Set the expiration date in milis
-
-           @param expiry Expiration date of the cookie
-           @since ARP1.0
-        */
-        ServiceCookie.prototype.setExpiry = function (expiry) {
-            this.expiry = expiry;
-        };
-        /**
-           Returns the path
-
-           @return path
-           @since ARP1.0
-        */
-        ServiceCookie.prototype.getPath = function () {
-            return this.path;
-        };
-        /**
-           Set the path
-
-           @param path Path of the cookie
-           @since ARP1.0
-        */
-        ServiceCookie.prototype.setPath = function (path) {
-            this.path = path;
-        };
-        /**
-           Returns the scheme
-
-           @return scheme
-           @since ARP1.0
-        */
-        ServiceCookie.prototype.getScheme = function () {
-            return this.scheme;
-        };
-        /**
-           Set the scheme
-
-           @param scheme Scheme of the cookie
-           @since ARP1.0
-        */
-        ServiceCookie.prototype.setScheme = function (scheme) {
-            this.scheme = scheme;
-        };
-        /**
-           Returns whether the cookie is secure or not
-
-           @return true if the cookie is secure; false otherwise
-           @since ARP1.0
-        */
-        ServiceCookie.prototype.getSecure = function () {
-            return this.secure;
-        };
-        /**
-           Set whether the cookie is secure or not
-
-           @param secure Privacy of the cookie
-           @since ARP1.0
-        */
-        ServiceCookie.prototype.setSecure = function (secure) {
-            this.secure = secure;
-        };
-        return ServiceCookie;
-    })(APIBean);
-    Adaptive.ServiceCookie = ServiceCookie;
-    /**
-       Represents a session object for HTTP request and responses
-
-       @author Ferran Vila Conesa
-       @since ARP1.0
-       @version 1.0
-    */
-    var ServiceSession = (function () {
-        /**
-           Constructor with fields
-
-           @param cookies    The cookies of the response
-           @param attributes Attributes of the response
-           @since ARP1.0
-        */
-        function ServiceSession(cookies, attributes) {
-            this.cookies = cookies;
-            this.attributes = attributes;
-        }
-        /**
-           Gets the attributes of the response
-
-           @return Attributes of the response
-           @since ARP1.0
-        */
-        ServiceSession.prototype.getAttributes = function () {
-            return this.attributes;
-        };
-        /**
-           Sets the attributes for the response
-
-           @param attributes Attributes of the response
-           @since ARP1.0
-        */
-        ServiceSession.prototype.setAttributes = function (attributes) {
-            this.attributes = attributes;
-        };
-        /**
-           Returns the cookies of the response
-
-           @return The cookies of the response
-           @since ARP1.0
-        */
-        ServiceSession.prototype.getCookies = function () {
-            return this.cookies;
-        };
-        /**
-           Sets the cookies of the response
-
-           @param cookies The cookies of the response
-           @since ARP1.0
-        */
-        ServiceSession.prototype.setCookies = function (cookies) {
-            this.cookies = cookies;
-        };
-        return ServiceSession;
-    })();
-    Adaptive.ServiceSession = ServiceSession;
-    /**
-       Represents the basic information about the operating system.
+       Structure representing the personal info data elements of a contact.
 
        @author Francisco Javier Martin Bueno
        @since ARP1.0
        @version 1.0
     */
-    var OSInfo = (function (_super) {
-        __extends(OSInfo, _super);
+    var ContactPersonalInfo = (function (_super) {
+        __extends(ContactPersonalInfo, _super);
         /**
-           Constructor used by implementation to set the OS information.
+           The Constructor used by the implementation
 
-           @param name    of the OS.
-           @param version of the OS.
-           @param vendor  of the OS.
+           @param name       of the Contact
+           @param middleName of the Contact
+           @param lastName   of the Contact
+           @param title      of the Contact
            @since ARP1.0
         */
-        function OSInfo(name, version, vendor) {
+        function ContactPersonalInfo(name, middleName, lastName, title) {
             _super.call(this);
             this.name = name;
-            this.version = version;
-            this.vendor = vendor;
+            this.middleName = middleName;
+            this.lastName = lastName;
+            this.title = title;
         }
         /**
-           Returns the name of the operating system.
+           Returns the title of the Contact
 
-           @return OS name.
+           @return Title
            @since ARP1.0
         */
-        OSInfo.prototype.getName = function () {
+        ContactPersonalInfo.prototype.getTitle = function () {
+            return this.title;
+        };
+        /**
+           Set the Title of the Contact
+
+           @param title of the Contact
+           @since ARP1.0
+        */
+        ContactPersonalInfo.prototype.setTitle = function (title) {
+            this.title = title;
+        };
+        /**
+           Returns the last name of the Contact
+
+           @return lastName
+           @since ARP1.0
+        */
+        ContactPersonalInfo.prototype.getLastName = function () {
+            return this.lastName;
+        };
+        /**
+           Set the last name of the Contact
+
+           @param lastName of the Contact
+           @since ARP1.0
+        */
+        ContactPersonalInfo.prototype.setLastName = function (lastName) {
+            this.lastName = lastName;
+        };
+        /**
+           Returns the middle name of the Contact
+
+           @return middelName
+           @since ARP1.0
+        */
+        ContactPersonalInfo.prototype.getMiddleName = function () {
+            return this.middleName;
+        };
+        /**
+           Set the middle name of the Contact
+
+           @param middleName of the Contact
+           @since ARP1.0
+        */
+        ContactPersonalInfo.prototype.setMiddleName = function (middleName) {
+            this.middleName = middleName;
+        };
+        /**
+           Returns the name of the Contact
+
+           @return name
+           @since ARP1.0
+        */
+        ContactPersonalInfo.prototype.getName = function () {
             return this.name;
         };
         /**
-           Sets The name of the operating system.
+           Set the name of the Contact
 
-           @param name The name of the operating system.
+           @param name of the Contact
+           @since ARP1.0
         */
-        OSInfo.prototype.setName = function (name) {
+        ContactPersonalInfo.prototype.setName = function (name) {
             this.name = name;
         };
-        /**
-           Returns the vendor of the operating system.
-
-           @return OS vendor.
-           @since ARP1.0
-        */
-        OSInfo.prototype.getVendor = function () {
-            return this.vendor;
-        };
-        /**
-           Sets The vendor of the operating system.
-
-           @param vendor The vendor of the operating system.
-        */
-        OSInfo.prototype.setVendor = function (vendor) {
-            this.vendor = vendor;
-        };
-        /**
-           Returns the version of the operating system.
-
-           @return OS version.
-           @since ARP1.0
-        */
-        OSInfo.prototype.getVersion = function () {
-            return this.version;
-        };
-        /**
-           Sets The version/identifier of the operating system.
-
-           @param version The version/identifier of the operating system.
-        */
-        OSInfo.prototype.setVersion = function (version) {
-            this.version = version;
-        };
-        return OSInfo;
+        return ContactPersonalInfo;
     })(APIBean);
-    Adaptive.OSInfo = OSInfo;
-    /**
-       Structure representing the basic device information.
-
-       @author Francisco Javier Martin Bueno
-       @since ARP1.0
-       @version 1.0
-    */
-    var DeviceInfo = (function (_super) {
-        __extends(DeviceInfo, _super);
-        /**
-           Constructor for the implementation of the platform.
-
-           @param name   or brand of the device.
-           @param model  of the device.
-           @param vendor of the device.
-           @param uuid   unique* identifier (* platform dependent).
-           @since ARP1.0
-        */
-        function DeviceInfo(name, model, vendor, uuid) {
-            _super.call(this);
-            this.name = name;
-            this.model = model;
-            this.vendor = vendor;
-            this.uuid = uuid;
-        }
-        /**
-           Returns the model of the device.
-
-           @return String with the model of the device.
-           @since ARP1.0
-        */
-        DeviceInfo.prototype.getModel = function () {
-            return this.model;
-        };
-        /**
-           Sets Model of device - equivalent to device release or version.
-
-           @param model Model of device - equivalent to device release or version.
-        */
-        DeviceInfo.prototype.setModel = function (model) {
-            this.model = model;
-        };
-        /**
-           Returns the name of the device.
-
-           @return String with device name.
-           @since ARP1.0
-        */
-        DeviceInfo.prototype.getName = function () {
-            return this.name;
-        };
-        /**
-           Sets Name of device - equivalent to brand.
-
-           @param name Name of device - equivalent to brand.
-        */
-        DeviceInfo.prototype.setName = function (name) {
-            this.name = name;
-        };
-        /**
-           Returns the platform dependent UUID of the device.
-
-           @return String with the 128-bit device identifier.
-           @since ARP1.0
-        */
-        DeviceInfo.prototype.getUuid = function () {
-            return this.uuid;
-        };
-        /**
-           Sets Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
-be unique for a specific instance of an application on a specific device.
-
-           @param uuid Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
-be unique for a specific instance of an application on a specific device.
-        */
-        DeviceInfo.prototype.setUuid = function (uuid) {
-            this.uuid = uuid;
-        };
-        /**
-           Returns the vendor of the device.
-
-           @return String with the vendor name.
-           @since ARP1.0
-        */
-        DeviceInfo.prototype.getVendor = function () {
-            return this.vendor;
-        };
-        /**
-           Sets Vendor of the device hardware.
-
-           @param vendor Vendor of the device hardware.
-        */
-        DeviceInfo.prototype.setVendor = function (vendor) {
-            this.vendor = vendor;
-        };
-        return DeviceInfo;
-    })(APIBean);
-    Adaptive.DeviceInfo = DeviceInfo;
-    /**
-       Structure representing the column specification of a data column.
-
-       @author Ferran Vila Conesa
-       @since ARP1.0
-       @version 1.0
-    */
-    var DatabaseColumn = (function (_super) {
-        __extends(DatabaseColumn, _super);
-        /**
-           Constructor with fields
-
-           @param name Name of the column
-           @since ARP1.0
-        */
-        function DatabaseColumn(name) {
-            _super.call(this);
-            this.name = name;
-        }
-        /**
-           Returns the name of the column.
-
-           @return The name of the column.
-           @since ARP1.0
-        */
-        DatabaseColumn.prototype.getName = function () {
-            return this.name;
-        };
-        /**
-           Sets the name of the column.
-
-           @param name The name of the column.
-           @since ARP1.0
-        */
-        DatabaseColumn.prototype.setName = function (name) {
-            this.name = name;
-        };
-        return DatabaseColumn;
-    })(APIBean);
-    Adaptive.DatabaseColumn = DatabaseColumn;
-    /**
-       Structure representing a database reference.
-
-       @author Ferran Vila Conesa
-       @since ARP1.0
-       @version 1.0
-    */
-    var Database = (function (_super) {
-        __extends(Database, _super);
-        /**
-           Constructor using fields.
-
-           @param name     Name of the DatabaseTable.
-           @param compress Compression enabled.
-           @since ARP1.0
-        */
-        function Database(name, compress) {
-            _super.call(this);
-            this.name = name;
-            this.compress = compress;
-        }
-        /**
-           Returns if the table is compressed
-
-           @return Compression enabled
-           @since ARP1.0
-        */
-        Database.prototype.getCompress = function () {
-            return this.compress;
-        };
-        /**
-           Sets if the table is compressed or not.
-
-           @param compress Compression enabled
-           @since ARP1.0
-        */
-        Database.prototype.setCompress = function (compress) {
-            this.compress = compress;
-        };
-        /**
-           Returns the name.
-
-           @return The name of the table.
-           @since ARP1.0
-        */
-        Database.prototype.getName = function () {
-            return this.name;
-        };
-        /**
-           Sets the name of the table.
-
-           @param name The name of the table.
-           @since ARP1.0
-        */
-        Database.prototype.setName = function (name) {
-            this.name = name;
-        };
-        return Database;
-    })(APIBean);
-    Adaptive.Database = Database;
+    Adaptive.ContactPersonalInfo = ContactPersonalInfo;
     /**
        Structure representing the data elements of a contact.
 
@@ -3203,6 +3125,84 @@ be unique for a specific instance of an application on a specific device.
         return Contact;
     })(ContactUid);
     Adaptive.Contact = Contact;
+    /**
+       Structure representing the data of a http request or response header.
+
+       @author Aryslan
+       @since ARP1.0
+       @version 1.0
+    */
+    var ServiceHeader = (function (_super) {
+        __extends(ServiceHeader, _super);
+        /**
+           Constructor with fields
+
+           @param name Name of the header
+           @param data Value of the header
+           @since ARP1.0
+        */
+        function ServiceHeader(name, data) {
+            _super.call(this);
+            this.name = name;
+            this.data = data;
+        }
+        /**
+           Returns the header value
+
+           @return ServiceHeader value
+           @since ARP1.0
+        */
+        ServiceHeader.prototype.getData = function () {
+            return this.data;
+        };
+        /**
+           Set the header value
+
+           @param data ServiceHeader value
+           @since ARP1.0
+        */
+        ServiceHeader.prototype.setData = function (data) {
+            this.data = data;
+        };
+        /**
+           Returns the header name
+
+           @return ServiceHeader name
+           @since ARP1.0
+        */
+        ServiceHeader.prototype.getName = function () {
+            return this.name;
+        };
+        /**
+           Set the header name
+
+           @param name Name of the header
+           @since ARP1.0
+        */
+        ServiceHeader.prototype.setName = function (name) {
+            this.name = name;
+        };
+        return ServiceHeader;
+    })(APIBean);
+    Adaptive.ServiceHeader = ServiceHeader;
+    /**
+       Structure representing a native response to the HTML5
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    var APIBean = (function () {
+        /**
+           Default constructor
+
+           @since ARP1.0
+        */
+        function APIBean() {
+        }
+        return APIBean;
+    })();
+    Adaptive.APIBean = APIBean;
     /**
        Enumeration ContactAddressType
     */
