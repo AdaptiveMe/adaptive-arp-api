@@ -97,59 +97,10 @@ public class GeneratorCompiler {
                     System.out.print(".");
                 }
 
-
-                Collections.sort(allClasses, new Comparator<Class<? extends Object>>() {
-                    @Override
-                    public int compare(Class<? extends Object> o1, Class<? extends Object> o2) {
-                        final Class c1 = (Class) o1;
-                        final Class c2 = (Class) o2;
-
-                        if (c1.equals(c2)) {
-                            return 0;
-                        }
-                        if (c1.isAssignableFrom(c2)) {
-                            return -1;
-                        } else {
-                            if (!c2.isAssignableFrom(c2)) {
-                                throw new IllegalArgumentException("The classes share no relation");
-                            }
-                            return 1;
-                        }
-                    }
-                });
-
                 Collections.sort(allClasses, new NameComparator());
                 Collections.sort(allClasses, new InheritanceComparator());
 
-                Collections.sort(allInterfaces, new Comparator<Class<? extends Object>>() {
-                    @Override
-                    public int compare(Class<? extends Object> o1, Class<? extends Object> o2) {
-                        final Class c1 = (Class) o1;
-                        final Class c2 = (Class) o2;
 
-                        if (c1.equals(c2)) {
-                            return 0;
-                        }
-                        if (c1.isAssignableFrom(c2)) {
-                            return -1;
-                        } else {
-                            if (!c2.isAssignableFrom(c2)) {
-                                throw new IllegalArgumentException("The classes share no relation");
-                            }
-                            if (c1.getInterfaces().length == 1 && c2.getInterfaces().length == 1) {
-                                return this.compare(c1.getInterfaces()[0], c2.getInterfaces()[0]);
-                            } else {
-                                if (c1.getInterfaces().length == 1 && c2.getInterfaces().length == 0) {
-                                    return 1;
-                                } else if (c1.getInterfaces().length == 0 && c2.getInterfaces().length == 1) {
-                                    return -1;
-                                } else {
-                                    return 1;
-                                }
-                            }
-                        }
-                    }
-                });
                 Collections.sort(allInterfaces, new NameComparator());
                 Collections.sort(allInterfaces, new InheritanceComparator());
 

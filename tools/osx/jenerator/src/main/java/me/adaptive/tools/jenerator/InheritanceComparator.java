@@ -8,11 +8,7 @@ public class InheritanceComparator implements Comparator<Class> {
     public int compare(Class o1, Class o2) {
         final Class c1 = (Class) o1;
         final Class c2 = (Class) o2;
-
-        //if (c1.getSimpleName().startsWith("Contact") || c2.getSimpleName().startsWith("Contact")) {
-        System.out.println("Comparing: " + c1.getSimpleName() + " to " + c2.getSimpleName());
-
-
+        
         // Both are the same
         if (c1.equals(c2)) {
             return 0;
