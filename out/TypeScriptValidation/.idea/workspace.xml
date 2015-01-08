@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2b62424-c85f-4dbf-8462-3858f1398c98" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.d.ts" afterPath="$PROJECT_DIR$/Adaptive.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.js.map" afterPath="$PROJECT_DIR$/Adaptive.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.js" afterPath="$PROJECT_DIR$/Adaptive.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.ts" afterPath="$PROJECT_DIR$/Adaptive.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/GeneratorBase.java" afterPath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/GeneratorBase.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/join.sh" afterPath="$PROJECT_DIR$/join.sh" />
@@ -48,7 +45,7 @@
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="108525">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <marker date="1420704516000" expanded="true" signature="1314:1326" placeholder="/**This is a marker interface for bridge classes that invoke delegates. ...*/" />
+                <marker date="1420705005000" expanded="true" signature="1314:1326" placeholder="/**This is a marker interface for bridge classes that invoke delegates. ...*/" />
               </folding>
             </state>
           </provider>
@@ -57,128 +54,44 @@
       <file leaf-file-name="Adaptive.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Adaptive.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="64080">
-              <caret line="146" column="6" selection-start-line="146" selection-start-column="6" selection-end-line="146" selection-end-column="6" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2280" max-vertical-offset="64080">
+              <caret line="298" column="6" selection-start-line="298" selection-start-column="6" selection-end-line="298" selection-end-column="6" />
               <folding>
-                <marker date="1420704523000" expanded="true" signature="2407:2418" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="2974:3071" placeholder="/**Structure representing the data elements of a contact. ...*/" />
-                <marker date="1420704523000" expanded="true" signature="4180:4187" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="4412:4571" placeholder="/**Structure representing the personal info data elements of a contact. ...*/" />
-                <marker date="1420704523000" expanded="true" signature="5131:5265" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="5499:5522" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="8497:8555" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="9272:9362" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="9622:11071" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="9613:9807" placeholder="/**Constructor used by the implementation ...*/" />
-                <marker date="1420704523000" expanded="true" signature="9882:9976" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="9983:10161" placeholder="/**Returns the tagName of the Tag ...*/" />
-                <marker date="1420704523000" expanded="true" signature="10212:10248" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="10259:10423" placeholder="/**Set the tagName of the Tag ...*/" />
-                <marker date="1420704523000" expanded="true" signature="10515:10534" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="10730:10777" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="10984:11037" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="11333:17002" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="14376:14511" placeholder="/**Gets Dilution of precision on the X measurement. Measured in meters. ...*/" />
-                <marker date="1420704523000" expanded="true" signature="14554:14609" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="17037:17198" placeholder="/**Structure representing the social data elements of a contact. ...*/" />
-                <marker date="1420704523000" expanded="true" signature="18382:18514" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="19139:19304" placeholder="/**Represents an instance of a service. ...*/" />
-                <marker date="1420704523000" expanded="true" signature="19646:19750" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="20666:20728" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="20915:20955" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="21684:21688" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="21915:21916" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="23263:31224" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="24326:27702" placeholder="/**Sets Model of device - equivalent to device release or version. ...*/" />
-                <marker date="1420704523000" expanded="true" signature="27842:29774" placeholder="/**Returns the name of the device. ...*/" />
-                <marker date="1420704523000" expanded="true" signature="30422:30634" placeholder="/**Sets Device identifier - this may not be unique for a device. It may depend on the platform implementation and may ...*/" />
-                <marker date="1420704523000" expanded="true" signature="30690:30703" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="30923:30934" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="31301:31443" placeholder="/**Represents a session object for HTTP request and responses ...*/" />
-                <marker date="1420704523000" expanded="true" signature="31518:32769" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="31500:31654" placeholder="/**Constructor with fields ...*/" />
-                <marker date="1420704523000" expanded="true" signature="31746:31799" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="31998:32033" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="32224:32253" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="33017:36892" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="34818:34962" placeholder="/**Method name Getter ...*/" />
-                <marker date="1420704523000" expanded="true" signature="35044:35204" placeholder="/**Method name Setter ...*/" />
-                <marker date="1420704523000" expanded="true" signature="35274:35418" placeholder="/**Parameters Getter ...*/" />
-                <marker date="1420704523000" expanded="true" signature="35534:35694" placeholder="/**Parameters Setter ...*/" />
-                <marker date="1420704523000" expanded="true" signature="36927:37101" placeholder="/**Represents a single secureKey-value pair. ...*/" />
-                <marker date="1420704523000" expanded="true" signature="37167:37337" placeholder="/**Constructor with parameters ...*/" />
-                <marker date="1420704523000" expanded="true" signature="38866:39042" placeholder="/**Constructor with fields ...*/" />
-                <marker date="1420704523000" expanded="true" signature="39189:39293" placeholder="/**Returns the type of the address ...*/" />
-                <marker date="1420704523000" expanded="true" signature="39416:39526" placeholder="/**Set the address type ...*/" />
-                <marker date="1420704523000" expanded="true" signature="39737:39900" placeholder="/**Represents a basic bean to store keyName pair values ...*/" />
-                <marker date="1420704523000" expanded="true" signature="40842:40854" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="41060:41077" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="41319:41330" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="41657:46400" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="44526:44710" placeholder="/**Returns the name of the table ...*/" />
-                <marker date="1420704523000" expanded="true" signature="44768:45040" placeholder="/**Sets the name of the table ...*/" />
-                <marker date="1420704523000" expanded="true" signature="46545:46751" placeholder="/**Created by clozano on 19/12/14. ...*/" />
-                <marker date="1420704523000" expanded="true" signature="49226:49340" placeholder="/**Sets the path of the file or folder. Used internally. ...*/" />
-                <marker date="1420704523000" expanded="true" signature="49820:49844" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="50703:50822" placeholder="/**Constructor with fields ...*/" />
-                <marker date="1420704523000" expanded="true" signature="51527:51657" placeholder="/**Structure representing the data of a single acceleration reading. ...*/" />
-                <marker date="1420704523000" expanded="true" signature="52233:52433" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="53446:53522" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="53717:53778" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="54570:55074" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="55822:55891" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="57246:57728" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="61730:61753" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="61919:61945" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="62137:62156" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="62325:62348" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="62546:62559" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="62750:62795" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="63019:63076" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="67695:67789" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="67844:67947" placeholder="/**Returns the name of the operating system. ...*/" />
-                <marker date="1420704523000" expanded="true" signature="68443:68486" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="68706:68724" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="68997:69164" placeholder="/**Represents a local or remote service request. ...*/" />
-                <marker date="1420704523000" expanded="true" signature="69871:70225" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="71491:71543" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="71779:71902" placeholder="/**Returns the array of ServiceHeader ...*/" />
-                <marker date="1420704523000" expanded="true" signature="72112:72226" placeholder="/**Set the array of ServiceHeader ...*/" />
-                <marker date="1420704523000" expanded="true" signature="72512:72738" placeholder="/**Structure representing a database reference. ...*/" />
-                <marker date="1420704523000" expanded="true" signature="72800:74192" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="72793:73057" placeholder="/**Constructor using fields. ...*/" />
-                <marker date="1420704523000" expanded="true" signature="73119:73206" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="73213:73345" placeholder="/**Returns if the table is compressed ...*/" />
-                <marker date="1420704523000" expanded="true" signature="73395:73434" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="73445:73580" placeholder="/**Sets if the table is compressed or not. ...*/" />
-                <marker date="1420704523000" expanded="true" signature="73670:73683" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="73866:73914" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="74105:74157" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="77971:77993" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="78208:78294" placeholder="/**Returns the scheme ...*/" />
-                <marker date="1420704523000" expanded="true" signature="78412:78496" placeholder="/**Set the scheme ...*/" />
-                <marker date="1420704523000" expanded="true" signature="78640:78755" placeholder="/**Returns whether the cookie is secure or not ...*/" />
-                <marker date="1420704523000" expanded="true" signature="78912:79021" placeholder="/**Set whether the cookie is secure or not ...*/" />
-                <marker date="1420704523000" expanded="true" signature="79237:79409" placeholder="/**Structure representing the phone data elements of a contact. ...*/" />
-                <marker date="1420704523000" expanded="true" signature="79459:79662" placeholder="/**Constructor used by implementation to set the contact Phone ...*/" />
-                <marker date="1420704523000" expanded="true" signature="83686:84784" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="84518:84650" placeholder="/**Set the id of the Contact ...*/" />
-                <marker date="1420704523000" expanded="true" signature="84870:85045" placeholder="/**Structure representing a row for a data table. ...*/" />
-                <marker date="1420704523000" expanded="true" signature="85141:85367" placeholder="/**Constructor for implementation using. ...*/" />
-                <marker date="1420704523000" expanded="true" signature="85527:85641" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="85670:85789" placeholder="/**Returns the values of the row. ...*/" />
-                <marker date="1420704523000" expanded="true" signature="88922:88935" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="89312:91903" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="91228:91260" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="92017:92053" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="92284:92331" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="92591:92601" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="92929:92978" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="93180:93227" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="93451:93516" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="93741:93778" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="94009:94054" placeholder="{...}" />
-                <marker date="1420704523000" expanded="true" signature="94543:94620" placeholder="{...}" />
+                <marker date="1420704952000" expanded="true" signature="9211:9218" placeholder="{...}" />
+                <marker date="1420704952000" expanded="true" signature="15648:16938" placeholder="{...}" />
+                <marker date="1420704952000" expanded="true" signature="15902:15982" placeholder="{...}" />
+                <marker date="1420704952000" expanded="true" signature="15989:16102" placeholder="/**Returns the tagName of the Tag ...*/" />
+                <marker date="1420704952000" expanded="true" signature="16421:16436" placeholder="{...}" />
+                <marker date="1420704952000" expanded="true" signature="19997:20190" placeholder="/**Gets Dilution of precision on the X measurement. Measured in meters. ...*/" />
+                <marker date="1420704952000" expanded="true" signature="24748:24752" placeholder="{...}" />
+                <marker date="1420704952000" expanded="true" signature="28679:28824" placeholder="/**Represents a session object for HTTP request and responses ...*/" />
+                <marker date="1420704952000" expanded="true" signature="28891:30280" placeholder="{...}" />
+                <marker date="1420704952000" expanded="true" signature="29139:29204" placeholder="{...}" />
+                <marker date="1420704952000" expanded="true" signature="29414:29455" placeholder="{...}" />
+                <marker date="1420704952000" expanded="true" signature="29693:29734" placeholder="{...}" />
+                <marker date="1420704952000" expanded="true" signature="40769:40880" placeholder="/**Returns the name of the table ...*/" />
+                <marker date="1420704952000" expanded="true" signature="46053:46153" placeholder="/**Constructor with fields ...*/" />
+                <marker date="1420704952000" expanded="true" signature="46765:46917" placeholder="/**Structure representing the data of a single acceleration reading. ...*/" />
+                <marker date="1420704952000" expanded="true" signature="49788:49831" placeholder="{...}" />
+                <marker date="1420704952000" expanded="true" signature="54658:54695" placeholder="{...}" />
+                <marker date="1420704952000" expanded="true" signature="54891:54924" placeholder="{...}" />
+                <marker date="1420704952000" expanded="true" signature="55180:55213" placeholder="{...}" />
+                <marker date="1420704952000" expanded="true" signature="55428:55461" placeholder="{...}" />
+                <marker date="1420704952000" expanded="true" signature="55782:55815" placeholder="{...}" />
+                <marker date="1420704952000" expanded="true" signature="56024:56068" placeholder="{...}" />
+                <marker date="1420704952000" expanded="true" signature="56304:56359" placeholder="{...}" />
+                <marker date="1420704952000" expanded="true" signature="62082:62188" placeholder="{...}" />
+                <marker date="1420704952000" expanded="true" signature="65112:65539" placeholder="{...}" />
+                <marker date="1420704952000" expanded="true" signature="71248:72539" placeholder="{...}" />
+                <marker date="1420704952000" expanded="true" signature="71496:71575" placeholder="{...}" />
+                <marker date="1420704952000" expanded="true" signature="71582:71711" placeholder="/**Returns if the table is compressed ...*/" />
+                <marker date="1420704952000" expanded="true" signature="71773:71806" placeholder="{...}" />
+                <marker date="1420704952000" expanded="true" signature="72048:72065" placeholder="{...}" />
+                <marker date="1420704952000" expanded="true" signature="90188:90227" placeholder="{...}" />
+                <marker date="1420704952000" expanded="true" signature="92762:92805" placeholder="{...}" />
+                <marker date="1420704952000" expanded="true" signature="93004:93044" placeholder="{...}" />
+                <marker date="1420704952000" expanded="true" signature="93615:93652" placeholder="{...}" />
+                <marker date="1420704952000" expanded="true" signature="93950:93995" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -373,9 +286,9 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.097521335" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.097521335" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.50233644" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.50233644" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -419,128 +332,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Adaptive.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="64080">
-          <caret line="146" column="6" selection-start-line="146" selection-start-column="6" selection-end-line="146" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2280" max-vertical-offset="64080">
+          <caret line="298" column="6" selection-start-line="298" selection-start-column="6" selection-end-line="298" selection-end-column="6" />
           <folding>
-            <marker date="1420704523000" expanded="true" signature="2407:2418" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="2974:3071" placeholder="/**Structure representing the data elements of a contact. ...*/" />
-            <marker date="1420704523000" expanded="true" signature="4180:4187" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="4412:4571" placeholder="/**Structure representing the personal info data elements of a contact. ...*/" />
-            <marker date="1420704523000" expanded="true" signature="5131:5265" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="5499:5522" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="8497:8555" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="9272:9362" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="9622:11071" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="9613:9807" placeholder="/**Constructor used by the implementation ...*/" />
-            <marker date="1420704523000" expanded="true" signature="9882:9976" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="9983:10161" placeholder="/**Returns the tagName of the Tag ...*/" />
-            <marker date="1420704523000" expanded="true" signature="10212:10248" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="10259:10423" placeholder="/**Set the tagName of the Tag ...*/" />
-            <marker date="1420704523000" expanded="true" signature="10515:10534" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="10730:10777" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="10984:11037" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="11333:17002" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="14376:14511" placeholder="/**Gets Dilution of precision on the X measurement. Measured in meters. ...*/" />
-            <marker date="1420704523000" expanded="true" signature="14554:14609" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="17037:17198" placeholder="/**Structure representing the social data elements of a contact. ...*/" />
-            <marker date="1420704523000" expanded="true" signature="18382:18514" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="19139:19304" placeholder="/**Represents an instance of a service. ...*/" />
-            <marker date="1420704523000" expanded="true" signature="19646:19750" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="20666:20728" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="20915:20955" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="21684:21688" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="21915:21916" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="23263:31224" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="24326:27702" placeholder="/**Sets Model of device - equivalent to device release or version. ...*/" />
-            <marker date="1420704523000" expanded="true" signature="27842:29774" placeholder="/**Returns the name of the device. ...*/" />
-            <marker date="1420704523000" expanded="true" signature="30422:30634" placeholder="/**Sets Device identifier - this may not be unique for a device. It may depend on the platform implementation and may ...*/" />
-            <marker date="1420704523000" expanded="true" signature="30690:30703" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="30923:30934" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="31301:31443" placeholder="/**Represents a session object for HTTP request and responses ...*/" />
-            <marker date="1420704523000" expanded="true" signature="31518:32769" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="31500:31654" placeholder="/**Constructor with fields ...*/" />
-            <marker date="1420704523000" expanded="true" signature="31746:31799" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="31998:32033" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="32224:32253" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="33017:36892" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="34818:34962" placeholder="/**Method name Getter ...*/" />
-            <marker date="1420704523000" expanded="true" signature="35044:35204" placeholder="/**Method name Setter ...*/" />
-            <marker date="1420704523000" expanded="true" signature="35274:35418" placeholder="/**Parameters Getter ...*/" />
-            <marker date="1420704523000" expanded="true" signature="35534:35694" placeholder="/**Parameters Setter ...*/" />
-            <marker date="1420704523000" expanded="true" signature="36927:37101" placeholder="/**Represents a single secureKey-value pair. ...*/" />
-            <marker date="1420704523000" expanded="true" signature="37167:37337" placeholder="/**Constructor with parameters ...*/" />
-            <marker date="1420704523000" expanded="true" signature="38866:39042" placeholder="/**Constructor with fields ...*/" />
-            <marker date="1420704523000" expanded="true" signature="39189:39293" placeholder="/**Returns the type of the address ...*/" />
-            <marker date="1420704523000" expanded="true" signature="39416:39526" placeholder="/**Set the address type ...*/" />
-            <marker date="1420704523000" expanded="true" signature="39737:39900" placeholder="/**Represents a basic bean to store keyName pair values ...*/" />
-            <marker date="1420704523000" expanded="true" signature="40842:40854" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="41060:41077" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="41319:41330" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="41657:46400" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="44526:44710" placeholder="/**Returns the name of the table ...*/" />
-            <marker date="1420704523000" expanded="true" signature="44768:45040" placeholder="/**Sets the name of the table ...*/" />
-            <marker date="1420704523000" expanded="true" signature="46545:46751" placeholder="/**Created by clozano on 19/12/14. ...*/" />
-            <marker date="1420704523000" expanded="true" signature="49226:49340" placeholder="/**Sets the path of the file or folder. Used internally. ...*/" />
-            <marker date="1420704523000" expanded="true" signature="49820:49844" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="50703:50822" placeholder="/**Constructor with fields ...*/" />
-            <marker date="1420704523000" expanded="true" signature="51527:51657" placeholder="/**Structure representing the data of a single acceleration reading. ...*/" />
-            <marker date="1420704523000" expanded="true" signature="52233:52433" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="53446:53522" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="53717:53778" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="54570:55074" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="55822:55891" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="57246:57728" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="61730:61753" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="61919:61945" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="62137:62156" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="62325:62348" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="62546:62559" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="62750:62795" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="63019:63076" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="67695:67789" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="67844:67947" placeholder="/**Returns the name of the operating system. ...*/" />
-            <marker date="1420704523000" expanded="true" signature="68443:68486" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="68706:68724" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="68997:69164" placeholder="/**Represents a local or remote service request. ...*/" />
-            <marker date="1420704523000" expanded="true" signature="69871:70225" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="71491:71543" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="71779:71902" placeholder="/**Returns the array of ServiceHeader ...*/" />
-            <marker date="1420704523000" expanded="true" signature="72112:72226" placeholder="/**Set the array of ServiceHeader ...*/" />
-            <marker date="1420704523000" expanded="true" signature="72512:72738" placeholder="/**Structure representing a database reference. ...*/" />
-            <marker date="1420704523000" expanded="true" signature="72800:74192" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="72793:73057" placeholder="/**Constructor using fields. ...*/" />
-            <marker date="1420704523000" expanded="true" signature="73119:73206" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="73213:73345" placeholder="/**Returns if the table is compressed ...*/" />
-            <marker date="1420704523000" expanded="true" signature="73395:73434" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="73445:73580" placeholder="/**Sets if the table is compressed or not. ...*/" />
-            <marker date="1420704523000" expanded="true" signature="73670:73683" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="73866:73914" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="74105:74157" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="77971:77993" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="78208:78294" placeholder="/**Returns the scheme ...*/" />
-            <marker date="1420704523000" expanded="true" signature="78412:78496" placeholder="/**Set the scheme ...*/" />
-            <marker date="1420704523000" expanded="true" signature="78640:78755" placeholder="/**Returns whether the cookie is secure or not ...*/" />
-            <marker date="1420704523000" expanded="true" signature="78912:79021" placeholder="/**Set whether the cookie is secure or not ...*/" />
-            <marker date="1420704523000" expanded="true" signature="79237:79409" placeholder="/**Structure representing the phone data elements of a contact. ...*/" />
-            <marker date="1420704523000" expanded="true" signature="79459:79662" placeholder="/**Constructor used by implementation to set the contact Phone ...*/" />
-            <marker date="1420704523000" expanded="true" signature="83686:84784" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="84518:84650" placeholder="/**Set the id of the Contact ...*/" />
-            <marker date="1420704523000" expanded="true" signature="84870:85045" placeholder="/**Structure representing a row for a data table. ...*/" />
-            <marker date="1420704523000" expanded="true" signature="85141:85367" placeholder="/**Constructor for implementation using. ...*/" />
-            <marker date="1420704523000" expanded="true" signature="85527:85641" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="85670:85789" placeholder="/**Returns the values of the row. ...*/" />
-            <marker date="1420704523000" expanded="true" signature="88922:88935" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="89312:91903" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="91228:91260" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="92017:92053" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="92284:92331" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="92591:92601" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="92929:92978" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="93180:93227" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="93451:93516" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="93741:93778" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="94009:94054" placeholder="{...}" />
-            <marker date="1420704523000" expanded="true" signature="94543:94620" placeholder="{...}" />
+            <marker date="1420704952000" expanded="true" signature="9211:9218" placeholder="{...}" />
+            <marker date="1420704952000" expanded="true" signature="15648:16938" placeholder="{...}" />
+            <marker date="1420704952000" expanded="true" signature="15902:15982" placeholder="{...}" />
+            <marker date="1420704952000" expanded="true" signature="15989:16102" placeholder="/**Returns the tagName of the Tag ...*/" />
+            <marker date="1420704952000" expanded="true" signature="16421:16436" placeholder="{...}" />
+            <marker date="1420704952000" expanded="true" signature="19997:20190" placeholder="/**Gets Dilution of precision on the X measurement. Measured in meters. ...*/" />
+            <marker date="1420704952000" expanded="true" signature="24748:24752" placeholder="{...}" />
+            <marker date="1420704952000" expanded="true" signature="28679:28824" placeholder="/**Represents a session object for HTTP request and responses ...*/" />
+            <marker date="1420704952000" expanded="true" signature="28891:30280" placeholder="{...}" />
+            <marker date="1420704952000" expanded="true" signature="29139:29204" placeholder="{...}" />
+            <marker date="1420704952000" expanded="true" signature="29414:29455" placeholder="{...}" />
+            <marker date="1420704952000" expanded="true" signature="29693:29734" placeholder="{...}" />
+            <marker date="1420704952000" expanded="true" signature="40769:40880" placeholder="/**Returns the name of the table ...*/" />
+            <marker date="1420704952000" expanded="true" signature="46053:46153" placeholder="/**Constructor with fields ...*/" />
+            <marker date="1420704952000" expanded="true" signature="46765:46917" placeholder="/**Structure representing the data of a single acceleration reading. ...*/" />
+            <marker date="1420704952000" expanded="true" signature="49788:49831" placeholder="{...}" />
+            <marker date="1420704952000" expanded="true" signature="54658:54695" placeholder="{...}" />
+            <marker date="1420704952000" expanded="true" signature="54891:54924" placeholder="{...}" />
+            <marker date="1420704952000" expanded="true" signature="55180:55213" placeholder="{...}" />
+            <marker date="1420704952000" expanded="true" signature="55428:55461" placeholder="{...}" />
+            <marker date="1420704952000" expanded="true" signature="55782:55815" placeholder="{...}" />
+            <marker date="1420704952000" expanded="true" signature="56024:56068" placeholder="{...}" />
+            <marker date="1420704952000" expanded="true" signature="56304:56359" placeholder="{...}" />
+            <marker date="1420704952000" expanded="true" signature="62082:62188" placeholder="{...}" />
+            <marker date="1420704952000" expanded="true" signature="65112:65539" placeholder="{...}" />
+            <marker date="1420704952000" expanded="true" signature="71248:72539" placeholder="{...}" />
+            <marker date="1420704952000" expanded="true" signature="71496:71575" placeholder="{...}" />
+            <marker date="1420704952000" expanded="true" signature="71582:71711" placeholder="/**Returns if the table is compressed ...*/" />
+            <marker date="1420704952000" expanded="true" signature="71773:71806" placeholder="{...}" />
+            <marker date="1420704952000" expanded="true" signature="72048:72065" placeholder="{...}" />
+            <marker date="1420704952000" expanded="true" signature="90188:90227" placeholder="{...}" />
+            <marker date="1420704952000" expanded="true" signature="92762:92805" placeholder="{...}" />
+            <marker date="1420704952000" expanded="true" signature="93004:93044" placeholder="{...}" />
+            <marker date="1420704952000" expanded="true" signature="93615:93652" placeholder="{...}" />
+            <marker date="1420704952000" expanded="true" signature="93950:93995" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -550,7 +379,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="108525">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1420704516000" expanded="true" signature="1314:1326" placeholder="/**This is a marker interface for bridge classes that invoke delegates. ...*/" />
+            <marker date="1420705005000" expanded="true" signature="1314:1326" placeholder="/**This is a marker interface for bridge classes that invoke delegates. ...*/" />
           </folding>
         </state>
       </provider>
