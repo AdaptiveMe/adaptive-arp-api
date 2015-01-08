@@ -319,13 +319,18 @@ public class SwiftGenerator extends GeneratorBase {
         if (implementation) {
             String parent = getOutputRootDirectory().getAbsolutePath().substring(0, getOutputRootDirectory().getAbsolutePath().lastIndexOf('.')) + ".Impl";
             currentFile = new File(parent, File.separator + className + ".swift");
+            if (currentFile.exists()) {
+                currentFile = new File(parent, File.separator + className + ".swift.new");
+            }
         } else {
             currentFile = new File(getOutputRootDirectory(), className + ".swift");
         }
+
         currentFile.mkdirs();
         if (currentFile.exists()) {
             currentFile.delete();
         }
+
         try {
             indentPrintStream = new IndentPrintStream(new FileOutputStream(currentFile));
         } catch (FileNotFoundException e) {
