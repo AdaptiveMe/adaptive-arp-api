@@ -2,729 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2b62424-c85f-4dbf-8462-3858f1398c98" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AttachmentData.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AttachmentData.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AttachmentData.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AttachmentData.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Column.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Column.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Column.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Column.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cookie.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cookie.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cookie.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cookie.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Dictionary.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Dictionary.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Dictionary.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Dictionary.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Endpoint.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Endpoint.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Endpoint.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Endpoint.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Header.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Header.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Header.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Header.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAccelerometer.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAccelerometer.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAccelerometer.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAccelerometer.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAppContextType.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAppContextType.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAppContextType.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAppContextType.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAppResource.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAppResource.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAppResource.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAppResource.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAppResourceCallback.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAppResourceCallback.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAppResourceCallback.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAppResourceCallback.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAppResourceCallbackError.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAppResourceCallbackError.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAppResourceCallbackError.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAppResourceCallbackError.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAppResourceCallbackWarning.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAppResourceCallbackWarning.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAppResourceCallbackWarning.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAppResourceCallbackWarning.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAppResourceFormat.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAppResourceFormat.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAppResourceFormat.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAppResourceFormat.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAppResourceHandler.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAppResourceHandler.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAppResourceHandler.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAppResourceHandler.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAppResourcePayload.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAppResourcePayload.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAppResourcePayload.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAppResourcePayload.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAppResourceType.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAppResourceType.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAppResourceType.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IAppResourceType.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IFileDataResultCallback.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IFileDataResultCallback.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IFileDataResultCallback.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IFileDataResultCallback.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IFileDataResultCallbackError.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IFileDataResultCallbackError.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IFileDataResultCallbackError.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IFileDataResultCallbackError.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IFileDataResultCallbackWarning.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IFileDataResultCallbackWarning.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IFileDataResultCallbackWarning.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/IFileDataResultCallbackWarning.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ISecureKVResultCallback.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ISecureKVResultCallback.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ISecureKVResultCallback.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ISecureKVResultCallback.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ISecureKVResultCallbackError.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ISecureKVResultCallbackError.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ISecureKVResultCallbackError.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ISecureKVResultCallbackError.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ISecureKVResultCallbackWarning.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ISecureKVResultCallbackWarning.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ISecureKVResultCallbackWarning.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ISecureKVResultCallbackWarning.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ISession.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ISession.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ISession.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ISession.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ITableResultCallback.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ITableResultCallback.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ITableResultCallback.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ITableResultCallback.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ITableResultCallbackError.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ITableResultCallbackError.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ITableResultCallbackError.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ITableResultCallbackError.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ITableResultCallbackWarning.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ITableResultCallbackWarning.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ITableResultCallbackWarning.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ITableResultCallbackWarning.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Row.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Row.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Row.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Row.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Table.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Table.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Table.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Table.ts" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/APIBean.d.ts" afterPath="$PROJECT_DIR$/APIBean.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/APIBean.js.map" afterPath="$PROJECT_DIR$/APIBean.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/APIBean.js" afterPath="$PROJECT_DIR$/APIBean.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/APIBridge.d.ts" afterPath="$PROJECT_DIR$/APIBridge.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/APIBridge.js.map" afterPath="$PROJECT_DIR$/APIBridge.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/APIBridge.js" afterPath="$PROJECT_DIR$/APIBridge.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/APIRequest.d.ts" afterPath="$PROJECT_DIR$/APIRequest.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/APIRequest.js.map" afterPath="$PROJECT_DIR$/APIRequest.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/APIRequest.js" afterPath="$PROJECT_DIR$/APIRequest.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Acceleration.d.ts" afterPath="$PROJECT_DIR$/Acceleration.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Acceleration.js.map" afterPath="$PROJECT_DIR$/Acceleration.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Acceleration.js" afterPath="$PROJECT_DIR$/Acceleration.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.d.ts" afterPath="$PROJECT_DIR$/Adaptive.d.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.js.map" afterPath="$PROJECT_DIR$/Adaptive.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.js" afterPath="$PROJECT_DIR$/Adaptive.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Button.d.ts" afterPath="$PROJECT_DIR$/Button.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Button.js.map" afterPath="$PROJECT_DIR$/Button.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Button.js" afterPath="$PROJECT_DIR$/Button.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Contact.d.ts" afterPath="$PROJECT_DIR$/Contact.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Contact.js.map" afterPath="$PROJECT_DIR$/Contact.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Contact.js" afterPath="$PROJECT_DIR$/Contact.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactAddress.d.ts" afterPath="$PROJECT_DIR$/ContactAddress.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactAddress.js.map" afterPath="$PROJECT_DIR$/ContactAddress.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactAddress.js" afterPath="$PROJECT_DIR$/ContactAddress.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactAddressType.d.ts" afterPath="$PROJECT_DIR$/ContactAddressType.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactAddressType.js.map" afterPath="$PROJECT_DIR$/ContactAddressType.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactAddressType.js" afterPath="$PROJECT_DIR$/ContactAddressType.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactEmail.d.ts" afterPath="$PROJECT_DIR$/ContactEmail.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactEmail.js.map" afterPath="$PROJECT_DIR$/ContactEmail.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactEmail.js" afterPath="$PROJECT_DIR$/ContactEmail.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactEmailType.d.ts" afterPath="$PROJECT_DIR$/ContactEmailType.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactEmailType.js.map" afterPath="$PROJECT_DIR$/ContactEmailType.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactEmailType.js" afterPath="$PROJECT_DIR$/ContactEmailType.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactPersonalInfo.d.ts" afterPath="$PROJECT_DIR$/ContactPersonalInfo.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactPersonalInfo.js.map" afterPath="$PROJECT_DIR$/ContactPersonalInfo.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactPersonalInfo.js" afterPath="$PROJECT_DIR$/ContactPersonalInfo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactPersonalInfoTitle.d.ts" afterPath="$PROJECT_DIR$/ContactPersonalInfoTitle.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactPersonalInfoTitle.js.map" afterPath="$PROJECT_DIR$/ContactPersonalInfoTitle.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactPersonalInfoTitle.js" afterPath="$PROJECT_DIR$/ContactPersonalInfoTitle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactPhone.d.ts" afterPath="$PROJECT_DIR$/ContactPhone.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactPhone.js.map" afterPath="$PROJECT_DIR$/ContactPhone.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactPhone.js" afterPath="$PROJECT_DIR$/ContactPhone.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactPhoneType.d.ts" afterPath="$PROJECT_DIR$/ContactPhoneType.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactPhoneType.js.map" afterPath="$PROJECT_DIR$/ContactPhoneType.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactPhoneType.js" afterPath="$PROJECT_DIR$/ContactPhoneType.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactProfessionalInfo.d.ts" afterPath="$PROJECT_DIR$/ContactProfessionalInfo.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactProfessionalInfo.js.map" afterPath="$PROJECT_DIR$/ContactProfessionalInfo.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactProfessionalInfo.js" afterPath="$PROJECT_DIR$/ContactProfessionalInfo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactSocial.d.ts" afterPath="$PROJECT_DIR$/ContactSocial.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactSocial.js.map" afterPath="$PROJECT_DIR$/ContactSocial.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactSocial.js" afterPath="$PROJECT_DIR$/ContactSocial.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactSocialNetwork.d.ts" afterPath="$PROJECT_DIR$/ContactSocialNetwork.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactSocialNetwork.js.map" afterPath="$PROJECT_DIR$/ContactSocialNetwork.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactSocialNetwork.js" afterPath="$PROJECT_DIR$/ContactSocialNetwork.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactTag.d.ts" afterPath="$PROJECT_DIR$/ContactTag.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactTag.js.map" afterPath="$PROJECT_DIR$/ContactTag.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactTag.js" afterPath="$PROJECT_DIR$/ContactTag.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactUid.d.ts" afterPath="$PROJECT_DIR$/ContactUid.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactUid.js.map" afterPath="$PROJECT_DIR$/ContactUid.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactUid.js" afterPath="$PROJECT_DIR$/ContactUid.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactWebsite.d.ts" afterPath="$PROJECT_DIR$/ContactWebsite.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactWebsite.js.map" afterPath="$PROJECT_DIR$/ContactWebsite.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactWebsite.js" afterPath="$PROJECT_DIR$/ContactWebsite.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Database.d.ts" afterPath="$PROJECT_DIR$/Database.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Database.js.map" afterPath="$PROJECT_DIR$/Database.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Database.js" afterPath="$PROJECT_DIR$/Database.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseColumn.d.ts" afterPath="$PROJECT_DIR$/DatabaseColumn.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseColumn.js.map" afterPath="$PROJECT_DIR$/DatabaseColumn.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseColumn.js" afterPath="$PROJECT_DIR$/DatabaseColumn.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseRow.d.ts" afterPath="$PROJECT_DIR$/DatabaseRow.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseRow.js.map" afterPath="$PROJECT_DIR$/DatabaseRow.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseRow.js" afterPath="$PROJECT_DIR$/DatabaseRow.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseTable.d.ts" afterPath="$PROJECT_DIR$/DatabaseTable.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseTable.js.map" afterPath="$PROJECT_DIR$/DatabaseTable.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseTable.js" afterPath="$PROJECT_DIR$/DatabaseTable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DeviceInfo.d.ts" afterPath="$PROJECT_DIR$/DeviceInfo.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DeviceInfo.js.map" afterPath="$PROJECT_DIR$/DeviceInfo.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DeviceInfo.js" afterPath="$PROJECT_DIR$/DeviceInfo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Email.d.ts" afterPath="$PROJECT_DIR$/Email.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Email.js.map" afterPath="$PROJECT_DIR$/Email.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Email.js" afterPath="$PROJECT_DIR$/Email.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EmailAddress.d.ts" afterPath="$PROJECT_DIR$/EmailAddress.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EmailAddress.js.map" afterPath="$PROJECT_DIR$/EmailAddress.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EmailAddress.js" afterPath="$PROJECT_DIR$/EmailAddress.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EmailAttachmentData.d.ts" afterPath="$PROJECT_DIR$/EmailAttachmentData.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EmailAttachmentData.js.map" afterPath="$PROJECT_DIR$/EmailAttachmentData.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EmailAttachmentData.js" afterPath="$PROJECT_DIR$/EmailAttachmentData.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.ts" afterPath="$PROJECT_DIR$/Adaptive.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/GeneratorBase.java" afterPath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/GeneratorBase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Geolocation.d.ts" afterPath="$PROJECT_DIR$/Geolocation.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Geolocation.js.map" afterPath="$PROJECT_DIR$/Geolocation.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Geolocation.js" afterPath="$PROJECT_DIR$/Geolocation.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAcceleration.d.ts" afterPath="$PROJECT_DIR$/IAcceleration.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAcceleration.js.map" afterPath="$PROJECT_DIR$/IAcceleration.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAcceleration.js" afterPath="$PROJECT_DIR$/IAcceleration.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAccelerationListener.d.ts" afterPath="$PROJECT_DIR$/IAccelerationListener.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAccelerationListener.js.map" afterPath="$PROJECT_DIR$/IAccelerationListener.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAccelerationListener.js" afterPath="$PROJECT_DIR$/IAccelerationListener.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAccelerationListenerError.d.ts" afterPath="$PROJECT_DIR$/IAccelerationListenerError.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAccelerationListenerError.js.map" afterPath="$PROJECT_DIR$/IAccelerationListenerError.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAccelerationListenerError.js" afterPath="$PROJECT_DIR$/IAccelerationListenerError.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAccelerationListenerWarning.d.ts" afterPath="$PROJECT_DIR$/IAccelerationListenerWarning.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAccelerationListenerWarning.js.map" afterPath="$PROJECT_DIR$/IAccelerationListenerWarning.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAccelerationListenerWarning.js" afterPath="$PROJECT_DIR$/IAccelerationListenerWarning.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAdaptiveRP.d.ts" afterPath="$PROJECT_DIR$/IAdaptiveRP.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAdaptiveRP.js.map" afterPath="$PROJECT_DIR$/IAdaptiveRP.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAdaptiveRP.js" afterPath="$PROJECT_DIR$/IAdaptiveRP.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAdaptiveRPGroup.d.ts" afterPath="$PROJECT_DIR$/IAdaptiveRPGroup.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAdaptiveRPGroup.js.map" afterPath="$PROJECT_DIR$/IAdaptiveRPGroup.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAdaptiveRPGroup.js" afterPath="$PROJECT_DIR$/IAdaptiveRPGroup.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAds.d.ts" afterPath="$PROJECT_DIR$/IAds.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAds.js.map" afterPath="$PROJECT_DIR$/IAds.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAds.js" afterPath="$PROJECT_DIR$/IAds.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAlarm.d.ts" afterPath="$PROJECT_DIR$/IAlarm.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAlarm.js.map" afterPath="$PROJECT_DIR$/IAlarm.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAlarm.js" afterPath="$PROJECT_DIR$/IAlarm.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAmbientLight.d.ts" afterPath="$PROJECT_DIR$/IAmbientLight.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAmbientLight.js.map" afterPath="$PROJECT_DIR$/IAmbientLight.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAmbientLight.js" afterPath="$PROJECT_DIR$/IAmbientLight.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAnalytics.d.ts" afterPath="$PROJECT_DIR$/IAnalytics.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAnalytics.js.map" afterPath="$PROJECT_DIR$/IAnalytics.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAnalytics.js" afterPath="$PROJECT_DIR$/IAnalytics.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAppContext.d.ts" afterPath="$PROJECT_DIR$/IAppContext.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAppContext.js.map" afterPath="$PROJECT_DIR$/IAppContext.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAppContext.js" afterPath="$PROJECT_DIR$/IAppContext.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAppContextWebview.d.ts" afterPath="$PROJECT_DIR$/IAppContextWebview.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAppContextWebview.js.map" afterPath="$PROJECT_DIR$/IAppContextWebview.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAppContextWebview.js" afterPath="$PROJECT_DIR$/IAppContextWebview.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAppRegistry.d.ts" afterPath="$PROJECT_DIR$/IAppRegistry.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAppRegistry.js.map" afterPath="$PROJECT_DIR$/IAppRegistry.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAppRegistry.js" afterPath="$PROJECT_DIR$/IAppRegistry.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAudio.d.ts" afterPath="$PROJECT_DIR$/IAudio.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAudio.js.map" afterPath="$PROJECT_DIR$/IAudio.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAudio.js" afterPath="$PROJECT_DIR$/IAudio.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBarcode.d.ts" afterPath="$PROJECT_DIR$/IBarcode.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBarcode.js.map" afterPath="$PROJECT_DIR$/IBarcode.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBarcode.js" afterPath="$PROJECT_DIR$/IBarcode.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBarometer.d.ts" afterPath="$PROJECT_DIR$/IBarometer.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBarometer.js.map" afterPath="$PROJECT_DIR$/IBarometer.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBarometer.js" afterPath="$PROJECT_DIR$/IBarometer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseApplication.d.ts" afterPath="$PROJECT_DIR$/IBaseApplication.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseApplication.js.map" afterPath="$PROJECT_DIR$/IBaseApplication.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseApplication.js" afterPath="$PROJECT_DIR$/IBaseApplication.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseCallback.d.ts" afterPath="$PROJECT_DIR$/IBaseCallback.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseCallback.js.map" afterPath="$PROJECT_DIR$/IBaseCallback.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseCallback.js" afterPath="$PROJECT_DIR$/IBaseCallback.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseCommerce.d.ts" afterPath="$PROJECT_DIR$/IBaseCommerce.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseCommerce.js.map" afterPath="$PROJECT_DIR$/IBaseCommerce.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseCommerce.js" afterPath="$PROJECT_DIR$/IBaseCommerce.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseCommunication.d.ts" afterPath="$PROJECT_DIR$/IBaseCommunication.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseCommunication.js.map" afterPath="$PROJECT_DIR$/IBaseCommunication.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseCommunication.js" afterPath="$PROJECT_DIR$/IBaseCommunication.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseData.d.ts" afterPath="$PROJECT_DIR$/IBaseData.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseData.js.map" afterPath="$PROJECT_DIR$/IBaseData.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseData.js" afterPath="$PROJECT_DIR$/IBaseData.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseListener.d.ts" afterPath="$PROJECT_DIR$/IBaseListener.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseListener.js.map" afterPath="$PROJECT_DIR$/IBaseListener.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseListener.js" afterPath="$PROJECT_DIR$/IBaseListener.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseMedia.d.ts" afterPath="$PROJECT_DIR$/IBaseMedia.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseMedia.js.map" afterPath="$PROJECT_DIR$/IBaseMedia.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseMedia.js" afterPath="$PROJECT_DIR$/IBaseMedia.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseNotification.d.ts" afterPath="$PROJECT_DIR$/IBaseNotification.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseNotification.js.map" afterPath="$PROJECT_DIR$/IBaseNotification.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseNotification.js" afterPath="$PROJECT_DIR$/IBaseNotification.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBasePIM.d.ts" afterPath="$PROJECT_DIR$/IBasePIM.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBasePIM.js.map" afterPath="$PROJECT_DIR$/IBasePIM.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBasePIM.js" afterPath="$PROJECT_DIR$/IBasePIM.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseReader.d.ts" afterPath="$PROJECT_DIR$/IBaseReader.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseReader.js.map" afterPath="$PROJECT_DIR$/IBaseReader.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseReader.js" afterPath="$PROJECT_DIR$/IBaseReader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseSecurity.d.ts" afterPath="$PROJECT_DIR$/IBaseSecurity.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseSecurity.js.map" afterPath="$PROJECT_DIR$/IBaseSecurity.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseSecurity.js" afterPath="$PROJECT_DIR$/IBaseSecurity.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseSensor.d.ts" afterPath="$PROJECT_DIR$/IBaseSensor.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseSensor.js.map" afterPath="$PROJECT_DIR$/IBaseSensor.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseSensor.js" afterPath="$PROJECT_DIR$/IBaseSensor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseSocial.d.ts" afterPath="$PROJECT_DIR$/IBaseSocial.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseSocial.js.map" afterPath="$PROJECT_DIR$/IBaseSocial.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseSocial.js" afterPath="$PROJECT_DIR$/IBaseSocial.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseSystem.d.ts" afterPath="$PROJECT_DIR$/IBaseSystem.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseSystem.js.map" afterPath="$PROJECT_DIR$/IBaseSystem.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseSystem.js" afterPath="$PROJECT_DIR$/IBaseSystem.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseUI.d.ts" afterPath="$PROJECT_DIR$/IBaseUI.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseUI.js.map" afterPath="$PROJECT_DIR$/IBaseUI.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseUI.js" afterPath="$PROJECT_DIR$/IBaseUI.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseUtil.d.ts" afterPath="$PROJECT_DIR$/IBaseUtil.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseUtil.js.map" afterPath="$PROJECT_DIR$/IBaseUtil.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBaseUtil.js" afterPath="$PROJECT_DIR$/IBaseUtil.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBluetooth.d.ts" afterPath="$PROJECT_DIR$/IBluetooth.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBluetooth.js.map" afterPath="$PROJECT_DIR$/IBluetooth.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBluetooth.js" afterPath="$PROJECT_DIR$/IBluetooth.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBrowser.d.ts" afterPath="$PROJECT_DIR$/IBrowser.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBrowser.js.map" afterPath="$PROJECT_DIR$/IBrowser.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBrowser.js" afterPath="$PROJECT_DIR$/IBrowser.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IButtonListener.d.ts" afterPath="$PROJECT_DIR$/IButtonListener.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IButtonListener.js.map" afterPath="$PROJECT_DIR$/IButtonListener.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IButtonListener.js" afterPath="$PROJECT_DIR$/IButtonListener.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IButtonListenerError.d.ts" afterPath="$PROJECT_DIR$/IButtonListenerError.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IButtonListenerError.js.map" afterPath="$PROJECT_DIR$/IButtonListenerError.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IButtonListenerError.js" afterPath="$PROJECT_DIR$/IButtonListenerError.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IButtonListenerWarning.d.ts" afterPath="$PROJECT_DIR$/IButtonListenerWarning.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IButtonListenerWarning.js.map" afterPath="$PROJECT_DIR$/IButtonListenerWarning.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IButtonListenerWarning.js" afterPath="$PROJECT_DIR$/IButtonListenerWarning.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICalendar.d.ts" afterPath="$PROJECT_DIR$/ICalendar.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICalendar.js.map" afterPath="$PROJECT_DIR$/ICalendar.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICalendar.js" afterPath="$PROJECT_DIR$/ICalendar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICamera.d.ts" afterPath="$PROJECT_DIR$/ICamera.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICamera.js.map" afterPath="$PROJECT_DIR$/ICamera.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICamera.js" afterPath="$PROJECT_DIR$/ICamera.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICapabilities.d.ts" afterPath="$PROJECT_DIR$/ICapabilities.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICapabilities.js.map" afterPath="$PROJECT_DIR$/ICapabilities.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICapabilities.js" afterPath="$PROJECT_DIR$/ICapabilities.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICapabilitiesButton.d.ts" afterPath="$PROJECT_DIR$/ICapabilitiesButton.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICapabilitiesButton.js.map" afterPath="$PROJECT_DIR$/ICapabilitiesButton.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICapabilitiesButton.js" afterPath="$PROJECT_DIR$/ICapabilitiesButton.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICapabilitiesCommunication.d.ts" afterPath="$PROJECT_DIR$/ICapabilitiesCommunication.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICapabilitiesCommunication.js.map" afterPath="$PROJECT_DIR$/ICapabilitiesCommunication.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICapabilitiesCommunication.js" afterPath="$PROJECT_DIR$/ICapabilitiesCommunication.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICapabilitiesData.d.ts" afterPath="$PROJECT_DIR$/ICapabilitiesData.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICapabilitiesData.js.map" afterPath="$PROJECT_DIR$/ICapabilitiesData.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICapabilitiesData.js" afterPath="$PROJECT_DIR$/ICapabilitiesData.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICapabilitiesMedia.d.ts" afterPath="$PROJECT_DIR$/ICapabilitiesMedia.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICapabilitiesMedia.js.map" afterPath="$PROJECT_DIR$/ICapabilitiesMedia.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICapabilitiesMedia.js" afterPath="$PROJECT_DIR$/ICapabilitiesMedia.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICapabilitiesNet.d.ts" afterPath="$PROJECT_DIR$/ICapabilitiesNet.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICapabilitiesNet.js.map" afterPath="$PROJECT_DIR$/ICapabilitiesNet.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICapabilitiesNet.js" afterPath="$PROJECT_DIR$/ICapabilitiesNet.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICapabilitiesNotification.d.ts" afterPath="$PROJECT_DIR$/ICapabilitiesNotification.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICapabilitiesNotification.js.map" afterPath="$PROJECT_DIR$/ICapabilitiesNotification.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICapabilitiesNotification.js" afterPath="$PROJECT_DIR$/ICapabilitiesNotification.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICapabilitiesSensor.d.ts" afterPath="$PROJECT_DIR$/ICapabilitiesSensor.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICapabilitiesSensor.js.map" afterPath="$PROJECT_DIR$/ICapabilitiesSensor.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICapabilitiesSensor.js" afterPath="$PROJECT_DIR$/ICapabilitiesSensor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICloud.d.ts" afterPath="$PROJECT_DIR$/ICloud.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICloud.js.map" afterPath="$PROJECT_DIR$/ICloud.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICloud.js" afterPath="$PROJECT_DIR$/ICloud.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICompression.d.ts" afterPath="$PROJECT_DIR$/ICompression.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICompression.js.map" afterPath="$PROJECT_DIR$/ICompression.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICompression.js" afterPath="$PROJECT_DIR$/ICompression.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IConcurrent.d.ts" afterPath="$PROJECT_DIR$/IConcurrent.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IConcurrent.js.map" afterPath="$PROJECT_DIR$/IConcurrent.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IConcurrent.js" afterPath="$PROJECT_DIR$/IConcurrent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IContact.d.ts" afterPath="$PROJECT_DIR$/IContact.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IContact.js.map" afterPath="$PROJECT_DIR$/IContact.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IContact.js" afterPath="$PROJECT_DIR$/IContact.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IContactFieldGroup.d.ts" afterPath="$PROJECT_DIR$/IContactFieldGroup.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IContactFieldGroup.js.map" afterPath="$PROJECT_DIR$/IContactFieldGroup.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IContactFieldGroup.js" afterPath="$PROJECT_DIR$/IContactFieldGroup.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IContactFilter.d.ts" afterPath="$PROJECT_DIR$/IContactFilter.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IContactFilter.js.map" afterPath="$PROJECT_DIR$/IContactFilter.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IContactFilter.js" afterPath="$PROJECT_DIR$/IContactFilter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IContactPhotoResultCallback.d.ts" afterPath="$PROJECT_DIR$/IContactPhotoResultCallback.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IContactPhotoResultCallback.js.map" afterPath="$PROJECT_DIR$/IContactPhotoResultCallback.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IContactPhotoResultCallback.js" afterPath="$PROJECT_DIR$/IContactPhotoResultCallback.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IContactPhotoResultCallbackError.d.ts" afterPath="$PROJECT_DIR$/IContactPhotoResultCallbackError.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IContactPhotoResultCallbackError.js.map" afterPath="$PROJECT_DIR$/IContactPhotoResultCallbackError.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IContactPhotoResultCallbackError.js" afterPath="$PROJECT_DIR$/IContactPhotoResultCallbackError.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IContactPhotoResultCallbackWarning.d.ts" afterPath="$PROJECT_DIR$/IContactPhotoResultCallbackWarning.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IContactPhotoResultCallbackWarning.js.map" afterPath="$PROJECT_DIR$/IContactPhotoResultCallbackWarning.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IContactPhotoResultCallbackWarning.js" afterPath="$PROJECT_DIR$/IContactPhotoResultCallbackWarning.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IContactResultCallback.d.ts" afterPath="$PROJECT_DIR$/IContactResultCallback.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IContactResultCallback.js.map" afterPath="$PROJECT_DIR$/IContactResultCallback.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IContactResultCallback.js" afterPath="$PROJECT_DIR$/IContactResultCallback.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IContactResultCallbackError.d.ts" afterPath="$PROJECT_DIR$/IContactResultCallbackError.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IContactResultCallbackError.js.map" afterPath="$PROJECT_DIR$/IContactResultCallbackError.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IContactResultCallbackError.js" afterPath="$PROJECT_DIR$/IContactResultCallbackError.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IContactResultCallbackWarning.d.ts" afterPath="$PROJECT_DIR$/IContactResultCallbackWarning.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IContactResultCallbackWarning.js.map" afterPath="$PROJECT_DIR$/IContactResultCallbackWarning.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IContactResultCallbackWarning.js" afterPath="$PROJECT_DIR$/IContactResultCallbackWarning.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICrypto.d.ts" afterPath="$PROJECT_DIR$/ICrypto.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICrypto.js.map" afterPath="$PROJECT_DIR$/ICrypto.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICrypto.js" afterPath="$PROJECT_DIR$/ICrypto.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IDataStream.d.ts" afterPath="$PROJECT_DIR$/IDataStream.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IDataStream.js.map" afterPath="$PROJECT_DIR$/IDataStream.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IDataStream.js" afterPath="$PROJECT_DIR$/IDataStream.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IDatabase.d.ts" afterPath="$PROJECT_DIR$/IDatabase.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IDatabase.js.map" afterPath="$PROJECT_DIR$/IDatabase.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IDatabase.js" afterPath="$PROJECT_DIR$/IDatabase.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IDatabaseResultCallback.d.ts" afterPath="$PROJECT_DIR$/IDatabaseResultCallback.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IDatabaseResultCallback.js.map" afterPath="$PROJECT_DIR$/IDatabaseResultCallback.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IDatabaseResultCallback.js" afterPath="$PROJECT_DIR$/IDatabaseResultCallback.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IDatabaseResultCallbackError.d.ts" afterPath="$PROJECT_DIR$/IDatabaseResultCallbackError.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IDatabaseResultCallbackError.js.map" afterPath="$PROJECT_DIR$/IDatabaseResultCallbackError.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IDatabaseResultCallbackError.js" afterPath="$PROJECT_DIR$/IDatabaseResultCallbackError.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IDatabaseResultCallbackWarning.d.ts" afterPath="$PROJECT_DIR$/IDatabaseResultCallbackWarning.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IDatabaseResultCallbackWarning.js.map" afterPath="$PROJECT_DIR$/IDatabaseResultCallbackWarning.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IDatabaseResultCallbackWarning.js" afterPath="$PROJECT_DIR$/IDatabaseResultCallbackWarning.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IDatabaseTableResultCallback.d.ts" afterPath="$PROJECT_DIR$/IDatabaseTableResultCallback.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IDatabaseTableResultCallback.js.map" afterPath="$PROJECT_DIR$/IDatabaseTableResultCallback.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IDatabaseTableResultCallback.js" afterPath="$PROJECT_DIR$/IDatabaseTableResultCallback.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IDatabaseTableResultCallbackError.d.ts" afterPath="$PROJECT_DIR$/IDatabaseTableResultCallbackError.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IDatabaseTableResultCallbackError.js.map" afterPath="$PROJECT_DIR$/IDatabaseTableResultCallbackError.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IDatabaseTableResultCallbackError.js" afterPath="$PROJECT_DIR$/IDatabaseTableResultCallbackError.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IDatabaseTableResultCallbackWarning.d.ts" afterPath="$PROJECT_DIR$/IDatabaseTableResultCallbackWarning.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IDatabaseTableResultCallbackWarning.js.map" afterPath="$PROJECT_DIR$/IDatabaseTableResultCallbackWarning.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IDatabaseTableResultCallbackWarning.js" afterPath="$PROJECT_DIR$/IDatabaseTableResultCallbackWarning.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IDesktop.d.ts" afterPath="$PROJECT_DIR$/IDesktop.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IDesktop.js.map" afterPath="$PROJECT_DIR$/IDesktop.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IDesktop.js" afterPath="$PROJECT_DIR$/IDesktop.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IDevice.d.ts" afterPath="$PROJECT_DIR$/IDevice.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IDevice.js.map" afterPath="$PROJECT_DIR$/IDevice.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IDevice.js" afterPath="$PROJECT_DIR$/IDevice.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IDisplay.d.ts" afterPath="$PROJECT_DIR$/IDisplay.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IDisplay.js.map" afterPath="$PROJECT_DIR$/IDisplay.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IDisplay.js" afterPath="$PROJECT_DIR$/IDisplay.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFacebook.d.ts" afterPath="$PROJECT_DIR$/IFacebook.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFacebook.js.map" afterPath="$PROJECT_DIR$/IFacebook.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFacebook.js" afterPath="$PROJECT_DIR$/IFacebook.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFile.d.ts" afterPath="$PROJECT_DIR$/IFile.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFile.js.map" afterPath="$PROJECT_DIR$/IFile.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFile.js" afterPath="$PROJECT_DIR$/IFile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileDataLoadResultCallback.d.ts" afterPath="$PROJECT_DIR$/IFileDataLoadResultCallback.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileDataLoadResultCallback.js.map" afterPath="$PROJECT_DIR$/IFileDataLoadResultCallback.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileDataLoadResultCallback.js" afterPath="$PROJECT_DIR$/IFileDataLoadResultCallback.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileDataLoadResultCallbackError.d.ts" afterPath="$PROJECT_DIR$/IFileDataLoadResultCallbackError.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileDataLoadResultCallbackError.js.map" afterPath="$PROJECT_DIR$/IFileDataLoadResultCallbackError.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileDataLoadResultCallbackError.js" afterPath="$PROJECT_DIR$/IFileDataLoadResultCallbackError.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileDataLoadResultCallbackWarning.d.ts" afterPath="$PROJECT_DIR$/IFileDataLoadResultCallbackWarning.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileDataLoadResultCallbackWarning.js.map" afterPath="$PROJECT_DIR$/IFileDataLoadResultCallbackWarning.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileDataLoadResultCallbackWarning.js" afterPath="$PROJECT_DIR$/IFileDataLoadResultCallbackWarning.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileDataStoreResultCallback.d.ts" afterPath="$PROJECT_DIR$/IFileDataStoreResultCallback.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileDataStoreResultCallback.js.map" afterPath="$PROJECT_DIR$/IFileDataStoreResultCallback.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileDataStoreResultCallback.js" afterPath="$PROJECT_DIR$/IFileDataStoreResultCallback.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileDataStoreResultCallbackError.d.ts" afterPath="$PROJECT_DIR$/IFileDataStoreResultCallbackError.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileDataStoreResultCallbackError.js.map" afterPath="$PROJECT_DIR$/IFileDataStoreResultCallbackError.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileDataStoreResultCallbackError.js" afterPath="$PROJECT_DIR$/IFileDataStoreResultCallbackError.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileDataStoreResultCallbackWarning.d.ts" afterPath="$PROJECT_DIR$/IFileDataStoreResultCallbackWarning.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileDataStoreResultCallbackWarning.js.map" afterPath="$PROJECT_DIR$/IFileDataStoreResultCallbackWarning.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileDataStoreResultCallbackWarning.js" afterPath="$PROJECT_DIR$/IFileDataStoreResultCallbackWarning.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileListResultCallback.d.ts" afterPath="$PROJECT_DIR$/IFileListResultCallback.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileListResultCallback.js.map" afterPath="$PROJECT_DIR$/IFileListResultCallback.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileListResultCallback.js" afterPath="$PROJECT_DIR$/IFileListResultCallback.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileListResultCallbackError.d.ts" afterPath="$PROJECT_DIR$/IFileListResultCallbackError.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileListResultCallbackError.js.map" afterPath="$PROJECT_DIR$/IFileListResultCallbackError.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileListResultCallbackError.js" afterPath="$PROJECT_DIR$/IFileListResultCallbackError.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileListResultCallbackWarning.d.ts" afterPath="$PROJECT_DIR$/IFileListResultCallbackWarning.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileListResultCallbackWarning.js.map" afterPath="$PROJECT_DIR$/IFileListResultCallbackWarning.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileListResultCallbackWarning.js" afterPath="$PROJECT_DIR$/IFileListResultCallbackWarning.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileResultCallback.d.ts" afterPath="$PROJECT_DIR$/IFileResultCallback.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileResultCallback.js.map" afterPath="$PROJECT_DIR$/IFileResultCallback.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileResultCallback.js" afterPath="$PROJECT_DIR$/IFileResultCallback.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileResultCallbackError.d.ts" afterPath="$PROJECT_DIR$/IFileResultCallbackError.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileResultCallbackError.js.map" afterPath="$PROJECT_DIR$/IFileResultCallbackError.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileResultCallbackError.js" afterPath="$PROJECT_DIR$/IFileResultCallbackError.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileResultCallbackWarning.d.ts" afterPath="$PROJECT_DIR$/IFileResultCallbackWarning.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileResultCallbackWarning.js.map" afterPath="$PROJECT_DIR$/IFileResultCallbackWarning.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileResultCallbackWarning.js" afterPath="$PROJECT_DIR$/IFileResultCallbackWarning.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileSystem.d.ts" afterPath="$PROJECT_DIR$/IFileSystem.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileSystem.js.map" afterPath="$PROJECT_DIR$/IFileSystem.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileSystem.js" afterPath="$PROJECT_DIR$/IFileSystem.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileSystemSecurity.d.ts" afterPath="$PROJECT_DIR$/IFileSystemSecurity.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileSystemSecurity.js.map" afterPath="$PROJECT_DIR$/IFileSystemSecurity.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileSystemSecurity.js" afterPath="$PROJECT_DIR$/IFileSystemSecurity.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileSystemStorageType.d.ts" afterPath="$PROJECT_DIR$/IFileSystemStorageType.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileSystemStorageType.js.map" afterPath="$PROJECT_DIR$/IFileSystemStorageType.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileSystemStorageType.js" afterPath="$PROJECT_DIR$/IFileSystemStorageType.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileSystemType.d.ts" afterPath="$PROJECT_DIR$/IFileSystemType.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileSystemType.js.map" afterPath="$PROJECT_DIR$/IFileSystemType.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IFileSystemType.js" afterPath="$PROJECT_DIR$/IFileSystemType.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IGeolocation.d.ts" afterPath="$PROJECT_DIR$/IGeolocation.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IGeolocation.js.map" afterPath="$PROJECT_DIR$/IGeolocation.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IGeolocation.js" afterPath="$PROJECT_DIR$/IGeolocation.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IGeolocationListener.d.ts" afterPath="$PROJECT_DIR$/IGeolocationListener.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IGeolocationListener.js.map" afterPath="$PROJECT_DIR$/IGeolocationListener.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IGeolocationListener.js" afterPath="$PROJECT_DIR$/IGeolocationListener.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IGeolocationListenerError.d.ts" afterPath="$PROJECT_DIR$/IGeolocationListenerError.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IGeolocationListenerError.js.map" afterPath="$PROJECT_DIR$/IGeolocationListenerError.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IGeolocationListenerError.js" afterPath="$PROJECT_DIR$/IGeolocationListenerError.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IGeolocationListenerWarning.d.ts" afterPath="$PROJECT_DIR$/IGeolocationListenerWarning.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IGeolocationListenerWarning.js.map" afterPath="$PROJECT_DIR$/IGeolocationListenerWarning.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IGeolocationListenerWarning.js" afterPath="$PROJECT_DIR$/IGeolocationListenerWarning.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IGlobalization.d.ts" afterPath="$PROJECT_DIR$/IGlobalization.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IGlobalization.js.map" afterPath="$PROJECT_DIR$/IGlobalization.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IGlobalization.js" afterPath="$PROJECT_DIR$/IGlobalization.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IGooglePlus.d.ts" afterPath="$PROJECT_DIR$/IGooglePlus.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IGooglePlus.js.map" afterPath="$PROJECT_DIR$/IGooglePlus.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IGooglePlus.js" afterPath="$PROJECT_DIR$/IGooglePlus.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IGyroscope.d.ts" afterPath="$PROJECT_DIR$/IGyroscope.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IGyroscope.js.map" afterPath="$PROJECT_DIR$/IGyroscope.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IGyroscope.js" afterPath="$PROJECT_DIR$/IGyroscope.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IImaging.d.ts" afterPath="$PROJECT_DIR$/IImaging.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IImaging.js.map" afterPath="$PROJECT_DIR$/IImaging.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IImaging.js" afterPath="$PROJECT_DIR$/IImaging.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IInternalStorage.d.ts" afterPath="$PROJECT_DIR$/IInternalStorage.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IInternalStorage.js.map" afterPath="$PROJECT_DIR$/IInternalStorage.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IInternalStorage.js" afterPath="$PROJECT_DIR$/IInternalStorage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ILifecycle.d.ts" afterPath="$PROJECT_DIR$/ILifecycle.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ILifecycle.js.map" afterPath="$PROJECT_DIR$/ILifecycle.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ILifecycle.js" afterPath="$PROJECT_DIR$/ILifecycle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ILifecycleListener.d.ts" afterPath="$PROJECT_DIR$/ILifecycleListener.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ILifecycleListener.js.map" afterPath="$PROJECT_DIR$/ILifecycleListener.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ILifecycleListener.js" afterPath="$PROJECT_DIR$/ILifecycleListener.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ILifecycleListenerError.d.ts" afterPath="$PROJECT_DIR$/ILifecycleListenerError.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ILifecycleListenerError.js.map" afterPath="$PROJECT_DIR$/ILifecycleListenerError.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ILifecycleListenerError.js" afterPath="$PROJECT_DIR$/ILifecycleListenerError.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ILifecycleListenerWarning.d.ts" afterPath="$PROJECT_DIR$/ILifecycleListenerWarning.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ILifecycleListenerWarning.js.map" afterPath="$PROJECT_DIR$/ILifecycleListenerWarning.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ILifecycleListenerWarning.js" afterPath="$PROJECT_DIR$/ILifecycleListenerWarning.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ILinkedIn.d.ts" afterPath="$PROJECT_DIR$/ILinkedIn.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ILinkedIn.js.map" afterPath="$PROJECT_DIR$/ILinkedIn.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ILinkedIn.js" afterPath="$PROJECT_DIR$/ILinkedIn.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ILogging.d.ts" afterPath="$PROJECT_DIR$/ILogging.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ILogging.js.map" afterPath="$PROJECT_DIR$/ILogging.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ILogging.js" afterPath="$PROJECT_DIR$/ILogging.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ILoggingLogLevel.d.ts" afterPath="$PROJECT_DIR$/ILoggingLogLevel.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ILoggingLogLevel.js.map" afterPath="$PROJECT_DIR$/ILoggingLogLevel.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ILoggingLogLevel.js" afterPath="$PROJECT_DIR$/ILoggingLogLevel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IMagnetometer.d.ts" afterPath="$PROJECT_DIR$/IMagnetometer.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IMagnetometer.js.map" afterPath="$PROJECT_DIR$/IMagnetometer.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IMagnetometer.js" afterPath="$PROJECT_DIR$/IMagnetometer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IMail.d.ts" afterPath="$PROJECT_DIR$/IMail.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IMail.js.map" afterPath="$PROJECT_DIR$/IMail.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IMail.js" afterPath="$PROJECT_DIR$/IMail.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IManagement.d.ts" afterPath="$PROJECT_DIR$/IManagement.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IManagement.js.map" afterPath="$PROJECT_DIR$/IManagement.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IManagement.js" afterPath="$PROJECT_DIR$/IManagement.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IMap.d.ts" afterPath="$PROJECT_DIR$/IMap.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IMap.js.map" afterPath="$PROJECT_DIR$/IMap.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IMap.js" afterPath="$PROJECT_DIR$/IMap.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IMessaging.d.ts" afterPath="$PROJECT_DIR$/IMessaging.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IMessaging.js.map" afterPath="$PROJECT_DIR$/IMessaging.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IMessaging.js" afterPath="$PROJECT_DIR$/IMessaging.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IMessagingCallback.d.ts" afterPath="$PROJECT_DIR$/IMessagingCallback.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IMessagingCallback.js.map" afterPath="$PROJECT_DIR$/IMessagingCallback.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IMessagingCallback.js" afterPath="$PROJECT_DIR$/IMessagingCallback.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IMessagingCallbackError.d.ts" afterPath="$PROJECT_DIR$/IMessagingCallbackError.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IMessagingCallbackError.js.map" afterPath="$PROJECT_DIR$/IMessagingCallbackError.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IMessagingCallbackError.js" afterPath="$PROJECT_DIR$/IMessagingCallbackError.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IMessagingCallbackWarning.d.ts" afterPath="$PROJECT_DIR$/IMessagingCallbackWarning.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IMessagingCallbackWarning.js.map" afterPath="$PROJECT_DIR$/IMessagingCallbackWarning.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IMessagingCallbackWarning.js" afterPath="$PROJECT_DIR$/IMessagingCallbackWarning.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INFC.d.ts" afterPath="$PROJECT_DIR$/INFC.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INFC.js.map" afterPath="$PROJECT_DIR$/INFC.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INFC.js" afterPath="$PROJECT_DIR$/INFC.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INetworkInfo.d.ts" afterPath="$PROJECT_DIR$/INetworkInfo.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INetworkInfo.js.map" afterPath="$PROJECT_DIR$/INetworkInfo.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INetworkInfo.js" afterPath="$PROJECT_DIR$/INetworkInfo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INetworkNaming.d.ts" afterPath="$PROJECT_DIR$/INetworkNaming.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INetworkNaming.js.map" afterPath="$PROJECT_DIR$/INetworkNaming.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INetworkNaming.js" afterPath="$PROJECT_DIR$/INetworkNaming.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INetworkReachability.d.ts" afterPath="$PROJECT_DIR$/INetworkReachability.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INetworkReachability.js.map" afterPath="$PROJECT_DIR$/INetworkReachability.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INetworkReachability.js" afterPath="$PROJECT_DIR$/INetworkReachability.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INetworkReachabilityCallback.d.ts" afterPath="$PROJECT_DIR$/INetworkReachabilityCallback.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INetworkReachabilityCallback.js.map" afterPath="$PROJECT_DIR$/INetworkReachabilityCallback.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INetworkReachabilityCallback.js" afterPath="$PROJECT_DIR$/INetworkReachabilityCallback.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INetworkReachabilityCallbackError.d.ts" afterPath="$PROJECT_DIR$/INetworkReachabilityCallbackError.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INetworkReachabilityCallbackError.js.map" afterPath="$PROJECT_DIR$/INetworkReachabilityCallbackError.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INetworkReachabilityCallbackError.js" afterPath="$PROJECT_DIR$/INetworkReachabilityCallbackError.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INetworkReachabilityCallbackWarning.d.ts" afterPath="$PROJECT_DIR$/INetworkReachabilityCallbackWarning.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INetworkReachabilityCallbackWarning.js.map" afterPath="$PROJECT_DIR$/INetworkReachabilityCallbackWarning.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INetworkReachabilityCallbackWarning.js" afterPath="$PROJECT_DIR$/INetworkReachabilityCallbackWarning.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INetworkStatus.d.ts" afterPath="$PROJECT_DIR$/INetworkStatus.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INetworkStatus.js.map" afterPath="$PROJECT_DIR$/INetworkStatus.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INetworkStatus.js" afterPath="$PROJECT_DIR$/INetworkStatus.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INetworkStatusListener.d.ts" afterPath="$PROJECT_DIR$/INetworkStatusListener.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INetworkStatusListener.js.map" afterPath="$PROJECT_DIR$/INetworkStatusListener.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INetworkStatusListener.js" afterPath="$PROJECT_DIR$/INetworkStatusListener.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INetworkStatusListenerError.d.ts" afterPath="$PROJECT_DIR$/INetworkStatusListenerError.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INetworkStatusListenerError.js.map" afterPath="$PROJECT_DIR$/INetworkStatusListenerError.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INetworkStatusListenerError.js" afterPath="$PROJECT_DIR$/INetworkStatusListenerError.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INetworkStatusListenerWarning.d.ts" afterPath="$PROJECT_DIR$/INetworkStatusListenerWarning.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INetworkStatusListenerWarning.js.map" afterPath="$PROJECT_DIR$/INetworkStatusListenerWarning.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INetworkStatusListenerWarning.js" afterPath="$PROJECT_DIR$/INetworkStatusListenerWarning.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INotification.d.ts" afterPath="$PROJECT_DIR$/INotification.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INotification.js.map" afterPath="$PROJECT_DIR$/INotification.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INotification.js" afterPath="$PROJECT_DIR$/INotification.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INotificationLocal.d.ts" afterPath="$PROJECT_DIR$/INotificationLocal.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INotificationLocal.js.map" afterPath="$PROJECT_DIR$/INotificationLocal.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/INotificationLocal.js" afterPath="$PROJECT_DIR$/INotificationLocal.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IOAuth.d.ts" afterPath="$PROJECT_DIR$/IOAuth.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IOAuth.js.map" afterPath="$PROJECT_DIR$/IOAuth.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IOAuth.js" afterPath="$PROJECT_DIR$/IOAuth.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IOCR.d.ts" afterPath="$PROJECT_DIR$/IOCR.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IOCR.js.map" afterPath="$PROJECT_DIR$/IOCR.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IOCR.js" afterPath="$PROJECT_DIR$/IOCR.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IOS.d.ts" afterPath="$PROJECT_DIR$/IOS.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IOS.js.map" afterPath="$PROJECT_DIR$/IOS.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IOS.js" afterPath="$PROJECT_DIR$/IOS.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IOSType.d.ts" afterPath="$PROJECT_DIR$/IOSType.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IOSType.js.map" afterPath="$PROJECT_DIR$/IOSType.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IOSType.js" afterPath="$PROJECT_DIR$/IOSType.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IOpenId.d.ts" afterPath="$PROJECT_DIR$/IOpenId.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IOpenId.js.map" afterPath="$PROJECT_DIR$/IOpenId.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IOpenId.js" afterPath="$PROJECT_DIR$/IOpenId.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IPrinting.d.ts" afterPath="$PROJECT_DIR$/IPrinting.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IPrinting.js.map" afterPath="$PROJECT_DIR$/IPrinting.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IPrinting.js" afterPath="$PROJECT_DIR$/IPrinting.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IProximity.d.ts" afterPath="$PROJECT_DIR$/IProximity.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IProximity.js.map" afterPath="$PROJECT_DIR$/IProximity.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IProximity.js" afterPath="$PROJECT_DIR$/IProximity.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IQRCode.d.ts" afterPath="$PROJECT_DIR$/IQRCode.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IQRCode.js.map" afterPath="$PROJECT_DIR$/IQRCode.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IQRCode.js" afterPath="$PROJECT_DIR$/IQRCode.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IRSS.d.ts" afterPath="$PROJECT_DIR$/IRSS.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IRSS.js.map" afterPath="$PROJECT_DIR$/IRSS.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IRSS.js" afterPath="$PROJECT_DIR$/IRSS.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IRuntime.d.ts" afterPath="$PROJECT_DIR$/IRuntime.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IRuntime.js.map" afterPath="$PROJECT_DIR$/IRuntime.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IRuntime.js" afterPath="$PROJECT_DIR$/IRuntime.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ISecurity.d.ts" afterPath="$PROJECT_DIR$/ISecurity.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ISecurity.js.map" afterPath="$PROJECT_DIR$/ISecurity.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ISecurity.js" afterPath="$PROJECT_DIR$/ISecurity.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ISecurityResultCallback.d.ts" afterPath="$PROJECT_DIR$/ISecurityResultCallback.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ISecurityResultCallback.js.map" afterPath="$PROJECT_DIR$/ISecurityResultCallback.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ISecurityResultCallback.js" afterPath="$PROJECT_DIR$/ISecurityResultCallback.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ISecurityResultCallbackError.d.ts" afterPath="$PROJECT_DIR$/ISecurityResultCallbackError.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ISecurityResultCallbackError.js.map" afterPath="$PROJECT_DIR$/ISecurityResultCallbackError.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ISecurityResultCallbackError.js" afterPath="$PROJECT_DIR$/ISecurityResultCallbackError.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ISecurityResultCallbackWarning.d.ts" afterPath="$PROJECT_DIR$/ISecurityResultCallbackWarning.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ISecurityResultCallbackWarning.js.map" afterPath="$PROJECT_DIR$/ISecurityResultCallbackWarning.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ISecurityResultCallbackWarning.js" afterPath="$PROJECT_DIR$/ISecurityResultCallbackWarning.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IService.d.ts" afterPath="$PROJECT_DIR$/IService.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IService.js.map" afterPath="$PROJECT_DIR$/IService.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IService.js" afterPath="$PROJECT_DIR$/IService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IServiceMethod.d.ts" afterPath="$PROJECT_DIR$/IServiceMethod.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IServiceMethod.js.map" afterPath="$PROJECT_DIR$/IServiceMethod.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IServiceMethod.js" afterPath="$PROJECT_DIR$/IServiceMethod.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IServiceProtocolVersion.d.ts" afterPath="$PROJECT_DIR$/IServiceProtocolVersion.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IServiceProtocolVersion.js.map" afterPath="$PROJECT_DIR$/IServiceProtocolVersion.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IServiceProtocolVersion.js" afterPath="$PROJECT_DIR$/IServiceProtocolVersion.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IServiceResultCallback.d.ts" afterPath="$PROJECT_DIR$/IServiceResultCallback.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IServiceResultCallback.js.map" afterPath="$PROJECT_DIR$/IServiceResultCallback.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IServiceResultCallback.js" afterPath="$PROJECT_DIR$/IServiceResultCallback.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IServiceResultCallbackError.d.ts" afterPath="$PROJECT_DIR$/IServiceResultCallbackError.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IServiceResultCallbackError.js.map" afterPath="$PROJECT_DIR$/IServiceResultCallbackError.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IServiceResultCallbackError.js" afterPath="$PROJECT_DIR$/IServiceResultCallbackError.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IServiceResultCallbackWarning.d.ts" afterPath="$PROJECT_DIR$/IServiceResultCallbackWarning.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IServiceResultCallbackWarning.js.map" afterPath="$PROJECT_DIR$/IServiceResultCallbackWarning.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IServiceResultCallbackWarning.js" afterPath="$PROJECT_DIR$/IServiceResultCallbackWarning.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IServiceType.d.ts" afterPath="$PROJECT_DIR$/IServiceType.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IServiceType.js.map" afterPath="$PROJECT_DIR$/IServiceType.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IServiceType.js" afterPath="$PROJECT_DIR$/IServiceType.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ISettings.d.ts" afterPath="$PROJECT_DIR$/ISettings.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ISettings.js.map" afterPath="$PROJECT_DIR$/ISettings.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ISettings.js" afterPath="$PROJECT_DIR$/ISettings.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ISocket.d.ts" afterPath="$PROJECT_DIR$/ISocket.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ISocket.js.map" afterPath="$PROJECT_DIR$/ISocket.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ISocket.js" afterPath="$PROJECT_DIR$/ISocket.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IStore.d.ts" afterPath="$PROJECT_DIR$/IStore.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IStore.js.map" afterPath="$PROJECT_DIR$/IStore.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IStore.js" afterPath="$PROJECT_DIR$/IStore.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ITelephony.d.ts" afterPath="$PROJECT_DIR$/ITelephony.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ITelephony.js.map" afterPath="$PROJECT_DIR$/ITelephony.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ITelephony.js" afterPath="$PROJECT_DIR$/ITelephony.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ITelephonyStatus.d.ts" afterPath="$PROJECT_DIR$/ITelephonyStatus.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ITelephonyStatus.js.map" afterPath="$PROJECT_DIR$/ITelephonyStatus.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ITelephonyStatus.js" afterPath="$PROJECT_DIR$/ITelephonyStatus.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ITimer.d.ts" afterPath="$PROJECT_DIR$/ITimer.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ITimer.js.map" afterPath="$PROJECT_DIR$/ITimer.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ITimer.js" afterPath="$PROJECT_DIR$/ITimer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ITwitter.d.ts" afterPath="$PROJECT_DIR$/ITwitter.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ITwitter.js.map" afterPath="$PROJECT_DIR$/ITwitter.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ITwitter.js" afterPath="$PROJECT_DIR$/ITwitter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IUI.d.ts" afterPath="$PROJECT_DIR$/IUI.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IUI.js.map" afterPath="$PROJECT_DIR$/IUI.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IUI.js" afterPath="$PROJECT_DIR$/IUI.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IUpdate.d.ts" afterPath="$PROJECT_DIR$/IUpdate.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IUpdate.js.map" afterPath="$PROJECT_DIR$/IUpdate.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IUpdate.js" afterPath="$PROJECT_DIR$/IUpdate.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IVibration.d.ts" afterPath="$PROJECT_DIR$/IVibration.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IVibration.js.map" afterPath="$PROJECT_DIR$/IVibration.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IVibration.js" afterPath="$PROJECT_DIR$/IVibration.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IVideo.d.ts" afterPath="$PROJECT_DIR$/IVideo.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IVideo.js.map" afterPath="$PROJECT_DIR$/IVideo.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IVideo.js" afterPath="$PROJECT_DIR$/IVideo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IWallet.d.ts" afterPath="$PROJECT_DIR$/IWallet.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IWallet.js.map" afterPath="$PROJECT_DIR$/IWallet.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IWallet.js" afterPath="$PROJECT_DIR$/IWallet.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IXML.d.ts" afterPath="$PROJECT_DIR$/IXML.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IXML.js.map" afterPath="$PROJECT_DIR$/IXML.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IXML.js" afterPath="$PROJECT_DIR$/IXML.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/KeyPair.d.ts" afterPath="$PROJECT_DIR$/KeyPair.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/KeyPair.js.map" afterPath="$PROJECT_DIR$/KeyPair.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/KeyPair.js" afterPath="$PROJECT_DIR$/KeyPair.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Lifecycle.d.ts" afterPath="$PROJECT_DIR$/Lifecycle.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Lifecycle.js.map" afterPath="$PROJECT_DIR$/Lifecycle.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Lifecycle.js" afterPath="$PROJECT_DIR$/Lifecycle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LifecycleState.d.ts" afterPath="$PROJECT_DIR$/LifecycleState.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LifecycleState.js.map" afterPath="$PROJECT_DIR$/LifecycleState.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LifecycleState.js" afterPath="$PROJECT_DIR$/LifecycleState.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Locale.d.ts" afterPath="$PROJECT_DIR$/Locale.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Locale.js.map" afterPath="$PROJECT_DIR$/Locale.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Locale.js" afterPath="$PROJECT_DIR$/Locale.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OSInfo.d.ts" afterPath="$PROJECT_DIR$/OSInfo.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OSInfo.js.map" afterPath="$PROJECT_DIR$/OSInfo.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OSInfo.js" afterPath="$PROJECT_DIR$/OSInfo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SecureKeyPair.d.ts" afterPath="$PROJECT_DIR$/SecureKeyPair.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SecureKeyPair.js.map" afterPath="$PROJECT_DIR$/SecureKeyPair.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SecureKeyPair.js" afterPath="$PROJECT_DIR$/SecureKeyPair.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Service.d.ts" afterPath="$PROJECT_DIR$/Service.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Service.js.map" afterPath="$PROJECT_DIR$/Service.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Service.js" afterPath="$PROJECT_DIR$/Service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceCookie.d.ts" afterPath="$PROJECT_DIR$/ServiceCookie.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceCookie.js.map" afterPath="$PROJECT_DIR$/ServiceCookie.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceCookie.js" afterPath="$PROJECT_DIR$/ServiceCookie.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceEndpoint.d.ts" afterPath="$PROJECT_DIR$/ServiceEndpoint.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceEndpoint.js.map" afterPath="$PROJECT_DIR$/ServiceEndpoint.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceEndpoint.js" afterPath="$PROJECT_DIR$/ServiceEndpoint.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceHeader.d.ts" afterPath="$PROJECT_DIR$/ServiceHeader.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceHeader.js.map" afterPath="$PROJECT_DIR$/ServiceHeader.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceHeader.js" afterPath="$PROJECT_DIR$/ServiceHeader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceRequest.d.ts" afterPath="$PROJECT_DIR$/ServiceRequest.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceRequest.js.map" afterPath="$PROJECT_DIR$/ServiceRequest.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceRequest.js" afterPath="$PROJECT_DIR$/ServiceRequest.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceResponse.d.ts" afterPath="$PROJECT_DIR$/ServiceResponse.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceResponse.js.map" afterPath="$PROJECT_DIR$/ServiceResponse.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceResponse.js" afterPath="$PROJECT_DIR$/ServiceResponse.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceSession.d.ts" afterPath="$PROJECT_DIR$/ServiceSession.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceSession.js.map" afterPath="$PROJECT_DIR$/ServiceSession.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceSession.js" afterPath="$PROJECT_DIR$/ServiceSession.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/join.sh" afterPath="$PROJECT_DIR$/join.sh" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TypeScriptValidation.iws" />
@@ -749,12 +32,154 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="IServiceResultCallback.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="IServiceResultCallback.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/IServiceResultCallback.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1256">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1215">
+              <caret line="23" column="50" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Adaptive.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Adaptive.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="108525">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1420704516000" expanded="true" signature="1314:1326" placeholder="/**This is a marker interface for bridge classes that invoke delegates. ...*/" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Adaptive.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Adaptive.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="64080">
+              <caret line="146" column="6" selection-start-line="146" selection-start-column="6" selection-end-line="146" selection-end-column="6" />
+              <folding>
+                <marker date="1420704523000" expanded="true" signature="2407:2418" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="2974:3071" placeholder="/**Structure representing the data elements of a contact. ...*/" />
+                <marker date="1420704523000" expanded="true" signature="4180:4187" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="4412:4571" placeholder="/**Structure representing the personal info data elements of a contact. ...*/" />
+                <marker date="1420704523000" expanded="true" signature="5131:5265" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="5499:5522" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="8497:8555" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="9272:9362" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="9622:11071" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="9613:9807" placeholder="/**Constructor used by the implementation ...*/" />
+                <marker date="1420704523000" expanded="true" signature="9882:9976" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="9983:10161" placeholder="/**Returns the tagName of the Tag ...*/" />
+                <marker date="1420704523000" expanded="true" signature="10212:10248" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="10259:10423" placeholder="/**Set the tagName of the Tag ...*/" />
+                <marker date="1420704523000" expanded="true" signature="10515:10534" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="10730:10777" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="10984:11037" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="11333:17002" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="14376:14511" placeholder="/**Gets Dilution of precision on the X measurement. Measured in meters. ...*/" />
+                <marker date="1420704523000" expanded="true" signature="14554:14609" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="17037:17198" placeholder="/**Structure representing the social data elements of a contact. ...*/" />
+                <marker date="1420704523000" expanded="true" signature="18382:18514" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="19139:19304" placeholder="/**Represents an instance of a service. ...*/" />
+                <marker date="1420704523000" expanded="true" signature="19646:19750" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="20666:20728" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="20915:20955" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="21684:21688" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="21915:21916" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="23263:31224" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="24326:27702" placeholder="/**Sets Model of device - equivalent to device release or version. ...*/" />
+                <marker date="1420704523000" expanded="true" signature="27842:29774" placeholder="/**Returns the name of the device. ...*/" />
+                <marker date="1420704523000" expanded="true" signature="30422:30634" placeholder="/**Sets Device identifier - this may not be unique for a device. It may depend on the platform implementation and may ...*/" />
+                <marker date="1420704523000" expanded="true" signature="30690:30703" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="30923:30934" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="31301:31443" placeholder="/**Represents a session object for HTTP request and responses ...*/" />
+                <marker date="1420704523000" expanded="true" signature="31518:32769" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="31500:31654" placeholder="/**Constructor with fields ...*/" />
+                <marker date="1420704523000" expanded="true" signature="31746:31799" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="31998:32033" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="32224:32253" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="33017:36892" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="34818:34962" placeholder="/**Method name Getter ...*/" />
+                <marker date="1420704523000" expanded="true" signature="35044:35204" placeholder="/**Method name Setter ...*/" />
+                <marker date="1420704523000" expanded="true" signature="35274:35418" placeholder="/**Parameters Getter ...*/" />
+                <marker date="1420704523000" expanded="true" signature="35534:35694" placeholder="/**Parameters Setter ...*/" />
+                <marker date="1420704523000" expanded="true" signature="36927:37101" placeholder="/**Represents a single secureKey-value pair. ...*/" />
+                <marker date="1420704523000" expanded="true" signature="37167:37337" placeholder="/**Constructor with parameters ...*/" />
+                <marker date="1420704523000" expanded="true" signature="38866:39042" placeholder="/**Constructor with fields ...*/" />
+                <marker date="1420704523000" expanded="true" signature="39189:39293" placeholder="/**Returns the type of the address ...*/" />
+                <marker date="1420704523000" expanded="true" signature="39416:39526" placeholder="/**Set the address type ...*/" />
+                <marker date="1420704523000" expanded="true" signature="39737:39900" placeholder="/**Represents a basic bean to store keyName pair values ...*/" />
+                <marker date="1420704523000" expanded="true" signature="40842:40854" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="41060:41077" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="41319:41330" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="41657:46400" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="44526:44710" placeholder="/**Returns the name of the table ...*/" />
+                <marker date="1420704523000" expanded="true" signature="44768:45040" placeholder="/**Sets the name of the table ...*/" />
+                <marker date="1420704523000" expanded="true" signature="46545:46751" placeholder="/**Created by clozano on 19/12/14. ...*/" />
+                <marker date="1420704523000" expanded="true" signature="49226:49340" placeholder="/**Sets the path of the file or folder. Used internally. ...*/" />
+                <marker date="1420704523000" expanded="true" signature="49820:49844" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="50703:50822" placeholder="/**Constructor with fields ...*/" />
+                <marker date="1420704523000" expanded="true" signature="51527:51657" placeholder="/**Structure representing the data of a single acceleration reading. ...*/" />
+                <marker date="1420704523000" expanded="true" signature="52233:52433" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="53446:53522" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="53717:53778" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="54570:55074" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="55822:55891" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="57246:57728" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="61730:61753" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="61919:61945" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="62137:62156" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="62325:62348" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="62546:62559" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="62750:62795" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="63019:63076" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="67695:67789" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="67844:67947" placeholder="/**Returns the name of the operating system. ...*/" />
+                <marker date="1420704523000" expanded="true" signature="68443:68486" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="68706:68724" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="68997:69164" placeholder="/**Represents a local or remote service request. ...*/" />
+                <marker date="1420704523000" expanded="true" signature="69871:70225" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="71491:71543" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="71779:71902" placeholder="/**Returns the array of ServiceHeader ...*/" />
+                <marker date="1420704523000" expanded="true" signature="72112:72226" placeholder="/**Set the array of ServiceHeader ...*/" />
+                <marker date="1420704523000" expanded="true" signature="72512:72738" placeholder="/**Structure representing a database reference. ...*/" />
+                <marker date="1420704523000" expanded="true" signature="72800:74192" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="72793:73057" placeholder="/**Constructor using fields. ...*/" />
+                <marker date="1420704523000" expanded="true" signature="73119:73206" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="73213:73345" placeholder="/**Returns if the table is compressed ...*/" />
+                <marker date="1420704523000" expanded="true" signature="73395:73434" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="73445:73580" placeholder="/**Sets if the table is compressed or not. ...*/" />
+                <marker date="1420704523000" expanded="true" signature="73670:73683" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="73866:73914" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="74105:74157" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="77971:77993" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="78208:78294" placeholder="/**Returns the scheme ...*/" />
+                <marker date="1420704523000" expanded="true" signature="78412:78496" placeholder="/**Set the scheme ...*/" />
+                <marker date="1420704523000" expanded="true" signature="78640:78755" placeholder="/**Returns whether the cookie is secure or not ...*/" />
+                <marker date="1420704523000" expanded="true" signature="78912:79021" placeholder="/**Set whether the cookie is secure or not ...*/" />
+                <marker date="1420704523000" expanded="true" signature="79237:79409" placeholder="/**Structure representing the phone data elements of a contact. ...*/" />
+                <marker date="1420704523000" expanded="true" signature="79459:79662" placeholder="/**Constructor used by implementation to set the contact Phone ...*/" />
+                <marker date="1420704523000" expanded="true" signature="83686:84784" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="84518:84650" placeholder="/**Set the id of the Contact ...*/" />
+                <marker date="1420704523000" expanded="true" signature="84870:85045" placeholder="/**Structure representing a row for a data table. ...*/" />
+                <marker date="1420704523000" expanded="true" signature="85141:85367" placeholder="/**Constructor for implementation using. ...*/" />
+                <marker date="1420704523000" expanded="true" signature="85527:85641" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="85670:85789" placeholder="/**Returns the values of the row. ...*/" />
+                <marker date="1420704523000" expanded="true" signature="88922:88935" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="89312:91903" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="91228:91260" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="92017:92053" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="92284:92331" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="92591:92601" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="92929:92978" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="93180:93227" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="93451:93516" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="93741:93778" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="94009:94054" placeholder="{...}" />
+                <marker date="1420704523000" expanded="true" signature="94543:94620" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -788,9 +213,10 @@
         <option value="$PROJECT_DIR$/Dictionary.ts" />
         <option value="$PROJECT_DIR$/Locale.ts" />
         <option value="$PROJECT_DIR$/Contact.ts" />
-        <option value="$PROJECT_DIR$/Adaptive.ts" />
         <option value="$PROJECT_DIR$/Adaptive.js" />
         <option value="$PROJECT_DIR$/IAdaptiveRP.ts" />
+        <option value="$PROJECT_DIR$/IServiceResultCallback.ts" />
+        <option value="$PROJECT_DIR$/Adaptive.ts" />
       </list>
     </option>
   </component>
@@ -842,6 +268,20 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="TypeScriptValidation" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TypeScriptValidation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TypeScriptValidation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Adaptive.ts" />
+              <option name="myItemType" value="com.intellij.plugins.watcher.projectView.NestingTreeNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -935,7 +375,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.097521335" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5024826" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.50233644" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -971,9 +411,147 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/IServiceResultCallback.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1256">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1215">
+          <caret line="23" column="50" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Adaptive.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="64080">
+          <caret line="146" column="6" selection-start-line="146" selection-start-column="6" selection-end-line="146" selection-end-column="6" />
+          <folding>
+            <marker date="1420704523000" expanded="true" signature="2407:2418" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="2974:3071" placeholder="/**Structure representing the data elements of a contact. ...*/" />
+            <marker date="1420704523000" expanded="true" signature="4180:4187" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="4412:4571" placeholder="/**Structure representing the personal info data elements of a contact. ...*/" />
+            <marker date="1420704523000" expanded="true" signature="5131:5265" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="5499:5522" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="8497:8555" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="9272:9362" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="9622:11071" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="9613:9807" placeholder="/**Constructor used by the implementation ...*/" />
+            <marker date="1420704523000" expanded="true" signature="9882:9976" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="9983:10161" placeholder="/**Returns the tagName of the Tag ...*/" />
+            <marker date="1420704523000" expanded="true" signature="10212:10248" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="10259:10423" placeholder="/**Set the tagName of the Tag ...*/" />
+            <marker date="1420704523000" expanded="true" signature="10515:10534" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="10730:10777" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="10984:11037" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="11333:17002" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="14376:14511" placeholder="/**Gets Dilution of precision on the X measurement. Measured in meters. ...*/" />
+            <marker date="1420704523000" expanded="true" signature="14554:14609" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="17037:17198" placeholder="/**Structure representing the social data elements of a contact. ...*/" />
+            <marker date="1420704523000" expanded="true" signature="18382:18514" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="19139:19304" placeholder="/**Represents an instance of a service. ...*/" />
+            <marker date="1420704523000" expanded="true" signature="19646:19750" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="20666:20728" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="20915:20955" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="21684:21688" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="21915:21916" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="23263:31224" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="24326:27702" placeholder="/**Sets Model of device - equivalent to device release or version. ...*/" />
+            <marker date="1420704523000" expanded="true" signature="27842:29774" placeholder="/**Returns the name of the device. ...*/" />
+            <marker date="1420704523000" expanded="true" signature="30422:30634" placeholder="/**Sets Device identifier - this may not be unique for a device. It may depend on the platform implementation and may ...*/" />
+            <marker date="1420704523000" expanded="true" signature="30690:30703" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="30923:30934" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="31301:31443" placeholder="/**Represents a session object for HTTP request and responses ...*/" />
+            <marker date="1420704523000" expanded="true" signature="31518:32769" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="31500:31654" placeholder="/**Constructor with fields ...*/" />
+            <marker date="1420704523000" expanded="true" signature="31746:31799" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="31998:32033" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="32224:32253" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="33017:36892" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="34818:34962" placeholder="/**Method name Getter ...*/" />
+            <marker date="1420704523000" expanded="true" signature="35044:35204" placeholder="/**Method name Setter ...*/" />
+            <marker date="1420704523000" expanded="true" signature="35274:35418" placeholder="/**Parameters Getter ...*/" />
+            <marker date="1420704523000" expanded="true" signature="35534:35694" placeholder="/**Parameters Setter ...*/" />
+            <marker date="1420704523000" expanded="true" signature="36927:37101" placeholder="/**Represents a single secureKey-value pair. ...*/" />
+            <marker date="1420704523000" expanded="true" signature="37167:37337" placeholder="/**Constructor with parameters ...*/" />
+            <marker date="1420704523000" expanded="true" signature="38866:39042" placeholder="/**Constructor with fields ...*/" />
+            <marker date="1420704523000" expanded="true" signature="39189:39293" placeholder="/**Returns the type of the address ...*/" />
+            <marker date="1420704523000" expanded="true" signature="39416:39526" placeholder="/**Set the address type ...*/" />
+            <marker date="1420704523000" expanded="true" signature="39737:39900" placeholder="/**Represents a basic bean to store keyName pair values ...*/" />
+            <marker date="1420704523000" expanded="true" signature="40842:40854" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="41060:41077" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="41319:41330" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="41657:46400" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="44526:44710" placeholder="/**Returns the name of the table ...*/" />
+            <marker date="1420704523000" expanded="true" signature="44768:45040" placeholder="/**Sets the name of the table ...*/" />
+            <marker date="1420704523000" expanded="true" signature="46545:46751" placeholder="/**Created by clozano on 19/12/14. ...*/" />
+            <marker date="1420704523000" expanded="true" signature="49226:49340" placeholder="/**Sets the path of the file or folder. Used internally. ...*/" />
+            <marker date="1420704523000" expanded="true" signature="49820:49844" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="50703:50822" placeholder="/**Constructor with fields ...*/" />
+            <marker date="1420704523000" expanded="true" signature="51527:51657" placeholder="/**Structure representing the data of a single acceleration reading. ...*/" />
+            <marker date="1420704523000" expanded="true" signature="52233:52433" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="53446:53522" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="53717:53778" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="54570:55074" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="55822:55891" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="57246:57728" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="61730:61753" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="61919:61945" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="62137:62156" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="62325:62348" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="62546:62559" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="62750:62795" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="63019:63076" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="67695:67789" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="67844:67947" placeholder="/**Returns the name of the operating system. ...*/" />
+            <marker date="1420704523000" expanded="true" signature="68443:68486" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="68706:68724" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="68997:69164" placeholder="/**Represents a local or remote service request. ...*/" />
+            <marker date="1420704523000" expanded="true" signature="69871:70225" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="71491:71543" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="71779:71902" placeholder="/**Returns the array of ServiceHeader ...*/" />
+            <marker date="1420704523000" expanded="true" signature="72112:72226" placeholder="/**Set the array of ServiceHeader ...*/" />
+            <marker date="1420704523000" expanded="true" signature="72512:72738" placeholder="/**Structure representing a database reference. ...*/" />
+            <marker date="1420704523000" expanded="true" signature="72800:74192" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="72793:73057" placeholder="/**Constructor using fields. ...*/" />
+            <marker date="1420704523000" expanded="true" signature="73119:73206" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="73213:73345" placeholder="/**Returns if the table is compressed ...*/" />
+            <marker date="1420704523000" expanded="true" signature="73395:73434" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="73445:73580" placeholder="/**Sets if the table is compressed or not. ...*/" />
+            <marker date="1420704523000" expanded="true" signature="73670:73683" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="73866:73914" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="74105:74157" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="77971:77993" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="78208:78294" placeholder="/**Returns the scheme ...*/" />
+            <marker date="1420704523000" expanded="true" signature="78412:78496" placeholder="/**Set the scheme ...*/" />
+            <marker date="1420704523000" expanded="true" signature="78640:78755" placeholder="/**Returns whether the cookie is secure or not ...*/" />
+            <marker date="1420704523000" expanded="true" signature="78912:79021" placeholder="/**Set whether the cookie is secure or not ...*/" />
+            <marker date="1420704523000" expanded="true" signature="79237:79409" placeholder="/**Structure representing the phone data elements of a contact. ...*/" />
+            <marker date="1420704523000" expanded="true" signature="79459:79662" placeholder="/**Constructor used by implementation to set the contact Phone ...*/" />
+            <marker date="1420704523000" expanded="true" signature="83686:84784" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="84518:84650" placeholder="/**Set the id of the Contact ...*/" />
+            <marker date="1420704523000" expanded="true" signature="84870:85045" placeholder="/**Structure representing a row for a data table. ...*/" />
+            <marker date="1420704523000" expanded="true" signature="85141:85367" placeholder="/**Constructor for implementation using. ...*/" />
+            <marker date="1420704523000" expanded="true" signature="85527:85641" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="85670:85789" placeholder="/**Returns the values of the row. ...*/" />
+            <marker date="1420704523000" expanded="true" signature="88922:88935" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="89312:91903" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="91228:91260" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="92017:92053" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="92284:92331" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="92591:92601" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="92929:92978" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="93180:93227" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="93451:93516" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="93741:93778" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="94009:94054" placeholder="{...}" />
+            <marker date="1420704523000" expanded="true" signature="94543:94620" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Adaptive.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="108525">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1420704516000" expanded="true" signature="1314:1326" placeholder="/**This is a marker interface for bridge classes that invoke delegates. ...*/" />
+          </folding>
         </state>
       </provider>
     </entry>
