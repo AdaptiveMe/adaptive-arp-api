@@ -67,12 +67,45 @@ public class TypeScriptGenerator extends GeneratorBase {
 
     @Override
     protected void endCustomClass(String className, Class clazz, JavaClass javaClass) {
-
+        startComment(0);
+        applyClassHeader(clazz, getSourceFooter());
+        endComment(0);
+        indentPrintStream.flush();
+        indentPrintStream.close();
     }
 
     @Override
     protected void startCustomClass(String className, Class clazz, JavaClass javaClass, boolean implementation) {
-
+        currentFile = new File(getOutputRootDirectory(), className + ".ts");
+        if (currentFile.exists()) {
+            currentFile.delete();
+        }
+        try {
+            indentPrintStream = new IndentPrintStream(new FileOutputStream(currentFile));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        if (currentFileGlobal == null) {
+            currentFileGlobal = new File(getOutputRootDirectory(), "Adaptive.ts");
+            if (currentFileGlobal.exists()) {
+                currentFileGlobal.delete();
+            }
+            try {
+                indentPrintStreamGlobal = new IndentPrintStream(new FileOutputStream(currentFileGlobal));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            indentPrintStreamGlobal.println("/**");
+            indentPrintStreamGlobal.println(super.getSourceHeader());
+            indentPrintStreamGlobal.println("*/");
+            indentPrintStreamGlobal.println("module Adaptive {");
+            indentPrintStreamGlobal.println();
+        }
+        this.arrayOfClasses.add(clazz.getSimpleName() + ".ts");
+        startComment(0);
+        applyClassHeader(clazz, getSourceHeader());
+        endComment(0);
+        println();
     }
 
     @Override
@@ -87,7 +120,145 @@ public class TypeScriptGenerator extends GeneratorBase {
 
     @Override
     protected void createListenerImplementation(String simpleName, Class clazz, JavaClass javaClass) {
+        println("package " + clazz.getPackage().getName() + ";");
+        println();
+        println("import com.google.gson.Gson;");
+        println();
+        startComment(0);
+        if (javaClass.getComment() != null && javaClass.getComment().length() > 0) {
+            println(3, javaClass.getComment());
+        }
+        println(3, "Auto-generated implementation of " + clazz.getSimpleName() + " specification.");
+        endComment(0);
 
+        if (clazz.getSimpleName().equals("IBaseListener")) {
+            println("public class " + simpleName + " implements " + clazz.getSimpleName() + " {");
+            println();
+
+            startComment(5);
+            println(8, "Unique id of listener.");
+            endComment(5);
+            println(5, "private long id;");
+            println();
+
+            startComment(5);
+            println(8, "Group of API.");
+            endComment(5);
+            println(5, "private IAdaptiveRPGroup apiGroup;");
+            println();
+
+            startComment(5);
+            println(8, "JSON Serializer.");
+            endComment(5);
+            println(5, "protected Gson gson;");
+            println();
+
+            startComment(5);
+            println(8, "Constructor with listener id.");
+            println();
+            println(8, "@param id  The id of the listener.");
+            endComment(5);
+            println(5, "public " + simpleName + "(long id) {");
+            println(10, "this.id = id;");
+            println(10, "this.apiGroup = IAdaptiveRPGroup.Application;");
+            println(10, "this.gson = new Gson();");
+            println(5, "}");
+            println();
+
+            startComment(5);
+            println(8, "Get the listener id.");
+            println(8, "@return long with the identifier of the listener.");
+            endComment(5);
+            println(5, "public final long getId() {");
+            println(10, "return this.id;");
+            println(5, "}");
+            println();
+
+            startComment(5);
+            println(8, "Return the API group for the given interface.");
+            endComment(5);
+            println(5, "@Override");
+            println(5, "public final IAdaptiveRPGroup getAPIGroup() {");
+            println(10, "return this.apiGroup;");
+            println(5, "}");
+
+            startComment(5);
+            println(8, "Return the JSON serializer.");
+            println(8, "@return Current JSON serializer.");
+            endComment(5);
+            println(5, "public final Gson getJSONAPI() {");
+            println(10, "return this.gson;");
+            println(5, "}");
+        } else {
+            println("public class " + simpleName + " extends BaseListenerImpl implements " + clazz.getSimpleName() + " {");
+            println();
+            startComment(5);
+            println(8, "Constructor with listener id.");
+            println();
+            println(8, "@param id  The id of the listener.");
+            endComment(5);
+            println(5, "public " + simpleName + "(long id) {");
+            println(10, "super(id);");
+            println(5, "}");
+        }
+        println();
+
+        List<Method> classMethods = new ArrayList<>();
+        Map<Method, JavaMethod> javaMethods = new HashMap<>();
+        for (Method m : clazz.getDeclaredMethods()) {
+            classMethods.add(m);
+            for (JavaMethod jm : javaClass.getMethods()) {
+                if (jm.getName().equals(m.getName()) && jm.getParameters().size() == m.getParameterCount()) {
+                    javaMethods.put(m, jm);
+                }
+            }
+        }
+        classMethods.sort(new Comparator<Method>() {
+            @Override
+            public int compare(Method o1, Method o2) {
+                return (o1.getName() + o1.getParameterCount()).compareTo((o2.getName() + o2.getParameterCount()));
+            }
+        });
+        for (Method m : classMethods) {
+            if (javaMethods.get(m) != null) {
+                startComment(5);
+                println(8, javaMethods.get(m).getComment());
+                println();
+                for (DocletTag tag : javaMethods.get(m).getTags()) {
+                    println(8, "@" + tag.getName() + " " + tag.getValue());
+                }
+                endComment(5);
+                print(5, "public ");
+                if (m.getReturnType().equals(Void.TYPE)) {
+                    print("void ");
+                } else {
+                    print(convertJavaToNativeType(m.getReturnType()) + " ");
+                }
+                print(m.getName() + "(");
+                for (int i = 0; i < m.getParameterCount(); i++) {
+                    Parameter p = m.getParameters()[i];
+                    print(convertJavaToNativeType(p.getType()) + " ");
+                    print(p.getName());
+                    if (i < m.getParameterCount() - 1) {
+                        print(", ");
+                    }
+                }
+                println(") {");
+
+                print(10, "AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript(\"handle" + m.getDeclaringClass().getSimpleName().substring(1) + m.getName().substring(2) + "( '\"+getId()+\"', ");
+                for (int i = 0; i < m.getParameterCount(); i++) {
+                    Parameter p = m.getParameters()[i];
+                    print("JSON.parse(\" + this.gson.toJson(" + p.getName() + ") +\")");
+                    if (i < m.getParameterCount() - 1) {
+                        print(", ");
+                    }
+                }
+                println(" )\");");
+                println(5, "}");
+                println();
+            }
+        }
+        println("}");
     }
 
     @Override
@@ -122,17 +293,17 @@ public class TypeScriptGenerator extends GeneratorBase {
                 for (Class serviceClass : serviceClasses) {
                     startComment(10);
                     startCommentGlobal(10);
-                    println(13, "Returns a reference to the registered " + serviceClass.getSimpleName().substring(1) + "Handler.");
+                    println(13, "Returns a reference to the registered " + serviceClass.getSimpleName().substring(1) + "Bridge.");
                     println();
-                    println(13, "@return " + serviceClass.getSimpleName().substring(1) + "Handler reference or null if a handler of this type is not registered.");
-                    printlnGlobal(13, "Returns a reference to the registered " + serviceClass.getSimpleName().substring(1) + "Handler.");
+                    println(13, "@return " + serviceClass.getSimpleName().substring(1) + "Bridge reference or null if a bridge of this type is not registered.");
+                    printlnGlobal(13, "Returns a reference to the registered " + serviceClass.getSimpleName().substring(1) + "Bridge.");
                     printlnGlobal();
-                    printlnGlobal(13, "@return " + serviceClass.getSimpleName().substring(1) + "Handler reference or null if a handler of this type is not registered.");
+                    printlnGlobal(13, "@return " + serviceClass.getSimpleName().substring(1) + "Bridge reference or null if a bridge of this type is not registered.");
                     endComment(10);
                     endCommentGlobal(10);
-                    println(10, "get" + serviceClass.getSimpleName().substring(1) + "Handler() : " + serviceClass.getSimpleName());
+                    println(10, "get" + serviceClass.getSimpleName().substring(1) + "Bridge() : " + serviceClass.getSimpleName());
                     println();
-                    printlnGlobal(10, "get" + serviceClass.getSimpleName().substring(1) + "Handler() : " + serviceClass.getSimpleName());
+                    printlnGlobal(10, "get" + serviceClass.getSimpleName().substring(1) + "Bridge() : " + serviceClass.getSimpleName());
                     printlnGlobal();
                 }
             } else {
