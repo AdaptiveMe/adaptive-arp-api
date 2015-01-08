@@ -32,6 +32,11 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="IGyroscope.ts"/>
+
+module Adaptive {
+
+}
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

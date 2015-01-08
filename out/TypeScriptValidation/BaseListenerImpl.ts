@@ -32,6 +32,9 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IBaseListener.ts"/>
+
 module Adaptive {
 
      /**

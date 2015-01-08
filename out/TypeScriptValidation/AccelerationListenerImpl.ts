@@ -32,6 +32,12 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="Acceleration.ts"/>
+///<reference path="BaseListenerImpl.ts"/>
+///<reference path="IAccelerationListener.ts"/>
+///<reference path="IAccelerationListenerError.ts"/>
+///<reference path="IAccelerationListenerWarning.ts"/>
+
 module Adaptive {
 
      /**

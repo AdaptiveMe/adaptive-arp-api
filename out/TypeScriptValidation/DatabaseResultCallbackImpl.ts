@@ -32,6 +32,15 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="BaseCallbackImpl.ts"/>
+///<reference path="Database.ts"/>
+///<reference path="IDatabaseResultCallback.ts"/>
+///<reference path="IDatabaseResultCallbackError.ts"/>
+///<reference path="IDatabaseResultCallbackWarning.ts"/>
+
+module Adaptive {
+
+}
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

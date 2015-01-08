@@ -32,6 +32,14 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="BaseCallbackImpl.ts"/>
+///<reference path="INetworkReachabilityCallback.ts"/>
+///<reference path="INetworkReachabilityCallbackError.ts"/>
+///<reference path="INetworkReachabilityCallbackWarning.ts"/>
+
+module Adaptive {
+
+}
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

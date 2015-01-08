@@ -32,6 +32,18 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="ICapabilities.ts"/>
+///<reference path="ICapabilitiesButton.ts"/>
+///<reference path="ICapabilitiesCommunication.ts"/>
+///<reference path="ICapabilitiesData.ts"/>
+///<reference path="ICapabilitiesMedia.ts"/>
+///<reference path="ICapabilitiesNet.ts"/>
+///<reference path="ICapabilitiesNotification.ts"/>
+///<reference path="ICapabilitiesSensor.ts"/>
+
+module Adaptive {
+
+}
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

@@ -115,16 +115,132 @@ public class TypeScriptGenerator extends GeneratorBase {
 
     @Override
     protected void createHandlerImplementation(String simpleName, Class clazz, JavaClass javaClass) {
+        List<String> referenceList = new ArrayList<>();
+        if (clazz.getSimpleName().startsWith("IBase")) {
+            referenceList.add("IAdaptiveRPGroup");
+        }
 
+        referenceList.add(clazz.getSimpleName());
+
+        if (!simpleName.equals("AppRegistryBridge")) {
+            for (Method m : clazz.getDeclaredMethods()) {
+                for (Parameter p : m.getParameters()) {
+                    if (!p.getType().isPrimitive() && !p.getType().equals(String.class) && !p.getType().equals(Object.class) && !p.getType().isArray()) {
+                        if (!referenceList.contains(convertJavaToNativeType(p.getType()))) {
+                            referenceList.add(convertJavaToNativeType(p.getType()));
+                        }
+                    } else if (p.getType().isArray() && !p.getType().getComponentType().isPrimitive() && !p.getType().getComponentType().equals(String.class) && !p.getType().getComponentType().equals(Object.class)) {
+                        if (!referenceList.contains(convertJavaToNativeType(p.getType().getComponentType()))) {
+                            referenceList.add(convertJavaToNativeType(p.getType().getComponentType()));
+                        }
+                    }
+                }
+            }
+        }
+        
+        referenceList.sort(new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o1.compareTo(o2);
+            }
+        });
+
+        if (referenceList.size() > 0) {
+            for (String reference : referenceList) {
+                println("///<reference path=\"" + reference + ".ts\"/>");
+            }
+            println();
+        }
+
+
+        println("module Adaptive {");
+        println();
+        println("}");
     }
 
     @Override
     protected void createCallbackImplementation(String simpleName, Class clazz, JavaClass javaClass) {
+        List<String> referenceList = new ArrayList<>();
+        if (clazz.getSimpleName().equals("IBaseCallback")) {
+            referenceList.add("IAdaptiveRPGroup");
+        } else {
+            referenceList.add("BaseCallbackImpl");
+        }
+        referenceList.add(clazz.getSimpleName());
 
+        for (Method m : clazz.getDeclaredMethods()) {
+            for (Parameter p : m.getParameters()) {
+                if (!p.getType().isPrimitive() && !p.getType().equals(String.class) && !p.getType().equals(Object.class) && !p.getType().isArray()) {
+                    if (!referenceList.contains(convertJavaToNativeType(p.getType()))) {
+                        referenceList.add(convertJavaToNativeType(p.getType()));
+                    }
+                } else if (p.getType().isArray() && !p.getType().getComponentType().isPrimitive() && !p.getType().getComponentType().equals(String.class) && !p.getType().getComponentType().equals(Object.class)) {
+                    if (!referenceList.contains(convertJavaToNativeType(p.getType().getComponentType()))) {
+                        referenceList.add(convertJavaToNativeType(p.getType().getComponentType()));
+                    }
+                }
+            }
+        }
+
+        referenceList.sort(new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o1.compareTo(o2);
+            }
+        });
+
+        if (referenceList.size() > 0) {
+            for (String reference : referenceList) {
+                println("///<reference path=\"" + reference + ".ts\"/>");
+            }
+            println();
+        }
+
+
+        println("module Adaptive {");
+        println();
+        println("}");
     }
 
     @Override
     protected void createListenerImplementation(String simpleName, Class clazz, JavaClass javaClass) {
+        List<String> referenceList = new ArrayList<>();
+        if (clazz.getSimpleName().equals("IBaseListener")) {
+            referenceList.add("IAdaptiveRPGroup");
+        } else {
+            referenceList.add("BaseListenerImpl");
+        }
+        referenceList.add(clazz.getSimpleName());
+
+        for (Method m : clazz.getDeclaredMethods()) {
+            for (Parameter p : m.getParameters()) {
+                if (!p.getType().isPrimitive() && !p.getType().equals(String.class) && !p.getType().equals(Object.class) && !p.getType().isArray()) {
+                    if (!referenceList.contains(convertJavaToNativeType(p.getType()))) {
+                        referenceList.add(convertJavaToNativeType(p.getType()));
+                    }
+                } else if (p.getType().isArray() && !p.getType().getComponentType().isPrimitive() && !p.getType().getComponentType().equals(String.class) && !p.getType().getComponentType().equals(Object.class)) {
+                    if (!referenceList.contains(convertJavaToNativeType(p.getType().getComponentType()))) {
+                        referenceList.add(convertJavaToNativeType(p.getType().getComponentType()));
+                    }
+                }
+            }
+        }
+
+        referenceList.sort(new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o1.compareTo(o2);
+            }
+        });
+
+        if (referenceList.size() > 0) {
+            for (String reference : referenceList) {
+                println("///<reference path=\"" + reference + ".ts\"/>");
+            }
+            println();
+        }
+
+
         println("module Adaptive {");
         println();
         startComment(5);
@@ -222,7 +338,7 @@ public class TypeScriptGenerator extends GeneratorBase {
                 for (int i = 0; i < m.getParameterCount(); i++) {
                     Parameter p = m.getParameters()[i];
                     print(p.getName());
-                    print(" : "+convertJavaToNativeType(p.getType()));
+                    print(" : " + convertJavaToNativeType(p.getType()));
                     if (i < m.getParameterCount() - 1) {
                         print(", ");
                     }
@@ -232,7 +348,7 @@ public class TypeScriptGenerator extends GeneratorBase {
                 if (m.getReturnType().equals(Void.TYPE)) {
                     println("{");
                 } else {
-                    println(": "+ convertJavaToNativeType(m.getReturnType()) + " {");
+                    println(": " + convertJavaToNativeType(m.getReturnType()) + " {");
                 }
 
                 println(10, "}");

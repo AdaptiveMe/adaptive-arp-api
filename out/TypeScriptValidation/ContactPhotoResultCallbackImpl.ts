@@ -32,6 +32,14 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="BaseCallbackImpl.ts"/>
+///<reference path="IContactPhotoResultCallback.ts"/>
+///<reference path="IContactPhotoResultCallbackError.ts"/>
+///<reference path="IContactPhotoResultCallbackWarning.ts"/>
+
+module Adaptive {
+
+}
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

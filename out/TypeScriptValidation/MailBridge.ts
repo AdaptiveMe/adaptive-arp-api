@@ -32,6 +32,13 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="Email.ts"/>
+///<reference path="IMail.ts"/>
+///<reference path="IMessagingCallback.ts"/>
+
+module Adaptive {
+
+}
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

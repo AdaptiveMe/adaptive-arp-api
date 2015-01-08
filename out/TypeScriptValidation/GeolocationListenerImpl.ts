@@ -32,6 +32,12 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="BaseListenerImpl.ts"/>
+///<reference path="Geolocation.ts"/>
+///<reference path="IGeolocationListener.ts"/>
+///<reference path="IGeolocationListenerError.ts"/>
+///<reference path="IGeolocationListenerWarning.ts"/>
+
 module Adaptive {
 
      /**

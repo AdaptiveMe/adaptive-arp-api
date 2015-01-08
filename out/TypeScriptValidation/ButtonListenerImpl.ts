@@ -32,6 +32,12 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="BaseListenerImpl.ts"/>
+///<reference path="Button.ts"/>
+///<reference path="IButtonListener.ts"/>
+///<reference path="IButtonListenerError.ts"/>
+///<reference path="IButtonListenerWarning.ts"/>
+
 module Adaptive {
 
      /**

@@ -32,6 +32,16 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="ContactUid.ts"/>
+///<reference path="IContact.ts"/>
+///<reference path="IContactFieldGroup.ts"/>
+///<reference path="IContactFilter.ts"/>
+///<reference path="IContactPhotoResultCallback.ts"/>
+///<reference path="IContactResultCallback.ts"/>
+
+module Adaptive {
+
+}
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

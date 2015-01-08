@@ -32,6 +32,12 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="BaseListenerImpl.ts"/>
+///<reference path="ICapabilitiesNet.ts"/>
+///<reference path="INetworkStatusListener.ts"/>
+///<reference path="INetworkStatusListenerError.ts"/>
+///<reference path="INetworkStatusListenerWarning.ts"/>
+
 module Adaptive {
 
      /**

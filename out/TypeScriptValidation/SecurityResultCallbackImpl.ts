@@ -32,6 +32,15 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="BaseCallbackImpl.ts"/>
+///<reference path="ISecurityResultCallback.ts"/>
+///<reference path="ISecurityResultCallbackError.ts"/>
+///<reference path="ISecurityResultCallbackWarning.ts"/>
+///<reference path="SecureKeyPair.ts"/>
+
+module Adaptive {
+
+}
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */
