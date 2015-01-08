@@ -2,115 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2b62424-c85f-4dbf-8462-3858f1398c98" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AccelerationBridge.ts" afterPath="$PROJECT_DIR$/AccelerationBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AccelerationListenerImpl.ts" afterPath="$PROJECT_DIR$/AccelerationListenerImpl.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AdsBridge.ts" afterPath="$PROJECT_DIR$/AdsBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AlarmBridge.ts" afterPath="$PROJECT_DIR$/AlarmBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmbientLightBridge.ts" afterPath="$PROJECT_DIR$/AmbientLightBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AnalyticsBridge.ts" afterPath="$PROJECT_DIR$/AnalyticsBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AppContextBridge.ts" afterPath="$PROJECT_DIR$/AppContextBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AppContextWebviewBridge.ts" afterPath="$PROJECT_DIR$/AppContextWebviewBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AppRegistryBridge.ts" afterPath="$PROJECT_DIR$/AppRegistryBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AudioBridge.ts" afterPath="$PROJECT_DIR$/AudioBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BarcodeBridge.ts" afterPath="$PROJECT_DIR$/BarcodeBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BarometerBridge.ts" afterPath="$PROJECT_DIR$/BarometerBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseApplicationBridge.ts" afterPath="$PROJECT_DIR$/BaseApplicationBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCallbackImpl.ts" afterPath="$PROJECT_DIR$/BaseCallbackImpl.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCommerceBridge.ts" afterPath="$PROJECT_DIR$/BaseCommerceBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCommunicationBridge.ts" afterPath="$PROJECT_DIR$/BaseCommunicationBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseDataBridge.ts" afterPath="$PROJECT_DIR$/BaseDataBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseListenerImpl.ts" afterPath="$PROJECT_DIR$/BaseListenerImpl.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseMediaBridge.ts" afterPath="$PROJECT_DIR$/BaseMediaBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseNotificationBridge.ts" afterPath="$PROJECT_DIR$/BaseNotificationBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BasePIMBridge.ts" afterPath="$PROJECT_DIR$/BasePIMBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseReaderBridge.ts" afterPath="$PROJECT_DIR$/BaseReaderBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSecurityBridge.ts" afterPath="$PROJECT_DIR$/BaseSecurityBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSensorBridge.ts" afterPath="$PROJECT_DIR$/BaseSensorBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSocialBridge.ts" afterPath="$PROJECT_DIR$/BaseSocialBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSystemBridge.ts" afterPath="$PROJECT_DIR$/BaseSystemBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseUIBridge.ts" afterPath="$PROJECT_DIR$/BaseUIBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseUtilBridge.ts" afterPath="$PROJECT_DIR$/BaseUtilBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BluetoothBridge.ts" afterPath="$PROJECT_DIR$/BluetoothBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BrowserBridge.ts" afterPath="$PROJECT_DIR$/BrowserBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ButtonListenerImpl.ts" afterPath="$PROJECT_DIR$/ButtonListenerImpl.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CalendarBridge.ts" afterPath="$PROJECT_DIR$/CalendarBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CameraBridge.ts" afterPath="$PROJECT_DIR$/CameraBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CapabilitiesBridge.ts" afterPath="$PROJECT_DIR$/CapabilitiesBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CloudBridge.ts" afterPath="$PROJECT_DIR$/CloudBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CompressionBridge.ts" afterPath="$PROJECT_DIR$/CompressionBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ConcurrentBridge.ts" afterPath="$PROJECT_DIR$/ConcurrentBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactBridge.ts" afterPath="$PROJECT_DIR$/ContactBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactPhotoResultCallbackImpl.ts" afterPath="$PROJECT_DIR$/ContactPhotoResultCallbackImpl.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactResultCallbackImpl.ts" afterPath="$PROJECT_DIR$/ContactResultCallbackImpl.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CryptoBridge.ts" afterPath="$PROJECT_DIR$/CryptoBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataStreamBridge.ts" afterPath="$PROJECT_DIR$/DataStreamBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseBridge.ts" afterPath="$PROJECT_DIR$/DatabaseBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseResultCallbackImpl.ts" afterPath="$PROJECT_DIR$/DatabaseResultCallbackImpl.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseTableResultCallbackImpl.ts" afterPath="$PROJECT_DIR$/DatabaseTableResultCallbackImpl.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DesktopBridge.ts" afterPath="$PROJECT_DIR$/DesktopBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DeviceBridge.ts" afterPath="$PROJECT_DIR$/DeviceBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DisplayBridge.ts" afterPath="$PROJECT_DIR$/DisplayBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FacebookBridge.ts" afterPath="$PROJECT_DIR$/FacebookBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileBridge.ts" afterPath="$PROJECT_DIR$/FileBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileDataLoadResultCallbackImpl.ts" afterPath="$PROJECT_DIR$/FileDataLoadResultCallbackImpl.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileDataStoreResultCallbackImpl.ts" afterPath="$PROJECT_DIR$/FileDataStoreResultCallbackImpl.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileListResultCallbackImpl.ts" afterPath="$PROJECT_DIR$/FileListResultCallbackImpl.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileResultCallbackImpl.ts" afterPath="$PROJECT_DIR$/FileResultCallbackImpl.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileSystemBridge.ts" afterPath="$PROJECT_DIR$/FileSystemBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GeolocationBridge.ts" afterPath="$PROJECT_DIR$/GeolocationBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GeolocationListenerImpl.ts" afterPath="$PROJECT_DIR$/GeolocationListenerImpl.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GlobalizationBridge.ts" afterPath="$PROJECT_DIR$/GlobalizationBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GooglePlusBridge.ts" afterPath="$PROJECT_DIR$/GooglePlusBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GyroscopeBridge.ts" afterPath="$PROJECT_DIR$/GyroscopeBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ImagingBridge.ts" afterPath="$PROJECT_DIR$/ImagingBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/InternalStorageBridge.ts" afterPath="$PROJECT_DIR$/InternalStorageBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LifecycleBridge.ts" afterPath="$PROJECT_DIR$/LifecycleBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LifecycleListenerImpl.ts" afterPath="$PROJECT_DIR$/LifecycleListenerImpl.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LinkedInBridge.ts" afterPath="$PROJECT_DIR$/LinkedInBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LoggingBridge.ts" afterPath="$PROJECT_DIR$/LoggingBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MagnetometerBridge.ts" afterPath="$PROJECT_DIR$/MagnetometerBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MailBridge.ts" afterPath="$PROJECT_DIR$/MailBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ManagementBridge.ts" afterPath="$PROJECT_DIR$/ManagementBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapBridge.ts" afterPath="$PROJECT_DIR$/MapBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MessagingBridge.ts" afterPath="$PROJECT_DIR$/MessagingBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MessagingCallbackImpl.ts" afterPath="$PROJECT_DIR$/MessagingCallbackImpl.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NFCBridge.ts" afterPath="$PROJECT_DIR$/NFCBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkInfoBridge.ts" afterPath="$PROJECT_DIR$/NetworkInfoBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkNamingBridge.ts" afterPath="$PROJECT_DIR$/NetworkNamingBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkReachabilityBridge.ts" afterPath="$PROJECT_DIR$/NetworkReachabilityBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkReachabilityCallbackImpl.ts" afterPath="$PROJECT_DIR$/NetworkReachabilityCallbackImpl.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkStatusBridge.ts" afterPath="$PROJECT_DIR$/NetworkStatusBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkStatusListenerImpl.ts" afterPath="$PROJECT_DIR$/NetworkStatusListenerImpl.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NotificationBridge.ts" afterPath="$PROJECT_DIR$/NotificationBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NotificationLocalBridge.ts" afterPath="$PROJECT_DIR$/NotificationLocalBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OAuthBridge.ts" afterPath="$PROJECT_DIR$/OAuthBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OCRBridge.ts" afterPath="$PROJECT_DIR$/OCRBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OSBridge.ts" afterPath="$PROJECT_DIR$/OSBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OpenIdBridge.ts" afterPath="$PROJECT_DIR$/OpenIdBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PrintingBridge.ts" afterPath="$PROJECT_DIR$/PrintingBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ProximityBridge.ts" afterPath="$PROJECT_DIR$/ProximityBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QRCodeBridge.ts" afterPath="$PROJECT_DIR$/QRCodeBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RSSBridge.ts" afterPath="$PROJECT_DIR$/RSSBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RuntimeBridge.ts" afterPath="$PROJECT_DIR$/RuntimeBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SecurityBridge.ts" afterPath="$PROJECT_DIR$/SecurityBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SecurityResultCallbackImpl.ts" afterPath="$PROJECT_DIR$/SecurityResultCallbackImpl.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceBridge.ts" afterPath="$PROJECT_DIR$/ServiceBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceResultCallbackImpl.ts" afterPath="$PROJECT_DIR$/ServiceResultCallbackImpl.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SettingsBridge.ts" afterPath="$PROJECT_DIR$/SettingsBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SocketBridge.ts" afterPath="$PROJECT_DIR$/SocketBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/StoreBridge.ts" afterPath="$PROJECT_DIR$/StoreBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TelephonyBridge.ts" afterPath="$PROJECT_DIR$/TelephonyBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TimerBridge.ts" afterPath="$PROJECT_DIR$/TimerBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TwitterBridge.ts" afterPath="$PROJECT_DIR$/TwitterBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/typescript/TypeScriptGenerator.java" afterPath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/typescript/TypeScriptGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UIBridge.ts" afterPath="$PROJECT_DIR$/UIBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UpdateBridge.ts" afterPath="$PROJECT_DIR$/UpdateBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/VibrationBridge.ts" afterPath="$PROJECT_DIR$/VibrationBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/VideoBridge.ts" afterPath="$PROJECT_DIR$/VideoBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WalletBridge.ts" afterPath="$PROJECT_DIR$/WalletBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/XMLBridge.ts" afterPath="$PROJECT_DIR$/XMLBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TypeScriptValidation.iws" />
@@ -134,124 +25,7 @@
     <favorites_list name="TypeScriptValidation" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="BaseListenerImpl.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BaseListenerImpl.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="304" max-vertical-offset="1365">
-              <caret line="60" column="36" selection-start-line="60" selection-start-column="36" selection-end-line="60" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppContextWebviewBridge.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AppContextWebviewBridge.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
-              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-              <folding>
-                <marker date="1420749547000" expanded="true" signature="1353:1357" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppRegistryBridge.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/AppRegistryBridge.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3463376" vertical-offset="0" max-vertical-offset="1256">
-              <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
-              <folding>
-                <marker date="1420749547000" expanded="true" signature="1307:1311" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Adaptive.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Adaptive.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="15900" max-vertical-offset="108660">
-              <caret line="1060" column="13" selection-start-line="1060" selection-start-column="13" selection-end-line="1060" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoggingBridge.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LoggingBridge.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="735">
-              <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
-              <folding>
-                <marker date="1420749547000" expanded="true" signature="1291:1368" placeholder="//..." />
-                <marker date="1420749547000" expanded="true" signature="1386:1390" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IBaseListener.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/IBaseListener.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="885">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ButtonListenerImpl.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ButtonListenerImpl.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="1440">
-              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-              <folding>
-                <marker date="1420749546000" expanded="true" signature="1522:2600" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NetworkInfoBridge.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NetworkInfoBridge.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="720">
-              <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
-              <folding>
-                <marker date="1420749547000" expanded="true" signature="1347:1351" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NetworkNamingBridge.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NetworkNamingBridge.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1420749547000" expanded="true" signature="1349:1353" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NetworkReachabilityBridge.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NetworkReachabilityBridge.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="345" max-vertical-offset="735">
-              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-              <folding>
-                <marker date="1420749547000" expanded="true" signature="1291:1392" placeholder="//..." />
-                <marker date="1420749547000" expanded="true" signature="1410:1414" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -439,7 +213,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1243397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26791278" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26791278" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -494,8 +268,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="735">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1420749547000" expanded="true" signature="1291:1368" placeholder="//..." />
-            <marker date="1420749547000" expanded="true" signature="1386:1390" placeholder="..." />
+            <marker date="1420749858000" expanded="true" signature="-1:-1" placeholder="//..." />
+            <marker date="1420749858000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -505,7 +279,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="1425">
           <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding>
-            <marker date="1420749546000" expanded="true" signature="1522:2600" placeholder="..." />
+            <marker date="1420749858000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -515,7 +289,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="720">
           <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
           <folding>
-            <marker date="1420749547000" expanded="true" signature="1347:1351" placeholder="..." />
+            <marker date="1420749858000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -525,7 +299,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1420749547000" expanded="true" signature="1349:1353" placeholder="..." />
+            <marker date="1420749858000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -535,8 +309,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="345" max-vertical-offset="735">
           <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding>
-            <marker date="1420749547000" expanded="true" signature="1291:1392" placeholder="//..." />
-            <marker date="1420749547000" expanded="true" signature="1410:1414" placeholder="..." />
+            <marker date="1420749858000" expanded="true" signature="-1:-1" placeholder="//..." />
+            <marker date="1420749858000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -779,20 +553,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ButtonListenerImpl.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="1440">
+        <state vertical-scroll-proportion="0.7072368" vertical-offset="90" max-vertical-offset="1440">
           <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
           <folding>
-            <marker date="1420749546000" expanded="true" signature="1522:2600" placeholder="..." />
+            <marker date="1420749858000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/NetworkInfoBridge.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
+        <state vertical-scroll-proportion="0.44407895" vertical-offset="0" max-vertical-offset="912">
           <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
           <folding>
-            <marker date="1420749547000" expanded="true" signature="1347:1351" placeholder="..." />
+            <marker date="1420749858000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -802,18 +576,18 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1256">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1420749547000" expanded="true" signature="1349:1353" placeholder="..." />
+            <marker date="1420749858000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/NetworkReachabilityBridge.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="735">
+        <state vertical-scroll-proportion="0.37828946" vertical-offset="0" max-vertical-offset="912">
           <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding>
-            <marker date="1420749547000" expanded="true" signature="1291:1392" placeholder="//..." />
-            <marker date="1420749547000" expanded="true" signature="1410:1414" placeholder="..." />
+            <marker date="1420749858000" expanded="true" signature="-1:-1" placeholder="//..." />
+            <marker date="1420749858000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -828,11 +602,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/LoggingBridge.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="735">
+        <state vertical-scroll-proportion="0.34539473" vertical-offset="0" max-vertical-offset="912">
           <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
           <folding>
-            <marker date="1420749547000" expanded="true" signature="1291:1368" placeholder="//..." />
-            <marker date="1420749547000" expanded="true" signature="1386:1390" placeholder="..." />
+            <marker date="1420749858000" expanded="true" signature="-1:-1" placeholder="//..." />
+            <marker date="1420749858000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -845,31 +619,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BaseListenerImpl.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="304" max-vertical-offset="1365">
-          <caret line="60" column="36" selection-start-line="60" selection-start-column="36" selection-end-line="60" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AppContextWebviewBridge.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
           <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding>
-            <marker date="1420749547000" expanded="true" signature="1353:1357" placeholder="..." />
+            <marker date="1420749858000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AppRegistryBridge.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3463376" vertical-offset="0" max-vertical-offset="1256">
-          <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
-          <folding>
-            <marker date="1420749547000" expanded="true" signature="1307:1311" placeholder="..." />
-          </folding>
+        <state vertical-scroll-proportion="0.5263158" vertical-offset="0" max-vertical-offset="912">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BaseListenerImpl.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="304" max-vertical-offset="1365">
+          <caret line="60" column="36" selection-start-line="60" selection-start-column="36" selection-end-line="60" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
