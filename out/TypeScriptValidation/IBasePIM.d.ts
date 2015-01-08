@@ -27,6 +27,10 @@ Contributors:
 
     * See source code files for contributors.
 
+Release:
+
+    * @version v2.0.2
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {

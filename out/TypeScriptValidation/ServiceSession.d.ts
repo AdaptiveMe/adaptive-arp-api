@@ -26,6 +26,10 @@ Contributors:
 
     * See source code files for contributors.
 
+Release:
+
+    * @version v2.0.2
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
@@ -40,7 +44,7 @@ declare module Adaptive {
         /**
            The attributes of the response
         */
-        attributes: any[];
+        attributes: string[];
         /**
            The cookies of the response
         */
@@ -52,21 +56,21 @@ declare module Adaptive {
            @param attributes Attributes of the response
            @since ARP1.0
         */
-        constructor(cookies: ServiceCookie[], attributes: any[]);
+        constructor(cookies: ServiceCookie[], attributes: string[]);
         /**
            Gets the attributes of the response
 
            @return Attributes of the response
            @since ARP1.0
         */
-        getAttributes(): any[];
+        getAttributes(): string[];
         /**
            Sets the attributes for the response
 
            @param attributes Attributes of the response
            @since ARP1.0
         */
-        setAttributes(attributes: any[]): void;
+        setAttributes(attributes: string[]): void;
         /**
            Returns the cookies of the response
 

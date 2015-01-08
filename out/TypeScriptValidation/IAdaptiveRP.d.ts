@@ -26,6 +26,10 @@ Contributors:
 
     * See source code files for contributors.
 
+Release:
+
+    * @version v2.0.2
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
@@ -37,7 +41,6 @@ declare module Adaptive {
        @version 1.0
     */
     interface IAdaptiveRP {
-        API_VERSION: string;
         /**
            Method that returns the API group of the implementation
            @return API GRoup

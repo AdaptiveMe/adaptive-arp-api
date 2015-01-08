@@ -25,6 +25,10 @@ Contributors:
 
     * See source code files for contributors.
 
+Release:
+
+    * @version v2.0.2
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
@@ -41,13 +45,13 @@ declare module Adaptive {
         */
         asyncId: number;
         /**
-           String representing the method name to call
+           String representing the bridge type to obtain.
+        */
+        bridgeType: string;
+        /**
+           String representing the method name to call.
         */
         methodName: string;
-        /**
-           Types of the request parameters
-        */
-        parameterTypes: string[];
         /**
            Parameters of the request as JSON formatted strings.
         */
@@ -55,13 +59,13 @@ declare module Adaptive {
         /**
            Constructor with all the parameters
 
-           @param methodName     Name of the method
-           @param parameters     Array of parameters as JSON formatted strings.
-           @param parameterTypes Array of parameters types
-           @param asyncId        Id of callback or listener or zero if none for synchronous calls.
+           @param bridgeType Name of the bridge to be invoked.
+           @param methodName Name of the method
+           @param parameters Array of parameters as JSON formatted strings.
+           @param asyncId    Id of callback or listener or zero if none for synchronous calls.
            @since ARP1.0
         */
-        constructor(methodName: string, parameters: string[], parameterTypes: string[], asyncId: number);
+        constructor(bridgeType: string, methodName: string, parameters: string[], asyncId: number);
         /**
            Returns the callback or listener id assigned to this request OR zero if there is no associated callback or
 listener.
@@ -76,6 +80,20 @@ listener.
         */
         setAsyncId(asyncId: number): void;
         /**
+           Bridge Type Getter
+
+           @return Bridge Type
+           @since ARP1.0
+        */
+        getBridgeType(): string;
+        /**
+           Bridge Type Setter
+
+           @param bridgeType Bridge Type
+           @since ARP1.0
+        */
+        setBridgeType(bridgeType: string): void;
+        /**
            Method name Getter
 
            @return Method name
@@ -89,20 +107,6 @@ listener.
            @since ARP1.0
         */
         setMethodName(methodName: string): void;
-        /**
-           Parameter types Getter
-
-           @return Parameter types
-           @since ARP1.0
-        */
-        getParameterTypes(): string[];
-        /**
-           Parameter types setter
-
-           @param parameterTypes Parameter types
-           @since ARP1.0
-        */
-        setParameterTypes(parameterTypes: string[]): void;
         /**
            Parameters Getter
 

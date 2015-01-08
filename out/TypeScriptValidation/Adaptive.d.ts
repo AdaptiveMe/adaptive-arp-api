@@ -25,116 +25,42 @@ Contributors:
 
     * See source code files for contributors.
 
+Release:
+
+    * @version v2.0.2
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
     /**
-       This interface manages the operation about the application resources
+       This is a marker interface for bridge classes that invoke delegates.
 
        @author Carlos Lozano Diez
-       @since ARP1.0
+       @since 1.0
        @version 1.0
     */
-    interface IAppResourceHandler {
+    interface APIBridge {
         /**
-           This method manages the queries to the bundle reosurces inside the application
-           @param resourcePath path of the resource
-           @param callback     Callback
+           Invokes the given method specified in the API request object.
+           @param request APIRequest object containing method name and parameters.
+           @return String with JSON response or a zero length string is the response is asynchronous.
         */
-        getResource(resourcePath: string, callback: IAppResourceCallback): any;
+        invoke(request: APIRequest): string;
     }
     /**
-       This interface manages the application resources on the bundle
+       Master interface for all the Groups and Types of Interfaces os the Project
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface IAppResource {
+    interface IAdaptiveRP {
         /**
-           Returns the payload of the resource decripted
-           @return Payload
+           Method that returns the API group of the implementation
+           @return API GRoup
            @since ARP1.0
         */
-        getData(): number[];
-        /**
-           Returns the data path of the resource
-           @return The data path of the resource
-           @since ARP1.0
-        */
-        getDataPathLinked(): string;
-        /**
-           Returns the stored payload of the resource
-           @return Stored payload
-           @since ARP1.0
-        */
-        getDataStored(): number[];
-        /**
-           Returns the format of the resource
-           @return Format of the resource
-           @since ARP1.0
-        */
-        getFormat(): IAppResourceFormat;
-        /**
-           Returns the MD5 encoding of the resource
-           @return MD5 encoding of the resource
-           @since ARP1.0
-        */
-        getMd5(): string;
-        /**
-           Returns the Mime-Type of the resource
-           @return The mime-type
-           @since ARP1.0
-        */
-        getMimetype(): string;
-        /**
-           Returns the name of the resource
-           @return Name of the resource
-           @since ARP1.0
-        */
-        getName(): string;
-        /**
-           Returns the path of the resource
-           @return Path of the resource
-           @since ARP1.0
-        */
-        getPath(): string;
-        /**
-           Returns the payload type of the resource
-           @return Payload type
-           @since ARP1.0
-        */
-        getPayloadType(): IAppResourcePayload;
-        /**
-           Returns the size of the resource
-           @return Size of the resource
-           @since ARP1.0
-        */
-        getSize(): number;
-        /**
-           Returns the Size of the stored resource
-           @return Size of the Stored Resource
-           @since ARP1.0
-        */
-        getSizeStored(): number;
-        /**
-           Returns the timestamp of the resource
-           @return Timestamp of the resource
-           @since ARP1.0
-        */
-        getTimestamp(): number;
-        /**
-           Returns the type of the resource
-           @return Type of the resource
-           @since ARP1.0
-        */
-        getType(): IAppResourceType;
-        /**
-           Returns the unique identifier of the resource
-           @return Unique Identifier
-           @since ARP1.0
-        */
-        getUuid(): string;
+        getAPIGroup(): IAdaptiveRPGroup;
     }
     /**
        Interface for Managing the File operations
@@ -146,178 +72,120 @@ declare module Adaptive {
     interface IFile {
         /**
            Determine whether the current file/folder can be read from.
+           @param descriptor File descriptor of file or folder used for operation.
            @return True if the folder/file is readable, false otherwise.
            @since ARP1.0
         */
-        canRead(): boolean;
+        canRead(descriptor: FileDescriptor): boolean;
         /**
            Determine whether the current file/folder can be written to.
+           @param descriptor File descriptor of file or folder used for operation.
            @return True if the folder/file is writable, false otherwise.
            @since ARP1.0
         */
-        canWrite(): boolean;
+        canWrite(descriptor: FileDescriptor): boolean;
         /**
            Creates a file with the specified name.
+           @param descriptor File descriptor of file or folder used for operation.
            @param callback Result of the operation.
            @since ARP1.0
         */
-        create(callback: IFileResultCallback): any;
+        create(descriptor: FileDescriptor, callback: IFileResultCallback): any;
         /**
            Deletes the given file or path. If the file is a directory and contains files and or subdirectories, these will be
 deleted if the cascade parameter is set to true.
+           @param descriptor File descriptor of file or folder used for operation.
            @param cascade Whether to delete sub-files and sub-folders.
            @return True if files (and sub-files and folders) whether deleted.
            @since ARP1.0
         */
-        delete(cascade: boolean): boolean;
+        delete(descriptor: FileDescriptor, cascade: boolean): boolean;
         /**
            Check whether the file/path exists.
+           @param descriptor File descriptor of file or folder used for operation.
            @return True if the file exists in the filesystem, false otherwise.
            @since ARP1.0
         */
-        exists(): boolean;
+        exists(descriptor: FileDescriptor): boolean;
         /**
            Loads the content of the file.
+           @param descriptor File descriptor of file or folder used for operation.
            @param callback Result of the operation.
            @since ARP1.0
         */
-        getContent(callback: IFileDataLoadResultCallback): any;
-        /**
-           Returns the milliseconds passed since 1/1/1970 since the file was created.
-           @return Timestamp in milliseconds.
-           @since ARP1.0
-        */
-        getDateCreated(): number;
-        /**
-           Returns the milliseconds passed since 1/1/1970 since the file was modified.
-           @return Timestamp in milliseconds.
-           @since ARP1.0
-        */
-        getDateModified(): number;
+        getContent(descriptor: FileDescriptor, callback: IFileDataLoadResultCallback): any;
         /**
            Returns the file storage type of the file
+           @param descriptor File descriptor of file or folder used for operation.
            @return Storage Type file
            @since ARP1.0
         */
-        getFileStorageType(): IFileSystemStorageType;
+        getFileStorageType(descriptor: FileDescriptor): IFileSystemStorageType;
         /**
            Returns the file type
+           @param descriptor File descriptor of file or folder used for operation.
            @return Returns the file type of the file
            @since ARP1.0
         */
-        getFileType(): IFileSystemType;
-        /**
-           Returns the name of the file if the reference is a file or the last path element of the folder.
-           @return The name of the file.
-           @since ARP1.0
-        */
-        getName(): string;
-        /**
-           Returns the path element of the file or folder (excluding the last path element if it's a directory).
-           @return The path to the file.
-           @since ARP1.0
-        */
-        getPath(): string;
-        /**
-           Returns the resolved absolute path elements of the file and/or folders (including the last path element).
-           @return The absolute path to the file.
-           @since ARP1.0
-        */
-        getPathAbsolute(): string;
+        getFileType(descriptor: FileDescriptor): IFileSystemType;
         /**
            Returns the security type of the file
+           @param descriptor File descriptor of file or folder used for operation.
            @return Security Level of the file
            @since ARP1.0
         */
-        getSecurityType(): IFileSystemSecurity;
-        /**
-           Returns the size in bytes of the file or -1 if the reference is a folder.
-           @return Size in bytes of file.
-           @since ARP1.0
-        */
-        getSize(): number;
+        getSecurityType(descriptor: FileDescriptor): IFileSystemSecurity;
         /**
            Check whether this is a path of a file.
+           @param descriptor File descriptor of file or folder used for operation.
            @return true if this is a path to a folder/directory, false if this is a path to a file.
            @since ARP1.0
         */
-        isDirectory(): boolean;
+        isDirectory(descriptor: FileDescriptor): boolean;
         /**
            List all the files matching the speficied regex filter within this file/path reference. If the reference
 is a file, it will not yield any results.
+           @param descriptor File descriptor of file or folder used for operation.
            @param regex    Filter (eg. *.jpg, *.png, Fil*) name string.
            @param callback Result of operation.
            @since ARP1.0
         */
-        listFilesForRegex(regex: string, callback: IFileListResultCallback): any;
+        listFilesForRegex(descriptor: FileDescriptor, regex: string, callback: IFileListResultCallback): any;
         /**
            List all the files contained within this file/path reference. If the reference is a file, it will not yield
 any results.
+           @param descriptor File descriptor of file or folder used for operation.
            @param callback Result of operation.
            @since ARP1.0
         */
-        listFiles(callback: IFileListResultCallback): any;
+        listFiles(descriptor: FileDescriptor, callback: IFileListResultCallback): any;
         /**
            Creates the parent path (or paths, if recursive) to the given file/path if it doesn't already exist.
+           @param descriptor File descriptor of file or folder used for operation.
            @param recursive Whether to create all parent path elements.
            @return True if the path was created, false otherwise (or it exists already).
            @since ARP1.0
         */
-        mkDir(recursive: boolean): boolean;
+        mkDir(descriptor: FileDescriptor, recursive: boolean): boolean;
         /**
            Moves the current file to the given file destination, optionally overwriting and creating the path to the
 new destination file.
-           @param newFile    Destination path/file for the move.
+           @param source File descriptor of file or folder used for operation as source.
+           @param destination File descriptor of file or folder used for operation as destination.
            @param createPath True to create the path if it does not already exist.
            @param callback   Result of the operation.
            @param overwrite  True to create the path if it does not already exist.
            @since ARP1.0
         */
-        move(newFile: IFile, createPath: boolean, overwrite: boolean, callback: IFileResultCallback): any;
+        move(source: FileDescriptor, destination: FileDescriptor, createPath: boolean, overwrite: boolean, callback: IFileResultCallback): any;
         /**
            Sets the content of the file.
+           @param descriptor File descriptor of file or folder used for operation.
            @param content  Binary content to store in the file.
            @param callback Result of the operation.
            @since ARP1.0
         */
-        setContent(content: number[], callback: IFileDataStoreResultCallback): any;
-    }
-    /**
-       Interface for context management purposes
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IAppContext {
-        /**
-           The main application context. This should be cast to the platform specific implementation.
-           @return Object representing the specific singleton application context provided by the OS.
-           @since ARP1.0
-        */
-        getContext(): any;
-        /**
-           The type of context provided by the getContext method.
-           @return Type of platform context.
-           @since ARP1.0
-        */
-        getContextType(): IOSType;
-    }
-    /**
-       Master interface for all the Groups and Types of Interfaces os the Project
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IAdaptiveRP {
-        API_VERSION: string;
-        /**
-           Method that returns the API group of the implementation
-           @return API GRoup
-           @since ARP1.0
-        */
-        getAPIGroup(): IAdaptiveRPGroup;
+        setContent(descriptor: FileDescriptor, content: number[], callback: IFileDataStoreResultCallback): any;
     }
     /**
        Interface for webview context management purposes
@@ -369,6 +237,27 @@ ARP functions and release resources. The primary webview can not be removed.
            @since ARP1.0
         */
         removeWebview(webView: any): any;
+    }
+    /**
+       Interface for context management purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IAppContext {
+        /**
+           The main application context. This should be cast to the platform specific implementation.
+           @return Object representing the specific singleton application context provided by the OS.
+           @since ARP1.0
+        */
+        getContext(): any;
+        /**
+           The type of context provided by the getContext method.
+           @return Type of platform context.
+           @since ARP1.0
+        */
+        getContextType(): IOSType;
     }
     /**
        Interface to retrieve auto-registered service implementation references.
@@ -806,28 +695,94 @@ ARP functions and release resources. The primary webview can not be removed.
         getPlatformContextWeb(): IAppContextWebview;
     }
     /**
-       This is a marker interface for bridge classes that invoke delegates.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface APIBridge {
-        /**
-           Invokes the given method specified in the API request object.
-           @param request APIRequest object containing method name and parameters.
-           @return String with JSON response or a zero length string is the response is asynchronous.
-        */
-        invoke(request: APIRequest): string;
-    }
-    /**
-       Base application for Notification purposes
+       Base application for System purposes
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface IBaseNotification extends IAdaptiveRP {
+    interface IBaseSystem extends IAdaptiveRP {
+    }
+    /**
+       Base application for Media purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IBaseMedia extends IAdaptiveRP {
+    }
+    /**
+       Base application for Utility purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IBaseUtil extends IAdaptiveRP {
+    }
+    /**
+       Base application for Data purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IBaseData extends IAdaptiveRP {
+    }
+    /**
+       Base application for Commerce purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IBaseCommerce extends IAdaptiveRP {
+    }
+    /**
+       Base application for Reader purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IBaseReader extends IAdaptiveRP {
+    }
+    /**
+       Base application for Application purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IBaseApplication extends IAdaptiveRP {
+    }
+    /**
+       Base application for UI purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IBaseUI extends IAdaptiveRP {
+    }
+    /**
+       Base application for Social purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IBaseSocial extends IAdaptiveRP {
+    }
+    /**
+       Base application for PIM purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IBasePIM extends IAdaptiveRP {
     }
     /**
        Base application for Communication purposes
@@ -839,15 +794,6 @@ ARP functions and release resources. The primary webview can not be removed.
     interface IBaseCommunication extends IAdaptiveRP {
     }
     /**
-       Base application for Security purposes
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IBaseSecurity extends IAdaptiveRP {
-    }
-    /**
        Base application for Callback purposes
 
        @author Carlos Lozano Diez
@@ -855,6 +801,15 @@ ARP functions and release resources. The primary webview can not be removed.
        @version 1.0
     */
     interface IBaseCallback extends IAdaptiveRP {
+    }
+    /**
+       Base application for Security purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IBaseSecurity extends IAdaptiveRP {
     }
     /**
        Base application for Sensor purposes
@@ -875,141 +830,195 @@ ARP functions and release resources. The primary webview can not be removed.
     interface IBaseListener extends IAdaptiveRP {
     }
     /**
-       Base application for Utility purposes
+       Base application for Notification purposes
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface IBaseUtil extends IAdaptiveRP {
+    interface IBaseNotification extends IAdaptiveRP {
     }
     /**
-       Base application for System purposes
+       Interface for Managing the Proximity operations
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface IBaseSystem extends IAdaptiveRP {
+    interface IProximity extends IBaseSensor {
     }
     /**
-       Base application for Reader purposes
+       Interface for Managing the Giroscope operations
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface IBaseReader extends IAdaptiveRP {
+    interface IGyroscope extends IBaseSensor {
     }
     /**
-       Base application for UI purposes
+       Interface for Managing the Update operations
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface IBaseUI extends IAdaptiveRP {
+    interface IUpdate extends IBaseApplication {
     }
     /**
-       Base application for Commerce purposes
+       Interface for Managing the File store operations callback
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface IBaseCommerce extends IAdaptiveRP {
-    }
-    /**
-       Base application for Social purposes
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IBaseSocial extends IAdaptiveRP {
-    }
-    /**
-       Base application for Data purposes
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IBaseData extends IAdaptiveRP {
-    }
-    /**
-       Base application for Application purposes
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IBaseApplication extends IAdaptiveRP {
-    }
-    /**
-       Base application for Media purposes
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IBaseMedia extends IAdaptiveRP {
-    }
-    /**
-       Base application for PIM purposes
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IBasePIM extends IAdaptiveRP {
-    }
-    /**
-       Interface for Managing the Cloud operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface ICloud extends IBaseData {
-    }
-    /**
-       Interface for Managing the Compression operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface ICompression extends IBaseUtil {
-    }
-    /**
-       Interface for Managing the OCR operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IOCR extends IBaseReader {
-    }
-    /**
-       Interface for Managing the Runtime operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IRuntime extends IBaseSystem {
+    interface IFileDataStoreResultCallback extends IBaseCallback {
         /**
-           Dismiss the current Application
+           Error processing data retrieval/storage operation.
+           @param error Error condition encountered.
            @since ARP1.0
         */
-        dismissApplication(): any;
+        onError(error: IFileDataStoreResultCallbackError): any;
         /**
-           Whether the application dismiss the splash screen successfully or not
-           @return true if the application has dismissed the splash screen;false otherwise
+           Result of data storage operation.
+           @param file File reference to stored data.
            @since ARP1.0
         */
-        dismissSplashScreen(): boolean;
+        onResult(file: FileDescriptor): any;
+        /**
+           Result with warning of data retrieval/storage operation.
+           @param file    File being loaded/stored.
+           @param warning Warning condition encountered.
+           @since ARP1.0
+        */
+        onWarning(file: FileDescriptor, warning: IFileDataStoreResultCallbackWarning): any;
+    }
+    /**
+       Interface for Managing the Lifecycle listeners
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface ILifecycleListener extends IBaseListener {
+        /**
+           No data received - error condition, not authorized or hardware not available.
+           @param error Type of error encountered during reading.
+           @since ARP1.0
+        */
+        onError(error: ILifecycleListenerError): any;
+        /**
+           Called when lifecycle changes somehow.
+           @param lifecycle Lifecycle element
+           @since ARP1.0
+        */
+        onResult(lifecycle: Lifecycle): any;
+        /**
+           Data received with warning
+           @param lifecycle Lifecycle element
+           @param warning Type of warning encountered during reading.
+           @since ARP1.0
+        */
+        onWarning(lifecycle: Lifecycle, warning: ILifecycleListenerWarning): any;
+    }
+    /**
+       Interface for Managing the Telephony operations
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+       @version 1.0
+    */
+    interface ITelephony extends IBaseCommunication {
+        /**
+           Invoke a phone call
+           @param number to call
+           @return Status of the call
+           @since ARP1.0
+        */
+        call(number: string): ITelephonyStatus;
+    }
+    /**
+       Interface for Managing the Timer operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface ITimer extends IBaseUtil {
+    }
+    /**
+       Interface for Managing the Contact operations
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IContactPhotoResultCallback extends IBaseCallback {
+        /**
+           This method is called on Error
+           @param error returned by the platform
+           @since ARP1.0
+        */
+        onError(error: IContactPhotoResultCallbackError): any;
+        /**
+           This method is called on Result
+           @param contactPhoto returned by the platform
+           @since ARP1.0
+        */
+        onResult(contactPhoto: number[]): any;
+        /**
+           This method is called on Warning
+           @param contactPhoto returned by the platform
+           @param warning      returned by the platform
+           @since ARP1.0
+        */
+        onWarning(contactPhoto: number[], warning: IContactPhotoResultCallbackWarning): any;
+    }
+    /**
+       Interface for Managing the Local Notifications operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface INotificationLocal extends IBaseNotification {
+    }
+    /**
+       Interface for Managing the button  operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IButtonListener extends IBaseListener {
+        /**
+           No data received
+           @param error occurred
+           @since ARP1.0
+        */
+        onError(error: IButtonListenerError): any;
+        /**
+           Called on button pressed
+           @param button pressed
+           @since ARP1.0
+        */
+        onResult(button: Button): any;
+        /**
+           Data received with warning
+           @param button  pressed
+           @param warning happened
+           @since ARP1.0
+        */
+        onWarning(button: Button, warning: IButtonListenerWarning): any;
+    }
+    /**
+       Interface for Managing the DataStream operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IDataStream extends IBaseData {
     }
     /**
        Interface for Managing the Map operations
@@ -1021,13 +1030,41 @@ ARP functions and release resources. The primary webview can not be removed.
     interface IMap extends IBaseUI {
     }
     /**
-       Interface for Managing the Network information operations
+       Interface for Managing the File loading callback responses
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface INetworkInfo extends IBaseCommunication {
+    interface IFileDataLoadResultCallback extends IBaseCallback {
+        /**
+           Error processing data retrieval/storage operation.
+           @param error Error condition encountered.
+           @since ARP1.0
+        */
+        onError(error: IFileDataLoadResultCallbackError): any;
+        /**
+           Result of data retrieval operation.
+           @param data Data loaded.
+           @since ARP1.0
+        */
+        onResult(data: number[]): any;
+        /**
+           Result with warning of data retrieval/storage operation.
+           @param data    File being loaded.
+           @param warning Warning condition encountered.
+           @since ARP1.0
+        */
+        onWarning(data: number[], warning: IFileDataLoadResultCallbackWarning): any;
+    }
+    /**
+       Interface for Managing the Desktop operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IDesktop extends IBaseUI {
     }
     /**
        Interface for testing the Capabilities operations
@@ -1092,288 +1129,32 @@ device.
         hasSensorSupport(type: ICapabilitiesSensor): boolean;
     }
     /**
-       Interface for Managing the Geolocation results
-
-       @author Francisco Javier Martin Bueno
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IGeolocationListener extends IBaseListener {
-        /**
-           No data received - error condition, not authorized or hardware not available.
-           @since ARP1.0
-        */
-        onError(error: IGeolocationListenerError): any;
-        /**
-           Correct data received.
-           @param geolocation Geolocation Bean
-           @since ARP1.0
-        */
-        onResult(geolocation: Geolocation): any;
-        /**
-           Data received with warning - ie. HighDoP
-           @param geolocation Geolocation Bean
-           @since ARP1.0
-        */
-        onWarning(geolocation: Geolocation, warning: IGeolocationListenerWarning): any;
-    }
-    /**
-       Interface for Managing the Management operations
+       Interface for Managing the Network reachability callback result
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface IManagement extends IBaseApplication {
-    }
-    /**
-       Interface for Managing the Contact operations
-
-       @author Francisco Javier Martin Bueno
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IContactResultCallback extends IBaseCallback {
-        /**
-           This method is called on Error
-           @param error returned by the platform
-           @since ARP1.0
-        */
-        onError(error: IContactResultCallbackError): any;
-        /**
-           This method is called on Result
-           @param contacts returned by the platform
-           @since ARP1.0
-        */
-        onResult(contacts: Contact[]): any;
-        /**
-           This method is called on Warning
-           @param contacts returned by the platform
-           @param warning  returned by the platform
-           @since ARP1.0
-        */
-        onWarning(contacts: Contact[], warning: IContactResultCallbackWarning): any;
-    }
-    /**
-       Interface for Managing the Video operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IVideo extends IBaseMedia {
-        /**
-           Play url video stream
-           @param url of the video
-           @since ARP1.0
-        */
-        playStream(url: string): any;
-    }
-    /**
-       Interface for Barometer management purposes
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IBarometer extends IBaseSensor {
-    }
-    /**
-       Interface for Managing the Settings operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface ISettings extends IBaseApplication {
-    }
-    /**
-       Interface for Managing the Mail operations
-
-       @author Francisco Javier Martin Bueno
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IMail extends IBasePIM {
-        /**
-           Send an Email
-           @param data     Payload of the email
-           @param callback Result callback of the operation
-           @since ARP1.0
-        */
-        sendEmail(data: Email, callback: IMessagingCallback): any;
-    }
-    /**
-       Interface for Managing the Vibration operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IVibration extends IBaseNotification {
-    }
-    /**
-       Interface for Managing the NFC operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface INFC extends IBaseReader {
-    }
-    /**
-       Interface for Managing the Globalization results
-
-       @author Francisco Javier Martin Bueno
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IGlobalization extends IBaseApplication {
-        /**
-           List of supported locales for the application
-           @return List of locales
-           @since ARP1.0
-        */
-        getLocaleSupportedDescriptors(): Locale[];
-        /**
-           Gets the text/message corresponding to the given key and locale.
-           @param key    to match text
-           @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
-           @return Localized text.
-           @since ARP1.0
-        */
-        getResourceLiteral(key: string, locale: Locale): string;
-        /**
-           Gets the full application configured literals (key/message pairs) corresponding to the given locale.
-           @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
-           @return Localized texts in the form of an object.
-           @since ARP1.0
-        */
-        getResourceLiterals(locale: Locale): KeyPair[];
-    }
-    /**
-       Interface for Managing the Telephony operations
-
-       @author Francisco Javier Martin Bueno
-       @since ARP1.0
-       @version 1.0
-    */
-    interface ITelephony extends IBaseCommunication {
-        /**
-           Invoke a phone call
-           @param number to call
-           @return Status of the call
-           @since ARP1.0
-        */
-        call(number: string): ITelephonyStatus;
-    }
-    /**
-       Interface for Managing the Security result callback
-
-       @author Aryslan
-       @since ARP1.0
-       @version 1.0
-    */
-    interface ISecurityResultCallback extends IBaseCallback {
+    interface INetworkReachabilityCallback extends IBaseCallback {
         /**
            No data received - error condition, not authorized .
-           @param error Error values
+           @param error Error value
            @since ARP1.0
         */
-        onError(error: ISecurityResultCallbackError): any;
+        onError(error: INetworkReachabilityCallbackError): any;
         /**
            Correct data received.
-           @param keyValues key and values
+           @param reachable Indicates if the host is reachable
            @since ARP1.0
         */
-        onResult(keyValues: SecureKeyPair[]): any;
+        onResult(reachable: boolean): any;
         /**
            Data received with warning - ie Found entries with existing key and values have been overriden
-           @param keyValues key and values
-           @param warning   Warning values
+           @param reachable Indicates if the host is reachable
+           @param warning   Warning value
            @since ARP1.0
         */
-        onWarning(keyValues: SecureKeyPair[], warning: ISecurityResultCallbackWarning): any;
-    }
-    /**
-       Interface for Managing the Device operations
-
-       @author Francisco Javier Martin Bueno
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IDevice extends IBaseSystem {
-        /**
-           Register a new listener that will receive button events.
-           @param listener to be registered.
-           @since ARP1.0
-        */
-        addButtonListener(listener: IButtonListener): any;
-        /**
-           Returns the device information for the current device executing the runtime.
-           @return DeviceInfo for the current device.
-           @since ARP1.0
-        */
-        getDeviceInfo(): DeviceInfo;
-        /**
-           Gets the current Locale for the device.
-           @return The current Locale information.
-           @since ARP1.0
-        */
-        getLocaleCurrent(): Locale;
-        /**
-           De-registers an existing listener from receiving button events.
-           @param listener
-           @since ARP1.0
-        */
-        removeButtonListener(listener: IButtonListener): any;
-        /**
-           Removed all existing listeners from receiving button events.
-           @since ARP1.0
-        */
-        removeButtonListeners(): any;
-    }
-    /**
-       Interface for Managing the Store operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IStore extends IBaseCommerce {
-    }
-    /**
-       Interface for Managing the XML operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IXML extends IBaseData {
-    }
-    /**
-       Interface for Managing the Proximity operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IProximity extends IBaseSensor {
-    }
-    /**
-       Interface for Managing the OS operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IOS extends IBaseSystem {
-        /**
-           Returns the OSInfo for the current operating system.
-           @return OSInfo with name, version and vendor of the OS.
-           @since ARP1.0
-        */
-        getOSInfo(): OSInfo;
+        onWarning(reachable: boolean, warning: INetworkReachabilityCallbackWarning): any;
     }
     /**
        Interface for Managing the Google Plus operations
@@ -1385,74 +1166,6 @@ device.
     interface IGooglePlus extends IBaseSocial {
     }
     /**
-       Interface for Managing the Logging operations
-
-       @author Ferran Vila Conesa
-       @since ARP1.0
-       @version 1.0
-    */
-    interface ILogging extends IBaseUtil {
-        /**
-           Logs the given message, with the given log level if specified, to the standard platform/environment.
-           @param level    Log level
-           @param category Category/tag name to identify/filter the log.
-           @param message  Message to be logged
-           @since ARP1.0
-        */
-        log(level: ILoggingLogLevel, category: string, message: string): any;
-        /**
-           Logs the given message, with the given log level if specified, to the standard platform/environment.
-           @param level   Log level
-           @param message Message to be logged
-           @since ARP1.0
-        */
-        log(level: ILoggingLogLevel, message: string): any;
-    }
-    /**
-       Interface for Managing the Giroscope operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IGyroscope extends IBaseSensor {
-    }
-    /**
-       Interface defining methods about the acceleration sensor
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IAcceleration extends IBaseSensor {
-        /**
-           Register a new listener that will receive acceleration events.
-           @param listener to be registered.
-           @since ARP1.0
-        */
-        addAccelerationListener(listener: IAccelerationListener): any;
-        /**
-           De-registers an existing listener from receiving acceleration events.
-           @param listener to be registered.
-           @since ARP1.0
-        */
-        removeAccelerationListener(listener: IAccelerationListener): any;
-        /**
-           Removed all existing listeners from receiving acceleration events.
-           @since ARP1.0
-        */
-        removeAccelerationListeners(): any;
-    }
-    /**
-       Interface for Managing the Desktop operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IDesktop extends IBaseUI {
-    }
-    /**
        Interface for Managing the Network status listener events
 
        @author Carlos Lozano Diez
@@ -1462,7 +1175,7 @@ device.
     interface INetworkStatusListener extends IBaseListener {
         /**
            No data received - error condition, not authorized or hardware not available.
-           @param error
+           @param error Type of error encountered during reading.
            @since ARP1.0
         */
         onError(error: INetworkStatusListenerError): any;
@@ -1475,507 +1188,66 @@ device.
         /**
            Status received with warning
            @param network Change to this network.
-           @param warning
+           @param warning Type of warning encountered during reading.
            @since ARP1.0
         */
         onWarning(network: ICapabilitiesNet, warning: INetworkStatusListenerWarning): any;
     }
     /**
-       Interface for Bluetooth purposes
+       Interface for Managing the Concurrent operations
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface IBluetooth extends IBaseCommunication {
+    interface IConcurrent extends IBaseUtil {
     }
     /**
-       Interface for Audio purposes
+       Interface for Managing the Network naming operations
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface IAudio extends IBaseMedia {
+    interface INetworkNaming extends IBaseCommunication {
     }
     /**
-       Interface for Managing the Contact operations
+       Interface defines the response methods of the acceleration operations
 
-       @author Francisco Javier Martin Bueno
+       @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface IContactPhotoResultCallback extends IBaseCallback {
+    interface IAccelerationListener extends IBaseListener {
         /**
-           This method is called on Error
-           @param error returned by the platform
-           @since ARP1.0
-        */
-        onError(error: IContactPhotoResultCallbackError): any;
-        /**
-           This method is called on Result
-           @param contactPhoto returned by the platform
-           @since ARP1.0
-        */
-        onResult(contactPhoto: number[]): any;
-        /**
-           This method is called on Warning
-           @param contactPhoto returned by the platform
-           @param warning      returned by the platform
-           @since ARP1.0
-        */
-        onWarning(contactPhoto: number[], warning: IContactPhotoResultCallbackWarning): any;
-    }
-    /**
-       Interface for Alarm purposes
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IAlarm extends IBaseNotification {
-    }
-    /**
-       Interface for Managing the Linkedin operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface ILinkedIn extends IBaseSocial {
-    }
-    /**
-       Interface for Managing the camera operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface ICamera extends IBaseMedia {
-    }
-    /**
-       Interface for Managing the DataStream operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IDataStream extends IBaseData {
-    }
-    /**
-       Interface for Managing the File store operations callback
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IFileDataStoreResultCallback extends IBaseCallback {
-        /**
-           Error processing data retrieval/storage operation.
-           @param error Error condition encountered.
-           @since ARP1.0
-        */
-        onError(error: IFileDataStoreResultCallbackError): any;
-        /**
-           Result of data storage operation.
-           @param file File reference to stored data.
-           @since ARP1.0
-        */
-        onResult(file: IFile): any;
-        /**
-           Result with warning of data retrieval/storage operation.
-           @param file    File being loaded/stored.
-           @param warning Warning condition encountered.
-           @since ARP1.0
-        */
-        onWarning(file: IFile, warning: IFileDataStoreResultCallbackWarning): any;
-    }
-    /**
-       This interface manages the responses of the resource callback
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IAppResourceCallback extends IBaseCallback {
-        /**
-           Error result of the App resource operation
+           No data received - error condition, not authorized or hardware not available. This will be reported once for the
+listener and subsequently, the listener will be deactivated and removed from the internal list of listeners.
            @param error Error fired
            @since ARP1.0
         */
-        onError(error: IAppResourceCallbackError): any;
+        onError(error: IAccelerationListenerError): any;
         /**
-           Correct result of the App Resource operation
-           @param resource Resource
+           Correct data received.
+           @param acceleration Acceleration received
            @since ARP1.0
         */
-        onResult(resource: IAppResource): any;
+        onResult(acceleration: Acceleration): any;
         /**
-           Warning result of the App Resource operation
-           @param resource Resource
-           @param warning  Warning fired
+           Data received with warning - ie. Needs calibration.
+           @param acceleration Acceleration received
+           @param warning      Warning fired
            @since ARP1.0
         */
-        onWarning(resource: IAppResource, warning: IAppResourceCallbackWarning): any;
+        onWarning(acceleration: Acceleration, warning: IAccelerationListenerWarning): any;
     }
     /**
-       Interface for Barcode Reading purposes
+       Interface for Managing the Imaging operations
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface IBarcode extends IBaseReader {
-    }
-    /**
-       Interface for Managing the Geolocation operations
-
-       @author Francisco Javier Martin Bueno
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IGeolocation extends IBaseSensor {
-        /**
-           Register a new listener that will receive geolocation events.
-           @param listener to be registered.
-           @since ARP1.0
-        */
-        addGeolocationListener(listener: IGeolocationListener): any;
-        /**
-           De-registers an existing listener from receiving geolocation events.
-           @param listener to be registered.
-           @since ARP1.0
-        */
-        removeGeolocationListener(listener: IGeolocationListener): any;
-        /**
-           Removed all existing listeners from receiving geolocation events.
-           @since ARP1.0
-        */
-        removeGeolocationListeners(): any;
-    }
-    /**
-       Interface for Managing the Socket operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface ISocket extends IBaseCommunication {
-    }
-    /**
-       Interface for Managing the Services operations
-
-       @author Francisco Javier Martin Bueno
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IService extends IBaseCommunication {
-        /**
-           Get a reference to a registered service by name.
-           @param serviceName Name of service.
-           @return A service, if registered, or null of the service does not exist.
-           @since ARP1.0
-        */
-        getService(serviceName: string): Service;
-        /**
-           Request async a service for an Url
-           @param serviceRequest Service Request to invoke
-           @param service        Service to call
-           @param callback       Callback to execute with the result
-           @since ARP1.0
-        */
-        invokeService(serviceRequest: ServiceRequest, service: Service, callback: IServiceResultCallback): any;
-        /**
-           Check whether a service by the given name is registered.
-           @param serviceName Name of service.
-           @return True if the service is registered, false otherwise.
-           @since ARP1.0
-        */
-        isRegistered(serviceName: string): boolean;
-        /**
-           Check whether a service by the given name is registered.
-           @param serviceName Name of service.
-           @return True if the service is registered, false otherwise.
-           @since ARP1.0
-        */
-        isRegistered(service: Service): boolean;
-        /**
-           Register a new service
-           @param service to register
-           @since ARP1.0
-        */
-        registerService(service: Service): any;
-        /**
-           Unregister all services.
-           @since ARP1.0
-        */
-        unregisterServices(): any;
-        /**
-           Unregister a service
-           @param service to unregister
-           @since ARP1.0
-        */
-        unregisterService(service: Service): any;
-    }
-    /**
-       Interface for Managing the Network status
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface INetworkStatus extends IBaseCommunication {
-        /**
-           Add the listener for network status changes of the app
-           @param listener Listener with the result
-           @since ARP1.0
-        */
-        addNetworkStatusListener(listener: INetworkStatusListener): any;
-        /**
-           Un-registers an existing listener from receiving network status events.
-           @param listener Listener with the result
-           @since ARP1.0
-        */
-        removeNetworkStatusListener(listener: INetworkStatusListener): any;
-        /**
-           Removes all existing listeners from receiving network status events.
-           @since ARP1.0
-        */
-        removeNetworkStatusListeners(): any;
-    }
-    /**
-       Interface for Managing the Lifecycle listeners
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface ILifecycleListener extends IBaseListener {
-        /**
-           No data received - error condition, not authorized or hardware not available.
-           @since ARP1.0
-        */
-        onError(error: ILifecycleListenerError): any;
-        /**
-           Called when lifecycle changes somehow.
-           @param lifecycle Lifecycle element
-           @since ARP1.0
-        */
-        onResult(lifecycle: Lifecycle): any;
-        /**
-           Data received with warning
-           @param lifecycle Lifecycle element
-           @since ARP1.0
-        */
-        onWarning(lifecycle: Lifecycle, warning: ILifecycleListenerWarning): any;
-    }
-    /**
-       Interface for Managing the File loading callback responses
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IFileDataLoadResultCallback extends IBaseCallback {
-        /**
-           Error processing data retrieval/storage operation.
-           @param error Error condition encountered.
-           @since ARP1.0
-        */
-        onError(error: IFileDataLoadResultCallbackError): any;
-        /**
-           Result of data retrieval operation.
-           @param data Data loaded.
-           @since ARP1.0
-        */
-        onResult(data: number[]): any;
-        /**
-           Result with warning of data retrieval/storage operation.
-           @param data    File being loaded.
-           @param warning Warning condition encountered.
-           @since ARP1.0
-        */
-        onWarning(data: number[], warning: IFileDataLoadResultCallbackWarning): any;
-    }
-    /**
-       Interface for Managing the browser operations
-
-       @author Francisco Javier Martin Bueno
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IBrowser extends IBaseUI {
-        /**
-           Method for opening a URL like a link in the native default browser
-           @param url Url to open
-           @return The result of the operation
-           @since ARP1.0
-        */
-        openExtenalBrowser(url: string): boolean;
-        /**
-           Method for opening a browser embedded into the application in a modal window
-           @param url            Url to open
-           @param title          Title of the Navigation bar
-           @param backButtonText Title of the Back button bar
-           @return The result of the operation
-           @since ARP1.0
-        */
-        openInternalBrowserModal(url: string, title: string, backButtonText: string): boolean;
-        /**
-           Method for opening a browser embedded into the application
-           @param url            Url to open
-           @param title          Title of the Navigation bar
-           @param backButtonText Title of the Back button bar
-           @return The result of the operation
-           @since ARP1.0
-        */
-        openInternalBrowser(url: string, title: string, backButtonText: string): boolean;
-    }
-    /**
-       Interface for Managing the Internal Storage operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IInternalStorage extends IBaseData {
-    }
-    /**
-       Interface for Managing the Cloud operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface ICrypto extends IBaseUtil {
-    }
-    /**
-       Interface for Managing the File System operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IFileSystem extends IBaseData {
-        /**
-           Creates a new reference to a new or existing location in the filesystem.
-This method does not create the actual file in the specified folder.
-           @param parent Parent directory.
-           @param name   Name of new file or directory.
-           @return A reference to a new or existing location in the filesystem.
-           @since ARP1.0
-        */
-        createFileDescriptor(parent: IFile, name: string): IFile;
-        /**
-           Returns a reference to the cache folder for the current application.
-This path must always be writable by the current application.
-This path is volatile and may be cleaned by the OS periodically.
-           @return Path to the application's cache folder.
-           @since ARP1.0
-        */
-        getApplicationCacheFolder(): IFile;
-        /**
-           Returns a reference to the cloud synchronizable folder for the current application.
-This path must always be writable by the current application.
-           @return Path to the application's cloud storage folder.
-           @since ARP1.0
-        */
-        getApplicationCloudFolder(): IFile;
-        /**
-           Returns a reference to the documents folder for the current application.
-This path must always be writable by the current application.
-           @return Path to the application's documents folder.
-           @since ARP1.0
-        */
-        getApplicationDocumentsFolder(): IFile;
-        /**
-           Returns a reference to the application installation folder.
-This path may or may not be directly readable or writable - it usually contains the app binary and data.
-           @return Path to the application folder.
-           @since ARP1.0
-        */
-        getApplicationFolder(): IFile;
-        /**
-           Returns a reference to the protected storage folder for the current application.
-This path must always be writable by the current application.
-           @return Path to the application's protected storage folder.
-           @since ARP1.0
-        */
-        getApplicationProtectedFolder(): IFile;
-        /**
-           Returns the file system dependent file separator.
-           @return char with the directory/file separator.
-           @since ARP1.0
-        */
-        getSeparator(): string;
-        /**
-           Returns a reference to the external storage folder provided by the OS. This may
-be an external SSD card or similar. This type of storage is removable and by
-definition, not secure.
-This path may or may not be writable by the current application.
-           @return Path to the application's documents folder.
-           @since ARP1.0
-        */
-        getSystemExternalFolder(): IFile;
-    }
-    /**
-       Interface for Managing the OAuth operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IOAuth extends IBaseSecurity {
-    }
-    /**
-       Interface for Managing the Lifecycle listeners
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface ILifecycle extends IBaseApplication {
-        /**
-           Add the listener for the lifecycle of the app
-           @param listener Lifecycle listener
-           @since ARP1.0
-        */
-        addLifecycleListener(listener: ILifecycleListener): any;
-        /**
-           Whether the application is in background or not
-           @return true if the application is in background;false otherwise
-           @since ARP1.0
-        */
-        isBackground(): boolean;
-        /**
-           Un-registers an existing listener from receiving lifecycle events.
-           @param listener Lifecycle listener
-           @since ARP1.0
-        */
-        removeLifecycleListener(listener: ILifecycleListener): any;
-        /**
-           Removes all existing listeners from receiving lifecycle events.
-           @since ARP1.0
-        */
-        removeLifecycleListeners(): any;
-    }
-    /**
-       Interface for Managing the QR Code operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IQRCode extends IBaseReader {
-    }
-    /**
-       Interface for Managing the Printing operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IPrinting extends IBaseApplication {
+    interface IImaging extends IBaseMedia {
     }
     /**
        Interface for Managing the Cloud operations
@@ -2052,189 +1324,38 @@ should be passed as a parameter
         existsTable(database: Database, databaseTable: DatabaseTable): boolean;
     }
     /**
-       Interface for Managing the Local Notifications operations
+       Interface for Managing the UI operations
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface INotificationLocal extends IBaseNotification {
+    interface IUI extends IBaseUI {
     }
     /**
-       Interface for Managing the Calendar operations
+       Interface for Managing the Mail operations
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IMail extends IBasePIM {
+        /**
+           Send an Email
+           @param data     Payload of the email
+           @param callback Result callback of the operation
+           @since ARP1.0
+        */
+        sendEmail(data: Email, callback: IMessagingCallback): any;
+    }
+    /**
+       Interface for Managing the Socket operations
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface ICalendar extends IBasePIM {
-    }
-    /**
-       Interface for Managing the Imaging operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IImaging extends IBaseMedia {
-    }
-    /**
-       Interface for Managing the Cloud operations
-
-       @author Ferran Vila Conesa
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IDatabaseResultCallback extends IBaseCallback {
-        /**
-           Result callback for error responses
-           @param error Returned error
-           @since ARP1.0
-        */
-        onError(error: IDatabaseResultCallbackError): any;
-        /**
-           Result callback for correct responses
-           @param database Returns the database
-           @since ARP1.0
-        */
-        onResult(database: Database): any;
-        /**
-           Result callback for warning responses
-           @param database Returns the database
-           @param warning  Returned Warning
-           @since ARP1.0
-        */
-        onWarning(database: Database, warning: IDatabaseResultCallbackWarning): any;
-    }
-    /**
-       Interface for Analytics purposes
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IAnalytics extends IBaseApplication {
-    }
-    /**
-       Interface for Managing the button  operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IButtonListener extends IBaseListener {
-        /**
-           No data received
-           @param error occurred
-           @since ARP1.0
-        */
-        onError(error: IButtonListenerError): any;
-        /**
-           Called on button pressed
-           @param button pressed
-           @since ARP1.0
-        */
-        onResult(button: Button): any;
-        /**
-           Data received with warning
-           @param button  pressed
-           @param warning happened
-           @since ARP1.0
-        */
-        onWarning(button: Button, warning: IButtonListenerWarning): any;
-    }
-    /**
-       Interface defines the response methods of the acceleration operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IAccelerationListener extends IBaseListener {
-        /**
-           No data received - error condition, not authorized or hardware not available. This will be reported once for the
-listener and subsequently, the listener will be deactivated and removed from the internal list of listeners.
-           @param error Error fired
-           @since ARP1.0
-        */
-        onError(error: IAccelerationListenerError): any;
-        /**
-           Correct data received.
-           @param acceleration Acceleration received
-           @since ARP1.0
-        */
-        onResult(acceleration: Acceleration): any;
-        /**
-           Data received with warning - ie. Needs calibration.
-           @param acceleration Acceleration received
-           @param warning      Warning fired
-           @since ARP1.0
-        */
-        onWarning(acceleration: Acceleration, warning: IAccelerationListenerWarning): any;
-    }
-    /**
-       Interface for Managing the Display operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IDisplay extends IBaseSystem {
-    }
-    /**
-       Interface for Managing the Network naming operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface INetworkNaming extends IBaseCommunication {
-    }
-    /**
-       Interface for Managing the Twitter operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface ITwitter extends IBaseSocial {
-    }
-    /**
-       Interface for Managing the Notification operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface INotification extends IBaseNotification {
-    }
-    /**
-       Interface for Managing the File operations callback
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IFileResultCallback extends IBaseCallback {
-        /**
-           On error result of a file operation.
-           @param error Error processing the request.
-           @since ARP1.0
-        */
-        onError(error: IFileResultCallbackError): any;
-        /**
-           On correct result of a file operation.
-           @param storageFile Reference to the resulting file.
-           @since ARP1.0
-        */
-        onResult(storageFile: IFile): any;
-        /**
-           On partial result of a file operation, containing a warning.
-           @param file    Reference to the offending file.
-           @param warning Warning processing the request.
-           @since ARP1.0
-        */
-        onWarning(file: IFile, warning: IFileResultCallbackWarning): any;
+    interface ISocket extends IBaseCommunication {
     }
     /**
        Interface for Managing the Contact operations
@@ -2304,6 +1425,419 @@ listener and subsequently, the listener will be deactivated and removed from the
         setContactPhoto(contact: ContactUid, pngImage: number[]): boolean;
     }
     /**
+       Interface for Managing the Cloud operations
+
+       @author Ferran Vila Conesa
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IDatabaseTableResultCallback extends IBaseCallback {
+        /**
+           Result callback for error responses
+           @param error Returned error
+           @since ARP1.0
+        */
+        onError(error: IDatabaseTableResultCallbackError): any;
+        /**
+           Result callback for correct responses
+           @param databaseTable Returns the databaseTable
+           @since ARP1.0
+        */
+        onResult(databaseTable: DatabaseTable): any;
+        /**
+           Result callback for warning responses
+           @param databaseTable Returns the databaseTable
+           @param warning       Returned Warning
+           @since ARP1.0
+        */
+        onWarning(databaseTable: DatabaseTable, warning: IDatabaseTableResultCallbackWarning): any;
+    }
+    /**
+       Interface for Managing the Settings operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface ISettings extends IBaseApplication {
+    }
+    /**
+       Interface for Managing the Geolocation operations
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IGeolocation extends IBaseSensor {
+        /**
+           Register a new listener that will receive geolocation events.
+           @param listener to be registered.
+           @since ARP1.0
+        */
+        addGeolocationListener(listener: IGeolocationListener): any;
+        /**
+           De-registers an existing listener from receiving geolocation events.
+           @param listener to be registered.
+           @since ARP1.0
+        */
+        removeGeolocationListener(listener: IGeolocationListener): any;
+        /**
+           Removed all existing listeners from receiving geolocation events.
+           @since ARP1.0
+        */
+        removeGeolocationListeners(): any;
+    }
+    /**
+       Interface for Managing the Printing operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IPrinting extends IBaseApplication {
+    }
+    /**
+       Interface for Managing the Cloud operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface ICloud extends IBaseData {
+    }
+    /**
+       Interface for Managing the Notification operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface INotification extends IBaseNotification {
+    }
+    /**
+       Interface for Managing the Linkedin operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface ILinkedIn extends IBaseSocial {
+    }
+    /**
+       Interface for Managing the Management operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IManagement extends IBaseApplication {
+    }
+    /**
+       Interface for Managing the Cloud operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface ICrypto extends IBaseUtil {
+    }
+    /**
+       Interface for Barcode Reading purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IBarcode extends IBaseReader {
+    }
+    /**
+       Interface for Managing the Video operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IVideo extends IBaseMedia {
+        /**
+           Play url video stream
+           @param url of the video
+           @since ARP1.0
+        */
+        playStream(url: string): any;
+    }
+    /**
+       Interface for Managing the Device operations
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IDevice extends IBaseSystem {
+        /**
+           Register a new listener that will receive button events.
+           @param listener to be registered.
+           @since ARP1.0
+        */
+        addButtonListener(listener: IButtonListener): any;
+        /**
+           Returns the device information for the current device executing the runtime.
+           @return DeviceInfo for the current device.
+           @since ARP1.0
+        */
+        getDeviceInfo(): DeviceInfo;
+        /**
+           Gets the current Locale for the device.
+           @return The current Locale information.
+           @since ARP1.0
+        */
+        getLocaleCurrent(): Locale;
+        /**
+           De-registers an existing listener from receiving button events.
+           @param listener to be removed.
+           @since ARP1.0
+        */
+        removeButtonListener(listener: IButtonListener): any;
+        /**
+           Removed all existing listeners from receiving button events.
+           @since ARP1.0
+        */
+        removeButtonListeners(): any;
+    }
+    /**
+       Interface for Managing the File result operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IFileListResultCallback extends IBaseCallback {
+        /**
+           On error result of a file operation.
+           @param error Error processing the request.
+           @since ARP1.0
+        */
+        onError(error: IFileListResultCallbackError): any;
+        /**
+           On correct result of a file operation.
+           @param files Array of resulting files/folders.
+           @since ARP1.0
+        */
+        onResult(files: FileDescriptor[]): any;
+        /**
+           On partial result of a file operation, containing a warning.
+           @param files   Array of resulting files/folders.
+           @param warning Warning condition encountered.
+           @since ARP1.0
+        */
+        onWarning(files: FileDescriptor[], warning: IFileListResultCallbackWarning): any;
+    }
+    /**
+       Interface for Managing the RSS operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IRSS extends IBaseSocial {
+    }
+    /**
+       Interface for Managing the OpenID operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IOpenId extends IBaseSecurity {
+    }
+    /**
+       Interface for Managing the Messaging operations
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IMessaging extends IBasePIM {
+        /**
+           Send text SMS
+           @param number   to send
+           @param text     to send
+           @param callback with the result
+           @since ARP1.0
+        */
+        sendSMS(number: string, text: string, callback: IMessagingCallback): any;
+    }
+    /**
+       Interface for Managing the Logging operations
+
+       @author Ferran Vila Conesa
+       @since ARP1.0
+       @version 1.0
+    */
+    interface ILogging extends IBaseUtil {
+        /**
+           Logs the given message, with the given log level if specified, to the standard platform/environment.
+           @param level    Log level
+           @param category Category/tag name to identify/filter the log.
+           @param message  Message to be logged
+           @since ARP1.0
+        */
+        log(level: ILoggingLogLevel, category: string, message: string): any;
+        /**
+           Logs the given message, with the given log level if specified, to the standard platform/environment.
+           @param level   Log level
+           @param message Message to be logged
+           @since ARP1.0
+        */
+        log(level: ILoggingLogLevel, message: string): any;
+    }
+    /**
+       Interface for Managing the Network status
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface INetworkStatus extends IBaseCommunication {
+        /**
+           Add the listener for network status changes of the app
+           @param listener Listener with the result
+           @since ARP1.0
+        */
+        addNetworkStatusListener(listener: INetworkStatusListener): any;
+        /**
+           Un-registers an existing listener from receiving network status events.
+           @param listener Listener with the result
+           @since ARP1.0
+        */
+        removeNetworkStatusListener(listener: INetworkStatusListener): any;
+        /**
+           Removes all existing listeners from receiving network status events.
+           @since ARP1.0
+        */
+        removeNetworkStatusListeners(): any;
+    }
+    /**
+       Interface for Managing the Magnetometer operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IMagnetometer extends IBaseSensor {
+    }
+    /**
+       Interface for Managing the Runtime operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IRuntime extends IBaseSystem {
+        /**
+           Dismiss the current Application
+           @since ARP1.0
+        */
+        dismissApplication(): any;
+        /**
+           Whether the application dismiss the splash screen successfully or not
+           @return true if the application has dismissed the splash screen;false otherwise
+           @since ARP1.0
+        */
+        dismissSplashScreen(): boolean;
+    }
+    /**
+       Interface for Managing the OAuth operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IOAuth extends IBaseSecurity {
+    }
+    /**
+       Interface for Managing the Contact operations
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IContactResultCallback extends IBaseCallback {
+        /**
+           This method is called on Error
+           @param error returned by the platform
+           @since ARP1.0
+        */
+        onError(error: IContactResultCallbackError): any;
+        /**
+           This method is called on Result
+           @param contacts returned by the platform
+           @since ARP1.0
+        */
+        onResult(contacts: Contact[]): any;
+        /**
+           This method is called on Warning
+           @param contacts returned by the platform
+           @param warning  returned by the platform
+           @since ARP1.0
+        */
+        onWarning(contacts: Contact[], warning: IContactResultCallbackWarning): any;
+    }
+    /**
+       Interface for Managing the Geolocation results
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IGeolocationListener extends IBaseListener {
+        /**
+           No data received - error condition, not authorized or hardware not available.
+           @param error Type of error encountered during reading.
+           @since ARP1.0
+        */
+        onError(error: IGeolocationListenerError): any;
+        /**
+           Correct data received.
+           @param geolocation Geolocation Bean
+           @since ARP1.0
+        */
+        onResult(geolocation: Geolocation): any;
+        /**
+           Data received with warning - ie. HighDoP
+           @param geolocation Geolocation Bean
+           @param warning Type of warning encountered during reading.
+           @since ARP1.0
+        */
+        onWarning(geolocation: Geolocation, warning: IGeolocationListenerWarning): any;
+    }
+    /**
+       Interface for Audio purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IAudio extends IBaseMedia {
+    }
+    /**
+       Interface for Bluetooth purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IBluetooth extends IBaseCommunication {
+    }
+    /**
+       Interface for Analytics purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IAnalytics extends IBaseApplication {
+    }
+    /**
        Interface for Managing the Network reachability operations
 
        @author Carlos Lozano Diez
@@ -2327,32 +1861,143 @@ listener and subsequently, the listener will be deactivated and removed from the
         isNetworkServiceReachable(url: string, callback: INetworkReachabilityCallback): any;
     }
     /**
-       Interface for Managing the Messaging responses
+       Interface defining methods about the acceleration sensor
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IAcceleration extends IBaseSensor {
+        /**
+           Register a new listener that will receive acceleration events.
+           @param listener to be registered.
+           @since ARP1.0
+        */
+        addAccelerationListener(listener: IAccelerationListener): any;
+        /**
+           De-registers an existing listener from receiving acceleration events.
+           @param listener to be registered.
+           @since ARP1.0
+        */
+        removeAccelerationListener(listener: IAccelerationListener): any;
+        /**
+           Removed all existing listeners from receiving acceleration events.
+           @since ARP1.0
+        */
+        removeAccelerationListeners(): any;
+    }
+    /**
+       Interface for Managing the File operations callback
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IFileResultCallback extends IBaseCallback {
+        /**
+           On error result of a file operation.
+           @param error Error processing the request.
+           @since ARP1.0
+        */
+        onError(error: IFileResultCallbackError): any;
+        /**
+           On correct result of a file operation.
+           @param storageFile Reference to the resulting file.
+           @since ARP1.0
+        */
+        onResult(storageFile: FileDescriptor): any;
+        /**
+           On partial result of a file operation, containing a warning.
+           @param file    Reference to the offending file.
+           @param warning Warning processing the request.
+           @since ARP1.0
+        */
+        onWarning(file: FileDescriptor, warning: IFileResultCallbackWarning): any;
+    }
+    /**
+       Interface for Advertising purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IAds extends IBaseCommerce {
+    }
+    /**
+       Interface for Managing the Services operations
 
        @author Francisco Javier Martin Bueno
        @since ARP1.0
        @version 1.0
     */
-    interface IMessagingCallback extends IBaseCallback {
+    interface IServiceResultCallback extends IBaseCallback {
         /**
            This method is called on Error
            @param error returned by the platform
            @since ARP1.0
         */
-        onError(error: IMessagingCallbackError): any;
+        onError(error: IServiceResultCallbackError): any;
         /**
            This method is called on Result
-           @param success true if sent;false otherwise
+           @param response data
            @since ARP1.0
         */
-        onResult(success: boolean): any;
+        onResult(response: ServiceResponse): any;
         /**
            This method is called on Warning
-           @param success true if sent;false otherwise
-           @param warning returned by the platform
+           @param response data
+           @param warning  returned by the platform
            @since ARP1.0
         */
-        onWarning(success: boolean, warning: IMessagingCallbackWarning): any;
+        onWarning(response: ServiceResponse, warning: IServiceResultCallbackWarning): any;
+    }
+    /**
+       Interface for Managing the Globalization results
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IGlobalization extends IBaseApplication {
+        /**
+           List of supported locales for the application
+           @return List of locales
+           @since ARP1.0
+        */
+        getLocaleSupportedDescriptors(): Locale[];
+        /**
+           Gets the text/message corresponding to the given key and locale.
+           @param key    to match text
+           @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
+           @return Localized text.
+           @since ARP1.0
+        */
+        getResourceLiteral(key: string, locale: Locale): string;
+        /**
+           Gets the full application configured literals (key/message pairs) corresponding to the given locale.
+           @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
+           @return Localized texts in the form of an object.
+           @since ARP1.0
+        */
+        getResourceLiterals(locale: Locale): KeyPair[];
+    }
+    /**
+       Interface for Managing the Calendar operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface ICalendar extends IBasePIM {
+    }
+    /**
+       Interface for Managing the OCR operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IOCR extends IBaseReader {
     }
     /**
        Interface for Managing the Security operations
@@ -2394,112 +2039,253 @@ listener and subsequently, the listener will be deactivated and removed from the
         setSecureKeyValuePairs(keyValues: SecureKeyPair[], publicAccessName: string, callback: ISecurityResultCallback): any;
     }
     /**
-       Interface for Managing the Wallet operations
+       Interface for Managing the Network information operations
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface IWallet extends IBaseCommerce {
+    interface INetworkInfo extends IBaseCommunication {
     }
     /**
-       Interface for Managing the Concurrent operations
+       Interface for Managing the XML operations
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface IConcurrent extends IBaseUtil {
+    interface IXML extends IBaseData {
     }
     /**
-       Interface for Managing the Messaging operations
+       Interface for Managing the Compression operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface ICompression extends IBaseUtil {
+    }
+    /**
+       Interface for Managing the Display operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IDisplay extends IBaseSystem {
+    }
+    /**
+       Interface for Managing the QR Code operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IQRCode extends IBaseReader {
+    }
+    /**
+       Interface for Managing the Security result callback
+
+       @author Aryslan
+       @since ARP1.0
+       @version 1.0
+    */
+    interface ISecurityResultCallback extends IBaseCallback {
+        /**
+           No data received - error condition, not authorized .
+           @param error Error values
+           @since ARP1.0
+        */
+        onError(error: ISecurityResultCallbackError): any;
+        /**
+           Correct data received.
+           @param keyValues key and values
+           @since ARP1.0
+        */
+        onResult(keyValues: SecureKeyPair[]): any;
+        /**
+           Data received with warning - ie Found entries with existing key and values have been overriden
+           @param keyValues key and values
+           @param warning   Warning values
+           @since ARP1.0
+        */
+        onWarning(keyValues: SecureKeyPair[], warning: ISecurityResultCallbackWarning): any;
+    }
+    /**
+       Interface for Managing the Services operations
 
        @author Francisco Javier Martin Bueno
        @since ARP1.0
        @version 1.0
     */
-    interface IMessaging extends IBasePIM {
+    interface IService extends IBaseCommunication {
         /**
-           Send text SMS
-           @param number   to send
-           @param text     to send
-           @param callback with the result
+           Get a reference to a registered service by name.
+           @param serviceName Name of service.
+           @return A service, if registered, or null of the service does not exist.
            @since ARP1.0
         */
-        sendSMS(number: string, text: string, callback: IMessagingCallback): any;
-    }
-    /**
-       Interface for Advertising purposes
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IAds extends IBaseCommerce {
-    }
-    /**
-       Interface for managinf the Ambient Light
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IAmbientLight extends IBaseSensor {
-    }
-    /**
-       Interface for Managing the Network reachability callback result
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface INetworkReachabilityCallback extends IBaseCallback {
+        getService(serviceName: string): Service;
         /**
-           No data received - error condition, not authorized .
-           @param error Error value
+           Request async a service for an Url
+           @param serviceRequest Service Request to invoke
+           @param service        Service to call
+           @param callback       Callback to execute with the result
            @since ARP1.0
         */
-        onError(error: INetworkReachabilityCallbackError): any;
+        invokeService(serviceRequest: ServiceRequest, service: Service, callback: IServiceResultCallback): any;
         /**
-           Correct data received.
-           @param reachable Indicates if the host is reachable
+           Check whether a service by the given name is registered.
+           @param serviceName Name of service.
+           @return True if the service is registered, false otherwise.
            @since ARP1.0
         */
-        onResult(reachable: boolean): any;
+        isRegistered(serviceName: string): boolean;
         /**
-           Data received with warning - ie Found entries with existing key and values have been overriden
-           @param reachable Indicates if the host is reachable
-           @param warning   Warning value
+           Check whether a service by the given name is registered.
+           @param serviceName Name of service.
+           @return True if the service is registered, false otherwise.
            @since ARP1.0
         */
-        onWarning(reachable: boolean, warning: INetworkReachabilityCallbackWarning): any;
+        isRegistered(service: Service): boolean;
+        /**
+           Register a new service
+           @param service to register
+           @since ARP1.0
+        */
+        registerService(service: Service): any;
+        /**
+           Unregister all services.
+           @since ARP1.0
+        */
+        unregisterServices(): any;
+        /**
+           Unregister a service
+           @param service to unregister
+           @since ARP1.0
+        */
+        unregisterService(service: Service): any;
     }
     /**
-       Interface for Managing the Timer operations
+       Interface for Managing the Vibration operations
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface ITimer extends IBaseUtil {
+    interface IVibration extends IBaseNotification {
     }
     /**
-       Interface for Managing the Magnetometer operations
+       Interface for Barometer management purposes
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface IMagnetometer extends IBaseSensor {
+    interface IBarometer extends IBaseSensor {
     }
     /**
-       Interface for Managing the OpenID operations
+       Interface for Managing the browser operations
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IBrowser extends IBaseUI {
+        /**
+           Method for opening a URL like a link in the native default browser
+           @param url Url to open
+           @return The result of the operation
+           @since ARP1.0
+        */
+        openExtenalBrowser(url: string): boolean;
+        /**
+           Method for opening a browser embedded into the application in a modal window
+           @param url            Url to open
+           @param title          Title of the Navigation bar
+           @param backButtonText Title of the Back button bar
+           @return The result of the operation
+           @since ARP1.0
+        */
+        openInternalBrowserModal(url: string, title: string, backButtonText: string): boolean;
+        /**
+           Method for opening a browser embedded into the application
+           @param url            Url to open
+           @param title          Title of the Navigation bar
+           @param backButtonText Title of the Back button bar
+           @return The result of the operation
+           @since ARP1.0
+        */
+        openInternalBrowser(url: string, title: string, backButtonText: string): boolean;
+    }
+    /**
+       Interface for Managing the Messaging responses
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IMessagingCallback extends IBaseCallback {
+        /**
+           This method is called on Error
+           @param error returned by the platform
+           @since ARP1.0
+        */
+        onError(error: IMessagingCallbackError): any;
+        /**
+           This method is called on Result
+           @param success true if sent;false otherwise
+           @since ARP1.0
+        */
+        onResult(success: boolean): any;
+        /**
+           This method is called on Warning
+           @param success true if sent;false otherwise
+           @param warning returned by the platform
+           @since ARP1.0
+        */
+        onWarning(success: boolean, warning: IMessagingCallbackWarning): any;
+    }
+    /**
+       Interface for Managing the NFC operations
 
        @author Carlos Lozano Diez
        @since ARP1.0
        @version 1.0
     */
-    interface IOpenId extends IBaseSecurity {
+    interface INFC extends IBaseReader {
+    }
+    /**
+       Interface for Managing the Lifecycle listeners
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface ILifecycle extends IBaseApplication {
+        /**
+           Add the listener for the lifecycle of the app
+           @param listener Lifecycle listener
+           @since ARP1.0
+        */
+        addLifecycleListener(listener: ILifecycleListener): any;
+        /**
+           Whether the application is in background or not
+           @return true if the application is in background;false otherwise
+           @since ARP1.0
+        */
+        isBackground(): boolean;
+        /**
+           Un-registers an existing listener from receiving lifecycle events.
+           @param listener Lifecycle listener
+           @since ARP1.0
+        */
+        removeLifecycleListener(listener: ILifecycleListener): any;
+        /**
+           Removes all existing listeners from receiving lifecycle events.
+           @since ARP1.0
+        */
+        removeLifecycleListeners(): any;
     }
     /**
        Interface for Managing the Facebook operations
@@ -2511,115 +2297,179 @@ listener and subsequently, the listener will be deactivated and removed from the
     interface IFacebook extends IBaseSocial {
     }
     /**
-       Interface for Managing the Update operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IUpdate extends IBaseApplication {
-    }
-    /**
-       Interface for Managing the RSS operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IRSS extends IBaseSocial {
-    }
-    /**
-       Interface for Managing the File result operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IFileListResultCallback extends IBaseCallback {
-        /**
-           On error result of a file operation.
-           @param error Error processing the request.
-           @since ARP1.0
-        */
-        onError(error: IFileListResultCallbackError): any;
-        /**
-           On correct result of a file operation.
-           @param files Array of resulting files/folders.
-           @since ARP1.0
-        */
-        onResult(files: IFile[]): any;
-        /**
-           On partial result of a file operation, containing a warning.
-           @param files   Array of resulting files/folders.
-           @param warning Warning condition encountered.
-           @since ARP1.0
-        */
-        onWarning(files: IFile[], warning: IFileListResultCallbackWarning): any;
-    }
-    /**
-       Interface for Managing the UI operations
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IUI extends IBaseUI {
-    }
-    /**
-       Interface for Managing the Services operations
-
-       @author Francisco Javier Martin Bueno
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IServiceResultCallback extends IBaseCallback {
-        /**
-           This method is called on Error
-           @param error returned by the platform
-           @since ARP1.0
-        */
-        onError(error: IServiceResultCallbackError): any;
-        /**
-           This method is called on Result
-           @param response data
-           @since ARP1.0
-        */
-        onResult(response: ServiceResponse): any;
-        /**
-           This method is called on Warning
-           @param response data
-           @param warning  returned by the platform
-           @since ARP1.0
-        */
-        onWarning(response: ServiceResponse, warning: IServiceResultCallbackWarning): any;
-    }
-    /**
        Interface for Managing the Cloud operations
 
        @author Ferran Vila Conesa
        @since ARP1.0
        @version 1.0
     */
-    interface IDatabaseTableResultCallback extends IBaseCallback {
+    interface IDatabaseResultCallback extends IBaseCallback {
         /**
            Result callback for error responses
            @param error Returned error
            @since ARP1.0
         */
-        onError(error: IDatabaseTableResultCallbackError): any;
+        onError(error: IDatabaseResultCallbackError): any;
         /**
            Result callback for correct responses
-           @param databaseTable Returns the databaseTable
+           @param database Returns the database
            @since ARP1.0
         */
-        onResult(databaseTable: DatabaseTable): any;
+        onResult(database: Database): any;
         /**
            Result callback for warning responses
-           @param databaseTable Returns the databaseTable
-           @param warning       Returned Warning
+           @param database Returns the database
+           @param warning  Returned Warning
            @since ARP1.0
         */
-        onWarning(databaseTable: DatabaseTable, warning: IDatabaseTableResultCallbackWarning): any;
+        onWarning(database: Database, warning: IDatabaseResultCallbackWarning): any;
+    }
+    /**
+       Interface for Managing the File System operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IFileSystem extends IBaseData {
+        /**
+           Creates a new reference to a new or existing location in the filesystem.
+This method does not create the actual file in the specified folder.
+           @param parent Parent directory.
+           @param name   Name of new file or directory.
+           @return A reference to a new or existing location in the filesystem.
+           @since ARP1.0
+        */
+        createFileDescriptor(parent: FileDescriptor, name: string): FileDescriptor;
+        /**
+           Returns a reference to the cache folder for the current application.
+This path must always be writable by the current application.
+This path is volatile and may be cleaned by the OS periodically.
+           @return Path to the application's cache folder.
+           @since ARP1.0
+        */
+        getApplicationCacheFolder(): FileDescriptor;
+        /**
+           Returns a reference to the cloud synchronizable folder for the current application.
+This path must always be writable by the current application.
+           @return Path to the application's cloud storage folder.
+           @since ARP1.0
+        */
+        getApplicationCloudFolder(): FileDescriptor;
+        /**
+           Returns a reference to the documents folder for the current application.
+This path must always be writable by the current application.
+           @return Path to the application's documents folder.
+           @since ARP1.0
+        */
+        getApplicationDocumentsFolder(): FileDescriptor;
+        /**
+           Returns a reference to the application installation folder.
+This path may or may not be directly readable or writable - it usually contains the app binary and data.
+           @return Path to the application folder.
+           @since ARP1.0
+        */
+        getApplicationFolder(): FileDescriptor;
+        /**
+           Returns a reference to the protected storage folder for the current application.
+This path must always be writable by the current application.
+           @return Path to the application's protected storage folder.
+           @since ARP1.0
+        */
+        getApplicationProtectedFolder(): FileDescriptor;
+        /**
+           Returns the file system dependent file separator.
+           @return char with the directory/file separator.
+           @since ARP1.0
+        */
+        getSeparator(): string;
+        /**
+           Returns a reference to the external storage folder provided by the OS. This may
+be an external SSD card or similar. This type of storage is removable and by
+definition, not secure.
+This path may or may not be writable by the current application.
+           @return Path to the application's documents folder.
+           @since ARP1.0
+        */
+        getSystemExternalFolder(): FileDescriptor;
+    }
+    /**
+       Interface for managinf the Ambient Light
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IAmbientLight extends IBaseSensor {
+    }
+    /**
+       Interface for Managing the Store operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IStore extends IBaseCommerce {
+    }
+    /**
+       Interface for Alarm purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IAlarm extends IBaseNotification {
+    }
+    /**
+       Interface for Managing the Wallet operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IWallet extends IBaseCommerce {
+    }
+    /**
+       Interface for Managing the Internal Storage operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IInternalStorage extends IBaseData {
+    }
+    /**
+       Interface for Managing the OS operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface IOS extends IBaseSystem {
+        /**
+           Returns the OSInfo for the current operating system.
+           @return OSInfo with name, version and vendor of the OS.
+           @since ARP1.0
+        */
+        getOSInfo(): OSInfo;
+    }
+    /**
+       Interface for Managing the camera operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface ICamera extends IBaseMedia {
+    }
+    /**
+       Interface for Managing the Twitter operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    interface ITwitter extends IBaseSocial {
     }
     /**
        Structure representing a native response to the HTML5
@@ -2637,220 +2487,225 @@ listener and subsequently, the listener will be deactivated and removed from the
         constructor();
     }
     /**
-       Represents a specific user or system locate.
+       Structure representing the data of a http request or response header.
 
        @author Aryslan
        @since ARP1.0
        @version 1.0
     */
-    class Locale extends APIBean {
+    class ServiceHeader extends APIBean {
         /**
-           A valid ISO Country Code.
+           Value of the header
         */
-        country: string;
+        data: string;
         /**
-           A valid ISO Language Code.
+           Name ot the header
         */
-        language: string;
+        name: string;
         /**
-           Constructor used by the implementation
+           Constructor with fields
 
-           @param country  Country of the Locale
-           @param language Language of the Locale
+           @param name Name of the header
+           @param data Value of the header
            @since ARP1.0
         */
-        constructor(language: string, country: string);
+        constructor(name: string, data: string);
         /**
-           Returns the country code
+           Returns the header value
 
-           @return country code
+           @return ServiceHeader value
            @since ARP1.0
         */
-        getCountry(): string;
+        getData(): string;
         /**
-           Set the country code
+           Set the header value
 
-           @param country code
+           @param data ServiceHeader value
            @since ARP1.0
         */
-        setCountry(country: string): void;
+        setData(data: string): void;
         /**
-           Returns the language code
+           Returns the header name
 
-           @return language code
+           @return ServiceHeader name
            @since ARP1.0
         */
-        getLanguage(): string;
+        getName(): string;
         /**
-           Set the language code
+           Set the header name
 
-           @param language code
+           @param name Name of the header
            @since ARP1.0
         */
-        setLanguage(language: string): void;
+        setName(name: string): void;
     }
     /**
-       Represents a single secureKey-value pair.
-
-       @author Aryslan
-       @since ARP1.0
-       @version 1.0
-    */
-    class SecureKeyPair extends APIBean {
-        /**
-           Value of the secured element
-        */
-        secureData: string;
-        /**
-           Key of the secured element
-        */
-        secureKey: string;
-        /**
-           Constructor with parameters
-
-           @param secureKey  name of the keypair
-           @param secureData value of the keypair
-           @since ARP1.0
-        */
-        constructor(secureKey: string, secureData: string);
-        /**
-           Returns the object value
-
-           @return Value.
-           @since ARP 1.0
-        */
-        getSecureData(): string;
-        /**
-           Sets the value for this object
-
-           @param secureData value to set.
-           @since ARP 1.0
-        */
-        setSecureData(secureData: string): void;
-        /**
-           Returns the object secureKey name.
-
-           @return Key name.
-           @since ARP 1.0
-        */
-        getSecureKey(): string;
-        /**
-           Sets the secureKey name for this object.
-
-           @param secureKey Key name.
-           @since ARP 1.0
-        */
-        setSecureKey(secureKey: string): void;
-    }
-    /**
-       Structure representing the binary attachment data.
+       Structure representing the data elements of a contact.
 
        @author Francisco Javier Martin Bueno
        @since ARP1.0
        @version 1.0
     */
-    class EmailAttachmentData extends APIBean {
+    class Contact extends ContactUid {
         /**
-           The raw data for the current file attachment (byte array)
+           The adresses from the contact
         */
-        data: number[];
+        contactAddresses: ContactAddress[];
         /**
-           The name of the current file attachment
+           The emails from the contact
         */
-        fileName: string;
+        contactEmails: ContactEmail[];
         /**
-           The mime type of the current attachment
+           The phones from the contact
         */
-        mimeType: string;
+        contactPhones: ContactPhone[];
         /**
-           The relative path where the contents for the attachment file could be located.
+           The social network info from the contact
         */
-        referenceUrl: string;
+        contactSocials: ContactSocial[];
         /**
-           The data size (in bytes) of the current file attachment
+           The aditional tags from the contact
         */
-        size: number;
+        contactTags: ContactTag[];
         /**
-           Constructor with fields
+           The websites from the contact
+        */
+        contactWebsites: ContactWebsite[];
+        /**
+           The personal info from the contact
+        */
+        personalInfo: ContactPersonalInfo;
+        /**
+           The professional info from the contact
+        */
+        professionalInfo: ContactProfessionalInfo;
+        /**
+           Constructor with all the fields
 
-           @param data         raw data of the file attachment
-           @param size         size of the file attachment
-           @param fileName     name of the file attachment
-           @param mimeType     mime type of the file attachment
-           @param referenceUrl relative url of the file attachment
+           @param contactId        Identifier of the contact
+           @param personalInfo     Personal Information
+           @param professionalInfo Professional Information
+           @param contactAddresses Addresses of the contact
+           @param contactPhones    Phones of the contact
+           @param contactEmails    Emails of the contact
+           @param contactWebsites  Websites of the contact
+           @param contactSocials   Social Networks of the contact
+           @param contactTags      Tags of the contact
            @since ARP1.0
         */
-        constructor(data: number[], size: number, fileName: string, mimeType: string, referenceUrl: string);
+        constructor(contactId: string, personalInfo: ContactPersonalInfo, professionalInfo: ContactProfessionalInfo, contactAddresses: ContactAddress[], contactPhones: ContactPhone[], contactEmails: ContactEmail[], contactWebsites: ContactWebsite[], contactSocials: ContactSocial[], contactTags: ContactTag[]);
         /**
-           Returns the raw data in byte[]
+           Returns all the addresses of the Contact
 
-           @return data Octet-binary content of the attachment payload.
+           @return ContactAddress[]
            @since ARP1.0
         */
-        getData(): number[];
+        getContactAddresses(): ContactAddress[];
         /**
-           Set the data of the attachment as a byte[]
+           Set the addresses of the Contact
 
-           @param data Sets the octet-binary content of the attachment.
+           @param contactAddresses Addresses of the contact
            @since ARP1.0
         */
-        setData(data: number[]): void;
+        setContactAddresses(contactAddresses: ContactAddress[]): void;
         /**
-           Returns the filename of the attachment
+           Returns all the emails of the Contact
 
-           @return fileName Name of the attachment.
+           @return ContactEmail[]
            @since ARP1.0
         */
-        getFileName(): string;
+        getContactEmails(): ContactEmail[];
         /**
-           Set the name of the file attachment
+           Set the emails of the Contact
 
-           @param fileName Name of the attachment.
+           @param contactEmails Emails of the contact
            @since ARP1.0
         */
-        setFileName(fileName: string): void;
+        setContactEmails(contactEmails: ContactEmail[]): void;
         /**
-           Returns the mime type of the attachment
+           Returns all the phones of the Contact
 
-           @return mimeType
+           @return ContactPhone[]
            @since ARP1.0
         */
-        getMimeType(): string;
+        getContactPhones(): ContactPhone[];
         /**
-           Set the mime type of the attachment
+           Set the phones of the Contact
 
-           @param mimeType Mime-type of the attachment.
+           @param contactPhones Phones of the contact
            @since ARP1.0
         */
-        setMimeType(mimeType: string): void;
+        setContactPhones(contactPhones: ContactPhone[]): void;
         /**
-           Returns the absolute url of the file attachment
+           Returns all the social network info of the Contact
 
-           @return referenceUrl Absolute URL of the file attachment for either file:// or http:// access.
+           @return ContactSocial[]
            @since ARP1.0
         */
-        getReferenceUrl(): string;
+        getContactSocials(): ContactSocial[];
         /**
-           Set the absolute url of the attachment
+           Set the social network info of the Contact
 
-           @param referenceUrl Absolute URL of the file attachment for either file:// or http:// access.
+           @param contactSocials Social Networks of the contact
            @since ARP1.0
         */
-        setReferenceUrl(referenceUrl: string): void;
+        setContactSocials(contactSocials: ContactSocial[]): void;
         /**
-           Returns the size of the attachment as a long
+           Returns the additional tags of the Contact
 
-           @return size Length in bytes of the octet-binary content.
+           @return ContactTag[]
            @since ARP1.0
         */
-        getSize(): number;
+        getContactTags(): ContactTag[];
         /**
-           Set the size of the attachment as a long
+           Set the additional tags of the Contact
 
-           @param size Length in bytes of the octet-binary content ( should be same as data array length.)
+           @param contactTags Tags of the contact
            @since ARP1.0
         */
-        setSize(size: number): void;
+        setContactTags(contactTags: ContactTag[]): void;
+        /**
+           Returns all the websites of the Contact
+
+           @return ContactWebsite[]
+           @since ARP1.0
+        */
+        getContactWebsites(): ContactWebsite[];
+        /**
+           Set the websites of the Contact
+
+           @param contactWebsites Websites of the contact
+           @since ARP1.0
+        */
+        setContactWebsites(contactWebsites: ContactWebsite[]): void;
+        /**
+           Returns the personal info of the Contact
+
+           @return ContactPersonalInfo of the Contact
+           @since ARP1.0
+        */
+        getPersonalInfo(): ContactPersonalInfo;
+        /**
+           Set the personal info of the Contact
+
+           @param personalInfo Personal Information
+           @since ARP1.0
+        */
+        setPersonalInfo(personalInfo: ContactPersonalInfo): void;
+        /**
+           Returns the professional info of the Contact
+
+           @return Array of personal info
+           @since ARP1.0
+        */
+        getProfessionalInfo(): ContactProfessionalInfo;
+        /**
+           Set the professional info of the Contact
+
+           @param professionalInfo Professional Information
+           @since ARP1.0
+        */
+        setProfessionalInfo(professionalInfo: ContactProfessionalInfo): void;
     }
     /**
        Structure representing the personal info data elements of a contact.
@@ -2944,39 +2799,250 @@ listener and subsequently, the listener will be deactivated and removed from the
         setName(name: string): void;
     }
     /**
-       Structure representing the data of a single acceleration reading.
+       Structure representing the email data elements of a contact.
 
-       @author Carlos Lozano Diez
+       @author Francisco Javier Martin Bueno
        @since ARP1.0
        @version 1.0
     */
-    class Acceleration extends APIBean {
+    class ContactEmail extends APIBean {
         /**
-           Timestamp of the acceleration reading.
+           The type of the email
+        */
+        type: ContactEmailType;
+        /**
+           Email of the Contact
+        */
+        email: string;
+        /**
+           Whether the email is the primary one or not
+        */
+        primary: boolean;
+        /**
+           Constructor used by the implementation
+
+           @param type    Type of the email
+           @param primary Is email primary
+           @param email   Email of the contact
+           @since ARP1.0
+        */
+        constructor(type: ContactEmailType, primary: boolean, email: string);
+        /**
+           Returns the type of the email
+
+           @return EmailType
+           @since ARP1.0
+        */
+        getType(): ContactEmailType;
+        /**
+           Set the type of the email
+
+           @param type Type of the email
+           @since ARP1.0
+        */
+        setType(type: ContactEmailType): void;
+        /**
+           Returns the email of the Contact
+
+           @return email
+           @since ARP1.0
+        */
+        getEmail(): string;
+        /**
+           Set the email of the Contact
+
+           @param email Email of the contact
+           @since ARP1.0
+        */
+        setEmail(email: string): void;
+        /**
+           Returns if the email is primary
+
+           @return true if the email is primary; false otherwise
+           @since ARP1.0
+        */
+        getPrimary(): boolean;
+        /**
+           Set if the email
+
+           @param primary true if the email is primary; false otherwise
+           @since ARP1.0
+        */
+        setPrimary(primary: boolean): void;
+    }
+    /**
+       Structure representing the website data elements of a contact.
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+       @version 1.0
+    */
+    class ContactWebsite extends APIBean {
+        /**
+           The url of the website
+        */
+        url: string;
+        /**
+           Constructor used by the implementation
+
+           @param url Url of the website
+           @since ARP1.0
+        */
+        constructor(url: string);
+        /**
+           Returns the url of the website
+
+           @return website url
+           @since ARP1.0
+        */
+        getUrl(): string;
+        /**
+           Set the url of the website
+
+           @param url Url of the website
+           @since ARP1.0
+        */
+        setUrl(url: string): void;
+    }
+    /**
+       Structure representing the assigned tags data elements of a contact.
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+       @version 1.0
+    */
+    class ContactTag extends APIBean {
+        /**
+           The tagName of the Tag
+        */
+        tagName: string;
+        /**
+           The tagValue of the Tag
+        */
+        tagValue: string;
+        /**
+           Constructor used by the implementation
+
+           @param tagValue Value of the tag
+           @param tagName  Name of the tag
+           @since ARP1.0
+        */
+        constructor(tagName: string, tagValue: string);
+        /**
+           Returns the tagName of the Tag
+
+           @return tagName
+           @since ARP1.0
+        */
+        getTagName(): string;
+        /**
+           Set the tagName of the Tag
+
+           @param tagName Name of the tag
+           @since ARP1.0
+        */
+        setTagName(tagName: string): void;
+        /**
+           Returns the tagValue of the Tag
+
+           @return tagValue
+           @since ARP1.0
+        */
+        getTagValue(): string;
+        /**
+           Set the tagValue of the Tag
+
+           @param tagValue Value of the tag
+           @since ARP1.0
+        */
+        setTagValue(tagValue: string): void;
+    }
+    /**
+       Structure representing the data a single geolocation reading.
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+       @version 1.0
+    */
+    class Geolocation extends APIBean {
+        /**
+           The current device altitude (or Z coordinate). Measured in meters.
+        */
+        altitude: number;
+        /**
+           The Y coordinate (or latitude). Measured in degrees.
+        */
+        latitude: number;
+        /**
+           The X coordinate (or longitude). Measured in degrees.
+        */
+        longitude: number;
+        /**
+           Timestamp of the geolocation reading.
         */
         timestamp: number;
         /**
-           X-axis component of the acceleration.
+           Dilution of precision on the X measurement. Measured in meters.
         */
-        x: number;
+        xDoP: number;
         /**
-           Y-axis component of the acceleration.
+           Dilution of precision on the Y measurement. Measured in meters.
         */
-        y: number;
+        yDoP: number;
         /**
-           Z-axis component of the acceleration.
-        */
-        z: number;
-        /**
-           Constructor with fields
+           Constructor with parameters
 
-           @param x         X Coordinate
-           @param y         Y Coordinate
-           @param z         Z Coordinate
-           @param timestamp Timestamp
+           @param latitude  Latitude of the measurement
+           @param longitude Longitude of the measurement
+           @param altitude  Altitude of the measurement
+           @param xDoP      Dilution of precision on the X measurement
+           @param yDoP      Dilution of precision on the Y measurement
+           @param timestamp Timestamp of the measurement
            @since ARP1.0
         */
-        constructor(x: number, y: number, z: number, timestamp: number);
+        constructor(latitude: number, longitude: number, altitude: number, xDoP: number, yDoP: number, timestamp: number);
+        /**
+           Returns altitude in meters
+
+           @return Altitude of the measurement
+           @since ARP1.0
+        */
+        getAltitude(): number;
+        /**
+           Set altitude in meters
+
+           @param altitude Altitude of the measurement
+           @since ARP1.0
+        */
+        setAltitude(altitude: number): void;
+        /**
+           Returns the latitude in degrees
+
+           @return Latitude of the measurement
+           @since ARP1.0
+        */
+        getLatitude(): number;
+        /**
+           Set the latitude in degrees
+
+           @param latitude Latitude of the measurement
+           @since ARP1.0
+        */
+        setLatitude(latitude: number): void;
+        /**
+           Returns the longitude in degrees
+
+           @return Longitude of the measurement
+           @since ARP1.0
+        */
+        getLongitude(): number;
+        /**
+           Returns the latitude in degrees
+
+           @param longitude Longitude of the measurement
+           @since ARP1.0
+        */
+        setLongitude(longitude: number): void;
         /**
            Timestamp Getter
 
@@ -2992,445 +3058,82 @@ listener and subsequently, the listener will be deactivated and removed from the
         */
         setTimestamp(timestamp: number): void;
         /**
-           X Coordinate Getter
+           Gets Dilution of precision on the X measurement. Measured in meters.
 
-           @return X-axis component of the acceleration.
-           @since ARP1.0
+           @return xDoP Dilution of precision on the X measurement. Measured in meters.
         */
-        getX(): number;
+        getXDoP(): number;
         /**
-           X Coordinate Setter
+           Sets Dilution of precision on the X measurement. Measured in meters.
 
-           @param x X-axis component of the acceleration.
-           @since ARP1.0
+           @param xDoP Dilution of precision on the X measurement. Measured in meters.
         */
-        setX(x: number): void;
+        setXDoP(xDoP: number): void;
         /**
-           Y Coordinate Getter
+           Gets Dilution of precision on the Y measurement. Measured in meters.
 
-           @return Y-axis component of the acceleration.
-           @since ARP1.0
+           @return yDoP Dilution of precision on the Y measurement. Measured in meters.
         */
-        getY(): number;
+        getYDoP(): number;
         /**
-           Y Coordinate Setter
+           Sets Dilution of precision on the Y measurement. Measured in meters.
 
-           @param y Y-axis component of the acceleration.
-           @since ARP1.0
+           @param yDoP Dilution of precision on the Y measurement. Measured in meters.
         */
-        setY(y: number): void;
-        /**
-           Z Coordinate Getter
-
-           @return Z-axis component of the acceleration.
-           @since ARP1.0
-        */
-        getZ(): number;
-        /**
-           Z Coordinate Setter
-
-           @param z Z Coordinate
-           @since ARP1.0
-        */
-        setZ(z: number): void;
+        setYDoP(yDoP: number): void;
     }
     /**
-       Represents a local or remote service response.
-
-       @author Aryslan
-       @since ARP1.0
-       @version 1.0
-    */
-    class ServiceResponse extends APIBean {
-        /**
-           Request/Response data content (plain text).
-        */
-        content: string;
-        /**
-           The byte[] representing the binary Content.
-        */
-        contentBinary: number[];
-        /**
-           The length in bytes for the binary Content.
-        */
-        contentBinaryLength: number;
-        /**
-           Encoding of the binary payload - by default assumed to be UTF8.
-        */
-        contentEncoding: string;
-        /**
-           The length in bytes for the Content field.
-        */
-        contentLength: number;
-        /**
-           The request/response content type (MIME TYPE).
-        */
-        contentType: string;
-        /**
-           The serviceHeaders array (name,value pairs) to be included on the I/O service request.
-        */
-        serviceHeaders: ServiceHeader[];
-        /**
-           Information about the session
-        */
-        serviceSession: ServiceSession;
-        /**
-           Constructor with fields
-
-           @param content             Request/Response data content (plain text).
-           @param contentType         The request/response content type (MIME TYPE).
-           @param contentEncoding     Encoding of the binary payload - by default assumed to be UTF8.
-           @param contentLength       The length in bytes for the Content field.
-           @param contentBinary       The byte[] representing the binary Content.
-           @param contentBinaryLength The length in bytes for the binary Content.
-           @param serviceHeaders      The serviceHeaders array (name,value pairs) to be included on the I/O service request.
-           @param serviceSession      Information about the session
-           @since ARP1.0
-        */
-        constructor(content: string, contentType: string, contentEncoding: string, contentLength: number, contentBinary: number[], contentBinaryLength: number, serviceHeaders: ServiceHeader[], serviceSession: ServiceSession);
-        /**
-           Returns the content
-
-           @return content
-           @since ARP1.0
-        */
-        getContent(): string;
-        /**
-           Set the content
-
-           @param content Request/Response data content (plain text).
-           @since ARP1.0
-        */
-        setContent(content: string): void;
-        /**
-           Returns the binary content
-
-           @return contentBinary
-           @since ARP1.0
-        */
-        getContentBinary(): number[];
-        /**
-           Set the binary content
-
-           @param contentBinary The byte[] representing the binary Content.
-           @since ARP1.0
-        */
-        setContentBinary(contentBinary: number[]): void;
-        /**
-           Returns the binary content length
-
-           @return contentBinaryLength
-           @since ARP1.0
-        */
-        getContentBinaryLength(): number;
-        /**
-           Set the binary content length
-
-           @param contentBinaryLength The length in bytes for the binary Content.
-           @since ARP1.0
-        */
-        setContentBinaryLength(contentBinaryLength: number): void;
-        /**
-           Returns the content encoding
-
-           @return contentEncoding
-           @since ARP1.0
-        */
-        getContentEncoding(): string;
-        /**
-           Set the content encoding
-
-           @param contentEncoding Encoding of the binary payload - by default assumed to be UTF8.
-           @since ARP1.0
-        */
-        setContentEncoding(contentEncoding: string): void;
-        /**
-           Returns the content length
-
-           @return contentLength
-           @since ARP1.0
-        */
-        getContentLength(): number;
-        /**
-           Set the content length
-
-           @param contentLength The length in bytes for the Content field.
-           @since ARP1.0
-        */
-        setContentLength(contentLength: number): void;
-        /**
-           Returns the content type
-
-           @return contentType
-           @since ARP1.0
-        */
-        getContentType(): string;
-        /**
-           Set the content type
-
-           @param contentType The request/response content type (MIME TYPE).
-           @since ARP1.0
-        */
-        setContentType(contentType: string): void;
-        /**
-           Returns the array of ServiceHeader
-
-           @return serviceHeaders
-           @since ARP1.0
-        */
-        getServiceHeaders(): ServiceHeader[];
-        /**
-           Set the array of ServiceHeader
-
-           @param serviceHeaders The serviceHeaders array (name,value pairs) to be included on the I/O service request.
-           @since ARP1.0
-        */
-        setServiceHeaders(serviceHeaders: ServiceHeader[]): void;
-        /**
-           Getter for service session
-
-           @return The element service session
-           @since ARP1.0
-        */
-        getServiceSession(): ServiceSession;
-        /**
-           Setter for service session
-
-           @param serviceSession The element service session
-           @since ARP1.0
-        */
-        setServiceSession(serviceSession: ServiceSession): void;
-    }
-    /**
-       Represents a session object for HTTP request and responses
-
-       @author Ferran Vila Conesa
-       @since ARP1.0
-       @version 1.0
-    */
-    class ServiceSession {
-        /**
-           The attributes of the response
-        */
-        attributes: any[];
-        /**
-           The cookies of the response
-        */
-        cookies: ServiceCookie[];
-        /**
-           Constructor with fields
-
-           @param cookies    The cookies of the response
-           @param attributes Attributes of the response
-           @since ARP1.0
-        */
-        constructor(cookies: ServiceCookie[], attributes: any[]);
-        /**
-           Gets the attributes of the response
-
-           @return Attributes of the response
-           @since ARP1.0
-        */
-        getAttributes(): any[];
-        /**
-           Sets the attributes for the response
-
-           @param attributes Attributes of the response
-           @since ARP1.0
-        */
-        setAttributes(attributes: any[]): void;
-        /**
-           Returns the cookies of the response
-
-           @return The cookies of the response
-           @since ARP1.0
-        */
-        getCookies(): ServiceCookie[];
-        /**
-           Sets the cookies of the response
-
-           @param cookies The cookies of the response
-           @since ARP1.0
-        */
-        setCookies(cookies: ServiceCookie[]): void;
-    }
-    /**
-       Structure representing a database reference.
-
-       @author Ferran Vila Conesa
-       @since ARP1.0
-       @version 1.0
-    */
-    class Database extends APIBean {
-        /**
-           Indicates if database was created or needs to be created as Compressed.
-        */
-        compress: boolean;
-        /**
-           Database Name (name of the .db local file).
-        */
-        name: string;
-        /**
-           Constructor using fields.
-
-           @param name     Name of the DatabaseTable.
-           @param compress Compression enabled.
-           @since ARP1.0
-        */
-        constructor(name: string, compress: boolean);
-        /**
-           Returns if the table is compressed
-
-           @return Compression enabled
-           @since ARP1.0
-        */
-        getCompress(): boolean;
-        /**
-           Sets if the table is compressed or not.
-
-           @param compress Compression enabled
-           @since ARP1.0
-        */
-        setCompress(compress: boolean): void;
-        /**
-           Returns the name.
-
-           @return The name of the table.
-           @since ARP1.0
-        */
-        getName(): string;
-        /**
-           Sets the name of the table.
-
-           @param name The name of the table.
-           @since ARP1.0
-        */
-        setName(name: string): void;
-    }
-    /**
-       Represents a basic bean to store key pair values
-
-       @author Ferran Vila Conesa
-       @since ARP1.0
-       @version 1.0
-    */
-    class KeyPair extends APIBean {
-        /**
-           Key of the element
-        */
-        key: string;
-        /**
-           Value of the element
-        */
-        value: string;
-        /**
-           Constructor using fields
-
-           @param key   Key of the element
-           @param value Value of the element
-           @since ARP1.0
-        */
-        constructor(key: string, value: string);
-        /**
-           Returns the key of the element
-
-           @return Key of the element
-           @since ARP1.0
-        */
-        getKey(): string;
-        /**
-           Sets the key of the element
-
-           @param key Key of the element
-           @since ARP1.0
-        */
-        setKey(key: string): void;
-        /**
-           Returns the value of the element
-
-           @return Value of the element
-           @since ARP1.0
-        */
-        getValue(): string;
-        /**
-           Sets the value of the element
-
-           @param value Value of the element
-           @since ARP1.0
-        */
-        setValue(value: string): void;
-    }
-    /**
-       Structure representing the professional info data elements of a contact.
+       Structure representing the social data elements of a contact.
 
        @author Francisco Javier Martin Bueno
        @since ARP1.0
        @version 1.0
     */
-    class ContactProfessionalInfo extends APIBean {
+    class ContactSocial extends APIBean {
         /**
-           The company of the job
+           The social network
         */
-        company: string;
+        socialNetwork: ContactSocialNetwork;
         /**
-           The job description
+           The profileUrl
         */
-        jobDescription: string;
+        profileUrl: string;
         /**
-           The job title
-        */
-        jobTitle: string;
-        /**
-           Constructor used by implementation to set the ContactProfessionalInfo.
+           Constructor used by the implementation
 
-           @param jobTitle       The job title
-           @param jobDescription The job description
-           @param company        The company of the job
+           @param socialNetwork of the profile
+           @param profileUrl    of the user
            @since ARP1.0
         */
-        constructor(jobTitle: string, jobDescription: string, company: string);
+        constructor(socialNetwork: ContactSocialNetwork, profileUrl: string);
         /**
-           Returns the company of the job
+           Returns the social network
 
-           @return company
+           @return socialNetwork
            @since ARP1.0
         */
-        getCompany(): string;
+        getSocialNetwork(): ContactSocialNetwork;
         /**
-           Set the company of the job
+           Set the social network
 
-           @param company The company of the job
+           @param socialNetwork of the profile
            @since ARP1.0
         */
-        setCompany(company: string): void;
+        setSocialNetwork(socialNetwork: ContactSocialNetwork): void;
         /**
-           Returns the description of the job
+           Returns the profile url of the user
 
-           @return description
+           @return profileUrl
            @since ARP1.0
         */
-        getJobDescription(): string;
+        getProfileUrl(): string;
         /**
-           Set the description of the job
+           Set the profile url of the iser
 
-           @param jobDescription The job description
+           @param profileUrl of the user
            @since ARP1.0
         */
-        setJobDescription(jobDescription: string): void;
-        /**
-           Returns the title of the job
-
-           @return title
-           @since ARP1.0
-        */
-        getJobTitle(): string;
-        /**
-           Set the title of the job
-
-           @param jobTitle The job title
-           @since ARP1.0
-        */
-        setJobTitle(jobTitle: string): void;
+        setProfileUrl(profileUrl: string): void;
     }
     /**
        Represents an instance of a service.
@@ -3614,175 +3317,306 @@ be unique for a specific instance of an application on a specific device.
         setVendor(vendor: string): void;
     }
     /**
-       Structure representing the internal unique identifier data elements of a contact.
-
-       @author Francisco Javier Martin Bueno
-       @since ARP1.0
-       @version 1.0
-    */
-    class ContactUid extends APIBean {
-        /**
-           The id of the Contact
-        */
-        contactId: string;
-        /**
-           Constructor used by implementation to set the Contact id.
-
-           @param contactId Internal unique contact id.
-           @since ARP1.0
-        */
-        constructor(contactId: string);
-        /**
-           Returns the contact id
-
-           @return Contactid Internal unique contact id.
-           @since ARP1.0
-        */
-        getContactId(): string;
-        /**
-           Set the id of the Contact
-
-           @param contactId Internal unique contact id.
-           @since ARP1.0
-        */
-        setContactId(contactId: string): void;
-    }
-    /**
-       Structure representing the website data elements of a contact.
-
-       @author Francisco Javier Martin Bueno
-       @since ARP1.0
-       @version 1.0
-    */
-    class ContactWebsite extends APIBean {
-        /**
-           The url of the website
-        */
-        url: string;
-        /**
-           Constructor used by the implementation
-
-           @param url Url of the website
-           @since ARP1.0
-        */
-        constructor(url: string);
-        /**
-           Returns the url of the website
-
-           @return website url
-           @since ARP1.0
-        */
-        getUrl(): string;
-        /**
-           Set the url of the website
-
-           @param url Url of the website
-           @since ARP1.0
-        */
-        setUrl(url: string): void;
-    }
-    /**
-       Structure representing the column specification of a data column.
+       Represents a session object for HTTP request and responses
 
        @author Ferran Vila Conesa
        @since ARP1.0
        @version 1.0
     */
-    class DatabaseColumn extends APIBean {
+    class ServiceSession {
         /**
-           Name of the column
+           The attributes of the response
         */
-        name: string;
+        attributes: string[];
+        /**
+           The cookies of the response
+        */
+        cookies: ServiceCookie[];
         /**
            Constructor with fields
 
-           @param name Name of the column
+           @param cookies    The cookies of the response
+           @param attributes Attributes of the response
            @since ARP1.0
         */
-        constructor(name: string);
+        constructor(cookies: ServiceCookie[], attributes: string[]);
         /**
-           Returns the name of the column.
+           Gets the attributes of the response
 
-           @return The name of the column.
+           @return Attributes of the response
            @since ARP1.0
         */
-        getName(): string;
+        getAttributes(): string[];
         /**
-           Sets the name of the column.
+           Sets the attributes for the response
 
-           @param name The name of the column.
+           @param attributes Attributes of the response
            @since ARP1.0
         */
-        setName(name: string): void;
+        setAttributes(attributes: string[]): void;
+        /**
+           Returns the cookies of the response
+
+           @return The cookies of the response
+           @since ARP1.0
+        */
+        getCookies(): ServiceCookie[];
+        /**
+           Sets the cookies of the response
+
+           @param cookies The cookies of the response
+           @since ARP1.0
+        */
+        setCookies(cookies: ServiceCookie[]): void;
     }
     /**
-       Represents the basic information about the operating system.
+       Structure representing a HTML5 request to the native API.
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    class APIRequest {
+        /**
+           Identifier of callback or listener for async operations.
+        */
+        asyncId: number;
+        /**
+           String representing the bridge type to obtain.
+        */
+        bridgeType: string;
+        /**
+           String representing the method name to call.
+        */
+        methodName: string;
+        /**
+           Parameters of the request as JSON formatted strings.
+        */
+        parameters: string[];
+        /**
+           Constructor with all the parameters
+
+           @param bridgeType Name of the bridge to be invoked.
+           @param methodName Name of the method
+           @param parameters Array of parameters as JSON formatted strings.
+           @param asyncId    Id of callback or listener or zero if none for synchronous calls.
+           @since ARP1.0
+        */
+        constructor(bridgeType: string, methodName: string, parameters: string[], asyncId: number);
+        /**
+           Returns the callback or listener id assigned to this request OR zero if there is no associated callback or
+listener.
+
+           @return long with the unique id of the callback or listener, or zero if there is no associated async event.
+        */
+        getAsyncId(): number;
+        /**
+           Sets the callback or listener id to the request.
+
+           @param asyncId The unique id of the callback or listener.
+        */
+        setAsyncId(asyncId: number): void;
+        /**
+           Bridge Type Getter
+
+           @return Bridge Type
+           @since ARP1.0
+        */
+        getBridgeType(): string;
+        /**
+           Bridge Type Setter
+
+           @param bridgeType Bridge Type
+           @since ARP1.0
+        */
+        setBridgeType(bridgeType: string): void;
+        /**
+           Method name Getter
+
+           @return Method name
+           @since ARP1.0
+        */
+        getMethodName(): string;
+        /**
+           Method name Setter
+
+           @param methodName Method name
+           @since ARP1.0
+        */
+        setMethodName(methodName: string): void;
+        /**
+           Parameters Getter
+
+           @return Parameters
+           @since ARP1.0
+        */
+        getParameters(): string[];
+        /**
+           Parameters Setter
+
+           @param parameters Parameters, JSON formatted strings of objects.
+           @since ARP1.0
+        */
+        setParameters(parameters: string[]): void;
+    }
+    /**
+       Represents a single secureKey-value pair.
+
+       @author Aryslan
+       @since ARP1.0
+       @version 1.0
+    */
+    class SecureKeyPair extends APIBean {
+        /**
+           Value of the secured element
+        */
+        secureData: string;
+        /**
+           Key of the secured element
+        */
+        secureKey: string;
+        /**
+           Constructor with parameters
+
+           @param secureKey  name of the keypair
+           @param secureData value of the keypair
+           @since ARP1.0
+        */
+        constructor(secureKey: string, secureData: string);
+        /**
+           Returns the object value
+
+           @return Value.
+           @since ARP 1.0
+        */
+        getSecureData(): string;
+        /**
+           Sets the value for this object
+
+           @param secureData value to set.
+           @since ARP 1.0
+        */
+        setSecureData(secureData: string): void;
+        /**
+           Returns the object secureKey name.
+
+           @return Key name.
+           @since ARP 1.0
+        */
+        getSecureKey(): string;
+        /**
+           Sets the secureKey name for this object.
+
+           @param secureKey Key name.
+           @since ARP 1.0
+        */
+        setSecureKey(secureKey: string): void;
+    }
+    /**
+       Structure representing the address data elements of a contact.
 
        @author Francisco Javier Martin Bueno
        @since ARP1.0
        @version 1.0
     */
-    class OSInfo extends APIBean {
+    class ContactAddress extends APIBean {
         /**
-           The name of the operating system.
+           The address type
         */
-        name: string;
+        type: ContactAddressType;
         /**
-           The vendor of the operating system.
+           The Contact address
         */
-        vendor: string;
+        address: string;
         /**
-           The version/identifier of the operating system.
-        */
-        version: string;
-        /**
-           Constructor used by implementation to set the OS information.
+           Constructor with fields
 
-           @param name    of the OS.
-           @param version of the OS.
-           @param vendor  of the OS.
+           @param address Address data.
+           @param type    Address type.
            @since ARP1.0
         */
-        constructor(name: string, version: string, vendor: string);
+        constructor(address: string, type: ContactAddressType);
         /**
-           Returns the name of the operating system.
+           Returns the type of the address
 
-           @return OS name.
+           @return AddressType Address type.
            @since ARP1.0
         */
-        getName(): string;
+        getType(): ContactAddressType;
         /**
-           Sets The name of the operating system.
+           Set the address type
 
-           @param name The name of the operating system.
-        */
-        setName(name: string): void;
-        /**
-           Returns the vendor of the operating system.
-
-           @return OS vendor.
+           @param type Address type.
            @since ARP1.0
         */
-        getVendor(): string;
+        setType(type: ContactAddressType): void;
         /**
-           Sets The vendor of the operating system.
+           Returns the Contact address
 
-           @param vendor The vendor of the operating system.
-        */
-        setVendor(vendor: string): void;
-        /**
-           Returns the version of the operating system.
-
-           @return OS version.
+           @return address Address data.
            @since ARP1.0
         */
-        getVersion(): string;
+        getAddress(): string;
         /**
-           Sets The version/identifier of the operating system.
+           Set the address of the Contact
 
-           @param version The version/identifier of the operating system.
+           @param address Address data.
+           @since ARP1.0
         */
-        setVersion(version: string): void;
+        setAddress(address: string): void;
+    }
+    /**
+       Represents a basic bean to store keyName pair values
+
+       @author Ferran Vila Conesa
+       @since ARP1.0
+       @version 1.0
+    */
+    class KeyPair extends APIBean {
+        /**
+           Key of the element
+        */
+        keyName: string;
+        /**
+           Value of the element
+        */
+        keyValue: string;
+        /**
+           Constructor using fields
+
+           @param keyName   Key of the element
+           @param keyValue Value of the element
+           @since ARP1.0
+        */
+        constructor(keyName: string, keyValue: string);
+        /**
+           Returns the keyName of the element
+
+           @return Key of the element
+           @since ARP1.0
+        */
+        getKeyName(): string;
+        /**
+           Sets the keyName of the element
+
+           @param keyName Key of the element
+           @since ARP1.0
+        */
+        setKeyName(keyName: string): void;
+        /**
+           Returns the keyValue of the element
+
+           @return Value of the element
+           @since ARP1.0
+        */
+        getKeyValue(): string;
+        /**
+           Sets the keyValue of the element
+
+           @param keyValue Value of the element
+           @since ARP1.0
+        */
+        setKeyValue(keyValue: string): void;
     }
     /**
        Represents a data table composed of databaseColumns and databaseRows.
@@ -3893,6 +3727,647 @@ be unique for a specific instance of an application on a specific device.
            @since ARP1.0
         */
         setRowCount(rowCount: number): void;
+    }
+    /**
+       Created by clozano on 19/12/14.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    class FileDescriptor {
+        dateCreated: number;
+        dateModified: number;
+        name: string;
+        path: string;
+        pathAbsolute: string;
+        size: number;
+        /**
+           Default constructor.
+        */
+        constructor();
+        /**
+           Returns the milliseconds passed since 1/1/1970 since the file was created.
+
+           @return Timestamp in milliseconds.
+           @since ARP1.0
+        */
+        getDateCreated(): number;
+        /**
+           Sets the creation timestamp in milliseconds. Used internally.
+
+           @param dateCreated Timestamp of file creation or -1 if the file or folder doesn't exist.
+        */
+        setDateCreated(dateCreated: number): void;
+        /**
+           Returns the milliseconds passed since 1/1/1970 since the file was modified.
+
+           @return Timestamp in milliseconds.
+           @since ARP1.0
+        */
+        getDateModified(): number;
+        /**
+           Sets the file or folder modification timestamp in milliseconds. Used internally.
+
+           @param dateModified Timestamp of file modification or -1 if the file or folder doesn't exist.
+        */
+        setDateModified(dateModified: number): void;
+        /**
+           Returns the name of the file if the reference is a file or the last path element of the folder.
+
+           @return The name of the file.
+           @since ARP1.0
+        */
+        getName(): string;
+        /**
+           Sets the name of the file. Used internally.
+
+           @param name Name of the file or last folder path element.
+        */
+        setName(name: string): void;
+        /**
+           Returns the path element of the file or folder (excluding the last path element if it's a directory).
+
+           @return The path to the file.
+           @since ARP1.0
+        */
+        getPath(): string;
+        /**
+           Sets the path of the file or folder. Used internally.
+
+           @param path The path element of the file or folder.
+        */
+        setPath(path: string): void;
+        /**
+           Returns the resolved absolute path elements of the file and/or folders (including the last path element).
+
+           @return The absolute path to the file.
+           @since ARP1.0
+        */
+        getPathAbsolute(): string;
+        /**
+           Sets the absolute path of the file or folder. Used internally.
+
+           @param pathAbsolute String with the absolute path of file or folder.
+        */
+        setPathAbsolute(pathAbsolute: string): void;
+        /**
+           Returns the size in bytes of the file or -1 if the reference is a folder.
+
+           @return Size in bytes of file.
+           @since ARP1.0
+        */
+        getSize(): number;
+        /**
+           Sets the file size in bytes of the file. If the file is a folder, this will be 0. If the file
+doesn't exist, this will be -1. Used internally.
+
+           @param size The size in bytes of the file.
+        */
+        setSize(size: number): void;
+    }
+    /**
+       Structure representing the a physical or logical button on a device.
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+       @version 1.0
+    */
+    class Button extends APIBean {
+        /**
+           Button type
+        */
+        type: ICapabilitiesButton;
+        /**
+           Constructor with fields
+
+           @param type Button type.
+           @since ARP1.0
+        */
+        constructor(type: ICapabilitiesButton);
+        /**
+           Returns the button type
+
+           @return type Button type.
+           @since ARP1.0
+        */
+        getType(): ICapabilitiesButton;
+        /**
+           Setter for the button type
+
+           @param type Button Type
+           @since ARP1.0
+        */
+        setType(type: ICapabilitiesButton): void;
+    }
+    /**
+       Structure representing the data of a single acceleration reading.
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+       @version 1.0
+    */
+    class Acceleration extends APIBean {
+        /**
+           Timestamp of the acceleration reading.
+        */
+        timestamp: number;
+        /**
+           X-axis component of the acceleration.
+        */
+        x: number;
+        /**
+           Y-axis component of the acceleration.
+        */
+        y: number;
+        /**
+           Z-axis component of the acceleration.
+        */
+        z: number;
+        /**
+           Constructor with fields
+
+           @param x         X Coordinate
+           @param y         Y Coordinate
+           @param z         Z Coordinate
+           @param timestamp Timestamp
+           @since ARP1.0
+        */
+        constructor(x: number, y: number, z: number, timestamp: number);
+        /**
+           Timestamp Getter
+
+           @return Timestamp
+           @since ARP1.0
+        */
+        getTimestamp(): number;
+        /**
+           Timestamp Setter
+
+           @param timestamp Timestamp
+           @since ARP1.0
+        */
+        setTimestamp(timestamp: number): void;
+        /**
+           X Coordinate Getter
+
+           @return X-axis component of the acceleration.
+           @since ARP1.0
+        */
+        getX(): number;
+        /**
+           X Coordinate Setter
+
+           @param x X-axis component of the acceleration.
+           @since ARP1.0
+        */
+        setX(x: number): void;
+        /**
+           Y Coordinate Getter
+
+           @return Y-axis component of the acceleration.
+           @since ARP1.0
+        */
+        getY(): number;
+        /**
+           Y Coordinate Setter
+
+           @param y Y-axis component of the acceleration.
+           @since ARP1.0
+        */
+        setY(y: number): void;
+        /**
+           Z Coordinate Getter
+
+           @return Z-axis component of the acceleration.
+           @since ARP1.0
+        */
+        getZ(): number;
+        /**
+           Z Coordinate Setter
+
+           @param z Z Coordinate
+           @since ARP1.0
+        */
+        setZ(z: number): void;
+    }
+    /**
+       Structure representing the data elements of an email addressee.
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+       @version 1.0
+    */
+    class EmailAddress extends APIBean {
+        /**
+           The Email address
+        */
+        address: string;
+        /**
+           Constructor used by implementation
+
+           @param address of the Email
+           @since ARP1.0
+        */
+        constructor(address: string);
+        /**
+           Returns the email address
+
+           @return address of the Email
+           @since ARP1.0
+        */
+        getAddress(): string;
+        /**
+           Set the Email address
+
+           @param address of the Email
+           @since ARP1.0
+        */
+        setAddress(address: string): void;
+    }
+    /**
+       Represents a local or remote service response.
+
+       @author Aryslan
+       @since ARP1.0
+       @version 1.0
+    */
+    class ServiceResponse extends APIBean {
+        /**
+           Request/Response data content (plain text).
+        */
+        content: string;
+        /**
+           The byte[] representing the binary Content.
+        */
+        contentBinary: number[];
+        /**
+           The length in bytes for the binary Content.
+        */
+        contentBinaryLength: number;
+        /**
+           Encoding of the binary payload - by default assumed to be UTF8.
+        */
+        contentEncoding: string;
+        /**
+           The length in bytes for the Content field.
+        */
+        contentLength: number;
+        /**
+           The request/response content type (MIME TYPE).
+        */
+        contentType: string;
+        /**
+           The serviceHeaders array (name,value pairs) to be included on the I/O service request.
+        */
+        serviceHeaders: ServiceHeader[];
+        /**
+           Information about the session
+        */
+        serviceSession: ServiceSession;
+        /**
+           Constructor with fields
+
+           @param content             Request/Response data content (plain text).
+           @param contentType         The request/response content type (MIME TYPE).
+           @param contentEncoding     Encoding of the binary payload - by default assumed to be UTF8.
+           @param contentLength       The length in bytes for the Content field.
+           @param contentBinary       The byte[] representing the binary Content.
+           @param contentBinaryLength The length in bytes for the binary Content.
+           @param serviceHeaders      The serviceHeaders array (name,value pairs) to be included on the I/O service request.
+           @param serviceSession      Information about the session
+           @since ARP1.0
+        */
+        constructor(content: string, contentType: string, contentEncoding: string, contentLength: number, contentBinary: number[], contentBinaryLength: number, serviceHeaders: ServiceHeader[], serviceSession: ServiceSession);
+        /**
+           Returns the content
+
+           @return content
+           @since ARP1.0
+        */
+        getContent(): string;
+        /**
+           Set the content
+
+           @param content Request/Response data content (plain text).
+           @since ARP1.0
+        */
+        setContent(content: string): void;
+        /**
+           Returns the binary content
+
+           @return contentBinary
+           @since ARP1.0
+        */
+        getContentBinary(): number[];
+        /**
+           Set the binary content
+
+           @param contentBinary The byte[] representing the binary Content.
+           @since ARP1.0
+        */
+        setContentBinary(contentBinary: number[]): void;
+        /**
+           Returns the binary content length
+
+           @return contentBinaryLength
+           @since ARP1.0
+        */
+        getContentBinaryLength(): number;
+        /**
+           Set the binary content length
+
+           @param contentBinaryLength The length in bytes for the binary Content.
+           @since ARP1.0
+        */
+        setContentBinaryLength(contentBinaryLength: number): void;
+        /**
+           Returns the content encoding
+
+           @return contentEncoding
+           @since ARP1.0
+        */
+        getContentEncoding(): string;
+        /**
+           Set the content encoding
+
+           @param contentEncoding Encoding of the binary payload - by default assumed to be UTF8.
+           @since ARP1.0
+        */
+        setContentEncoding(contentEncoding: string): void;
+        /**
+           Returns the content length
+
+           @return contentLength
+           @since ARP1.0
+        */
+        getContentLength(): number;
+        /**
+           Set the content length
+
+           @param contentLength The length in bytes for the Content field.
+           @since ARP1.0
+        */
+        setContentLength(contentLength: number): void;
+        /**
+           Returns the content type
+
+           @return contentType
+           @since ARP1.0
+        */
+        getContentType(): string;
+        /**
+           Set the content type
+
+           @param contentType The request/response content type (MIME TYPE).
+           @since ARP1.0
+        */
+        setContentType(contentType: string): void;
+        /**
+           Returns the array of ServiceHeader
+
+           @return serviceHeaders
+           @since ARP1.0
+        */
+        getServiceHeaders(): ServiceHeader[];
+        /**
+           Set the array of ServiceHeader
+
+           @param serviceHeaders The serviceHeaders array (name,value pairs) to be included on the I/O service request.
+           @since ARP1.0
+        */
+        setServiceHeaders(serviceHeaders: ServiceHeader[]): void;
+        /**
+           Getter for service session
+
+           @return The element service session
+           @since ARP1.0
+        */
+        getServiceSession(): ServiceSession;
+        /**
+           Setter for service session
+
+           @param serviceSession The element service session
+           @since ARP1.0
+        */
+        setServiceSession(serviceSession: ServiceSession): void;
+    }
+    /**
+       Structure representing the data elements of an email.
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+       @version 1.0
+    */
+    class Email extends APIBean {
+        /**
+           Array of Email Blind Carbon Copy recipients
+        */
+        bccRecipients: EmailAddress[];
+        /**
+           Array of Email Carbon Copy recipients
+        */
+        ccRecipients: EmailAddress[];
+        /**
+           Array of attatchments
+        */
+        emailAttachmentData: EmailAttachmentData[];
+        /**
+           Message body
+        */
+        messageBody: string;
+        /**
+           Message body mime type
+        */
+        messageBodyMimeType: string;
+        /**
+           Subject of the email
+        */
+        subject: string;
+        /**
+           Array of Email recipients
+        */
+        toRecipients: EmailAddress[];
+        /**
+           Constructor used by the implementation
+
+           @param toRecipients        array of recipients
+           @param ccRecipients        array of cc recipients
+           @param bccRecipients       array of bcc recipients
+           @param emailAttachmentData array of attatchments
+           @param messageBody         body of the email
+           @param messageBodyMimeType mime type of the body
+           @param subject             of the email
+           @since ARP1.0
+        */
+        constructor(toRecipients: EmailAddress[], ccRecipients: EmailAddress[], bccRecipients: EmailAddress[], emailAttachmentData: EmailAttachmentData[], messageBody: string, messageBodyMimeType: string, subject: string);
+        /**
+           Returns the array of recipients
+
+           @return bccRecipients array of bcc recipients
+           @since ARP1.0
+        */
+        getBccRecipients(): EmailAddress[];
+        /**
+           Set the array of recipients
+
+           @param bccRecipients array of bcc recipients
+           @since ARP1.0
+        */
+        setBccRecipients(bccRecipients: EmailAddress[]): void;
+        /**
+           Returns the array of recipients
+
+           @return ccRecipients array of cc recipients
+           @since ARP1.0
+        */
+        getCcRecipients(): EmailAddress[];
+        /**
+           Set the array of recipients
+
+           @param ccRecipients array of cc recipients
+           @since ARP1.0
+        */
+        setCcRecipients(ccRecipients: EmailAddress[]): void;
+        /**
+           Returns an array of attachments
+
+           @return emailAttachmentData array with the email attachments
+           @since ARP1.0
+        */
+        getEmailAttachmentData(): EmailAttachmentData[];
+        /**
+           Set the email attachment data array
+
+           @param emailAttachmentData array of email attatchments
+           @since ARP1.0
+        */
+        setEmailAttachmentData(emailAttachmentData: EmailAttachmentData[]): void;
+        /**
+           Returns the message body of the email
+
+           @return message Body string of the email
+           @since ARP1.0
+        */
+        getMessageBody(): string;
+        /**
+           Set the message body of the email
+
+           @param messageBody message body of the email
+           @since ARP1.0
+        */
+        setMessageBody(messageBody: string): void;
+        /**
+           Returns the myme type of the message body
+
+           @return mime type string of the message boddy
+           @since ARP1.0
+        */
+        getMessageBodyMimeType(): string;
+        /**
+           Set the mime type for the message body
+
+           @param messageBodyMimeType type of the body message
+           @since ARP1.0
+        */
+        setMessageBodyMimeType(messageBodyMimeType: string): void;
+        /**
+           Returns the subject of the email
+
+           @return subject string of the email
+           @since ARP1.0
+        */
+        getSubject(): string;
+        /**
+           Set the subject of the email
+
+           @param subject of the email
+           @since ARP1.0
+        */
+        setSubject(subject: string): void;
+        /**
+           Returns the array of recipients
+
+           @return toRecipients array of recipients
+           @since ARP1.0
+        */
+        getToRecipients(): EmailAddress[];
+        /**
+           Set the array of recipients
+
+           @param toRecipients array of recipients
+           @since ARP1.0
+        */
+        setToRecipients(toRecipients: EmailAddress[]): void;
+    }
+    /**
+       Represents the basic information about the operating system.
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+       @version 1.0
+    */
+    class OSInfo extends APIBean {
+        /**
+           The name of the operating system.
+        */
+        name: string;
+        /**
+           The vendor of the operating system.
+        */
+        vendor: string;
+        /**
+           The version/identifier of the operating system.
+        */
+        version: string;
+        /**
+           Constructor used by implementation to set the OS information.
+
+           @param name    of the OS.
+           @param version of the OS.
+           @param vendor  of the OS.
+           @since ARP1.0
+        */
+        constructor(name: string, version: string, vendor: string);
+        /**
+           Returns the name of the operating system.
+
+           @return OS name.
+           @since ARP1.0
+        */
+        getName(): string;
+        /**
+           Sets The name of the operating system.
+
+           @param name The name of the operating system.
+        */
+        setName(name: string): void;
+        /**
+           Returns the vendor of the operating system.
+
+           @return OS vendor.
+           @since ARP1.0
+        */
+        getVendor(): string;
+        /**
+           Sets The vendor of the operating system.
+
+           @param vendor The vendor of the operating system.
+        */
+        setVendor(vendor: string): void;
+        /**
+           Returns the version of the operating system.
+
+           @return OS version.
+           @since ARP1.0
+        */
+        getVersion(): string;
+        /**
+           Sets The version/identifier of the operating system.
+
+           @param version The version/identifier of the operating system.
+        */
+        setVersion(version: string): void;
     }
     /**
        Represents a local or remote service request.
@@ -4100,239 +4575,224 @@ be unique for a specific instance of an application on a specific device.
         setServiceSession(serviceSession: ServiceSession): void;
     }
     /**
-       Structure representing the social data elements of a contact.
-
-       @author Francisco Javier Martin Bueno
-       @since ARP1.0
-       @version 1.0
-    */
-    class ContactSocial extends APIBean {
-        /**
-           The social network
-        */
-        socialNetwork: ContactSocialNetwork;
-        /**
-           The profileUrl
-        */
-        profileUrl: string;
-        /**
-           Constructor used by the implementation
-
-           @param socialNetwork of the profile
-           @param profileUrl    of the user
-           @since ARP1.0
-        */
-        constructor(socialNetwork: ContactSocialNetwork, profileUrl: string);
-        /**
-           Returns the social network
-
-           @return socialNetwork
-           @since ARP1.0
-        */
-        getSocialNetwork(): ContactSocialNetwork;
-        /**
-           Set the social network
-
-           @param socialNetwork of the profile
-           @since ARP1.0
-        */
-        setSocialNetwork(socialNetwork: ContactSocialNetwork): void;
-        /**
-           Returns the profile url of the user
-
-           @return profileUrl
-           @since ARP1.0
-        */
-        getProfileUrl(): string;
-        /**
-           Set the profile url of the iser
-
-           @param profileUrl of the user
-           @since ARP1.0
-        */
-        setProfileUrl(profileUrl: string): void;
-    }
-    /**
-       Structure representing the data elements of an email.
-
-       @author Francisco Javier Martin Bueno
-       @since ARP1.0
-       @version 1.0
-    */
-    class Email extends APIBean {
-        /**
-           Array of Email Blind Carbon Copy recipients
-        */
-        bccRecipients: EmailAddress[];
-        /**
-           Array of Email Carbon Copy recipients
-        */
-        ccRecipients: EmailAddress[];
-        /**
-           Array of attatchments
-        */
-        emailAttachmentData: EmailAttachmentData[];
-        /**
-           Message body
-        */
-        messageBody: string;
-        /**
-           Message body mime type
-        */
-        messageBodyMimeType: string;
-        /**
-           Subject of the email
-        */
-        subject: string;
-        /**
-           Array of Email recipients
-        */
-        toRecipients: EmailAddress[];
-        /**
-           Constructor used by the implementation
-
-           @param toRecipients        array of recipients
-           @param ccRecipients        array of cc recipients
-           @param bccRecipients       array of bcc recipients
-           @param emailAttachmentData array of attatchments
-           @param messageBody         body of the email
-           @param messageBodyMimeType mime type of the body
-           @param subject             of the email
-           @since ARP1.0
-        */
-        constructor(toRecipients: EmailAddress[], ccRecipients: EmailAddress[], bccRecipients: EmailAddress[], emailAttachmentData: EmailAttachmentData[], messageBody: string, messageBodyMimeType: string, subject: string);
-        /**
-           Returns the array of recipients
-
-           @return bccRecipients array of bcc recipients
-           @since ARP1.0
-        */
-        getBccRecipients(): EmailAddress[];
-        /**
-           Set the array of recipients
-
-           @param bccRecipients array of bcc recipients
-           @since ARP1.0
-        */
-        setBccRecipients(bccRecipients: EmailAddress[]): void;
-        /**
-           Returns the array of recipients
-
-           @return ccRecipients array of cc recipients
-           @since ARP1.0
-        */
-        getCcRecipients(): EmailAddress[];
-        /**
-           Set the array of recipients
-
-           @param ccRecipients array of cc recipients
-           @since ARP1.0
-        */
-        setCcRecipients(ccRecipients: EmailAddress[]): void;
-        /**
-           Returns an array of attachments
-
-           @return emailAttachmentData array with the email attachments
-           @since ARP1.0
-        */
-        getEmailAttachmentData(): EmailAttachmentData[];
-        /**
-           Set the email attachment data array
-
-           @param emailAttachmentData array of email attatchments
-           @since ARP1.0
-        */
-        setEmailAttachmentData(emailAttachmentData: EmailAttachmentData[]): void;
-        /**
-           Returns the message body of the email
-
-           @return message Body string of the email
-           @since ARP1.0
-        */
-        getMessageBody(): string;
-        /**
-           Set the message body of the email
-
-           @param messageBody message body of the email
-           @since ARP1.0
-        */
-        setMessageBody(messageBody: string): void;
-        /**
-           Returns the myme type of the message body
-
-           @return mime type string of the message boddy
-           @since ARP1.0
-        */
-        getMessageBodyMimeType(): string;
-        /**
-           Set the mime type for the message body
-
-           @param messageBodyMimeType type of the body message
-           @since ARP1.0
-        */
-        setMessageBodyMimeType(messageBodyMimeType: string): void;
-        /**
-           Returns the subject of the email
-
-           @return subject string of the email
-           @since ARP1.0
-        */
-        getSubject(): string;
-        /**
-           Set the subject of the email
-
-           @param subject of the email
-           @since ARP1.0
-        */
-        setSubject(subject: string): void;
-        /**
-           Returns the array of recipients
-
-           @return toRecipients array of recipients
-           @since ARP1.0
-        */
-        getToRecipients(): EmailAddress[];
-        /**
-           Set the array of recipients
-
-           @param toRecipients array of recipients
-           @since ARP1.0
-        */
-        setToRecipients(toRecipients: EmailAddress[]): void;
-    }
-    /**
-       Structure representing a row for a data table.
+       Structure representing a database reference.
 
        @author Ferran Vila Conesa
        @since ARP1.0
        @version 1.0
     */
-    class DatabaseRow extends APIBean {
+    class Database extends APIBean {
         /**
-           The values of the row.
+           Indicates if database was created or needs to be created as Compressed.
         */
-        values: any[];
+        compress: boolean;
         /**
-           Constructor for implementation using.
+           Database Name (name of the .db local file).
+        */
+        name: string;
+        /**
+           Constructor using fields.
 
-           @param values The values of the row
+           @param name     Name of the DatabaseTable.
+           @param compress Compression enabled.
            @since ARP1.0
         */
-        constructor(values: any[]);
+        constructor(name: string, compress: boolean);
         /**
-           Returns the values of the row.
+           Returns if the table is compressed
 
-           @return The values of the row.
+           @return Compression enabled
            @since ARP1.0
         */
-        getValues(): any[];
+        getCompress(): boolean;
         /**
-           Sets the values of the row.
+           Sets if the table is compressed or not.
 
-           @param values The values of the row.
+           @param compress Compression enabled
            @since ARP1.0
         */
-        setValues(values: any[]): void;
+        setCompress(compress: boolean): void;
+        /**
+           Returns the name.
+
+           @return The name of the table.
+           @since ARP1.0
+        */
+        getName(): string;
+        /**
+           Sets the name of the table.
+
+           @param name The name of the table.
+           @since ARP1.0
+        */
+        setName(name: string): void;
+    }
+    /**
+       Structure representing the cookieValue of a http cookie.
+
+       @author Aryslan
+       @since ARP1.0
+       @version 1.0
+    */
+    class ServiceCookie extends APIBean {
+        /**
+           Name ot the cookie
+        */
+        cookieName: string;
+        /**
+           Value of the ServiceCookie
+        */
+        cookieValue: string;
+        /**
+           ServiceCookie creation timestamp in milliseconds.
+        */
+        creation: number;
+        /**
+           Domain for which the cookie is valid.
+        */
+        domain: string;
+        /**
+           ServiceCookie expiry in milliseconds or -1 for session only.
+        */
+        expiry: number;
+        /**
+           URI path for which the cookie is valid.
+        */
+        path: string;
+        /**
+           Scheme of the domain - http/https - for which the cookie is valid.
+        */
+        scheme: string;
+        /**
+           ServiceCookie is secure (https only)
+        */
+        secure: boolean;
+        /**
+           Contructor with fields
+
+           @param cookieName     Name of the cookie
+           @param cookieValue    Value of the cookie
+           @param domain   Domain of the cookie
+           @param path     Path of the cookie
+           @param scheme   Scheme of the cookie
+           @param secure   Privacy of the cookie
+           @param expiry   Expiration date of the cookie
+           @param creation Creation date of the cookie
+           @since ARP1.0
+        */
+        constructor(cookieName: string, cookieValue: string, domain: string, path: string, scheme: string, secure: boolean, expiry: number, creation: number);
+        /**
+           Returns the cookie cookieName
+
+           @return cookieName Name of the cookie
+           @since ARP1.0
+        */
+        getCookieName(): string;
+        /**
+           Set the cookie cookieName
+
+           @param cookieName Name of the cookie
+           @since ARP1.0
+        */
+        setCookieName(cookieName: string): void;
+        /**
+           Returns the cookie cookieValue
+
+           @return Value of the cookie
+           @since ARP1.0
+        */
+        getCookieValue(): string;
+        /**
+           Set the cookie cookieValue
+
+           @param cookieValue Value of the cookie
+           @since ARP1.0
+        */
+        setCookieValue(cookieValue: string): void;
+        /**
+           Returns the creation date
+
+           @return Creation date of the cookie
+           @since ARP1.0
+        */
+        getCreation(): number;
+        /**
+           Sets the creation date
+
+           @param creation Creation date of the cookie
+           @since ARP1.0
+        */
+        setCreation(creation: number): void;
+        /**
+           Returns the domain
+
+           @return domain
+           @since ARP1.0
+        */
+        getDomain(): string;
+        /**
+           Set the domain
+
+           @param domain Domain of the cookie
+           @since ARP1.0
+        */
+        setDomain(domain: string): void;
+        /**
+           Returns the expiration date in milis
+
+           @return expiry
+           @since ARP1.0
+        */
+        getExpiry(): number;
+        /**
+           Set the expiration date in milis
+
+           @param expiry Expiration date of the cookie
+           @since ARP1.0
+        */
+        setExpiry(expiry: number): void;
+        /**
+           Returns the path
+
+           @return path
+           @since ARP1.0
+        */
+        getPath(): string;
+        /**
+           Set the path
+
+           @param path Path of the cookie
+           @since ARP1.0
+        */
+        setPath(path: string): void;
+        /**
+           Returns the scheme
+
+           @return scheme
+           @since ARP1.0
+        */
+        getScheme(): string;
+        /**
+           Set the scheme
+
+           @param scheme Scheme of the cookie
+           @since ARP1.0
+        */
+        setScheme(scheme: string): void;
+        /**
+           Returns whether the cookie is secure or not
+
+           @return true if the cookie is secure; false otherwise
+           @since ARP1.0
+        */
+        getSecure(): boolean;
+        /**
+           Set whether the cookie is secure or not
+
+           @param secure Privacy of the cookie
+           @since ARP1.0
+        */
+        setSecure(secure: boolean): void;
     }
     /**
        Structure representing the phone data elements of a contact.
@@ -4388,643 +4848,231 @@ be unique for a specific instance of an application on a specific device.
         setPhone(phone: string): void;
     }
     /**
-       Structure representing the value of a http cookie.
+       Structure representing the professional info data elements of a contact.
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+       @version 1.0
+    */
+    class ContactProfessionalInfo extends APIBean {
+        /**
+           The company of the job
+        */
+        company: string;
+        /**
+           The job description
+        */
+        jobDescription: string;
+        /**
+           The job title
+        */
+        jobTitle: string;
+        /**
+           Constructor used by implementation to set the ContactProfessionalInfo.
+
+           @param jobTitle       The job title
+           @param jobDescription The job description
+           @param company        The company of the job
+           @since ARP1.0
+        */
+        constructor(jobTitle: string, jobDescription: string, company: string);
+        /**
+           Returns the company of the job
+
+           @return company
+           @since ARP1.0
+        */
+        getCompany(): string;
+        /**
+           Set the company of the job
+
+           @param company The company of the job
+           @since ARP1.0
+        */
+        setCompany(company: string): void;
+        /**
+           Returns the description of the job
+
+           @return description
+           @since ARP1.0
+        */
+        getJobDescription(): string;
+        /**
+           Set the description of the job
+
+           @param jobDescription The job description
+           @since ARP1.0
+        */
+        setJobDescription(jobDescription: string): void;
+        /**
+           Returns the title of the job
+
+           @return title
+           @since ARP1.0
+        */
+        getJobTitle(): string;
+        /**
+           Set the title of the job
+
+           @param jobTitle The job title
+           @since ARP1.0
+        */
+        setJobTitle(jobTitle: string): void;
+    }
+    /**
+       Structure representing the internal unique identifier data elements of a contact.
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+       @version 1.0
+    */
+    class ContactUid extends APIBean {
+        /**
+           The id of the Contact
+        */
+        contactId: string;
+        /**
+           Constructor used by implementation to set the Contact id.
+
+           @param contactId Internal unique contact id.
+           @since ARP1.0
+        */
+        constructor(contactId: string);
+        /**
+           Returns the contact id
+
+           @return Contactid Internal unique contact id.
+           @since ARP1.0
+        */
+        getContactId(): string;
+        /**
+           Set the id of the Contact
+
+           @param contactId Internal unique contact id.
+           @since ARP1.0
+        */
+        setContactId(contactId: string): void;
+    }
+    /**
+       Structure representing a row for a data table.
+
+       @author Ferran Vila Conesa
+       @since ARP1.0
+       @version 1.0
+    */
+    class DatabaseRow extends APIBean {
+        /**
+           The values of the row.
+        */
+        values: string[];
+        /**
+           Constructor for implementation using.
+
+           @param values The values of the row
+           @since ARP1.0
+        */
+        constructor(values: string[]);
+        /**
+           Returns the values of the row.
+
+           @return The values of the row.
+           @since ARP1.0
+        */
+        getValues(): string[];
+        /**
+           Sets the values of the row.
+
+           @param values The values of the row.
+           @since ARP1.0
+        */
+        setValues(values: string[]): void;
+    }
+    /**
+       Structure representing the column specification of a data column.
+
+       @author Ferran Vila Conesa
+       @since ARP1.0
+       @version 1.0
+    */
+    class DatabaseColumn extends APIBean {
+        /**
+           Name of the column
+        */
+        name: string;
+        /**
+           Constructor with fields
+
+           @param name Name of the column
+           @since ARP1.0
+        */
+        constructor(name: string);
+        /**
+           Returns the name of the column.
+
+           @return The name of the column.
+           @since ARP1.0
+        */
+        getName(): string;
+        /**
+           Sets the name of the column.
+
+           @param name The name of the column.
+           @since ARP1.0
+        */
+        setName(name: string): void;
+    }
+    /**
+       Represents a specific user or system locate.
 
        @author Aryslan
        @since ARP1.0
        @version 1.0
     */
-    class ServiceCookie extends APIBean {
+    class Locale extends APIBean {
         /**
-           ServiceCookie creation timestamp in milliseconds.
+           A valid ISO Country Code.
         */
-        creation: number;
+        country: string;
         /**
-           Domain for which the cookie is valid.
+           A valid ISO Language Code.
         */
-        domain: string;
-        /**
-           ServiceCookie expiry in milliseconds or -1 for session only.
-        */
-        expiry: number;
-        /**
-           Name ot the cookie
-        */
-        name: string;
-        /**
-           URI path for which the cookie is valid.
-        */
-        path: string;
-        /**
-           Scheme of the domain - http/https - for which the cookie is valid.
-        */
-        scheme: string;
-        /**
-           ServiceCookie is secure (https only)
-        */
-        secure: boolean;
-        /**
-           Value of the ServiceCookie
-        */
-        value: string;
-        /**
-           Contructor with fields
-
-           @param name     Name of the cookie
-           @param value    Value of the cookie
-           @param domain   Domain of the cookie
-           @param path     Path of the cookie
-           @param scheme   Scheme of the cookie
-           @param secure   Privacy of the cookie
-           @param expiry   Expiration date of the cookie
-           @param creation Creation date of the cookie
-           @since ARP1.0
-        */
-        constructor(name: string, value: string, domain: string, path: string, scheme: string, secure: boolean, expiry: number, creation: number);
-        /**
-           Returns the creation date
-
-           @return Creation date of the cookie
-           @since ARP1.0
-        */
-        getCreation(): number;
-        /**
-           Sets the creation date
-
-           @param creation Creation date of the cookie
-           @since ARP1.0
-        */
-        setCreation(creation: number): void;
-        /**
-           Returns the domain
-
-           @return domain
-           @since ARP1.0
-        */
-        getDomain(): string;
-        /**
-           Set the domain
-
-           @param domain Domain of the cookie
-           @since ARP1.0
-        */
-        setDomain(domain: string): void;
-        /**
-           Returns the expiration date in milis
-
-           @return expiry
-           @since ARP1.0
-        */
-        getExpiry(): number;
-        /**
-           Set the expiration date in milis
-
-           @param expiry Expiration date of the cookie
-           @since ARP1.0
-        */
-        setExpiry(expiry: number): void;
-        /**
-           Returns the cookie name
-
-           @return name Name of the cookie
-           @since ARP1.0
-        */
-        getName(): string;
-        /**
-           Set the cookie name
-
-           @param name Name of the cookie
-           @since ARP1.0
-        */
-        setName(name: string): void;
-        /**
-           Returns the path
-
-           @return path
-           @since ARP1.0
-        */
-        getPath(): string;
-        /**
-           Set the path
-
-           @param path Path of the cookie
-           @since ARP1.0
-        */
-        setPath(path: string): void;
-        /**
-           Returns the scheme
-
-           @return scheme
-           @since ARP1.0
-        */
-        getScheme(): string;
-        /**
-           Set the scheme
-
-           @param scheme Scheme of the cookie
-           @since ARP1.0
-        */
-        setScheme(scheme: string): void;
-        /**
-           Returns whether the cookie is secure or not
-
-           @return true if the cookie is secure; false otherwise
-           @since ARP1.0
-        */
-        getSecure(): boolean;
-        /**
-           Set whether the cookie is secure or not
-
-           @param secure Privacy of the cookie
-           @since ARP1.0
-        */
-        setSecure(secure: boolean): void;
-        /**
-           Returns the cookie value
-
-           @return Value of the cookie
-           @since ARP1.0
-        */
-        getValue(): string;
-        /**
-           Set the cookie value
-
-           @param value Value of the cookie
-           @since ARP1.0
-        */
-        setValue(value: string): void;
-    }
-    /**
-       Represents a specific application life-cycle stage.
-
-       @author Francisco Javier Martin Bueno
-       @since ARP1.0
-       @version 1.0
-    */
-    class Lifecycle extends APIBean {
-        /**
-           Represent the state of the app
-<p/>
-Possible lifecycle States:
-<p/>
-1. Starting    - Before starting.
-2. Started     - Start concluded.
-3. Running     - Accepts user interaction - running in foreground.
-4. Pausing     - Before going to background.
-4.1 PausedIdle - In background, no scheduled background activity (passive).
-4.2 PausedRun  - In background, scheduled background activity (periodic network access, gps access, etc.)
-5. Resuming    - Before going to foreground, followed by Running state.
-6. Stopping    - Before stopping.
-        */
-        state: LifecycleState;
+        language: string;
         /**
            Constructor used by the implementation
 
-           @param state of the app
+           @param country  Country of the Locale
+           @param language Language of the Locale
            @since ARP1.0
         */
-        constructor(state: LifecycleState);
+        constructor(language: string, country: string);
         /**
-           Returns the state of the application
+           Returns the country code
 
-           @return state of the app
+           @return country code
            @since ARP1.0
         */
-        getState(): LifecycleState;
+        getCountry(): string;
         /**
-           Set the State of the application
+           Set the country code
 
-           @param state of the app
+           @param country code
            @since ARP1.0
         */
-        setState(state: LifecycleState): void;
-    }
-    /**
-       Structure representing the email data elements of a contact.
+        setCountry(country: string): void;
+        /**
+           Returns the language code
 
-       @author Francisco Javier Martin Bueno
-       @since ARP1.0
-       @version 1.0
-    */
-    class ContactEmail extends APIBean {
-        /**
-           The type of the email
-        */
-        type: ContactEmailType;
-        /**
-           Email of the Contact
-        */
-        email: string;
-        /**
-           Whether the email is the primary one or not
-        */
-        primary: boolean;
-        /**
-           Constructor used by the implementation
-
-           @param type    Type of the email
-           @param primary Is email primary
-           @param email   Email of the contact
+           @return language code
            @since ARP1.0
         */
-        constructor(type: ContactEmailType, primary: boolean, email: string);
+        getLanguage(): string;
         /**
-           Returns the type of the email
+           Set the language code
 
-           @return EmailType
+           @param language code
            @since ARP1.0
         */
-        getType(): ContactEmailType;
-        /**
-           Set the type of the email
-
-           @param type Type of the email
-           @since ARP1.0
-        */
-        setType(type: ContactEmailType): void;
-        /**
-           Returns the email of the Contact
-
-           @return email
-           @since ARP1.0
-        */
-        getEmail(): string;
-        /**
-           Set the email of the Contact
-
-           @param email Email of the contact
-           @since ARP1.0
-        */
-        setEmail(email: string): void;
-        /**
-           Returns if the email is primary
-
-           @return true if the email is primary; false otherwise
-           @since ARP1.0
-        */
-        getPrimary(): boolean;
-        /**
-           Set if the email
-
-           @param primary true if the email is primary; false otherwise
-           @since ARP1.0
-        */
-        setPrimary(primary: boolean): void;
-    }
-    /**
-       Structure representing the data a single geolocation reading.
-
-       @author Francisco Javier Martin Bueno
-       @since ARP1.0
-       @version 1.0
-    */
-    class Geolocation extends APIBean {
-        /**
-           The current device altitude (or Z coordinate). Measured in meters.
-        */
-        altitude: number;
-        /**
-           The Y coordinate (or latitude). Measured in degrees.
-        */
-        latitude: number;
-        /**
-           The X coordinate (or longitude). Measured in degrees.
-        */
-        longitude: number;
-        /**
-           Timestamp of the geolocation reading.
-        */
-        timestamp: number;
-        /**
-           Dilution of precision on the X measurement. Measured in meters.
-        */
-        xDoP: number;
-        /**
-           Dilution of precision on the Y measurement. Measured in meters.
-        */
-        yDoP: number;
-        /**
-           Constructor with parameters
-
-           @param latitude  Latitude of the measurement
-           @param longitude Longitude of the measurement
-           @param altitude  Altitude of the measurement
-           @param xDoP      Dilution of precision on the X measurement
-           @param yDoP      Dilution of precision on the Y measurement
-           @param timestamp Timestamp of the measurement
-           @since ARP1.0
-        */
-        constructor(latitude: number, longitude: number, altitude: number, xDoP: number, yDoP: number, timestamp: number);
-        /**
-           Returns altitude in meters
-
-           @return Altitude of the measurement
-           @since ARP1.0
-        */
-        getAltitude(): number;
-        /**
-           Set altitude in meters
-
-           @param altitude Altitude of the measurement
-           @since ARP1.0
-        */
-        setAltitude(altitude: number): void;
-        /**
-           Returns the latitude in degrees
-
-           @return Latitude of the measurement
-           @since ARP1.0
-        */
-        getLatitude(): number;
-        /**
-           Set the latitude in degrees
-
-           @param latitude Latitude of the measurement
-           @since ARP1.0
-        */
-        setLatitude(latitude: number): void;
-        /**
-           Returns the longitude in degrees
-
-           @return Longitude of the measurement
-           @since ARP1.0
-        */
-        getLongitude(): number;
-        /**
-           Returns the latitude in degrees
-
-           @param longitude Longitude of the measurement
-           @since ARP1.0
-        */
-        setLongitude(longitude: number): void;
-        /**
-           Timestamp Getter
-
-           @return Timestamp
-           @since ARP1.0
-        */
-        getTimestamp(): number;
-        /**
-           Timestamp Setter
-
-           @param timestamp Timestamp
-           @since ARP1.0
-        */
-        setTimestamp(timestamp: number): void;
-        /**
-           Gets Dilution of precision on the X measurement. Measured in meters.
-
-           @return xDoP Dilution of precision on the X measurement. Measured in meters.
-        */
-        getXDoP(): number;
-        /**
-           Sets Dilution of precision on the X measurement. Measured in meters.
-
-           @param xDoP Dilution of precision on the X measurement. Measured in meters.
-        */
-        setXDoP(xDoP: number): void;
-        /**
-           Gets Dilution of precision on the Y measurement. Measured in meters.
-
-           @return yDoP Dilution of precision on the Y measurement. Measured in meters.
-        */
-        getYDoP(): number;
-        /**
-           Sets Dilution of precision on the Y measurement. Measured in meters.
-
-           @param yDoP Dilution of precision on the Y measurement. Measured in meters.
-        */
-        setYDoP(yDoP: number): void;
-    }
-    /**
-       Structure representing a HTML5 request to the native API.
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    class APIRequest {
-        /**
-           Identifier of callback or listener for async operations.
-        */
-        asyncId: number;
-        /**
-           String representing the method name to call
-        */
-        methodName: string;
-        /**
-           Types of the request parameters
-        */
-        parameterTypes: string[];
-        /**
-           Parameters of the request as JSON formatted strings.
-        */
-        parameters: string[];
-        /**
-           Constructor with all the parameters
-
-           @param methodName     Name of the method
-           @param parameters     Array of parameters as JSON formatted strings.
-           @param parameterTypes Array of parameters types
-           @param asyncId        Id of callback or listener or zero if none for synchronous calls.
-           @since ARP1.0
-        */
-        constructor(methodName: string, parameters: string[], parameterTypes: string[], asyncId: number);
-        /**
-           Returns the callback or listener id assigned to this request OR zero if there is no associated callback or
-listener.
-
-           @return long with the unique id of the callback or listener, or zero if there is no associated async event.
-        */
-        getAsyncId(): number;
-        /**
-           Sets the callback or listener id to the request.
-
-           @param asyncId The unique id of the callback or listener.
-        */
-        setAsyncId(asyncId: number): void;
-        /**
-           Method name Getter
-
-           @return Method name
-           @since ARP1.0
-        */
-        getMethodName(): string;
-        /**
-           Method name Setter
-
-           @param methodName Method name
-           @since ARP1.0
-        */
-        setMethodName(methodName: string): void;
-        /**
-           Parameter types Getter
-
-           @return Parameter types
-           @since ARP1.0
-        */
-        getParameterTypes(): string[];
-        /**
-           Parameter types setter
-
-           @param parameterTypes Parameter types
-           @since ARP1.0
-        */
-        setParameterTypes(parameterTypes: string[]): void;
-        /**
-           Parameters Getter
-
-           @return Parameters
-           @since ARP1.0
-        */
-        getParameters(): string[];
-        /**
-           Parameters Setter
-
-           @param parameters Parameters, JSON formatted strings of objects.
-           @since ARP1.0
-        */
-        setParameters(parameters: string[]): void;
-    }
-    /**
-       Structure representing the assigned tags data elements of a contact.
-
-       @author Francisco Javier Martin Bueno
-       @since ARP1.0
-       @version 1.0
-    */
-    class ContactTag extends APIBean {
-        /**
-           The name of the Tag
-        */
-        name: string;
-        /**
-           The value of the Tag
-        */
-        value: string;
-        /**
-           Constructor used by the implementation
-
-           @param value Value of the tag
-           @param name  Name of the tag
-           @since ARP1.0
-        */
-        constructor(name: string, value: string);
-        /**
-           Returns the name of the Tag
-
-           @return name
-           @since ARP1.0
-        */
-        getName(): string;
-        /**
-           Set the name of the Tag
-
-           @param name Name of the tag
-           @since ARP1.0
-        */
-        setName(name: string): void;
-        /**
-           Returns the value of the Tag
-
-           @return value
-           @since ARP1.0
-        */
-        getValue(): string;
-        /**
-           Set the value of the Tag
-
-           @param value Value of the tag
-           @since ARP1.0
-        */
-        setValue(value: string): void;
-    }
-    /**
-       Structure representing the address data elements of a contact.
-
-       @author Francisco Javier Martin Bueno
-       @since ARP1.0
-       @version 1.0
-    */
-    class ContactAddress extends APIBean {
-        /**
-           The address type
-        */
-        type: ContactAddressType;
-        /**
-           The Contact address
-        */
-        address: string;
-        /**
-           Constructor with fields
-
-           @param address Address data.
-           @param type    Address type.
-           @since ARP1.0
-        */
-        constructor(address: string, type: ContactAddressType);
-        /**
-           Returns the type of the address
-
-           @return AddressType Address type.
-           @since ARP1.0
-        */
-        getType(): ContactAddressType;
-        /**
-           Set the address type
-
-           @param type Address type.
-           @since ARP1.0
-        */
-        setType(type: ContactAddressType): void;
-        /**
-           Returns the Contact address
-
-           @return address Address data.
-           @since ARP1.0
-        */
-        getAddress(): string;
-        /**
-           Set the address of the Contact
-
-           @param address Address data.
-           @since ARP1.0
-        */
-        setAddress(address: string): void;
-    }
-    /**
-       Structure representing the data elements of an email addressee.
-
-       @author Francisco Javier Martin Bueno
-       @since ARP1.0
-       @version 1.0
-    */
-    class EmailAddress extends APIBean {
-        /**
-           The Email address
-        */
-        address: string;
-        /**
-           Constructor used by implementation
-
-           @param address of the Email
-           @since ARP1.0
-        */
-        constructor(address: string);
-        /**
-           Returns the email address
-
-           @return address of the Email
-           @since ARP1.0
-        */
-        getAddress(): string;
-        /**
-           Set the Email address
-
-           @param address of the Email
-           @since ARP1.0
-        */
-        setAddress(address: string): void;
+        setLanguage(language: string): void;
     }
     /**
        Structure representing a remote or local service access end-point.
@@ -5060,7 +5108,7 @@ listener.
            @param host   Remote service host
            @param path   Remote service Path
            @param port   Remote service Port
-           @param proxy  Proxy url "http://<IP>:<Port>"
+           @param proxy  Proxy url "http://IP_ADDRESS:PORT_NUMBER"
            @param scheme Remote service scheme
            @since ARP1.0
         */
@@ -5137,259 +5185,159 @@ listener.
         setScheme(scheme: string): void;
     }
     /**
-       Structure representing the data elements of a contact.
+       Represents a specific application life-cycle stage.
 
        @author Francisco Javier Martin Bueno
        @since ARP1.0
        @version 1.0
     */
-    class Contact extends ContactUid {
+    class Lifecycle extends APIBean {
         /**
-           The adresses from the contact
+           Represent the state of the app
+<p/>
+Possible lifecycle States:
+<p/>
+1. Starting    - Before starting.
+2. Started     - Start concluded.
+3. Running     - Accepts user interaction - running in foreground.
+4. Pausing     - Before going to background.
+4.1 PausedIdle - In background, no scheduled background activity (passive).
+4.2 PausedRun  - In background, scheduled background activity (periodic network access, gps access, etc.)
+5. Resuming    - Before going to foreground, followed by Running state.
+6. Stopping    - Before stopping.
         */
-        contactAddresses: ContactAddress[];
+        state: LifecycleState;
         /**
-           The emails from the contact
-        */
-        contactEmails: ContactEmail[];
-        /**
-           The phones from the contact
-        */
-        contactPhones: ContactPhone[];
-        /**
-           The social network info from the contact
-        */
-        contactSocials: ContactSocial[];
-        /**
-           The aditional tags from the contact
-        */
-        contactTags: ContactTag[];
-        /**
-           The websites from the contact
-        */
-        contactWebsites: ContactWebsite[];
-        /**
-           The personal info from the contact
-        */
-        personalInfo: ContactPersonalInfo;
-        /**
-           The professional info from the contact
-        */
-        professionalInfo: ContactProfessionalInfo;
-        /**
-           Constructor with all the fields
+           Constructor used by the implementation
 
-           @param contactId        Identifier of the contact
-           @param personalInfo     Personal Information
-           @param professionalInfo Professional Information
-           @param contactAddresses Addresses of the contact
-           @param contactPhones    Phones of the contact
-           @param contactEmails    Emails of the contact
-           @param contactWebsites  Websites of the contact
-           @param contactSocials   Social Networks of the contact
-           @param contactTags      Tags of the contact
+           @param state of the app
            @since ARP1.0
         */
-        constructor(contactId: string, personalInfo: ContactPersonalInfo, professionalInfo: ContactProfessionalInfo, contactAddresses: ContactAddress[], contactPhones: ContactPhone[], contactEmails: ContactEmail[], contactWebsites: ContactWebsite[], contactSocials: ContactSocial[], contactTags: ContactTag[]);
+        constructor(state: LifecycleState);
         /**
-           Returns all the addresses of the Contact
+           Returns the state of the application
 
-           @return ContactAddress[]
+           @return state of the app
            @since ARP1.0
         */
-        getContactAddresses(): ContactAddress[];
+        getState(): LifecycleState;
         /**
-           Set the addresses of the Contact
+           Set the State of the application
 
-           @param contactAddresses Addresses of the contact
+           @param state of the app
            @since ARP1.0
         */
-        setContactAddresses(contactAddresses: ContactAddress[]): void;
-        /**
-           Returns all the emails of the Contact
-
-           @return ContactEmail[]
-           @since ARP1.0
-        */
-        getContactEmails(): ContactEmail[];
-        /**
-           Set the emails of the Contact
-
-           @param contactEmails Emails of the contact
-           @since ARP1.0
-        */
-        setContactEmails(contactEmails: ContactEmail[]): void;
-        /**
-           Returns all the phones of the Contact
-
-           @return ContactPhone[]
-           @since ARP1.0
-        */
-        getContactPhones(): ContactPhone[];
-        /**
-           Set the phones of the Contact
-
-           @param contactPhones Phones of the contact
-           @since ARP1.0
-        */
-        setContactPhones(contactPhones: ContactPhone[]): void;
-        /**
-           Returns all the social network info of the Contact
-
-           @return ContactSocial[]
-           @since ARP1.0
-        */
-        getContactSocials(): ContactSocial[];
-        /**
-           Set the social network info of the Contact
-
-           @param contactSocials Social Networks of the contact
-           @since ARP1.0
-        */
-        setContactSocials(contactSocials: ContactSocial[]): void;
-        /**
-           Returns the additional tags of the Contact
-
-           @return ContactTag[]
-           @since ARP1.0
-        */
-        getContactTags(): ContactTag[];
-        /**
-           Set the additional tags of the Contact
-
-           @param contactTags Tags of the contact
-           @since ARP1.0
-        */
-        setContactTags(contactTags: ContactTag[]): void;
-        /**
-           Returns all the websites of the Contact
-
-           @return ContactWebsite[]
-           @since ARP1.0
-        */
-        getContactWebsites(): ContactWebsite[];
-        /**
-           Set the websites of the Contact
-
-           @param contactWebsites Websites of the contact
-           @since ARP1.0
-        */
-        setContactWebsites(contactWebsites: ContactWebsite[]): void;
-        /**
-           Returns the personal info of the Contact
-
-           @return ContactPersonalInfo of the Contact
-           @since ARP1.0
-        */
-        getPersonalInfo(): ContactPersonalInfo;
-        /**
-           Set the personal info of the Contact
-
-           @param personalInfo Personal Information
-           @since ARP1.0
-        */
-        setPersonalInfo(personalInfo: ContactPersonalInfo): void;
-        /**
-           Returns the professional info of the Contact
-
-           @return Array of personal info
-           @since ARP1.0
-        */
-        getProfessionalInfo(): ContactProfessionalInfo;
-        /**
-           Set the professional info of the Contact
-
-           @param professionalInfo Professional Information
-           @since ARP1.0
-        */
-        setProfessionalInfo(professionalInfo: ContactProfessionalInfo): void;
+        setState(state: LifecycleState): void;
     }
     /**
-       Structure representing the data of a http request or response header.
-
-       @author Aryslan
-       @since ARP1.0
-       @version 1.0
-    */
-    class ServiceHeader extends APIBean {
-        /**
-           Value of the header
-        */
-        data: string;
-        /**
-           Name ot the header
-        */
-        name: string;
-        /**
-           Constructor with fields
-
-           @param name Name of the header
-           @param data Value of the header
-           @since ARP1.0
-        */
-        constructor(name: string, data: string);
-        /**
-           Returns the header value
-
-           @return ServiceHeader value
-           @since ARP1.0
-        */
-        getData(): string;
-        /**
-           Set the header value
-
-           @param data ServiceHeader value
-           @since ARP1.0
-        */
-        setData(data: string): void;
-        /**
-           Returns the header name
-
-           @return ServiceHeader name
-           @since ARP1.0
-        */
-        getName(): string;
-        /**
-           Set the header name
-
-           @param name Name of the header
-           @since ARP1.0
-        */
-        setName(name: string): void;
-    }
-    /**
-       Structure representing the a physical or logical button on a device.
+       Structure representing the binary attachment data.
 
        @author Francisco Javier Martin Bueno
        @since ARP1.0
        @version 1.0
     */
-    class Button extends APIBean {
+    class EmailAttachmentData extends APIBean {
         /**
-           Button type
+           The raw data for the current file attachment (byte array)
         */
-        type: ICapabilitiesButton;
+        data: number[];
+        /**
+           The name of the current file attachment
+        */
+        fileName: string;
+        /**
+           The mime type of the current attachment
+        */
+        mimeType: string;
+        /**
+           The relative path where the contents for the attachment file could be located.
+        */
+        referenceUrl: string;
+        /**
+           The data size (in bytes) of the current file attachment
+        */
+        size: number;
         /**
            Constructor with fields
 
-           @param type Button type.
+           @param data         raw data of the file attachment
+           @param size         size of the file attachment
+           @param fileName     name of the file attachment
+           @param mimeType     mime type of the file attachment
+           @param referenceUrl relative url of the file attachment
            @since ARP1.0
         */
-        constructor(type: ICapabilitiesButton);
+        constructor(data: number[], size: number, fileName: string, mimeType: string, referenceUrl: string);
         /**
-           Returns the button type
+           Returns the raw data in byte[]
 
-           @return type Button type.
+           @return data Octet-binary content of the attachment payload.
            @since ARP1.0
         */
-        getType(): ICapabilitiesButton;
+        getData(): number[];
         /**
-           Setter for the button type
+           Set the data of the attachment as a byte[]
 
-           @param type Button Type
+           @param data Sets the octet-binary content of the attachment.
            @since ARP1.0
         */
-        setType(type: ICapabilitiesButton): void;
+        setData(data: number[]): void;
+        /**
+           Returns the filename of the attachment
+
+           @return fileName Name of the attachment.
+           @since ARP1.0
+        */
+        getFileName(): string;
+        /**
+           Set the name of the file attachment
+
+           @param fileName Name of the attachment.
+           @since ARP1.0
+        */
+        setFileName(fileName: string): void;
+        /**
+           Returns the mime type of the attachment
+
+           @return mimeType
+           @since ARP1.0
+        */
+        getMimeType(): string;
+        /**
+           Set the mime type of the attachment
+
+           @param mimeType Mime-type of the attachment.
+           @since ARP1.0
+        */
+        setMimeType(mimeType: string): void;
+        /**
+           Returns the absolute url of the file attachment
+
+           @return referenceUrl Absolute URL of the file attachment for either file:// or http:// access.
+           @since ARP1.0
+        */
+        getReferenceUrl(): string;
+        /**
+           Set the absolute url of the attachment
+
+           @param referenceUrl Absolute URL of the file attachment for either file:// or http:// access.
+           @since ARP1.0
+        */
+        setReferenceUrl(referenceUrl: string): void;
+        /**
+           Returns the size of the attachment as a long
+
+           @return size Length in bytes of the octet-binary content.
+           @since ARP1.0
+        */
+        getSize(): number;
+        /**
+           Set the size of the attachment as a long
+
+           @param size Length in bytes of the octet-binary content ( should be same as data array length.)
+           @since ARP1.0
+        */
+        setSize(size: number): void;
     }
     /**
        Enumeration ContactAddressType
@@ -5503,72 +5451,6 @@ listener.
         static Util: IAdaptiveRPGroup;
         static Kernel: IAdaptiveRPGroup;
         static Unknown: IAdaptiveRPGroup;
-    }
-    /**
-       Enumeration IAppResourceFormat
-    */
-    class IAppResourceFormat {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static Raw: IAppResourceFormat;
-        static Compressed: IAppResourceFormat;
-        static Encrypted: IAppResourceFormat;
-        static EncryptedCompressed: IAppResourceFormat;
-        static Unknown: IAppResourceFormat;
-    }
-    /**
-       Enumeration IAppResourcePayload
-    */
-    class IAppResourcePayload {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static Default: IAppResourcePayload;
-        static Embedded: IAppResourcePayload;
-        static Linked: IAppResourcePayload;
-        static Unknown: IAppResourcePayload;
-    }
-    /**
-       Enumeration IAppResourceType
-    */
-    class IAppResourceType {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static Html: IAppResourceType;
-        static Css: IAppResourceType;
-        static JavaScript: IAppResourceType;
-        static Image: IAppResourceType;
-        static Video: IAppResourceType;
-        static Audio: IAppResourceType;
-        static Property: IAppResourceType;
-        static Database: IAppResourceType;
-        static Other: IAppResourceType;
-        static Unknown: IAppResourceType;
-    }
-    /**
-       Enumeration IAppResourceCallbackError
-    */
-    class IAppResourceCallbackError {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static NotFound: IAppResourceCallbackError;
-        static NoPermission: IAppResourceCallbackError;
-        static Unknown: IAppResourceCallbackError;
-    }
-    /**
-       Enumeration IAppResourceCallbackWarning
-    */
-    class IAppResourceCallbackWarning {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static PartialContent: IAppResourceCallbackWarning;
-        static TooLarge: IAppResourceCallbackWarning;
-        static LinkedResource: IAppResourceCallbackWarning;
-        static Unknown: IAppResourceCallbackWarning;
     }
     /**
        Enumeration IButtonListenerError
@@ -6065,6 +5947,7 @@ listener.
         constructor(value: string);
         toString(): string;
         static NoPermission: INetworkStatusListenerError;
+        static Unreachable: INetworkStatusListenerError;
         static Unknown: INetworkStatusListenerError;
     }
     /**
@@ -6222,7 +6105,3 @@ listener.
         static Unknown: LifecycleState;
     }
 }
-/**
-------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
-*/
-declare var db: Adaptive.Database;

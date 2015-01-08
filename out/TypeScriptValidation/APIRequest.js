@@ -25,6 +25,10 @@ Contributors:
 
     * See source code files for contributors.
 
+Release:
+
+    * @version v2.0.2
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 var Adaptive;
@@ -40,16 +44,16 @@ var Adaptive;
         /**
            Constructor with all the parameters
 
-           @param methodName     Name of the method
-           @param parameters     Array of parameters as JSON formatted strings.
-           @param parameterTypes Array of parameters types
-           @param asyncId        Id of callback or listener or zero if none for synchronous calls.
+           @param bridgeType Name of the bridge to be invoked.
+           @param methodName Name of the method
+           @param parameters Array of parameters as JSON formatted strings.
+           @param asyncId    Id of callback or listener or zero if none for synchronous calls.
            @since ARP1.0
         */
-        function APIRequest(methodName, parameters, parameterTypes, asyncId) {
+        function APIRequest(bridgeType, methodName, parameters, asyncId) {
+            this.bridgeType = bridgeType;
             this.methodName = methodName;
             this.parameters = parameters;
-            this.parameterTypes = parameterTypes;
             this.asyncId = asyncId;
         }
         /**
@@ -70,6 +74,24 @@ listener.
             this.asyncId = asyncId;
         };
         /**
+           Bridge Type Getter
+
+           @return Bridge Type
+           @since ARP1.0
+        */
+        APIRequest.prototype.getBridgeType = function () {
+            return this.bridgeType;
+        };
+        /**
+           Bridge Type Setter
+
+           @param bridgeType Bridge Type
+           @since ARP1.0
+        */
+        APIRequest.prototype.setBridgeType = function (bridgeType) {
+            this.bridgeType = bridgeType;
+        };
+        /**
            Method name Getter
 
            @return Method name
@@ -86,24 +108,6 @@ listener.
         */
         APIRequest.prototype.setMethodName = function (methodName) {
             this.methodName = methodName;
-        };
-        /**
-           Parameter types Getter
-
-           @return Parameter types
-           @since ARP1.0
-        */
-        APIRequest.prototype.getParameterTypes = function () {
-            return this.parameterTypes;
-        };
-        /**
-           Parameter types setter
-
-           @param parameterTypes Parameter types
-           @since ARP1.0
-        */
-        APIRequest.prototype.setParameterTypes = function (parameterTypes) {
-            this.parameterTypes = parameterTypes;
         };
         /**
            Parameters Getter

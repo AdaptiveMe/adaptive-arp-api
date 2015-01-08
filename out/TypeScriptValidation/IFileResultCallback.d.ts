@@ -1,6 +1,6 @@
+/// <reference path="FileDescriptor.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseCallback.d.ts" />
-/// <reference path="IFile.d.ts" />
 /// <reference path="IFileResultCallbackError.d.ts" />
 /// <reference path="IFileResultCallbackWarning.d.ts" />
 /**
@@ -30,6 +30,10 @@ Contributors:
 
     * See source code files for contributors.
 
+Release:
+
+    * @version v2.0.2
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
@@ -52,13 +56,13 @@ declare module Adaptive {
            @param storageFile Reference to the resulting file.
            @since ARP1.0
         */
-        onResult(storageFile: IFile): any;
+        onResult(storageFile: FileDescriptor): any;
         /**
            On partial result of a file operation, containing a warning.
            @param file    Reference to the offending file.
            @param warning Warning processing the request.
            @since ARP1.0
         */
-        onWarning(file: IFile, warning: IFileResultCallbackWarning): any;
+        onWarning(file: FileDescriptor, warning: IFileResultCallbackWarning): any;
     }
 }

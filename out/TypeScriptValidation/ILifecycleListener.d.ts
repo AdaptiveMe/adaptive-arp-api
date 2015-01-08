@@ -30,6 +30,10 @@ Contributors:
 
     * See source code files for contributors.
 
+Release:
+
+    * @version v2.0.2
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
@@ -43,6 +47,7 @@ declare module Adaptive {
     interface ILifecycleListener extends IBaseListener {
         /**
            No data received - error condition, not authorized or hardware not available.
+           @param error Type of error encountered during reading.
            @since ARP1.0
         */
         onError(error: ILifecycleListenerError): any;
@@ -55,6 +60,7 @@ declare module Adaptive {
         /**
            Data received with warning
            @param lifecycle Lifecycle element
+           @param warning Type of warning encountered during reading.
            @since ARP1.0
         */
         onWarning(lifecycle: Lifecycle, warning: ILifecycleListenerWarning): any;

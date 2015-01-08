@@ -26,6 +26,10 @@ Contributors:
 
     * See source code files for contributors.
 
+Release:
+
+    * @version v2.0.2
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
@@ -40,27 +44,27 @@ declare module Adaptive {
         /**
            The values of the row.
         */
-        values: any[];
+        values: string[];
         /**
            Constructor for implementation using.
 
            @param values The values of the row
            @since ARP1.0
         */
-        constructor(values: any[]);
+        constructor(values: string[]);
         /**
            Returns the values of the row.
 
            @return The values of the row.
            @since ARP1.0
         */
-        getValues(): any[];
+        getValues(): string[];
         /**
            Sets the values of the row.
 
            @param values The values of the row.
            @since ARP1.0
         */
-        setValues(values: any[]): void;
+        setValues(values: string[]): void;
     }
 }

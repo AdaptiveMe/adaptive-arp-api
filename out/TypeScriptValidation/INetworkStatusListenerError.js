@@ -25,6 +25,10 @@ Contributors:
 
     * See source code files for contributors.
 
+Release:
+
+    * @version v2.0.2
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 var Adaptive;
@@ -40,6 +44,7 @@ var Adaptive;
             return this.value;
         };
         INetworkStatusListenerError.NoPermission = new INetworkStatusListenerError("NoPermission");
+        INetworkStatusListenerError.Unreachable = new INetworkStatusListenerError("Unreachable");
         INetworkStatusListenerError.Unknown = new INetworkStatusListenerError("Unknown");
         return INetworkStatusListenerError;
     })();

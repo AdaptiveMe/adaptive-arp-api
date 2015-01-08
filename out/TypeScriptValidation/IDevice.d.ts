@@ -30,6 +30,10 @@ Contributors:
 
     * See source code files for contributors.
 
+Release:
+
+    * @version v2.0.2
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
@@ -61,7 +65,7 @@ declare module Adaptive {
         getLocaleCurrent(): Locale;
         /**
            De-registers an existing listener from receiving button events.
-           @param listener
+           @param listener to be removed.
            @since ARP1.0
         */
         removeButtonListener(listener: IButtonListener): any;

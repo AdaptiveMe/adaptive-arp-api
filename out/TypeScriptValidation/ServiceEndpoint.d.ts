@@ -26,6 +26,10 @@ Contributors:
 
     * See source code files for contributors.
 
+Release:
+
+    * @version v2.0.2
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
@@ -63,7 +67,7 @@ declare module Adaptive {
            @param host   Remote service host
            @param path   Remote service Path
            @param port   Remote service Port
-           @param proxy  Proxy url "http://<IP>:<Port>"
+           @param proxy  Proxy url "http://IP_ADDRESS:PORT_NUMBER"
            @param scheme Remote service scheme
            @since ARP1.0
         */

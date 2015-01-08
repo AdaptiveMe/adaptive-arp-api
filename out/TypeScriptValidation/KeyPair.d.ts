@@ -26,11 +26,15 @@ Contributors:
 
     * See source code files for contributors.
 
+Release:
+
+    * @version v2.0.2
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
     /**
-       Represents a basic bean to store key pair values
+       Represents a basic bean to store keyName pair values
 
        @author Ferran Vila Conesa
        @since ARP1.0
@@ -40,46 +44,46 @@ declare module Adaptive {
         /**
            Key of the element
         */
-        key: string;
+        keyName: string;
         /**
            Value of the element
         */
-        value: string;
+        keyValue: string;
         /**
            Constructor using fields
 
-           @param key   Key of the element
-           @param value Value of the element
+           @param keyName   Key of the element
+           @param keyValue Value of the element
            @since ARP1.0
         */
-        constructor(key: string, value: string);
+        constructor(keyName: string, keyValue: string);
         /**
-           Returns the key of the element
+           Returns the keyName of the element
 
            @return Key of the element
            @since ARP1.0
         */
-        getKey(): string;
+        getKeyName(): string;
         /**
-           Sets the key of the element
+           Sets the keyName of the element
 
-           @param key Key of the element
+           @param keyName Key of the element
            @since ARP1.0
         */
-        setKey(key: string): void;
+        setKeyName(keyName: string): void;
         /**
-           Returns the value of the element
+           Returns the keyValue of the element
 
            @return Value of the element
            @since ARP1.0
         */
-        getValue(): string;
+        getKeyValue(): string;
         /**
-           Sets the value of the element
+           Sets the keyValue of the element
 
-           @param value Value of the element
+           @param keyValue Value of the element
            @since ARP1.0
         */
-        setValue(value: string): void;
+        setKeyValue(keyValue: string): void;
     }
 }

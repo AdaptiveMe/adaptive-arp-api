@@ -25,9 +25,13 @@ Contributors:
 
     * See source code files for contributors.
 
+Release:
+
+    * @version v2.0.2
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+///<reference path="FileDescriptor.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseData.ts"/>
-///<reference path="IFile.ts"/>
 //# sourceMappingURL=IFileSystem.js.map

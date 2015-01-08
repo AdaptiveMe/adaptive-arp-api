@@ -25,6 +25,10 @@ Contributors:
 
     * See source code files for contributors.
 
+Release:
+
+    * @version v2.0.2
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 var __extends = this.__extends || function (d, b) {
@@ -37,7 +41,7 @@ var __extends = this.__extends || function (d, b) {
 var Adaptive;
 (function (Adaptive) {
     /**
-       Represents a basic bean to store key pair values
+       Represents a basic bean to store keyName pair values
 
        @author Ferran Vila Conesa
        @since ARP1.0
@@ -48,50 +52,50 @@ var Adaptive;
         /**
            Constructor using fields
 
-           @param key   Key of the element
-           @param value Value of the element
+           @param keyName   Key of the element
+           @param keyValue Value of the element
            @since ARP1.0
         */
-        function KeyPair(key, value) {
+        function KeyPair(keyName, keyValue) {
             _super.call(this);
-            this.key = key;
-            this.value = value;
+            this.keyName = keyName;
+            this.keyValue = keyValue;
         }
         /**
-           Returns the key of the element
+           Returns the keyName of the element
 
            @return Key of the element
            @since ARP1.0
         */
-        KeyPair.prototype.getKey = function () {
-            return this.key;
+        KeyPair.prototype.getKeyName = function () {
+            return this.keyName;
         };
         /**
-           Sets the key of the element
+           Sets the keyName of the element
 
-           @param key Key of the element
+           @param keyName Key of the element
            @since ARP1.0
         */
-        KeyPair.prototype.setKey = function (key) {
-            this.key = key;
+        KeyPair.prototype.setKeyName = function (keyName) {
+            this.keyName = keyName;
         };
         /**
-           Returns the value of the element
+           Returns the keyValue of the element
 
            @return Value of the element
            @since ARP1.0
         */
-        KeyPair.prototype.getValue = function () {
-            return this.value;
+        KeyPair.prototype.getKeyValue = function () {
+            return this.keyValue;
         };
         /**
-           Sets the value of the element
+           Sets the keyValue of the element
 
-           @param value Value of the element
+           @param keyValue Value of the element
            @since ARP1.0
         */
-        KeyPair.prototype.setValue = function (value) {
-            this.value = value;
+        KeyPair.prototype.setKeyValue = function (keyValue) {
+            this.keyValue = keyValue;
         };
         return KeyPair;
     })(Adaptive.APIBean);

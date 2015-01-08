@@ -25,6 +25,10 @@ Contributors:
 
     * See source code files for contributors.
 
+Release:
+
+    * @version v2.0.2
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 var __extends = this.__extends || function (d, b) {
@@ -48,50 +52,50 @@ var Adaptive;
         /**
            Constructor used by the implementation
 
-           @param value Value of the tag
-           @param name  Name of the tag
+           @param tagValue Value of the tag
+           @param tagName  Name of the tag
            @since ARP1.0
         */
-        function ContactTag(name, value) {
+        function ContactTag(tagName, tagValue) {
             _super.call(this);
-            this.name = name;
-            this.value = value;
+            this.tagName = tagName;
+            this.tagValue = tagValue;
         }
         /**
-           Returns the name of the Tag
+           Returns the tagName of the Tag
 
-           @return name
+           @return tagName
            @since ARP1.0
         */
-        ContactTag.prototype.getName = function () {
-            return this.name;
+        ContactTag.prototype.getTagName = function () {
+            return this.tagName;
         };
         /**
-           Set the name of the Tag
+           Set the tagName of the Tag
 
-           @param name Name of the tag
+           @param tagName Name of the tag
            @since ARP1.0
         */
-        ContactTag.prototype.setName = function (name) {
-            this.name = name;
+        ContactTag.prototype.setTagName = function (tagName) {
+            this.tagName = tagName;
         };
         /**
-           Returns the value of the Tag
+           Returns the tagValue of the Tag
 
-           @return value
+           @return tagValue
            @since ARP1.0
         */
-        ContactTag.prototype.getValue = function () {
-            return this.value;
+        ContactTag.prototype.getTagValue = function () {
+            return this.tagValue;
         };
         /**
-           Set the value of the Tag
+           Set the tagValue of the Tag
 
-           @param value Value of the tag
+           @param tagValue Value of the tag
            @since ARP1.0
         */
-        ContactTag.prototype.setValue = function (value) {
-            this.value = value;
+        ContactTag.prototype.setTagValue = function (tagValue) {
+            this.tagValue = tagValue;
         };
         return ContactTag;
     })(Adaptive.APIBean);

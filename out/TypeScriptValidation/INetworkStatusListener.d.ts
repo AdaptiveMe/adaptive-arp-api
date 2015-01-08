@@ -30,6 +30,10 @@ Contributors:
 
     * See source code files for contributors.
 
+Release:
+
+    * @version v2.0.2
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
@@ -43,7 +47,7 @@ declare module Adaptive {
     interface INetworkStatusListener extends IBaseListener {
         /**
            No data received - error condition, not authorized or hardware not available.
-           @param error
+           @param error Type of error encountered during reading.
            @since ARP1.0
         */
         onError(error: INetworkStatusListenerError): any;
@@ -56,7 +60,7 @@ declare module Adaptive {
         /**
            Status received with warning
            @param network Change to this network.
-           @param warning
+           @param warning Type of warning encountered during reading.
            @since ARP1.0
         */
         onWarning(network: ICapabilitiesNet, warning: INetworkStatusListenerWarning): any;

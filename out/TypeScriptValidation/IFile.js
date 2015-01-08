@@ -25,8 +25,13 @@ Contributors:
 
     * See source code files for contributors.
 
+Release:
+
+    * @version v2.0.2
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+///<reference path="FileDescriptor.ts"/>
 ///<reference path="IFileDataLoadResultCallback.ts"/>
 ///<reference path="IFileDataStoreResultCallback.ts"/>
 ///<reference path="IFileListResultCallback.ts"/>

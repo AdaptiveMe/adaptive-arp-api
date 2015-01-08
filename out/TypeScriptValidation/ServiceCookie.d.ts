@@ -26,17 +26,29 @@ Contributors:
 
     * See source code files for contributors.
 
+Release:
+
+    * @version v2.0.2
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
     /**
-       Structure representing the value of a http cookie.
+       Structure representing the cookieValue of a http cookie.
 
        @author Aryslan
        @since ARP1.0
        @version 1.0
     */
     class ServiceCookie extends APIBean {
+        /**
+           Name ot the cookie
+        */
+        cookieName: string;
+        /**
+           Value of the ServiceCookie
+        */
+        cookieValue: string;
         /**
            ServiceCookie creation timestamp in milliseconds.
         */
@@ -50,10 +62,6 @@ declare module Adaptive {
         */
         expiry: number;
         /**
-           Name ot the cookie
-        */
-        name: string;
-        /**
            URI path for which the cookie is valid.
         */
         path: string;
@@ -66,14 +74,10 @@ declare module Adaptive {
         */
         secure: boolean;
         /**
-           Value of the ServiceCookie
-        */
-        value: string;
-        /**
            Contructor with fields
 
-           @param name     Name of the cookie
-           @param value    Value of the cookie
+           @param cookieName     Name of the cookie
+           @param cookieValue    Value of the cookie
            @param domain   Domain of the cookie
            @param path     Path of the cookie
            @param scheme   Scheme of the cookie
@@ -82,7 +86,35 @@ declare module Adaptive {
            @param creation Creation date of the cookie
            @since ARP1.0
         */
-        constructor(name: string, value: string, domain: string, path: string, scheme: string, secure: boolean, expiry: number, creation: number);
+        constructor(cookieName: string, cookieValue: string, domain: string, path: string, scheme: string, secure: boolean, expiry: number, creation: number);
+        /**
+           Returns the cookie cookieName
+
+           @return cookieName Name of the cookie
+           @since ARP1.0
+        */
+        getCookieName(): string;
+        /**
+           Set the cookie cookieName
+
+           @param cookieName Name of the cookie
+           @since ARP1.0
+        */
+        setCookieName(cookieName: string): void;
+        /**
+           Returns the cookie cookieValue
+
+           @return Value of the cookie
+           @since ARP1.0
+        */
+        getCookieValue(): string;
+        /**
+           Set the cookie cookieValue
+
+           @param cookieValue Value of the cookie
+           @since ARP1.0
+        */
+        setCookieValue(cookieValue: string): void;
         /**
            Returns the creation date
 
@@ -126,20 +158,6 @@ declare module Adaptive {
         */
         setExpiry(expiry: number): void;
         /**
-           Returns the cookie name
-
-           @return name Name of the cookie
-           @since ARP1.0
-        */
-        getName(): string;
-        /**
-           Set the cookie name
-
-           @param name Name of the cookie
-           @since ARP1.0
-        */
-        setName(name: string): void;
-        /**
            Returns the path
 
            @return path
@@ -181,19 +199,5 @@ declare module Adaptive {
            @since ARP1.0
         */
         setSecure(secure: boolean): void;
-        /**
-           Returns the cookie value
-
-           @return Value of the cookie
-           @since ARP1.0
-        */
-        getValue(): string;
-        /**
-           Set the cookie value
-
-           @param value Value of the cookie
-           @since ARP1.0
-        */
-        setValue(value: string): void;
     }
 }

@@ -25,6 +25,10 @@ Contributors:
 
     * See source code files for contributors.
 
+Release:
+
+    * @version v2.0.2
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 var __extends = this.__extends || function (d, b) {
@@ -37,7 +41,7 @@ var __extends = this.__extends || function (d, b) {
 var Adaptive;
 (function (Adaptive) {
     /**
-       Structure representing the value of a http cookie.
+       Structure representing the cookieValue of a http cookie.
 
        @author Aryslan
        @since ARP1.0
@@ -48,8 +52,8 @@ var Adaptive;
         /**
            Contructor with fields
 
-           @param name     Name of the cookie
-           @param value    Value of the cookie
+           @param cookieName     Name of the cookie
+           @param cookieValue    Value of the cookie
            @param domain   Domain of the cookie
            @param path     Path of the cookie
            @param scheme   Scheme of the cookie
@@ -58,10 +62,10 @@ var Adaptive;
            @param creation Creation date of the cookie
            @since ARP1.0
         */
-        function ServiceCookie(name, value, domain, path, scheme, secure, expiry, creation) {
+        function ServiceCookie(cookieName, cookieValue, domain, path, scheme, secure, expiry, creation) {
             _super.call(this);
-            this.name = name;
-            this.value = value;
+            this.cookieName = cookieName;
+            this.cookieValue = cookieValue;
             this.domain = domain;
             this.path = path;
             this.scheme = scheme;
@@ -69,6 +73,42 @@ var Adaptive;
             this.expiry = expiry;
             this.creation = creation;
         }
+        /**
+           Returns the cookie cookieName
+
+           @return cookieName Name of the cookie
+           @since ARP1.0
+        */
+        ServiceCookie.prototype.getCookieName = function () {
+            return this.cookieName;
+        };
+        /**
+           Set the cookie cookieName
+
+           @param cookieName Name of the cookie
+           @since ARP1.0
+        */
+        ServiceCookie.prototype.setCookieName = function (cookieName) {
+            this.cookieName = cookieName;
+        };
+        /**
+           Returns the cookie cookieValue
+
+           @return Value of the cookie
+           @since ARP1.0
+        */
+        ServiceCookie.prototype.getCookieValue = function () {
+            return this.cookieValue;
+        };
+        /**
+           Set the cookie cookieValue
+
+           @param cookieValue Value of the cookie
+           @since ARP1.0
+        */
+        ServiceCookie.prototype.setCookieValue = function (cookieValue) {
+            this.cookieValue = cookieValue;
+        };
         /**
            Returns the creation date
 
@@ -124,24 +164,6 @@ var Adaptive;
             this.expiry = expiry;
         };
         /**
-           Returns the cookie name
-
-           @return name Name of the cookie
-           @since ARP1.0
-        */
-        ServiceCookie.prototype.getName = function () {
-            return this.name;
-        };
-        /**
-           Set the cookie name
-
-           @param name Name of the cookie
-           @since ARP1.0
-        */
-        ServiceCookie.prototype.setName = function (name) {
-            this.name = name;
-        };
-        /**
            Returns the path
 
            @return path
@@ -194,24 +216,6 @@ var Adaptive;
         */
         ServiceCookie.prototype.setSecure = function (secure) {
             this.secure = secure;
-        };
-        /**
-           Returns the cookie value
-
-           @return Value of the cookie
-           @since ARP1.0
-        */
-        ServiceCookie.prototype.getValue = function () {
-            return this.value;
-        };
-        /**
-           Set the cookie value
-
-           @param value Value of the cookie
-           @since ARP1.0
-        */
-        ServiceCookie.prototype.setValue = function (value) {
-            this.value = value;
         };
         return ServiceCookie;
     })(Adaptive.APIBean);

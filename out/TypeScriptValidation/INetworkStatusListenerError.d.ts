@@ -25,6 +25,10 @@ Contributors:
 
     * See source code files for contributors.
 
+Release:
+
+    * @version v2.0.2
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
@@ -36,6 +40,7 @@ declare module Adaptive {
         constructor(value: string);
         toString(): string;
         static NoPermission: INetworkStatusListenerError;
+        static Unreachable: INetworkStatusListenerError;
         static Unknown: INetworkStatusListenerError;
     }
 }

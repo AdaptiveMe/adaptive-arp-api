@@ -1,6 +1,6 @@
+/// <reference path="FileDescriptor.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseCallback.d.ts" />
-/// <reference path="IFile.d.ts" />
 /// <reference path="IFileDataStoreResultCallbackError.d.ts" />
 /// <reference path="IFileDataStoreResultCallbackWarning.d.ts" />
 /**
@@ -30,6 +30,10 @@ Contributors:
 
     * See source code files for contributors.
 
+Release:
+
+    * @version v2.0.2
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
@@ -52,13 +56,13 @@ declare module Adaptive {
            @param file File reference to stored data.
            @since ARP1.0
         */
-        onResult(file: IFile): any;
+        onResult(file: FileDescriptor): any;
         /**
            Result with warning of data retrieval/storage operation.
            @param file    File being loaded/stored.
            @param warning Warning condition encountered.
            @since ARP1.0
         */
-        onWarning(file: IFile, warning: IFileDataStoreResultCallbackWarning): any;
+        onWarning(file: FileDescriptor, warning: IFileDataStoreResultCallbackWarning): any;
     }
 }
