@@ -42,12 +42,17 @@ declare module Adaptive {
        Auto-generated implementation of INetworkReachabilityCallback specification.
     */
     class NetworkReachabilityCallbackImpl extends BaseCallbackImpl implements INetworkReachabilityCallback {
+        onErrorFunction: (error: INetworkReachabilityCallbackError) => Function;
+        onResultFunction: (reachable: boolean) => Function;
+        onWarningFunction: (reachable: boolean, warning: INetworkReachabilityCallbackWarning) => Function;
         /**
-           Constructor with callback id.
+           Constructor with anonymous handler functions for callback.
 
-           @param id  The id of the callback.
+           @param onErrorFunction Function receiving parameters of type: INetworkReachabilityCallbackError
+           @param onResultFunction Function receiving parameters of type: boolean
+           @param onWarningFunction Function receiving parameters of type: boolean, INetworkReachabilityCallbackWarning
         */
-        constructor(id: number);
+        constructor(onErrorFunction: (error: INetworkReachabilityCallbackError) => Function, onResultFunction: (reachable: boolean) => Function, onWarningFunction: (reachable: boolean, warning: INetworkReachabilityCallbackWarning) => Function);
         /**
            No data received - error condition, not authorized .
 

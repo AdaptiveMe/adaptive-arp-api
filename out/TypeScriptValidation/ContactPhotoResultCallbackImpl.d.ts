@@ -42,12 +42,17 @@ declare module Adaptive {
        Auto-generated implementation of IContactPhotoResultCallback specification.
     */
     class ContactPhotoResultCallbackImpl extends BaseCallbackImpl implements IContactPhotoResultCallback {
+        onErrorFunction: (error: IContactPhotoResultCallbackError) => Function;
+        onResultFunction: (contactPhoto: number[]) => Function;
+        onWarningFunction: (contactPhoto: number[], warning: IContactPhotoResultCallbackWarning) => Function;
         /**
-           Constructor with callback id.
+           Constructor with anonymous handler functions for callback.
 
-           @param id  The id of the callback.
+           @param onErrorFunction Function receiving parameters of type: IContactPhotoResultCallbackError
+           @param onResultFunction Function receiving parameters of type: Array<number>
+           @param onWarningFunction Function receiving parameters of type: Array<number>, IContactPhotoResultCallbackWarning
         */
-        constructor(id: number);
+        constructor(onErrorFunction: (error: IContactPhotoResultCallbackError) => Function, onResultFunction: (contactPhoto: number[]) => Function, onWarningFunction: (contactPhoto: number[], warning: IContactPhotoResultCallbackWarning) => Function);
         /**
            This method is called on Error
 

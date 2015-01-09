@@ -51,12 +51,32 @@ var Adaptive;
     var ContactPhotoResultCallbackImpl = (function (_super) {
         __extends(ContactPhotoResultCallbackImpl, _super);
         /**
-           Constructor with callback id.
+           Constructor with anonymous handler functions for callback.
 
-           @param id  The id of the callback.
+           @param onErrorFunction Function receiving parameters of type: IContactPhotoResultCallbackError
+           @param onResultFunction Function receiving parameters of type: Array<number>
+           @param onWarningFunction Function receiving parameters of type: Array<number>, IContactPhotoResultCallbackWarning
         */
-        function ContactPhotoResultCallbackImpl(id) {
-            _super.call(this, id);
+        function ContactPhotoResultCallbackImpl(onErrorFunction, onResultFunction, onWarningFunction) {
+            _super.call(this, ++Adaptive.registeredCounter);
+            if (onErrorFunction == null) {
+                console.error("ERROR: ContactPhotoResultCallbackImpl onErrorFunction is not defined.");
+            }
+            else {
+                this.onErrorFunction = onErrorFunction;
+            }
+            if (onResultFunction == null) {
+                console.error("ERROR: ContactPhotoResultCallbackImpl onResultFunction is not defined.");
+            }
+            else {
+                this.onResultFunction = onResultFunction;
+            }
+            if (onWarningFunction == null) {
+                console.error("ERROR: ContactPhotoResultCallbackImpl onWarningFunction is not defined.");
+            }
+            else {
+                this.onWarningFunction = onWarningFunction;
+            }
         }
         /**
            This method is called on Error
@@ -65,6 +85,12 @@ var Adaptive;
            @since ARP1.0
         */
         ContactPhotoResultCallbackImpl.prototype.onError = function (error) {
+            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                console.warn("WARNING: ContactPhotoResultCallbackImpl contains a null reference to onErrorFunction.");
+            }
+            else {
+                this.onErrorFunction(error);
+            }
         };
         /**
            This method is called on Result
@@ -73,6 +99,12 @@ var Adaptive;
            @since ARP1.0
         */
         ContactPhotoResultCallbackImpl.prototype.onResult = function (contactPhoto) {
+            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                console.warn("WARNING: ContactPhotoResultCallbackImpl contains a null reference to onResultFunction.");
+            }
+            else {
+                this.onResultFunction(contactPhoto);
+            }
         };
         /**
            This method is called on Warning
@@ -82,6 +114,12 @@ var Adaptive;
            @since ARP1.0
         */
         ContactPhotoResultCallbackImpl.prototype.onWarning = function (contactPhoto, warning) {
+            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                console.warn("WARNING: ContactPhotoResultCallbackImpl contains a null reference to onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(contactPhoto, warning);
+            }
         };
         return ContactPhotoResultCallbackImpl;
     })(Adaptive.BaseCallbackImpl);

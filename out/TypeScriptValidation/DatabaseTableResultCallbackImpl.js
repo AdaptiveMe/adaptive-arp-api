@@ -52,12 +52,32 @@ var Adaptive;
     var DatabaseTableResultCallbackImpl = (function (_super) {
         __extends(DatabaseTableResultCallbackImpl, _super);
         /**
-           Constructor with callback id.
+           Constructor with anonymous handler functions for callback.
 
-           @param id  The id of the callback.
+           @param onErrorFunction Function receiving parameters of type: IDatabaseTableResultCallbackError
+           @param onResultFunction Function receiving parameters of type: DatabaseTable
+           @param onWarningFunction Function receiving parameters of type: DatabaseTable, IDatabaseTableResultCallbackWarning
         */
-        function DatabaseTableResultCallbackImpl(id) {
-            _super.call(this, id);
+        function DatabaseTableResultCallbackImpl(onErrorFunction, onResultFunction, onWarningFunction) {
+            _super.call(this, ++Adaptive.registeredCounter);
+            if (onErrorFunction == null) {
+                console.error("ERROR: DatabaseTableResultCallbackImpl onErrorFunction is not defined.");
+            }
+            else {
+                this.onErrorFunction = onErrorFunction;
+            }
+            if (onResultFunction == null) {
+                console.error("ERROR: DatabaseTableResultCallbackImpl onResultFunction is not defined.");
+            }
+            else {
+                this.onResultFunction = onResultFunction;
+            }
+            if (onWarningFunction == null) {
+                console.error("ERROR: DatabaseTableResultCallbackImpl onWarningFunction is not defined.");
+            }
+            else {
+                this.onWarningFunction = onWarningFunction;
+            }
         }
         /**
            Result callback for error responses
@@ -66,6 +86,12 @@ var Adaptive;
            @since ARP1.0
         */
         DatabaseTableResultCallbackImpl.prototype.onError = function (error) {
+            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                console.warn("WARNING: DatabaseTableResultCallbackImpl contains a null reference to onErrorFunction.");
+            }
+            else {
+                this.onErrorFunction(error);
+            }
         };
         /**
            Result callback for correct responses
@@ -74,6 +100,12 @@ var Adaptive;
            @since ARP1.0
         */
         DatabaseTableResultCallbackImpl.prototype.onResult = function (databaseTable) {
+            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                console.warn("WARNING: DatabaseTableResultCallbackImpl contains a null reference to onResultFunction.");
+            }
+            else {
+                this.onResultFunction(databaseTable);
+            }
         };
         /**
            Result callback for warning responses
@@ -83,6 +115,12 @@ var Adaptive;
            @since ARP1.0
         */
         DatabaseTableResultCallbackImpl.prototype.onWarning = function (databaseTable, warning) {
+            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                console.warn("WARNING: DatabaseTableResultCallbackImpl contains a null reference to onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(databaseTable, warning);
+            }
         };
         return DatabaseTableResultCallbackImpl;
     })(Adaptive.BaseCallbackImpl);

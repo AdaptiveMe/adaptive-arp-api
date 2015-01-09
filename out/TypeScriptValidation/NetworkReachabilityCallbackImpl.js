@@ -51,12 +51,32 @@ var Adaptive;
     var NetworkReachabilityCallbackImpl = (function (_super) {
         __extends(NetworkReachabilityCallbackImpl, _super);
         /**
-           Constructor with callback id.
+           Constructor with anonymous handler functions for callback.
 
-           @param id  The id of the callback.
+           @param onErrorFunction Function receiving parameters of type: INetworkReachabilityCallbackError
+           @param onResultFunction Function receiving parameters of type: boolean
+           @param onWarningFunction Function receiving parameters of type: boolean, INetworkReachabilityCallbackWarning
         */
-        function NetworkReachabilityCallbackImpl(id) {
-            _super.call(this, id);
+        function NetworkReachabilityCallbackImpl(onErrorFunction, onResultFunction, onWarningFunction) {
+            _super.call(this, ++Adaptive.registeredCounter);
+            if (onErrorFunction == null) {
+                console.error("ERROR: NetworkReachabilityCallbackImpl onErrorFunction is not defined.");
+            }
+            else {
+                this.onErrorFunction = onErrorFunction;
+            }
+            if (onResultFunction == null) {
+                console.error("ERROR: NetworkReachabilityCallbackImpl onResultFunction is not defined.");
+            }
+            else {
+                this.onResultFunction = onResultFunction;
+            }
+            if (onWarningFunction == null) {
+                console.error("ERROR: NetworkReachabilityCallbackImpl onWarningFunction is not defined.");
+            }
+            else {
+                this.onWarningFunction = onWarningFunction;
+            }
         }
         /**
            No data received - error condition, not authorized .
@@ -65,6 +85,12 @@ var Adaptive;
            @since ARP1.0
         */
         NetworkReachabilityCallbackImpl.prototype.onError = function (error) {
+            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                console.warn("WARNING: NetworkReachabilityCallbackImpl contains a null reference to onErrorFunction.");
+            }
+            else {
+                this.onErrorFunction(error);
+            }
         };
         /**
            Correct data received.
@@ -73,6 +99,12 @@ var Adaptive;
            @since ARP1.0
         */
         NetworkReachabilityCallbackImpl.prototype.onResult = function (reachable) {
+            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                console.warn("WARNING: NetworkReachabilityCallbackImpl contains a null reference to onResultFunction.");
+            }
+            else {
+                this.onResultFunction(reachable);
+            }
         };
         /**
            Data received with warning - ie Found entries with existing key and values have been overriden
@@ -82,6 +114,12 @@ var Adaptive;
            @since ARP1.0
         */
         NetworkReachabilityCallbackImpl.prototype.onWarning = function (reachable, warning) {
+            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                console.warn("WARNING: NetworkReachabilityCallbackImpl contains a null reference to onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(reachable, warning);
+            }
         };
         return NetworkReachabilityCallbackImpl;
     })(Adaptive.BaseCallbackImpl);

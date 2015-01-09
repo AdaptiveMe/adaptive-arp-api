@@ -52,12 +52,32 @@ var Adaptive;
     var FileDataStoreResultCallbackImpl = (function (_super) {
         __extends(FileDataStoreResultCallbackImpl, _super);
         /**
-           Constructor with callback id.
+           Constructor with anonymous handler functions for callback.
 
-           @param id  The id of the callback.
+           @param onErrorFunction Function receiving parameters of type: IFileDataStoreResultCallbackError
+           @param onResultFunction Function receiving parameters of type: FileDescriptor
+           @param onWarningFunction Function receiving parameters of type: FileDescriptor, IFileDataStoreResultCallbackWarning
         */
-        function FileDataStoreResultCallbackImpl(id) {
-            _super.call(this, id);
+        function FileDataStoreResultCallbackImpl(onErrorFunction, onResultFunction, onWarningFunction) {
+            _super.call(this, ++Adaptive.registeredCounter);
+            if (onErrorFunction == null) {
+                console.error("ERROR: FileDataStoreResultCallbackImpl onErrorFunction is not defined.");
+            }
+            else {
+                this.onErrorFunction = onErrorFunction;
+            }
+            if (onResultFunction == null) {
+                console.error("ERROR: FileDataStoreResultCallbackImpl onResultFunction is not defined.");
+            }
+            else {
+                this.onResultFunction = onResultFunction;
+            }
+            if (onWarningFunction == null) {
+                console.error("ERROR: FileDataStoreResultCallbackImpl onWarningFunction is not defined.");
+            }
+            else {
+                this.onWarningFunction = onWarningFunction;
+            }
         }
         /**
            Error processing data retrieval/storage operation.
@@ -66,6 +86,12 @@ var Adaptive;
            @since ARP1.0
         */
         FileDataStoreResultCallbackImpl.prototype.onError = function (error) {
+            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                console.warn("WARNING: FileDataStoreResultCallbackImpl contains a null reference to onErrorFunction.");
+            }
+            else {
+                this.onErrorFunction(error);
+            }
         };
         /**
            Result of data storage operation.
@@ -74,6 +100,12 @@ var Adaptive;
            @since ARP1.0
         */
         FileDataStoreResultCallbackImpl.prototype.onResult = function (file) {
+            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                console.warn("WARNING: FileDataStoreResultCallbackImpl contains a null reference to onResultFunction.");
+            }
+            else {
+                this.onResultFunction(file);
+            }
         };
         /**
            Result with warning of data retrieval/storage operation.
@@ -83,6 +115,12 @@ var Adaptive;
            @since ARP1.0
         */
         FileDataStoreResultCallbackImpl.prototype.onWarning = function (file, warning) {
+            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                console.warn("WARNING: FileDataStoreResultCallbackImpl contains a null reference to onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(file, warning);
+            }
         };
         return FileDataStoreResultCallbackImpl;
     })(Adaptive.BaseCallbackImpl);

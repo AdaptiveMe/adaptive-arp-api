@@ -42,12 +42,17 @@ declare module Adaptive {
        Auto-generated implementation of IFileDataLoadResultCallback specification.
     */
     class FileDataLoadResultCallbackImpl extends BaseCallbackImpl implements IFileDataLoadResultCallback {
+        onErrorFunction: (error: IFileDataLoadResultCallbackError) => Function;
+        onResultFunction: (data: number[]) => Function;
+        onWarningFunction: (data: number[], warning: IFileDataLoadResultCallbackWarning) => Function;
         /**
-           Constructor with callback id.
+           Constructor with anonymous handler functions for callback.
 
-           @param id  The id of the callback.
+           @param onErrorFunction Function receiving parameters of type: IFileDataLoadResultCallbackError
+           @param onResultFunction Function receiving parameters of type: Array<number>
+           @param onWarningFunction Function receiving parameters of type: Array<number>, IFileDataLoadResultCallbackWarning
         */
-        constructor(id: number);
+        constructor(onErrorFunction: (error: IFileDataLoadResultCallbackError) => Function, onResultFunction: (data: number[]) => Function, onWarningFunction: (data: number[], warning: IFileDataLoadResultCallbackWarning) => Function);
         /**
            Error processing data retrieval/storage operation.
 
