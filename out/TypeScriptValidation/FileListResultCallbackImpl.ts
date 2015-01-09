@@ -40,6 +40,50 @@ Release:
 
 module Adaptive {
 
+     /**
+        Interface for Managing the File result operations
+        Auto-generated implementation of IFileListResultCallback specification.
+     */
+     export class FileListResultCallbackImpl extends BaseCallbackImpl implements IFileListResultCallback {
+
+          /**
+             Constructor with callback id.
+
+             @param id  The id of the callback.
+          */
+          constructor(id : number) {
+               super(id);
+          }
+
+          /**
+             On error result of a file operation.
+
+             @param error Error processing the request.
+             @since ARP1.0
+          */
+          public onError(error : IFileListResultCallbackError) {
+          }
+
+          /**
+             On correct result of a file operation.
+
+             @param files Array of resulting files/folders.
+             @since ARP1.0
+          */
+          public onResult(files : Array<FileDescriptor>) {
+          }
+
+          /**
+             On partial result of a file operation, containing a warning.
+
+             @param files   Array of resulting files/folders.
+             @param warning Warning condition encountered.
+             @since ARP1.0
+          */
+          public onWarning(files : Array<FileDescriptor>, warning : IFileListResultCallbackWarning) {
+          }
+
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

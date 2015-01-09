@@ -39,6 +39,50 @@ Release:
 
 module Adaptive {
 
+     /**
+        Interface for Managing the File loading callback responses
+        Auto-generated implementation of IFileDataLoadResultCallback specification.
+     */
+     export class FileDataLoadResultCallbackImpl extends BaseCallbackImpl implements IFileDataLoadResultCallback {
+
+          /**
+             Constructor with callback id.
+
+             @param id  The id of the callback.
+          */
+          constructor(id : number) {
+               super(id);
+          }
+
+          /**
+             Error processing data retrieval/storage operation.
+
+             @param error Error condition encountered.
+             @since ARP1.0
+          */
+          public onError(error : IFileDataLoadResultCallbackError) {
+          }
+
+          /**
+             Result of data retrieval operation.
+
+             @param data Data loaded.
+             @since ARP1.0
+          */
+          public onResult(data : Array<number>) {
+          }
+
+          /**
+             Result with warning of data retrieval/storage operation.
+
+             @param data    File being loaded.
+             @param warning Warning condition encountered.
+             @since ARP1.0
+          */
+          public onWarning(data : Array<number>, warning : IFileDataLoadResultCallbackWarning) {
+          }
+
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

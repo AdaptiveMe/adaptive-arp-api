@@ -31,9 +31,60 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
 ///<reference path="BaseCallbackImpl.ts"/>
 ///<reference path="FileDescriptor.ts"/>
 ///<reference path="IFileDataStoreResultCallback.ts"/>
 ///<reference path="IFileDataStoreResultCallbackError.ts"/>
 ///<reference path="IFileDataStoreResultCallbackWarning.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Interface for Managing the File store operations callback
+       Auto-generated implementation of IFileDataStoreResultCallback specification.
+    */
+    var FileDataStoreResultCallbackImpl = (function (_super) {
+        __extends(FileDataStoreResultCallbackImpl, _super);
+        /**
+           Constructor with callback id.
+
+           @param id  The id of the callback.
+        */
+        function FileDataStoreResultCallbackImpl(id) {
+            _super.call(this, id);
+        }
+        /**
+           Error processing data retrieval/storage operation.
+
+           @param error Error condition encountered.
+           @since ARP1.0
+        */
+        FileDataStoreResultCallbackImpl.prototype.onError = function (error) {
+        };
+        /**
+           Result of data storage operation.
+
+           @param file File reference to stored data.
+           @since ARP1.0
+        */
+        FileDataStoreResultCallbackImpl.prototype.onResult = function (file) {
+        };
+        /**
+           Result with warning of data retrieval/storage operation.
+
+           @param file    File being loaded/stored.
+           @param warning Warning condition encountered.
+           @since ARP1.0
+        */
+        FileDataStoreResultCallbackImpl.prototype.onWarning = function (file, warning) {
+        };
+        return FileDataStoreResultCallbackImpl;
+    })(Adaptive.BaseCallbackImpl);
+    Adaptive.FileDataStoreResultCallbackImpl = FileDataStoreResultCallbackImpl;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=FileDataStoreResultCallbackImpl.js.map

@@ -37,4 +37,38 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Managing the File store operations callback
+       Auto-generated implementation of IFileDataStoreResultCallback specification.
+    */
+    class FileDataStoreResultCallbackImpl extends BaseCallbackImpl implements IFileDataStoreResultCallback {
+        /**
+           Constructor with callback id.
+
+           @param id  The id of the callback.
+        */
+        constructor(id: number);
+        /**
+           Error processing data retrieval/storage operation.
+
+           @param error Error condition encountered.
+           @since ARP1.0
+        */
+        onError(error: IFileDataStoreResultCallbackError): void;
+        /**
+           Result of data storage operation.
+
+           @param file File reference to stored data.
+           @since ARP1.0
+        */
+        onResult(file: FileDescriptor): void;
+        /**
+           Result with warning of data retrieval/storage operation.
+
+           @param file    File being loaded/stored.
+           @param warning Warning condition encountered.
+           @since ARP1.0
+        */
+        onWarning(file: FileDescriptor, warning: IFileDataStoreResultCallbackWarning): void;
+    }
 }

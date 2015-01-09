@@ -40,6 +40,50 @@ Release:
 
 module Adaptive {
 
+     /**
+        Interface for Managing the File operations callback
+        Auto-generated implementation of IFileResultCallback specification.
+     */
+     export class FileResultCallbackImpl extends BaseCallbackImpl implements IFileResultCallback {
+
+          /**
+             Constructor with callback id.
+
+             @param id  The id of the callback.
+          */
+          constructor(id : number) {
+               super(id);
+          }
+
+          /**
+             On error result of a file operation.
+
+             @param error Error processing the request.
+             @since ARP1.0
+          */
+          public onError(error : IFileResultCallbackError) {
+          }
+
+          /**
+             On correct result of a file operation.
+
+             @param storageFile Reference to the resulting file.
+             @since ARP1.0
+          */
+          public onResult(storageFile : FileDescriptor) {
+          }
+
+          /**
+             On partial result of a file operation, containing a warning.
+
+             @param file    Reference to the offending file.
+             @param warning Warning processing the request.
+             @since ARP1.0
+          */
+          public onWarning(file : FileDescriptor, warning : IFileResultCallbackWarning) {
+          }
+
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

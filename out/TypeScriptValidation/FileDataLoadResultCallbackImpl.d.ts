@@ -36,4 +36,38 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Managing the File loading callback responses
+       Auto-generated implementation of IFileDataLoadResultCallback specification.
+    */
+    class FileDataLoadResultCallbackImpl extends BaseCallbackImpl implements IFileDataLoadResultCallback {
+        /**
+           Constructor with callback id.
+
+           @param id  The id of the callback.
+        */
+        constructor(id: number);
+        /**
+           Error processing data retrieval/storage operation.
+
+           @param error Error condition encountered.
+           @since ARP1.0
+        */
+        onError(error: IFileDataLoadResultCallbackError): void;
+        /**
+           Result of data retrieval operation.
+
+           @param data Data loaded.
+           @since ARP1.0
+        */
+        onResult(data: number[]): void;
+        /**
+           Result with warning of data retrieval/storage operation.
+
+           @param data    File being loaded.
+           @param warning Warning condition encountered.
+           @since ARP1.0
+        */
+        onWarning(data: number[], warning: IFileDataLoadResultCallbackWarning): void;
+    }
 }
