@@ -48,8 +48,8 @@ public class TypeScriptGenerator extends GeneratorBase {
 
     private File currentFile;
     private IndentPrintStream indentPrintStream;
-    private File currentFileGlobal;
-    private IndentPrintStream indentPrintStreamGlobal;
+    private File currentFileSF;
+    private IndentPrintStream indentPrintStreamSF;
     private List<String> arrayOfClasses = new ArrayList<>();
     private List<Class> enumClassList = new ArrayList<>();
     private List<Class> utilClassList = new ArrayList<>();
@@ -86,21 +86,21 @@ public class TypeScriptGenerator extends GeneratorBase {
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
-            if (currentFileGlobal == null) {
-                currentFileGlobal = new File(getOutputRootDirectory(), "Adaptive.ts");
-                if (currentFileGlobal.exists()) {
-                    currentFileGlobal.delete();
+            if (currentFileSF == null) {
+                currentFileSF = new File(getOutputRootDirectory(), "Adaptive.ts");
+                if (currentFileSF.exists()) {
+                    currentFileSF.delete();
                 }
                 try {
-                    indentPrintStreamGlobal = new IndentPrintStream(new FileOutputStream(currentFileGlobal));
+                    indentPrintStreamSF = new IndentPrintStream(new FileOutputStream(currentFileSF));
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
-                indentPrintStreamGlobal.println("/**");
-                indentPrintStreamGlobal.println(super.getSourceHeader());
-                indentPrintStreamGlobal.println("*/");
-                indentPrintStreamGlobal.println("module Adaptive {");
-                indentPrintStreamGlobal.println();
+                indentPrintStreamSF.println("/**");
+                indentPrintStreamSF.println(super.getSourceHeader());
+                indentPrintStreamSF.println("*/");
+                indentPrintStreamSF.println("module Adaptive {");
+                indentPrintStreamSF.println();
             }
             this.arrayOfClasses.add(className + ".ts");
             startComment(0);
@@ -729,24 +729,24 @@ public class TypeScriptGenerator extends GeneratorBase {
                 });
                 for (Class serviceClass : serviceClasses) {
                     startComment(10);
-                    startCommentGlobal(10);
+                    startCommentSF(10);
                     println(13, "Returns a reference to the registered " + serviceClass.getSimpleName().substring(1) + "Bridge.");
                     println();
                     println(13, "@return " + serviceClass.getSimpleName().substring(1) + "Bridge reference or null if a bridge of this type is not registered.");
-                    printlnGlobal(13, "Returns a reference to the registered " + serviceClass.getSimpleName().substring(1) + "Bridge.");
-                    printlnGlobal();
-                    printlnGlobal(13, "@return " + serviceClass.getSimpleName().substring(1) + "Bridge reference or null if a bridge of this type is not registered.");
+                    printlnSF(13, "Returns a reference to the registered " + serviceClass.getSimpleName().substring(1) + "Bridge.");
+                    printlnSF();
+                    printlnSF(13, "@return " + serviceClass.getSimpleName().substring(1) + "Bridge reference or null if a bridge of this type is not registered.");
                     endComment(10);
-                    endCommentGlobal(10);
+                    endCommentSF(10);
                     println(10, "get" + serviceClass.getSimpleName().substring(1) + "Bridge() : " + serviceClass.getSimpleName());
                     println();
-                    printlnGlobal(10, "get" + serviceClass.getSimpleName().substring(1) + "Bridge() : " + serviceClass.getSimpleName());
-                    printlnGlobal();
+                    printlnSF(10, "get" + serviceClass.getSimpleName().substring(1) + "Bridge() : " + serviceClass.getSimpleName());
+                    printlnSF();
                 }
             } else {
                 if (!clazz.getSimpleName().equals("IAppRegistry")) {
                     startComment(10);
-                    startCommentGlobal(10);
+                    startCommentSF(10);
                     JavaMethod javaMethod = null;
                     for (JavaMethod m : interfaceMethodsDoc) {
                         if (m.getName().equals(method.getName()) && m.getParameters().size() == method.getParameterCount()) {
@@ -756,42 +756,42 @@ public class TypeScriptGenerator extends GeneratorBase {
                     }
                     if (javaMethod != null) {
                         println(13, javaMethod.getComment());
-                        printlnGlobal(13, javaMethod.getComment());
+                        printlnSF(13, javaMethod.getComment());
                         for (DocletTag tag : javaMethod.getTags()) {
                             println(13, "@" + tag.getName() + " " + tag.getValue());
-                            printlnGlobal(13, "@" + tag.getName() + " " + tag.getValue());
+                            printlnSF(13, "@" + tag.getName() + " " + tag.getValue());
                         }
                     }
                     endComment(10);
                     print(10, method.getName());
                     print("(");
-                    endCommentGlobal(10);
-                    printGlobal(10, method.getName());
-                    printGlobal(0, "(");
+                    endCommentSF(10);
+                    printSF(10, method.getName());
+                    printSF(0, "(");
                     for (int i = 0; i < method.getParameterCount(); i++) {
                         Parameter p = method.getParameters()[i];
                         print(p.getName());
                         print(":");
                         print(convertJavaToNativeType(p.getType()));
-                        printGlobal(0, p.getName());
-                        printGlobal(0, ":");
-                        printGlobal(0, convertJavaToNativeType(p.getType()));
+                        printSF(0, p.getName());
+                        printSF(0, ":");
+                        printSF(0, convertJavaToNativeType(p.getType()));
                         if (i < method.getParameterCount() - 1) {
                             print(", ");
-                            printGlobal(0, ", ");
+                            printSF(0, ", ");
                         }
                     }
                     print(")");
-                    printGlobal(0, ")");
+                    printSF(0, ")");
 
                     if (!method.getReturnType().equals(Void.TYPE)) {
                         print(" : ");
                         print(convertJavaToNativeType(method.getReturnType()));
-                        printGlobal(0, " : ");
-                        printGlobal(0, convertJavaToNativeType(method.getReturnType()));
+                        printSF(0, " : ");
+                        printSF(0, convertJavaToNativeType(method.getReturnType()));
                     }
                     println(";");
-                    printlnGlobal(0, ";");
+                    printlnSF(0, ";");
                 }
             }
         }
@@ -800,7 +800,7 @@ public class TypeScriptGenerator extends GeneratorBase {
     @Override
     protected void endInterface(String simpleName, Class clazz) {
         println(5, "}"); // Class
-        indentPrintStreamGlobal.println(5, "}");
+        indentPrintStreamSF.println(5, "}");
         println("}"); // Module
     }
 
@@ -927,28 +927,28 @@ public class TypeScriptGenerator extends GeneratorBase {
         println("module Adaptive {"); // Module
         println();
         startComment(5);
-        startCommentGlobal(5);
+        startCommentSF(5);
         println(8, classComment);
-        printlnGlobal(8, classComment);
+        printlnSF(8, classComment);
         if (tagList.size() > 0) {
             println();
-            printlnGlobal();
+            printlnSF();
             for (DocletTag tag : tagList) {
                 println(8, "@" + tag.getName() + " " + tag.getValue());
-                printlnGlobal(8, "@" + tag.getName() + " " + tag.getValue());
+                printlnSF(8, "@" + tag.getName() + " " + tag.getValue());
             }
         }
         endComment(5);
-        endCommentGlobal(5);
+        endCommentSF(5);
         if (clazz.isEnum()) {
             println(5, "export interface " + generateEnumClassName(clazz) + " {");
-            printlnGlobal(5, "export interface " + generateEnumClassName(clazz) + " {");
+            printlnSF(5, "export interface " + generateEnumClassName(clazz) + " {");
         } else if (clazz.getInterfaces() != null && clazz.getInterfaces().length == 1) {
             println(5, "export interface " + simpleName + " extends " + clazz.getInterfaces()[0].getSimpleName() + " {");
-            printlnGlobal(5, "export interface " + simpleName + " extends " + clazz.getInterfaces()[0].getSimpleName() + " {");
+            printlnSF(5, "export interface " + simpleName + " extends " + clazz.getInterfaces()[0].getSimpleName() + " {");
         } else {
             println(5, "export interface " + simpleName + " {");
-            printlnGlobal(5, "export interface " + simpleName + " {");
+            printlnSF(5, "export interface " + simpleName + " {");
         }
         /**
          * Process all enums.
@@ -967,10 +967,10 @@ public class TypeScriptGenerator extends GeneratorBase {
             print(" : ");
             print(convertJavaToNativeType(field.getType()));
             println(";");
-            printGlobal(10, field.getName());
-            printGlobal(0, " : ");
-            printGlobal(0, convertJavaToNativeType(field.getType()));
-            printlnGlobal(0, ";");
+            printSF(10, field.getName());
+            printSF(0, " : ");
+            printSF(0, convertJavaToNativeType(field.getType()));
+            printlnSF(0, ";");
         }
     }
 
@@ -1003,74 +1003,74 @@ public class TypeScriptGenerator extends GeneratorBase {
          * Getters
          */
         startComment(10);
-        startCommentGlobal(10);
+        startCommentSF(10);
         if (getter != null && getter.getComment() != null && getter.getComment().trim().length() > 0) {
             println(13, getter.getComment());
-            printlnGlobal(13, getter.getComment());
+            printlnSF(13, getter.getComment());
         } else {
             println(13, "Gets " + fieldByName.getComment());
-            printlnGlobal(13, "Gets " + fieldByName.getComment());
+            printlnSF(13, "Gets " + fieldByName.getComment());
         }
         println();
-        printlnGlobal();
+        printlnSF();
         if (getter != null && getter.getComment() != null && getter.getComment().trim().length() > 0) {
             for (DocletTag tag : getter.getTags()) {
                 println(13, "@" + tag.getName() + " " + tag.getValue());
-                printlnGlobal(13, "@" + tag.getName() + " " + tag.getValue());
+                printlnSF(13, "@" + tag.getName() + " " + tag.getValue());
             }
         } else {
             println(13, "@return " + field.getName() + " " + fieldByName.getComment());
-            printlnGlobal(13, "@return " + field.getName() + " " + fieldByName.getComment());
+            printlnSF(13, "@return " + field.getName() + " " + fieldByName.getComment());
         }
         endComment(10);
-        endCommentGlobal(10);
+        endCommentSF(10);
         if (field.getType().equals(Boolean.class)) {
             println(10, "is" + fieldName + "() : " + convertJavaToNativeType(field.getType()) + " {");
-            printlnGlobal(10, "is" + fieldName + "() : " + convertJavaToNativeType(field.getType()) + " {");
+            printlnSF(10, "is" + fieldName + "() : " + convertJavaToNativeType(field.getType()) + " {");
         } else {
             println(10, "get" + fieldName + "() : " + convertJavaToNativeType(field.getType()) + " {");
-            printlnGlobal(10, "get" + fieldName + "() : " + convertJavaToNativeType(field.getType()) + " {");
+            printlnSF(10, "get" + fieldName + "() : " + convertJavaToNativeType(field.getType()) + " {");
         }
 
         println(15, "return this." + field.getName() + ";");
-        printlnGlobal(15, "return this." + field.getName() + ";");
+        printlnSF(15, "return this." + field.getName() + ";");
         println(10, "}");
-        printlnGlobal(10, "}");
+        printlnSF(10, "}");
         println();
-        printlnGlobal();
+        printlnSF();
         /**
          * Setters
          */
         startComment(10);
-        startCommentGlobal(10);
+        startCommentSF(10);
         if (setter != null && setter.getComment() != null && setter.getComment().trim().length() > 0) {
             println(13, setter.getComment());
-            printlnGlobal(13, setter.getComment());
+            printlnSF(13, setter.getComment());
         } else {
             println(13, "Sets " + fieldByName.getComment());
-            printlnGlobal(13, "Sets " + fieldByName.getComment());
+            printlnSF(13, "Sets " + fieldByName.getComment());
         }
         println();
-        printlnGlobal();
+        printlnSF();
         if (setter != null && setter.getComment() != null && setter.getComment().trim().length() > 0) {
             for (DocletTag tag : setter.getTags()) {
                 println(13, "@" + tag.getName() + " " + tag.getValue());
-                printlnGlobal(13, "@" + tag.getName() + " " + tag.getValue());
+                printlnSF(13, "@" + tag.getName() + " " + tag.getValue());
             }
         } else {
             println(13, "@param " + field.getName() + " " + fieldByName.getComment());
-            printlnGlobal(13, "@param " + field.getName() + " " + fieldByName.getComment());
+            printlnSF(13, "@param " + field.getName() + " " + fieldByName.getComment());
         }
         endComment(10);
-        endCommentGlobal(10);
+        endCommentSF(10);
         println(10, "set" + fieldName + "(" + field.getName() + ": " + convertJavaToNativeType(field.getType()) + ") {");
         println(15, "this." + field.getName() + " = " + field.getName() + ";");
         println(10, "}");
         println();
-        printlnGlobal(10, "set" + fieldName + "(" + field.getName() + ": " + convertJavaToNativeType(field.getType()) + ") {");
-        printlnGlobal(15, "this." + field.getName() + " = " + field.getName() + ";");
-        printlnGlobal(10, "}");
-        printlnGlobal();
+        printlnSF(10, "set" + fieldName + "(" + field.getName() + ": " + convertJavaToNativeType(field.getType()) + ") {");
+        printlnSF(15, "this." + field.getName() + " = " + field.getName() + ";");
+        printlnSF(10, "}");
+        printlnSF();
     }
 
     @Override
@@ -1094,45 +1094,45 @@ public class TypeScriptGenerator extends GeneratorBase {
         JavaConstructor d = docConstructors.get(selectedIndex);
 
         startComment(10);
-        startCommentGlobal(10);
+        startCommentSF(10);
         if (d.getComment() != null && d.getComment().trim().length() > 0) {
             println(13, d.getComment());
-            printlnGlobal(13, d.getComment());
+            printlnSF(13, d.getComment());
         } else {
             println(13, "Constructor.");
-            printGlobal(13, "Constructor.");
+            printSF(13, "Constructor.");
         }
         if (d.getTags().size() > 0) {
             println();
-            printlnGlobal();
+            printlnSF();
         }
         for (DocletTag tag : d.getTags()) {
             println(13, "@" + tag.getName() + " " + tag.getValue());
-            printlnGlobal(13, "@" + tag.getName() + " " + tag.getValue());
+            printlnSF(13, "@" + tag.getName() + " " + tag.getValue());
         }
         endComment(10);
-        endCommentGlobal(10);
+        endCommentSF(10);
 
         print(10, "constructor(");
-        printGlobal(10, "constructor(");
+        printSF(10, "constructor(");
         for (int i = 0; i < c.getParameterCount(); i++) {
             Parameter p = c.getParameters()[i];
             print(p.getName() + ": " + convertJavaToNativeType(p.getType()));
-            printGlobal(0, p.getName() + ": " + convertJavaToNativeType(p.getType()));
+            printSF(0, p.getName() + ": " + convertJavaToNativeType(p.getType()));
             if (i < c.getParameterCount() - 1) {
                 print(", ");
-                printGlobal(0, ", ");
+                printSF(0, ", ");
             }
         }
         println(") {");
-        printlnGlobal(0, ") {");
+        printlnSF(0, ") {");
 
         if (clazz.getSuperclass().getSimpleName().equals("APIBean")) {
             println(15, "super();");
-            printlnGlobal(15, "super();");
+            printlnSF(15, "super();");
         } else if (!clazz.getSuperclass().equals(Object.class)) {
             print(15, "super(");
-            printGlobal(15, "super(");
+            printSF(15, "super(");
             for (int j = 0; j < c.getParameters().length; j++) {
                 Parameter parameter = c.getParameters()[j];
 
@@ -1144,12 +1144,12 @@ public class TypeScriptGenerator extends GeneratorBase {
                 }
                 if (!thisField) {
                     print(parameter.getName());
-                    printGlobal(0, parameter.getName());
+                    printSF(0, parameter.getName());
                 }
 
             }
             println(");");
-            printlnGlobal(0, ");");
+            printlnSF(0, ");");
         }
 
         for (int j = 0; j < c.getParameters().length; j++) {
@@ -1163,11 +1163,11 @@ public class TypeScriptGenerator extends GeneratorBase {
             }
             if (thisField) {
                 println(15, "this." + parameter.getName() + " = " + parameter.getName() + ";");
-                printlnGlobal(15, "this." + parameter.getName() + " = " + parameter.getName() + ";");
+                printlnSF(15, "this." + parameter.getName() + " = " + parameter.getName() + ";");
             }
         }
         println(10, "}");
-        printlnGlobal(10, "}");
+        printlnSF(10, "}");
     }
 
     @Override
@@ -1229,13 +1229,13 @@ public class TypeScriptGenerator extends GeneratorBase {
         */
         generateUtilClass("CommonUtil", Object.class);
 
-        indentPrintStreamGlobal.println();
-        indentPrintStreamGlobal.println("}");
-        indentPrintStreamGlobal.println("/**");
-        indentPrintStreamGlobal.println(super.getSourceFooter());
-        indentPrintStreamGlobal.println("*/");
-        indentPrintStreamGlobal.flush();
-        indentPrintStreamGlobal.close();
+        indentPrintStreamSF.println();
+        indentPrintStreamSF.println("}");
+        indentPrintStreamSF.println("/**");
+        indentPrintStreamSF.println(super.getSourceFooter());
+        indentPrintStreamSF.println("*/");
+        indentPrintStreamSF.flush();
+        indentPrintStreamSF.close();
     }
 
     @Override
@@ -1298,14 +1298,14 @@ public class TypeScriptGenerator extends GeneratorBase {
     protected void declareField(Class clazz, Field field, JavaField fieldByName) {
         if (fieldByName.getComment() != null && fieldByName.getComment().length() > 0) {
             startComment(10);
-            startCommentGlobal(10);
+            startCommentSF(10);
             println(13, fieldByName.getComment());
-            printlnGlobal(13, fieldByName.getComment());
+            printlnSF(13, fieldByName.getComment());
             endComment(10);
-            endCommentGlobal(10);
+            endCommentSF(10);
         }
         println(10, field.getName() + " : " + convertJavaToNativeType(field.getType()) + ";");
-        printlnGlobal(10, field.getName() + " : " + convertJavaToNativeType(field.getType()) + ";");
+        printlnSF(10, field.getName() + " : " + convertJavaToNativeType(field.getType()) + ";");
     }
 
     @Override
@@ -1320,7 +1320,7 @@ public class TypeScriptGenerator extends GeneratorBase {
             return;
         }
         println(5, "}"); // Class
-        indentPrintStreamGlobal.println(5, "}");
+        indentPrintStreamSF.println(5, "}");
         println("}"); // Module
     }
 
@@ -1367,67 +1367,67 @@ public class TypeScriptGenerator extends GeneratorBase {
         println("module Adaptive {"); // Module
         println();
         startComment(5);
-        startCommentGlobal(5);
+        startCommentSF(5);
         println(8, comment);
-        printlnGlobal(8, comment);
+        printlnSF(8, comment);
         if (tagList.size() > 0) {
             println();
-            printlnGlobal();
+            printlnSF();
             for (DocletTag tag : tagList) {
                 println(8, "@" + tag.getName() + " " + tag.getValue());
-                printlnGlobal(8, "@" + tag.getName() + " " + tag.getValue());
+                printlnSF(8, "@" + tag.getName() + " " + tag.getValue());
             }
         }
         endComment(5);
-        endCommentGlobal(5);
+        endCommentSF(5);
         if (clazz.equals(Map.class)) {
             return;
         }
         if (clazz.isEnum()) {
             println(5, "export class " + generateEnumClassName(clazz) + " {");
-            printlnGlobal(5, "export class " + generateEnumClassName(clazz) + " {");
+            printlnSF(5, "export class " + generateEnumClassName(clazz) + " {");
         } else if (clazz.getSuperclass() != null && !clazz.getSuperclass().equals(Object.class)) {
             println(5, "export class " + simpleName + " extends " + clazz.getSuperclass().getSimpleName() + " {");
-            printlnGlobal(5, "export class " + simpleName + " extends " + clazz.getSuperclass().getSimpleName() + " {");
+            printlnSF(5, "export class " + simpleName + " extends " + clazz.getSuperclass().getSimpleName() + " {");
         } else {
             println(5, "export class " + simpleName + " {");
-            printlnGlobal(5, "export class " + simpleName + " {");
+            printlnSF(5, "export class " + simpleName + " {");
         }
     }
 
-    private void printGlobal(int indent, String value) {
-        if (indentPrintStreamGlobal != null) {
-            indentPrintStreamGlobal.print(indent, value);
+    private void printSF(int indent, String value) {
+        if (indentPrintStreamSF != null) {
+            indentPrintStreamSF.print(indent, value);
         }
     }
 
-    private void printGlobal(int indent) {
-        this.printlnGlobal(indent, "");
+    private void printSF(int indent) {
+        this.printlnSF(indent, "");
     }
 
-    private void printlnGlobal(int indent, String value) {
-        if (indentPrintStreamGlobal != null) {
-            indentPrintStreamGlobal.println(indent, value);
+    private void printlnSF(int indent, String value) {
+        if (indentPrintStreamSF != null) {
+            indentPrintStreamSF.println(indent, value);
         }
     }
 
-    private void printlnGlobal(int indent) {
-        this.printlnGlobal(indent, "");
+    private void printlnSF(int indent) {
+        this.printlnSF(indent, "");
     }
 
-    private void printlnGlobal() {
-        this.printlnGlobal(0);
+    private void printlnSF() {
+        this.printlnSF(0);
     }
 
-    private void startCommentGlobal(int indent) {
-        if (indentPrintStreamGlobal != null) {
-            indentPrintStreamGlobal.println(indent, "/**");
+    private void startCommentSF(int indent) {
+        if (indentPrintStreamSF != null) {
+            indentPrintStreamSF.println(indent, "/**");
         }
     }
 
-    private void endCommentGlobal(int indent) {
-        if (indentPrintStreamGlobal != null) {
-            indentPrintStreamGlobal.println(indent, "*/");
+    private void endCommentSF(int indent) {
+        if (indentPrintStreamSF != null) {
+            indentPrintStreamSF.println(indent, "*/");
         }
     }
 
@@ -1448,21 +1448,21 @@ public class TypeScriptGenerator extends GeneratorBase {
             this.arrayOfClasses.add(clazz.getSimpleName() + ".ts");
         }
 
-        if (currentFileGlobal == null) {
-            currentFileGlobal = new File(getOutputRootDirectory(), "Adaptive.ts");
-            if (currentFileGlobal.exists()) {
-                currentFileGlobal.delete();
+        if (currentFileSF == null) {
+            currentFileSF = new File(getOutputRootDirectory(), "Adaptive.ts");
+            if (currentFileSF.exists()) {
+                currentFileSF.delete();
             }
             try {
-                indentPrintStreamGlobal = new IndentPrintStream(new FileOutputStream(currentFileGlobal));
+                indentPrintStreamSF = new IndentPrintStream(new FileOutputStream(currentFileSF));
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
-            indentPrintStreamGlobal.println("/**");
-            indentPrintStreamGlobal.println(super.getSourceHeader());
-            indentPrintStreamGlobal.println("*/");
-            indentPrintStreamGlobal.println("module Adaptive {");
-            indentPrintStreamGlobal.println();
+            indentPrintStreamSF.println("/**");
+            indentPrintStreamSF.println(super.getSourceHeader());
+            indentPrintStreamSF.println("*/");
+            indentPrintStreamSF.println("module Adaptive {");
+            indentPrintStreamSF.println();
         }
 
     }
@@ -1492,20 +1492,20 @@ public class TypeScriptGenerator extends GeneratorBase {
 
         startBean(generateEnumClassName(clazz), clazz, "Enumeration " + generateEnumClassName(clazz), new ArrayList<DocletTag>());
         println();
-        printlnGlobal();
+        printlnSF();
         println(10, "constructor(public value:string){}");
         println(10, "toString(){return this.value;}");
-        printlnGlobal(10, "constructor(public value:string){}");
-        printlnGlobal(10, "toString(){return this.value;}");
+        printlnSF(10, "constructor(public value:string){}");
+        printlnSF(10, "toString(){return this.value;}");
         println();
-        printlnGlobal();
+        printlnSF();
         for (int i = 0; i < clazz.getDeclaredFields().length - 1; i++) {
             Field field = clazz.getDeclaredFields()[i];
             println(10, "static " + field.getName() + " = new " + generateEnumClassName(clazz) + "(\"" + field.getName() + "\");");
-            printlnGlobal(10, "static " + field.getName() + " = new " + generateEnumClassName(clazz) + "(\"" + field.getName() + "\");");
+            printlnSF(10, "static " + field.getName() + " = new " + generateEnumClassName(clazz) + "(\"" + field.getName() + "\");");
         }
         println();
-        printlnGlobal();
+        printlnSF();
         endBean(generateEnumClassName(clazz), clazz);
 
 
@@ -1612,7 +1612,7 @@ public class TypeScriptGenerator extends GeneratorBase {
         } else {
             startBean(className, clazz, "Utility class of type " + clazz.getSimpleName(), new ArrayList<DocletTag>());
             println();
-            printlnGlobal();
+            printlnSF();
             println(10, "     /** Dictionary Definition **/\n" +
                     "     export interface IDictionary<V> {\n" +
                     "          add(key: string, value: V): void;\n" +
@@ -1670,7 +1670,7 @@ public class TypeScriptGenerator extends GeneratorBase {
                     "             return this;\n" +
                     "         }\n" +
                     "     }");
-            printlnGlobal(10, "     /** Dictionary Definition **/\n" +
+            printlnSF(10, "     /** Dictionary Definition **/\n" +
                     "     export interface IDictionary<V> {\n" +
                     "          add(key: string, value: V): void;\n" +
                     "          remove(key: string): void;\n" +
@@ -1729,7 +1729,7 @@ public class TypeScriptGenerator extends GeneratorBase {
                     "     }");
 
             println();
-            printlnGlobal();
+            printlnSF();
             endBean(className, clazz);
         }
 
