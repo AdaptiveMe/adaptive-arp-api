@@ -37,4 +37,38 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Managing the Security result callback
+       Auto-generated implementation of ISecurityResultCallback specification.
+    */
+    class SecurityResultCallbackImpl extends BaseCallbackImpl implements ISecurityResultCallback {
+        /**
+           Constructor with callback id.
+
+           @param id  The id of the callback.
+        */
+        constructor(id: number);
+        /**
+           No data received - error condition, not authorized .
+
+           @param error Error values
+           @since ARP1.0
+        */
+        onError(error: ISecurityResultCallbackError): void;
+        /**
+           Correct data received.
+
+           @param keyValues key and values
+           @since ARP1.0
+        */
+        onResult(keyValues: SecureKeyPair[]): void;
+        /**
+           Data received with warning - ie Found entries with existing key and values have been overriden
+
+           @param keyValues key and values
+           @param warning   Warning values
+           @since ARP1.0
+        */
+        onWarning(keyValues: SecureKeyPair[], warning: ISecurityResultCallbackWarning): void;
+    }
 }
