@@ -40,6 +40,50 @@ Release:
 
 module Adaptive {
 
+     /**
+        Interface for Managing the Cloud operations
+        Auto-generated implementation of IDatabaseTableResultCallback specification.
+     */
+     export class DatabaseTableResultCallbackImpl extends BaseCallbackImpl implements IDatabaseTableResultCallback {
+
+          /**
+             Constructor with callback id.
+
+             @param id  The id of the callback.
+          */
+          constructor(id : number) {
+               super(id);
+          }
+
+          /**
+             Result callback for error responses
+
+             @param error Returned error
+             @since ARP1.0
+          */
+          public onError(error : IDatabaseTableResultCallbackError) {
+          }
+
+          /**
+             Result callback for correct responses
+
+             @param databaseTable Returns the databaseTable
+             @since ARP1.0
+          */
+          public onResult(databaseTable : DatabaseTable) {
+          }
+
+          /**
+             Result callback for warning responses
+
+             @param databaseTable Returns the databaseTable
+             @param warning       Returned Warning
+             @since ARP1.0
+          */
+          public onWarning(databaseTable : DatabaseTable, warning : IDatabaseTableResultCallbackWarning) {
+          }
+
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

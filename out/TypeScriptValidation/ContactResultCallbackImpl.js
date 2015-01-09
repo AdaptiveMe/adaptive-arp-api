@@ -38,53 +38,53 @@ var __extends = this.__extends || function (d, b) {
     d.prototype = new __();
 };
 ///<reference path="BaseCallbackImpl.ts"/>
-///<reference path="FileDescriptor.ts"/>
-///<reference path="IFileResultCallback.ts"/>
-///<reference path="IFileResultCallbackError.ts"/>
-///<reference path="IFileResultCallbackWarning.ts"/>
+///<reference path="Contact.ts"/>
+///<reference path="IContactResultCallback.ts"/>
+///<reference path="IContactResultCallbackError.ts"/>
+///<reference path="IContactResultCallbackWarning.ts"/>
 var Adaptive;
 (function (Adaptive) {
     /**
-       Interface for Managing the File operations callback
-       Auto-generated implementation of IFileResultCallback specification.
+       Interface for Managing the Contact operations
+       Auto-generated implementation of IContactResultCallback specification.
     */
-    var FileResultCallbackImpl = (function (_super) {
-        __extends(FileResultCallbackImpl, _super);
+    var ContactResultCallbackImpl = (function (_super) {
+        __extends(ContactResultCallbackImpl, _super);
         /**
            Constructor with callback id.
 
            @param id  The id of the callback.
         */
-        function FileResultCallbackImpl(id) {
+        function ContactResultCallbackImpl(id) {
             _super.call(this, id);
         }
         /**
-           On error result of a file operation.
+           This method is called on Error
 
-           @param error Error processing the request.
+           @param error returned by the platform
            @since ARP1.0
         */
-        FileResultCallbackImpl.prototype.onError = function (error) {
+        ContactResultCallbackImpl.prototype.onError = function (error) {
         };
         /**
-           On correct result of a file operation.
+           This method is called on Result
 
-           @param storageFile Reference to the resulting file.
+           @param contacts returned by the platform
            @since ARP1.0
         */
-        FileResultCallbackImpl.prototype.onResult = function (storageFile) {
+        ContactResultCallbackImpl.prototype.onResult = function (contacts) {
         };
         /**
-           On partial result of a file operation, containing a warning.
+           This method is called on Warning
 
-           @param file    Reference to the offending file.
-           @param warning Warning processing the request.
+           @param contacts returned by the platform
+           @param warning  returned by the platform
            @since ARP1.0
         */
-        FileResultCallbackImpl.prototype.onWarning = function (file, warning) {
+        ContactResultCallbackImpl.prototype.onWarning = function (contacts, warning) {
         };
-        return FileResultCallbackImpl;
+        return ContactResultCallbackImpl;
     })(Adaptive.BaseCallbackImpl);
-    Adaptive.FileResultCallbackImpl = FileResultCallbackImpl;
+    Adaptive.ContactResultCallbackImpl = ContactResultCallbackImpl;
 })(Adaptive || (Adaptive = {}));
-//# sourceMappingURL=FileResultCallbackImpl.js.map
+//# sourceMappingURL=ContactResultCallbackImpl.js.map

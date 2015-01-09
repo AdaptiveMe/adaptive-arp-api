@@ -31,9 +31,60 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
 ///<reference path="BaseCallbackImpl.ts"/>
 ///<reference path="Database.ts"/>
 ///<reference path="IDatabaseResultCallback.ts"/>
 ///<reference path="IDatabaseResultCallbackError.ts"/>
 ///<reference path="IDatabaseResultCallbackWarning.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Interface for Managing the Cloud operations
+       Auto-generated implementation of IDatabaseResultCallback specification.
+    */
+    var DatabaseResultCallbackImpl = (function (_super) {
+        __extends(DatabaseResultCallbackImpl, _super);
+        /**
+           Constructor with callback id.
+
+           @param id  The id of the callback.
+        */
+        function DatabaseResultCallbackImpl(id) {
+            _super.call(this, id);
+        }
+        /**
+           Result callback for error responses
+
+           @param error Returned error
+           @since ARP1.0
+        */
+        DatabaseResultCallbackImpl.prototype.onError = function (error) {
+        };
+        /**
+           Result callback for correct responses
+
+           @param database Returns the database
+           @since ARP1.0
+        */
+        DatabaseResultCallbackImpl.prototype.onResult = function (database) {
+        };
+        /**
+           Result callback for warning responses
+
+           @param database Returns the database
+           @param warning  Returned Warning
+           @since ARP1.0
+        */
+        DatabaseResultCallbackImpl.prototype.onWarning = function (database, warning) {
+        };
+        return DatabaseResultCallbackImpl;
+    })(Adaptive.BaseCallbackImpl);
+    Adaptive.DatabaseResultCallbackImpl = DatabaseResultCallbackImpl;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=DatabaseResultCallbackImpl.js.map

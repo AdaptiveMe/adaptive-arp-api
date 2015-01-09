@@ -31,8 +31,59 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
 ///<reference path="BaseCallbackImpl.ts"/>
 ///<reference path="IFileDataLoadResultCallback.ts"/>
 ///<reference path="IFileDataLoadResultCallbackError.ts"/>
 ///<reference path="IFileDataLoadResultCallbackWarning.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Interface for Managing the File loading callback responses
+       Auto-generated implementation of IFileDataLoadResultCallback specification.
+    */
+    var FileDataLoadResultCallbackImpl = (function (_super) {
+        __extends(FileDataLoadResultCallbackImpl, _super);
+        /**
+           Constructor with callback id.
+
+           @param id  The id of the callback.
+        */
+        function FileDataLoadResultCallbackImpl(id) {
+            _super.call(this, id);
+        }
+        /**
+           Error processing data retrieval/storage operation.
+
+           @param error Error condition encountered.
+           @since ARP1.0
+        */
+        FileDataLoadResultCallbackImpl.prototype.onError = function (error) {
+        };
+        /**
+           Result of data retrieval operation.
+
+           @param data Data loaded.
+           @since ARP1.0
+        */
+        FileDataLoadResultCallbackImpl.prototype.onResult = function (data) {
+        };
+        /**
+           Result with warning of data retrieval/storage operation.
+
+           @param data    File being loaded.
+           @param warning Warning condition encountered.
+           @since ARP1.0
+        */
+        FileDataLoadResultCallbackImpl.prototype.onWarning = function (data, warning) {
+        };
+        return FileDataLoadResultCallbackImpl;
+    })(Adaptive.BaseCallbackImpl);
+    Adaptive.FileDataLoadResultCallbackImpl = FileDataLoadResultCallbackImpl;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=FileDataLoadResultCallbackImpl.js.map
