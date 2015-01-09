@@ -49,7 +49,7 @@ module Adaptive {
              @return API GRoup
              @since ARP1.0
           */
-          getAPIGroup() : IAdaptiveRPGroup; 
+          getAPIGroup() : IAdaptiveRPGroup;
      }
 }
 
