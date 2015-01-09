@@ -3,8 +3,6 @@
 /// <reference path="IAlarm.d.ts" />
 /// <reference path="IAmbientLight.d.ts" />
 /// <reference path="IAnalytics.d.ts" />
-/// <reference path="IAppContext.d.ts" />
-/// <reference path="IAppContextWebview.d.ts" />
 /// <reference path="IAudio.d.ts" />
 /// <reference path="IBarcode.d.ts" />
 /// <reference path="IBarometer.d.ts" />
@@ -532,17 +530,5 @@ declare module Adaptive {
            @return XMLBridge reference or null if a bridge of this type is not registered.
         */
         getXMLBridge(): IXML;
-        /**
-           Returns a reference to the Platform Context
-           @return Reference to the platform context
-           @since ARP1.0
-        */
-        getPlatformContext(): IAppContext;
-        /**
-           Returns a reference to the Webview platform context
-           @return Reference to the Webview Context
-           @since ARP1.0
-        */
-        getPlatformContextWeb(): IAppContextWebview;
     }
 }

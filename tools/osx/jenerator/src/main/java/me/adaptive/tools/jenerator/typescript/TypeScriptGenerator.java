@@ -868,7 +868,9 @@ public class TypeScriptGenerator extends GeneratorBase {
                     }
 
                     if (typeName != null && !referenceList.contains(typeName) && !clazz.getSimpleName().equals(typeName)) {
-                        referenceList.add(typeName);
+                        if (!typeName.startsWith("IAppContext")) {
+                            referenceList.add(typeName);
+                        }
                     }
                 }
 
@@ -901,7 +903,9 @@ public class TypeScriptGenerator extends GeneratorBase {
                     }
                 });
                 for (Class serviceClass : serviceClasses) {
-                    referenceList.add(serviceClass.getSimpleName());
+                    if (!serviceClass.getSimpleName().startsWith("IAppContext")) {
+                        referenceList.add(serviceClass.getSimpleName());
+                    }
                 }
 
             }

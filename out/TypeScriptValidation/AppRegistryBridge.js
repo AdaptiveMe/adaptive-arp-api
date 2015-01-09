@@ -38,8 +38,6 @@ Release:
 ///<reference path="IAlarm.ts"/>
 ///<reference path="IAmbientLight.ts"/>
 ///<reference path="IAnalytics.ts"/>
-///<reference path="IAppContext.ts"/>
-///<reference path="IAppContextWebview.ts"/>
 ///<reference path="IAppRegistry.ts"/>
 ///<reference path="IAudio.ts"/>
 ///<reference path="IBarcode.ts"/>
