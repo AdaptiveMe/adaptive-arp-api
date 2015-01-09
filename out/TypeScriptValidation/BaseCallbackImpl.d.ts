@@ -34,4 +34,33 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Base application for Callback purposes
+       Auto-generated implementation of IBaseCallback specification.
+    */
+    class BaseCallbackImpl implements IBaseCallback {
+        /**
+           Unique id of callback.
+        */
+        id: number;
+        /**
+           Group of API.
+        */
+        apiGroup: IAdaptiveRPGroup;
+        /**
+           Constructor with callback id.
+
+           @param id  The id of the callback.
+        */
+        constructor(id: number);
+        /**
+           Get the listener id.
+           @return long with the identifier of the callback.
+        */
+        getId(): number;
+        /**
+           Return the API group for the given interface.
+        */
+        getAPIGroup(): IAdaptiveRPGroup;
+    }
 }

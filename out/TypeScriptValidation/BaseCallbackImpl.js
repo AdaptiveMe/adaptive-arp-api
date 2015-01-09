@@ -33,4 +33,37 @@ Release:
 */
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseCallback.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Base application for Callback purposes
+       Auto-generated implementation of IBaseCallback specification.
+    */
+    var BaseCallbackImpl = (function () {
+        /**
+           Constructor with callback id.
+
+           @param id  The id of the callback.
+        */
+        function BaseCallbackImpl(id) {
+            this.id = id;
+            this.apiGroup = Adaptive.IAdaptiveRPGroup.Application;
+        }
+        /**
+           Get the listener id.
+           @return long with the identifier of the callback.
+        */
+        BaseCallbackImpl.prototype.getId = function () {
+            return this.id;
+        };
+        /**
+           Return the API group for the given interface.
+        */
+        BaseCallbackImpl.prototype.getAPIGroup = function () {
+            return this.apiGroup;
+        };
+        return BaseCallbackImpl;
+    })();
+    Adaptive.BaseCallbackImpl = BaseCallbackImpl;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=BaseCallbackImpl.js.map

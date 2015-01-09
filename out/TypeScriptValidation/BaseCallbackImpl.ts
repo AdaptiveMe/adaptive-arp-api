@@ -37,6 +37,48 @@ Release:
 
 module Adaptive {
 
+     /**
+        Base application for Callback purposes
+        Auto-generated implementation of IBaseCallback specification.
+     */
+     export class BaseCallbackImpl implements IBaseCallback {
+
+          /**
+             Unique id of callback.
+          */
+          id : number;
+
+          /**
+             Group of API.
+          */
+          apiGroup : IAdaptiveRPGroup;
+
+          /**
+             Constructor with callback id.
+
+             @param id  The id of the callback.
+          */
+          constructor(id : number) {
+               this.id = id;
+               this.apiGroup = IAdaptiveRPGroup.Application;
+          }
+
+          /**
+             Get the listener id.
+             @return long with the identifier of the callback.
+          */
+          getId() : number {
+               return this.id;
+          }
+
+          /**
+             Return the API group for the given interface.
+          */
+          getAPIGroup() : IAdaptiveRPGroup {
+               return this.apiGroup;
+          }
+
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
