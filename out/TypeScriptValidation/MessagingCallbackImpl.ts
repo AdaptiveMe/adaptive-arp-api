@@ -39,6 +39,50 @@ Release:
 
 module Adaptive {
 
+     /**
+        Interface for Managing the Messaging responses
+        Auto-generated implementation of IMessagingCallback specification.
+     */
+     export class MessagingCallbackImpl extends BaseCallbackImpl implements IMessagingCallback {
+
+          /**
+             Constructor with callback id.
+
+             @param id  The id of the callback.
+          */
+          constructor(id : number) {
+               super(id);
+          }
+
+          /**
+             This method is called on Error
+
+             @param error returned by the platform
+             @since ARP1.0
+          */
+          public onError(error : IMessagingCallbackError) {
+          }
+
+          /**
+             This method is called on Result
+
+             @param success true if sent;false otherwise
+             @since ARP1.0
+          */
+          public onResult(success : boolean) {
+          }
+
+          /**
+             This method is called on Warning
+
+             @param success true if sent;false otherwise
+             @param warning returned by the platform
+             @since ARP1.0
+          */
+          public onWarning(success : boolean, warning : IMessagingCallbackWarning) {
+          }
+
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

@@ -36,4 +36,38 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Managing the Messaging responses
+       Auto-generated implementation of IMessagingCallback specification.
+    */
+    class MessagingCallbackImpl extends BaseCallbackImpl implements IMessagingCallback {
+        /**
+           Constructor with callback id.
+
+           @param id  The id of the callback.
+        */
+        constructor(id: number);
+        /**
+           This method is called on Error
+
+           @param error returned by the platform
+           @since ARP1.0
+        */
+        onError(error: IMessagingCallbackError): void;
+        /**
+           This method is called on Result
+
+           @param success true if sent;false otherwise
+           @since ARP1.0
+        */
+        onResult(success: boolean): void;
+        /**
+           This method is called on Warning
+
+           @param success true if sent;false otherwise
+           @param warning returned by the platform
+           @since ARP1.0
+        */
+        onWarning(success: boolean, warning: IMessagingCallbackWarning): void;
+    }
 }
