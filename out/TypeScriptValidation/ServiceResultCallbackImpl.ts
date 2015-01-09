@@ -40,6 +40,50 @@ Release:
 
 module Adaptive {
 
+     /**
+        Interface for Managing the Services operations
+        Auto-generated implementation of IServiceResultCallback specification.
+     */
+     export class ServiceResultCallbackImpl extends BaseCallbackImpl implements IServiceResultCallback {
+
+          /**
+             Constructor with callback id.
+
+             @param id  The id of the callback.
+          */
+          constructor(id : number) {
+               super(id);
+          }
+
+          /**
+             This method is called on Error
+
+             @param error returned by the platform
+             @since ARP1.0
+          */
+          public onError(error : IServiceResultCallbackError) {
+          }
+
+          /**
+             This method is called on Result
+
+             @param response data
+             @since ARP1.0
+          */
+          public onResult(response : ServiceResponse) {
+          }
+
+          /**
+             This method is called on Warning
+
+             @param response data
+             @param warning  returned by the platform
+             @since ARP1.0
+          */
+          public onWarning(response : ServiceResponse, warning : IServiceResultCallbackWarning) {
+          }
+
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
