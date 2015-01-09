@@ -31,8 +31,59 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
 ///<reference path="BaseCallbackImpl.ts"/>
 ///<reference path="IContactPhotoResultCallback.ts"/>
 ///<reference path="IContactPhotoResultCallbackError.ts"/>
 ///<reference path="IContactPhotoResultCallbackWarning.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Interface for Managing the Contact operations
+       Auto-generated implementation of IContactPhotoResultCallback specification.
+    */
+    var ContactPhotoResultCallbackImpl = (function (_super) {
+        __extends(ContactPhotoResultCallbackImpl, _super);
+        /**
+           Constructor with callback id.
+
+           @param id  The id of the callback.
+        */
+        function ContactPhotoResultCallbackImpl(id) {
+            _super.call(this, id);
+        }
+        /**
+           This method is called on Error
+
+           @param error returned by the platform
+           @since ARP1.0
+        */
+        ContactPhotoResultCallbackImpl.prototype.onError = function (error) {
+        };
+        /**
+           This method is called on Result
+
+           @param contactPhoto returned by the platform
+           @since ARP1.0
+        */
+        ContactPhotoResultCallbackImpl.prototype.onResult = function (contactPhoto) {
+        };
+        /**
+           This method is called on Warning
+
+           @param contactPhoto returned by the platform
+           @param warning      returned by the platform
+           @since ARP1.0
+        */
+        ContactPhotoResultCallbackImpl.prototype.onWarning = function (contactPhoto, warning) {
+        };
+        return ContactPhotoResultCallbackImpl;
+    })(Adaptive.BaseCallbackImpl);
+    Adaptive.ContactPhotoResultCallbackImpl = ContactPhotoResultCallbackImpl;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=ContactPhotoResultCallbackImpl.js.map

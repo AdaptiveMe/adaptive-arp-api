@@ -39,6 +39,50 @@ Release:
 
 module Adaptive {
 
+     /**
+        Interface for Managing the Contact operations
+        Auto-generated implementation of IContactPhotoResultCallback specification.
+     */
+     export class ContactPhotoResultCallbackImpl extends BaseCallbackImpl implements IContactPhotoResultCallback {
+
+          /**
+             Constructor with callback id.
+
+             @param id  The id of the callback.
+          */
+          constructor(id : number) {
+               super(id);
+          }
+
+          /**
+             This method is called on Error
+
+             @param error returned by the platform
+             @since ARP1.0
+          */
+          public onError(error : IContactPhotoResultCallbackError) {
+          }
+
+          /**
+             This method is called on Result
+
+             @param contactPhoto returned by the platform
+             @since ARP1.0
+          */
+          public onResult(contactPhoto : Array<number>) {
+          }
+
+          /**
+             This method is called on Warning
+
+             @param contactPhoto returned by the platform
+             @param warning      returned by the platform
+             @since ARP1.0
+          */
+          public onWarning(contactPhoto : Array<number>, warning : IContactPhotoResultCallbackWarning) {
+          }
+
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

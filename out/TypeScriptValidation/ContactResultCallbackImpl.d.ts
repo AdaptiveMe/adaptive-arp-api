@@ -37,4 +37,38 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Managing the Contact operations
+       Auto-generated implementation of IContactResultCallback specification.
+    */
+    class ContactResultCallbackImpl extends BaseCallbackImpl implements IContactResultCallback {
+        /**
+           Constructor with callback id.
+
+           @param id  The id of the callback.
+        */
+        constructor(id: number);
+        /**
+           This method is called on Error
+
+           @param error returned by the platform
+           @since ARP1.0
+        */
+        onError(error: IContactResultCallbackError): void;
+        /**
+           This method is called on Result
+
+           @param contacts returned by the platform
+           @since ARP1.0
+        */
+        onResult(contacts: Contact[]): void;
+        /**
+           This method is called on Warning
+
+           @param contacts returned by the platform
+           @param warning  returned by the platform
+           @since ARP1.0
+        */
+        onWarning(contacts: Contact[], warning: IContactResultCallbackWarning): void;
+    }
 }
