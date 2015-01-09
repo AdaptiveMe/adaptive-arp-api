@@ -38,6 +38,7 @@ var __extends = this.__extends || function (d, b) {
     d.prototype = new __();
 };
 ///<reference path="BaseListenerImpl.ts"/>
+///<reference path="CommonUtil.ts"/>
 ///<reference path="ICapabilitiesNet.ts"/>
 ///<reference path="INetworkStatusListener.ts"/>
 ///<reference path="INetworkStatusListenerError.ts"/>
@@ -51,12 +52,32 @@ var Adaptive;
     var NetworkStatusListenerImpl = (function (_super) {
         __extends(NetworkStatusListenerImpl, _super);
         /**
-           Constructor with listener id.
+           Constructor with anonymous handler functions for listener.
 
-           @param id  The id of the listener.
+           @param onErrorFunction Function receiving parameters of type: INetworkStatusListenerError
+           @param onResultFunction Function receiving parameters of type: ICapabilitiesNet
+           @param onWarningFunction Function receiving parameters of type: ICapabilitiesNet, INetworkStatusListenerWarning
         */
-        function NetworkStatusListenerImpl(id) {
-            _super.call(this, id);
+        function NetworkStatusListenerImpl(onErrorFunction, onResultFunction, onWarningFunction) {
+            _super.call(this, ++Adaptive.registeredCounter);
+            if (onWarningFunction == null) {
+                console.error("ERROR: NetworkStatusListenerImpl onWarningFunction is not defined.");
+            }
+            else {
+                this.onWarningFunction = onWarningFunction;
+            }
+            if (onResultFunction == null) {
+                console.error("ERROR: NetworkStatusListenerImpl onResultFunction is not defined.");
+            }
+            else {
+                this.onResultFunction = onResultFunction;
+            }
+            if (onErrorFunction == null) {
+                console.error("ERROR: NetworkStatusListenerImpl onErrorFunction is not defined.");
+            }
+            else {
+                this.onErrorFunction = onErrorFunction;
+            }
         }
         /**
            No data received - error condition, not authorized or hardware not available.
@@ -65,6 +86,12 @@ var Adaptive;
            @since ARP1.0
         */
         NetworkStatusListenerImpl.prototype.onError = function (error) {
+            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                console.warn("WARNING: NetworkStatusListenerImpl contains a null reference to onErrorFunction.");
+            }
+            else {
+                this.onErrorFunction(error);
+            }
         };
         /**
            Called when network connection changes somehow.
@@ -73,6 +100,12 @@ var Adaptive;
            @since ARP1.0
         */
         NetworkStatusListenerImpl.prototype.onResult = function (network) {
+            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                console.warn("WARNING: NetworkStatusListenerImpl contains a null reference to onResultFunction.");
+            }
+            else {
+                this.onResultFunction(network);
+            }
         };
         /**
            Status received with warning
@@ -82,6 +115,12 @@ var Adaptive;
            @since ARP1.0
         */
         NetworkStatusListenerImpl.prototype.onWarning = function (network, warning) {
+            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                console.warn("WARNING: NetworkStatusListenerImpl contains a null reference to onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(network, warning);
+            }
         };
         return NetworkStatusListenerImpl;
     })(Adaptive.BaseListenerImpl);

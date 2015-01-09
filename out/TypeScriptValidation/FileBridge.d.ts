@@ -1,9 +1,14 @@
+/// <reference path="CommonUtil.d.ts" />
 /// <reference path="FileDescriptor.d.ts" />
-/// <reference path="IFile.d.ts" />
+/// <reference path="IAdaptiveRPGroup.d.ts" />
+/// <reference path="IBaseData.d.ts" />
 /// <reference path="IFileDataLoadResultCallback.d.ts" />
 /// <reference path="IFileDataStoreResultCallback.d.ts" />
 /// <reference path="IFileListResultCallback.d.ts" />
 /// <reference path="IFileResultCallback.d.ts" />
+/// <reference path="IFileSystemSecurity.d.ts" />
+/// <reference path="IFileSystemStorageType.d.ts" />
+/// <reference path="IFileSystemType.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 

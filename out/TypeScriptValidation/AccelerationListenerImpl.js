@@ -39,6 +39,7 @@ var __extends = this.__extends || function (d, b) {
 };
 ///<reference path="Acceleration.ts"/>
 ///<reference path="BaseListenerImpl.ts"/>
+///<reference path="CommonUtil.ts"/>
 ///<reference path="IAccelerationListener.ts"/>
 ///<reference path="IAccelerationListenerError.ts"/>
 ///<reference path="IAccelerationListenerWarning.ts"/>
@@ -51,12 +52,32 @@ var Adaptive;
     var AccelerationListenerImpl = (function (_super) {
         __extends(AccelerationListenerImpl, _super);
         /**
-           Constructor with listener id.
+           Constructor with anonymous handler functions for listener.
 
-           @param id  The id of the listener.
+           @param onErrorFunction Function receiving parameters of type: IAccelerationListenerError
+           @param onResultFunction Function receiving parameters of type: Acceleration
+           @param onWarningFunction Function receiving parameters of type: Acceleration, IAccelerationListenerWarning
         */
-        function AccelerationListenerImpl(id) {
-            _super.call(this, id);
+        function AccelerationListenerImpl(onErrorFunction, onResultFunction, onWarningFunction) {
+            _super.call(this, ++Adaptive.registeredCounter);
+            if (onWarningFunction == null) {
+                console.error("ERROR: AccelerationListenerImpl onWarningFunction is not defined.");
+            }
+            else {
+                this.onWarningFunction = onWarningFunction;
+            }
+            if (onResultFunction == null) {
+                console.error("ERROR: AccelerationListenerImpl onResultFunction is not defined.");
+            }
+            else {
+                this.onResultFunction = onResultFunction;
+            }
+            if (onErrorFunction == null) {
+                console.error("ERROR: AccelerationListenerImpl onErrorFunction is not defined.");
+            }
+            else {
+                this.onErrorFunction = onErrorFunction;
+            }
         }
         /**
            No data received - error condition, not authorized or hardware not available. This will be reported once for the
@@ -66,6 +87,12 @@ listener and subsequently, the listener will be deactivated and removed from the
            @since ARP1.0
         */
         AccelerationListenerImpl.prototype.onError = function (error) {
+            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                console.warn("WARNING: AccelerationListenerImpl contains a null reference to onErrorFunction.");
+            }
+            else {
+                this.onErrorFunction(error);
+            }
         };
         /**
            Correct data received.
@@ -74,6 +101,12 @@ listener and subsequently, the listener will be deactivated and removed from the
            @since ARP1.0
         */
         AccelerationListenerImpl.prototype.onResult = function (acceleration) {
+            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                console.warn("WARNING: AccelerationListenerImpl contains a null reference to onResultFunction.");
+            }
+            else {
+                this.onResultFunction(acceleration);
+            }
         };
         /**
            Data received with warning - ie. Needs calibration.
@@ -83,6 +116,12 @@ listener and subsequently, the listener will be deactivated and removed from the
            @since ARP1.0
         */
         AccelerationListenerImpl.prototype.onWarning = function (acceleration, warning) {
+            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                console.warn("WARNING: AccelerationListenerImpl contains a null reference to onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(acceleration, warning);
+            }
         };
         return AccelerationListenerImpl;
     })(Adaptive.BaseListenerImpl);

@@ -2,10 +2,150 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2b62424-c85f-4dbf-8462-3858f1398c98" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCallbackImpl.d.ts" afterPath="$PROJECT_DIR$/BaseCallbackImpl.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCallbackImpl.js.map" afterPath="$PROJECT_DIR$/BaseCallbackImpl.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCallbackImpl.js" afterPath="$PROJECT_DIR$/BaseCallbackImpl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCallbackImpl.ts" afterPath="$PROJECT_DIR$/BaseCallbackImpl.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AccelerationBridge.d.ts" afterPath="$PROJECT_DIR$/AccelerationBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AccelerationBridge.js.map" afterPath="$PROJECT_DIR$/AccelerationBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AccelerationBridge.js" afterPath="$PROJECT_DIR$/AccelerationBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AccelerationBridge.ts" afterPath="$PROJECT_DIR$/AccelerationBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AccelerationListenerImpl.d.ts" afterPath="$PROJECT_DIR$/AccelerationListenerImpl.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AccelerationListenerImpl.js.map" afterPath="$PROJECT_DIR$/AccelerationListenerImpl.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AccelerationListenerImpl.js" afterPath="$PROJECT_DIR$/AccelerationListenerImpl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AccelerationListenerImpl.ts" afterPath="$PROJECT_DIR$/AccelerationListenerImpl.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AdsBridge.d.ts" afterPath="$PROJECT_DIR$/AdsBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AdsBridge.js.map" afterPath="$PROJECT_DIR$/AdsBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AdsBridge.js" afterPath="$PROJECT_DIR$/AdsBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AdsBridge.ts" afterPath="$PROJECT_DIR$/AdsBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AlarmBridge.d.ts" afterPath="$PROJECT_DIR$/AlarmBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AlarmBridge.js.map" afterPath="$PROJECT_DIR$/AlarmBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AlarmBridge.js" afterPath="$PROJECT_DIR$/AlarmBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AlarmBridge.ts" afterPath="$PROJECT_DIR$/AlarmBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmbientLightBridge.d.ts" afterPath="$PROJECT_DIR$/AmbientLightBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmbientLightBridge.js.map" afterPath="$PROJECT_DIR$/AmbientLightBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmbientLightBridge.js" afterPath="$PROJECT_DIR$/AmbientLightBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmbientLightBridge.ts" afterPath="$PROJECT_DIR$/AmbientLightBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AnalyticsBridge.d.ts" afterPath="$PROJECT_DIR$/AnalyticsBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AnalyticsBridge.js.map" afterPath="$PROJECT_DIR$/AnalyticsBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AnalyticsBridge.js" afterPath="$PROJECT_DIR$/AnalyticsBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AnalyticsBridge.ts" afterPath="$PROJECT_DIR$/AnalyticsBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AppContextBridge.d.ts" afterPath="$PROJECT_DIR$/AppContextBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AppContextBridge.js.map" afterPath="$PROJECT_DIR$/AppContextBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AppContextBridge.js" afterPath="$PROJECT_DIR$/AppContextBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AppContextBridge.ts" afterPath="$PROJECT_DIR$/AppContextBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AppContextWebviewBridge.d.ts" afterPath="$PROJECT_DIR$/AppContextWebviewBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AppContextWebviewBridge.js.map" afterPath="$PROJECT_DIR$/AppContextWebviewBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AppContextWebviewBridge.js" afterPath="$PROJECT_DIR$/AppContextWebviewBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AppContextWebviewBridge.ts" afterPath="$PROJECT_DIR$/AppContextWebviewBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AppRegistryBridge.d.ts" afterPath="$PROJECT_DIR$/AppRegistryBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AppRegistryBridge.js.map" afterPath="$PROJECT_DIR$/AppRegistryBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AppRegistryBridge.js" afterPath="$PROJECT_DIR$/AppRegistryBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AppRegistryBridge.ts" afterPath="$PROJECT_DIR$/AppRegistryBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AudioBridge.d.ts" afterPath="$PROJECT_DIR$/AudioBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AudioBridge.js.map" afterPath="$PROJECT_DIR$/AudioBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AudioBridge.js" afterPath="$PROJECT_DIR$/AudioBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AudioBridge.ts" afterPath="$PROJECT_DIR$/AudioBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BarcodeBridge.d.ts" afterPath="$PROJECT_DIR$/BarcodeBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BarcodeBridge.js.map" afterPath="$PROJECT_DIR$/BarcodeBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BarcodeBridge.js" afterPath="$PROJECT_DIR$/BarcodeBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BarcodeBridge.ts" afterPath="$PROJECT_DIR$/BarcodeBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BarometerBridge.d.ts" afterPath="$PROJECT_DIR$/BarometerBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BarometerBridge.js.map" afterPath="$PROJECT_DIR$/BarometerBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BarometerBridge.js" afterPath="$PROJECT_DIR$/BarometerBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BarometerBridge.ts" afterPath="$PROJECT_DIR$/BarometerBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseApplicationBridge.d.ts" afterPath="$PROJECT_DIR$/BaseApplicationBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseApplicationBridge.js.map" afterPath="$PROJECT_DIR$/BaseApplicationBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseApplicationBridge.js" afterPath="$PROJECT_DIR$/BaseApplicationBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseApplicationBridge.ts" afterPath="$PROJECT_DIR$/BaseApplicationBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCommerceBridge.d.ts" afterPath="$PROJECT_DIR$/BaseCommerceBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCommerceBridge.js.map" afterPath="$PROJECT_DIR$/BaseCommerceBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCommerceBridge.js" afterPath="$PROJECT_DIR$/BaseCommerceBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCommerceBridge.ts" afterPath="$PROJECT_DIR$/BaseCommerceBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCommunicationBridge.d.ts" afterPath="$PROJECT_DIR$/BaseCommunicationBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCommunicationBridge.js.map" afterPath="$PROJECT_DIR$/BaseCommunicationBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCommunicationBridge.js" afterPath="$PROJECT_DIR$/BaseCommunicationBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCommunicationBridge.ts" afterPath="$PROJECT_DIR$/BaseCommunicationBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseDataBridge.d.ts" afterPath="$PROJECT_DIR$/BaseDataBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseDataBridge.js.map" afterPath="$PROJECT_DIR$/BaseDataBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseDataBridge.js" afterPath="$PROJECT_DIR$/BaseDataBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseDataBridge.ts" afterPath="$PROJECT_DIR$/BaseDataBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseMediaBridge.d.ts" afterPath="$PROJECT_DIR$/BaseMediaBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseMediaBridge.js.map" afterPath="$PROJECT_DIR$/BaseMediaBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseMediaBridge.js" afterPath="$PROJECT_DIR$/BaseMediaBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseMediaBridge.ts" afterPath="$PROJECT_DIR$/BaseMediaBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseNotificationBridge.d.ts" afterPath="$PROJECT_DIR$/BaseNotificationBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseNotificationBridge.js.map" afterPath="$PROJECT_DIR$/BaseNotificationBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseNotificationBridge.js" afterPath="$PROJECT_DIR$/BaseNotificationBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseNotificationBridge.ts" afterPath="$PROJECT_DIR$/BaseNotificationBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BasePIMBridge.d.ts" afterPath="$PROJECT_DIR$/BasePIMBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BasePIMBridge.js.map" afterPath="$PROJECT_DIR$/BasePIMBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BasePIMBridge.js" afterPath="$PROJECT_DIR$/BasePIMBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BasePIMBridge.ts" afterPath="$PROJECT_DIR$/BasePIMBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseReaderBridge.d.ts" afterPath="$PROJECT_DIR$/BaseReaderBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseReaderBridge.js.map" afterPath="$PROJECT_DIR$/BaseReaderBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseReaderBridge.js" afterPath="$PROJECT_DIR$/BaseReaderBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseReaderBridge.ts" afterPath="$PROJECT_DIR$/BaseReaderBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSecurityBridge.d.ts" afterPath="$PROJECT_DIR$/BaseSecurityBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSecurityBridge.js.map" afterPath="$PROJECT_DIR$/BaseSecurityBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSecurityBridge.js" afterPath="$PROJECT_DIR$/BaseSecurityBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSecurityBridge.ts" afterPath="$PROJECT_DIR$/BaseSecurityBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSensorBridge.d.ts" afterPath="$PROJECT_DIR$/BaseSensorBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSensorBridge.js.map" afterPath="$PROJECT_DIR$/BaseSensorBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSensorBridge.js" afterPath="$PROJECT_DIR$/BaseSensorBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSensorBridge.ts" afterPath="$PROJECT_DIR$/BaseSensorBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSocialBridge.d.ts" afterPath="$PROJECT_DIR$/BaseSocialBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSocialBridge.js.map" afterPath="$PROJECT_DIR$/BaseSocialBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSocialBridge.js" afterPath="$PROJECT_DIR$/BaseSocialBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSocialBridge.ts" afterPath="$PROJECT_DIR$/BaseSocialBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSystemBridge.d.ts" afterPath="$PROJECT_DIR$/BaseSystemBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSystemBridge.js.map" afterPath="$PROJECT_DIR$/BaseSystemBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSystemBridge.js" afterPath="$PROJECT_DIR$/BaseSystemBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSystemBridge.ts" afterPath="$PROJECT_DIR$/BaseSystemBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseUIBridge.d.ts" afterPath="$PROJECT_DIR$/BaseUIBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseUIBridge.js.map" afterPath="$PROJECT_DIR$/BaseUIBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseUIBridge.js" afterPath="$PROJECT_DIR$/BaseUIBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseUIBridge.ts" afterPath="$PROJECT_DIR$/BaseUIBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseUtilBridge.d.ts" afterPath="$PROJECT_DIR$/BaseUtilBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseUtilBridge.js.map" afterPath="$PROJECT_DIR$/BaseUtilBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseUtilBridge.js" afterPath="$PROJECT_DIR$/BaseUtilBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseUtilBridge.ts" afterPath="$PROJECT_DIR$/BaseUtilBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BluetoothBridge.d.ts" afterPath="$PROJECT_DIR$/BluetoothBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BluetoothBridge.js.map" afterPath="$PROJECT_DIR$/BluetoothBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BluetoothBridge.js" afterPath="$PROJECT_DIR$/BluetoothBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BluetoothBridge.ts" afterPath="$PROJECT_DIR$/BluetoothBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BrowserBridge.d.ts" afterPath="$PROJECT_DIR$/BrowserBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BrowserBridge.js.map" afterPath="$PROJECT_DIR$/BrowserBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BrowserBridge.js" afterPath="$PROJECT_DIR$/BrowserBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BrowserBridge.ts" afterPath="$PROJECT_DIR$/BrowserBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ButtonListenerImpl.d.ts" afterPath="$PROJECT_DIR$/ButtonListenerImpl.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ButtonListenerImpl.js.map" afterPath="$PROJECT_DIR$/ButtonListenerImpl.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ButtonListenerImpl.js" afterPath="$PROJECT_DIR$/ButtonListenerImpl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ButtonListenerImpl.ts" afterPath="$PROJECT_DIR$/ButtonListenerImpl.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CalendarBridge.d.ts" afterPath="$PROJECT_DIR$/CalendarBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CalendarBridge.js.map" afterPath="$PROJECT_DIR$/CalendarBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CalendarBridge.js" afterPath="$PROJECT_DIR$/CalendarBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CalendarBridge.ts" afterPath="$PROJECT_DIR$/CalendarBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CameraBridge.d.ts" afterPath="$PROJECT_DIR$/CameraBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CameraBridge.js.map" afterPath="$PROJECT_DIR$/CameraBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CameraBridge.js" afterPath="$PROJECT_DIR$/CameraBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CameraBridge.ts" afterPath="$PROJECT_DIR$/CameraBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CapabilitiesBridge.d.ts" afterPath="$PROJECT_DIR$/CapabilitiesBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CapabilitiesBridge.js.map" afterPath="$PROJECT_DIR$/CapabilitiesBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CapabilitiesBridge.js" afterPath="$PROJECT_DIR$/CapabilitiesBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CapabilitiesBridge.ts" afterPath="$PROJECT_DIR$/CapabilitiesBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CloudBridge.d.ts" afterPath="$PROJECT_DIR$/CloudBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CloudBridge.js.map" afterPath="$PROJECT_DIR$/CloudBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CloudBridge.js" afterPath="$PROJECT_DIR$/CloudBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CloudBridge.ts" afterPath="$PROJECT_DIR$/CloudBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CompressionBridge.d.ts" afterPath="$PROJECT_DIR$/CompressionBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CompressionBridge.js.map" afterPath="$PROJECT_DIR$/CompressionBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CompressionBridge.js" afterPath="$PROJECT_DIR$/CompressionBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CompressionBridge.ts" afterPath="$PROJECT_DIR$/CompressionBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ConcurrentBridge.d.ts" afterPath="$PROJECT_DIR$/ConcurrentBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ConcurrentBridge.js.map" afterPath="$PROJECT_DIR$/ConcurrentBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ConcurrentBridge.js" afterPath="$PROJECT_DIR$/ConcurrentBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ConcurrentBridge.ts" afterPath="$PROJECT_DIR$/ConcurrentBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactBridge.d.ts" afterPath="$PROJECT_DIR$/ContactBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactBridge.js.map" afterPath="$PROJECT_DIR$/ContactBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactBridge.js" afterPath="$PROJECT_DIR$/ContactBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactBridge.ts" afterPath="$PROJECT_DIR$/ContactBridge.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactPhotoResultCallbackImpl.d.ts" afterPath="$PROJECT_DIR$/ContactPhotoResultCallbackImpl.d.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactPhotoResultCallbackImpl.js.map" afterPath="$PROJECT_DIR$/ContactPhotoResultCallbackImpl.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactPhotoResultCallbackImpl.js" afterPath="$PROJECT_DIR$/ContactPhotoResultCallbackImpl.js" />
@@ -14,6 +154,18 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactResultCallbackImpl.js.map" afterPath="$PROJECT_DIR$/ContactResultCallbackImpl.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactResultCallbackImpl.js" afterPath="$PROJECT_DIR$/ContactResultCallbackImpl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactResultCallbackImpl.ts" afterPath="$PROJECT_DIR$/ContactResultCallbackImpl.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CryptoBridge.d.ts" afterPath="$PROJECT_DIR$/CryptoBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CryptoBridge.js.map" afterPath="$PROJECT_DIR$/CryptoBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CryptoBridge.js" afterPath="$PROJECT_DIR$/CryptoBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CryptoBridge.ts" afterPath="$PROJECT_DIR$/CryptoBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataStreamBridge.d.ts" afterPath="$PROJECT_DIR$/DataStreamBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataStreamBridge.js.map" afterPath="$PROJECT_DIR$/DataStreamBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataStreamBridge.js" afterPath="$PROJECT_DIR$/DataStreamBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataStreamBridge.ts" afterPath="$PROJECT_DIR$/DataStreamBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseBridge.d.ts" afterPath="$PROJECT_DIR$/DatabaseBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseBridge.js.map" afterPath="$PROJECT_DIR$/DatabaseBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseBridge.js" afterPath="$PROJECT_DIR$/DatabaseBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseBridge.ts" afterPath="$PROJECT_DIR$/DatabaseBridge.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseResultCallbackImpl.d.ts" afterPath="$PROJECT_DIR$/DatabaseResultCallbackImpl.d.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseResultCallbackImpl.js.map" afterPath="$PROJECT_DIR$/DatabaseResultCallbackImpl.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseResultCallbackImpl.js" afterPath="$PROJECT_DIR$/DatabaseResultCallbackImpl.js" />
@@ -22,6 +174,26 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseTableResultCallbackImpl.js.map" afterPath="$PROJECT_DIR$/DatabaseTableResultCallbackImpl.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseTableResultCallbackImpl.js" afterPath="$PROJECT_DIR$/DatabaseTableResultCallbackImpl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseTableResultCallbackImpl.ts" afterPath="$PROJECT_DIR$/DatabaseTableResultCallbackImpl.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DesktopBridge.d.ts" afterPath="$PROJECT_DIR$/DesktopBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DesktopBridge.js.map" afterPath="$PROJECT_DIR$/DesktopBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DesktopBridge.js" afterPath="$PROJECT_DIR$/DesktopBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DesktopBridge.ts" afterPath="$PROJECT_DIR$/DesktopBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DeviceBridge.d.ts" afterPath="$PROJECT_DIR$/DeviceBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DeviceBridge.js.map" afterPath="$PROJECT_DIR$/DeviceBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DeviceBridge.js" afterPath="$PROJECT_DIR$/DeviceBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DeviceBridge.ts" afterPath="$PROJECT_DIR$/DeviceBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DisplayBridge.d.ts" afterPath="$PROJECT_DIR$/DisplayBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DisplayBridge.js.map" afterPath="$PROJECT_DIR$/DisplayBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DisplayBridge.js" afterPath="$PROJECT_DIR$/DisplayBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DisplayBridge.ts" afterPath="$PROJECT_DIR$/DisplayBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FacebookBridge.d.ts" afterPath="$PROJECT_DIR$/FacebookBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FacebookBridge.js.map" afterPath="$PROJECT_DIR$/FacebookBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FacebookBridge.js" afterPath="$PROJECT_DIR$/FacebookBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FacebookBridge.ts" afterPath="$PROJECT_DIR$/FacebookBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileBridge.d.ts" afterPath="$PROJECT_DIR$/FileBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileBridge.js.map" afterPath="$PROJECT_DIR$/FileBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileBridge.js" afterPath="$PROJECT_DIR$/FileBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileBridge.ts" afterPath="$PROJECT_DIR$/FileBridge.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileDataLoadResultCallbackImpl.d.ts" afterPath="$PROJECT_DIR$/FileDataLoadResultCallbackImpl.d.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileDataLoadResultCallbackImpl.js.map" afterPath="$PROJECT_DIR$/FileDataLoadResultCallbackImpl.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileDataLoadResultCallbackImpl.js" afterPath="$PROJECT_DIR$/FileDataLoadResultCallbackImpl.js" />
@@ -38,22 +210,217 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileResultCallbackImpl.js.map" afterPath="$PROJECT_DIR$/FileResultCallbackImpl.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileResultCallbackImpl.js" afterPath="$PROJECT_DIR$/FileResultCallbackImpl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileResultCallbackImpl.ts" afterPath="$PROJECT_DIR$/FileResultCallbackImpl.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileSystemBridge.d.ts" afterPath="$PROJECT_DIR$/FileSystemBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileSystemBridge.js.map" afterPath="$PROJECT_DIR$/FileSystemBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileSystemBridge.js" afterPath="$PROJECT_DIR$/FileSystemBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileSystemBridge.ts" afterPath="$PROJECT_DIR$/FileSystemBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GeolocationBridge.d.ts" afterPath="$PROJECT_DIR$/GeolocationBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GeolocationBridge.js.map" afterPath="$PROJECT_DIR$/GeolocationBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GeolocationBridge.js" afterPath="$PROJECT_DIR$/GeolocationBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GeolocationBridge.ts" afterPath="$PROJECT_DIR$/GeolocationBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GeolocationListenerImpl.d.ts" afterPath="$PROJECT_DIR$/GeolocationListenerImpl.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GeolocationListenerImpl.js.map" afterPath="$PROJECT_DIR$/GeolocationListenerImpl.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GeolocationListenerImpl.js" afterPath="$PROJECT_DIR$/GeolocationListenerImpl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GeolocationListenerImpl.ts" afterPath="$PROJECT_DIR$/GeolocationListenerImpl.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GlobalizationBridge.d.ts" afterPath="$PROJECT_DIR$/GlobalizationBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GlobalizationBridge.js.map" afterPath="$PROJECT_DIR$/GlobalizationBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GlobalizationBridge.js" afterPath="$PROJECT_DIR$/GlobalizationBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GlobalizationBridge.ts" afterPath="$PROJECT_DIR$/GlobalizationBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GooglePlusBridge.d.ts" afterPath="$PROJECT_DIR$/GooglePlusBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GooglePlusBridge.js.map" afterPath="$PROJECT_DIR$/GooglePlusBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GooglePlusBridge.js" afterPath="$PROJECT_DIR$/GooglePlusBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GooglePlusBridge.ts" afterPath="$PROJECT_DIR$/GooglePlusBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GyroscopeBridge.d.ts" afterPath="$PROJECT_DIR$/GyroscopeBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GyroscopeBridge.js.map" afterPath="$PROJECT_DIR$/GyroscopeBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GyroscopeBridge.js" afterPath="$PROJECT_DIR$/GyroscopeBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GyroscopeBridge.ts" afterPath="$PROJECT_DIR$/GyroscopeBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ImagingBridge.d.ts" afterPath="$PROJECT_DIR$/ImagingBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ImagingBridge.js.map" afterPath="$PROJECT_DIR$/ImagingBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ImagingBridge.js" afterPath="$PROJECT_DIR$/ImagingBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ImagingBridge.ts" afterPath="$PROJECT_DIR$/ImagingBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/InternalStorageBridge.d.ts" afterPath="$PROJECT_DIR$/InternalStorageBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/InternalStorageBridge.js.map" afterPath="$PROJECT_DIR$/InternalStorageBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/InternalStorageBridge.js" afterPath="$PROJECT_DIR$/InternalStorageBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/InternalStorageBridge.ts" afterPath="$PROJECT_DIR$/InternalStorageBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LifecycleBridge.d.ts" afterPath="$PROJECT_DIR$/LifecycleBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LifecycleBridge.js.map" afterPath="$PROJECT_DIR$/LifecycleBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LifecycleBridge.js" afterPath="$PROJECT_DIR$/LifecycleBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LifecycleBridge.ts" afterPath="$PROJECT_DIR$/LifecycleBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LifecycleListenerImpl.d.ts" afterPath="$PROJECT_DIR$/LifecycleListenerImpl.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LifecycleListenerImpl.js.map" afterPath="$PROJECT_DIR$/LifecycleListenerImpl.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LifecycleListenerImpl.js" afterPath="$PROJECT_DIR$/LifecycleListenerImpl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LifecycleListenerImpl.ts" afterPath="$PROJECT_DIR$/LifecycleListenerImpl.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LinkedInBridge.d.ts" afterPath="$PROJECT_DIR$/LinkedInBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LinkedInBridge.js.map" afterPath="$PROJECT_DIR$/LinkedInBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LinkedInBridge.js" afterPath="$PROJECT_DIR$/LinkedInBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LinkedInBridge.ts" afterPath="$PROJECT_DIR$/LinkedInBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LoggingBridge.d.ts" afterPath="$PROJECT_DIR$/LoggingBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LoggingBridge.js.map" afterPath="$PROJECT_DIR$/LoggingBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LoggingBridge.js" afterPath="$PROJECT_DIR$/LoggingBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LoggingBridge.ts" afterPath="$PROJECT_DIR$/LoggingBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MagnetometerBridge.d.ts" afterPath="$PROJECT_DIR$/MagnetometerBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MagnetometerBridge.js.map" afterPath="$PROJECT_DIR$/MagnetometerBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MagnetometerBridge.js" afterPath="$PROJECT_DIR$/MagnetometerBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MagnetometerBridge.ts" afterPath="$PROJECT_DIR$/MagnetometerBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MailBridge.d.ts" afterPath="$PROJECT_DIR$/MailBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MailBridge.js.map" afterPath="$PROJECT_DIR$/MailBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MailBridge.js" afterPath="$PROJECT_DIR$/MailBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MailBridge.ts" afterPath="$PROJECT_DIR$/MailBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ManagementBridge.d.ts" afterPath="$PROJECT_DIR$/ManagementBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ManagementBridge.js.map" afterPath="$PROJECT_DIR$/ManagementBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ManagementBridge.js" afterPath="$PROJECT_DIR$/ManagementBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ManagementBridge.ts" afterPath="$PROJECT_DIR$/ManagementBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapBridge.d.ts" afterPath="$PROJECT_DIR$/MapBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapBridge.js.map" afterPath="$PROJECT_DIR$/MapBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapBridge.js" afterPath="$PROJECT_DIR$/MapBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapBridge.ts" afterPath="$PROJECT_DIR$/MapBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MessagingBridge.d.ts" afterPath="$PROJECT_DIR$/MessagingBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MessagingBridge.js.map" afterPath="$PROJECT_DIR$/MessagingBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MessagingBridge.js" afterPath="$PROJECT_DIR$/MessagingBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MessagingBridge.ts" afterPath="$PROJECT_DIR$/MessagingBridge.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MessagingCallbackImpl.d.ts" afterPath="$PROJECT_DIR$/MessagingCallbackImpl.d.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MessagingCallbackImpl.js.map" afterPath="$PROJECT_DIR$/MessagingCallbackImpl.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MessagingCallbackImpl.js" afterPath="$PROJECT_DIR$/MessagingCallbackImpl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MessagingCallbackImpl.ts" afterPath="$PROJECT_DIR$/MessagingCallbackImpl.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NFCBridge.d.ts" afterPath="$PROJECT_DIR$/NFCBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NFCBridge.js.map" afterPath="$PROJECT_DIR$/NFCBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NFCBridge.js" afterPath="$PROJECT_DIR$/NFCBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NFCBridge.ts" afterPath="$PROJECT_DIR$/NFCBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkInfoBridge.d.ts" afterPath="$PROJECT_DIR$/NetworkInfoBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkInfoBridge.js.map" afterPath="$PROJECT_DIR$/NetworkInfoBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkInfoBridge.js" afterPath="$PROJECT_DIR$/NetworkInfoBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkInfoBridge.ts" afterPath="$PROJECT_DIR$/NetworkInfoBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkNamingBridge.d.ts" afterPath="$PROJECT_DIR$/NetworkNamingBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkNamingBridge.js.map" afterPath="$PROJECT_DIR$/NetworkNamingBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkNamingBridge.js" afterPath="$PROJECT_DIR$/NetworkNamingBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkNamingBridge.ts" afterPath="$PROJECT_DIR$/NetworkNamingBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkReachabilityBridge.d.ts" afterPath="$PROJECT_DIR$/NetworkReachabilityBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkReachabilityBridge.js.map" afterPath="$PROJECT_DIR$/NetworkReachabilityBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkReachabilityBridge.js" afterPath="$PROJECT_DIR$/NetworkReachabilityBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkReachabilityBridge.ts" afterPath="$PROJECT_DIR$/NetworkReachabilityBridge.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkReachabilityCallbackImpl.d.ts" afterPath="$PROJECT_DIR$/NetworkReachabilityCallbackImpl.d.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkReachabilityCallbackImpl.js.map" afterPath="$PROJECT_DIR$/NetworkReachabilityCallbackImpl.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkReachabilityCallbackImpl.js" afterPath="$PROJECT_DIR$/NetworkReachabilityCallbackImpl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkReachabilityCallbackImpl.ts" afterPath="$PROJECT_DIR$/NetworkReachabilityCallbackImpl.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkStatusBridge.d.ts" afterPath="$PROJECT_DIR$/NetworkStatusBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkStatusBridge.js.map" afterPath="$PROJECT_DIR$/NetworkStatusBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkStatusBridge.js" afterPath="$PROJECT_DIR$/NetworkStatusBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkStatusBridge.ts" afterPath="$PROJECT_DIR$/NetworkStatusBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkStatusListenerImpl.d.ts" afterPath="$PROJECT_DIR$/NetworkStatusListenerImpl.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkStatusListenerImpl.js.map" afterPath="$PROJECT_DIR$/NetworkStatusListenerImpl.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkStatusListenerImpl.js" afterPath="$PROJECT_DIR$/NetworkStatusListenerImpl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkStatusListenerImpl.ts" afterPath="$PROJECT_DIR$/NetworkStatusListenerImpl.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NotificationBridge.d.ts" afterPath="$PROJECT_DIR$/NotificationBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NotificationBridge.js.map" afterPath="$PROJECT_DIR$/NotificationBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NotificationBridge.js" afterPath="$PROJECT_DIR$/NotificationBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NotificationBridge.ts" afterPath="$PROJECT_DIR$/NotificationBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NotificationLocalBridge.d.ts" afterPath="$PROJECT_DIR$/NotificationLocalBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NotificationLocalBridge.js.map" afterPath="$PROJECT_DIR$/NotificationLocalBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NotificationLocalBridge.js" afterPath="$PROJECT_DIR$/NotificationLocalBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NotificationLocalBridge.ts" afterPath="$PROJECT_DIR$/NotificationLocalBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OAuthBridge.d.ts" afterPath="$PROJECT_DIR$/OAuthBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OAuthBridge.js.map" afterPath="$PROJECT_DIR$/OAuthBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OAuthBridge.js" afterPath="$PROJECT_DIR$/OAuthBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OAuthBridge.ts" afterPath="$PROJECT_DIR$/OAuthBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OCRBridge.d.ts" afterPath="$PROJECT_DIR$/OCRBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OCRBridge.js.map" afterPath="$PROJECT_DIR$/OCRBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OCRBridge.js" afterPath="$PROJECT_DIR$/OCRBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OCRBridge.ts" afterPath="$PROJECT_DIR$/OCRBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OSBridge.d.ts" afterPath="$PROJECT_DIR$/OSBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OSBridge.js.map" afterPath="$PROJECT_DIR$/OSBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OSBridge.js" afterPath="$PROJECT_DIR$/OSBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OSBridge.ts" afterPath="$PROJECT_DIR$/OSBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OpenIdBridge.d.ts" afterPath="$PROJECT_DIR$/OpenIdBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OpenIdBridge.js.map" afterPath="$PROJECT_DIR$/OpenIdBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OpenIdBridge.js" afterPath="$PROJECT_DIR$/OpenIdBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OpenIdBridge.ts" afterPath="$PROJECT_DIR$/OpenIdBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PrintingBridge.d.ts" afterPath="$PROJECT_DIR$/PrintingBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PrintingBridge.js.map" afterPath="$PROJECT_DIR$/PrintingBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PrintingBridge.js" afterPath="$PROJECT_DIR$/PrintingBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PrintingBridge.ts" afterPath="$PROJECT_DIR$/PrintingBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ProximityBridge.d.ts" afterPath="$PROJECT_DIR$/ProximityBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ProximityBridge.js.map" afterPath="$PROJECT_DIR$/ProximityBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ProximityBridge.js" afterPath="$PROJECT_DIR$/ProximityBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ProximityBridge.ts" afterPath="$PROJECT_DIR$/ProximityBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QRCodeBridge.d.ts" afterPath="$PROJECT_DIR$/QRCodeBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QRCodeBridge.js.map" afterPath="$PROJECT_DIR$/QRCodeBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QRCodeBridge.js" afterPath="$PROJECT_DIR$/QRCodeBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QRCodeBridge.ts" afterPath="$PROJECT_DIR$/QRCodeBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RSSBridge.d.ts" afterPath="$PROJECT_DIR$/RSSBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RSSBridge.js.map" afterPath="$PROJECT_DIR$/RSSBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RSSBridge.js" afterPath="$PROJECT_DIR$/RSSBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RSSBridge.ts" afterPath="$PROJECT_DIR$/RSSBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RuntimeBridge.d.ts" afterPath="$PROJECT_DIR$/RuntimeBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RuntimeBridge.js.map" afterPath="$PROJECT_DIR$/RuntimeBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RuntimeBridge.js" afterPath="$PROJECT_DIR$/RuntimeBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RuntimeBridge.ts" afterPath="$PROJECT_DIR$/RuntimeBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SecurityBridge.d.ts" afterPath="$PROJECT_DIR$/SecurityBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SecurityBridge.js.map" afterPath="$PROJECT_DIR$/SecurityBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SecurityBridge.js" afterPath="$PROJECT_DIR$/SecurityBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SecurityBridge.ts" afterPath="$PROJECT_DIR$/SecurityBridge.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SecurityResultCallbackImpl.d.ts" afterPath="$PROJECT_DIR$/SecurityResultCallbackImpl.d.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SecurityResultCallbackImpl.js.map" afterPath="$PROJECT_DIR$/SecurityResultCallbackImpl.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SecurityResultCallbackImpl.js" afterPath="$PROJECT_DIR$/SecurityResultCallbackImpl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SecurityResultCallbackImpl.ts" afterPath="$PROJECT_DIR$/SecurityResultCallbackImpl.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceBridge.d.ts" afterPath="$PROJECT_DIR$/ServiceBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceBridge.js.map" afterPath="$PROJECT_DIR$/ServiceBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceBridge.js" afterPath="$PROJECT_DIR$/ServiceBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceBridge.ts" afterPath="$PROJECT_DIR$/ServiceBridge.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceResultCallbackImpl.d.ts" afterPath="$PROJECT_DIR$/ServiceResultCallbackImpl.d.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceResultCallbackImpl.js.map" afterPath="$PROJECT_DIR$/ServiceResultCallbackImpl.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceResultCallbackImpl.js" afterPath="$PROJECT_DIR$/ServiceResultCallbackImpl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceResultCallbackImpl.ts" afterPath="$PROJECT_DIR$/ServiceResultCallbackImpl.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SettingsBridge.d.ts" afterPath="$PROJECT_DIR$/SettingsBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SettingsBridge.js.map" afterPath="$PROJECT_DIR$/SettingsBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SettingsBridge.js" afterPath="$PROJECT_DIR$/SettingsBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SettingsBridge.ts" afterPath="$PROJECT_DIR$/SettingsBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SocketBridge.d.ts" afterPath="$PROJECT_DIR$/SocketBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SocketBridge.js.map" afterPath="$PROJECT_DIR$/SocketBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SocketBridge.js" afterPath="$PROJECT_DIR$/SocketBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SocketBridge.ts" afterPath="$PROJECT_DIR$/SocketBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/StoreBridge.d.ts" afterPath="$PROJECT_DIR$/StoreBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/StoreBridge.js.map" afterPath="$PROJECT_DIR$/StoreBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/StoreBridge.js" afterPath="$PROJECT_DIR$/StoreBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/StoreBridge.ts" afterPath="$PROJECT_DIR$/StoreBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TelephonyBridge.d.ts" afterPath="$PROJECT_DIR$/TelephonyBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TelephonyBridge.js.map" afterPath="$PROJECT_DIR$/TelephonyBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TelephonyBridge.js" afterPath="$PROJECT_DIR$/TelephonyBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TelephonyBridge.ts" afterPath="$PROJECT_DIR$/TelephonyBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TimerBridge.d.ts" afterPath="$PROJECT_DIR$/TimerBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TimerBridge.js.map" afterPath="$PROJECT_DIR$/TimerBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TimerBridge.js" afterPath="$PROJECT_DIR$/TimerBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TimerBridge.ts" afterPath="$PROJECT_DIR$/TimerBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TwitterBridge.d.ts" afterPath="$PROJECT_DIR$/TwitterBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TwitterBridge.js.map" afterPath="$PROJECT_DIR$/TwitterBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TwitterBridge.js" afterPath="$PROJECT_DIR$/TwitterBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TwitterBridge.ts" afterPath="$PROJECT_DIR$/TwitterBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/typescript/TypeScriptGenerator.java" afterPath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/typescript/TypeScriptGenerator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UIBridge.d.ts" afterPath="$PROJECT_DIR$/UIBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UIBridge.js.map" afterPath="$PROJECT_DIR$/UIBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UIBridge.js" afterPath="$PROJECT_DIR$/UIBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UIBridge.ts" afterPath="$PROJECT_DIR$/UIBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UpdateBridge.d.ts" afterPath="$PROJECT_DIR$/UpdateBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UpdateBridge.js.map" afterPath="$PROJECT_DIR$/UpdateBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UpdateBridge.js" afterPath="$PROJECT_DIR$/UpdateBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UpdateBridge.ts" afterPath="$PROJECT_DIR$/UpdateBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/VibrationBridge.d.ts" afterPath="$PROJECT_DIR$/VibrationBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/VibrationBridge.js.map" afterPath="$PROJECT_DIR$/VibrationBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/VibrationBridge.js" afterPath="$PROJECT_DIR$/VibrationBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/VibrationBridge.ts" afterPath="$PROJECT_DIR$/VibrationBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/VideoBridge.d.ts" afterPath="$PROJECT_DIR$/VideoBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/VideoBridge.js.map" afterPath="$PROJECT_DIR$/VideoBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/VideoBridge.js" afterPath="$PROJECT_DIR$/VideoBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/VideoBridge.ts" afterPath="$PROJECT_DIR$/VideoBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WalletBridge.d.ts" afterPath="$PROJECT_DIR$/WalletBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WalletBridge.js.map" afterPath="$PROJECT_DIR$/WalletBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WalletBridge.js" afterPath="$PROJECT_DIR$/WalletBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WalletBridge.ts" afterPath="$PROJECT_DIR$/WalletBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/XMLBridge.d.ts" afterPath="$PROJECT_DIR$/XMLBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/XMLBridge.js.map" afterPath="$PROJECT_DIR$/XMLBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/XMLBridge.js" afterPath="$PROJECT_DIR$/XMLBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/XMLBridge.ts" afterPath="$PROJECT_DIR$/XMLBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TypeScriptValidation.iws" />
@@ -77,7 +444,70 @@
     <favorites_list name="TypeScriptValidation" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="CommonUtil.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CommonUtil.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1275">
+              <caret line="38" column="7" selection-start-line="38" selection-start-column="7" selection-end-line="38" selection-end-column="7" />
+              <folding>
+                <element signature="n#!!doc;n#Adaptive#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AccelerationListenerImpl.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AccelerationListenerImpl.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="333" max-vertical-offset="2010">
+              <caret line="47" column="88" selection-start-line="47" selection-start-column="88" selection-end-line="47" selection-end-column="88" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IAccelerationListener.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/IAccelerationListener.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1230">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IAccelerationListenerError.d.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/IAccelerationListenerError.d.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="780">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IAccelerationListenerError.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/IAccelerationListenerError.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1256">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Acceleration.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Acceleration.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2595">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -88,7 +518,6 @@
         <option value="$PROJECT_DIR$/Service.ts" />
         <option value="$PROJECT_DIR$/Row.ts" />
         <option value="$PROJECT_DIR$/ContactSocialNetwork.ts" />
-        <option value="$PROJECT_DIR$/Lifecycle.ts" />
         <option value="$PROJECT_DIR$/Acceleration.js" />
         <option value="$PROJECT_DIR$/AttachmentData.ts" />
         <option value="$PROJECT_DIR$/Acceleration.ts" />
@@ -113,7 +542,6 @@
         <option value="$PROJECT_DIR$/join.sh" />
         <option value="$PROJECT_DIR$/IBaseSecurity.ts" />
         <option value="$PROJECT_DIR$/ButtonListenerImpl.ts" />
-        <option value="$PROJECT_DIR$/AccelerationListenerImpl.ts" />
         <option value="$PROJECT_DIR$/BaseCallbackImpl.ts" />
         <option value="$PROJECT_DIR$/NetworkInfoBridge.ts" />
         <option value="$PROJECT_DIR$/NetworkReachabilityBridge.ts" />
@@ -121,6 +549,11 @@
         <option value="$PROJECT_DIR$/BaseListenerImpl.ts" />
         <option value="$PROJECT_DIR$/AppContextWebviewBridge.ts" />
         <option value="$PROJECT_DIR$/AppRegistryBridge.ts" />
+        <option value="$PROJECT_DIR$/ServiceBridge.ts" />
+        <option value="$PROJECT_DIR$/Lifecycle.ts" />
+        <option value="$PROJECT_DIR$/BaseSocialBridge.ts" />
+        <option value="$PROJECT_DIR$/CommonUtil.ts" />
+        <option value="$PROJECT_DIR$/AccelerationListenerImpl.ts" />
       </list>
     </option>
   </component>
@@ -128,7 +561,7 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-2553" />
+    <option name="x" value="-2466" />
     <option name="y" value="-180" />
     <option name="width" value="2461" />
     <option name="height" value="1379" />
@@ -195,14 +628,10 @@
       <ConfigurationWrapper RunnerId="Basic" />
       <method />
     </configuration>
-    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
-      <method />
-    </configuration>
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <method />
     </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
-      <envs />
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <method />
     </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
@@ -210,6 +639,10 @@
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="Chrome" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
@@ -255,8 +688,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2553" y="-180" width="2461" height="1379" extended-state="0" />
-    <editor active="false" />
+    <frame x="-2466" y="-180" width="2461" height="1379" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -271,11 +704,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991952" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991952" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -299,6 +732,24 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/CommonUtil.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="1275">
+          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc;n#Adaptive#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AccelerationListenerImpl.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1785">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Adaptive.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="15900" max-vertical-offset="108660">
@@ -362,23 +813,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Lifecycle.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.02388535" vertical-offset="30" max-vertical-offset="1605">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/APIRequest.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="615" max-vertical-offset="2535">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Acceleration.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2595">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
@@ -431,14 +868,127 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="435" max-vertical-offset="1080">
           <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BaseCallbackImpl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1256">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AlarmBridge.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="735">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AppRegistryBridge.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="469" max-vertical-offset="1815">
+          <caret line="58" column="34" selection-start-line="58" selection-start-column="34" selection-end-line="58" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ServiceBridge.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="780">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Lifecycle.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.85987264" vertical-offset="0" max-vertical-offset="1605">
+          <caret line="72" column="11" selection-start-line="72" selection-start-column="11" selection-end-line="72" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AccelerationBridge.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.02388535" vertical-offset="0" max-vertical-offset="1256">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BaseSocialBridge.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.02388535" vertical-offset="0" max-vertical-offset="1256">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BaseListenerImpl.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1365">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BaseCallbackImpl.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.08678344" vertical-offset="109" max-vertical-offset="1365">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Acceleration.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2595">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CommonUtil.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1275">
+          <caret line="38" column="7" selection-start-line="38" selection-start-column="7" selection-end-line="38" selection-end-column="7" />
+          <folding>
+            <element signature="n#!!doc;n#Adaptive#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AccelerationListenerImpl.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="333" max-vertical-offset="2010">
+          <caret line="47" column="88" selection-start-line="47" selection-start-column="88" selection-end-line="47" selection-end-column="88" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IAccelerationListener.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1256">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IAccelerationListenerError.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1256">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IAccelerationListenerError.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1256">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>

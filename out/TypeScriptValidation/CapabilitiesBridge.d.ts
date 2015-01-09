@@ -1,4 +1,6 @@
-/// <reference path="ICapabilities.d.ts" />
+/// <reference path="CommonUtil.d.ts" />
+/// <reference path="IAdaptiveRPGroup.d.ts" />
+/// <reference path="IBaseSystem.d.ts" />
 /// <reference path="ICapabilitiesButton.d.ts" />
 /// <reference path="ICapabilitiesCommunication.d.ts" />
 /// <reference path="ICapabilitiesData.d.ts" />

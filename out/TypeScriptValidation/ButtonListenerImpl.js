@@ -39,6 +39,7 @@ var __extends = this.__extends || function (d, b) {
 };
 ///<reference path="BaseListenerImpl.ts"/>
 ///<reference path="Button.ts"/>
+///<reference path="CommonUtil.ts"/>
 ///<reference path="IButtonListener.ts"/>
 ///<reference path="IButtonListenerError.ts"/>
 ///<reference path="IButtonListenerWarning.ts"/>
@@ -51,12 +52,32 @@ var Adaptive;
     var ButtonListenerImpl = (function (_super) {
         __extends(ButtonListenerImpl, _super);
         /**
-           Constructor with listener id.
+           Constructor with anonymous handler functions for listener.
 
-           @param id  The id of the listener.
+           @param onErrorFunction Function receiving parameters of type: IButtonListenerError
+           @param onResultFunction Function receiving parameters of type: Button
+           @param onWarningFunction Function receiving parameters of type: Button, IButtonListenerWarning
         */
-        function ButtonListenerImpl(id) {
-            _super.call(this, id);
+        function ButtonListenerImpl(onErrorFunction, onResultFunction, onWarningFunction) {
+            _super.call(this, ++Adaptive.registeredCounter);
+            if (onWarningFunction == null) {
+                console.error("ERROR: ButtonListenerImpl onWarningFunction is not defined.");
+            }
+            else {
+                this.onWarningFunction = onWarningFunction;
+            }
+            if (onResultFunction == null) {
+                console.error("ERROR: ButtonListenerImpl onResultFunction is not defined.");
+            }
+            else {
+                this.onResultFunction = onResultFunction;
+            }
+            if (onErrorFunction == null) {
+                console.error("ERROR: ButtonListenerImpl onErrorFunction is not defined.");
+            }
+            else {
+                this.onErrorFunction = onErrorFunction;
+            }
         }
         /**
            No data received
@@ -65,6 +86,12 @@ var Adaptive;
            @since ARP1.0
         */
         ButtonListenerImpl.prototype.onError = function (error) {
+            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                console.warn("WARNING: ButtonListenerImpl contains a null reference to onErrorFunction.");
+            }
+            else {
+                this.onErrorFunction(error);
+            }
         };
         /**
            Called on button pressed
@@ -73,6 +100,12 @@ var Adaptive;
            @since ARP1.0
         */
         ButtonListenerImpl.prototype.onResult = function (button) {
+            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                console.warn("WARNING: ButtonListenerImpl contains a null reference to onResultFunction.");
+            }
+            else {
+                this.onResultFunction(button);
+            }
         };
         /**
            Data received with warning
@@ -82,6 +115,12 @@ var Adaptive;
            @since ARP1.0
         */
         ButtonListenerImpl.prototype.onWarning = function (button, warning) {
+            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                console.warn("WARNING: ButtonListenerImpl contains a null reference to onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(button, warning);
+            }
         };
         return ButtonListenerImpl;
     })(Adaptive.BaseListenerImpl);

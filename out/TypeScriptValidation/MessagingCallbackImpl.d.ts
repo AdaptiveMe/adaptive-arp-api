@@ -1,4 +1,5 @@
 /// <reference path="BaseCallbackImpl.d.ts" />
+/// <reference path="CommonUtil.d.ts" />
 /// <reference path="IMessagingCallback.d.ts" />
 /// <reference path="IMessagingCallbackError.d.ts" />
 /// <reference path="IMessagingCallbackWarning.d.ts" />

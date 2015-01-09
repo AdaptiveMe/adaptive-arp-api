@@ -31,5 +31,7 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
-///<reference path="ITwitter.ts"/>
+///<reference path="CommonUtil.ts"/>
+///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IBaseSocial.ts"/>
 //# sourceMappingURL=TwitterBridge.js.map

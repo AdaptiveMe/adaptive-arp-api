@@ -31,5 +31,7 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
-///<reference path="INotificationLocal.ts"/>
+///<reference path="CommonUtil.ts"/>
+///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IBaseNotification.ts"/>
 //# sourceMappingURL=NotificationLocalBridge.js.map

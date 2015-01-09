@@ -1,4 +1,5 @@
 /// <reference path="BaseListenerImpl.d.ts" />
+/// <reference path="CommonUtil.d.ts" />
 /// <reference path="ILifecycleListener.d.ts" />
 /// <reference path="ILifecycleListenerError.d.ts" />
 /// <reference path="ILifecycleListenerWarning.d.ts" />
@@ -42,12 +43,17 @@ declare module Adaptive {
        Auto-generated implementation of ILifecycleListener specification.
     */
     class LifecycleListenerImpl extends BaseListenerImpl implements ILifecycleListener {
+        onErrorFunction: (error: ILifecycleListenerError) => Function;
+        onResultFunction: (lifecycle: Lifecycle) => Function;
+        onWarningFunction: (lifecycle: Lifecycle, warning: ILifecycleListenerWarning) => Function;
         /**
-           Constructor with listener id.
+           Constructor with anonymous handler functions for listener.
 
-           @param id  The id of the listener.
+           @param onErrorFunction Function receiving parameters of type: ILifecycleListenerError
+           @param onResultFunction Function receiving parameters of type: Lifecycle
+           @param onWarningFunction Function receiving parameters of type: Lifecycle, ILifecycleListenerWarning
         */
-        constructor(id: number);
+        constructor(onErrorFunction: (error: ILifecycleListenerError) => Function, onResultFunction: (lifecycle: Lifecycle) => Function, onWarningFunction: (lifecycle: Lifecycle, warning: ILifecycleListenerWarning) => Function);
         /**
            No data received - error condition, not authorized or hardware not available.
 

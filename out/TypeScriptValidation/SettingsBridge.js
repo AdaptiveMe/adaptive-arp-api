@@ -31,5 +31,7 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
-///<reference path="ISettings.ts"/>
+///<reference path="CommonUtil.ts"/>
+///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IBaseApplication.ts"/>
 //# sourceMappingURL=SettingsBridge.js.map

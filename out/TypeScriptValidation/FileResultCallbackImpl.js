@@ -38,6 +38,7 @@ var __extends = this.__extends || function (d, b) {
     d.prototype = new __();
 };
 ///<reference path="BaseCallbackImpl.ts"/>
+///<reference path="CommonUtil.ts"/>
 ///<reference path="FileDescriptor.ts"/>
 ///<reference path="IFileResultCallback.ts"/>
 ///<reference path="IFileResultCallbackError.ts"/>

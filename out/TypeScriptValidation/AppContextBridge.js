@@ -31,5 +31,6 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
-///<reference path="IAppContext.ts"/>
+///<reference path="CommonUtil.ts"/>
+///<reference path="IOSType.ts"/>
 //# sourceMappingURL=AppContextBridge.js.map

@@ -33,6 +33,7 @@ Release:
 */
 
 ///<reference path="BaseListenerImpl.ts"/>
+///<reference path="CommonUtil.ts"/>
 ///<reference path="ICapabilitiesNet.ts"/>
 ///<reference path="INetworkStatusListener.ts"/>
 ///<reference path="INetworkStatusListenerError.ts"/>
@@ -46,13 +47,34 @@ module Adaptive {
      */
      export class NetworkStatusListenerImpl extends BaseListenerImpl implements INetworkStatusListener {
 
-          /**
-             Constructor with listener id.
+          onErrorFunction : (error : INetworkStatusListenerError) => Function;
+          onResultFunction : (network : ICapabilitiesNet) => Function;
+          onWarningFunction : (network : ICapabilitiesNet, warning : INetworkStatusListenerWarning) => Function;
 
-             @param id  The id of the listener.
+          /**
+             Constructor with anonymous handler functions for listener.
+
+             @param onErrorFunction Function receiving parameters of type: INetworkStatusListenerError
+             @param onResultFunction Function receiving parameters of type: ICapabilitiesNet
+             @param onWarningFunction Function receiving parameters of type: ICapabilitiesNet, INetworkStatusListenerWarning
           */
-          constructor(id : number) {
-               super(id);
+          constructor(onErrorFunction : (error : INetworkStatusListenerError) => Function, onResultFunction : (network : ICapabilitiesNet) => Function, onWarningFunction : (network : ICapabilitiesNet, warning : INetworkStatusListenerWarning) => Function) {
+               super(++registeredCounter);
+               if (onWarningFunction == null) {
+                    console.error("ERROR: NetworkStatusListenerImpl onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
+               if (onResultFunction == null) {
+                    console.error("ERROR: NetworkStatusListenerImpl onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (onErrorFunction == null) {
+                    console.error("ERROR: NetworkStatusListenerImpl onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
           }
 
           /**
@@ -61,7 +83,12 @@ module Adaptive {
              @param error Type of error encountered during reading.
              @since ARP1.0
           */
-          public onError(error : INetworkStatusListenerError) {
+          public onError(error : INetworkStatusListenerError) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: NetworkStatusListenerImpl contains a null reference to onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
           }
 
           /**
@@ -70,7 +97,12 @@ module Adaptive {
              @param network Change to this network.
              @since ARP1.0
           */
-          public onResult(network : ICapabilitiesNet) {
+          public onResult(network : ICapabilitiesNet) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: NetworkStatusListenerImpl contains a null reference to onResultFunction.");
+               } else {
+                    this.onResultFunction(network);
+               }
           }
 
           /**
@@ -80,7 +112,12 @@ module Adaptive {
              @param warning Type of warning encountered during reading.
              @since ARP1.0
           */
-          public onWarning(network : ICapabilitiesNet, warning : INetworkStatusListenerWarning) {
+          public onWarning(network : ICapabilitiesNet, warning : INetworkStatusListenerWarning) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: NetworkStatusListenerImpl contains a null reference to onWarningFunction.");
+               } else {
+                    this.onWarningFunction(network, warning);
+               }
           }
 
      }

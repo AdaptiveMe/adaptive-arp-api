@@ -31,12 +31,37 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
-
-///<reference path="IAppRegistry.ts"/>
-
-module Adaptive {
-
+declare module Adaptive {
+    /**
+       Global unique id for listeners and callbacks.
+    */
+    var registeredCounter: number;
+    /**
+       Base url for for http/https JSON requests.
+    */
+    var bridgePath: string;
+    /**
+       Utility class for Dictionary type support.
+    */
+    interface IDictionary<V> {
+        add(key: string, value: V): void;
+        remove(key: string): void;
+        containsKey(key: string): boolean;
+        keys(): string[];
+        values(): V[];
+    }
+    class Dictionary<V> implements IDictionary<V> {
+        _keys: string[];
+        _values: V[];
+        constructor(init: {
+            key: string;
+            value: V;
+        }[]);
+        add(key: string, value: V): void;
+        remove(key: string): void;
+        keys(): string[];
+        values(): V[];
+        containsKey(key: string): boolean;
+        toLookup(): IDictionary<V>;
+    }
 }
-/**
-------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
-*/

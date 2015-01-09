@@ -1,5 +1,6 @@
+/// <reference path="CommonUtil.d.ts" />
+/// <reference path="IAdaptiveRP.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
-/// <reference path="IBaseUI.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 

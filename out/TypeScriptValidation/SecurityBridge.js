@@ -31,7 +31,9 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
-///<reference path="ISecurity.ts"/>
+///<reference path="CommonUtil.ts"/>
+///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IBaseSecurity.ts"/>
 ///<reference path="ISecurityResultCallback.ts"/>
 ///<reference path="SecureKeyPair.ts"/>
 //# sourceMappingURL=SecurityBridge.js.map

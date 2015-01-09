@@ -1,4 +1,5 @@
-/// <reference path="IAppContext.d.ts" />
+/// <reference path="CommonUtil.d.ts" />
+/// <reference path="IOSType.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 

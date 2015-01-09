@@ -1,5 +1,7 @@
+/// <reference path="CommonUtil.d.ts" />
 /// <reference path="FileDescriptor.d.ts" />
-/// <reference path="IFileSystem.d.ts" />
+/// <reference path="IAdaptiveRPGroup.d.ts" />
+/// <reference path="IBaseData.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 

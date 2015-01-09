@@ -34,6 +34,7 @@ Release:
 
 ///<reference path="BaseListenerImpl.ts"/>
 ///<reference path="Button.ts"/>
+///<reference path="CommonUtil.ts"/>
 ///<reference path="IButtonListener.ts"/>
 ///<reference path="IButtonListenerError.ts"/>
 ///<reference path="IButtonListenerWarning.ts"/>
@@ -46,13 +47,34 @@ module Adaptive {
      */
      export class ButtonListenerImpl extends BaseListenerImpl implements IButtonListener {
 
-          /**
-             Constructor with listener id.
+          onErrorFunction : (error : IButtonListenerError) => Function;
+          onResultFunction : (button : Button) => Function;
+          onWarningFunction : (button : Button, warning : IButtonListenerWarning) => Function;
 
-             @param id  The id of the listener.
+          /**
+             Constructor with anonymous handler functions for listener.
+
+             @param onErrorFunction Function receiving parameters of type: IButtonListenerError
+             @param onResultFunction Function receiving parameters of type: Button
+             @param onWarningFunction Function receiving parameters of type: Button, IButtonListenerWarning
           */
-          constructor(id : number) {
-               super(id);
+          constructor(onErrorFunction : (error : IButtonListenerError) => Function, onResultFunction : (button : Button) => Function, onWarningFunction : (button : Button, warning : IButtonListenerWarning) => Function) {
+               super(++registeredCounter);
+               if (onWarningFunction == null) {
+                    console.error("ERROR: ButtonListenerImpl onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
+               if (onResultFunction == null) {
+                    console.error("ERROR: ButtonListenerImpl onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (onErrorFunction == null) {
+                    console.error("ERROR: ButtonListenerImpl onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
           }
 
           /**
@@ -61,7 +83,12 @@ module Adaptive {
              @param error occurred
              @since ARP1.0
           */
-          public onError(error : IButtonListenerError) {
+          public onError(error : IButtonListenerError) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: ButtonListenerImpl contains a null reference to onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
           }
 
           /**
@@ -70,7 +97,12 @@ module Adaptive {
              @param button pressed
              @since ARP1.0
           */
-          public onResult(button : Button) {
+          public onResult(button : Button) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: ButtonListenerImpl contains a null reference to onResultFunction.");
+               } else {
+                    this.onResultFunction(button);
+               }
           }
 
           /**
@@ -80,7 +112,12 @@ module Adaptive {
              @param warning happened
              @since ARP1.0
           */
-          public onWarning(button : Button, warning : IButtonListenerWarning) {
+          public onWarning(button : Button, warning : IButtonListenerWarning) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: ButtonListenerImpl contains a null reference to onWarningFunction.");
+               } else {
+                    this.onWarningFunction(button, warning);
+               }
           }
 
      }

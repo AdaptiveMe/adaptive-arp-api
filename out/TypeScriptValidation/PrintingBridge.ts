@@ -32,8 +32,9 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-///<reference path="IPrinting.ts"/>
-
+///<reference path="CommonUtil.ts"/>
+///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IBaseApplication.ts"/>
 module Adaptive {
 
 }

@@ -31,5 +31,7 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
-///<reference path="ISocket.ts"/>
+///<reference path="CommonUtil.ts"/>
+///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IBaseCommunication.ts"/>
 //# sourceMappingURL=SocketBridge.js.map

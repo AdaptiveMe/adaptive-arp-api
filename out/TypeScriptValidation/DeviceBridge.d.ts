@@ -1,5 +1,9 @@
+/// <reference path="CommonUtil.d.ts" />
+/// <reference path="DeviceInfo.d.ts" />
+/// <reference path="IAdaptiveRPGroup.d.ts" />
+/// <reference path="IBaseSystem.d.ts" />
 /// <reference path="IButtonListener.d.ts" />
-/// <reference path="IDevice.d.ts" />
+/// <reference path="Locale.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 

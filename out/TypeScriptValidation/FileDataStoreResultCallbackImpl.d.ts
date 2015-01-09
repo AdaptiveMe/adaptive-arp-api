@@ -1,4 +1,5 @@
 /// <reference path="BaseCallbackImpl.d.ts" />
+/// <reference path="CommonUtil.d.ts" />
 /// <reference path="FileDescriptor.d.ts" />
 /// <reference path="IFileDataStoreResultCallback.d.ts" />
 /// <reference path="IFileDataStoreResultCallbackError.d.ts" />

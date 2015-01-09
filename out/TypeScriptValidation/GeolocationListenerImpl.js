@@ -38,6 +38,7 @@ var __extends = this.__extends || function (d, b) {
     d.prototype = new __();
 };
 ///<reference path="BaseListenerImpl.ts"/>
+///<reference path="CommonUtil.ts"/>
 ///<reference path="Geolocation.ts"/>
 ///<reference path="IGeolocationListener.ts"/>
 ///<reference path="IGeolocationListenerError.ts"/>
@@ -51,12 +52,32 @@ var Adaptive;
     var GeolocationListenerImpl = (function (_super) {
         __extends(GeolocationListenerImpl, _super);
         /**
-           Constructor with listener id.
+           Constructor with anonymous handler functions for listener.
 
-           @param id  The id of the listener.
+           @param onErrorFunction Function receiving parameters of type: IGeolocationListenerError
+           @param onResultFunction Function receiving parameters of type: Geolocation
+           @param onWarningFunction Function receiving parameters of type: Geolocation, IGeolocationListenerWarning
         */
-        function GeolocationListenerImpl(id) {
-            _super.call(this, id);
+        function GeolocationListenerImpl(onErrorFunction, onResultFunction, onWarningFunction) {
+            _super.call(this, ++Adaptive.registeredCounter);
+            if (onWarningFunction == null) {
+                console.error("ERROR: GeolocationListenerImpl onWarningFunction is not defined.");
+            }
+            else {
+                this.onWarningFunction = onWarningFunction;
+            }
+            if (onResultFunction == null) {
+                console.error("ERROR: GeolocationListenerImpl onResultFunction is not defined.");
+            }
+            else {
+                this.onResultFunction = onResultFunction;
+            }
+            if (onErrorFunction == null) {
+                console.error("ERROR: GeolocationListenerImpl onErrorFunction is not defined.");
+            }
+            else {
+                this.onErrorFunction = onErrorFunction;
+            }
         }
         /**
            No data received - error condition, not authorized or hardware not available.
@@ -65,6 +86,12 @@ var Adaptive;
            @since ARP1.0
         */
         GeolocationListenerImpl.prototype.onError = function (error) {
+            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                console.warn("WARNING: GeolocationListenerImpl contains a null reference to onErrorFunction.");
+            }
+            else {
+                this.onErrorFunction(error);
+            }
         };
         /**
            Correct data received.
@@ -73,6 +100,12 @@ var Adaptive;
            @since ARP1.0
         */
         GeolocationListenerImpl.prototype.onResult = function (geolocation) {
+            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                console.warn("WARNING: GeolocationListenerImpl contains a null reference to onResultFunction.");
+            }
+            else {
+                this.onResultFunction(geolocation);
+            }
         };
         /**
            Data received with warning - ie. HighDoP
@@ -82,6 +115,12 @@ var Adaptive;
            @since ARP1.0
         */
         GeolocationListenerImpl.prototype.onWarning = function (geolocation, warning) {
+            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                console.warn("WARNING: GeolocationListenerImpl contains a null reference to onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(geolocation, warning);
+            }
         };
         return GeolocationListenerImpl;
     })(Adaptive.BaseListenerImpl);

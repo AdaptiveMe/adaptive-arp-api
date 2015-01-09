@@ -33,6 +33,7 @@ Release:
 */
 
 ///<reference path="BaseCallbackImpl.ts"/>
+///<reference path="CommonUtil.ts"/>
 ///<reference path="Contact.ts"/>
 ///<reference path="IContactResultCallback.ts"/>
 ///<reference path="IContactResultCallbackError.ts"/>

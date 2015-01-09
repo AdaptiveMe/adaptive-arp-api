@@ -33,6 +33,7 @@ Release:
 */
 
 ///<reference path="BaseCallbackImpl.ts"/>
+///<reference path="CommonUtil.ts"/>
 ///<reference path="IMessagingCallback.ts"/>
 ///<reference path="IMessagingCallbackError.ts"/>
 ///<reference path="IMessagingCallbackWarning.ts"/>

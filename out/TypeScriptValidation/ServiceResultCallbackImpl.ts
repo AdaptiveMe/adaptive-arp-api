@@ -33,6 +33,7 @@ Release:
 */
 
 ///<reference path="BaseCallbackImpl.ts"/>
+///<reference path="CommonUtil.ts"/>
 ///<reference path="IServiceResultCallback.ts"/>
 ///<reference path="IServiceResultCallbackError.ts"/>
 ///<reference path="IServiceResultCallbackWarning.ts"/>

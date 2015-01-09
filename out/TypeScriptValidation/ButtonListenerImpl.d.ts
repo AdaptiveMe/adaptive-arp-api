@@ -1,5 +1,6 @@
 /// <reference path="BaseListenerImpl.d.ts" />
 /// <reference path="Button.d.ts" />
+/// <reference path="CommonUtil.d.ts" />
 /// <reference path="IButtonListener.d.ts" />
 /// <reference path="IButtonListenerError.d.ts" />
 /// <reference path="IButtonListenerWarning.d.ts" />
@@ -42,12 +43,17 @@ declare module Adaptive {
        Auto-generated implementation of IButtonListener specification.
     */
     class ButtonListenerImpl extends BaseListenerImpl implements IButtonListener {
+        onErrorFunction: (error: IButtonListenerError) => Function;
+        onResultFunction: (button: Button) => Function;
+        onWarningFunction: (button: Button, warning: IButtonListenerWarning) => Function;
         /**
-           Constructor with listener id.
+           Constructor with anonymous handler functions for listener.
 
-           @param id  The id of the listener.
+           @param onErrorFunction Function receiving parameters of type: IButtonListenerError
+           @param onResultFunction Function receiving parameters of type: Button
+           @param onWarningFunction Function receiving parameters of type: Button, IButtonListenerWarning
         */
-        constructor(id: number);
+        constructor(onErrorFunction: (error: IButtonListenerError) => Function, onResultFunction: (button: Button) => Function, onWarningFunction: (button: Button, warning: IButtonListenerWarning) => Function);
         /**
            No data received
 

@@ -31,7 +31,9 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
-///<reference path="ICapabilities.ts"/>
+///<reference path="CommonUtil.ts"/>
+///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IBaseSystem.ts"/>
 ///<reference path="ICapabilitiesButton.ts"/>
 ///<reference path="ICapabilitiesCommunication.ts"/>
 ///<reference path="ICapabilitiesData.ts"/>

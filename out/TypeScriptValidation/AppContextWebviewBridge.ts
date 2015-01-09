@@ -32,8 +32,7 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-///<reference path="IAppContextWebview.ts"/>
-
+///<reference path="CommonUtil.ts"/>
 module Adaptive {
 
 }

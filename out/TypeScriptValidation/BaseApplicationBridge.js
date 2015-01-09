@@ -31,6 +31,7 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+///<reference path="CommonUtil.ts"/>
+///<reference path="IAdaptiveRP.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
-///<reference path="IBaseApplication.ts"/>
 //# sourceMappingURL=BaseApplicationBridge.js.map

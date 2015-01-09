@@ -44,9 +44,6 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.util.*;
 
-/**
- * Created by clozano on 02/12/14.
- */
 public class TypeScriptGenerator extends GeneratorBase {
 
     private File currentFile;
@@ -116,40 +113,120 @@ public class TypeScriptGenerator extends GeneratorBase {
     @Override
     protected void createHandlerImplementation(String simpleName, Class clazz, JavaClass javaClass) {
         List<String> referenceList = new ArrayList<>();
-        if (clazz.getSimpleName().startsWith("IBase")) {
-            referenceList.add("IAdaptiveRPGroup");
-        }
 
-        referenceList.add(clazz.getSimpleName());
+        referenceList.add("CommonUtil");
 
-        if (!simpleName.equals("AppRegistryBridge")) {
-            for (Method m : clazz.getDeclaredMethods()) {
-                for (Parameter p : m.getParameters()) {
-                    if (!p.getType().isPrimitive() && !p.getType().equals(String.class) && !p.getType().equals(Object.class) && !p.getType().isArray()) {
-                        if (!referenceList.contains(convertJavaToNativeType(p.getType()))) {
-                            referenceList.add(convertJavaToNativeType(p.getType()));
+        if (!clazz.isEnum()) {
+            if (clazz.getInterfaces() != null && clazz.getInterfaces().length == 1) {
+                referenceList.add(clazz.getInterfaces()[0].getSimpleName());
+            }
+            for (Field field : clazz.getDeclaredFields()) {
+                if (field.getType().isArray()) {
+                    if (!field.getType().getComponentType().isPrimitive() && !field.getType().getComponentType().equals(String.class) && !field.getType().getComponentType().equals(Object.class)) {
+                        if (!referenceList.contains(field.getType().getComponentType().getSimpleName())) {
+                            referenceList.add(field.getType().getComponentType().getSimpleName());
                         }
-                    } else if (p.getType().isArray() && !p.getType().getComponentType().isPrimitive() && !p.getType().getComponentType().equals(String.class) && !p.getType().getComponentType().equals(Object.class)) {
-                        if (!referenceList.contains(convertJavaToNativeType(p.getType().getComponentType()))) {
-                            referenceList.add(convertJavaToNativeType(p.getType().getComponentType()));
-                        }
+                    }
+                } else if (field.getType().isEnum()) {
+                    if (!referenceList.contains(generateEnumClassName(field.getType()))) {
+                        referenceList.add(generateEnumClassName(field.getType()));
+                    }
+                } else if (!field.getType().isPrimitive() && !field.getType().equals(String.class) && !field.getType().equals(Object.class) && !field.getType().equals(clazz)) {
+                    if (!referenceList.contains(field.getType().getSimpleName())) {
+                        referenceList.add(field.getType().getSimpleName());
                     }
                 }
             }
-        }
-        
-        referenceList.sort(new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                return o1.compareTo(o2);
-            }
-        });
+            for (Method method : clazz.getMethods()) {
+                for (Parameter parameter : method.getParameters()) {
+                    String typeName = null;
+                    if (parameter.getType().isArray()) {
+                        if (parameter.getType().getComponentType().isEnum()) {
+                            typeName = generateEnumClassName(parameter.getType().getComponentType());
+                        } else if (!parameter.getType().getComponentType().isPrimitive() && !parameter.getType().getComponentType().equals(String.class) && !parameter.getType().getComponentType().equals(Object.class) && !parameter.getType().getComponentType().equals(Class.class)) {
+                            typeName = parameter.getType().getComponentType().getSimpleName();
+                        }
+                    } else if (!parameter.getType().isPrimitive() && !parameter.getType().equals(String.class) && !parameter.getType().equals(Object.class) && !parameter.getType().equals(Class.class)) {
+                        if (parameter.getType().isEnum()) {
+                            typeName = generateEnumClassName(parameter.getType());
+                        } else {
+                            typeName = parameter.getType().getSimpleName();
+                        }
+                    }
 
-        if (referenceList.size() > 0) {
-            for (String reference : referenceList) {
-                println("///<reference path=\"" + reference + ".ts\"/>");
+                    if (typeName != null && !referenceList.contains(typeName) && !clazz.getSimpleName().equals(typeName)) {
+                        referenceList.add(typeName);
+                    }
+                }
+                if (!method.getReturnType().equals(Void.TYPE)) {
+                    String typeName = null;
+                    if (method.getReturnType().isArray()) {
+                        if (method.getReturnType().getComponentType().isEnum()) {
+                            typeName = generateEnumClassName(method.getReturnType().getComponentType());
+                        } else if (!method.getReturnType().getComponentType().isPrimitive() && !method.getReturnType().getComponentType().equals(String.class) && !method.getReturnType().getComponentType().equals(Object.class) && !method.getReturnType().getComponentType().equals(Class.class)) {
+                            typeName = method.getReturnType().getComponentType().getSimpleName();
+                        }
+                    } else if (!method.getReturnType().isPrimitive() && !method.getReturnType().equals(String.class) && !method.getReturnType().equals(Object.class) && !method.getReturnType().equals(Class.class)) {
+                        if (method.getReturnType().isEnum()) {
+                            typeName = generateEnumClassName(method.getReturnType());
+                        } else if (method.getReturnType().equals(Map.class)) {
+                            typeName = "Dictionary";
+                        } else {
+                            typeName = method.getReturnType().getSimpleName();
+                        }
+                    }
+
+                    if (typeName != null && !referenceList.contains(typeName) && !clazz.getSimpleName().equals(typeName)) {
+                        referenceList.add(typeName);
+                    }
+                }
+
             }
-            println();
+            if (clazz.getSimpleName().equals("IAppRegistry")) {
+
+                // getters for all service classes!
+                Class superInterface = null;
+                try {
+                    superInterface = Class.forName("me.adaptive.arp.api.IAdaptiveRP");
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+                Reflections reflections = new Reflections(new ConfigurationBuilder()
+                        .setScanners(new SubTypesScanner(false /* don't exclude Object.class */), new ResourcesScanner())
+                        .setUrls(ClasspathHelper.forPackage(superInterface.getPackage().getName()))
+                        .filterInputsBy(new FilterBuilder().include(FilterBuilder.prefix(superInterface.getPackage().getName()))));
+
+                Set<Class<? extends Object>> allClassesSet = reflections.getSubTypesOf(superInterface);
+                List<Class> serviceClasses = new ArrayList<>();
+                for (Class subClass : allClassesSet) {
+                    if (!subClass.getName().endsWith("Callback") && !subClass.getName().endsWith("Listener") && !subClass.getSimpleName().startsWith("IBase")) {
+                        serviceClasses.add(subClass);
+                    }
+                }
+                serviceClasses.sort(new Comparator<Class>() {
+                    @Override
+                    public int compare(Class o1, Class o2) {
+                        return o1.getName().compareTo(o2.getName());
+                    }
+                });
+                for (Class serviceClass : serviceClasses) {
+                    referenceList.add(serviceClass.getSimpleName());
+                }
+                referenceList.add("IAdaptiveRPGroup");
+                referenceList.add(clazz.getSimpleName());
+            }
+            referenceList.sort(new Comparator<String>() {
+                @Override
+                public int compare(String o1, String o2) {
+                    return o1.compareTo(o2);
+                }
+            });
+
+            if (referenceList.size() > 0) {
+                for (String reference : referenceList) {
+                    println("///<reference path=\"" + reference + ".ts\"/>");
+                }
+            }
         }
 
 
@@ -165,6 +242,7 @@ public class TypeScriptGenerator extends GeneratorBase {
             referenceList.add("IAdaptiveRPGroup");
         } else {
             referenceList.add("BaseCallbackImpl");
+            referenceList.add("CommonUtil");
         }
         referenceList.add(clazz.getSimpleName());
 
@@ -322,6 +400,7 @@ public class TypeScriptGenerator extends GeneratorBase {
             referenceList.add("IAdaptiveRPGroup");
         } else {
             referenceList.add("BaseListenerImpl");
+            referenceList.add("CommonUtil");
         }
         referenceList.add(clazz.getSimpleName());
 
@@ -356,6 +435,7 @@ public class TypeScriptGenerator extends GeneratorBase {
 
         println("module Adaptive {");
         println();
+
         startComment(5);
         if (javaClass.getComment() != null && javaClass.getComment().length() > 0) {
             println(8, javaClass.getComment());
@@ -410,13 +490,73 @@ public class TypeScriptGenerator extends GeneratorBase {
         } else {
             println(5, "export class " + simpleName + " extends BaseListenerImpl implements " + clazz.getSimpleName() + " {");
             println();
-            startComment(10);
-            println(13, "Constructor with listener id.");
+
+            List<Method> methodList = new ArrayList<>();
+            for (Method m : clazz.getDeclaredMethods()) {
+                methodList.add(m);
+            }
+            methodList.sort(new Comparator<Method>() {
+                @Override
+                public int compare(Method o1, Method o2) {
+                    return (o1.getName() + o1.getParameterCount()).compareTo((o2.getName() + o2.getParameterCount()));
+                }
+            });
+
+            for (Method m : methodList) {
+                print(10, m.getName() + "Function : (");
+                for (int i = 0; i < m.getParameterCount(); i++) {
+                    Parameter p = m.getParameters()[i];
+                    print(p.getName() + " : " + convertJavaToNativeType(p.getType()));
+                    if (i < m.getParameterCount() - 1) {
+                        print(", ");
+                    }
+                }
+                println(") => Function;");
+            }
+
             println();
-            println(13, "@param id  The id of the listener.");
+            startComment(10);
+            println(13, "Constructor with anonymous handler functions for listener.");
+            println();
+            for (Method m : methodList) {
+                print(13, "@param " + m.getName() + "Function Function receiving parameters of type: ");
+                for (int i = 0; i < m.getParameterCount(); i++) {
+                    Parameter p = m.getParameters()[i];
+                    print(convertJavaToNativeType(p.getType()));
+                    if (i < m.getParameterCount() - 1) {
+                        print(", ");
+                    }
+                }
+                println();
+            }
             endComment(10);
-            println(10, "constructor(id : number) {");
-            println(15, "super(id);");
+            print(10, "constructor(");
+            for (int j = 0; j < methodList.size(); j++) {
+                Method m = methodList.get(j);
+                print(m.getName() + "Function : (");
+                for (int i = 0; i < m.getParameterCount(); i++) {
+                    Parameter p = m.getParameters()[i];
+                    print(p.getName() + " : " + convertJavaToNativeType(p.getType()));
+
+                    if (i < m.getParameterCount() - 1) {
+                        print(", ");
+                    }
+                }
+                print(") => Function");
+                if (j < methodList.size() - 1) {
+                    print(", ");
+                }
+            }
+
+            println(") {");
+            println(15, "super(++registeredCounter);");
+            for (Method m : clazz.getDeclaredMethods()) {
+                println(15, "if (" + m.getName() + "Function == null) {");
+                println(20, "console.error(\"ERROR: " + simpleName + " " + m.getName() + "Function is not defined.\");");
+                println(15, "} else {");
+                println(20, "this." + m.getName() + "Function = " + m.getName() + "Function;");
+                println(15, "}");
+            }
             println(10, "}");
         }
         println();
@@ -459,11 +599,24 @@ public class TypeScriptGenerator extends GeneratorBase {
                 print(") ");
 
                 if (m.getReturnType().equals(Void.TYPE)) {
-                    println("{");
+                    println(": void {");
                 } else {
                     println(": " + convertJavaToNativeType(m.getReturnType()) + " {");
                 }
 
+                println(15, "if (typeof this." + m.getName() + "Function === 'undefined' || this." + m.getName() + "Function == null) {");
+                println(20, "console.warn(\"WARNING: " + simpleName + " contains a null reference to " + m.getName() + "Function.\");");
+                println(15, "} else {");
+                print(20, "this." + m.getName() + "Function(");
+                for (int i = 0; i < m.getParameterCount(); i++) {
+                    Parameter p = m.getParameters()[i];
+                    print(p.getName());
+                    if (i < m.getParameterCount() - 1) {
+                        print(", ");
+                    }
+                }
+                println(");");
+                println(15, "}");
                 println(10, "}");
                 println();
             }
@@ -991,6 +1144,12 @@ public class TypeScriptGenerator extends GeneratorBase {
             }
             generateUtilClass(className, utilClass);
         }
+
+        /*
+            Generate utility classes.
+        */
+        generateUtilClass("CommonUtil", Object.class);
+
         indentPrintStreamGlobal.println();
         indentPrintStreamGlobal.println("}");
         indentPrintStreamGlobal.println("/**");
@@ -1285,130 +1444,214 @@ public class TypeScriptGenerator extends GeneratorBase {
         applyClassHeader(clazz, getSourceHeader());
         endComment(0);
         println();
+        if (className.equals("CommonUtil") && clazz.equals(Object.class)) {
+            println("module Adaptive {");
+            println();
 
-        startBean(className, clazz, "Utility class of type " + clazz.getSimpleName(), new ArrayList<DocletTag>());
+            // Variables
+            startComment(5);
+            println(8, "Global unique id for listeners and callbacks.");
+            endComment(5);
+            println(5, "export var registeredCounter : number = 0;");
+            println();
+
+            startComment(5);
+            println(8, "Base url for for http/https JSON requests.");
+            endComment(5);
+            println(5, "export var bridgePath : string = \"https://adaptiveapp\";");
+            println();
+
+            startComment(5);
+            println(8, "Utility class for Dictionary type support.");
+            endComment(5);
+            // Dictionary
+            println(5, "export interface IDictionary<V> {\n" +
+                    "          add(key: string, value: V): void;\n" +
+                    "          remove(key: string): void;\n" +
+                    "          containsKey(key: string): boolean;\n" +
+                    "          keys(): string[];\n" +
+                    "          values(): V[];\n" +
+                    "     }");
+            println();
+            println(5, "export class Dictionary<V> implements IDictionary<V>{\n" +
+                    "     \n" +
+                    "         _keys: Array<string> = new Array<string>();\n" +
+                    "         _values: Array<V> = new Array<V>();\n" +
+                    "     \n" +
+                    "         constructor(init: { key: string; value: V; }[]) {\n" +
+                    "     \n" +
+                    "             for (var x = 0; x < init.length; x++) {\n" +
+                    "                 this[init[x].key] = init[x].value;\n" +
+                    "                 this._keys.push(init[x].key);\n" +
+                    "                 this._values.push(init[x].value);\n" +
+                    "             }\n" +
+                    "         }\n" +
+                    "     \n" +
+                    "         add(key: string, value: V) {\n" +
+                    "             this[key] = value;\n" +
+                    "             this._keys.push(key);\n" +
+                    "             this._values.push(value);\n" +
+                    "         }\n" +
+                    "     \n" +
+                    "         remove(key: string) {\n" +
+                    "             var index = this._keys.indexOf(key, 0);\n" +
+                    "             this._keys.splice(index, 1);\n" +
+                    "             this._values.splice(index, 1);\n" +
+                    "     \n" +
+                    "             delete this[key];\n" +
+                    "         }\n" +
+                    "     \n" +
+                    "         keys(): string[] {\n" +
+                    "             return this._keys;\n" +
+                    "         }\n" +
+                    "     \n" +
+                    "         values(): V[] {\n" +
+                    "             return this._values;\n" +
+                    "         }\n" +
+                    "     \n" +
+                    "         containsKey(key: string) {\n" +
+                    "             if (typeof this[key] === \"undefined\") {\n" +
+                    "                 return false;\n" +
+                    "             }\n" +
+                    "     \n" +
+                    "             return true;\n" +
+                    "         }\n" +
+                    "     \n" +
+                    "         toLookup(): IDictionary<V> {\n" +
+                    "             return this;\n" +
+                    "         }\n" +
+                    "     }");
+            println();
+            println("}");
+
+        } else {
+            startBean(className, clazz, "Utility class of type " + clazz.getSimpleName(), new ArrayList<DocletTag>());
+            println();
+            printlnGlobal();
+            println(10, "     /** Dictionary Definition **/\n" +
+                    "     export interface IDictionary<V> {\n" +
+                    "          add(key: string, value: V): void;\n" +
+                    "          remove(key: string): void;\n" +
+                    "          containsKey(key: string): boolean;\n" +
+                    "          keys(): string[];\n" +
+                    "          values(): V[];\n" +
+                    "     }\n" +
+                    "\n" +
+                    "     export class Dictionary<V> implements IDictionary<V>{\n" +
+                    "     \n" +
+                    "         _keys: Array<string> = new Array<string>();\n" +
+                    "         _values: Array<V> = new Array<V>();\n" +
+                    "     \n" +
+                    "         constructor(init: { key: string; value: V; }[]) {\n" +
+                    "     \n" +
+                    "             for (var x = 0; x < init.length; x++) {\n" +
+                    "                 this[init[x].key] = init[x].value;\n" +
+                    "                 this._keys.push(init[x].key);\n" +
+                    "                 this._values.push(init[x].value);\n" +
+                    "             }\n" +
+                    "         }\n" +
+                    "     \n" +
+                    "         add(key: string, value: V) {\n" +
+                    "             this[key] = value;\n" +
+                    "             this._keys.push(key);\n" +
+                    "             this._values.push(value);\n" +
+                    "         }\n" +
+                    "     \n" +
+                    "         remove(key: string) {\n" +
+                    "             var index = this._keys.indexOf(key, 0);\n" +
+                    "             this._keys.splice(index, 1);\n" +
+                    "             this._values.splice(index, 1);\n" +
+                    "     \n" +
+                    "             delete this[key];\n" +
+                    "         }\n" +
+                    "     \n" +
+                    "         keys(): string[] {\n" +
+                    "             return this._keys;\n" +
+                    "         }\n" +
+                    "     \n" +
+                    "         values(): V[] {\n" +
+                    "             return this._values;\n" +
+                    "         }\n" +
+                    "     \n" +
+                    "         containsKey(key: string) {\n" +
+                    "             if (typeof this[key] === \"undefined\") {\n" +
+                    "                 return false;\n" +
+                    "             }\n" +
+                    "     \n" +
+                    "             return true;\n" +
+                    "         }\n" +
+                    "     \n" +
+                    "         toLookup(): IDictionary<V> {\n" +
+                    "             return this;\n" +
+                    "         }\n" +
+                    "     }");
+            printlnGlobal(10, "     /** Dictionary Definition **/\n" +
+                    "     export interface IDictionary<V> {\n" +
+                    "          add(key: string, value: V): void;\n" +
+                    "          remove(key: string): void;\n" +
+                    "          containsKey(key: string): boolean;\n" +
+                    "          keys(): string[];\n" +
+                    "          values(): V[];\n" +
+                    "     }\n" +
+                    "\n" +
+                    "     export class Dictionary<V> implements IDictionary<V>{\n" +
+                    "     \n" +
+                    "         _keys: Array<string> = new Array<string>();\n" +
+                    "         _values: Array<V> = new Array<V>();\n" +
+                    "     \n" +
+                    "         constructor(init: { key: string; value: V; }[]) {\n" +
+                    "     \n" +
+                    "             for (var x = 0; x < init.length; x++) {\n" +
+                    "                 this[init[x].key] = init[x].value;\n" +
+                    "                 this._keys.push(init[x].key);\n" +
+                    "                 this._values.push(init[x].value);\n" +
+                    "             }\n" +
+                    "         }\n" +
+                    "     \n" +
+                    "         add(key: string, value: V) {\n" +
+                    "             this[key] = value;\n" +
+                    "             this._keys.push(key);\n" +
+                    "             this._values.push(value);\n" +
+                    "         }\n" +
+                    "     \n" +
+                    "         remove(key: string) {\n" +
+                    "             var index = this._keys.indexOf(key, 0);\n" +
+                    "             this._keys.splice(index, 1);\n" +
+                    "             this._values.splice(index, 1);\n" +
+                    "     \n" +
+                    "             delete this[key];\n" +
+                    "         }\n" +
+                    "     \n" +
+                    "         keys(): string[] {\n" +
+                    "             return this._keys;\n" +
+                    "         }\n" +
+                    "     \n" +
+                    "         values(): V[] {\n" +
+                    "             return this._values;\n" +
+                    "         }\n" +
+                    "     \n" +
+                    "         containsKey(key: string) {\n" +
+                    "             if (typeof this[key] === \"undefined\") {\n" +
+                    "                 return false;\n" +
+                    "             }\n" +
+                    "     \n" +
+                    "             return true;\n" +
+                    "         }\n" +
+                    "     \n" +
+                    "         toLookup(): IDictionary<V> {\n" +
+                    "             return this;\n" +
+                    "         }\n" +
+                    "     }");
+
+            println();
+            printlnGlobal();
+            endBean(className, clazz);
+        }
+
+        startComment(0);
+        applyClassFooter(clazz, getSourceFooter());
+        endComment(0);
         println();
-        printlnGlobal();
-        println(10, "     /** Dictionary Definition **/\n" +
-                "     export interface IDictionary<V> {\n" +
-                "          add(key: string, value: V): void;\n" +
-                "          remove(key: string): void;\n" +
-                "          containsKey(key: string): boolean;\n" +
-                "          keys(): string[];\n" +
-                "          values(): V[];\n" +
-                "     }\n" +
-                "\n" +
-                "     export class Dictionary<V> implements IDictionary<V>{\n" +
-                "     \n" +
-                "         _keys: Array<string> = new Array<string>();\n" +
-                "         _values: Array<V> = new Array<V>();\n" +
-                "     \n" +
-                "         constructor(init: { key: string; value: V; }[]) {\n" +
-                "     \n" +
-                "             for (var x = 0; x < init.length; x++) {\n" +
-                "                 this[init[x].key] = init[x].value;\n" +
-                "                 this._keys.push(init[x].key);\n" +
-                "                 this._values.push(init[x].value);\n" +
-                "             }\n" +
-                "         }\n" +
-                "     \n" +
-                "         add(key: string, value: V) {\n" +
-                "             this[key] = value;\n" +
-                "             this._keys.push(key);\n" +
-                "             this._values.push(value);\n" +
-                "         }\n" +
-                "     \n" +
-                "         remove(key: string) {\n" +
-                "             var index = this._keys.indexOf(key, 0);\n" +
-                "             this._keys.splice(index, 1);\n" +
-                "             this._values.splice(index, 1);\n" +
-                "     \n" +
-                "             delete this[key];\n" +
-                "         }\n" +
-                "     \n" +
-                "         keys(): string[] {\n" +
-                "             return this._keys;\n" +
-                "         }\n" +
-                "     \n" +
-                "         values(): V[] {\n" +
-                "             return this._values;\n" +
-                "         }\n" +
-                "     \n" +
-                "         containsKey(key: string) {\n" +
-                "             if (typeof this[key] === \"undefined\") {\n" +
-                "                 return false;\n" +
-                "             }\n" +
-                "     \n" +
-                "             return true;\n" +
-                "         }\n" +
-                "     \n" +
-                "         toLookup(): IDictionary<V> {\n" +
-                "             return this;\n" +
-                "         }\n" +
-                "     }");
-        printlnGlobal(10, "     /** Dictionary Definition **/\n" +
-                "     export interface IDictionary<V> {\n" +
-                "          add(key: string, value: V): void;\n" +
-                "          remove(key: string): void;\n" +
-                "          containsKey(key: string): boolean;\n" +
-                "          keys(): string[];\n" +
-                "          values(): V[];\n" +
-                "     }\n" +
-                "\n" +
-                "     export class Dictionary<V> implements IDictionary<V>{\n" +
-                "     \n" +
-                "         _keys: Array<string> = new Array<string>();\n" +
-                "         _values: Array<V> = new Array<V>();\n" +
-                "     \n" +
-                "         constructor(init: { key: string; value: V; }[]) {\n" +
-                "     \n" +
-                "             for (var x = 0; x < init.length; x++) {\n" +
-                "                 this[init[x].key] = init[x].value;\n" +
-                "                 this._keys.push(init[x].key);\n" +
-                "                 this._values.push(init[x].value);\n" +
-                "             }\n" +
-                "         }\n" +
-                "     \n" +
-                "         add(key: string, value: V) {\n" +
-                "             this[key] = value;\n" +
-                "             this._keys.push(key);\n" +
-                "             this._values.push(value);\n" +
-                "         }\n" +
-                "     \n" +
-                "         remove(key: string) {\n" +
-                "             var index = this._keys.indexOf(key, 0);\n" +
-                "             this._keys.splice(index, 1);\n" +
-                "             this._values.splice(index, 1);\n" +
-                "     \n" +
-                "             delete this[key];\n" +
-                "         }\n" +
-                "     \n" +
-                "         keys(): string[] {\n" +
-                "             return this._keys;\n" +
-                "         }\n" +
-                "     \n" +
-                "         values(): V[] {\n" +
-                "             return this._values;\n" +
-                "         }\n" +
-                "     \n" +
-                "         containsKey(key: string) {\n" +
-                "             if (typeof this[key] === \"undefined\") {\n" +
-                "                 return false;\n" +
-                "             }\n" +
-                "     \n" +
-                "             return true;\n" +
-                "         }\n" +
-                "     \n" +
-                "         toLookup(): IDictionary<V> {\n" +
-                "             return this;\n" +
-                "         }\n" +
-                "     }");
-
-        println();
-        printlnGlobal();
-        endBean(className, clazz);
-
-
         indentPrintStream.flush();
         indentPrintStream.close();
     }

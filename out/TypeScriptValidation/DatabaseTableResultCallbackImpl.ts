@@ -33,6 +33,7 @@ Release:
 */
 
 ///<reference path="BaseCallbackImpl.ts"/>
+///<reference path="CommonUtil.ts"/>
 ///<reference path="DatabaseTable.ts"/>
 ///<reference path="IDatabaseTableResultCallback.ts"/>
 ///<reference path="IDatabaseTableResultCallbackError.ts"/>

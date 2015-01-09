@@ -32,8 +32,9 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-///<reference path="IRSS.ts"/>
-
+///<reference path="CommonUtil.ts"/>
+///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IBaseSocial.ts"/>
 module Adaptive {
 
 }

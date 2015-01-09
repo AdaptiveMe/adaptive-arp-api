@@ -32,8 +32,9 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-///<reference path="ICompression.ts"/>
-
+///<reference path="CommonUtil.ts"/>
+///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IBaseUtil.ts"/>
 module Adaptive {
 
 }

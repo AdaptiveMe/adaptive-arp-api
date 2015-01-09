@@ -1,4 +1,6 @@
-/// <reference path="INetworkReachability.d.ts" />
+/// <reference path="CommonUtil.d.ts" />
+/// <reference path="IAdaptiveRPGroup.d.ts" />
+/// <reference path="IBaseCommunication.d.ts" />
 /// <reference path="INetworkReachabilityCallback.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------

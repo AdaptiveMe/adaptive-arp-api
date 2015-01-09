@@ -1,4 +1,5 @@
 /// <reference path="BaseListenerImpl.d.ts" />
+/// <reference path="CommonUtil.d.ts" />
 /// <reference path="ICapabilitiesNet.d.ts" />
 /// <reference path="INetworkStatusListener.d.ts" />
 /// <reference path="INetworkStatusListenerError.d.ts" />
@@ -42,12 +43,17 @@ declare module Adaptive {
        Auto-generated implementation of INetworkStatusListener specification.
     */
     class NetworkStatusListenerImpl extends BaseListenerImpl implements INetworkStatusListener {
+        onErrorFunction: (error: INetworkStatusListenerError) => Function;
+        onResultFunction: (network: ICapabilitiesNet) => Function;
+        onWarningFunction: (network: ICapabilitiesNet, warning: INetworkStatusListenerWarning) => Function;
         /**
-           Constructor with listener id.
+           Constructor with anonymous handler functions for listener.
 
-           @param id  The id of the listener.
+           @param onErrorFunction Function receiving parameters of type: INetworkStatusListenerError
+           @param onResultFunction Function receiving parameters of type: ICapabilitiesNet
+           @param onWarningFunction Function receiving parameters of type: ICapabilitiesNet, INetworkStatusListenerWarning
         */
-        constructor(id: number);
+        constructor(onErrorFunction: (error: INetworkStatusListenerError) => Function, onResultFunction: (network: ICapabilitiesNet) => Function, onWarningFunction: (network: ICapabilitiesNet, warning: INetworkStatusListenerWarning) => Function);
         /**
            No data received - error condition, not authorized or hardware not available.
 

@@ -31,9 +31,11 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+///<reference path="CommonUtil.ts"/>
 ///<reference path="Database.ts"/>
 ///<reference path="DatabaseTable.ts"/>
-///<reference path="IDatabase.ts"/>
+///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IBaseData.ts"/>
 ///<reference path="IDatabaseResultCallback.ts"/>
 ///<reference path="IDatabaseTableResultCallback.ts"/>
 //# sourceMappingURL=DatabaseBridge.js.map

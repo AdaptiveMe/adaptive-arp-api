@@ -32,9 +32,10 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="CommonUtil.ts"/>
 ///<reference path="FileDescriptor.ts"/>
-///<reference path="IFileSystem.ts"/>
-
+///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IBaseData.ts"/>
 module Adaptive {
 
 }

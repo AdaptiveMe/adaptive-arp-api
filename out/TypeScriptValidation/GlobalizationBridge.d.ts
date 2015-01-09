@@ -1,4 +1,7 @@
-/// <reference path="IGlobalization.d.ts" />
+/// <reference path="CommonUtil.d.ts" />
+/// <reference path="IAdaptiveRPGroup.d.ts" />
+/// <reference path="IBaseApplication.d.ts" />
+/// <reference path="KeyPair.d.ts" />
 /// <reference path="Locale.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------

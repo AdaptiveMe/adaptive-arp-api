@@ -31,8 +31,10 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+///<reference path="CommonUtil.ts"/>
 ///<reference path="ContactUid.ts"/>
-///<reference path="IContact.ts"/>
+///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IBasePIM.ts"/>
 ///<reference path="IContactFieldGroup.ts"/>
 ///<reference path="IContactFilter.ts"/>
 ///<reference path="IContactPhotoResultCallback.ts"/>

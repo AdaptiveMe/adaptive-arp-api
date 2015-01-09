@@ -33,6 +33,7 @@ Release:
 */
 
 ///<reference path="BaseCallbackImpl.ts"/>
+///<reference path="CommonUtil.ts"/>
 ///<reference path="FileDescriptor.ts"/>
 ///<reference path="IFileListResultCallback.ts"/>
 ///<reference path="IFileListResultCallbackError.ts"/>

@@ -1,4 +1,5 @@
 /// <reference path="BaseCallbackImpl.d.ts" />
+/// <reference path="CommonUtil.d.ts" />
 /// <reference path="DatabaseTable.d.ts" />
 /// <reference path="IDatabaseTableResultCallback.d.ts" />
 /// <reference path="IDatabaseTableResultCallbackError.d.ts" />

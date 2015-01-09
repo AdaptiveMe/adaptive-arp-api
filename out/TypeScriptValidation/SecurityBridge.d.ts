@@ -1,4 +1,6 @@
-/// <reference path="ISecurity.d.ts" />
+/// <reference path="CommonUtil.d.ts" />
+/// <reference path="IAdaptiveRPGroup.d.ts" />
+/// <reference path="IBaseSecurity.d.ts" />
 /// <reference path="ISecurityResultCallback.d.ts" />
 /// <reference path="SecureKeyPair.d.ts" />
 /**

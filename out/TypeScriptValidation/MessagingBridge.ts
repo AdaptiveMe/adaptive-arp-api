@@ -32,9 +32,10 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-///<reference path="IMessaging.ts"/>
+///<reference path="CommonUtil.ts"/>
+///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IBasePIM.ts"/>
 ///<reference path="IMessagingCallback.ts"/>
-
 module Adaptive {
 
 }

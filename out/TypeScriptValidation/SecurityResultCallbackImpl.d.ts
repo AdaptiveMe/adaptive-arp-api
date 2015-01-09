@@ -1,4 +1,5 @@
 /// <reference path="BaseCallbackImpl.d.ts" />
+/// <reference path="CommonUtil.d.ts" />
 /// <reference path="ISecurityResultCallback.d.ts" />
 /// <reference path="ISecurityResultCallbackError.d.ts" />
 /// <reference path="ISecurityResultCallbackWarning.d.ts" />

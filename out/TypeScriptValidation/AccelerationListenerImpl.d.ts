@@ -1,5 +1,6 @@
 /// <reference path="Acceleration.d.ts" />
 /// <reference path="BaseListenerImpl.d.ts" />
+/// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAccelerationListener.d.ts" />
 /// <reference path="IAccelerationListenerError.d.ts" />
 /// <reference path="IAccelerationListenerWarning.d.ts" />
@@ -42,12 +43,17 @@ declare module Adaptive {
        Auto-generated implementation of IAccelerationListener specification.
     */
     class AccelerationListenerImpl extends BaseListenerImpl implements IAccelerationListener {
+        onErrorFunction: (error: IAccelerationListenerError) => Function;
+        onResultFunction: (acceleration: Acceleration) => Function;
+        onWarningFunction: (acceleration: Acceleration, warning: IAccelerationListenerWarning) => Function;
         /**
-           Constructor with listener id.
+           Constructor with anonymous handler functions for listener.
 
-           @param id  The id of the listener.
+           @param onErrorFunction Function receiving parameters of type: IAccelerationListenerError
+           @param onResultFunction Function receiving parameters of type: Acceleration
+           @param onWarningFunction Function receiving parameters of type: Acceleration, IAccelerationListenerWarning
         */
-        constructor(id: number);
+        constructor(onErrorFunction: (error: IAccelerationListenerError) => Function, onResultFunction: (acceleration: Acceleration) => Function, onWarningFunction: (acceleration: Acceleration, warning: IAccelerationListenerWarning) => Function);
         /**
            No data received - error condition, not authorized or hardware not available. This will be reported once for the
 listener and subsequently, the listener will be deactivated and removed from the internal list of listeners.

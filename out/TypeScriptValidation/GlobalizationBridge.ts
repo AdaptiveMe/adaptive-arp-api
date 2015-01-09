@@ -32,9 +32,11 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-///<reference path="IGlobalization.ts"/>
+///<reference path="CommonUtil.ts"/>
+///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IBaseApplication.ts"/>
+///<reference path="KeyPair.ts"/>
 ///<reference path="Locale.ts"/>
-
 module Adaptive {
 
 }

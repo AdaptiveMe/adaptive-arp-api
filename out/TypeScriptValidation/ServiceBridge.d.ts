@@ -1,4 +1,6 @@
-/// <reference path="IService.d.ts" />
+/// <reference path="CommonUtil.d.ts" />
+/// <reference path="IAdaptiveRPGroup.d.ts" />
+/// <reference path="IBaseCommunication.d.ts" />
 /// <reference path="IServiceResultCallback.d.ts" />
 /// <reference path="Service.d.ts" />
 /// <reference path="ServiceRequest.d.ts" />

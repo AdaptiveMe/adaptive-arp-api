@@ -1,4 +1,6 @@
-/// <reference path="ILifecycle.d.ts" />
+/// <reference path="CommonUtil.d.ts" />
+/// <reference path="IAdaptiveRPGroup.d.ts" />
+/// <reference path="IBaseApplication.d.ts" />
 /// <reference path="ILifecycleListener.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------

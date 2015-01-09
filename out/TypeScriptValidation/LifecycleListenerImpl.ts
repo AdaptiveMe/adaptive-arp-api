@@ -33,6 +33,7 @@ Release:
 */
 
 ///<reference path="BaseListenerImpl.ts"/>
+///<reference path="CommonUtil.ts"/>
 ///<reference path="ILifecycleListener.ts"/>
 ///<reference path="ILifecycleListenerError.ts"/>
 ///<reference path="ILifecycleListenerWarning.ts"/>
@@ -46,13 +47,34 @@ module Adaptive {
      */
      export class LifecycleListenerImpl extends BaseListenerImpl implements ILifecycleListener {
 
-          /**
-             Constructor with listener id.
+          onErrorFunction : (error : ILifecycleListenerError) => Function;
+          onResultFunction : (lifecycle : Lifecycle) => Function;
+          onWarningFunction : (lifecycle : Lifecycle, warning : ILifecycleListenerWarning) => Function;
 
-             @param id  The id of the listener.
+          /**
+             Constructor with anonymous handler functions for listener.
+
+             @param onErrorFunction Function receiving parameters of type: ILifecycleListenerError
+             @param onResultFunction Function receiving parameters of type: Lifecycle
+             @param onWarningFunction Function receiving parameters of type: Lifecycle, ILifecycleListenerWarning
           */
-          constructor(id : number) {
-               super(id);
+          constructor(onErrorFunction : (error : ILifecycleListenerError) => Function, onResultFunction : (lifecycle : Lifecycle) => Function, onWarningFunction : (lifecycle : Lifecycle, warning : ILifecycleListenerWarning) => Function) {
+               super(++registeredCounter);
+               if (onWarningFunction == null) {
+                    console.error("ERROR: LifecycleListenerImpl onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
+               if (onResultFunction == null) {
+                    console.error("ERROR: LifecycleListenerImpl onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (onErrorFunction == null) {
+                    console.error("ERROR: LifecycleListenerImpl onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
           }
 
           /**
@@ -61,7 +83,12 @@ module Adaptive {
              @param error Type of error encountered during reading.
              @since ARP1.0
           */
-          public onError(error : ILifecycleListenerError) {
+          public onError(error : ILifecycleListenerError) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: LifecycleListenerImpl contains a null reference to onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
           }
 
           /**
@@ -70,7 +97,12 @@ module Adaptive {
              @param lifecycle Lifecycle element
              @since ARP1.0
           */
-          public onResult(lifecycle : Lifecycle) {
+          public onResult(lifecycle : Lifecycle) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: LifecycleListenerImpl contains a null reference to onResultFunction.");
+               } else {
+                    this.onResultFunction(lifecycle);
+               }
           }
 
           /**
@@ -80,7 +112,12 @@ module Adaptive {
              @param warning Type of warning encountered during reading.
              @since ARP1.0
           */
-          public onWarning(lifecycle : Lifecycle, warning : ILifecycleListenerWarning) {
+          public onWarning(lifecycle : Lifecycle, warning : ILifecycleListenerWarning) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: LifecycleListenerImpl contains a null reference to onWarningFunction.");
+               } else {
+                    this.onWarningFunction(lifecycle, warning);
+               }
           }
 
      }

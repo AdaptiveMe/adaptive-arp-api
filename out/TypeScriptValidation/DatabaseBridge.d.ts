@@ -1,6 +1,8 @@
+/// <reference path="CommonUtil.d.ts" />
 /// <reference path="Database.d.ts" />
 /// <reference path="DatabaseTable.d.ts" />
-/// <reference path="IDatabase.d.ts" />
+/// <reference path="IAdaptiveRPGroup.d.ts" />
+/// <reference path="IBaseData.d.ts" />
 /// <reference path="IDatabaseResultCallback.d.ts" />
 /// <reference path="IDatabaseTableResultCallback.d.ts" />
 /**

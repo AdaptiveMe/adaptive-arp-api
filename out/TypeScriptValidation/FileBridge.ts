@@ -32,13 +32,17 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="CommonUtil.ts"/>
 ///<reference path="FileDescriptor.ts"/>
-///<reference path="IFile.ts"/>
+///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IBaseData.ts"/>
 ///<reference path="IFileDataLoadResultCallback.ts"/>
 ///<reference path="IFileDataStoreResultCallback.ts"/>
 ///<reference path="IFileListResultCallback.ts"/>
 ///<reference path="IFileResultCallback.ts"/>
-
+///<reference path="IFileSystemSecurity.ts"/>
+///<reference path="IFileSystemStorageType.ts"/>
+///<reference path="IFileSystemType.ts"/>
 module Adaptive {
 
 }

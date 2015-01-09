@@ -34,6 +34,7 @@ Release:
 
 ///<reference path="Acceleration.ts"/>
 ///<reference path="BaseListenerImpl.ts"/>
+///<reference path="CommonUtil.ts"/>
 ///<reference path="IAccelerationListener.ts"/>
 ///<reference path="IAccelerationListenerError.ts"/>
 ///<reference path="IAccelerationListenerWarning.ts"/>
@@ -46,13 +47,34 @@ module Adaptive {
      */
      export class AccelerationListenerImpl extends BaseListenerImpl implements IAccelerationListener {
 
-          /**
-             Constructor with listener id.
+          onErrorFunction : (error : IAccelerationListenerError) => Function;
+          onResultFunction : (acceleration : Acceleration) => Function;
+          onWarningFunction : (acceleration : Acceleration, warning : IAccelerationListenerWarning) => Function;
 
-             @param id  The id of the listener.
+          /**
+             Constructor with anonymous handler functions for listener.
+
+             @param onErrorFunction Function receiving parameters of type: IAccelerationListenerError
+             @param onResultFunction Function receiving parameters of type: Acceleration
+             @param onWarningFunction Function receiving parameters of type: Acceleration, IAccelerationListenerWarning
           */
-          constructor(id : number) {
-               super(id);
+          constructor(onErrorFunction : (error : IAccelerationListenerError) => Function, onResultFunction : (acceleration : Acceleration) => Function, onWarningFunction : (acceleration : Acceleration, warning : IAccelerationListenerWarning) => Function) {
+               super(++registeredCounter);
+               if (onWarningFunction == null) {
+                    console.error("ERROR: AccelerationListenerImpl onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
+               if (onResultFunction == null) {
+                    console.error("ERROR: AccelerationListenerImpl onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (onErrorFunction == null) {
+                    console.error("ERROR: AccelerationListenerImpl onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
           }
 
           /**
@@ -62,7 +84,12 @@ listener and subsequently, the listener will be deactivated and removed from the
              @param error Error fired
              @since ARP1.0
           */
-          public onError(error : IAccelerationListenerError) {
+          public onError(error : IAccelerationListenerError) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: AccelerationListenerImpl contains a null reference to onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
           }
 
           /**
@@ -71,7 +98,12 @@ listener and subsequently, the listener will be deactivated and removed from the
              @param acceleration Acceleration received
              @since ARP1.0
           */
-          public onResult(acceleration : Acceleration) {
+          public onResult(acceleration : Acceleration) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: AccelerationListenerImpl contains a null reference to onResultFunction.");
+               } else {
+                    this.onResultFunction(acceleration);
+               }
           }
 
           /**
@@ -81,7 +113,12 @@ listener and subsequently, the listener will be deactivated and removed from the
              @param warning      Warning fired
              @since ARP1.0
           */
-          public onWarning(acceleration : Acceleration, warning : IAccelerationListenerWarning) {
+          public onWarning(acceleration : Acceleration, warning : IAccelerationListenerWarning) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: AccelerationListenerImpl contains a null reference to onWarningFunction.");
+               } else {
+                    this.onWarningFunction(acceleration, warning);
+               }
           }
 
      }

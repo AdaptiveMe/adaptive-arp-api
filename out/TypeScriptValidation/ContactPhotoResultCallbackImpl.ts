@@ -33,6 +33,7 @@ Release:
 */
 
 ///<reference path="BaseCallbackImpl.ts"/>
+///<reference path="CommonUtil.ts"/>
 ///<reference path="IContactPhotoResultCallback.ts"/>
 ///<reference path="IContactPhotoResultCallbackError.ts"/>
 ///<reference path="IContactPhotoResultCallbackWarning.ts"/>

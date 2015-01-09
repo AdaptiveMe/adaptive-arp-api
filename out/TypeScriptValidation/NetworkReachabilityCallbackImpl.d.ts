@@ -1,4 +1,5 @@
 /// <reference path="BaseCallbackImpl.d.ts" />
+/// <reference path="CommonUtil.d.ts" />
 /// <reference path="INetworkReachabilityCallback.d.ts" />
 /// <reference path="INetworkReachabilityCallbackError.d.ts" />
 /// <reference path="INetworkReachabilityCallbackWarning.d.ts" />

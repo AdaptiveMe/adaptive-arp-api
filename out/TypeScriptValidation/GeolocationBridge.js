@@ -31,6 +31,8 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
-///<reference path="IGeolocation.ts"/>
+///<reference path="CommonUtil.ts"/>
+///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IBaseSensor.ts"/>
 ///<reference path="IGeolocationListener.ts"/>
 //# sourceMappingURL=GeolocationBridge.js.map

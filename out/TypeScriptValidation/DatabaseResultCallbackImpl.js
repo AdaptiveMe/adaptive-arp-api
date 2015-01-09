@@ -38,6 +38,7 @@ var __extends = this.__extends || function (d, b) {
     d.prototype = new __();
 };
 ///<reference path="BaseCallbackImpl.ts"/>
+///<reference path="CommonUtil.ts"/>
 ///<reference path="Database.ts"/>
 ///<reference path="IDatabaseResultCallback.ts"/>
 ///<reference path="IDatabaseResultCallbackError.ts"/>

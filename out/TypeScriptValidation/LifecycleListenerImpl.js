@@ -38,6 +38,7 @@ var __extends = this.__extends || function (d, b) {
     d.prototype = new __();
 };
 ///<reference path="BaseListenerImpl.ts"/>
+///<reference path="CommonUtil.ts"/>
 ///<reference path="ILifecycleListener.ts"/>
 ///<reference path="ILifecycleListenerError.ts"/>
 ///<reference path="ILifecycleListenerWarning.ts"/>
@@ -51,12 +52,32 @@ var Adaptive;
     var LifecycleListenerImpl = (function (_super) {
         __extends(LifecycleListenerImpl, _super);
         /**
-           Constructor with listener id.
+           Constructor with anonymous handler functions for listener.
 
-           @param id  The id of the listener.
+           @param onErrorFunction Function receiving parameters of type: ILifecycleListenerError
+           @param onResultFunction Function receiving parameters of type: Lifecycle
+           @param onWarningFunction Function receiving parameters of type: Lifecycle, ILifecycleListenerWarning
         */
-        function LifecycleListenerImpl(id) {
-            _super.call(this, id);
+        function LifecycleListenerImpl(onErrorFunction, onResultFunction, onWarningFunction) {
+            _super.call(this, ++Adaptive.registeredCounter);
+            if (onWarningFunction == null) {
+                console.error("ERROR: LifecycleListenerImpl onWarningFunction is not defined.");
+            }
+            else {
+                this.onWarningFunction = onWarningFunction;
+            }
+            if (onResultFunction == null) {
+                console.error("ERROR: LifecycleListenerImpl onResultFunction is not defined.");
+            }
+            else {
+                this.onResultFunction = onResultFunction;
+            }
+            if (onErrorFunction == null) {
+                console.error("ERROR: LifecycleListenerImpl onErrorFunction is not defined.");
+            }
+            else {
+                this.onErrorFunction = onErrorFunction;
+            }
         }
         /**
            No data received - error condition, not authorized or hardware not available.
@@ -65,6 +86,12 @@ var Adaptive;
            @since ARP1.0
         */
         LifecycleListenerImpl.prototype.onError = function (error) {
+            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                console.warn("WARNING: LifecycleListenerImpl contains a null reference to onErrorFunction.");
+            }
+            else {
+                this.onErrorFunction(error);
+            }
         };
         /**
            Called when lifecycle changes somehow.
@@ -73,6 +100,12 @@ var Adaptive;
            @since ARP1.0
         */
         LifecycleListenerImpl.prototype.onResult = function (lifecycle) {
+            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                console.warn("WARNING: LifecycleListenerImpl contains a null reference to onResultFunction.");
+            }
+            else {
+                this.onResultFunction(lifecycle);
+            }
         };
         /**
            Data received with warning
@@ -82,6 +115,12 @@ var Adaptive;
            @since ARP1.0
         */
         LifecycleListenerImpl.prototype.onWarning = function (lifecycle, warning) {
+            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                console.warn("WARNING: LifecycleListenerImpl contains a null reference to onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(lifecycle, warning);
+            }
         };
         return LifecycleListenerImpl;
     })(Adaptive.BaseListenerImpl);

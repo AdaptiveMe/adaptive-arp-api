@@ -3,7 +3,7 @@
   <component name="ProjectTasksOptions">
     <TaskOptions isEnabled="true">
       <option name="arguments" value="-d -m commonjs --sourcemap $FileName$" />
-      <option name="checkSyntaxErrors" value="false" />
+      <option name="checkSyntaxErrors" value="true" />
       <option name="description" value="Compiles .ts files into .js files" />
       <option name="exitCodeBehavior" value="ERROR" />
       <option name="fileExtension" value="ts" />

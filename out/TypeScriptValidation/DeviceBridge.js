@@ -31,6 +31,10 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+///<reference path="CommonUtil.ts"/>
+///<reference path="DeviceInfo.ts"/>
+///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IBaseSystem.ts"/>
 ///<reference path="IButtonListener.ts"/>
-///<reference path="IDevice.ts"/>
+///<reference path="Locale.ts"/>
 //# sourceMappingURL=DeviceBridge.js.map

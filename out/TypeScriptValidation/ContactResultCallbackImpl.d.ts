@@ -1,4 +1,5 @@
 /// <reference path="BaseCallbackImpl.d.ts" />
+/// <reference path="CommonUtil.d.ts" />
 /// <reference path="Contact.d.ts" />
 /// <reference path="IContactResultCallback.d.ts" />
 /// <reference path="IContactResultCallbackError.d.ts" />

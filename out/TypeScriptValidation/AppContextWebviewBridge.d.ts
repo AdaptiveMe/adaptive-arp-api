@@ -1,4 +1,4 @@
-/// <reference path="IAppContextWebview.d.ts" />
+/// <reference path="CommonUtil.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 

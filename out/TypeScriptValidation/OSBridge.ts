@@ -32,8 +32,10 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-///<reference path="IOS.ts"/>
-
+///<reference path="CommonUtil.ts"/>
+///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IBaseSystem.ts"/>
+///<reference path="OSInfo.ts"/>
 module Adaptive {
 
 }

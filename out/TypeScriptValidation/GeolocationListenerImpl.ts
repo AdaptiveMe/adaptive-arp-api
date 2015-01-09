@@ -33,6 +33,7 @@ Release:
 */
 
 ///<reference path="BaseListenerImpl.ts"/>
+///<reference path="CommonUtil.ts"/>
 ///<reference path="Geolocation.ts"/>
 ///<reference path="IGeolocationListener.ts"/>
 ///<reference path="IGeolocationListenerError.ts"/>
@@ -46,13 +47,34 @@ module Adaptive {
      */
      export class GeolocationListenerImpl extends BaseListenerImpl implements IGeolocationListener {
 
-          /**
-             Constructor with listener id.
+          onErrorFunction : (error : IGeolocationListenerError) => Function;
+          onResultFunction : (geolocation : Geolocation) => Function;
+          onWarningFunction : (geolocation : Geolocation, warning : IGeolocationListenerWarning) => Function;
 
-             @param id  The id of the listener.
+          /**
+             Constructor with anonymous handler functions for listener.
+
+             @param onErrorFunction Function receiving parameters of type: IGeolocationListenerError
+             @param onResultFunction Function receiving parameters of type: Geolocation
+             @param onWarningFunction Function receiving parameters of type: Geolocation, IGeolocationListenerWarning
           */
-          constructor(id : number) {
-               super(id);
+          constructor(onErrorFunction : (error : IGeolocationListenerError) => Function, onResultFunction : (geolocation : Geolocation) => Function, onWarningFunction : (geolocation : Geolocation, warning : IGeolocationListenerWarning) => Function) {
+               super(++registeredCounter);
+               if (onWarningFunction == null) {
+                    console.error("ERROR: GeolocationListenerImpl onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
+               if (onResultFunction == null) {
+                    console.error("ERROR: GeolocationListenerImpl onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (onErrorFunction == null) {
+                    console.error("ERROR: GeolocationListenerImpl onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
           }
 
           /**
@@ -61,7 +83,12 @@ module Adaptive {
              @param error Type of error encountered during reading.
              @since ARP1.0
           */
-          public onError(error : IGeolocationListenerError) {
+          public onError(error : IGeolocationListenerError) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: GeolocationListenerImpl contains a null reference to onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
           }
 
           /**
@@ -70,7 +97,12 @@ module Adaptive {
              @param geolocation Geolocation Bean
              @since ARP1.0
           */
-          public onResult(geolocation : Geolocation) {
+          public onResult(geolocation : Geolocation) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: GeolocationListenerImpl contains a null reference to onResultFunction.");
+               } else {
+                    this.onResultFunction(geolocation);
+               }
           }
 
           /**
@@ -80,7 +112,12 @@ module Adaptive {
              @param warning Type of warning encountered during reading.
              @since ARP1.0
           */
-          public onWarning(geolocation : Geolocation, warning : IGeolocationListenerWarning) {
+          public onWarning(geolocation : Geolocation, warning : IGeolocationListenerWarning) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: GeolocationListenerImpl contains a null reference to onWarningFunction.");
+               } else {
+                    this.onWarningFunction(geolocation, warning);
+               }
           }
 
      }

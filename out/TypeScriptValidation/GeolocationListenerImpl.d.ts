@@ -1,4 +1,5 @@
 /// <reference path="BaseListenerImpl.d.ts" />
+/// <reference path="CommonUtil.d.ts" />
 /// <reference path="Geolocation.d.ts" />
 /// <reference path="IGeolocationListener.d.ts" />
 /// <reference path="IGeolocationListenerError.d.ts" />
@@ -42,12 +43,17 @@ declare module Adaptive {
        Auto-generated implementation of IGeolocationListener specification.
     */
     class GeolocationListenerImpl extends BaseListenerImpl implements IGeolocationListener {
+        onErrorFunction: (error: IGeolocationListenerError) => Function;
+        onResultFunction: (geolocation: Geolocation) => Function;
+        onWarningFunction: (geolocation: Geolocation, warning: IGeolocationListenerWarning) => Function;
         /**
-           Constructor with listener id.
+           Constructor with anonymous handler functions for listener.
 
-           @param id  The id of the listener.
+           @param onErrorFunction Function receiving parameters of type: IGeolocationListenerError
+           @param onResultFunction Function receiving parameters of type: Geolocation
+           @param onWarningFunction Function receiving parameters of type: Geolocation, IGeolocationListenerWarning
         */
-        constructor(id: number);
+        constructor(onErrorFunction: (error: IGeolocationListenerError) => Function, onResultFunction: (geolocation: Geolocation) => Function, onWarningFunction: (geolocation: Geolocation, warning: IGeolocationListenerWarning) => Function);
         /**
            No data received - error condition, not authorized or hardware not available.
 

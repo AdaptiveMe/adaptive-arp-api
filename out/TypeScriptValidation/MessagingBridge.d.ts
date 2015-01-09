@@ -1,4 +1,6 @@
-/// <reference path="IMessaging.d.ts" />
+/// <reference path="CommonUtil.d.ts" />
+/// <reference path="IAdaptiveRPGroup.d.ts" />
+/// <reference path="IBasePIM.d.ts" />
 /// <reference path="IMessagingCallback.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------

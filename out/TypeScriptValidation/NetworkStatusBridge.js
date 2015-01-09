@@ -31,6 +31,8 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
-///<reference path="INetworkStatus.ts"/>
+///<reference path="CommonUtil.ts"/>
+///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IBaseCommunication.ts"/>
 ///<reference path="INetworkStatusListener.ts"/>
 //# sourceMappingURL=NetworkStatusBridge.js.map

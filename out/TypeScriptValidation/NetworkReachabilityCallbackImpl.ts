@@ -33,6 +33,7 @@ Release:
 */
 
 ///<reference path="BaseCallbackImpl.ts"/>
+///<reference path="CommonUtil.ts"/>
 ///<reference path="INetworkReachabilityCallback.ts"/>
 ///<reference path="INetworkReachabilityCallbackError.ts"/>
 ///<reference path="INetworkReachabilityCallbackWarning.ts"/>
