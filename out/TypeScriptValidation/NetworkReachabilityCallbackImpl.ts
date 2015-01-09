@@ -39,6 +39,50 @@ Release:
 
 module Adaptive {
 
+     /**
+        Interface for Managing the Network reachability callback result
+        Auto-generated implementation of INetworkReachabilityCallback specification.
+     */
+     export class NetworkReachabilityCallbackImpl extends BaseCallbackImpl implements INetworkReachabilityCallback {
+
+          /**
+             Constructor with callback id.
+
+             @param id  The id of the callback.
+          */
+          constructor(id : number) {
+               super(id);
+          }
+
+          /**
+             No data received - error condition, not authorized .
+
+             @param error Error value
+             @since ARP1.0
+          */
+          public onError(error : INetworkReachabilityCallbackError) {
+          }
+
+          /**
+             Correct data received.
+
+             @param reachable Indicates if the host is reachable
+             @since ARP1.0
+          */
+          public onResult(reachable : boolean) {
+          }
+
+          /**
+             Data received with warning - ie Found entries with existing key and values have been overriden
+
+             @param reachable Indicates if the host is reachable
+             @param warning   Warning value
+             @since ARP1.0
+          */
+          public onWarning(reachable : boolean, warning : INetworkReachabilityCallbackWarning) {
+          }
+
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
