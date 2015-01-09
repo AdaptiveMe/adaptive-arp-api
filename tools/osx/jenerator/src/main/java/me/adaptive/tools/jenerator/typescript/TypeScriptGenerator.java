@@ -74,7 +74,7 @@ public class TypeScriptGenerator extends GeneratorBase {
 
     @Override
     protected void startCustomClass(String className, Class clazz, JavaClass javaClass, boolean implementation) {
-        if (className.contains("Delegate")) {
+        if (className.contains("Delegate") || className.startsWith("AppContext")) {
             indentPrintStream = new IndentPrintStream(new ByteArrayOutputStream());
         } else {
             currentFile = new File(getOutputRootDirectory(), className + ".ts");
@@ -176,7 +176,7 @@ public class TypeScriptGenerator extends GeneratorBase {
                         }
                     }
 
-                    if (typeName != null && !referenceList.contains(typeName) && !clazz.getSimpleName().equals(typeName)) {
+                    if (typeName != null && !referenceList.contains(typeName) && !clazz.getSimpleName().equals(typeName) && !typeName.startsWith("IAppContext")) {
                         referenceList.add(typeName);
                     }
                 }
@@ -199,7 +199,7 @@ public class TypeScriptGenerator extends GeneratorBase {
                 Set<Class<? extends Object>> allClassesSet = reflections.getSubTypesOf(superInterface);
                 List<Class> serviceClasses = new ArrayList<>();
                 for (Class subClass : allClassesSet) {
-                    if (!subClass.getName().endsWith("Callback") && !subClass.getName().endsWith("Listener") && !subClass.getSimpleName().startsWith("IBase")) {
+                    if (!subClass.getName().endsWith("Callback") && !subClass.getName().endsWith("Listener") && !subClass.getSimpleName().startsWith("IBase") && !subClass.getSimpleName().startsWith("IAppContext")) {
                         serviceClasses.add(subClass);
                     }
                 }
@@ -744,53 +744,55 @@ public class TypeScriptGenerator extends GeneratorBase {
                     printlnGlobal();
                 }
             } else {
-                startComment(10);
-                startCommentGlobal(10);
-                JavaMethod javaMethod = null;
-                for (JavaMethod m : interfaceMethodsDoc) {
-                    if (m.getName().equals(method.getName()) && m.getParameters().size() == method.getParameterCount()) {
-                        javaMethod = m;
-                        break;
+                if (!clazz.getSimpleName().equals("IAppRegistry")) {
+                    startComment(10);
+                    startCommentGlobal(10);
+                    JavaMethod javaMethod = null;
+                    for (JavaMethod m : interfaceMethodsDoc) {
+                        if (m.getName().equals(method.getName()) && m.getParameters().size() == method.getParameterCount()) {
+                            javaMethod = m;
+                            break;
+                        }
                     }
-                }
-                if (javaMethod != null) {
-                    println(13, javaMethod.getComment());
-                    printlnGlobal(13, javaMethod.getComment());
-                    for (DocletTag tag : javaMethod.getTags()) {
-                        println(13, "@" + tag.getName() + " " + tag.getValue());
-                        printlnGlobal(13, "@" + tag.getName() + " " + tag.getValue());
+                    if (javaMethod != null) {
+                        println(13, javaMethod.getComment());
+                        printlnGlobal(13, javaMethod.getComment());
+                        for (DocletTag tag : javaMethod.getTags()) {
+                            println(13, "@" + tag.getName() + " " + tag.getValue());
+                            printlnGlobal(13, "@" + tag.getName() + " " + tag.getValue());
+                        }
                     }
-                }
-                endComment(10);
-                print(10, method.getName());
-                print("(");
-                endCommentGlobal(10);
-                printGlobal(10, method.getName());
-                printGlobal(0, "(");
-                for (int i = 0; i < method.getParameterCount(); i++) {
-                    Parameter p = method.getParameters()[i];
-                    print(p.getName());
-                    print(":");
-                    print(convertJavaToNativeType(p.getType()));
-                    printGlobal(0, p.getName());
-                    printGlobal(0, ":");
-                    printGlobal(0, convertJavaToNativeType(p.getType()));
-                    if (i < method.getParameterCount() - 1) {
-                        print(", ");
-                        printGlobal(0, ", ");
+                    endComment(10);
+                    print(10, method.getName());
+                    print("(");
+                    endCommentGlobal(10);
+                    printGlobal(10, method.getName());
+                    printGlobal(0, "(");
+                    for (int i = 0; i < method.getParameterCount(); i++) {
+                        Parameter p = method.getParameters()[i];
+                        print(p.getName());
+                        print(":");
+                        print(convertJavaToNativeType(p.getType()));
+                        printGlobal(0, p.getName());
+                        printGlobal(0, ":");
+                        printGlobal(0, convertJavaToNativeType(p.getType()));
+                        if (i < method.getParameterCount() - 1) {
+                            print(", ");
+                            printGlobal(0, ", ");
+                        }
                     }
-                }
-                print(")");
-                printGlobal(0, ")");
+                    print(")");
+                    printGlobal(0, ")");
 
-                if (!method.getReturnType().equals(Void.TYPE)) {
-                    print(" : ");
-                    print(convertJavaToNativeType(method.getReturnType()));
-                    printGlobal(0, " : ");
-                    printGlobal(0, convertJavaToNativeType(method.getReturnType()));
+                    if (!method.getReturnType().equals(Void.TYPE)) {
+                        print(" : ");
+                        print(convertJavaToNativeType(method.getReturnType()));
+                        printGlobal(0, " : ");
+                        printGlobal(0, convertJavaToNativeType(method.getReturnType()));
+                    }
+                    println(";");
+                    printlnGlobal(0, ";");
                 }
-                println(";");
-                printlnGlobal(0, ";");
             }
         }
     }
@@ -888,7 +890,7 @@ public class TypeScriptGenerator extends GeneratorBase {
                 Set<Class<? extends Object>> allClassesSet = reflections.getSubTypesOf(superInterface);
                 List<Class> serviceClasses = new ArrayList<>();
                 for (Class subClass : allClassesSet) {
-                    if (!subClass.getName().endsWith("Callback") && !subClass.getName().endsWith("Listener") && !subClass.getSimpleName().startsWith("IBase")) {
+                    if (!subClass.getName().endsWith("Callback") && !subClass.getName().endsWith("Listener") && !subClass.getSimpleName().startsWith("IBase") && !subClass.getSimpleName().startsWith("IAppContext")) {
                         serviceClasses.add(subClass);
                     }
                 }
@@ -1427,15 +1429,21 @@ public class TypeScriptGenerator extends GeneratorBase {
 
     @Override
     protected void startClass(Class clazz) {
-        currentFile = new File(getOutputRootDirectory(), clazz.getSimpleName() + ".ts");
-        if (currentFile.exists()) {
-            currentFile.delete();
+        if (clazz.getSimpleName().startsWith("IAppContext")) {
+            indentPrintStream = new IndentPrintStream(new ByteArrayOutputStream());
+        } else {
+            currentFile = new File(getOutputRootDirectory(), clazz.getSimpleName() + ".ts");
+            if (currentFile.exists()) {
+                currentFile.delete();
+            }
+            try {
+                indentPrintStream = new IndentPrintStream(new FileOutputStream(currentFile));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            this.arrayOfClasses.add(clazz.getSimpleName() + ".ts");
         }
-        try {
-            indentPrintStream = new IndentPrintStream(new FileOutputStream(currentFile));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+
         if (currentFileGlobal == null) {
             currentFileGlobal = new File(getOutputRootDirectory(), "Adaptive.ts");
             if (currentFileGlobal.exists()) {
@@ -1452,7 +1460,7 @@ public class TypeScriptGenerator extends GeneratorBase {
             indentPrintStreamGlobal.println("module Adaptive {");
             indentPrintStreamGlobal.println();
         }
-        this.arrayOfClasses.add(clazz.getSimpleName() + ".ts");
+
     }
 
     @Override

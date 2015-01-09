@@ -633,18 +633,6 @@ ARP functions and release resources. The primary webview can not be removed.
           */
           getXMLBridge() : IXML
 
-          /**
-             Returns a reference to the Platform Context
-             @return Reference to the platform context
-             @since ARP1.0
-          */
-          getPlatformContext() : IAppContext;
-          /**
-             Returns a reference to the Webview platform context
-             @return Reference to the Webview Context
-             @since ARP1.0
-          */
-          getPlatformContextWeb() : IAppContextWebview;
      }
      /**
         Base application for Application purposes
