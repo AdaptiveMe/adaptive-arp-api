@@ -199,6 +199,119 @@ public class TypeScriptGenerator extends GeneratorBase {
 
         println("module Adaptive {");
         println();
+        startComment(5);
+        if (javaClass.getComment() != null && javaClass.getComment().length() > 0) {
+            println(8, javaClass.getComment());
+        }
+        println(8, "Auto-generated implementation of " + clazz.getSimpleName() + " specification.");
+        endComment(5);
+
+        if (clazz.getSimpleName().equals("IBaseCallback")) {
+            println(5, "export class " + simpleName + " implements " + clazz.getSimpleName() + " {");
+            println();
+
+            startComment(10);
+            println(13, "Unique id of callback.");
+            endComment(10);
+            println(10, "id : number;");
+            println();
+
+            startComment(10);
+            println(13, "Group of API.");
+            endComment(10);
+            println(10, "apiGroup : IAdaptiveRPGroup;");
+            println();
+
+
+            startComment(10);
+            println(13, "Constructor with callback id.");
+            println();
+            println(13, "@param id  The id of the callback.");
+            endComment(10);
+            println(10, "constructor(id : number) {");
+            println(15, "this.id = id;");
+            println(15, "this.apiGroup = IAdaptiveRPGroup.Application;");
+            println(10, "}");
+            println();
+
+            startComment(10);
+            println(13, "Get the listener id.");
+            println(13, "@return long with the identifier of the callback.");
+            endComment(10);
+            println(10, "getId() : number {");
+            println(15, "return this.id;");
+            println(10, "}");
+            println();
+
+            startComment(10);
+            println(13, "Return the API group for the given interface.");
+            endComment(10);
+            println(10, "getAPIGroup() : IAdaptiveRPGroup {");
+            println(15, "return this.apiGroup;");
+            println(10, "}");
+
+        } else {
+            println(5, "export class " + simpleName + " extends BaseCallbackImpl implements " + clazz.getSimpleName() + " {");
+            println();
+            startComment(10);
+            println(13, "Constructor with callback id.");
+            println();
+            println(13, "@param id  The id of the callback.");
+            endComment(10);
+            println(10, "constructor(id : number) {");
+            println(15, "super(id);");
+            println(10, "}");
+        }
+        println();
+
+        List<Method> classMethods = new ArrayList<>();
+        Map<Method, JavaMethod> javaMethods = new HashMap<>();
+        for (Method m : clazz.getDeclaredMethods()) {
+            classMethods.add(m);
+            for (JavaMethod jm : javaClass.getMethods()) {
+                if (jm.getName().equals(m.getName()) && jm.getParameters().size() == m.getParameterCount()) {
+                    javaMethods.put(m, jm);
+                }
+            }
+        }
+        classMethods.sort(new Comparator<Method>() {
+            @Override
+            public int compare(Method o1, Method o2) {
+                return (o1.getName() + o1.getParameterCount()).compareTo((o2.getName() + o2.getParameterCount()));
+            }
+        });
+        for (Method m : classMethods) {
+            if (javaMethods.get(m) != null) {
+                startComment(10);
+                println(13, javaMethods.get(m).getComment());
+                println();
+                for (DocletTag tag : javaMethods.get(m).getTags()) {
+                    println(13, "@" + tag.getName() + " " + tag.getValue());
+                }
+                endComment(10);
+                print(10, "public ");
+                print(m.getName() + "(");
+                for (int i = 0; i < m.getParameterCount(); i++) {
+                    Parameter p = m.getParameters()[i];
+                    print(p.getName());
+                    print(" : " + convertJavaToNativeType(p.getType()));
+                    if (i < m.getParameterCount() - 1) {
+                        print(", ");
+                    }
+                }
+                print(") ");
+
+                if (m.getReturnType().equals(Void.TYPE)) {
+                    println("{");
+                } else {
+                    println(": " + convertJavaToNativeType(m.getReturnType()) + " {");
+                }
+
+                println(10, "}");
+                println();
+            }
+        }
+        println(5, "}");
         println("}");
     }
 
