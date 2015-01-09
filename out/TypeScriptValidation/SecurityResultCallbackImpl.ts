@@ -47,13 +47,34 @@ module Adaptive {
      */
      export class SecurityResultCallbackImpl extends BaseCallbackImpl implements ISecurityResultCallback {
 
-          /**
-             Constructor with callback id.
+          onErrorFunction : (error : ISecurityResultCallbackError) => Function;
+          onResultFunction : (keyValues : Array<SecureKeyPair>) => Function;
+          onWarningFunction : (keyValues : Array<SecureKeyPair>, warning : ISecurityResultCallbackWarning) => Function;
 
-             @param id  The id of the callback.
+          /**
+             Constructor with anonymous handler functions for callback.
+
+             @param onErrorFunction Function receiving parameters of type: ISecurityResultCallbackError
+             @param onResultFunction Function receiving parameters of type: Array<SecureKeyPair>
+             @param onWarningFunction Function receiving parameters of type: Array<SecureKeyPair>, ISecurityResultCallbackWarning
           */
-          constructor(id : number) {
-               super(id);
+          constructor(onErrorFunction : (error : ISecurityResultCallbackError) => Function, onResultFunction : (keyValues : Array<SecureKeyPair>) => Function, onWarningFunction : (keyValues : Array<SecureKeyPair>, warning : ISecurityResultCallbackWarning) => Function) {
+               super(++registeredCounter);
+               if (onErrorFunction == null) {
+                    console.error("ERROR: SecurityResultCallbackImpl onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (onResultFunction == null) {
+                    console.error("ERROR: SecurityResultCallbackImpl onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (onWarningFunction == null) {
+                    console.error("ERROR: SecurityResultCallbackImpl onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
           }
 
           /**
@@ -62,7 +83,12 @@ module Adaptive {
              @param error Error values
              @since ARP1.0
           */
-          public onError(error : ISecurityResultCallbackError) {
+          public onError(error : ISecurityResultCallbackError) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: SecurityResultCallbackImpl contains a null reference to onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
           }
 
           /**
@@ -71,7 +97,12 @@ module Adaptive {
              @param keyValues key and values
              @since ARP1.0
           */
-          public onResult(keyValues : Array<SecureKeyPair>) {
+          public onResult(keyValues : Array<SecureKeyPair>) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: SecurityResultCallbackImpl contains a null reference to onResultFunction.");
+               } else {
+                    this.onResultFunction(keyValues);
+               }
           }
 
           /**
@@ -81,7 +112,12 @@ module Adaptive {
              @param warning   Warning values
              @since ARP1.0
           */
-          public onWarning(keyValues : Array<SecureKeyPair>, warning : ISecurityResultCallbackWarning) {
+          public onWarning(keyValues : Array<SecureKeyPair>, warning : ISecurityResultCallbackWarning) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: SecurityResultCallbackImpl contains a null reference to onWarningFunction.");
+               } else {
+                    this.onWarningFunction(keyValues, warning);
+               }
           }
 
      }

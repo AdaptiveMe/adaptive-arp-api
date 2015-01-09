@@ -60,20 +60,20 @@ module Adaptive {
           */
           constructor(onErrorFunction : (error : INetworkStatusListenerError) => Function, onResultFunction : (network : ICapabilitiesNet) => Function, onWarningFunction : (network : ICapabilitiesNet, warning : INetworkStatusListenerWarning) => Function) {
                super(++registeredCounter);
-               if (onWarningFunction == null) {
-                    console.error("ERROR: NetworkStatusListenerImpl onWarningFunction is not defined.");
+               if (onErrorFunction == null) {
+                    console.error("ERROR: NetworkStatusListenerImpl onErrorFunction is not defined.");
                } else {
-                    this.onWarningFunction = onWarningFunction;
+                    this.onErrorFunction = onErrorFunction;
                }
                if (onResultFunction == null) {
                     console.error("ERROR: NetworkStatusListenerImpl onResultFunction is not defined.");
                } else {
                     this.onResultFunction = onResultFunction;
                }
-               if (onErrorFunction == null) {
-                    console.error("ERROR: NetworkStatusListenerImpl onErrorFunction is not defined.");
+               if (onWarningFunction == null) {
+                    console.error("ERROR: NetworkStatusListenerImpl onWarningFunction is not defined.");
                } else {
-                    this.onErrorFunction = onErrorFunction;
+                    this.onWarningFunction = onWarningFunction;
                }
           }
 

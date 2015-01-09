@@ -331,13 +331,73 @@ public class TypeScriptGenerator extends GeneratorBase {
         } else {
             println(5, "export class " + simpleName + " extends BaseCallbackImpl implements " + clazz.getSimpleName() + " {");
             println();
-            startComment(10);
-            println(13, "Constructor with callback id.");
+
+            List<Method> methodList = new ArrayList<>();
+            for (Method m : clazz.getDeclaredMethods()) {
+                methodList.add(m);
+            }
+            methodList.sort(new Comparator<Method>() {
+                @Override
+                public int compare(Method o1, Method o2) {
+                    return (o1.getName() + o1.getParameterCount()).compareTo((o2.getName() + o2.getParameterCount()));
+                }
+            });
+
+            for (Method m : methodList) {
+                print(10, m.getName() + "Function : (");
+                for (int i = 0; i < m.getParameterCount(); i++) {
+                    Parameter p = m.getParameters()[i];
+                    print(p.getName() + " : " + convertJavaToNativeType(p.getType()));
+                    if (i < m.getParameterCount() - 1) {
+                        print(", ");
+                    }
+                }
+                println(") => Function;");
+            }
+
             println();
-            println(13, "@param id  The id of the callback.");
+            startComment(10);
+            println(13, "Constructor with anonymous handler functions for callback.");
+            println();
+            for (Method m : methodList) {
+                print(13, "@param " + m.getName() + "Function Function receiving parameters of type: ");
+                for (int i = 0; i < m.getParameterCount(); i++) {
+                    Parameter p = m.getParameters()[i];
+                    print(convertJavaToNativeType(p.getType()));
+                    if (i < m.getParameterCount() - 1) {
+                        print(", ");
+                    }
+                }
+                println();
+            }
             endComment(10);
-            println(10, "constructor(id : number) {");
-            println(15, "super(id);");
+            print(10, "constructor(");
+            for (int j = 0; j < methodList.size(); j++) {
+                Method m = methodList.get(j);
+                print(m.getName() + "Function : (");
+                for (int i = 0; i < m.getParameterCount(); i++) {
+                    Parameter p = m.getParameters()[i];
+                    print(p.getName() + " : " + convertJavaToNativeType(p.getType()));
+
+                    if (i < m.getParameterCount() - 1) {
+                        print(", ");
+                    }
+                }
+                print(") => Function");
+                if (j < methodList.size() - 1) {
+                    print(", ");
+                }
+            }
+
+            println(") {");
+            println(15, "super(++registeredCounter);");
+            for (Method m : methodList) {
+                println(15, "if (" + m.getName() + "Function == null) {");
+                println(20, "console.error(\"ERROR: " + simpleName + " " + m.getName() + "Function is not defined.\");");
+                println(15, "} else {");
+                println(20, "this." + m.getName() + "Function = " + m.getName() + "Function;");
+                println(15, "}");
+            }
             println(10, "}");
         }
         println();
@@ -380,11 +440,24 @@ public class TypeScriptGenerator extends GeneratorBase {
                 print(") ");
 
                 if (m.getReturnType().equals(Void.TYPE)) {
-                    println("{");
+                    println(": void {");
                 } else {
                     println(": " + convertJavaToNativeType(m.getReturnType()) + " {");
                 }
 
+                println(15, "if (typeof this." + m.getName() + "Function === 'undefined' || this." + m.getName() + "Function == null) {");
+                println(20, "console.warn(\"WARNING: " + simpleName + " contains a null reference to " + m.getName() + "Function.\");");
+                println(15, "} else {");
+                print(20, "this." + m.getName() + "Function(");
+                for (int i = 0; i < m.getParameterCount(); i++) {
+                    Parameter p = m.getParameters()[i];
+                    print(p.getName());
+                    if (i < m.getParameterCount() - 1) {
+                        print(", ");
+                    }
+                }
+                println(");");
+                println(15, "}");
                 println(10, "}");
                 println();
             }
@@ -550,7 +623,7 @@ public class TypeScriptGenerator extends GeneratorBase {
 
             println(") {");
             println(15, "super(++registeredCounter);");
-            for (Method m : clazz.getDeclaredMethods()) {
+            for (Method m : methodList) {
                 println(15, "if (" + m.getName() + "Function == null) {");
                 println(20, "console.error(\"ERROR: " + simpleName + " " + m.getName() + "Function is not defined.\");");
                 println(15, "} else {");

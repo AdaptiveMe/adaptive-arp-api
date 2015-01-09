@@ -47,13 +47,34 @@ module Adaptive {
      */
      export class FileResultCallbackImpl extends BaseCallbackImpl implements IFileResultCallback {
 
-          /**
-             Constructor with callback id.
+          onErrorFunction : (error : IFileResultCallbackError) => Function;
+          onResultFunction : (storageFile : FileDescriptor) => Function;
+          onWarningFunction : (file : FileDescriptor, warning : IFileResultCallbackWarning) => Function;
 
-             @param id  The id of the callback.
+          /**
+             Constructor with anonymous handler functions for callback.
+
+             @param onErrorFunction Function receiving parameters of type: IFileResultCallbackError
+             @param onResultFunction Function receiving parameters of type: FileDescriptor
+             @param onWarningFunction Function receiving parameters of type: FileDescriptor, IFileResultCallbackWarning
           */
-          constructor(id : number) {
-               super(id);
+          constructor(onErrorFunction : (error : IFileResultCallbackError) => Function, onResultFunction : (storageFile : FileDescriptor) => Function, onWarningFunction : (file : FileDescriptor, warning : IFileResultCallbackWarning) => Function) {
+               super(++registeredCounter);
+               if (onErrorFunction == null) {
+                    console.error("ERROR: FileResultCallbackImpl onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (onResultFunction == null) {
+                    console.error("ERROR: FileResultCallbackImpl onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (onWarningFunction == null) {
+                    console.error("ERROR: FileResultCallbackImpl onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
           }
 
           /**
@@ -62,7 +83,12 @@ module Adaptive {
              @param error Error processing the request.
              @since ARP1.0
           */
-          public onError(error : IFileResultCallbackError) {
+          public onError(error : IFileResultCallbackError) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: FileResultCallbackImpl contains a null reference to onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
           }
 
           /**
@@ -71,7 +97,12 @@ module Adaptive {
              @param storageFile Reference to the resulting file.
              @since ARP1.0
           */
-          public onResult(storageFile : FileDescriptor) {
+          public onResult(storageFile : FileDescriptor) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: FileResultCallbackImpl contains a null reference to onResultFunction.");
+               } else {
+                    this.onResultFunction(storageFile);
+               }
           }
 
           /**
@@ -81,7 +112,12 @@ module Adaptive {
              @param warning Warning processing the request.
              @since ARP1.0
           */
-          public onWarning(file : FileDescriptor, warning : IFileResultCallbackWarning) {
+          public onWarning(file : FileDescriptor, warning : IFileResultCallbackWarning) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: FileResultCallbackImpl contains a null reference to onWarningFunction.");
+               } else {
+                    this.onWarningFunction(file, warning);
+               }
           }
 
      }

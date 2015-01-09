@@ -60,20 +60,20 @@ module Adaptive {
           */
           constructor(onErrorFunction : (error : IButtonListenerError) => Function, onResultFunction : (button : Button) => Function, onWarningFunction : (button : Button, warning : IButtonListenerWarning) => Function) {
                super(++registeredCounter);
-               if (onWarningFunction == null) {
-                    console.error("ERROR: ButtonListenerImpl onWarningFunction is not defined.");
+               if (onErrorFunction == null) {
+                    console.error("ERROR: ButtonListenerImpl onErrorFunction is not defined.");
                } else {
-                    this.onWarningFunction = onWarningFunction;
+                    this.onErrorFunction = onErrorFunction;
                }
                if (onResultFunction == null) {
                     console.error("ERROR: ButtonListenerImpl onResultFunction is not defined.");
                } else {
                     this.onResultFunction = onResultFunction;
                }
-               if (onErrorFunction == null) {
-                    console.error("ERROR: ButtonListenerImpl onErrorFunction is not defined.");
+               if (onWarningFunction == null) {
+                    console.error("ERROR: ButtonListenerImpl onWarningFunction is not defined.");
                } else {
-                    this.onErrorFunction = onErrorFunction;
+                    this.onWarningFunction = onWarningFunction;
                }
           }
 

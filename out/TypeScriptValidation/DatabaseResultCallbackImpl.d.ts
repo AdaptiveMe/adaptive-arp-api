@@ -43,12 +43,17 @@ declare module Adaptive {
        Auto-generated implementation of IDatabaseResultCallback specification.
     */
     class DatabaseResultCallbackImpl extends BaseCallbackImpl implements IDatabaseResultCallback {
+        onErrorFunction: (error: IDatabaseResultCallbackError) => Function;
+        onResultFunction: (database: Database) => Function;
+        onWarningFunction: (database: Database, warning: IDatabaseResultCallbackWarning) => Function;
         /**
-           Constructor with callback id.
+           Constructor with anonymous handler functions for callback.
 
-           @param id  The id of the callback.
+           @param onErrorFunction Function receiving parameters of type: IDatabaseResultCallbackError
+           @param onResultFunction Function receiving parameters of type: Database
+           @param onWarningFunction Function receiving parameters of type: Database, IDatabaseResultCallbackWarning
         */
-        constructor(id: number);
+        constructor(onErrorFunction: (error: IDatabaseResultCallbackError) => Function, onResultFunction: (database: Database) => Function, onWarningFunction: (database: Database, warning: IDatabaseResultCallbackWarning) => Function);
         /**
            Result callback for error responses
 

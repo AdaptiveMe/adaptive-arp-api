@@ -51,12 +51,32 @@ var Adaptive;
     var MessagingCallbackImpl = (function (_super) {
         __extends(MessagingCallbackImpl, _super);
         /**
-           Constructor with callback id.
+           Constructor with anonymous handler functions for callback.
 
-           @param id  The id of the callback.
+           @param onErrorFunction Function receiving parameters of type: IMessagingCallbackError
+           @param onResultFunction Function receiving parameters of type: boolean
+           @param onWarningFunction Function receiving parameters of type: boolean, IMessagingCallbackWarning
         */
-        function MessagingCallbackImpl(id) {
-            _super.call(this, id);
+        function MessagingCallbackImpl(onErrorFunction, onResultFunction, onWarningFunction) {
+            _super.call(this, ++Adaptive.registeredCounter);
+            if (onErrorFunction == null) {
+                console.error("ERROR: MessagingCallbackImpl onErrorFunction is not defined.");
+            }
+            else {
+                this.onErrorFunction = onErrorFunction;
+            }
+            if (onResultFunction == null) {
+                console.error("ERROR: MessagingCallbackImpl onResultFunction is not defined.");
+            }
+            else {
+                this.onResultFunction = onResultFunction;
+            }
+            if (onWarningFunction == null) {
+                console.error("ERROR: MessagingCallbackImpl onWarningFunction is not defined.");
+            }
+            else {
+                this.onWarningFunction = onWarningFunction;
+            }
         }
         /**
            This method is called on Error
@@ -65,6 +85,12 @@ var Adaptive;
            @since ARP1.0
         */
         MessagingCallbackImpl.prototype.onError = function (error) {
+            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                console.warn("WARNING: MessagingCallbackImpl contains a null reference to onErrorFunction.");
+            }
+            else {
+                this.onErrorFunction(error);
+            }
         };
         /**
            This method is called on Result
@@ -73,6 +99,12 @@ var Adaptive;
            @since ARP1.0
         */
         MessagingCallbackImpl.prototype.onResult = function (success) {
+            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                console.warn("WARNING: MessagingCallbackImpl contains a null reference to onResultFunction.");
+            }
+            else {
+                this.onResultFunction(success);
+            }
         };
         /**
            This method is called on Warning
@@ -82,6 +114,12 @@ var Adaptive;
            @since ARP1.0
         */
         MessagingCallbackImpl.prototype.onWarning = function (success, warning) {
+            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                console.warn("WARNING: MessagingCallbackImpl contains a null reference to onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(success, warning);
+            }
         };
         return MessagingCallbackImpl;
     })(Adaptive.BaseCallbackImpl);

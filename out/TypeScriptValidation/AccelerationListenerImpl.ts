@@ -60,20 +60,20 @@ module Adaptive {
           */
           constructor(onErrorFunction : (error : IAccelerationListenerError) => Function, onResultFunction : (acceleration : Acceleration) => Function, onWarningFunction : (acceleration : Acceleration, warning : IAccelerationListenerWarning) => Function) {
                super(++registeredCounter);
-               if (onWarningFunction == null) {
-                    console.error("ERROR: AccelerationListenerImpl onWarningFunction is not defined.");
+               if (onErrorFunction == null) {
+                    console.error("ERROR: AccelerationListenerImpl onErrorFunction is not defined.");
                } else {
-                    this.onWarningFunction = onWarningFunction;
+                    this.onErrorFunction = onErrorFunction;
                }
                if (onResultFunction == null) {
                     console.error("ERROR: AccelerationListenerImpl onResultFunction is not defined.");
                } else {
                     this.onResultFunction = onResultFunction;
                }
-               if (onErrorFunction == null) {
-                    console.error("ERROR: AccelerationListenerImpl onErrorFunction is not defined.");
+               if (onWarningFunction == null) {
+                    console.error("ERROR: AccelerationListenerImpl onWarningFunction is not defined.");
                } else {
-                    this.onErrorFunction = onErrorFunction;
+                    this.onWarningFunction = onWarningFunction;
                }
           }
 

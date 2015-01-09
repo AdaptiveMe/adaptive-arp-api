@@ -60,20 +60,20 @@ module Adaptive {
           */
           constructor(onErrorFunction : (error : ILifecycleListenerError) => Function, onResultFunction : (lifecycle : Lifecycle) => Function, onWarningFunction : (lifecycle : Lifecycle, warning : ILifecycleListenerWarning) => Function) {
                super(++registeredCounter);
-               if (onWarningFunction == null) {
-                    console.error("ERROR: LifecycleListenerImpl onWarningFunction is not defined.");
+               if (onErrorFunction == null) {
+                    console.error("ERROR: LifecycleListenerImpl onErrorFunction is not defined.");
                } else {
-                    this.onWarningFunction = onWarningFunction;
+                    this.onErrorFunction = onErrorFunction;
                }
                if (onResultFunction == null) {
                     console.error("ERROR: LifecycleListenerImpl onResultFunction is not defined.");
                } else {
                     this.onResultFunction = onResultFunction;
                }
-               if (onErrorFunction == null) {
-                    console.error("ERROR: LifecycleListenerImpl onErrorFunction is not defined.");
+               if (onWarningFunction == null) {
+                    console.error("ERROR: LifecycleListenerImpl onWarningFunction is not defined.");
                } else {
-                    this.onErrorFunction = onErrorFunction;
+                    this.onWarningFunction = onWarningFunction;
                }
           }
 

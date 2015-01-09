@@ -43,12 +43,17 @@ declare module Adaptive {
        Auto-generated implementation of ISecurityResultCallback specification.
     */
     class SecurityResultCallbackImpl extends BaseCallbackImpl implements ISecurityResultCallback {
+        onErrorFunction: (error: ISecurityResultCallbackError) => Function;
+        onResultFunction: (keyValues: SecureKeyPair[]) => Function;
+        onWarningFunction: (keyValues: SecureKeyPair[], warning: ISecurityResultCallbackWarning) => Function;
         /**
-           Constructor with callback id.
+           Constructor with anonymous handler functions for callback.
 
-           @param id  The id of the callback.
+           @param onErrorFunction Function receiving parameters of type: ISecurityResultCallbackError
+           @param onResultFunction Function receiving parameters of type: Array<SecureKeyPair>
+           @param onWarningFunction Function receiving parameters of type: Array<SecureKeyPair>, ISecurityResultCallbackWarning
         */
-        constructor(id: number);
+        constructor(onErrorFunction: (error: ISecurityResultCallbackError) => Function, onResultFunction: (keyValues: SecureKeyPair[]) => Function, onWarningFunction: (keyValues: SecureKeyPair[], warning: ISecurityResultCallbackWarning) => Function);
         /**
            No data received - error condition, not authorized .
 

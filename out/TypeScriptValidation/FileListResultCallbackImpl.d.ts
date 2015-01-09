@@ -43,12 +43,17 @@ declare module Adaptive {
        Auto-generated implementation of IFileListResultCallback specification.
     */
     class FileListResultCallbackImpl extends BaseCallbackImpl implements IFileListResultCallback {
+        onErrorFunction: (error: IFileListResultCallbackError) => Function;
+        onResultFunction: (files: FileDescriptor[]) => Function;
+        onWarningFunction: (files: FileDescriptor[], warning: IFileListResultCallbackWarning) => Function;
         /**
-           Constructor with callback id.
+           Constructor with anonymous handler functions for callback.
 
-           @param id  The id of the callback.
+           @param onErrorFunction Function receiving parameters of type: IFileListResultCallbackError
+           @param onResultFunction Function receiving parameters of type: Array<FileDescriptor>
+           @param onWarningFunction Function receiving parameters of type: Array<FileDescriptor>, IFileListResultCallbackWarning
         */
-        constructor(id: number);
+        constructor(onErrorFunction: (error: IFileListResultCallbackError) => Function, onResultFunction: (files: FileDescriptor[]) => Function, onWarningFunction: (files: FileDescriptor[], warning: IFileListResultCallbackWarning) => Function);
         /**
            On error result of a file operation.
 

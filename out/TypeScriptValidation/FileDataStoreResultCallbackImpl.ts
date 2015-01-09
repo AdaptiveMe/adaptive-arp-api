@@ -47,13 +47,34 @@ module Adaptive {
      */
      export class FileDataStoreResultCallbackImpl extends BaseCallbackImpl implements IFileDataStoreResultCallback {
 
-          /**
-             Constructor with callback id.
+          onErrorFunction : (error : IFileDataStoreResultCallbackError) => Function;
+          onResultFunction : (file : FileDescriptor) => Function;
+          onWarningFunction : (file : FileDescriptor, warning : IFileDataStoreResultCallbackWarning) => Function;
 
-             @param id  The id of the callback.
+          /**
+             Constructor with anonymous handler functions for callback.
+
+             @param onErrorFunction Function receiving parameters of type: IFileDataStoreResultCallbackError
+             @param onResultFunction Function receiving parameters of type: FileDescriptor
+             @param onWarningFunction Function receiving parameters of type: FileDescriptor, IFileDataStoreResultCallbackWarning
           */
-          constructor(id : number) {
-               super(id);
+          constructor(onErrorFunction : (error : IFileDataStoreResultCallbackError) => Function, onResultFunction : (file : FileDescriptor) => Function, onWarningFunction : (file : FileDescriptor, warning : IFileDataStoreResultCallbackWarning) => Function) {
+               super(++registeredCounter);
+               if (onErrorFunction == null) {
+                    console.error("ERROR: FileDataStoreResultCallbackImpl onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (onResultFunction == null) {
+                    console.error("ERROR: FileDataStoreResultCallbackImpl onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (onWarningFunction == null) {
+                    console.error("ERROR: FileDataStoreResultCallbackImpl onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
           }
 
           /**
@@ -62,7 +83,12 @@ module Adaptive {
              @param error Error condition encountered.
              @since ARP1.0
           */
-          public onError(error : IFileDataStoreResultCallbackError) {
+          public onError(error : IFileDataStoreResultCallbackError) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: FileDataStoreResultCallbackImpl contains a null reference to onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
           }
 
           /**
@@ -71,7 +97,12 @@ module Adaptive {
              @param file File reference to stored data.
              @since ARP1.0
           */
-          public onResult(file : FileDescriptor) {
+          public onResult(file : FileDescriptor) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: FileDataStoreResultCallbackImpl contains a null reference to onResultFunction.");
+               } else {
+                    this.onResultFunction(file);
+               }
           }
 
           /**
@@ -81,7 +112,12 @@ module Adaptive {
              @param warning Warning condition encountered.
              @since ARP1.0
           */
-          public onWarning(file : FileDescriptor, warning : IFileDataStoreResultCallbackWarning) {
+          public onWarning(file : FileDescriptor, warning : IFileDataStoreResultCallbackWarning) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: FileDataStoreResultCallbackImpl contains a null reference to onWarningFunction.");
+               } else {
+                    this.onWarningFunction(file, warning);
+               }
           }
 
      }

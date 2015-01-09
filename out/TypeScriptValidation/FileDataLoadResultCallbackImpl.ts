@@ -46,13 +46,34 @@ module Adaptive {
      */
      export class FileDataLoadResultCallbackImpl extends BaseCallbackImpl implements IFileDataLoadResultCallback {
 
-          /**
-             Constructor with callback id.
+          onErrorFunction : (error : IFileDataLoadResultCallbackError) => Function;
+          onResultFunction : (data : Array<number>) => Function;
+          onWarningFunction : (data : Array<number>, warning : IFileDataLoadResultCallbackWarning) => Function;
 
-             @param id  The id of the callback.
+          /**
+             Constructor with anonymous handler functions for callback.
+
+             @param onErrorFunction Function receiving parameters of type: IFileDataLoadResultCallbackError
+             @param onResultFunction Function receiving parameters of type: Array<number>
+             @param onWarningFunction Function receiving parameters of type: Array<number>, IFileDataLoadResultCallbackWarning
           */
-          constructor(id : number) {
-               super(id);
+          constructor(onErrorFunction : (error : IFileDataLoadResultCallbackError) => Function, onResultFunction : (data : Array<number>) => Function, onWarningFunction : (data : Array<number>, warning : IFileDataLoadResultCallbackWarning) => Function) {
+               super(++registeredCounter);
+               if (onErrorFunction == null) {
+                    console.error("ERROR: FileDataLoadResultCallbackImpl onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (onResultFunction == null) {
+                    console.error("ERROR: FileDataLoadResultCallbackImpl onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (onWarningFunction == null) {
+                    console.error("ERROR: FileDataLoadResultCallbackImpl onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
           }
 
           /**
@@ -61,7 +82,12 @@ module Adaptive {
              @param error Error condition encountered.
              @since ARP1.0
           */
-          public onError(error : IFileDataLoadResultCallbackError) {
+          public onError(error : IFileDataLoadResultCallbackError) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: FileDataLoadResultCallbackImpl contains a null reference to onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
           }
 
           /**
@@ -70,7 +96,12 @@ module Adaptive {
              @param data Data loaded.
              @since ARP1.0
           */
-          public onResult(data : Array<number>) {
+          public onResult(data : Array<number>) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: FileDataLoadResultCallbackImpl contains a null reference to onResultFunction.");
+               } else {
+                    this.onResultFunction(data);
+               }
           }
 
           /**
@@ -80,7 +111,12 @@ module Adaptive {
              @param warning Warning condition encountered.
              @since ARP1.0
           */
-          public onWarning(data : Array<number>, warning : IFileDataLoadResultCallbackWarning) {
+          public onWarning(data : Array<number>, warning : IFileDataLoadResultCallbackWarning) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: FileDataLoadResultCallbackImpl contains a null reference to onWarningFunction.");
+               } else {
+                    this.onWarningFunction(data, warning);
+               }
           }
 
      }

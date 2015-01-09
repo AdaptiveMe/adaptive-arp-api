@@ -43,12 +43,17 @@ declare module Adaptive {
        Auto-generated implementation of IServiceResultCallback specification.
     */
     class ServiceResultCallbackImpl extends BaseCallbackImpl implements IServiceResultCallback {
+        onErrorFunction: (error: IServiceResultCallbackError) => Function;
+        onResultFunction: (response: ServiceResponse) => Function;
+        onWarningFunction: (response: ServiceResponse, warning: IServiceResultCallbackWarning) => Function;
         /**
-           Constructor with callback id.
+           Constructor with anonymous handler functions for callback.
 
-           @param id  The id of the callback.
+           @param onErrorFunction Function receiving parameters of type: IServiceResultCallbackError
+           @param onResultFunction Function receiving parameters of type: ServiceResponse
+           @param onWarningFunction Function receiving parameters of type: ServiceResponse, IServiceResultCallbackWarning
         */
-        constructor(id: number);
+        constructor(onErrorFunction: (error: IServiceResultCallbackError) => Function, onResultFunction: (response: ServiceResponse) => Function, onWarningFunction: (response: ServiceResponse, warning: IServiceResultCallbackWarning) => Function);
         /**
            This method is called on Error
 

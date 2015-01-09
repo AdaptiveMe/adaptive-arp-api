@@ -43,12 +43,17 @@ declare module Adaptive {
        Auto-generated implementation of IContactResultCallback specification.
     */
     class ContactResultCallbackImpl extends BaseCallbackImpl implements IContactResultCallback {
+        onErrorFunction: (error: IContactResultCallbackError) => Function;
+        onResultFunction: (contacts: Contact[]) => Function;
+        onWarningFunction: (contacts: Contact[], warning: IContactResultCallbackWarning) => Function;
         /**
-           Constructor with callback id.
+           Constructor with anonymous handler functions for callback.
 
-           @param id  The id of the callback.
+           @param onErrorFunction Function receiving parameters of type: IContactResultCallbackError
+           @param onResultFunction Function receiving parameters of type: Array<Contact>
+           @param onWarningFunction Function receiving parameters of type: Array<Contact>, IContactResultCallbackWarning
         */
-        constructor(id: number);
+        constructor(onErrorFunction: (error: IContactResultCallbackError) => Function, onResultFunction: (contacts: Contact[]) => Function, onWarningFunction: (contacts: Contact[], warning: IContactResultCallbackWarning) => Function);
         /**
            This method is called on Error
 

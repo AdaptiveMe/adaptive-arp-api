@@ -52,12 +52,32 @@ var Adaptive;
     var ContactResultCallbackImpl = (function (_super) {
         __extends(ContactResultCallbackImpl, _super);
         /**
-           Constructor with callback id.
+           Constructor with anonymous handler functions for callback.
 
-           @param id  The id of the callback.
+           @param onErrorFunction Function receiving parameters of type: IContactResultCallbackError
+           @param onResultFunction Function receiving parameters of type: Array<Contact>
+           @param onWarningFunction Function receiving parameters of type: Array<Contact>, IContactResultCallbackWarning
         */
-        function ContactResultCallbackImpl(id) {
-            _super.call(this, id);
+        function ContactResultCallbackImpl(onErrorFunction, onResultFunction, onWarningFunction) {
+            _super.call(this, ++Adaptive.registeredCounter);
+            if (onErrorFunction == null) {
+                console.error("ERROR: ContactResultCallbackImpl onErrorFunction is not defined.");
+            }
+            else {
+                this.onErrorFunction = onErrorFunction;
+            }
+            if (onResultFunction == null) {
+                console.error("ERROR: ContactResultCallbackImpl onResultFunction is not defined.");
+            }
+            else {
+                this.onResultFunction = onResultFunction;
+            }
+            if (onWarningFunction == null) {
+                console.error("ERROR: ContactResultCallbackImpl onWarningFunction is not defined.");
+            }
+            else {
+                this.onWarningFunction = onWarningFunction;
+            }
         }
         /**
            This method is called on Error
@@ -66,6 +86,12 @@ var Adaptive;
            @since ARP1.0
         */
         ContactResultCallbackImpl.prototype.onError = function (error) {
+            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                console.warn("WARNING: ContactResultCallbackImpl contains a null reference to onErrorFunction.");
+            }
+            else {
+                this.onErrorFunction(error);
+            }
         };
         /**
            This method is called on Result
@@ -74,6 +100,12 @@ var Adaptive;
            @since ARP1.0
         */
         ContactResultCallbackImpl.prototype.onResult = function (contacts) {
+            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                console.warn("WARNING: ContactResultCallbackImpl contains a null reference to onResultFunction.");
+            }
+            else {
+                this.onResultFunction(contacts);
+            }
         };
         /**
            This method is called on Warning
@@ -83,6 +115,12 @@ var Adaptive;
            @since ARP1.0
         */
         ContactResultCallbackImpl.prototype.onWarning = function (contacts, warning) {
+            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                console.warn("WARNING: ContactResultCallbackImpl contains a null reference to onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(contacts, warning);
+            }
         };
         return ContactResultCallbackImpl;
     })(Adaptive.BaseCallbackImpl);

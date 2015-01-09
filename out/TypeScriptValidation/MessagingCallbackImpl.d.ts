@@ -42,12 +42,17 @@ declare module Adaptive {
        Auto-generated implementation of IMessagingCallback specification.
     */
     class MessagingCallbackImpl extends BaseCallbackImpl implements IMessagingCallback {
+        onErrorFunction: (error: IMessagingCallbackError) => Function;
+        onResultFunction: (success: boolean) => Function;
+        onWarningFunction: (success: boolean, warning: IMessagingCallbackWarning) => Function;
         /**
-           Constructor with callback id.
+           Constructor with anonymous handler functions for callback.
 
-           @param id  The id of the callback.
+           @param onErrorFunction Function receiving parameters of type: IMessagingCallbackError
+           @param onResultFunction Function receiving parameters of type: boolean
+           @param onWarningFunction Function receiving parameters of type: boolean, IMessagingCallbackWarning
         */
-        constructor(id: number);
+        constructor(onErrorFunction: (error: IMessagingCallbackError) => Function, onResultFunction: (success: boolean) => Function, onWarningFunction: (success: boolean, warning: IMessagingCallbackWarning) => Function);
         /**
            This method is called on Error
 

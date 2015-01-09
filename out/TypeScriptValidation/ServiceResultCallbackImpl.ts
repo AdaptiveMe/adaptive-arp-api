@@ -47,13 +47,34 @@ module Adaptive {
      */
      export class ServiceResultCallbackImpl extends BaseCallbackImpl implements IServiceResultCallback {
 
-          /**
-             Constructor with callback id.
+          onErrorFunction : (error : IServiceResultCallbackError) => Function;
+          onResultFunction : (response : ServiceResponse) => Function;
+          onWarningFunction : (response : ServiceResponse, warning : IServiceResultCallbackWarning) => Function;
 
-             @param id  The id of the callback.
+          /**
+             Constructor with anonymous handler functions for callback.
+
+             @param onErrorFunction Function receiving parameters of type: IServiceResultCallbackError
+             @param onResultFunction Function receiving parameters of type: ServiceResponse
+             @param onWarningFunction Function receiving parameters of type: ServiceResponse, IServiceResultCallbackWarning
           */
-          constructor(id : number) {
-               super(id);
+          constructor(onErrorFunction : (error : IServiceResultCallbackError) => Function, onResultFunction : (response : ServiceResponse) => Function, onWarningFunction : (response : ServiceResponse, warning : IServiceResultCallbackWarning) => Function) {
+               super(++registeredCounter);
+               if (onErrorFunction == null) {
+                    console.error("ERROR: ServiceResultCallbackImpl onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (onResultFunction == null) {
+                    console.error("ERROR: ServiceResultCallbackImpl onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (onWarningFunction == null) {
+                    console.error("ERROR: ServiceResultCallbackImpl onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
           }
 
           /**
@@ -62,7 +83,12 @@ module Adaptive {
              @param error returned by the platform
              @since ARP1.0
           */
-          public onError(error : IServiceResultCallbackError) {
+          public onError(error : IServiceResultCallbackError) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: ServiceResultCallbackImpl contains a null reference to onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
           }
 
           /**
@@ -71,7 +97,12 @@ module Adaptive {
              @param response data
              @since ARP1.0
           */
-          public onResult(response : ServiceResponse) {
+          public onResult(response : ServiceResponse) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: ServiceResultCallbackImpl contains a null reference to onResultFunction.");
+               } else {
+                    this.onResultFunction(response);
+               }
           }
 
           /**
@@ -81,7 +112,12 @@ module Adaptive {
              @param warning  returned by the platform
              @since ARP1.0
           */
-          public onWarning(response : ServiceResponse, warning : IServiceResultCallbackWarning) {
+          public onWarning(response : ServiceResponse, warning : IServiceResultCallbackWarning) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: ServiceResultCallbackImpl contains a null reference to onWarningFunction.");
+               } else {
+                    this.onWarningFunction(response, warning);
+               }
           }
 
      }

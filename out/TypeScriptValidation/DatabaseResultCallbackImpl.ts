@@ -47,13 +47,34 @@ module Adaptive {
      */
      export class DatabaseResultCallbackImpl extends BaseCallbackImpl implements IDatabaseResultCallback {
 
-          /**
-             Constructor with callback id.
+          onErrorFunction : (error : IDatabaseResultCallbackError) => Function;
+          onResultFunction : (database : Database) => Function;
+          onWarningFunction : (database : Database, warning : IDatabaseResultCallbackWarning) => Function;
 
-             @param id  The id of the callback.
+          /**
+             Constructor with anonymous handler functions for callback.
+
+             @param onErrorFunction Function receiving parameters of type: IDatabaseResultCallbackError
+             @param onResultFunction Function receiving parameters of type: Database
+             @param onWarningFunction Function receiving parameters of type: Database, IDatabaseResultCallbackWarning
           */
-          constructor(id : number) {
-               super(id);
+          constructor(onErrorFunction : (error : IDatabaseResultCallbackError) => Function, onResultFunction : (database : Database) => Function, onWarningFunction : (database : Database, warning : IDatabaseResultCallbackWarning) => Function) {
+               super(++registeredCounter);
+               if (onErrorFunction == null) {
+                    console.error("ERROR: DatabaseResultCallbackImpl onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (onResultFunction == null) {
+                    console.error("ERROR: DatabaseResultCallbackImpl onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (onWarningFunction == null) {
+                    console.error("ERROR: DatabaseResultCallbackImpl onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
           }
 
           /**
@@ -62,7 +83,12 @@ module Adaptive {
              @param error Returned error
              @since ARP1.0
           */
-          public onError(error : IDatabaseResultCallbackError) {
+          public onError(error : IDatabaseResultCallbackError) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: DatabaseResultCallbackImpl contains a null reference to onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
           }
 
           /**
@@ -71,7 +97,12 @@ module Adaptive {
              @param database Returns the database
              @since ARP1.0
           */
-          public onResult(database : Database) {
+          public onResult(database : Database) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: DatabaseResultCallbackImpl contains a null reference to onResultFunction.");
+               } else {
+                    this.onResultFunction(database);
+               }
           }
 
           /**
@@ -81,7 +112,12 @@ module Adaptive {
              @param warning  Returned Warning
              @since ARP1.0
           */
-          public onWarning(database : Database, warning : IDatabaseResultCallbackWarning) {
+          public onWarning(database : Database, warning : IDatabaseResultCallbackWarning) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: DatabaseResultCallbackImpl contains a null reference to onWarningFunction.");
+               } else {
+                    this.onWarningFunction(database, warning);
+               }
           }
 
      }

@@ -46,13 +46,34 @@ module Adaptive {
      */
      export class NetworkReachabilityCallbackImpl extends BaseCallbackImpl implements INetworkReachabilityCallback {
 
-          /**
-             Constructor with callback id.
+          onErrorFunction : (error : INetworkReachabilityCallbackError) => Function;
+          onResultFunction : (reachable : boolean) => Function;
+          onWarningFunction : (reachable : boolean, warning : INetworkReachabilityCallbackWarning) => Function;
 
-             @param id  The id of the callback.
+          /**
+             Constructor with anonymous handler functions for callback.
+
+             @param onErrorFunction Function receiving parameters of type: INetworkReachabilityCallbackError
+             @param onResultFunction Function receiving parameters of type: boolean
+             @param onWarningFunction Function receiving parameters of type: boolean, INetworkReachabilityCallbackWarning
           */
-          constructor(id : number) {
-               super(id);
+          constructor(onErrorFunction : (error : INetworkReachabilityCallbackError) => Function, onResultFunction : (reachable : boolean) => Function, onWarningFunction : (reachable : boolean, warning : INetworkReachabilityCallbackWarning) => Function) {
+               super(++registeredCounter);
+               if (onErrorFunction == null) {
+                    console.error("ERROR: NetworkReachabilityCallbackImpl onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (onResultFunction == null) {
+                    console.error("ERROR: NetworkReachabilityCallbackImpl onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (onWarningFunction == null) {
+                    console.error("ERROR: NetworkReachabilityCallbackImpl onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
           }
 
           /**
@@ -61,7 +82,12 @@ module Adaptive {
              @param error Error value
              @since ARP1.0
           */
-          public onError(error : INetworkReachabilityCallbackError) {
+          public onError(error : INetworkReachabilityCallbackError) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: NetworkReachabilityCallbackImpl contains a null reference to onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
           }
 
           /**
@@ -70,7 +96,12 @@ module Adaptive {
              @param reachable Indicates if the host is reachable
              @since ARP1.0
           */
-          public onResult(reachable : boolean) {
+          public onResult(reachable : boolean) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: NetworkReachabilityCallbackImpl contains a null reference to onResultFunction.");
+               } else {
+                    this.onResultFunction(reachable);
+               }
           }
 
           /**
@@ -80,7 +111,12 @@ module Adaptive {
              @param warning   Warning value
              @since ARP1.0
           */
-          public onWarning(reachable : boolean, warning : INetworkReachabilityCallbackWarning) {
+          public onWarning(reachable : boolean, warning : INetworkReachabilityCallbackWarning) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: NetworkReachabilityCallbackImpl contains a null reference to onWarningFunction.");
+               } else {
+                    this.onWarningFunction(reachable, warning);
+               }
           }
 
      }

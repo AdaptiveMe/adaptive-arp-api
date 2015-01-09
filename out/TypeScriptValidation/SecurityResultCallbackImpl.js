@@ -52,12 +52,32 @@ var Adaptive;
     var SecurityResultCallbackImpl = (function (_super) {
         __extends(SecurityResultCallbackImpl, _super);
         /**
-           Constructor with callback id.
+           Constructor with anonymous handler functions for callback.
 
-           @param id  The id of the callback.
+           @param onErrorFunction Function receiving parameters of type: ISecurityResultCallbackError
+           @param onResultFunction Function receiving parameters of type: Array<SecureKeyPair>
+           @param onWarningFunction Function receiving parameters of type: Array<SecureKeyPair>, ISecurityResultCallbackWarning
         */
-        function SecurityResultCallbackImpl(id) {
-            _super.call(this, id);
+        function SecurityResultCallbackImpl(onErrorFunction, onResultFunction, onWarningFunction) {
+            _super.call(this, ++Adaptive.registeredCounter);
+            if (onErrorFunction == null) {
+                console.error("ERROR: SecurityResultCallbackImpl onErrorFunction is not defined.");
+            }
+            else {
+                this.onErrorFunction = onErrorFunction;
+            }
+            if (onResultFunction == null) {
+                console.error("ERROR: SecurityResultCallbackImpl onResultFunction is not defined.");
+            }
+            else {
+                this.onResultFunction = onResultFunction;
+            }
+            if (onWarningFunction == null) {
+                console.error("ERROR: SecurityResultCallbackImpl onWarningFunction is not defined.");
+            }
+            else {
+                this.onWarningFunction = onWarningFunction;
+            }
         }
         /**
            No data received - error condition, not authorized .
@@ -66,6 +86,12 @@ var Adaptive;
            @since ARP1.0
         */
         SecurityResultCallbackImpl.prototype.onError = function (error) {
+            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                console.warn("WARNING: SecurityResultCallbackImpl contains a null reference to onErrorFunction.");
+            }
+            else {
+                this.onErrorFunction(error);
+            }
         };
         /**
            Correct data received.
@@ -74,6 +100,12 @@ var Adaptive;
            @since ARP1.0
         */
         SecurityResultCallbackImpl.prototype.onResult = function (keyValues) {
+            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                console.warn("WARNING: SecurityResultCallbackImpl contains a null reference to onResultFunction.");
+            }
+            else {
+                this.onResultFunction(keyValues);
+            }
         };
         /**
            Data received with warning - ie Found entries with existing key and values have been overriden
@@ -83,6 +115,12 @@ var Adaptive;
            @since ARP1.0
         */
         SecurityResultCallbackImpl.prototype.onWarning = function (keyValues, warning) {
+            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                console.warn("WARNING: SecurityResultCallbackImpl contains a null reference to onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(keyValues, warning);
+            }
         };
         return SecurityResultCallbackImpl;
     })(Adaptive.BaseCallbackImpl);

@@ -46,13 +46,34 @@ module Adaptive {
      */
      export class MessagingCallbackImpl extends BaseCallbackImpl implements IMessagingCallback {
 
-          /**
-             Constructor with callback id.
+          onErrorFunction : (error : IMessagingCallbackError) => Function;
+          onResultFunction : (success : boolean) => Function;
+          onWarningFunction : (success : boolean, warning : IMessagingCallbackWarning) => Function;
 
-             @param id  The id of the callback.
+          /**
+             Constructor with anonymous handler functions for callback.
+
+             @param onErrorFunction Function receiving parameters of type: IMessagingCallbackError
+             @param onResultFunction Function receiving parameters of type: boolean
+             @param onWarningFunction Function receiving parameters of type: boolean, IMessagingCallbackWarning
           */
-          constructor(id : number) {
-               super(id);
+          constructor(onErrorFunction : (error : IMessagingCallbackError) => Function, onResultFunction : (success : boolean) => Function, onWarningFunction : (success : boolean, warning : IMessagingCallbackWarning) => Function) {
+               super(++registeredCounter);
+               if (onErrorFunction == null) {
+                    console.error("ERROR: MessagingCallbackImpl onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (onResultFunction == null) {
+                    console.error("ERROR: MessagingCallbackImpl onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (onWarningFunction == null) {
+                    console.error("ERROR: MessagingCallbackImpl onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
           }
 
           /**
@@ -61,7 +82,12 @@ module Adaptive {
              @param error returned by the platform
              @since ARP1.0
           */
-          public onError(error : IMessagingCallbackError) {
+          public onError(error : IMessagingCallbackError) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: MessagingCallbackImpl contains a null reference to onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
           }
 
           /**
@@ -70,7 +96,12 @@ module Adaptive {
              @param success true if sent;false otherwise
              @since ARP1.0
           */
-          public onResult(success : boolean) {
+          public onResult(success : boolean) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: MessagingCallbackImpl contains a null reference to onResultFunction.");
+               } else {
+                    this.onResultFunction(success);
+               }
           }
 
           /**
@@ -80,7 +111,12 @@ module Adaptive {
              @param warning returned by the platform
              @since ARP1.0
           */
-          public onWarning(success : boolean, warning : IMessagingCallbackWarning) {
+          public onWarning(success : boolean, warning : IMessagingCallbackWarning) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: MessagingCallbackImpl contains a null reference to onWarningFunction.");
+               } else {
+                    this.onWarningFunction(success, warning);
+               }
           }
 
      }

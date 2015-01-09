@@ -47,13 +47,34 @@ module Adaptive {
      */
      export class ContactResultCallbackImpl extends BaseCallbackImpl implements IContactResultCallback {
 
-          /**
-             Constructor with callback id.
+          onErrorFunction : (error : IContactResultCallbackError) => Function;
+          onResultFunction : (contacts : Array<Contact>) => Function;
+          onWarningFunction : (contacts : Array<Contact>, warning : IContactResultCallbackWarning) => Function;
 
-             @param id  The id of the callback.
+          /**
+             Constructor with anonymous handler functions for callback.
+
+             @param onErrorFunction Function receiving parameters of type: IContactResultCallbackError
+             @param onResultFunction Function receiving parameters of type: Array<Contact>
+             @param onWarningFunction Function receiving parameters of type: Array<Contact>, IContactResultCallbackWarning
           */
-          constructor(id : number) {
-               super(id);
+          constructor(onErrorFunction : (error : IContactResultCallbackError) => Function, onResultFunction : (contacts : Array<Contact>) => Function, onWarningFunction : (contacts : Array<Contact>, warning : IContactResultCallbackWarning) => Function) {
+               super(++registeredCounter);
+               if (onErrorFunction == null) {
+                    console.error("ERROR: ContactResultCallbackImpl onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (onResultFunction == null) {
+                    console.error("ERROR: ContactResultCallbackImpl onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (onWarningFunction == null) {
+                    console.error("ERROR: ContactResultCallbackImpl onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
           }
 
           /**
@@ -62,7 +83,12 @@ module Adaptive {
              @param error returned by the platform
              @since ARP1.0
           */
-          public onError(error : IContactResultCallbackError) {
+          public onError(error : IContactResultCallbackError) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: ContactResultCallbackImpl contains a null reference to onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
           }
 
           /**
@@ -71,7 +97,12 @@ module Adaptive {
              @param contacts returned by the platform
              @since ARP1.0
           */
-          public onResult(contacts : Array<Contact>) {
+          public onResult(contacts : Array<Contact>) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: ContactResultCallbackImpl contains a null reference to onResultFunction.");
+               } else {
+                    this.onResultFunction(contacts);
+               }
           }
 
           /**
@@ -81,7 +112,12 @@ module Adaptive {
              @param warning  returned by the platform
              @since ARP1.0
           */
-          public onWarning(contacts : Array<Contact>, warning : IContactResultCallbackWarning) {
+          public onWarning(contacts : Array<Contact>, warning : IContactResultCallbackWarning) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: ContactResultCallbackImpl contains a null reference to onWarningFunction.");
+               } else {
+                    this.onWarningFunction(contacts, warning);
+               }
           }
 
      }

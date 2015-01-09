@@ -47,13 +47,34 @@ module Adaptive {
      */
      export class DatabaseTableResultCallbackImpl extends BaseCallbackImpl implements IDatabaseTableResultCallback {
 
-          /**
-             Constructor with callback id.
+          onErrorFunction : (error : IDatabaseTableResultCallbackError) => Function;
+          onResultFunction : (databaseTable : DatabaseTable) => Function;
+          onWarningFunction : (databaseTable : DatabaseTable, warning : IDatabaseTableResultCallbackWarning) => Function;
 
-             @param id  The id of the callback.
+          /**
+             Constructor with anonymous handler functions for callback.
+
+             @param onErrorFunction Function receiving parameters of type: IDatabaseTableResultCallbackError
+             @param onResultFunction Function receiving parameters of type: DatabaseTable
+             @param onWarningFunction Function receiving parameters of type: DatabaseTable, IDatabaseTableResultCallbackWarning
           */
-          constructor(id : number) {
-               super(id);
+          constructor(onErrorFunction : (error : IDatabaseTableResultCallbackError) => Function, onResultFunction : (databaseTable : DatabaseTable) => Function, onWarningFunction : (databaseTable : DatabaseTable, warning : IDatabaseTableResultCallbackWarning) => Function) {
+               super(++registeredCounter);
+               if (onErrorFunction == null) {
+                    console.error("ERROR: DatabaseTableResultCallbackImpl onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (onResultFunction == null) {
+                    console.error("ERROR: DatabaseTableResultCallbackImpl onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (onWarningFunction == null) {
+                    console.error("ERROR: DatabaseTableResultCallbackImpl onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
           }
 
           /**
@@ -62,7 +83,12 @@ module Adaptive {
              @param error Returned error
              @since ARP1.0
           */
-          public onError(error : IDatabaseTableResultCallbackError) {
+          public onError(error : IDatabaseTableResultCallbackError) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: DatabaseTableResultCallbackImpl contains a null reference to onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
           }
 
           /**
@@ -71,7 +97,12 @@ module Adaptive {
              @param databaseTable Returns the databaseTable
              @since ARP1.0
           */
-          public onResult(databaseTable : DatabaseTable) {
+          public onResult(databaseTable : DatabaseTable) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: DatabaseTableResultCallbackImpl contains a null reference to onResultFunction.");
+               } else {
+                    this.onResultFunction(databaseTable);
+               }
           }
 
           /**
@@ -81,7 +112,12 @@ module Adaptive {
              @param warning       Returned Warning
              @since ARP1.0
           */
-          public onWarning(databaseTable : DatabaseTable, warning : IDatabaseTableResultCallbackWarning) {
+          public onWarning(databaseTable : DatabaseTable, warning : IDatabaseTableResultCallbackWarning) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: DatabaseTableResultCallbackImpl contains a null reference to onWarningFunction.");
+               } else {
+                    this.onWarningFunction(databaseTable, warning);
+               }
           }
 
      }

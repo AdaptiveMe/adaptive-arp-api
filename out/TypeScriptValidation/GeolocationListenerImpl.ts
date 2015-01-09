@@ -60,20 +60,20 @@ module Adaptive {
           */
           constructor(onErrorFunction : (error : IGeolocationListenerError) => Function, onResultFunction : (geolocation : Geolocation) => Function, onWarningFunction : (geolocation : Geolocation, warning : IGeolocationListenerWarning) => Function) {
                super(++registeredCounter);
-               if (onWarningFunction == null) {
-                    console.error("ERROR: GeolocationListenerImpl onWarningFunction is not defined.");
+               if (onErrorFunction == null) {
+                    console.error("ERROR: GeolocationListenerImpl onErrorFunction is not defined.");
                } else {
-                    this.onWarningFunction = onWarningFunction;
+                    this.onErrorFunction = onErrorFunction;
                }
                if (onResultFunction == null) {
                     console.error("ERROR: GeolocationListenerImpl onResultFunction is not defined.");
                } else {
                     this.onResultFunction = onResultFunction;
                }
-               if (onErrorFunction == null) {
-                    console.error("ERROR: GeolocationListenerImpl onErrorFunction is not defined.");
+               if (onWarningFunction == null) {
+                    console.error("ERROR: GeolocationListenerImpl onWarningFunction is not defined.");
                } else {
-                    this.onErrorFunction = onErrorFunction;
+                    this.onWarningFunction = onWarningFunction;
                }
           }
 
