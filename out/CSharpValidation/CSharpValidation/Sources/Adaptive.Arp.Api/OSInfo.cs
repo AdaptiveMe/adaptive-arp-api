@@ -49,7 +49,7 @@ namespace Adaptive.Arp.Api
           /**
              The name of the operating system.
           */
-          public string Name { get; set; }
+          public IOSType Name { get; set; }
           /**
              The vendor of the operating system.
           */
@@ -75,7 +75,7 @@ namespace Adaptive.Arp.Api
              @param Vendor  of the OS.
              @since ARP1.0
           */
-          public OSInfo(string Name, string Version, string Vendor) : base () {
+          public OSInfo(IOSType Name, string Version, string Vendor) : base () {
                this.Name = Name;
                this.Version = Version;
                this.Vendor = Vendor;
@@ -87,7 +87,7 @@ namespace Adaptive.Arp.Api
              @return OS name.
              @since ARP1.0
           */
-          public string GetName() {
+          public IOSType GetName() {
                return this.Name;
           }
 
@@ -96,7 +96,7 @@ namespace Adaptive.Arp.Api
 
              @param name The name of the operating system.
           */
-          public void SetName(string Name) {
+          public void SetName(IOSType Name) {
                this.Name = Name;
           }
 

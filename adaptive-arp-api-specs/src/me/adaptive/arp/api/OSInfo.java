@@ -51,7 +51,7 @@ public class OSInfo extends APIBean {
     /**
      * The name of the operating system.
      */
-    private String name;
+    private IOS.Type name;
 
     /**
      * The version/identifier of the operating system.
@@ -79,7 +79,7 @@ public class OSInfo extends APIBean {
      * @param vendor  of the OS.
      * @since ARP1.0
      */
-    public OSInfo(String name, String version, String vendor) {
+    public OSInfo(IOS.Type name, String version, String vendor) {
         this.name = name;
         this.version = version;
         this.vendor = vendor;
@@ -91,7 +91,7 @@ public class OSInfo extends APIBean {
      * @return OS name.
      * @since ARP1.0
      */
-    public String getName() {
+    public IOS.Type getName() {
         return name;
     }
 

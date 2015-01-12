@@ -61,7 +61,7 @@ Release:
         @param vendor  of the OS.
         @since ARP1.0
      */
-     - (id) initWithNameVersionVendor:(NSString*)name version:(NSString*)version vendor:(NSString*)vendor {
+     - (id) initWithNameVersionVendor:(IOSType*)name version:(NSString*)version vendor:(NSString*)vendor {
           self = [self init];
           if (self) {
                [self setName:name];

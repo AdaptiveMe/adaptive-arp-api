@@ -33,6 +33,7 @@ Release:
 */
 
 ///<reference path="APIBean.ts"/>
+///<reference path="IOSType.ts"/>
 
 module Adaptive {
 
@@ -48,7 +49,7 @@ module Adaptive {
           /**
              The name of the operating system.
           */
-          name : string;
+          name : IOSType;
           /**
              The vendor of the operating system.
           */
@@ -65,7 +66,7 @@ module Adaptive {
              @param vendor  of the OS.
              @since ARP1.0
           */
-          constructor(name: string, version: string, vendor: string) {
+          constructor(name: IOSType, version: string, vendor: string) {
                super();
                this.name = name;
                this.version = version;
@@ -78,7 +79,7 @@ module Adaptive {
              @return OS name.
              @since ARP1.0
           */
-          getName() : string {
+          getName() : IOSType {
                return this.name;
           }
 
@@ -87,7 +88,7 @@ module Adaptive {
 
              @param name The name of the operating system.
           */
-          setName(name: string) {
+          setName(name: IOSType) {
                this.name = name;
           }
 

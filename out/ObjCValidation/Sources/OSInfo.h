@@ -47,7 +47,22 @@ Represents the basic information about the operating system.
      /**
         The name of the operating system.
      */
-     @property NSString *name;
+     typedef NS_OPTIONS(NSUInteger, IOSType) {
+          IOSType_iOS = 0,
+          IOSType_OSX = 1,
+          IOSType_Windows = 2,
+          IOSType_WindowsPhone = 3,
+          IOSType_Android = 4,
+          IOSType_Linux = 5,
+          IOSType_Blackberry = 6,
+          IOSType_Tizen = 7,
+          IOSType_FirefoxOS = 8,
+          IOSType_Chromium = 9,
+          IOSType_Unspecified = 10,
+          IOSType_Unknown = 11
+     };
+
+     @property IOSType *name;
      /**
         The vendor of the operating system.
      */
@@ -72,7 +87,7 @@ Represents the basic information about the operating system.
         @param vendor  of the OS.
         @since ARP1.0
      */
-     - (id) initWithNameVersionVendor:(NSString*)name version:(NSString*)version vendor:(NSString*)vendor;
+     - (id) initWithNameVersionVendor:(IOSType*)name version:(NSString*)version vendor:(NSString*)vendor;
 
 
 @end

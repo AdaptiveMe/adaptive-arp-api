@@ -4825,7 +4825,7 @@ Possible lifecycle States:
           /**
              The name of the operating system.
           */
-          name : string;
+          name : IOSType;
           /**
              The vendor of the operating system.
           */
@@ -4842,7 +4842,7 @@ Possible lifecycle States:
              @param vendor  of the OS.
              @since ARP1.0
           */
-          constructor(name: string, version: string, vendor: string) {
+          constructor(name: IOSType, version: string, vendor: string) {
                super();
                this.name = name;
                this.version = version;
@@ -4854,7 +4854,7 @@ Possible lifecycle States:
              @return OS name.
              @since ARP1.0
           */
-          getName() : string {
+          getName() : IOSType {
                return this.name;
           }
 
@@ -4863,7 +4863,7 @@ Possible lifecycle States:
 
              @param name The name of the operating system.
           */
-          setName(name: string) {
+          setName(name: IOSType) {
                this.name = name;
           }
 
@@ -9135,6 +9135,28 @@ listener and subsequently, the listener will be deactivated and removed from the
           static IpAddressNotAssigned = new INetworkStatusListenerWarning("IpAddressNotAssigned");
           static IpAddressChanged = new INetworkStatusListenerWarning("IpAddressChanged");
           static Unknown = new INetworkStatusListenerWarning("Unknown");
+
+     }
+     /**
+        Enumeration IOSType
+     */
+     export class IOSType {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static iOS = new IOSType("iOS");
+          static OSX = new IOSType("OSX");
+          static Windows = new IOSType("Windows");
+          static WindowsPhone = new IOSType("WindowsPhone");
+          static Android = new IOSType("Android");
+          static Linux = new IOSType("Linux");
+          static Blackberry = new IOSType("Blackberry");
+          static Tizen = new IOSType("Tizen");
+          static FirefoxOS = new IOSType("FirefoxOS");
+          static Chromium = new IOSType("Chromium");
+          static Unspecified = new IOSType("Unspecified");
+          static Unknown = new IOSType("Unknown");
 
      }
      /**
