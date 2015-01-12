@@ -947,7 +947,7 @@ public class JavaGenerator extends GeneratorBase {
                     }
                 }
                 println(") {");
-                print(10, "AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript(\"handle" + m.getDeclaringClass().getSimpleName().substring(1) + m.getName().substring(2) + "( '\"+getId()+\"', ");
+                print(10, "AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript(\"Adaptive.handle" + m.getDeclaringClass().getSimpleName().substring(1) + m.getName().substring(2) + "( '\"+getId()+\"', ");
                 for (int i = 0; i < m.getParameterCount(); i++) {
                     Parameter p = m.getParameters()[i];
                     print("JSON.parse(\" + this.gson.toJson(" + p.getName() + ") +\")");
@@ -1091,7 +1091,7 @@ public class JavaGenerator extends GeneratorBase {
                 }
                 println(") {");
 
-                print(10, "AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript(\"handle" + m.getDeclaringClass().getSimpleName().substring(1) + m.getName().substring(2) + "( '\"+getId()+\"', ");
+                print(10, "AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript(\"Adaptive.handle" + m.getDeclaringClass().getSimpleName().substring(1) + m.getName().substring(2) + "( '\"+getId()+\"', ");
                 for (int i = 0; i < m.getParameterCount(); i++) {
                     Parameter p = m.getParameters()[i];
                     print("JSON.parse(\" + this.gson.toJson(" + p.getName() + ") +\")");

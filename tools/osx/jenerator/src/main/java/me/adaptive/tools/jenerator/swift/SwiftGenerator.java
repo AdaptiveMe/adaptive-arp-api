@@ -1191,7 +1191,7 @@ public class SwiftGenerator extends GeneratorBase {
                         println(8, "responseJS.appendString(\", \")");
                     }
                 }
-                println(8, "AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript(\"handle" + m.getDeclaringClass().getSimpleName().substring(1) + m.getName().substring(2) + "( \\\"\\(getId())\\\", \\(responseJS as String))\")");
+                println(8, "AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript(\"Adaptive.handle" + m.getDeclaringClass().getSimpleName().substring(1) + m.getName().substring(2) + "( \\\"\\(getId())\\\", \\(responseJS as String))\")");
                 println(4, "}");
                 println();
             }

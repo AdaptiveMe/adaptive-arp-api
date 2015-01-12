@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2b62424-c85f-4dbf-8462-3858f1398c98" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.d.ts" afterPath="$PROJECT_DIR$/Adaptive.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.js.map" afterPath="$PROJECT_DIR$/Adaptive.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.js" afterPath="$PROJECT_DIR$/Adaptive.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.ts" afterPath="$PROJECT_DIR$/Adaptive.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/typescript/TypeScriptGenerator.java" afterPath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/typescript/TypeScriptGenerator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/join.sh" afterPath="$PROJECT_DIR$/join.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TypeScriptValidation.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,88 +26,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AppRegistryBridge.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AppRegistryBridge.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="15604" max-vertical-offset="16860">
-              <caret line="274" column="60" selection-start-line="274" selection-start-column="60" selection-end-line="274" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Adaptive.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Adaptive.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="141304" max-vertical-offset="142560">
-              <caret line="9498" column="36" selection-start-line="9498" selection-start-column="36" selection-end-line="9498" selection-end-column="36" />
-              <folding>
-                <marker date="1421070629000" expanded="true" signature="335674:335771" placeholder="/**------------------------------------| Engineered with ♥ in Barcelona, Catalonia |-------------------------------------- ...*/" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NetworkReachabilityBridge.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NetworkReachabilityBridge.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="49" max-vertical-offset="1305">
-              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaseApplicationBridge.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BaseApplicationBridge.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1155">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding>
-                <marker date="1421069920000" expanded="true" signature="1468:2110" placeholder="..." />
-                <marker date="1421069920000" expanded="true" signature="1664:2108" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaseCommunicationBridge.d.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BaseCommunicationBridge.d.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="975">
-              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaseCommerceBridge.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BaseCommerceBridge.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="1155">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaseCommunicationBridge.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BaseCommunicationBridge.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="243" max-vertical-offset="1155">
-              <caret line="46" column="12" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Adaptive.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Adaptive.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.42675158" vertical-offset="188404" max-vertical-offset="189660">
-              <caret line="12596" column="78" selection-start-line="12596" selection-start-column="78" selection-end-line="12596" selection-end-column="78" />
+            <state vertical-scroll-proportion="0.558121" vertical-offset="188404" max-vertical-offset="189660">
+              <caret line="12607" column="40" selection-start-line="12607" selection-start-column="40" selection-end-line="12607" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AccelerationListener.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AccelerationListener.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="2520">
+              <caret line="56" column="52" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -378,14 +305,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/AppRegistryBridge.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1785">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/IAppRegistry.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="615" max-vertical-offset="9255">
@@ -641,14 +560,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AccelerationListener.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.11942675" vertical-offset="150" max-vertical-offset="2520">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/IAppRegistry.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="5.995223" vertical-offset="885" max-vertical-offset="9255">
@@ -661,14 +572,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6210191" vertical-offset="0" max-vertical-offset="1256">
           <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AccelerationBridge.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.522293" vertical-offset="139" max-vertical-offset="1395">
-          <caret line="53" column="25" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -710,7 +613,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="975">
           <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -744,18 +647,18 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1155">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding>
-            <marker date="1421069920000" expanded="true" signature="1468:2110" placeholder="..." />
-            <marker date="1421069920000" expanded="true" signature="1664:2108" placeholder="..." />
+            <marker date="1421071345000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1421071345000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Adaptive.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="141304" max-vertical-offset="142560">
-          <caret line="9498" column="36" selection-start-line="9498" selection-start-column="36" selection-end-line="9498" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="141364" max-vertical-offset="142620">
+          <caret line="9502" column="36" selection-start-line="9502" selection-start-column="36" selection-end-line="9502" selection-end-column="36" />
           <folding>
-            <marker date="1421070629000" expanded="true" signature="335674:335771" placeholder="/**------------------------------------| Engineered with ♥ in Barcelona, Catalonia |-------------------------------------- ...*/" />
+            <marker date="1421071358000" expanded="true" signature="-1:-1" placeholder="/**------------------------------------| Engineered with ♥ in Barcelona, Catalonia |-------------------------------------- ...*/" />
           </folding>
         </state>
       </provider>
@@ -768,10 +671,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/AccelerationBridge.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1256">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AccelerationBridge.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="139" max-vertical-offset="1395">
+          <caret line="53" column="25" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AccelerationListener.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="2520">
+          <caret line="56" column="52" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Adaptive.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42675158" vertical-offset="188404" max-vertical-offset="189660">
-          <caret line="12596" column="78" selection-start-line="12596" selection-start-column="78" selection-end-line="12596" selection-end-column="78" />
+        <state vertical-scroll-proportion="0.558121" vertical-offset="188404" max-vertical-offset="189660">
+          <caret line="12607" column="40" selection-start-line="12607" selection-start-column="40" selection-end-line="12607" selection-end-column="40" />
           <folding />
         </state>
       </provider>
