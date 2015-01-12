@@ -118,12 +118,13 @@ public class TypeScriptGenerator extends GeneratorBase {
     protected void createHandlerImplementation(String simpleName, Class clazz, JavaClass javaClass) {
         if (!clazz.getSimpleName().startsWith("IAppContext")) {
             List<String> referenceList = new ArrayList<>();
+            List<Class> serviceClasses = new ArrayList<>();
 
             referenceList.add("CommonUtil");
 
-            if (clazz.getInterfaces().length>0 && clazz.getInterfaces()[0].getSimpleName().substring(1).startsWith("Base")) {
+            if (clazz.getInterfaces().length > 0 && clazz.getInterfaces()[0].getSimpleName().substring(1).startsWith("Base")) {
                 if (!simpleName.startsWith(clazz.getInterfaces()[0].getSimpleName().substring(1))) {
-                    referenceList.add(clazz.getInterfaces()[0].getSimpleName().substring(1)+"Bridge");
+                    referenceList.add(clazz.getInterfaces()[0].getSimpleName().substring(1) + "Bridge");
                 }
             }
             if (!clazz.isEnum()) {
@@ -193,7 +194,7 @@ public class TypeScriptGenerator extends GeneratorBase {
 
                 }
 
-                List<Class> serviceClasses = new ArrayList<>();
+
                 if (clazz.getSimpleName().equals("IAppRegistry")) {
 
                     // getters for all service classes!
@@ -223,6 +224,7 @@ public class TypeScriptGenerator extends GeneratorBase {
                     });
                     for (Class serviceClass : serviceClasses) {
                         referenceList.add(serviceClass.getSimpleName());
+                        referenceList.add(serviceClass.getSimpleName().substring(1)+"Bridge");
                     }
                     referenceList.add("IAdaptiveRPGroup");
                     referenceList.add(clazz.getSimpleName());
@@ -255,9 +257,49 @@ public class TypeScriptGenerator extends GeneratorBase {
             }
             endCommentGlobal(5);
             if (clazz.getSimpleName().startsWith("IBase") || clazz.getSimpleName().startsWith("IAppRegistry")) {
-                printlnGlobal(5, "export class " + simpleName + " implements " + clazz.getSimpleName() + " {");
+
+                if (clazz.getSimpleName().startsWith("IAppRegistry")) {
+                    printlnGlobal(5, "export class " + simpleName + " implements " + clazz.getSimpleName() + " {");
+                    printlnGlobal();
+                    startCommentGlobal(10);
+                    printlnGlobal(13, "Singleton instance of AppRegistry.");
+                    endCommentGlobal(10);
+                    printlnGlobal(10, "private static instance : IAppRegistry = null;");
+                    printlnGlobal();
+                    printlnGlobal(10, "public static getInstance() : IAppRegistry {");
+                    printlnGlobal(15, "if (AppRegistryBridge.instance === null) {");
+                    printlnGlobal(20, "AppRegistryBridge.instance = new AppRegistryBridge();");
+                    printlnGlobal(15, "}");
+                    printlnGlobal(15, "return AppRegistryBridge.instance;");
+                    printlnGlobal(10, "}");
+                    printlnGlobal();
+                    startCommentGlobal(10);
+                    printlnGlobal(13, "Singleton instances of Bridges.");
+                    endCommentGlobal(10);
+                    for (Class c : serviceClasses) {
+                        printlnGlobal(10, "private static instance"+c.getSimpleName().substring(1)+" : "+c.getSimpleName()+" = null;");
+                    }
+                    printlnGlobal();
+
+                    for (Class c : serviceClasses) {
+                        startCommentGlobal(10);
+                        printlnGlobal(13, "Obtain a reference to the " + c.getSimpleName() + " bridge.");
+                        printlnGlobal();
+                        printlnGlobal(13, "@return "+c.getSimpleName()+" bridge instance.");
+                        endCommentGlobal(10);
+                        printlnGlobal(10, "public get" + c.getSimpleName().substring(1) + "Bridge() : " + c.getSimpleName() + " {");
+                        printlnGlobal(15, "if (AppRegistryBridge.instance"+c.getSimpleName().substring(1)+" === null) {");
+                        printlnGlobal(20, "AppRegistryBridge.instance"+ c.getSimpleName().substring(1) +"= new "+c.getSimpleName().substring(1)+"Bridge();");
+                        printlnGlobal(15, "}");
+                        printlnGlobal(15, "return AppRegistryBridge.instance"+ c.getSimpleName().substring(1)+";");
+                        printlnGlobal(10, "}");
+                        printlnGlobal();
+                    }
+                } else {
+                    printlnGlobal(5, "class " + simpleName + " implements " + clazz.getSimpleName() + " {");
+                }
             } else {
-                printlnGlobal(5, "export class " + simpleName + " extends "+clazz.getInterfaces()[0].getSimpleName().substring(1)+"Bridge implements " + clazz.getSimpleName() + " {");
+                printlnGlobal(5, "class " + simpleName + " extends " + clazz.getInterfaces()[0].getSimpleName().substring(1) + "Bridge implements " + clazz.getSimpleName() + " {");
             }
 
             List<Method> methodList = new ArrayList<>();

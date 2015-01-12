@@ -1,6 +1,8 @@
+/// <reference path="BaseUtilBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseUtil.d.ts" />
+/// <reference path="ILogging.d.ts" />
 /// <reference path="ILoggingLogLevel.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
@@ -36,4 +38,33 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Managing the Logging operations
+
+       @author Ferran Vila Conesa
+       @since ARP1.0
+    */
+    class LoggingBridge extends BaseUtilBridge implements ILogging {
+        /**
+           Default constructor.
+        */
+        constructor();
+        /**
+           Logs the given message, with the given log level if specified, to the standard platform/environment.
+
+           @param level   Log level
+           @param message Message to be logged
+           @since ARP1.0
+        */
+        log_level_message(level: ILoggingLogLevel, message: string): void;
+        /**
+           Logs the given message, with the given log level if specified, to the standard platform/environment.
+
+           @param level    Log level
+           @param category Category/tag name to identify/filter the log.
+           @param message  Message to be logged
+           @since ARP1.0
+        */
+        log_level_category_message(level: ILoggingLogLevel, category: string, message: string): void;
+    }
 }
