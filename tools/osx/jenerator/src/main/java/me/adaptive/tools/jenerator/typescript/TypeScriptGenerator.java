@@ -1318,6 +1318,22 @@ public class TypeScriptGenerator extends GeneratorBase {
 
     @Override
     protected void startGeneration() {
+        if (currentFileSF == null) {
+            currentFileSF = new File(getOutputRootDirectory(), "Adaptive.ts");
+            if (currentFileSF.exists()) {
+                currentFileSF.delete();
+            }
+            try {
+                indentPrintStreamSF = new IndentPrintStream(new FileOutputStream(currentFileSF));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            indentPrintStreamSF.println("/**");
+            indentPrintStreamSF.println(super.getSourceHeader());
+            indentPrintStreamSF.println("*/");
+            indentPrintStreamSF.println("module Adaptive {");
+            indentPrintStreamSF.println();
+        }
         /*
             Generate utility classes.
         */
