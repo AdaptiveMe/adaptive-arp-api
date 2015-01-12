@@ -6406,7 +6406,7 @@ Possible lifecycle States:
           }
 
      }
-     export class BaseListenerImpl implements IBaseListener {
+     export class BaseListener implements IBaseListener {
 
           /**
              Unique id of listener.
@@ -6478,7 +6478,7 @@ Possible lifecycle States:
           }
      }
 
-     export class AccelerationListenerImpl extends BaseListenerImpl implements IAccelerationListener {
+     export class AccelerationListener extends BaseListener implements IAccelerationListener {
 
           onErrorFunction : (error : IAccelerationListenerError) => Function;
           onResultFunction : (acceleration : Acceleration) => Function;
@@ -6494,17 +6494,17 @@ Possible lifecycle States:
           constructor(onErrorFunction : (error : IAccelerationListenerError) => Function, onResultFunction : (acceleration : Acceleration) => Function, onWarningFunction : (acceleration : Acceleration, warning : IAccelerationListenerWarning) => Function) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
-                    console.error("ERROR: AccelerationListenerImpl onErrorFunction is not defined.");
+                    console.error("ERROR: AccelerationListener onErrorFunction is not defined.");
                } else {
                     this.onErrorFunction = onErrorFunction;
                }
                if (onResultFunction == null) {
-                    console.error("ERROR: AccelerationListenerImpl onResultFunction is not defined.");
+                    console.error("ERROR: AccelerationListener onResultFunction is not defined.");
                } else {
                     this.onResultFunction = onResultFunction;
                }
                if (onWarningFunction == null) {
-                    console.error("ERROR: AccelerationListenerImpl onWarningFunction is not defined.");
+                    console.error("ERROR: AccelerationListener onWarningFunction is not defined.");
                } else {
                     this.onWarningFunction = onWarningFunction;
                }
@@ -6519,7 +6519,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onError(error : IAccelerationListenerError) : void {
                if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                    console.warn("WARNING: AccelerationListenerImpl contains a null reference to onErrorFunction.");
+                    console.warn("WARNING: AccelerationListener contains a null reference to onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
                }
@@ -6533,7 +6533,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onResult(acceleration : Acceleration) : void {
                if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                    console.warn("WARNING: AccelerationListenerImpl contains a null reference to onResultFunction.");
+                    console.warn("WARNING: AccelerationListener contains a null reference to onResultFunction.");
                } else {
                     this.onResultFunction(acceleration);
                }
@@ -6548,7 +6548,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onWarning(acceleration : Acceleration, warning : IAccelerationListenerWarning) : void {
                if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                    console.warn("WARNING: AccelerationListenerImpl contains a null reference to onWarningFunction.");
+                    console.warn("WARNING: AccelerationListener contains a null reference to onWarningFunction.");
                } else {
                     this.onWarningFunction(acceleration, warning);
                }
@@ -6589,7 +6589,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           }
      }
 
-     export class ButtonListenerImpl extends BaseListenerImpl implements IButtonListener {
+     export class ButtonListener extends BaseListener implements IButtonListener {
 
           onErrorFunction : (error : IButtonListenerError) => Function;
           onResultFunction : (button : Button) => Function;
@@ -6605,17 +6605,17 @@ listener and subsequently, the listener will be deactivated and removed from the
           constructor(onErrorFunction : (error : IButtonListenerError) => Function, onResultFunction : (button : Button) => Function, onWarningFunction : (button : Button, warning : IButtonListenerWarning) => Function) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
-                    console.error("ERROR: ButtonListenerImpl onErrorFunction is not defined.");
+                    console.error("ERROR: ButtonListener onErrorFunction is not defined.");
                } else {
                     this.onErrorFunction = onErrorFunction;
                }
                if (onResultFunction == null) {
-                    console.error("ERROR: ButtonListenerImpl onResultFunction is not defined.");
+                    console.error("ERROR: ButtonListener onResultFunction is not defined.");
                } else {
                     this.onResultFunction = onResultFunction;
                }
                if (onWarningFunction == null) {
-                    console.error("ERROR: ButtonListenerImpl onWarningFunction is not defined.");
+                    console.error("ERROR: ButtonListener onWarningFunction is not defined.");
                } else {
                     this.onWarningFunction = onWarningFunction;
                }
@@ -6629,7 +6629,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onError(error : IButtonListenerError) : void {
                if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                    console.warn("WARNING: ButtonListenerImpl contains a null reference to onErrorFunction.");
+                    console.warn("WARNING: ButtonListener contains a null reference to onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
                }
@@ -6643,7 +6643,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onResult(button : Button) : void {
                if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                    console.warn("WARNING: ButtonListenerImpl contains a null reference to onResultFunction.");
+                    console.warn("WARNING: ButtonListener contains a null reference to onResultFunction.");
                } else {
                     this.onResultFunction(button);
                }
@@ -6658,7 +6658,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onWarning(button : Button, warning : IButtonListenerWarning) : void {
                if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                    console.warn("WARNING: ButtonListenerImpl contains a null reference to onWarningFunction.");
+                    console.warn("WARNING: ButtonListener contains a null reference to onWarningFunction.");
                } else {
                     this.onWarningFunction(button, warning);
                }
@@ -6699,7 +6699,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           }
      }
 
-     export class GeolocationListenerImpl extends BaseListenerImpl implements IGeolocationListener {
+     export class GeolocationListener extends BaseListener implements IGeolocationListener {
 
           onErrorFunction : (error : IGeolocationListenerError) => Function;
           onResultFunction : (geolocation : Geolocation) => Function;
@@ -6715,17 +6715,17 @@ listener and subsequently, the listener will be deactivated and removed from the
           constructor(onErrorFunction : (error : IGeolocationListenerError) => Function, onResultFunction : (geolocation : Geolocation) => Function, onWarningFunction : (geolocation : Geolocation, warning : IGeolocationListenerWarning) => Function) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
-                    console.error("ERROR: GeolocationListenerImpl onErrorFunction is not defined.");
+                    console.error("ERROR: GeolocationListener onErrorFunction is not defined.");
                } else {
                     this.onErrorFunction = onErrorFunction;
                }
                if (onResultFunction == null) {
-                    console.error("ERROR: GeolocationListenerImpl onResultFunction is not defined.");
+                    console.error("ERROR: GeolocationListener onResultFunction is not defined.");
                } else {
                     this.onResultFunction = onResultFunction;
                }
                if (onWarningFunction == null) {
-                    console.error("ERROR: GeolocationListenerImpl onWarningFunction is not defined.");
+                    console.error("ERROR: GeolocationListener onWarningFunction is not defined.");
                } else {
                     this.onWarningFunction = onWarningFunction;
                }
@@ -6739,7 +6739,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onError(error : IGeolocationListenerError) : void {
                if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                    console.warn("WARNING: GeolocationListenerImpl contains a null reference to onErrorFunction.");
+                    console.warn("WARNING: GeolocationListener contains a null reference to onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
                }
@@ -6753,7 +6753,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onResult(geolocation : Geolocation) : void {
                if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                    console.warn("WARNING: GeolocationListenerImpl contains a null reference to onResultFunction.");
+                    console.warn("WARNING: GeolocationListener contains a null reference to onResultFunction.");
                } else {
                     this.onResultFunction(geolocation);
                }
@@ -6768,7 +6768,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onWarning(geolocation : Geolocation, warning : IGeolocationListenerWarning) : void {
                if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                    console.warn("WARNING: GeolocationListenerImpl contains a null reference to onWarningFunction.");
+                    console.warn("WARNING: GeolocationListener contains a null reference to onWarningFunction.");
                } else {
                     this.onWarningFunction(geolocation, warning);
                }
@@ -6809,7 +6809,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           }
      }
 
-     export class LifecycleListenerImpl extends BaseListenerImpl implements ILifecycleListener {
+     export class LifecycleListener extends BaseListener implements ILifecycleListener {
 
           onErrorFunction : (error : ILifecycleListenerError) => Function;
           onResultFunction : (lifecycle : Lifecycle) => Function;
@@ -6825,17 +6825,17 @@ listener and subsequently, the listener will be deactivated and removed from the
           constructor(onErrorFunction : (error : ILifecycleListenerError) => Function, onResultFunction : (lifecycle : Lifecycle) => Function, onWarningFunction : (lifecycle : Lifecycle, warning : ILifecycleListenerWarning) => Function) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
-                    console.error("ERROR: LifecycleListenerImpl onErrorFunction is not defined.");
+                    console.error("ERROR: LifecycleListener onErrorFunction is not defined.");
                } else {
                     this.onErrorFunction = onErrorFunction;
                }
                if (onResultFunction == null) {
-                    console.error("ERROR: LifecycleListenerImpl onResultFunction is not defined.");
+                    console.error("ERROR: LifecycleListener onResultFunction is not defined.");
                } else {
                     this.onResultFunction = onResultFunction;
                }
                if (onWarningFunction == null) {
-                    console.error("ERROR: LifecycleListenerImpl onWarningFunction is not defined.");
+                    console.error("ERROR: LifecycleListener onWarningFunction is not defined.");
                } else {
                     this.onWarningFunction = onWarningFunction;
                }
@@ -6849,7 +6849,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onError(error : ILifecycleListenerError) : void {
                if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                    console.warn("WARNING: LifecycleListenerImpl contains a null reference to onErrorFunction.");
+                    console.warn("WARNING: LifecycleListener contains a null reference to onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
                }
@@ -6863,7 +6863,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onResult(lifecycle : Lifecycle) : void {
                if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                    console.warn("WARNING: LifecycleListenerImpl contains a null reference to onResultFunction.");
+                    console.warn("WARNING: LifecycleListener contains a null reference to onResultFunction.");
                } else {
                     this.onResultFunction(lifecycle);
                }
@@ -6878,7 +6878,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onWarning(lifecycle : Lifecycle, warning : ILifecycleListenerWarning) : void {
                if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                    console.warn("WARNING: LifecycleListenerImpl contains a null reference to onWarningFunction.");
+                    console.warn("WARNING: LifecycleListener contains a null reference to onWarningFunction.");
                } else {
                     this.onWarningFunction(lifecycle, warning);
                }
@@ -6919,7 +6919,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           }
      }
 
-     export class NetworkStatusListenerImpl extends BaseListenerImpl implements INetworkStatusListener {
+     export class NetworkStatusListener extends BaseListener implements INetworkStatusListener {
 
           onErrorFunction : (error : INetworkStatusListenerError) => Function;
           onResultFunction : (network : ICapabilitiesNet) => Function;
@@ -6935,17 +6935,17 @@ listener and subsequently, the listener will be deactivated and removed from the
           constructor(onErrorFunction : (error : INetworkStatusListenerError) => Function, onResultFunction : (network : ICapabilitiesNet) => Function, onWarningFunction : (network : ICapabilitiesNet, warning : INetworkStatusListenerWarning) => Function) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
-                    console.error("ERROR: NetworkStatusListenerImpl onErrorFunction is not defined.");
+                    console.error("ERROR: NetworkStatusListener onErrorFunction is not defined.");
                } else {
                     this.onErrorFunction = onErrorFunction;
                }
                if (onResultFunction == null) {
-                    console.error("ERROR: NetworkStatusListenerImpl onResultFunction is not defined.");
+                    console.error("ERROR: NetworkStatusListener onResultFunction is not defined.");
                } else {
                     this.onResultFunction = onResultFunction;
                }
                if (onWarningFunction == null) {
-                    console.error("ERROR: NetworkStatusListenerImpl onWarningFunction is not defined.");
+                    console.error("ERROR: NetworkStatusListener onWarningFunction is not defined.");
                } else {
                     this.onWarningFunction = onWarningFunction;
                }
@@ -6959,7 +6959,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onError(error : INetworkStatusListenerError) : void {
                if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                    console.warn("WARNING: NetworkStatusListenerImpl contains a null reference to onErrorFunction.");
+                    console.warn("WARNING: NetworkStatusListener contains a null reference to onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
                }
@@ -6973,7 +6973,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onResult(network : ICapabilitiesNet) : void {
                if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                    console.warn("WARNING: NetworkStatusListenerImpl contains a null reference to onResultFunction.");
+                    console.warn("WARNING: NetworkStatusListener contains a null reference to onResultFunction.");
                } else {
                     this.onResultFunction(network);
                }
@@ -6988,7 +6988,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onWarning(network : ICapabilitiesNet, warning : INetworkStatusListenerWarning) : void {
                if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                    console.warn("WARNING: NetworkStatusListenerImpl contains a null reference to onWarningFunction.");
+                    console.warn("WARNING: NetworkStatusListener contains a null reference to onWarningFunction.");
                } else {
                     this.onWarningFunction(network, warning);
                }
@@ -6996,7 +6996,7 @@ listener and subsequently, the listener will be deactivated and removed from the
 
      }
 
-     export class BaseCallbackImpl implements IBaseCallback {
+     export class BaseCallback implements IBaseCallback {
 
           /**
              Unique id of callback.
@@ -7072,7 +7072,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           }
      }
 
-     export class ContactPhotoResultCallbackImpl extends BaseCallbackImpl implements IContactPhotoResultCallback {
+     export class ContactPhotoResultCallback extends BaseCallback implements IContactPhotoResultCallback {
 
           onErrorFunction : (error : IContactPhotoResultCallbackError) => Function;
           onResultFunction : (contactPhoto : Array<number>) => Function;
@@ -7088,17 +7088,17 @@ listener and subsequently, the listener will be deactivated and removed from the
           constructor(onErrorFunction : (error : IContactPhotoResultCallbackError) => Function, onResultFunction : (contactPhoto : Array<number>) => Function, onWarningFunction : (contactPhoto : Array<number>, warning : IContactPhotoResultCallbackWarning) => Function) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
-                    console.error("ERROR: ContactPhotoResultCallbackImpl onErrorFunction is not defined.");
+                    console.error("ERROR: ContactPhotoResultCallback onErrorFunction is not defined.");
                } else {
                     this.onErrorFunction = onErrorFunction;
                }
                if (onResultFunction == null) {
-                    console.error("ERROR: ContactPhotoResultCallbackImpl onResultFunction is not defined.");
+                    console.error("ERROR: ContactPhotoResultCallback onResultFunction is not defined.");
                } else {
                     this.onResultFunction = onResultFunction;
                }
                if (onWarningFunction == null) {
-                    console.error("ERROR: ContactPhotoResultCallbackImpl onWarningFunction is not defined.");
+                    console.error("ERROR: ContactPhotoResultCallback onWarningFunction is not defined.");
                } else {
                     this.onWarningFunction = onWarningFunction;
                }
@@ -7112,7 +7112,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onError(error : IContactPhotoResultCallbackError) : void {
                if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                    console.warn("WARNING: ContactPhotoResultCallbackImpl contains a null reference to onErrorFunction.");
+                    console.warn("WARNING: ContactPhotoResultCallback contains a null reference to onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
                }
@@ -7126,7 +7126,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onResult(contactPhoto : Array<number>) : void {
                if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                    console.warn("WARNING: ContactPhotoResultCallbackImpl contains a null reference to onResultFunction.");
+                    console.warn("WARNING: ContactPhotoResultCallback contains a null reference to onResultFunction.");
                } else {
                     this.onResultFunction(contactPhoto);
                }
@@ -7141,7 +7141,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onWarning(contactPhoto : Array<number>, warning : IContactPhotoResultCallbackWarning) : void {
                if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                    console.warn("WARNING: ContactPhotoResultCallbackImpl contains a null reference to onWarningFunction.");
+                    console.warn("WARNING: ContactPhotoResultCallback contains a null reference to onWarningFunction.");
                } else {
                     this.onWarningFunction(contactPhoto, warning);
                }
@@ -7186,7 +7186,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           }
      }
 
-     export class ContactResultCallbackImpl extends BaseCallbackImpl implements IContactResultCallback {
+     export class ContactResultCallback extends BaseCallback implements IContactResultCallback {
 
           onErrorFunction : (error : IContactResultCallbackError) => Function;
           onResultFunction : (contacts : Array<Contact>) => Function;
@@ -7202,17 +7202,17 @@ listener and subsequently, the listener will be deactivated and removed from the
           constructor(onErrorFunction : (error : IContactResultCallbackError) => Function, onResultFunction : (contacts : Array<Contact>) => Function, onWarningFunction : (contacts : Array<Contact>, warning : IContactResultCallbackWarning) => Function) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
-                    console.error("ERROR: ContactResultCallbackImpl onErrorFunction is not defined.");
+                    console.error("ERROR: ContactResultCallback onErrorFunction is not defined.");
                } else {
                     this.onErrorFunction = onErrorFunction;
                }
                if (onResultFunction == null) {
-                    console.error("ERROR: ContactResultCallbackImpl onResultFunction is not defined.");
+                    console.error("ERROR: ContactResultCallback onResultFunction is not defined.");
                } else {
                     this.onResultFunction = onResultFunction;
                }
                if (onWarningFunction == null) {
-                    console.error("ERROR: ContactResultCallbackImpl onWarningFunction is not defined.");
+                    console.error("ERROR: ContactResultCallback onWarningFunction is not defined.");
                } else {
                     this.onWarningFunction = onWarningFunction;
                }
@@ -7226,7 +7226,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onError(error : IContactResultCallbackError) : void {
                if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                    console.warn("WARNING: ContactResultCallbackImpl contains a null reference to onErrorFunction.");
+                    console.warn("WARNING: ContactResultCallback contains a null reference to onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
                }
@@ -7240,7 +7240,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onResult(contacts : Array<Contact>) : void {
                if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                    console.warn("WARNING: ContactResultCallbackImpl contains a null reference to onResultFunction.");
+                    console.warn("WARNING: ContactResultCallback contains a null reference to onResultFunction.");
                } else {
                     this.onResultFunction(contacts);
                }
@@ -7255,7 +7255,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onWarning(contacts : Array<Contact>, warning : IContactResultCallbackWarning) : void {
                if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                    console.warn("WARNING: ContactResultCallbackImpl contains a null reference to onWarningFunction.");
+                    console.warn("WARNING: ContactResultCallback contains a null reference to onWarningFunction.");
                } else {
                     this.onWarningFunction(contacts, warning);
                }
@@ -7300,7 +7300,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           }
      }
 
-     export class DatabaseResultCallbackImpl extends BaseCallbackImpl implements IDatabaseResultCallback {
+     export class DatabaseResultCallback extends BaseCallback implements IDatabaseResultCallback {
 
           onErrorFunction : (error : IDatabaseResultCallbackError) => Function;
           onResultFunction : (database : Database) => Function;
@@ -7316,17 +7316,17 @@ listener and subsequently, the listener will be deactivated and removed from the
           constructor(onErrorFunction : (error : IDatabaseResultCallbackError) => Function, onResultFunction : (database : Database) => Function, onWarningFunction : (database : Database, warning : IDatabaseResultCallbackWarning) => Function) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
-                    console.error("ERROR: DatabaseResultCallbackImpl onErrorFunction is not defined.");
+                    console.error("ERROR: DatabaseResultCallback onErrorFunction is not defined.");
                } else {
                     this.onErrorFunction = onErrorFunction;
                }
                if (onResultFunction == null) {
-                    console.error("ERROR: DatabaseResultCallbackImpl onResultFunction is not defined.");
+                    console.error("ERROR: DatabaseResultCallback onResultFunction is not defined.");
                } else {
                     this.onResultFunction = onResultFunction;
                }
                if (onWarningFunction == null) {
-                    console.error("ERROR: DatabaseResultCallbackImpl onWarningFunction is not defined.");
+                    console.error("ERROR: DatabaseResultCallback onWarningFunction is not defined.");
                } else {
                     this.onWarningFunction = onWarningFunction;
                }
@@ -7340,7 +7340,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onError(error : IDatabaseResultCallbackError) : void {
                if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                    console.warn("WARNING: DatabaseResultCallbackImpl contains a null reference to onErrorFunction.");
+                    console.warn("WARNING: DatabaseResultCallback contains a null reference to onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
                }
@@ -7354,7 +7354,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onResult(database : Database) : void {
                if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                    console.warn("WARNING: DatabaseResultCallbackImpl contains a null reference to onResultFunction.");
+                    console.warn("WARNING: DatabaseResultCallback contains a null reference to onResultFunction.");
                } else {
                     this.onResultFunction(database);
                }
@@ -7369,7 +7369,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onWarning(database : Database, warning : IDatabaseResultCallbackWarning) : void {
                if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                    console.warn("WARNING: DatabaseResultCallbackImpl contains a null reference to onWarningFunction.");
+                    console.warn("WARNING: DatabaseResultCallback contains a null reference to onWarningFunction.");
                } else {
                     this.onWarningFunction(database, warning);
                }
@@ -7414,7 +7414,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           }
      }
 
-     export class DatabaseTableResultCallbackImpl extends BaseCallbackImpl implements IDatabaseTableResultCallback {
+     export class DatabaseTableResultCallback extends BaseCallback implements IDatabaseTableResultCallback {
 
           onErrorFunction : (error : IDatabaseTableResultCallbackError) => Function;
           onResultFunction : (databaseTable : DatabaseTable) => Function;
@@ -7430,17 +7430,17 @@ listener and subsequently, the listener will be deactivated and removed from the
           constructor(onErrorFunction : (error : IDatabaseTableResultCallbackError) => Function, onResultFunction : (databaseTable : DatabaseTable) => Function, onWarningFunction : (databaseTable : DatabaseTable, warning : IDatabaseTableResultCallbackWarning) => Function) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
-                    console.error("ERROR: DatabaseTableResultCallbackImpl onErrorFunction is not defined.");
+                    console.error("ERROR: DatabaseTableResultCallback onErrorFunction is not defined.");
                } else {
                     this.onErrorFunction = onErrorFunction;
                }
                if (onResultFunction == null) {
-                    console.error("ERROR: DatabaseTableResultCallbackImpl onResultFunction is not defined.");
+                    console.error("ERROR: DatabaseTableResultCallback onResultFunction is not defined.");
                } else {
                     this.onResultFunction = onResultFunction;
                }
                if (onWarningFunction == null) {
-                    console.error("ERROR: DatabaseTableResultCallbackImpl onWarningFunction is not defined.");
+                    console.error("ERROR: DatabaseTableResultCallback onWarningFunction is not defined.");
                } else {
                     this.onWarningFunction = onWarningFunction;
                }
@@ -7454,7 +7454,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onError(error : IDatabaseTableResultCallbackError) : void {
                if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                    console.warn("WARNING: DatabaseTableResultCallbackImpl contains a null reference to onErrorFunction.");
+                    console.warn("WARNING: DatabaseTableResultCallback contains a null reference to onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
                }
@@ -7468,7 +7468,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onResult(databaseTable : DatabaseTable) : void {
                if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                    console.warn("WARNING: DatabaseTableResultCallbackImpl contains a null reference to onResultFunction.");
+                    console.warn("WARNING: DatabaseTableResultCallback contains a null reference to onResultFunction.");
                } else {
                     this.onResultFunction(databaseTable);
                }
@@ -7483,7 +7483,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onWarning(databaseTable : DatabaseTable, warning : IDatabaseTableResultCallbackWarning) : void {
                if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                    console.warn("WARNING: DatabaseTableResultCallbackImpl contains a null reference to onWarningFunction.");
+                    console.warn("WARNING: DatabaseTableResultCallback contains a null reference to onWarningFunction.");
                } else {
                     this.onWarningFunction(databaseTable, warning);
                }
@@ -7528,7 +7528,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           }
      }
 
-     export class FileDataLoadResultCallbackImpl extends BaseCallbackImpl implements IFileDataLoadResultCallback {
+     export class FileDataLoadResultCallback extends BaseCallback implements IFileDataLoadResultCallback {
 
           onErrorFunction : (error : IFileDataLoadResultCallbackError) => Function;
           onResultFunction : (data : Array<number>) => Function;
@@ -7544,17 +7544,17 @@ listener and subsequently, the listener will be deactivated and removed from the
           constructor(onErrorFunction : (error : IFileDataLoadResultCallbackError) => Function, onResultFunction : (data : Array<number>) => Function, onWarningFunction : (data : Array<number>, warning : IFileDataLoadResultCallbackWarning) => Function) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
-                    console.error("ERROR: FileDataLoadResultCallbackImpl onErrorFunction is not defined.");
+                    console.error("ERROR: FileDataLoadResultCallback onErrorFunction is not defined.");
                } else {
                     this.onErrorFunction = onErrorFunction;
                }
                if (onResultFunction == null) {
-                    console.error("ERROR: FileDataLoadResultCallbackImpl onResultFunction is not defined.");
+                    console.error("ERROR: FileDataLoadResultCallback onResultFunction is not defined.");
                } else {
                     this.onResultFunction = onResultFunction;
                }
                if (onWarningFunction == null) {
-                    console.error("ERROR: FileDataLoadResultCallbackImpl onWarningFunction is not defined.");
+                    console.error("ERROR: FileDataLoadResultCallback onWarningFunction is not defined.");
                } else {
                     this.onWarningFunction = onWarningFunction;
                }
@@ -7568,7 +7568,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onError(error : IFileDataLoadResultCallbackError) : void {
                if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                    console.warn("WARNING: FileDataLoadResultCallbackImpl contains a null reference to onErrorFunction.");
+                    console.warn("WARNING: FileDataLoadResultCallback contains a null reference to onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
                }
@@ -7582,7 +7582,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onResult(data : Array<number>) : void {
                if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                    console.warn("WARNING: FileDataLoadResultCallbackImpl contains a null reference to onResultFunction.");
+                    console.warn("WARNING: FileDataLoadResultCallback contains a null reference to onResultFunction.");
                } else {
                     this.onResultFunction(data);
                }
@@ -7597,7 +7597,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onWarning(data : Array<number>, warning : IFileDataLoadResultCallbackWarning) : void {
                if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                    console.warn("WARNING: FileDataLoadResultCallbackImpl contains a null reference to onWarningFunction.");
+                    console.warn("WARNING: FileDataLoadResultCallback contains a null reference to onWarningFunction.");
                } else {
                     this.onWarningFunction(data, warning);
                }
@@ -7642,7 +7642,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           }
      }
 
-     export class FileDataStoreResultCallbackImpl extends BaseCallbackImpl implements IFileDataStoreResultCallback {
+     export class FileDataStoreResultCallback extends BaseCallback implements IFileDataStoreResultCallback {
 
           onErrorFunction : (error : IFileDataStoreResultCallbackError) => Function;
           onResultFunction : (file : FileDescriptor) => Function;
@@ -7658,17 +7658,17 @@ listener and subsequently, the listener will be deactivated and removed from the
           constructor(onErrorFunction : (error : IFileDataStoreResultCallbackError) => Function, onResultFunction : (file : FileDescriptor) => Function, onWarningFunction : (file : FileDescriptor, warning : IFileDataStoreResultCallbackWarning) => Function) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
-                    console.error("ERROR: FileDataStoreResultCallbackImpl onErrorFunction is not defined.");
+                    console.error("ERROR: FileDataStoreResultCallback onErrorFunction is not defined.");
                } else {
                     this.onErrorFunction = onErrorFunction;
                }
                if (onResultFunction == null) {
-                    console.error("ERROR: FileDataStoreResultCallbackImpl onResultFunction is not defined.");
+                    console.error("ERROR: FileDataStoreResultCallback onResultFunction is not defined.");
                } else {
                     this.onResultFunction = onResultFunction;
                }
                if (onWarningFunction == null) {
-                    console.error("ERROR: FileDataStoreResultCallbackImpl onWarningFunction is not defined.");
+                    console.error("ERROR: FileDataStoreResultCallback onWarningFunction is not defined.");
                } else {
                     this.onWarningFunction = onWarningFunction;
                }
@@ -7682,7 +7682,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onError(error : IFileDataStoreResultCallbackError) : void {
                if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                    console.warn("WARNING: FileDataStoreResultCallbackImpl contains a null reference to onErrorFunction.");
+                    console.warn("WARNING: FileDataStoreResultCallback contains a null reference to onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
                }
@@ -7696,7 +7696,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onResult(file : FileDescriptor) : void {
                if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                    console.warn("WARNING: FileDataStoreResultCallbackImpl contains a null reference to onResultFunction.");
+                    console.warn("WARNING: FileDataStoreResultCallback contains a null reference to onResultFunction.");
                } else {
                     this.onResultFunction(file);
                }
@@ -7711,7 +7711,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onWarning(file : FileDescriptor, warning : IFileDataStoreResultCallbackWarning) : void {
                if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                    console.warn("WARNING: FileDataStoreResultCallbackImpl contains a null reference to onWarningFunction.");
+                    console.warn("WARNING: FileDataStoreResultCallback contains a null reference to onWarningFunction.");
                } else {
                     this.onWarningFunction(file, warning);
                }
@@ -7756,7 +7756,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           }
      }
 
-     export class FileListResultCallbackImpl extends BaseCallbackImpl implements IFileListResultCallback {
+     export class FileListResultCallback extends BaseCallback implements IFileListResultCallback {
 
           onErrorFunction : (error : IFileListResultCallbackError) => Function;
           onResultFunction : (files : Array<FileDescriptor>) => Function;
@@ -7772,17 +7772,17 @@ listener and subsequently, the listener will be deactivated and removed from the
           constructor(onErrorFunction : (error : IFileListResultCallbackError) => Function, onResultFunction : (files : Array<FileDescriptor>) => Function, onWarningFunction : (files : Array<FileDescriptor>, warning : IFileListResultCallbackWarning) => Function) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
-                    console.error("ERROR: FileListResultCallbackImpl onErrorFunction is not defined.");
+                    console.error("ERROR: FileListResultCallback onErrorFunction is not defined.");
                } else {
                     this.onErrorFunction = onErrorFunction;
                }
                if (onResultFunction == null) {
-                    console.error("ERROR: FileListResultCallbackImpl onResultFunction is not defined.");
+                    console.error("ERROR: FileListResultCallback onResultFunction is not defined.");
                } else {
                     this.onResultFunction = onResultFunction;
                }
                if (onWarningFunction == null) {
-                    console.error("ERROR: FileListResultCallbackImpl onWarningFunction is not defined.");
+                    console.error("ERROR: FileListResultCallback onWarningFunction is not defined.");
                } else {
                     this.onWarningFunction = onWarningFunction;
                }
@@ -7796,7 +7796,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onError(error : IFileListResultCallbackError) : void {
                if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                    console.warn("WARNING: FileListResultCallbackImpl contains a null reference to onErrorFunction.");
+                    console.warn("WARNING: FileListResultCallback contains a null reference to onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
                }
@@ -7810,7 +7810,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onResult(files : Array<FileDescriptor>) : void {
                if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                    console.warn("WARNING: FileListResultCallbackImpl contains a null reference to onResultFunction.");
+                    console.warn("WARNING: FileListResultCallback contains a null reference to onResultFunction.");
                } else {
                     this.onResultFunction(files);
                }
@@ -7825,7 +7825,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onWarning(files : Array<FileDescriptor>, warning : IFileListResultCallbackWarning) : void {
                if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                    console.warn("WARNING: FileListResultCallbackImpl contains a null reference to onWarningFunction.");
+                    console.warn("WARNING: FileListResultCallback contains a null reference to onWarningFunction.");
                } else {
                     this.onWarningFunction(files, warning);
                }
@@ -7870,7 +7870,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           }
      }
 
-     export class FileResultCallbackImpl extends BaseCallbackImpl implements IFileResultCallback {
+     export class FileResultCallback extends BaseCallback implements IFileResultCallback {
 
           onErrorFunction : (error : IFileResultCallbackError) => Function;
           onResultFunction : (storageFile : FileDescriptor) => Function;
@@ -7886,17 +7886,17 @@ listener and subsequently, the listener will be deactivated and removed from the
           constructor(onErrorFunction : (error : IFileResultCallbackError) => Function, onResultFunction : (storageFile : FileDescriptor) => Function, onWarningFunction : (file : FileDescriptor, warning : IFileResultCallbackWarning) => Function) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
-                    console.error("ERROR: FileResultCallbackImpl onErrorFunction is not defined.");
+                    console.error("ERROR: FileResultCallback onErrorFunction is not defined.");
                } else {
                     this.onErrorFunction = onErrorFunction;
                }
                if (onResultFunction == null) {
-                    console.error("ERROR: FileResultCallbackImpl onResultFunction is not defined.");
+                    console.error("ERROR: FileResultCallback onResultFunction is not defined.");
                } else {
                     this.onResultFunction = onResultFunction;
                }
                if (onWarningFunction == null) {
-                    console.error("ERROR: FileResultCallbackImpl onWarningFunction is not defined.");
+                    console.error("ERROR: FileResultCallback onWarningFunction is not defined.");
                } else {
                     this.onWarningFunction = onWarningFunction;
                }
@@ -7910,7 +7910,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onError(error : IFileResultCallbackError) : void {
                if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                    console.warn("WARNING: FileResultCallbackImpl contains a null reference to onErrorFunction.");
+                    console.warn("WARNING: FileResultCallback contains a null reference to onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
                }
@@ -7924,7 +7924,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onResult(storageFile : FileDescriptor) : void {
                if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                    console.warn("WARNING: FileResultCallbackImpl contains a null reference to onResultFunction.");
+                    console.warn("WARNING: FileResultCallback contains a null reference to onResultFunction.");
                } else {
                     this.onResultFunction(storageFile);
                }
@@ -7939,7 +7939,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onWarning(file : FileDescriptor, warning : IFileResultCallbackWarning) : void {
                if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                    console.warn("WARNING: FileResultCallbackImpl contains a null reference to onWarningFunction.");
+                    console.warn("WARNING: FileResultCallback contains a null reference to onWarningFunction.");
                } else {
                     this.onWarningFunction(file, warning);
                }
@@ -7984,7 +7984,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           }
      }
 
-     export class MessagingCallbackImpl extends BaseCallbackImpl implements IMessagingCallback {
+     export class MessagingCallback extends BaseCallback implements IMessagingCallback {
 
           onErrorFunction : (error : IMessagingCallbackError) => Function;
           onResultFunction : (success : boolean) => Function;
@@ -8000,17 +8000,17 @@ listener and subsequently, the listener will be deactivated and removed from the
           constructor(onErrorFunction : (error : IMessagingCallbackError) => Function, onResultFunction : (success : boolean) => Function, onWarningFunction : (success : boolean, warning : IMessagingCallbackWarning) => Function) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
-                    console.error("ERROR: MessagingCallbackImpl onErrorFunction is not defined.");
+                    console.error("ERROR: MessagingCallback onErrorFunction is not defined.");
                } else {
                     this.onErrorFunction = onErrorFunction;
                }
                if (onResultFunction == null) {
-                    console.error("ERROR: MessagingCallbackImpl onResultFunction is not defined.");
+                    console.error("ERROR: MessagingCallback onResultFunction is not defined.");
                } else {
                     this.onResultFunction = onResultFunction;
                }
                if (onWarningFunction == null) {
-                    console.error("ERROR: MessagingCallbackImpl onWarningFunction is not defined.");
+                    console.error("ERROR: MessagingCallback onWarningFunction is not defined.");
                } else {
                     this.onWarningFunction = onWarningFunction;
                }
@@ -8024,7 +8024,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onError(error : IMessagingCallbackError) : void {
                if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                    console.warn("WARNING: MessagingCallbackImpl contains a null reference to onErrorFunction.");
+                    console.warn("WARNING: MessagingCallback contains a null reference to onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
                }
@@ -8038,7 +8038,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onResult(success : boolean) : void {
                if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                    console.warn("WARNING: MessagingCallbackImpl contains a null reference to onResultFunction.");
+                    console.warn("WARNING: MessagingCallback contains a null reference to onResultFunction.");
                } else {
                     this.onResultFunction(success);
                }
@@ -8053,7 +8053,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onWarning(success : boolean, warning : IMessagingCallbackWarning) : void {
                if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                    console.warn("WARNING: MessagingCallbackImpl contains a null reference to onWarningFunction.");
+                    console.warn("WARNING: MessagingCallback contains a null reference to onWarningFunction.");
                } else {
                     this.onWarningFunction(success, warning);
                }
@@ -8098,7 +8098,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           }
      }
 
-     export class NetworkReachabilityCallbackImpl extends BaseCallbackImpl implements INetworkReachabilityCallback {
+     export class NetworkReachabilityCallback extends BaseCallback implements INetworkReachabilityCallback {
 
           onErrorFunction : (error : INetworkReachabilityCallbackError) => Function;
           onResultFunction : (reachable : boolean) => Function;
@@ -8114,17 +8114,17 @@ listener and subsequently, the listener will be deactivated and removed from the
           constructor(onErrorFunction : (error : INetworkReachabilityCallbackError) => Function, onResultFunction : (reachable : boolean) => Function, onWarningFunction : (reachable : boolean, warning : INetworkReachabilityCallbackWarning) => Function) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
-                    console.error("ERROR: NetworkReachabilityCallbackImpl onErrorFunction is not defined.");
+                    console.error("ERROR: NetworkReachabilityCallback onErrorFunction is not defined.");
                } else {
                     this.onErrorFunction = onErrorFunction;
                }
                if (onResultFunction == null) {
-                    console.error("ERROR: NetworkReachabilityCallbackImpl onResultFunction is not defined.");
+                    console.error("ERROR: NetworkReachabilityCallback onResultFunction is not defined.");
                } else {
                     this.onResultFunction = onResultFunction;
                }
                if (onWarningFunction == null) {
-                    console.error("ERROR: NetworkReachabilityCallbackImpl onWarningFunction is not defined.");
+                    console.error("ERROR: NetworkReachabilityCallback onWarningFunction is not defined.");
                } else {
                     this.onWarningFunction = onWarningFunction;
                }
@@ -8138,7 +8138,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onError(error : INetworkReachabilityCallbackError) : void {
                if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                    console.warn("WARNING: NetworkReachabilityCallbackImpl contains a null reference to onErrorFunction.");
+                    console.warn("WARNING: NetworkReachabilityCallback contains a null reference to onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
                }
@@ -8152,7 +8152,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onResult(reachable : boolean) : void {
                if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                    console.warn("WARNING: NetworkReachabilityCallbackImpl contains a null reference to onResultFunction.");
+                    console.warn("WARNING: NetworkReachabilityCallback contains a null reference to onResultFunction.");
                } else {
                     this.onResultFunction(reachable);
                }
@@ -8167,7 +8167,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onWarning(reachable : boolean, warning : INetworkReachabilityCallbackWarning) : void {
                if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                    console.warn("WARNING: NetworkReachabilityCallbackImpl contains a null reference to onWarningFunction.");
+                    console.warn("WARNING: NetworkReachabilityCallback contains a null reference to onWarningFunction.");
                } else {
                     this.onWarningFunction(reachable, warning);
                }
@@ -8212,7 +8212,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           }
      }
 
-     export class SecurityResultCallbackImpl extends BaseCallbackImpl implements ISecurityResultCallback {
+     export class SecurityResultCallback extends BaseCallback implements ISecurityResultCallback {
 
           onErrorFunction : (error : ISecurityResultCallbackError) => Function;
           onResultFunction : (keyValues : Array<SecureKeyPair>) => Function;
@@ -8228,17 +8228,17 @@ listener and subsequently, the listener will be deactivated and removed from the
           constructor(onErrorFunction : (error : ISecurityResultCallbackError) => Function, onResultFunction : (keyValues : Array<SecureKeyPair>) => Function, onWarningFunction : (keyValues : Array<SecureKeyPair>, warning : ISecurityResultCallbackWarning) => Function) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
-                    console.error("ERROR: SecurityResultCallbackImpl onErrorFunction is not defined.");
+                    console.error("ERROR: SecurityResultCallback onErrorFunction is not defined.");
                } else {
                     this.onErrorFunction = onErrorFunction;
                }
                if (onResultFunction == null) {
-                    console.error("ERROR: SecurityResultCallbackImpl onResultFunction is not defined.");
+                    console.error("ERROR: SecurityResultCallback onResultFunction is not defined.");
                } else {
                     this.onResultFunction = onResultFunction;
                }
                if (onWarningFunction == null) {
-                    console.error("ERROR: SecurityResultCallbackImpl onWarningFunction is not defined.");
+                    console.error("ERROR: SecurityResultCallback onWarningFunction is not defined.");
                } else {
                     this.onWarningFunction = onWarningFunction;
                }
@@ -8252,7 +8252,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onError(error : ISecurityResultCallbackError) : void {
                if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                    console.warn("WARNING: SecurityResultCallbackImpl contains a null reference to onErrorFunction.");
+                    console.warn("WARNING: SecurityResultCallback contains a null reference to onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
                }
@@ -8266,7 +8266,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onResult(keyValues : Array<SecureKeyPair>) : void {
                if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                    console.warn("WARNING: SecurityResultCallbackImpl contains a null reference to onResultFunction.");
+                    console.warn("WARNING: SecurityResultCallback contains a null reference to onResultFunction.");
                } else {
                     this.onResultFunction(keyValues);
                }
@@ -8281,7 +8281,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onWarning(keyValues : Array<SecureKeyPair>, warning : ISecurityResultCallbackWarning) : void {
                if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                    console.warn("WARNING: SecurityResultCallbackImpl contains a null reference to onWarningFunction.");
+                    console.warn("WARNING: SecurityResultCallback contains a null reference to onWarningFunction.");
                } else {
                     this.onWarningFunction(keyValues, warning);
                }
@@ -8326,7 +8326,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           }
      }
 
-     export class ServiceResultCallbackImpl extends BaseCallbackImpl implements IServiceResultCallback {
+     export class ServiceResultCallback extends BaseCallback implements IServiceResultCallback {
 
           onErrorFunction : (error : IServiceResultCallbackError) => Function;
           onResultFunction : (response : ServiceResponse) => Function;
@@ -8342,17 +8342,17 @@ listener and subsequently, the listener will be deactivated and removed from the
           constructor(onErrorFunction : (error : IServiceResultCallbackError) => Function, onResultFunction : (response : ServiceResponse) => Function, onWarningFunction : (response : ServiceResponse, warning : IServiceResultCallbackWarning) => Function) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
-                    console.error("ERROR: ServiceResultCallbackImpl onErrorFunction is not defined.");
+                    console.error("ERROR: ServiceResultCallback onErrorFunction is not defined.");
                } else {
                     this.onErrorFunction = onErrorFunction;
                }
                if (onResultFunction == null) {
-                    console.error("ERROR: ServiceResultCallbackImpl onResultFunction is not defined.");
+                    console.error("ERROR: ServiceResultCallback onResultFunction is not defined.");
                } else {
                     this.onResultFunction = onResultFunction;
                }
                if (onWarningFunction == null) {
-                    console.error("ERROR: ServiceResultCallbackImpl onWarningFunction is not defined.");
+                    console.error("ERROR: ServiceResultCallback onWarningFunction is not defined.");
                } else {
                     this.onWarningFunction = onWarningFunction;
                }
@@ -8366,7 +8366,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onError(error : IServiceResultCallbackError) : void {
                if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                    console.warn("WARNING: ServiceResultCallbackImpl contains a null reference to onErrorFunction.");
+                    console.warn("WARNING: ServiceResultCallback contains a null reference to onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
                }
@@ -8380,7 +8380,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onResult(response : ServiceResponse) : void {
                if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                    console.warn("WARNING: ServiceResultCallbackImpl contains a null reference to onResultFunction.");
+                    console.warn("WARNING: ServiceResultCallback contains a null reference to onResultFunction.");
                } else {
                     this.onResultFunction(response);
                }
@@ -8395,7 +8395,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           public onWarning(response : ServiceResponse, warning : IServiceResultCallbackWarning) : void {
                if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                    console.warn("WARNING: ServiceResultCallbackImpl contains a null reference to onWarningFunction.");
+                    console.warn("WARNING: ServiceResultCallback contains a null reference to onWarningFunction.");
                } else {
                     this.onWarningFunction(response, warning);
                }

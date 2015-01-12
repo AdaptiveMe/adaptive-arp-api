@@ -5365,7 +5365,7 @@ Possible lifecycle States:
         */
         setProfessionalInfo(professionalInfo: ContactProfessionalInfo): void;
     }
-    class BaseListenerImpl implements IBaseListener {
+    class BaseListener implements IBaseListener {
         /**
            Unique id of listener.
         */
@@ -5396,7 +5396,7 @@ Possible lifecycle States:
     function handleAccelerationListenerError(id: number, error: IAccelerationListenerError): void;
     function handleAccelerationListenerResult(id: number, acceleration: Acceleration): void;
     function handleAccelerationListenerWarning(id: number, acceleration: Acceleration, warning: IAccelerationListenerWarning): void;
-    class AccelerationListenerImpl extends BaseListenerImpl implements IAccelerationListener {
+    class AccelerationListener extends BaseListener implements IAccelerationListener {
         onErrorFunction: (error: IAccelerationListenerError) => Function;
         onResultFunction: (acceleration: Acceleration) => Function;
         onWarningFunction: (acceleration: Acceleration, warning: IAccelerationListenerWarning) => Function;
@@ -5438,7 +5438,7 @@ listener and subsequently, the listener will be deactivated and removed from the
     function handleButtonListenerError(id: number, error: IButtonListenerError): void;
     function handleButtonListenerResult(id: number, button: Button): void;
     function handleButtonListenerWarning(id: number, button: Button, warning: IButtonListenerWarning): void;
-    class ButtonListenerImpl extends BaseListenerImpl implements IButtonListener {
+    class ButtonListener extends BaseListener implements IButtonListener {
         onErrorFunction: (error: IButtonListenerError) => Function;
         onResultFunction: (button: Button) => Function;
         onWarningFunction: (button: Button, warning: IButtonListenerWarning) => Function;
@@ -5479,7 +5479,7 @@ listener and subsequently, the listener will be deactivated and removed from the
     function handleGeolocationListenerError(id: number, error: IGeolocationListenerError): void;
     function handleGeolocationListenerResult(id: number, geolocation: Geolocation): void;
     function handleGeolocationListenerWarning(id: number, geolocation: Geolocation, warning: IGeolocationListenerWarning): void;
-    class GeolocationListenerImpl extends BaseListenerImpl implements IGeolocationListener {
+    class GeolocationListener extends BaseListener implements IGeolocationListener {
         onErrorFunction: (error: IGeolocationListenerError) => Function;
         onResultFunction: (geolocation: Geolocation) => Function;
         onWarningFunction: (geolocation: Geolocation, warning: IGeolocationListenerWarning) => Function;
@@ -5520,7 +5520,7 @@ listener and subsequently, the listener will be deactivated and removed from the
     function handleLifecycleListenerError(id: number, error: ILifecycleListenerError): void;
     function handleLifecycleListenerResult(id: number, lifecycle: Lifecycle): void;
     function handleLifecycleListenerWarning(id: number, lifecycle: Lifecycle, warning: ILifecycleListenerWarning): void;
-    class LifecycleListenerImpl extends BaseListenerImpl implements ILifecycleListener {
+    class LifecycleListener extends BaseListener implements ILifecycleListener {
         onErrorFunction: (error: ILifecycleListenerError) => Function;
         onResultFunction: (lifecycle: Lifecycle) => Function;
         onWarningFunction: (lifecycle: Lifecycle, warning: ILifecycleListenerWarning) => Function;
@@ -5561,7 +5561,7 @@ listener and subsequently, the listener will be deactivated and removed from the
     function handleNetworkStatusListenerError(id: number, error: INetworkStatusListenerError): void;
     function handleNetworkStatusListenerResult(id: number, network: ICapabilitiesNet): void;
     function handleNetworkStatusListenerWarning(id: number, network: ICapabilitiesNet, warning: INetworkStatusListenerWarning): void;
-    class NetworkStatusListenerImpl extends BaseListenerImpl implements INetworkStatusListener {
+    class NetworkStatusListener extends BaseListener implements INetworkStatusListener {
         onErrorFunction: (error: INetworkStatusListenerError) => Function;
         onResultFunction: (network: ICapabilitiesNet) => Function;
         onWarningFunction: (network: ICapabilitiesNet, warning: INetworkStatusListenerWarning) => Function;
@@ -5596,7 +5596,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         */
         onWarning(network: ICapabilitiesNet, warning: INetworkStatusListenerWarning): void;
     }
-    class BaseCallbackImpl implements IBaseCallback {
+    class BaseCallback implements IBaseCallback {
         /**
            Unique id of callback.
         */
@@ -5627,7 +5627,7 @@ listener and subsequently, the listener will be deactivated and removed from the
     function handleContactPhotoResultCallbackError(id: number, error: IContactPhotoResultCallbackError): void;
     function handleContactPhotoResultCallbackResult(id: number, contactPhoto: number[]): void;
     function handleContactPhotoResultCallbackWarning(id: number, contactPhoto: number[], warning: IContactPhotoResultCallbackWarning): void;
-    class ContactPhotoResultCallbackImpl extends BaseCallbackImpl implements IContactPhotoResultCallback {
+    class ContactPhotoResultCallback extends BaseCallback implements IContactPhotoResultCallback {
         onErrorFunction: (error: IContactPhotoResultCallbackError) => Function;
         onResultFunction: (contactPhoto: number[]) => Function;
         onWarningFunction: (contactPhoto: number[], warning: IContactPhotoResultCallbackWarning) => Function;
@@ -5668,7 +5668,7 @@ listener and subsequently, the listener will be deactivated and removed from the
     function handleContactResultCallbackError(id: number, error: IContactResultCallbackError): void;
     function handleContactResultCallbackResult(id: number, contacts: Contact[]): void;
     function handleContactResultCallbackWarning(id: number, contacts: Contact[], warning: IContactResultCallbackWarning): void;
-    class ContactResultCallbackImpl extends BaseCallbackImpl implements IContactResultCallback {
+    class ContactResultCallback extends BaseCallback implements IContactResultCallback {
         onErrorFunction: (error: IContactResultCallbackError) => Function;
         onResultFunction: (contacts: Contact[]) => Function;
         onWarningFunction: (contacts: Contact[], warning: IContactResultCallbackWarning) => Function;
@@ -5709,7 +5709,7 @@ listener and subsequently, the listener will be deactivated and removed from the
     function handleDatabaseResultCallbackError(id: number, error: IDatabaseResultCallbackError): void;
     function handleDatabaseResultCallbackResult(id: number, database: Database): void;
     function handleDatabaseResultCallbackWarning(id: number, database: Database, warning: IDatabaseResultCallbackWarning): void;
-    class DatabaseResultCallbackImpl extends BaseCallbackImpl implements IDatabaseResultCallback {
+    class DatabaseResultCallback extends BaseCallback implements IDatabaseResultCallback {
         onErrorFunction: (error: IDatabaseResultCallbackError) => Function;
         onResultFunction: (database: Database) => Function;
         onWarningFunction: (database: Database, warning: IDatabaseResultCallbackWarning) => Function;
@@ -5750,7 +5750,7 @@ listener and subsequently, the listener will be deactivated and removed from the
     function handleDatabaseTableResultCallbackError(id: number, error: IDatabaseTableResultCallbackError): void;
     function handleDatabaseTableResultCallbackResult(id: number, databaseTable: DatabaseTable): void;
     function handleDatabaseTableResultCallbackWarning(id: number, databaseTable: DatabaseTable, warning: IDatabaseTableResultCallbackWarning): void;
-    class DatabaseTableResultCallbackImpl extends BaseCallbackImpl implements IDatabaseTableResultCallback {
+    class DatabaseTableResultCallback extends BaseCallback implements IDatabaseTableResultCallback {
         onErrorFunction: (error: IDatabaseTableResultCallbackError) => Function;
         onResultFunction: (databaseTable: DatabaseTable) => Function;
         onWarningFunction: (databaseTable: DatabaseTable, warning: IDatabaseTableResultCallbackWarning) => Function;
@@ -5791,7 +5791,7 @@ listener and subsequently, the listener will be deactivated and removed from the
     function handleFileDataLoadResultCallbackError(id: number, error: IFileDataLoadResultCallbackError): void;
     function handleFileDataLoadResultCallbackResult(id: number, data: number[]): void;
     function handleFileDataLoadResultCallbackWarning(id: number, data: number[], warning: IFileDataLoadResultCallbackWarning): void;
-    class FileDataLoadResultCallbackImpl extends BaseCallbackImpl implements IFileDataLoadResultCallback {
+    class FileDataLoadResultCallback extends BaseCallback implements IFileDataLoadResultCallback {
         onErrorFunction: (error: IFileDataLoadResultCallbackError) => Function;
         onResultFunction: (data: number[]) => Function;
         onWarningFunction: (data: number[], warning: IFileDataLoadResultCallbackWarning) => Function;
@@ -5832,7 +5832,7 @@ listener and subsequently, the listener will be deactivated and removed from the
     function handleFileDataStoreResultCallbackError(id: number, error: IFileDataStoreResultCallbackError): void;
     function handleFileDataStoreResultCallbackResult(id: number, file: FileDescriptor): void;
     function handleFileDataStoreResultCallbackWarning(id: number, file: FileDescriptor, warning: IFileDataStoreResultCallbackWarning): void;
-    class FileDataStoreResultCallbackImpl extends BaseCallbackImpl implements IFileDataStoreResultCallback {
+    class FileDataStoreResultCallback extends BaseCallback implements IFileDataStoreResultCallback {
         onErrorFunction: (error: IFileDataStoreResultCallbackError) => Function;
         onResultFunction: (file: FileDescriptor) => Function;
         onWarningFunction: (file: FileDescriptor, warning: IFileDataStoreResultCallbackWarning) => Function;
@@ -5873,7 +5873,7 @@ listener and subsequently, the listener will be deactivated and removed from the
     function handleFileListResultCallbackError(id: number, error: IFileListResultCallbackError): void;
     function handleFileListResultCallbackResult(id: number, files: FileDescriptor[]): void;
     function handleFileListResultCallbackWarning(id: number, files: FileDescriptor[], warning: IFileListResultCallbackWarning): void;
-    class FileListResultCallbackImpl extends BaseCallbackImpl implements IFileListResultCallback {
+    class FileListResultCallback extends BaseCallback implements IFileListResultCallback {
         onErrorFunction: (error: IFileListResultCallbackError) => Function;
         onResultFunction: (files: FileDescriptor[]) => Function;
         onWarningFunction: (files: FileDescriptor[], warning: IFileListResultCallbackWarning) => Function;
@@ -5914,7 +5914,7 @@ listener and subsequently, the listener will be deactivated and removed from the
     function handleFileResultCallbackError(id: number, error: IFileResultCallbackError): void;
     function handleFileResultCallbackResult(id: number, storageFile: FileDescriptor): void;
     function handleFileResultCallbackWarning(id: number, file: FileDescriptor, warning: IFileResultCallbackWarning): void;
-    class FileResultCallbackImpl extends BaseCallbackImpl implements IFileResultCallback {
+    class FileResultCallback extends BaseCallback implements IFileResultCallback {
         onErrorFunction: (error: IFileResultCallbackError) => Function;
         onResultFunction: (storageFile: FileDescriptor) => Function;
         onWarningFunction: (file: FileDescriptor, warning: IFileResultCallbackWarning) => Function;
@@ -5955,7 +5955,7 @@ listener and subsequently, the listener will be deactivated and removed from the
     function handleMessagingCallbackError(id: number, error: IMessagingCallbackError): void;
     function handleMessagingCallbackResult(id: number, success: boolean): void;
     function handleMessagingCallbackWarning(id: number, success: boolean, warning: IMessagingCallbackWarning): void;
-    class MessagingCallbackImpl extends BaseCallbackImpl implements IMessagingCallback {
+    class MessagingCallback extends BaseCallback implements IMessagingCallback {
         onErrorFunction: (error: IMessagingCallbackError) => Function;
         onResultFunction: (success: boolean) => Function;
         onWarningFunction: (success: boolean, warning: IMessagingCallbackWarning) => Function;
@@ -5996,7 +5996,7 @@ listener and subsequently, the listener will be deactivated and removed from the
     function handleNetworkReachabilityCallbackError(id: number, error: INetworkReachabilityCallbackError): void;
     function handleNetworkReachabilityCallbackResult(id: number, reachable: boolean): void;
     function handleNetworkReachabilityCallbackWarning(id: number, reachable: boolean, warning: INetworkReachabilityCallbackWarning): void;
-    class NetworkReachabilityCallbackImpl extends BaseCallbackImpl implements INetworkReachabilityCallback {
+    class NetworkReachabilityCallback extends BaseCallback implements INetworkReachabilityCallback {
         onErrorFunction: (error: INetworkReachabilityCallbackError) => Function;
         onResultFunction: (reachable: boolean) => Function;
         onWarningFunction: (reachable: boolean, warning: INetworkReachabilityCallbackWarning) => Function;
@@ -6037,7 +6037,7 @@ listener and subsequently, the listener will be deactivated and removed from the
     function handleSecurityResultCallbackError(id: number, error: ISecurityResultCallbackError): void;
     function handleSecurityResultCallbackResult(id: number, keyValues: SecureKeyPair[]): void;
     function handleSecurityResultCallbackWarning(id: number, keyValues: SecureKeyPair[], warning: ISecurityResultCallbackWarning): void;
-    class SecurityResultCallbackImpl extends BaseCallbackImpl implements ISecurityResultCallback {
+    class SecurityResultCallback extends BaseCallback implements ISecurityResultCallback {
         onErrorFunction: (error: ISecurityResultCallbackError) => Function;
         onResultFunction: (keyValues: SecureKeyPair[]) => Function;
         onWarningFunction: (keyValues: SecureKeyPair[], warning: ISecurityResultCallbackWarning) => Function;
@@ -6078,7 +6078,7 @@ listener and subsequently, the listener will be deactivated and removed from the
     function handleServiceResultCallbackError(id: number, error: IServiceResultCallbackError): void;
     function handleServiceResultCallbackResult(id: number, response: ServiceResponse): void;
     function handleServiceResultCallbackWarning(id: number, response: ServiceResponse, warning: IServiceResultCallbackWarning): void;
-    class ServiceResultCallbackImpl extends BaseCallbackImpl implements IServiceResultCallback {
+    class ServiceResultCallback extends BaseCallback implements IServiceResultCallback {
         onErrorFunction: (error: IServiceResultCallbackError) => Function;
         onResultFunction: (response: ServiceResponse) => Function;
         onWarningFunction: (response: ServiceResponse, warning: IServiceResultCallbackWarning) => Function;

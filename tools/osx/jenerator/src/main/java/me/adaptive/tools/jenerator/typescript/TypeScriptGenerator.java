@@ -77,6 +77,10 @@ public class TypeScriptGenerator extends GeneratorBase {
         if (className.contains("Delegate") || className.startsWith("AppContext")) {
             indentPrintStream = new IndentPrintStream(new ByteArrayOutputStream());
         } else {
+            if (clazz.getSimpleName().endsWith("Listener") || clazz.getSimpleName().endsWith("Callback") && className.endsWith("Impl")) {
+                className = className.substring(0, className.length() - 4);
+            }
+
             currentFile = new File(getOutputRootDirectory(), className + ".ts");
             if (currentFile.exists()) {
                 currentFile.delete();
@@ -237,11 +241,13 @@ public class TypeScriptGenerator extends GeneratorBase {
 
     @Override
     protected void createCallbackImplementation(String simpleName, Class clazz, JavaClass javaClass) {
+        simpleName = simpleName.substring(0, simpleName.length()-4);
+
         List<String> referenceList = new ArrayList<>();
         if (clazz.getSimpleName().equals("IBaseCallback")) {
             referenceList.add("IAdaptiveRPGroup");
         } else {
-            referenceList.add("BaseCallbackImpl");
+            referenceList.add("BaseCallback");
             referenceList.add("CommonUtil");
         }
         referenceList.add(clazz.getSimpleName());
@@ -380,7 +386,7 @@ public class TypeScriptGenerator extends GeneratorBase {
             }
 
             printlnGlobal();
-            printlnGlobal(5, "export class " + simpleName + " extends BaseCallbackImpl implements " + clazz.getSimpleName() + " {");
+            printlnGlobal(5, "export class " + simpleName + " extends BaseCallback implements " + clazz.getSimpleName() + " {");
             printlnGlobal();
 
 
@@ -510,11 +516,12 @@ public class TypeScriptGenerator extends GeneratorBase {
 
     @Override
     protected void createListenerImplementation(String simpleName, Class clazz, JavaClass javaClass) {
+        simpleName = simpleName.substring(0, simpleName.length()-4);
         List<String> referenceList = new ArrayList<>();
         if (clazz.getSimpleName().equals("IBaseListener")) {
             referenceList.add("IAdaptiveRPGroup");
         } else {
-            referenceList.add("BaseListenerImpl");
+            referenceList.add("BaseListener");
             referenceList.add("CommonUtil");
         }
         referenceList.add(clazz.getSimpleName());
@@ -654,7 +661,7 @@ public class TypeScriptGenerator extends GeneratorBase {
             }
 
             printlnGlobal();
-            printlnGlobal(5, "export class " + simpleName + " extends BaseListenerImpl implements " + clazz.getSimpleName() + " {");
+            printlnGlobal(5, "export class " + simpleName + " extends BaseListener implements " + clazz.getSimpleName() + " {");
             printlnGlobal();
 
 

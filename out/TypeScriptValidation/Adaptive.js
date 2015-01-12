@@ -3254,13 +3254,13 @@ doesn't exist, this will be -1. Used internally.
         return Contact;
     })(ContactUid);
     Adaptive.Contact = Contact;
-    var BaseListenerImpl = (function () {
+    var BaseListener = (function () {
         /**
            Constructor with listener id.
 
            @param id  The id of the listener.
         */
-        function BaseListenerImpl(id) {
+        function BaseListener(id) {
             this.id = id;
             this.apiGroup = IAdaptiveRPGroup.Application;
         }
@@ -3268,18 +3268,18 @@ doesn't exist, this will be -1. Used internally.
            Get the listener id.
            @return long with the identifier of the listener.
         */
-        BaseListenerImpl.prototype.getId = function () {
+        BaseListener.prototype.getId = function () {
             return this.id;
         };
         /**
            Return the API group for the given interface.
         */
-        BaseListenerImpl.prototype.getAPIGroup = function () {
+        BaseListener.prototype.getAPIGroup = function () {
             return this.apiGroup;
         };
-        return BaseListenerImpl;
+        return BaseListener;
     })();
-    Adaptive.BaseListenerImpl = BaseListenerImpl;
+    Adaptive.BaseListener = BaseListener;
     /**
        AccelerationListener control dictionary.
     */
@@ -3317,8 +3317,8 @@ doesn't exist, this will be -1. Used internally.
         }
     }
     Adaptive.handleAccelerationListenerWarning = handleAccelerationListenerWarning;
-    var AccelerationListenerImpl = (function (_super) {
-        __extends(AccelerationListenerImpl, _super);
+    var AccelerationListener = (function (_super) {
+        __extends(AccelerationListener, _super);
         /**
            Constructor with anonymous handler functions for listener.
 
@@ -3326,22 +3326,22 @@ doesn't exist, this will be -1. Used internally.
            @param onResultFunction Function receiving parameters of type: Acceleration
            @param onWarningFunction Function receiving parameters of type: Acceleration, IAccelerationListenerWarning
         */
-        function AccelerationListenerImpl(onErrorFunction, onResultFunction, onWarningFunction) {
+        function AccelerationListener(onErrorFunction, onResultFunction, onWarningFunction) {
             _super.call(this, ++Adaptive.registeredCounter);
             if (onErrorFunction == null) {
-                console.error("ERROR: AccelerationListenerImpl onErrorFunction is not defined.");
+                console.error("ERROR: AccelerationListener onErrorFunction is not defined.");
             }
             else {
                 this.onErrorFunction = onErrorFunction;
             }
             if (onResultFunction == null) {
-                console.error("ERROR: AccelerationListenerImpl onResultFunction is not defined.");
+                console.error("ERROR: AccelerationListener onResultFunction is not defined.");
             }
             else {
                 this.onResultFunction = onResultFunction;
             }
             if (onWarningFunction == null) {
-                console.error("ERROR: AccelerationListenerImpl onWarningFunction is not defined.");
+                console.error("ERROR: AccelerationListener onWarningFunction is not defined.");
             }
             else {
                 this.onWarningFunction = onWarningFunction;
@@ -3354,9 +3354,9 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param error Error fired
            @since ARP1.0
         */
-        AccelerationListenerImpl.prototype.onError = function (error) {
+        AccelerationListener.prototype.onError = function (error) {
             if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                console.warn("WARNING: AccelerationListenerImpl contains a null reference to onErrorFunction.");
+                console.warn("WARNING: AccelerationListener contains a null reference to onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
@@ -3368,9 +3368,9 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param acceleration Acceleration received
            @since ARP1.0
         */
-        AccelerationListenerImpl.prototype.onResult = function (acceleration) {
+        AccelerationListener.prototype.onResult = function (acceleration) {
             if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                console.warn("WARNING: AccelerationListenerImpl contains a null reference to onResultFunction.");
+                console.warn("WARNING: AccelerationListener contains a null reference to onResultFunction.");
             }
             else {
                 this.onResultFunction(acceleration);
@@ -3383,17 +3383,17 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param warning      Warning fired
            @since ARP1.0
         */
-        AccelerationListenerImpl.prototype.onWarning = function (acceleration, warning) {
+        AccelerationListener.prototype.onWarning = function (acceleration, warning) {
             if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                console.warn("WARNING: AccelerationListenerImpl contains a null reference to onWarningFunction.");
+                console.warn("WARNING: AccelerationListener contains a null reference to onWarningFunction.");
             }
             else {
                 this.onWarningFunction(acceleration, warning);
             }
         };
-        return AccelerationListenerImpl;
-    })(BaseListenerImpl);
-    Adaptive.AccelerationListenerImpl = AccelerationListenerImpl;
+        return AccelerationListener;
+    })(BaseListener);
+    Adaptive.AccelerationListener = AccelerationListener;
     /**
        ButtonListener control dictionary.
     */
@@ -3431,8 +3431,8 @@ listener and subsequently, the listener will be deactivated and removed from the
         }
     }
     Adaptive.handleButtonListenerWarning = handleButtonListenerWarning;
-    var ButtonListenerImpl = (function (_super) {
-        __extends(ButtonListenerImpl, _super);
+    var ButtonListener = (function (_super) {
+        __extends(ButtonListener, _super);
         /**
            Constructor with anonymous handler functions for listener.
 
@@ -3440,22 +3440,22 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param onResultFunction Function receiving parameters of type: Button
            @param onWarningFunction Function receiving parameters of type: Button, IButtonListenerWarning
         */
-        function ButtonListenerImpl(onErrorFunction, onResultFunction, onWarningFunction) {
+        function ButtonListener(onErrorFunction, onResultFunction, onWarningFunction) {
             _super.call(this, ++Adaptive.registeredCounter);
             if (onErrorFunction == null) {
-                console.error("ERROR: ButtonListenerImpl onErrorFunction is not defined.");
+                console.error("ERROR: ButtonListener onErrorFunction is not defined.");
             }
             else {
                 this.onErrorFunction = onErrorFunction;
             }
             if (onResultFunction == null) {
-                console.error("ERROR: ButtonListenerImpl onResultFunction is not defined.");
+                console.error("ERROR: ButtonListener onResultFunction is not defined.");
             }
             else {
                 this.onResultFunction = onResultFunction;
             }
             if (onWarningFunction == null) {
-                console.error("ERROR: ButtonListenerImpl onWarningFunction is not defined.");
+                console.error("ERROR: ButtonListener onWarningFunction is not defined.");
             }
             else {
                 this.onWarningFunction = onWarningFunction;
@@ -3467,9 +3467,9 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param error occurred
            @since ARP1.0
         */
-        ButtonListenerImpl.prototype.onError = function (error) {
+        ButtonListener.prototype.onError = function (error) {
             if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                console.warn("WARNING: ButtonListenerImpl contains a null reference to onErrorFunction.");
+                console.warn("WARNING: ButtonListener contains a null reference to onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
@@ -3481,9 +3481,9 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param button pressed
            @since ARP1.0
         */
-        ButtonListenerImpl.prototype.onResult = function (button) {
+        ButtonListener.prototype.onResult = function (button) {
             if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                console.warn("WARNING: ButtonListenerImpl contains a null reference to onResultFunction.");
+                console.warn("WARNING: ButtonListener contains a null reference to onResultFunction.");
             }
             else {
                 this.onResultFunction(button);
@@ -3496,17 +3496,17 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param warning happened
            @since ARP1.0
         */
-        ButtonListenerImpl.prototype.onWarning = function (button, warning) {
+        ButtonListener.prototype.onWarning = function (button, warning) {
             if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                console.warn("WARNING: ButtonListenerImpl contains a null reference to onWarningFunction.");
+                console.warn("WARNING: ButtonListener contains a null reference to onWarningFunction.");
             }
             else {
                 this.onWarningFunction(button, warning);
             }
         };
-        return ButtonListenerImpl;
-    })(BaseListenerImpl);
-    Adaptive.ButtonListenerImpl = ButtonListenerImpl;
+        return ButtonListener;
+    })(BaseListener);
+    Adaptive.ButtonListener = ButtonListener;
     /**
        GeolocationListener control dictionary.
     */
@@ -3544,8 +3544,8 @@ listener and subsequently, the listener will be deactivated and removed from the
         }
     }
     Adaptive.handleGeolocationListenerWarning = handleGeolocationListenerWarning;
-    var GeolocationListenerImpl = (function (_super) {
-        __extends(GeolocationListenerImpl, _super);
+    var GeolocationListener = (function (_super) {
+        __extends(GeolocationListener, _super);
         /**
            Constructor with anonymous handler functions for listener.
 
@@ -3553,22 +3553,22 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param onResultFunction Function receiving parameters of type: Geolocation
            @param onWarningFunction Function receiving parameters of type: Geolocation, IGeolocationListenerWarning
         */
-        function GeolocationListenerImpl(onErrorFunction, onResultFunction, onWarningFunction) {
+        function GeolocationListener(onErrorFunction, onResultFunction, onWarningFunction) {
             _super.call(this, ++Adaptive.registeredCounter);
             if (onErrorFunction == null) {
-                console.error("ERROR: GeolocationListenerImpl onErrorFunction is not defined.");
+                console.error("ERROR: GeolocationListener onErrorFunction is not defined.");
             }
             else {
                 this.onErrorFunction = onErrorFunction;
             }
             if (onResultFunction == null) {
-                console.error("ERROR: GeolocationListenerImpl onResultFunction is not defined.");
+                console.error("ERROR: GeolocationListener onResultFunction is not defined.");
             }
             else {
                 this.onResultFunction = onResultFunction;
             }
             if (onWarningFunction == null) {
-                console.error("ERROR: GeolocationListenerImpl onWarningFunction is not defined.");
+                console.error("ERROR: GeolocationListener onWarningFunction is not defined.");
             }
             else {
                 this.onWarningFunction = onWarningFunction;
@@ -3580,9 +3580,9 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param error Type of error encountered during reading.
            @since ARP1.0
         */
-        GeolocationListenerImpl.prototype.onError = function (error) {
+        GeolocationListener.prototype.onError = function (error) {
             if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                console.warn("WARNING: GeolocationListenerImpl contains a null reference to onErrorFunction.");
+                console.warn("WARNING: GeolocationListener contains a null reference to onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
@@ -3594,9 +3594,9 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param geolocation Geolocation Bean
            @since ARP1.0
         */
-        GeolocationListenerImpl.prototype.onResult = function (geolocation) {
+        GeolocationListener.prototype.onResult = function (geolocation) {
             if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                console.warn("WARNING: GeolocationListenerImpl contains a null reference to onResultFunction.");
+                console.warn("WARNING: GeolocationListener contains a null reference to onResultFunction.");
             }
             else {
                 this.onResultFunction(geolocation);
@@ -3609,17 +3609,17 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param warning Type of warning encountered during reading.
            @since ARP1.0
         */
-        GeolocationListenerImpl.prototype.onWarning = function (geolocation, warning) {
+        GeolocationListener.prototype.onWarning = function (geolocation, warning) {
             if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                console.warn("WARNING: GeolocationListenerImpl contains a null reference to onWarningFunction.");
+                console.warn("WARNING: GeolocationListener contains a null reference to onWarningFunction.");
             }
             else {
                 this.onWarningFunction(geolocation, warning);
             }
         };
-        return GeolocationListenerImpl;
-    })(BaseListenerImpl);
-    Adaptive.GeolocationListenerImpl = GeolocationListenerImpl;
+        return GeolocationListener;
+    })(BaseListener);
+    Adaptive.GeolocationListener = GeolocationListener;
     /**
        LifecycleListener control dictionary.
     */
@@ -3657,8 +3657,8 @@ listener and subsequently, the listener will be deactivated and removed from the
         }
     }
     Adaptive.handleLifecycleListenerWarning = handleLifecycleListenerWarning;
-    var LifecycleListenerImpl = (function (_super) {
-        __extends(LifecycleListenerImpl, _super);
+    var LifecycleListener = (function (_super) {
+        __extends(LifecycleListener, _super);
         /**
            Constructor with anonymous handler functions for listener.
 
@@ -3666,22 +3666,22 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param onResultFunction Function receiving parameters of type: Lifecycle
            @param onWarningFunction Function receiving parameters of type: Lifecycle, ILifecycleListenerWarning
         */
-        function LifecycleListenerImpl(onErrorFunction, onResultFunction, onWarningFunction) {
+        function LifecycleListener(onErrorFunction, onResultFunction, onWarningFunction) {
             _super.call(this, ++Adaptive.registeredCounter);
             if (onErrorFunction == null) {
-                console.error("ERROR: LifecycleListenerImpl onErrorFunction is not defined.");
+                console.error("ERROR: LifecycleListener onErrorFunction is not defined.");
             }
             else {
                 this.onErrorFunction = onErrorFunction;
             }
             if (onResultFunction == null) {
-                console.error("ERROR: LifecycleListenerImpl onResultFunction is not defined.");
+                console.error("ERROR: LifecycleListener onResultFunction is not defined.");
             }
             else {
                 this.onResultFunction = onResultFunction;
             }
             if (onWarningFunction == null) {
-                console.error("ERROR: LifecycleListenerImpl onWarningFunction is not defined.");
+                console.error("ERROR: LifecycleListener onWarningFunction is not defined.");
             }
             else {
                 this.onWarningFunction = onWarningFunction;
@@ -3693,9 +3693,9 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param error Type of error encountered during reading.
            @since ARP1.0
         */
-        LifecycleListenerImpl.prototype.onError = function (error) {
+        LifecycleListener.prototype.onError = function (error) {
             if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                console.warn("WARNING: LifecycleListenerImpl contains a null reference to onErrorFunction.");
+                console.warn("WARNING: LifecycleListener contains a null reference to onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
@@ -3707,9 +3707,9 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param lifecycle Lifecycle element
            @since ARP1.0
         */
-        LifecycleListenerImpl.prototype.onResult = function (lifecycle) {
+        LifecycleListener.prototype.onResult = function (lifecycle) {
             if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                console.warn("WARNING: LifecycleListenerImpl contains a null reference to onResultFunction.");
+                console.warn("WARNING: LifecycleListener contains a null reference to onResultFunction.");
             }
             else {
                 this.onResultFunction(lifecycle);
@@ -3722,17 +3722,17 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param warning Type of warning encountered during reading.
            @since ARP1.0
         */
-        LifecycleListenerImpl.prototype.onWarning = function (lifecycle, warning) {
+        LifecycleListener.prototype.onWarning = function (lifecycle, warning) {
             if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                console.warn("WARNING: LifecycleListenerImpl contains a null reference to onWarningFunction.");
+                console.warn("WARNING: LifecycleListener contains a null reference to onWarningFunction.");
             }
             else {
                 this.onWarningFunction(lifecycle, warning);
             }
         };
-        return LifecycleListenerImpl;
-    })(BaseListenerImpl);
-    Adaptive.LifecycleListenerImpl = LifecycleListenerImpl;
+        return LifecycleListener;
+    })(BaseListener);
+    Adaptive.LifecycleListener = LifecycleListener;
     /**
        NetworkStatusListener control dictionary.
     */
@@ -3770,8 +3770,8 @@ listener and subsequently, the listener will be deactivated and removed from the
         }
     }
     Adaptive.handleNetworkStatusListenerWarning = handleNetworkStatusListenerWarning;
-    var NetworkStatusListenerImpl = (function (_super) {
-        __extends(NetworkStatusListenerImpl, _super);
+    var NetworkStatusListener = (function (_super) {
+        __extends(NetworkStatusListener, _super);
         /**
            Constructor with anonymous handler functions for listener.
 
@@ -3779,22 +3779,22 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param onResultFunction Function receiving parameters of type: ICapabilitiesNet
            @param onWarningFunction Function receiving parameters of type: ICapabilitiesNet, INetworkStatusListenerWarning
         */
-        function NetworkStatusListenerImpl(onErrorFunction, onResultFunction, onWarningFunction) {
+        function NetworkStatusListener(onErrorFunction, onResultFunction, onWarningFunction) {
             _super.call(this, ++Adaptive.registeredCounter);
             if (onErrorFunction == null) {
-                console.error("ERROR: NetworkStatusListenerImpl onErrorFunction is not defined.");
+                console.error("ERROR: NetworkStatusListener onErrorFunction is not defined.");
             }
             else {
                 this.onErrorFunction = onErrorFunction;
             }
             if (onResultFunction == null) {
-                console.error("ERROR: NetworkStatusListenerImpl onResultFunction is not defined.");
+                console.error("ERROR: NetworkStatusListener onResultFunction is not defined.");
             }
             else {
                 this.onResultFunction = onResultFunction;
             }
             if (onWarningFunction == null) {
-                console.error("ERROR: NetworkStatusListenerImpl onWarningFunction is not defined.");
+                console.error("ERROR: NetworkStatusListener onWarningFunction is not defined.");
             }
             else {
                 this.onWarningFunction = onWarningFunction;
@@ -3806,9 +3806,9 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param error Type of error encountered during reading.
            @since ARP1.0
         */
-        NetworkStatusListenerImpl.prototype.onError = function (error) {
+        NetworkStatusListener.prototype.onError = function (error) {
             if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                console.warn("WARNING: NetworkStatusListenerImpl contains a null reference to onErrorFunction.");
+                console.warn("WARNING: NetworkStatusListener contains a null reference to onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
@@ -3820,9 +3820,9 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param network Change to this network.
            @since ARP1.0
         */
-        NetworkStatusListenerImpl.prototype.onResult = function (network) {
+        NetworkStatusListener.prototype.onResult = function (network) {
             if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                console.warn("WARNING: NetworkStatusListenerImpl contains a null reference to onResultFunction.");
+                console.warn("WARNING: NetworkStatusListener contains a null reference to onResultFunction.");
             }
             else {
                 this.onResultFunction(network);
@@ -3835,24 +3835,24 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param warning Type of warning encountered during reading.
            @since ARP1.0
         */
-        NetworkStatusListenerImpl.prototype.onWarning = function (network, warning) {
+        NetworkStatusListener.prototype.onWarning = function (network, warning) {
             if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                console.warn("WARNING: NetworkStatusListenerImpl contains a null reference to onWarningFunction.");
+                console.warn("WARNING: NetworkStatusListener contains a null reference to onWarningFunction.");
             }
             else {
                 this.onWarningFunction(network, warning);
             }
         };
-        return NetworkStatusListenerImpl;
-    })(BaseListenerImpl);
-    Adaptive.NetworkStatusListenerImpl = NetworkStatusListenerImpl;
-    var BaseCallbackImpl = (function () {
+        return NetworkStatusListener;
+    })(BaseListener);
+    Adaptive.NetworkStatusListener = NetworkStatusListener;
+    var BaseCallback = (function () {
         /**
            Constructor with callback id.
 
            @param id  The id of the callback.
         */
-        function BaseCallbackImpl(id) {
+        function BaseCallback(id) {
             this.id = id;
             this.apiGroup = IAdaptiveRPGroup.Application;
         }
@@ -3860,18 +3860,18 @@ listener and subsequently, the listener will be deactivated and removed from the
            Get the listener id.
            @return long with the identifier of the callback.
         */
-        BaseCallbackImpl.prototype.getId = function () {
+        BaseCallback.prototype.getId = function () {
             return this.id;
         };
         /**
            Return the API group for the given interface.
         */
-        BaseCallbackImpl.prototype.getAPIGroup = function () {
+        BaseCallback.prototype.getAPIGroup = function () {
             return this.apiGroup;
         };
-        return BaseCallbackImpl;
+        return BaseCallback;
     })();
-    Adaptive.BaseCallbackImpl = BaseCallbackImpl;
+    Adaptive.BaseCallback = BaseCallback;
     /**
        ContactPhotoResultCallback control dictionary.
     */
@@ -3912,8 +3912,8 @@ listener and subsequently, the listener will be deactivated and removed from the
         }
     }
     Adaptive.handleContactPhotoResultCallbackWarning = handleContactPhotoResultCallbackWarning;
-    var ContactPhotoResultCallbackImpl = (function (_super) {
-        __extends(ContactPhotoResultCallbackImpl, _super);
+    var ContactPhotoResultCallback = (function (_super) {
+        __extends(ContactPhotoResultCallback, _super);
         /**
            Constructor with anonymous handler functions for callback.
 
@@ -3921,22 +3921,22 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param onResultFunction Function receiving parameters of type: Array<number>
            @param onWarningFunction Function receiving parameters of type: Array<number>, IContactPhotoResultCallbackWarning
         */
-        function ContactPhotoResultCallbackImpl(onErrorFunction, onResultFunction, onWarningFunction) {
+        function ContactPhotoResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
             _super.call(this, ++Adaptive.registeredCounter);
             if (onErrorFunction == null) {
-                console.error("ERROR: ContactPhotoResultCallbackImpl onErrorFunction is not defined.");
+                console.error("ERROR: ContactPhotoResultCallback onErrorFunction is not defined.");
             }
             else {
                 this.onErrorFunction = onErrorFunction;
             }
             if (onResultFunction == null) {
-                console.error("ERROR: ContactPhotoResultCallbackImpl onResultFunction is not defined.");
+                console.error("ERROR: ContactPhotoResultCallback onResultFunction is not defined.");
             }
             else {
                 this.onResultFunction = onResultFunction;
             }
             if (onWarningFunction == null) {
-                console.error("ERROR: ContactPhotoResultCallbackImpl onWarningFunction is not defined.");
+                console.error("ERROR: ContactPhotoResultCallback onWarningFunction is not defined.");
             }
             else {
                 this.onWarningFunction = onWarningFunction;
@@ -3948,9 +3948,9 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param error returned by the platform
            @since ARP1.0
         */
-        ContactPhotoResultCallbackImpl.prototype.onError = function (error) {
+        ContactPhotoResultCallback.prototype.onError = function (error) {
             if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                console.warn("WARNING: ContactPhotoResultCallbackImpl contains a null reference to onErrorFunction.");
+                console.warn("WARNING: ContactPhotoResultCallback contains a null reference to onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
@@ -3962,9 +3962,9 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param contactPhoto returned by the platform
            @since ARP1.0
         */
-        ContactPhotoResultCallbackImpl.prototype.onResult = function (contactPhoto) {
+        ContactPhotoResultCallback.prototype.onResult = function (contactPhoto) {
             if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                console.warn("WARNING: ContactPhotoResultCallbackImpl contains a null reference to onResultFunction.");
+                console.warn("WARNING: ContactPhotoResultCallback contains a null reference to onResultFunction.");
             }
             else {
                 this.onResultFunction(contactPhoto);
@@ -3977,17 +3977,17 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param warning      returned by the platform
            @since ARP1.0
         */
-        ContactPhotoResultCallbackImpl.prototype.onWarning = function (contactPhoto, warning) {
+        ContactPhotoResultCallback.prototype.onWarning = function (contactPhoto, warning) {
             if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                console.warn("WARNING: ContactPhotoResultCallbackImpl contains a null reference to onWarningFunction.");
+                console.warn("WARNING: ContactPhotoResultCallback contains a null reference to onWarningFunction.");
             }
             else {
                 this.onWarningFunction(contactPhoto, warning);
             }
         };
-        return ContactPhotoResultCallbackImpl;
-    })(BaseCallbackImpl);
-    Adaptive.ContactPhotoResultCallbackImpl = ContactPhotoResultCallbackImpl;
+        return ContactPhotoResultCallback;
+    })(BaseCallback);
+    Adaptive.ContactPhotoResultCallback = ContactPhotoResultCallback;
     /**
        ContactResultCallback control dictionary.
     */
@@ -4028,8 +4028,8 @@ listener and subsequently, the listener will be deactivated and removed from the
         }
     }
     Adaptive.handleContactResultCallbackWarning = handleContactResultCallbackWarning;
-    var ContactResultCallbackImpl = (function (_super) {
-        __extends(ContactResultCallbackImpl, _super);
+    var ContactResultCallback = (function (_super) {
+        __extends(ContactResultCallback, _super);
         /**
            Constructor with anonymous handler functions for callback.
 
@@ -4037,22 +4037,22 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param onResultFunction Function receiving parameters of type: Array<Contact>
            @param onWarningFunction Function receiving parameters of type: Array<Contact>, IContactResultCallbackWarning
         */
-        function ContactResultCallbackImpl(onErrorFunction, onResultFunction, onWarningFunction) {
+        function ContactResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
             _super.call(this, ++Adaptive.registeredCounter);
             if (onErrorFunction == null) {
-                console.error("ERROR: ContactResultCallbackImpl onErrorFunction is not defined.");
+                console.error("ERROR: ContactResultCallback onErrorFunction is not defined.");
             }
             else {
                 this.onErrorFunction = onErrorFunction;
             }
             if (onResultFunction == null) {
-                console.error("ERROR: ContactResultCallbackImpl onResultFunction is not defined.");
+                console.error("ERROR: ContactResultCallback onResultFunction is not defined.");
             }
             else {
                 this.onResultFunction = onResultFunction;
             }
             if (onWarningFunction == null) {
-                console.error("ERROR: ContactResultCallbackImpl onWarningFunction is not defined.");
+                console.error("ERROR: ContactResultCallback onWarningFunction is not defined.");
             }
             else {
                 this.onWarningFunction = onWarningFunction;
@@ -4064,9 +4064,9 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param error returned by the platform
            @since ARP1.0
         */
-        ContactResultCallbackImpl.prototype.onError = function (error) {
+        ContactResultCallback.prototype.onError = function (error) {
             if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                console.warn("WARNING: ContactResultCallbackImpl contains a null reference to onErrorFunction.");
+                console.warn("WARNING: ContactResultCallback contains a null reference to onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
@@ -4078,9 +4078,9 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param contacts returned by the platform
            @since ARP1.0
         */
-        ContactResultCallbackImpl.prototype.onResult = function (contacts) {
+        ContactResultCallback.prototype.onResult = function (contacts) {
             if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                console.warn("WARNING: ContactResultCallbackImpl contains a null reference to onResultFunction.");
+                console.warn("WARNING: ContactResultCallback contains a null reference to onResultFunction.");
             }
             else {
                 this.onResultFunction(contacts);
@@ -4093,17 +4093,17 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param warning  returned by the platform
            @since ARP1.0
         */
-        ContactResultCallbackImpl.prototype.onWarning = function (contacts, warning) {
+        ContactResultCallback.prototype.onWarning = function (contacts, warning) {
             if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                console.warn("WARNING: ContactResultCallbackImpl contains a null reference to onWarningFunction.");
+                console.warn("WARNING: ContactResultCallback contains a null reference to onWarningFunction.");
             }
             else {
                 this.onWarningFunction(contacts, warning);
             }
         };
-        return ContactResultCallbackImpl;
-    })(BaseCallbackImpl);
-    Adaptive.ContactResultCallbackImpl = ContactResultCallbackImpl;
+        return ContactResultCallback;
+    })(BaseCallback);
+    Adaptive.ContactResultCallback = ContactResultCallback;
     /**
        DatabaseResultCallback control dictionary.
     */
@@ -4144,8 +4144,8 @@ listener and subsequently, the listener will be deactivated and removed from the
         }
     }
     Adaptive.handleDatabaseResultCallbackWarning = handleDatabaseResultCallbackWarning;
-    var DatabaseResultCallbackImpl = (function (_super) {
-        __extends(DatabaseResultCallbackImpl, _super);
+    var DatabaseResultCallback = (function (_super) {
+        __extends(DatabaseResultCallback, _super);
         /**
            Constructor with anonymous handler functions for callback.
 
@@ -4153,22 +4153,22 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param onResultFunction Function receiving parameters of type: Database
            @param onWarningFunction Function receiving parameters of type: Database, IDatabaseResultCallbackWarning
         */
-        function DatabaseResultCallbackImpl(onErrorFunction, onResultFunction, onWarningFunction) {
+        function DatabaseResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
             _super.call(this, ++Adaptive.registeredCounter);
             if (onErrorFunction == null) {
-                console.error("ERROR: DatabaseResultCallbackImpl onErrorFunction is not defined.");
+                console.error("ERROR: DatabaseResultCallback onErrorFunction is not defined.");
             }
             else {
                 this.onErrorFunction = onErrorFunction;
             }
             if (onResultFunction == null) {
-                console.error("ERROR: DatabaseResultCallbackImpl onResultFunction is not defined.");
+                console.error("ERROR: DatabaseResultCallback onResultFunction is not defined.");
             }
             else {
                 this.onResultFunction = onResultFunction;
             }
             if (onWarningFunction == null) {
-                console.error("ERROR: DatabaseResultCallbackImpl onWarningFunction is not defined.");
+                console.error("ERROR: DatabaseResultCallback onWarningFunction is not defined.");
             }
             else {
                 this.onWarningFunction = onWarningFunction;
@@ -4180,9 +4180,9 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param error Returned error
            @since ARP1.0
         */
-        DatabaseResultCallbackImpl.prototype.onError = function (error) {
+        DatabaseResultCallback.prototype.onError = function (error) {
             if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                console.warn("WARNING: DatabaseResultCallbackImpl contains a null reference to onErrorFunction.");
+                console.warn("WARNING: DatabaseResultCallback contains a null reference to onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
@@ -4194,9 +4194,9 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param database Returns the database
            @since ARP1.0
         */
-        DatabaseResultCallbackImpl.prototype.onResult = function (database) {
+        DatabaseResultCallback.prototype.onResult = function (database) {
             if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                console.warn("WARNING: DatabaseResultCallbackImpl contains a null reference to onResultFunction.");
+                console.warn("WARNING: DatabaseResultCallback contains a null reference to onResultFunction.");
             }
             else {
                 this.onResultFunction(database);
@@ -4209,17 +4209,17 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param warning  Returned Warning
            @since ARP1.0
         */
-        DatabaseResultCallbackImpl.prototype.onWarning = function (database, warning) {
+        DatabaseResultCallback.prototype.onWarning = function (database, warning) {
             if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                console.warn("WARNING: DatabaseResultCallbackImpl contains a null reference to onWarningFunction.");
+                console.warn("WARNING: DatabaseResultCallback contains a null reference to onWarningFunction.");
             }
             else {
                 this.onWarningFunction(database, warning);
             }
         };
-        return DatabaseResultCallbackImpl;
-    })(BaseCallbackImpl);
-    Adaptive.DatabaseResultCallbackImpl = DatabaseResultCallbackImpl;
+        return DatabaseResultCallback;
+    })(BaseCallback);
+    Adaptive.DatabaseResultCallback = DatabaseResultCallback;
     /**
        DatabaseTableResultCallback control dictionary.
     */
@@ -4260,8 +4260,8 @@ listener and subsequently, the listener will be deactivated and removed from the
         }
     }
     Adaptive.handleDatabaseTableResultCallbackWarning = handleDatabaseTableResultCallbackWarning;
-    var DatabaseTableResultCallbackImpl = (function (_super) {
-        __extends(DatabaseTableResultCallbackImpl, _super);
+    var DatabaseTableResultCallback = (function (_super) {
+        __extends(DatabaseTableResultCallback, _super);
         /**
            Constructor with anonymous handler functions for callback.
 
@@ -4269,22 +4269,22 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param onResultFunction Function receiving parameters of type: DatabaseTable
            @param onWarningFunction Function receiving parameters of type: DatabaseTable, IDatabaseTableResultCallbackWarning
         */
-        function DatabaseTableResultCallbackImpl(onErrorFunction, onResultFunction, onWarningFunction) {
+        function DatabaseTableResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
             _super.call(this, ++Adaptive.registeredCounter);
             if (onErrorFunction == null) {
-                console.error("ERROR: DatabaseTableResultCallbackImpl onErrorFunction is not defined.");
+                console.error("ERROR: DatabaseTableResultCallback onErrorFunction is not defined.");
             }
             else {
                 this.onErrorFunction = onErrorFunction;
             }
             if (onResultFunction == null) {
-                console.error("ERROR: DatabaseTableResultCallbackImpl onResultFunction is not defined.");
+                console.error("ERROR: DatabaseTableResultCallback onResultFunction is not defined.");
             }
             else {
                 this.onResultFunction = onResultFunction;
             }
             if (onWarningFunction == null) {
-                console.error("ERROR: DatabaseTableResultCallbackImpl onWarningFunction is not defined.");
+                console.error("ERROR: DatabaseTableResultCallback onWarningFunction is not defined.");
             }
             else {
                 this.onWarningFunction = onWarningFunction;
@@ -4296,9 +4296,9 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param error Returned error
            @since ARP1.0
         */
-        DatabaseTableResultCallbackImpl.prototype.onError = function (error) {
+        DatabaseTableResultCallback.prototype.onError = function (error) {
             if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                console.warn("WARNING: DatabaseTableResultCallbackImpl contains a null reference to onErrorFunction.");
+                console.warn("WARNING: DatabaseTableResultCallback contains a null reference to onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
@@ -4310,9 +4310,9 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param databaseTable Returns the databaseTable
            @since ARP1.0
         */
-        DatabaseTableResultCallbackImpl.prototype.onResult = function (databaseTable) {
+        DatabaseTableResultCallback.prototype.onResult = function (databaseTable) {
             if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                console.warn("WARNING: DatabaseTableResultCallbackImpl contains a null reference to onResultFunction.");
+                console.warn("WARNING: DatabaseTableResultCallback contains a null reference to onResultFunction.");
             }
             else {
                 this.onResultFunction(databaseTable);
@@ -4325,17 +4325,17 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param warning       Returned Warning
            @since ARP1.0
         */
-        DatabaseTableResultCallbackImpl.prototype.onWarning = function (databaseTable, warning) {
+        DatabaseTableResultCallback.prototype.onWarning = function (databaseTable, warning) {
             if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                console.warn("WARNING: DatabaseTableResultCallbackImpl contains a null reference to onWarningFunction.");
+                console.warn("WARNING: DatabaseTableResultCallback contains a null reference to onWarningFunction.");
             }
             else {
                 this.onWarningFunction(databaseTable, warning);
             }
         };
-        return DatabaseTableResultCallbackImpl;
-    })(BaseCallbackImpl);
-    Adaptive.DatabaseTableResultCallbackImpl = DatabaseTableResultCallbackImpl;
+        return DatabaseTableResultCallback;
+    })(BaseCallback);
+    Adaptive.DatabaseTableResultCallback = DatabaseTableResultCallback;
     /**
        FileDataLoadResultCallback control dictionary.
     */
@@ -4376,8 +4376,8 @@ listener and subsequently, the listener will be deactivated and removed from the
         }
     }
     Adaptive.handleFileDataLoadResultCallbackWarning = handleFileDataLoadResultCallbackWarning;
-    var FileDataLoadResultCallbackImpl = (function (_super) {
-        __extends(FileDataLoadResultCallbackImpl, _super);
+    var FileDataLoadResultCallback = (function (_super) {
+        __extends(FileDataLoadResultCallback, _super);
         /**
            Constructor with anonymous handler functions for callback.
 
@@ -4385,22 +4385,22 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param onResultFunction Function receiving parameters of type: Array<number>
            @param onWarningFunction Function receiving parameters of type: Array<number>, IFileDataLoadResultCallbackWarning
         */
-        function FileDataLoadResultCallbackImpl(onErrorFunction, onResultFunction, onWarningFunction) {
+        function FileDataLoadResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
             _super.call(this, ++Adaptive.registeredCounter);
             if (onErrorFunction == null) {
-                console.error("ERROR: FileDataLoadResultCallbackImpl onErrorFunction is not defined.");
+                console.error("ERROR: FileDataLoadResultCallback onErrorFunction is not defined.");
             }
             else {
                 this.onErrorFunction = onErrorFunction;
             }
             if (onResultFunction == null) {
-                console.error("ERROR: FileDataLoadResultCallbackImpl onResultFunction is not defined.");
+                console.error("ERROR: FileDataLoadResultCallback onResultFunction is not defined.");
             }
             else {
                 this.onResultFunction = onResultFunction;
             }
             if (onWarningFunction == null) {
-                console.error("ERROR: FileDataLoadResultCallbackImpl onWarningFunction is not defined.");
+                console.error("ERROR: FileDataLoadResultCallback onWarningFunction is not defined.");
             }
             else {
                 this.onWarningFunction = onWarningFunction;
@@ -4412,9 +4412,9 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param error Error condition encountered.
            @since ARP1.0
         */
-        FileDataLoadResultCallbackImpl.prototype.onError = function (error) {
+        FileDataLoadResultCallback.prototype.onError = function (error) {
             if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                console.warn("WARNING: FileDataLoadResultCallbackImpl contains a null reference to onErrorFunction.");
+                console.warn("WARNING: FileDataLoadResultCallback contains a null reference to onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
@@ -4426,9 +4426,9 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param data Data loaded.
            @since ARP1.0
         */
-        FileDataLoadResultCallbackImpl.prototype.onResult = function (data) {
+        FileDataLoadResultCallback.prototype.onResult = function (data) {
             if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                console.warn("WARNING: FileDataLoadResultCallbackImpl contains a null reference to onResultFunction.");
+                console.warn("WARNING: FileDataLoadResultCallback contains a null reference to onResultFunction.");
             }
             else {
                 this.onResultFunction(data);
@@ -4441,17 +4441,17 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param warning Warning condition encountered.
            @since ARP1.0
         */
-        FileDataLoadResultCallbackImpl.prototype.onWarning = function (data, warning) {
+        FileDataLoadResultCallback.prototype.onWarning = function (data, warning) {
             if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                console.warn("WARNING: FileDataLoadResultCallbackImpl contains a null reference to onWarningFunction.");
+                console.warn("WARNING: FileDataLoadResultCallback contains a null reference to onWarningFunction.");
             }
             else {
                 this.onWarningFunction(data, warning);
             }
         };
-        return FileDataLoadResultCallbackImpl;
-    })(BaseCallbackImpl);
-    Adaptive.FileDataLoadResultCallbackImpl = FileDataLoadResultCallbackImpl;
+        return FileDataLoadResultCallback;
+    })(BaseCallback);
+    Adaptive.FileDataLoadResultCallback = FileDataLoadResultCallback;
     /**
        FileDataStoreResultCallback control dictionary.
     */
@@ -4492,8 +4492,8 @@ listener and subsequently, the listener will be deactivated and removed from the
         }
     }
     Adaptive.handleFileDataStoreResultCallbackWarning = handleFileDataStoreResultCallbackWarning;
-    var FileDataStoreResultCallbackImpl = (function (_super) {
-        __extends(FileDataStoreResultCallbackImpl, _super);
+    var FileDataStoreResultCallback = (function (_super) {
+        __extends(FileDataStoreResultCallback, _super);
         /**
            Constructor with anonymous handler functions for callback.
 
@@ -4501,22 +4501,22 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param onResultFunction Function receiving parameters of type: FileDescriptor
            @param onWarningFunction Function receiving parameters of type: FileDescriptor, IFileDataStoreResultCallbackWarning
         */
-        function FileDataStoreResultCallbackImpl(onErrorFunction, onResultFunction, onWarningFunction) {
+        function FileDataStoreResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
             _super.call(this, ++Adaptive.registeredCounter);
             if (onErrorFunction == null) {
-                console.error("ERROR: FileDataStoreResultCallbackImpl onErrorFunction is not defined.");
+                console.error("ERROR: FileDataStoreResultCallback onErrorFunction is not defined.");
             }
             else {
                 this.onErrorFunction = onErrorFunction;
             }
             if (onResultFunction == null) {
-                console.error("ERROR: FileDataStoreResultCallbackImpl onResultFunction is not defined.");
+                console.error("ERROR: FileDataStoreResultCallback onResultFunction is not defined.");
             }
             else {
                 this.onResultFunction = onResultFunction;
             }
             if (onWarningFunction == null) {
-                console.error("ERROR: FileDataStoreResultCallbackImpl onWarningFunction is not defined.");
+                console.error("ERROR: FileDataStoreResultCallback onWarningFunction is not defined.");
             }
             else {
                 this.onWarningFunction = onWarningFunction;
@@ -4528,9 +4528,9 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param error Error condition encountered.
            @since ARP1.0
         */
-        FileDataStoreResultCallbackImpl.prototype.onError = function (error) {
+        FileDataStoreResultCallback.prototype.onError = function (error) {
             if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                console.warn("WARNING: FileDataStoreResultCallbackImpl contains a null reference to onErrorFunction.");
+                console.warn("WARNING: FileDataStoreResultCallback contains a null reference to onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
@@ -4542,9 +4542,9 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param file File reference to stored data.
            @since ARP1.0
         */
-        FileDataStoreResultCallbackImpl.prototype.onResult = function (file) {
+        FileDataStoreResultCallback.prototype.onResult = function (file) {
             if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                console.warn("WARNING: FileDataStoreResultCallbackImpl contains a null reference to onResultFunction.");
+                console.warn("WARNING: FileDataStoreResultCallback contains a null reference to onResultFunction.");
             }
             else {
                 this.onResultFunction(file);
@@ -4557,17 +4557,17 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param warning Warning condition encountered.
            @since ARP1.0
         */
-        FileDataStoreResultCallbackImpl.prototype.onWarning = function (file, warning) {
+        FileDataStoreResultCallback.prototype.onWarning = function (file, warning) {
             if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                console.warn("WARNING: FileDataStoreResultCallbackImpl contains a null reference to onWarningFunction.");
+                console.warn("WARNING: FileDataStoreResultCallback contains a null reference to onWarningFunction.");
             }
             else {
                 this.onWarningFunction(file, warning);
             }
         };
-        return FileDataStoreResultCallbackImpl;
-    })(BaseCallbackImpl);
-    Adaptive.FileDataStoreResultCallbackImpl = FileDataStoreResultCallbackImpl;
+        return FileDataStoreResultCallback;
+    })(BaseCallback);
+    Adaptive.FileDataStoreResultCallback = FileDataStoreResultCallback;
     /**
        FileListResultCallback control dictionary.
     */
@@ -4608,8 +4608,8 @@ listener and subsequently, the listener will be deactivated and removed from the
         }
     }
     Adaptive.handleFileListResultCallbackWarning = handleFileListResultCallbackWarning;
-    var FileListResultCallbackImpl = (function (_super) {
-        __extends(FileListResultCallbackImpl, _super);
+    var FileListResultCallback = (function (_super) {
+        __extends(FileListResultCallback, _super);
         /**
            Constructor with anonymous handler functions for callback.
 
@@ -4617,22 +4617,22 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param onResultFunction Function receiving parameters of type: Array<FileDescriptor>
            @param onWarningFunction Function receiving parameters of type: Array<FileDescriptor>, IFileListResultCallbackWarning
         */
-        function FileListResultCallbackImpl(onErrorFunction, onResultFunction, onWarningFunction) {
+        function FileListResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
             _super.call(this, ++Adaptive.registeredCounter);
             if (onErrorFunction == null) {
-                console.error("ERROR: FileListResultCallbackImpl onErrorFunction is not defined.");
+                console.error("ERROR: FileListResultCallback onErrorFunction is not defined.");
             }
             else {
                 this.onErrorFunction = onErrorFunction;
             }
             if (onResultFunction == null) {
-                console.error("ERROR: FileListResultCallbackImpl onResultFunction is not defined.");
+                console.error("ERROR: FileListResultCallback onResultFunction is not defined.");
             }
             else {
                 this.onResultFunction = onResultFunction;
             }
             if (onWarningFunction == null) {
-                console.error("ERROR: FileListResultCallbackImpl onWarningFunction is not defined.");
+                console.error("ERROR: FileListResultCallback onWarningFunction is not defined.");
             }
             else {
                 this.onWarningFunction = onWarningFunction;
@@ -4644,9 +4644,9 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param error Error processing the request.
            @since ARP1.0
         */
-        FileListResultCallbackImpl.prototype.onError = function (error) {
+        FileListResultCallback.prototype.onError = function (error) {
             if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                console.warn("WARNING: FileListResultCallbackImpl contains a null reference to onErrorFunction.");
+                console.warn("WARNING: FileListResultCallback contains a null reference to onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
@@ -4658,9 +4658,9 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param files Array of resulting files/folders.
            @since ARP1.0
         */
-        FileListResultCallbackImpl.prototype.onResult = function (files) {
+        FileListResultCallback.prototype.onResult = function (files) {
             if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                console.warn("WARNING: FileListResultCallbackImpl contains a null reference to onResultFunction.");
+                console.warn("WARNING: FileListResultCallback contains a null reference to onResultFunction.");
             }
             else {
                 this.onResultFunction(files);
@@ -4673,17 +4673,17 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param warning Warning condition encountered.
            @since ARP1.0
         */
-        FileListResultCallbackImpl.prototype.onWarning = function (files, warning) {
+        FileListResultCallback.prototype.onWarning = function (files, warning) {
             if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                console.warn("WARNING: FileListResultCallbackImpl contains a null reference to onWarningFunction.");
+                console.warn("WARNING: FileListResultCallback contains a null reference to onWarningFunction.");
             }
             else {
                 this.onWarningFunction(files, warning);
             }
         };
-        return FileListResultCallbackImpl;
-    })(BaseCallbackImpl);
-    Adaptive.FileListResultCallbackImpl = FileListResultCallbackImpl;
+        return FileListResultCallback;
+    })(BaseCallback);
+    Adaptive.FileListResultCallback = FileListResultCallback;
     /**
        FileResultCallback control dictionary.
     */
@@ -4724,8 +4724,8 @@ listener and subsequently, the listener will be deactivated and removed from the
         }
     }
     Adaptive.handleFileResultCallbackWarning = handleFileResultCallbackWarning;
-    var FileResultCallbackImpl = (function (_super) {
-        __extends(FileResultCallbackImpl, _super);
+    var FileResultCallback = (function (_super) {
+        __extends(FileResultCallback, _super);
         /**
            Constructor with anonymous handler functions for callback.
 
@@ -4733,22 +4733,22 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param onResultFunction Function receiving parameters of type: FileDescriptor
            @param onWarningFunction Function receiving parameters of type: FileDescriptor, IFileResultCallbackWarning
         */
-        function FileResultCallbackImpl(onErrorFunction, onResultFunction, onWarningFunction) {
+        function FileResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
             _super.call(this, ++Adaptive.registeredCounter);
             if (onErrorFunction == null) {
-                console.error("ERROR: FileResultCallbackImpl onErrorFunction is not defined.");
+                console.error("ERROR: FileResultCallback onErrorFunction is not defined.");
             }
             else {
                 this.onErrorFunction = onErrorFunction;
             }
             if (onResultFunction == null) {
-                console.error("ERROR: FileResultCallbackImpl onResultFunction is not defined.");
+                console.error("ERROR: FileResultCallback onResultFunction is not defined.");
             }
             else {
                 this.onResultFunction = onResultFunction;
             }
             if (onWarningFunction == null) {
-                console.error("ERROR: FileResultCallbackImpl onWarningFunction is not defined.");
+                console.error("ERROR: FileResultCallback onWarningFunction is not defined.");
             }
             else {
                 this.onWarningFunction = onWarningFunction;
@@ -4760,9 +4760,9 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param error Error processing the request.
            @since ARP1.0
         */
-        FileResultCallbackImpl.prototype.onError = function (error) {
+        FileResultCallback.prototype.onError = function (error) {
             if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                console.warn("WARNING: FileResultCallbackImpl contains a null reference to onErrorFunction.");
+                console.warn("WARNING: FileResultCallback contains a null reference to onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
@@ -4774,9 +4774,9 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param storageFile Reference to the resulting file.
            @since ARP1.0
         */
-        FileResultCallbackImpl.prototype.onResult = function (storageFile) {
+        FileResultCallback.prototype.onResult = function (storageFile) {
             if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                console.warn("WARNING: FileResultCallbackImpl contains a null reference to onResultFunction.");
+                console.warn("WARNING: FileResultCallback contains a null reference to onResultFunction.");
             }
             else {
                 this.onResultFunction(storageFile);
@@ -4789,17 +4789,17 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param warning Warning processing the request.
            @since ARP1.0
         */
-        FileResultCallbackImpl.prototype.onWarning = function (file, warning) {
+        FileResultCallback.prototype.onWarning = function (file, warning) {
             if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                console.warn("WARNING: FileResultCallbackImpl contains a null reference to onWarningFunction.");
+                console.warn("WARNING: FileResultCallback contains a null reference to onWarningFunction.");
             }
             else {
                 this.onWarningFunction(file, warning);
             }
         };
-        return FileResultCallbackImpl;
-    })(BaseCallbackImpl);
-    Adaptive.FileResultCallbackImpl = FileResultCallbackImpl;
+        return FileResultCallback;
+    })(BaseCallback);
+    Adaptive.FileResultCallback = FileResultCallback;
     /**
        MessagingCallback control dictionary.
     */
@@ -4840,8 +4840,8 @@ listener and subsequently, the listener will be deactivated and removed from the
         }
     }
     Adaptive.handleMessagingCallbackWarning = handleMessagingCallbackWarning;
-    var MessagingCallbackImpl = (function (_super) {
-        __extends(MessagingCallbackImpl, _super);
+    var MessagingCallback = (function (_super) {
+        __extends(MessagingCallback, _super);
         /**
            Constructor with anonymous handler functions for callback.
 
@@ -4849,22 +4849,22 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param onResultFunction Function receiving parameters of type: boolean
            @param onWarningFunction Function receiving parameters of type: boolean, IMessagingCallbackWarning
         */
-        function MessagingCallbackImpl(onErrorFunction, onResultFunction, onWarningFunction) {
+        function MessagingCallback(onErrorFunction, onResultFunction, onWarningFunction) {
             _super.call(this, ++Adaptive.registeredCounter);
             if (onErrorFunction == null) {
-                console.error("ERROR: MessagingCallbackImpl onErrorFunction is not defined.");
+                console.error("ERROR: MessagingCallback onErrorFunction is not defined.");
             }
             else {
                 this.onErrorFunction = onErrorFunction;
             }
             if (onResultFunction == null) {
-                console.error("ERROR: MessagingCallbackImpl onResultFunction is not defined.");
+                console.error("ERROR: MessagingCallback onResultFunction is not defined.");
             }
             else {
                 this.onResultFunction = onResultFunction;
             }
             if (onWarningFunction == null) {
-                console.error("ERROR: MessagingCallbackImpl onWarningFunction is not defined.");
+                console.error("ERROR: MessagingCallback onWarningFunction is not defined.");
             }
             else {
                 this.onWarningFunction = onWarningFunction;
@@ -4876,9 +4876,9 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param error returned by the platform
            @since ARP1.0
         */
-        MessagingCallbackImpl.prototype.onError = function (error) {
+        MessagingCallback.prototype.onError = function (error) {
             if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                console.warn("WARNING: MessagingCallbackImpl contains a null reference to onErrorFunction.");
+                console.warn("WARNING: MessagingCallback contains a null reference to onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
@@ -4890,9 +4890,9 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param success true if sent;false otherwise
            @since ARP1.0
         */
-        MessagingCallbackImpl.prototype.onResult = function (success) {
+        MessagingCallback.prototype.onResult = function (success) {
             if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                console.warn("WARNING: MessagingCallbackImpl contains a null reference to onResultFunction.");
+                console.warn("WARNING: MessagingCallback contains a null reference to onResultFunction.");
             }
             else {
                 this.onResultFunction(success);
@@ -4905,17 +4905,17 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param warning returned by the platform
            @since ARP1.0
         */
-        MessagingCallbackImpl.prototype.onWarning = function (success, warning) {
+        MessagingCallback.prototype.onWarning = function (success, warning) {
             if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                console.warn("WARNING: MessagingCallbackImpl contains a null reference to onWarningFunction.");
+                console.warn("WARNING: MessagingCallback contains a null reference to onWarningFunction.");
             }
             else {
                 this.onWarningFunction(success, warning);
             }
         };
-        return MessagingCallbackImpl;
-    })(BaseCallbackImpl);
-    Adaptive.MessagingCallbackImpl = MessagingCallbackImpl;
+        return MessagingCallback;
+    })(BaseCallback);
+    Adaptive.MessagingCallback = MessagingCallback;
     /**
        NetworkReachabilityCallback control dictionary.
     */
@@ -4956,8 +4956,8 @@ listener and subsequently, the listener will be deactivated and removed from the
         }
     }
     Adaptive.handleNetworkReachabilityCallbackWarning = handleNetworkReachabilityCallbackWarning;
-    var NetworkReachabilityCallbackImpl = (function (_super) {
-        __extends(NetworkReachabilityCallbackImpl, _super);
+    var NetworkReachabilityCallback = (function (_super) {
+        __extends(NetworkReachabilityCallback, _super);
         /**
            Constructor with anonymous handler functions for callback.
 
@@ -4965,22 +4965,22 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param onResultFunction Function receiving parameters of type: boolean
            @param onWarningFunction Function receiving parameters of type: boolean, INetworkReachabilityCallbackWarning
         */
-        function NetworkReachabilityCallbackImpl(onErrorFunction, onResultFunction, onWarningFunction) {
+        function NetworkReachabilityCallback(onErrorFunction, onResultFunction, onWarningFunction) {
             _super.call(this, ++Adaptive.registeredCounter);
             if (onErrorFunction == null) {
-                console.error("ERROR: NetworkReachabilityCallbackImpl onErrorFunction is not defined.");
+                console.error("ERROR: NetworkReachabilityCallback onErrorFunction is not defined.");
             }
             else {
                 this.onErrorFunction = onErrorFunction;
             }
             if (onResultFunction == null) {
-                console.error("ERROR: NetworkReachabilityCallbackImpl onResultFunction is not defined.");
+                console.error("ERROR: NetworkReachabilityCallback onResultFunction is not defined.");
             }
             else {
                 this.onResultFunction = onResultFunction;
             }
             if (onWarningFunction == null) {
-                console.error("ERROR: NetworkReachabilityCallbackImpl onWarningFunction is not defined.");
+                console.error("ERROR: NetworkReachabilityCallback onWarningFunction is not defined.");
             }
             else {
                 this.onWarningFunction = onWarningFunction;
@@ -4992,9 +4992,9 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param error Error value
            @since ARP1.0
         */
-        NetworkReachabilityCallbackImpl.prototype.onError = function (error) {
+        NetworkReachabilityCallback.prototype.onError = function (error) {
             if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                console.warn("WARNING: NetworkReachabilityCallbackImpl contains a null reference to onErrorFunction.");
+                console.warn("WARNING: NetworkReachabilityCallback contains a null reference to onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
@@ -5006,9 +5006,9 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param reachable Indicates if the host is reachable
            @since ARP1.0
         */
-        NetworkReachabilityCallbackImpl.prototype.onResult = function (reachable) {
+        NetworkReachabilityCallback.prototype.onResult = function (reachable) {
             if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                console.warn("WARNING: NetworkReachabilityCallbackImpl contains a null reference to onResultFunction.");
+                console.warn("WARNING: NetworkReachabilityCallback contains a null reference to onResultFunction.");
             }
             else {
                 this.onResultFunction(reachable);
@@ -5021,17 +5021,17 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param warning   Warning value
            @since ARP1.0
         */
-        NetworkReachabilityCallbackImpl.prototype.onWarning = function (reachable, warning) {
+        NetworkReachabilityCallback.prototype.onWarning = function (reachable, warning) {
             if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                console.warn("WARNING: NetworkReachabilityCallbackImpl contains a null reference to onWarningFunction.");
+                console.warn("WARNING: NetworkReachabilityCallback contains a null reference to onWarningFunction.");
             }
             else {
                 this.onWarningFunction(reachable, warning);
             }
         };
-        return NetworkReachabilityCallbackImpl;
-    })(BaseCallbackImpl);
-    Adaptive.NetworkReachabilityCallbackImpl = NetworkReachabilityCallbackImpl;
+        return NetworkReachabilityCallback;
+    })(BaseCallback);
+    Adaptive.NetworkReachabilityCallback = NetworkReachabilityCallback;
     /**
        SecurityResultCallback control dictionary.
     */
@@ -5072,8 +5072,8 @@ listener and subsequently, the listener will be deactivated and removed from the
         }
     }
     Adaptive.handleSecurityResultCallbackWarning = handleSecurityResultCallbackWarning;
-    var SecurityResultCallbackImpl = (function (_super) {
-        __extends(SecurityResultCallbackImpl, _super);
+    var SecurityResultCallback = (function (_super) {
+        __extends(SecurityResultCallback, _super);
         /**
            Constructor with anonymous handler functions for callback.
 
@@ -5081,22 +5081,22 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param onResultFunction Function receiving parameters of type: Array<SecureKeyPair>
            @param onWarningFunction Function receiving parameters of type: Array<SecureKeyPair>, ISecurityResultCallbackWarning
         */
-        function SecurityResultCallbackImpl(onErrorFunction, onResultFunction, onWarningFunction) {
+        function SecurityResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
             _super.call(this, ++Adaptive.registeredCounter);
             if (onErrorFunction == null) {
-                console.error("ERROR: SecurityResultCallbackImpl onErrorFunction is not defined.");
+                console.error("ERROR: SecurityResultCallback onErrorFunction is not defined.");
             }
             else {
                 this.onErrorFunction = onErrorFunction;
             }
             if (onResultFunction == null) {
-                console.error("ERROR: SecurityResultCallbackImpl onResultFunction is not defined.");
+                console.error("ERROR: SecurityResultCallback onResultFunction is not defined.");
             }
             else {
                 this.onResultFunction = onResultFunction;
             }
             if (onWarningFunction == null) {
-                console.error("ERROR: SecurityResultCallbackImpl onWarningFunction is not defined.");
+                console.error("ERROR: SecurityResultCallback onWarningFunction is not defined.");
             }
             else {
                 this.onWarningFunction = onWarningFunction;
@@ -5108,9 +5108,9 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param error Error values
            @since ARP1.0
         */
-        SecurityResultCallbackImpl.prototype.onError = function (error) {
+        SecurityResultCallback.prototype.onError = function (error) {
             if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                console.warn("WARNING: SecurityResultCallbackImpl contains a null reference to onErrorFunction.");
+                console.warn("WARNING: SecurityResultCallback contains a null reference to onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
@@ -5122,9 +5122,9 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param keyValues key and values
            @since ARP1.0
         */
-        SecurityResultCallbackImpl.prototype.onResult = function (keyValues) {
+        SecurityResultCallback.prototype.onResult = function (keyValues) {
             if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                console.warn("WARNING: SecurityResultCallbackImpl contains a null reference to onResultFunction.");
+                console.warn("WARNING: SecurityResultCallback contains a null reference to onResultFunction.");
             }
             else {
                 this.onResultFunction(keyValues);
@@ -5137,17 +5137,17 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param warning   Warning values
            @since ARP1.0
         */
-        SecurityResultCallbackImpl.prototype.onWarning = function (keyValues, warning) {
+        SecurityResultCallback.prototype.onWarning = function (keyValues, warning) {
             if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                console.warn("WARNING: SecurityResultCallbackImpl contains a null reference to onWarningFunction.");
+                console.warn("WARNING: SecurityResultCallback contains a null reference to onWarningFunction.");
             }
             else {
                 this.onWarningFunction(keyValues, warning);
             }
         };
-        return SecurityResultCallbackImpl;
-    })(BaseCallbackImpl);
-    Adaptive.SecurityResultCallbackImpl = SecurityResultCallbackImpl;
+        return SecurityResultCallback;
+    })(BaseCallback);
+    Adaptive.SecurityResultCallback = SecurityResultCallback;
     /**
        ServiceResultCallback control dictionary.
     */
@@ -5188,8 +5188,8 @@ listener and subsequently, the listener will be deactivated and removed from the
         }
     }
     Adaptive.handleServiceResultCallbackWarning = handleServiceResultCallbackWarning;
-    var ServiceResultCallbackImpl = (function (_super) {
-        __extends(ServiceResultCallbackImpl, _super);
+    var ServiceResultCallback = (function (_super) {
+        __extends(ServiceResultCallback, _super);
         /**
            Constructor with anonymous handler functions for callback.
 
@@ -5197,22 +5197,22 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param onResultFunction Function receiving parameters of type: ServiceResponse
            @param onWarningFunction Function receiving parameters of type: ServiceResponse, IServiceResultCallbackWarning
         */
-        function ServiceResultCallbackImpl(onErrorFunction, onResultFunction, onWarningFunction) {
+        function ServiceResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
             _super.call(this, ++Adaptive.registeredCounter);
             if (onErrorFunction == null) {
-                console.error("ERROR: ServiceResultCallbackImpl onErrorFunction is not defined.");
+                console.error("ERROR: ServiceResultCallback onErrorFunction is not defined.");
             }
             else {
                 this.onErrorFunction = onErrorFunction;
             }
             if (onResultFunction == null) {
-                console.error("ERROR: ServiceResultCallbackImpl onResultFunction is not defined.");
+                console.error("ERROR: ServiceResultCallback onResultFunction is not defined.");
             }
             else {
                 this.onResultFunction = onResultFunction;
             }
             if (onWarningFunction == null) {
-                console.error("ERROR: ServiceResultCallbackImpl onWarningFunction is not defined.");
+                console.error("ERROR: ServiceResultCallback onWarningFunction is not defined.");
             }
             else {
                 this.onWarningFunction = onWarningFunction;
@@ -5224,9 +5224,9 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param error returned by the platform
            @since ARP1.0
         */
-        ServiceResultCallbackImpl.prototype.onError = function (error) {
+        ServiceResultCallback.prototype.onError = function (error) {
             if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                console.warn("WARNING: ServiceResultCallbackImpl contains a null reference to onErrorFunction.");
+                console.warn("WARNING: ServiceResultCallback contains a null reference to onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
@@ -5238,9 +5238,9 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param response data
            @since ARP1.0
         */
-        ServiceResultCallbackImpl.prototype.onResult = function (response) {
+        ServiceResultCallback.prototype.onResult = function (response) {
             if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                console.warn("WARNING: ServiceResultCallbackImpl contains a null reference to onResultFunction.");
+                console.warn("WARNING: ServiceResultCallback contains a null reference to onResultFunction.");
             }
             else {
                 this.onResultFunction(response);
@@ -5253,17 +5253,17 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param warning  returned by the platform
            @since ARP1.0
         */
-        ServiceResultCallbackImpl.prototype.onWarning = function (response, warning) {
+        ServiceResultCallback.prototype.onWarning = function (response, warning) {
             if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                console.warn("WARNING: ServiceResultCallbackImpl contains a null reference to onWarningFunction.");
+                console.warn("WARNING: ServiceResultCallback contains a null reference to onWarningFunction.");
             }
             else {
                 this.onWarningFunction(response, warning);
             }
         };
-        return ServiceResultCallbackImpl;
-    })(BaseCallbackImpl);
-    Adaptive.ServiceResultCallbackImpl = ServiceResultCallbackImpl;
+        return ServiceResultCallback;
+    })(BaseCallback);
+    Adaptive.ServiceResultCallback = ServiceResultCallback;
     /**
        Enumeration ContactAddressType
     */
