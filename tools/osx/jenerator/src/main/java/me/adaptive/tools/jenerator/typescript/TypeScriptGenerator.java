@@ -167,6 +167,9 @@ public class TypeScriptGenerator extends GeneratorBase {
 
                         if (typeName != null && !referenceList.contains(typeName) && !clazz.getSimpleName().equals(typeName)) {
                             referenceList.add(typeName);
+                            if (typeName.startsWith("I") && (typeName.endsWith("Listener") || typeName.endsWith("Callback")) && simpleName.endsWith("Bridge")) {
+                                referenceList.add(typeName.substring(1));
+                            }
                         }
                     }
                     if (!method.getReturnType().equals(Void.TYPE)) {
@@ -224,7 +227,7 @@ public class TypeScriptGenerator extends GeneratorBase {
                     });
                     for (Class serviceClass : serviceClasses) {
                         referenceList.add(serviceClass.getSimpleName());
-                        referenceList.add(serviceClass.getSimpleName().substring(1)+"Bridge");
+                        referenceList.add(serviceClass.getSimpleName().substring(1) + "Bridge");
                     }
                     referenceList.add("IAdaptiveRPGroup");
                     referenceList.add(clazz.getSimpleName());
@@ -279,7 +282,7 @@ public class TypeScriptGenerator extends GeneratorBase {
                     printlnGlobal(13, "Singleton instances of Bridges.");
                     endCommentGlobal(10);
                     for (Class c : serviceClasses) {
-                        printlnGlobal(10, "private static instance"+c.getSimpleName().substring(1)+" : "+c.getSimpleName()+" = null;");
+                        printlnGlobal(10, "private static instance" + c.getSimpleName().substring(1) + " : " + c.getSimpleName() + " = null;");
                     }
                     printlnGlobal();
 
@@ -293,7 +296,7 @@ public class TypeScriptGenerator extends GeneratorBase {
                         printlnGlobal(15, "if (AppRegistryBridge.instance" + c.getSimpleName().substring(1) + " === null) {");
                         printlnGlobal(20, "AppRegistryBridge.instance" + c.getSimpleName().substring(1) + "= new " + c.getSimpleName().substring(1) + "Bridge();");
                         printlnGlobal(15, "}");
-                        printlnGlobal(15, "return AppRegistryBridge.instance"+ c.getSimpleName().substring(1)+";");
+                        printlnGlobal(15, "return AppRegistryBridge.instance" + c.getSimpleName().substring(1) + ";");
                         printlnGlobal(10, "}");
                         printlnGlobal();
                     }
@@ -301,7 +304,7 @@ public class TypeScriptGenerator extends GeneratorBase {
                     printlnGlobal(13, "Return the API version for the given interface.");
                     endCommentGlobal(10);
                     printlnGlobal(10, "public getAPIVersion() : string {");
-                    printlnGlobal(15, "return \""+getGenerationTagVersion()+"\"");
+                    printlnGlobal(15, "return \"" + getGenerationTagVersion() + "\"");
                     printlnGlobal(10, "}");
                 }
             } else {
@@ -381,7 +384,7 @@ public class TypeScriptGenerator extends GeneratorBase {
                     printlnGlobal(13, "Return the API version for the given interface.");
                     endCommentGlobal(10);
                     printlnGlobal(10, "getAPIVersion() : string {");
-                    printlnGlobal(15, "return \""+getGenerationTagVersion()+"\"");
+                    printlnGlobal(15, "return \"" + getGenerationTagVersion() + "\"");
                     printlnGlobal(10, "}");
                 } else {
                     printlnGlobal();
@@ -444,6 +447,53 @@ public class TypeScriptGenerator extends GeneratorBase {
                             printlnGlobal(convertJavaToNativeType(m.getReturnType()) + " {");
                         }
 
+                        printlnGlobal(15, "// Create and populate API request.");
+                        printlnGlobal(15, "var arParams : string[] = [];");
+                        String cblsName = null;
+                        String cblsType = null;
+                        for (Parameter p : m.getParameters()) {
+                            if (!p.getType().getSimpleName().endsWith("Listener") && !p.getType().getSimpleName().endsWith("Callback")) {
+                                printlnGlobal(15, "arParams.push(JSON.stringify(" + p.getName() + "));");
+                            } else {
+                                cblsName = p.getName();
+                                cblsType = p.getType().getSimpleName();
+                            }
+                        }
+                        printlnGlobal(15, "var ar : APIRequest = new APIRequest(\"" + clazz.getSimpleName() + "\",\"" + currentMethodName + "\",arParams, " + (cblsName != null ? cblsName + ".getId()" : cblsName) + ");");
+                        printlnGlobal(15, "// Create and send JSON request.");
+                        printlnGlobal(15, "var xhr = new XMLHttpRequest();");
+                        printlnGlobal(15, "xhr.open(\"POST\", bridgePath, false);");
+                        printlnGlobal(15, "xhr.send(JSON.stringify(ar));");
+                        printlnGlobal(15, "// Check response.");
+                        printlnGlobal(15, "if (xhr.status == 200) {");
+                        // Manage listeners
+                        if (m.getName().endsWith("Listener") || m.getName().endsWith("Listeners")) {
+                            if (m.getName().startsWith("add")) {
+                                printlnGlobal(20, "// Add listener reference to local dictionary.");
+                                printlnGlobal(20, "registered"+cblsType.substring(1)+".add(\"\"+"+cblsName+".getId(), "+cblsName+");");
+                            }
+                            if (m.getName().startsWith("remove")) {
+                                if (m.getParameterCount() == 0) {
+                                    printlnGlobal(20, "// Remove all listeners references from local dictionary.");
+                                    printlnGlobal(20, "var keys = registered"+m.getName().substring(6, m.getName().length()-1)+".keys();");
+                                    printlnGlobal(20, "for (var key in keys) {");
+                                    printlnGlobal(25, "registered"+m.getName().substring(6, m.getName().length()-1)+".remove(key);");
+                                    printlnGlobal(20, "}");
+                                } else {
+                                    printlnGlobal(20, "// Remove listener reference from local dictionary.");
+                                    printlnGlobal(20, "registered"+cblsType.substring(1)+".remove(\"\"+"+cblsName+".getId());");
+                                }
+                            }
+                        }
+                        // Manage callbacks
+                        if (cblsType!=null && cblsType.endsWith("Callback")) {
+                            printlnGlobal(20, "// Add callback reference to local dictionary.");
+                            printlnGlobal(20, "registered"+cblsType.substring(1)+".add(\"\"+"+cblsName+".getId(), "+cblsName+");");
+                        }
+                        // Manage returns
+                        printlnGlobal(15, "} else {");
+                        printlnGlobal(20, "console.error(\"ERROR: \"+xhr.status+\" sending '"+simpleName+"."+m.getName()+"' request.\");");
+                        printlnGlobal(15, "}");
                         if (!m.getReturnType().equals(Void.TYPE)) {
                             printlnGlobal(15, "return null;");
                         }
@@ -493,6 +543,7 @@ public class TypeScriptGenerator extends GeneratorBase {
                             printlnGlobal(convertJavaToNativeType(m.getReturnType()) + " {");
                         }
 
+                        printlnGlobal(15, "// TODO: Implement overloaded methods.");
                         if (!m.getReturnType().equals(Void.TYPE)) {
                             printlnGlobal(15, "return null;");
                         } else {
@@ -608,7 +659,7 @@ public class TypeScriptGenerator extends GeneratorBase {
             printlnGlobal(13, "Return the API version for the given interface.");
             endCommentGlobal(10);
             printlnGlobal(10, "getAPIVersion() : string {");
-            printlnGlobal(15, "return \""+getGenerationTagVersion()+"\"");
+            printlnGlobal(15, "return \"" + getGenerationTagVersion() + "\"");
             printlnGlobal(10, "}");
         } else {
             List<Method> methodList = new ArrayList<>();
@@ -626,7 +677,7 @@ public class TypeScriptGenerator extends GeneratorBase {
             startCommentGlobal(5);
             printlnGlobal(8, clazz.getSimpleName().substring(1) + " control dictionary.");
             endCommentGlobal(5);
-            printlnGlobal(5, "var registered" + clazz.getSimpleName().substring(1) + " = new Dictionary<" + clazz.getSimpleName() + ">([]);");
+            printlnGlobal(5, "export var registered" + clazz.getSimpleName().substring(1) + " = new Dictionary<" + clazz.getSimpleName() + ">([]);");
             printlnGlobal();
             startCommentGlobal(5);
             printlnGlobal(8, clazz.getSimpleName().substring(1) + " global callback handlers.");
@@ -889,7 +940,7 @@ public class TypeScriptGenerator extends GeneratorBase {
             printlnGlobal(13, "Return the API version for the given interface.");
             endCommentGlobal(10);
             printlnGlobal(10, "getAPIVersion() : string {");
-            printlnGlobal(15, "return \""+getGenerationTagVersion()+"\"");
+            printlnGlobal(15, "return \"" + getGenerationTagVersion() + "\"");
             printlnGlobal(10, "}");
 
         } else {
@@ -909,7 +960,7 @@ public class TypeScriptGenerator extends GeneratorBase {
             startCommentGlobal(5);
             printlnGlobal(8, clazz.getSimpleName().substring(1) + " control dictionary.");
             endCommentGlobal(5);
-            printlnGlobal(5, "var registered" + clazz.getSimpleName().substring(1) + " = new Dictionary<" + clazz.getSimpleName() + ">([]);");
+            printlnGlobal(5, "export var registered" + clazz.getSimpleName().substring(1) + " = new Dictionary<" + clazz.getSimpleName() + ">([]);");
             printlnGlobal();
             startCommentGlobal(5);
             printlnGlobal(8, clazz.getSimpleName().substring(1) + " global listener handlers.");
@@ -1146,9 +1197,9 @@ public class TypeScriptGenerator extends GeneratorBase {
                         printlnSF(13, "@return " + serviceClass.getSimpleName().substring(1) + "Bridge reference or null if a bridge of this type is not registered.");
                         endComment(10);
                         endCommentSF(10);
-                        println(10, "get" + serviceClass.getSimpleName().substring(1) + "Bridge() : " + serviceClass.getSimpleName()+";");
+                        println(10, "get" + serviceClass.getSimpleName().substring(1) + "Bridge() : " + serviceClass.getSimpleName() + ";");
                         println();
-                        printlnSF(10, "get" + serviceClass.getSimpleName().substring(1) + "Bridge() : " + serviceClass.getSimpleName()+";");
+                        printlnSF(10, "get" + serviceClass.getSimpleName().substring(1) + "Bridge() : " + serviceClass.getSimpleName() + ";");
                         printlnSF();
                     }
                     startCommentGlobal(10);
@@ -1246,9 +1297,9 @@ public class TypeScriptGenerator extends GeneratorBase {
                         printlnSF(13, "@return " + serviceClass.getSimpleName().substring(1) + "Bridge reference or null if a bridge of this type is not registered.");
                         endComment(10);
                         endCommentSF(10);
-                        println(10, "get" + serviceClass.getSimpleName().substring(1) + "Bridge() : " + serviceClass.getSimpleName()+";");
+                        println(10, "get" + serviceClass.getSimpleName().substring(1) + "Bridge() : " + serviceClass.getSimpleName() + ";");
                         println();
-                        printlnSF(10, "get" + serviceClass.getSimpleName().substring(1) + "Bridge() : " + serviceClass.getSimpleName()+";");
+                        printlnSF(10, "get" + serviceClass.getSimpleName().substring(1) + "Bridge() : " + serviceClass.getSimpleName() + ";");
                         printlnSF();
                     }
                     startCommentGlobal(10);
