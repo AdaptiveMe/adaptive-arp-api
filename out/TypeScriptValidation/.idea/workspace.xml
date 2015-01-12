@@ -2,93 +2,46 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2b62424-c85f-4dbf-8462-3858f1398c98" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.d.ts" afterPath="$PROJECT_DIR$/Adaptive.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.js.map" afterPath="$PROJECT_DIR$/Adaptive.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.js" afterPath="$PROJECT_DIR$/Adaptive.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.ts" afterPath="$PROJECT_DIR$/Adaptive.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../.gitignore" afterPath="$PROJECT_DIR$/../../.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/AppRegistryBridge.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/AppRegistryBridge.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AppRegistryBridge.d.ts" afterPath="$PROJECT_DIR$/AppRegistryBridge.d.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/AppRegistryBridge.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/AppRegistryBridge.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AppRegistryBridge.js.map" afterPath="$PROJECT_DIR$/AppRegistryBridge.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AppRegistryBridge.js" afterPath="$PROJECT_DIR$/AppRegistryBridge.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AppRegistryBridge.ts" afterPath="$PROJECT_DIR$/AppRegistryBridge.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/AppRegistryDelegate.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/AppRegistryDelegate.cs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/AppRegistryDelegate.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/AppRegistryDelegate.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseApplicationBridge.d.ts" afterPath="$PROJECT_DIR$/BaseApplicationBridge.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseApplicationBridge.js.map" afterPath="$PROJECT_DIR$/BaseApplicationBridge.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseApplicationBridge.js" afterPath="$PROJECT_DIR$/BaseApplicationBridge.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseApplicationBridge.ts" afterPath="$PROJECT_DIR$/BaseApplicationBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCallback.d.ts" afterPath="$PROJECT_DIR$/BaseCallback.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCallback.js.map" afterPath="$PROJECT_DIR$/BaseCallback.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCallback.js" afterPath="$PROJECT_DIR$/BaseCallback.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCallback.ts" afterPath="$PROJECT_DIR$/BaseCallback.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCommerceBridge.d.ts" afterPath="$PROJECT_DIR$/BaseCommerceBridge.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCommerceBridge.js.map" afterPath="$PROJECT_DIR$/BaseCommerceBridge.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCommerceBridge.js" afterPath="$PROJECT_DIR$/BaseCommerceBridge.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCommerceBridge.ts" afterPath="$PROJECT_DIR$/BaseCommerceBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCommunicationBridge.d.ts" afterPath="$PROJECT_DIR$/BaseCommunicationBridge.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCommunicationBridge.js.map" afterPath="$PROJECT_DIR$/BaseCommunicationBridge.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCommunicationBridge.js" afterPath="$PROJECT_DIR$/BaseCommunicationBridge.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCommunicationBridge.ts" afterPath="$PROJECT_DIR$/BaseCommunicationBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseDataBridge.d.ts" afterPath="$PROJECT_DIR$/BaseDataBridge.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseDataBridge.js.map" afterPath="$PROJECT_DIR$/BaseDataBridge.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseDataBridge.js" afterPath="$PROJECT_DIR$/BaseDataBridge.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseDataBridge.ts" afterPath="$PROJECT_DIR$/BaseDataBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseListener.d.ts" afterPath="$PROJECT_DIR$/BaseListener.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseListener.js.map" afterPath="$PROJECT_DIR$/BaseListener.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseListener.js" afterPath="$PROJECT_DIR$/BaseListener.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseListener.ts" afterPath="$PROJECT_DIR$/BaseListener.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseMediaBridge.d.ts" afterPath="$PROJECT_DIR$/BaseMediaBridge.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseMediaBridge.js.map" afterPath="$PROJECT_DIR$/BaseMediaBridge.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseMediaBridge.js" afterPath="$PROJECT_DIR$/BaseMediaBridge.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseMediaBridge.ts" afterPath="$PROJECT_DIR$/BaseMediaBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseNotificationBridge.d.ts" afterPath="$PROJECT_DIR$/BaseNotificationBridge.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseNotificationBridge.js.map" afterPath="$PROJECT_DIR$/BaseNotificationBridge.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseNotificationBridge.js" afterPath="$PROJECT_DIR$/BaseNotificationBridge.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseNotificationBridge.ts" afterPath="$PROJECT_DIR$/BaseNotificationBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BasePIMBridge.d.ts" afterPath="$PROJECT_DIR$/BasePIMBridge.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BasePIMBridge.js.map" afterPath="$PROJECT_DIR$/BasePIMBridge.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BasePIMBridge.js" afterPath="$PROJECT_DIR$/BasePIMBridge.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BasePIMBridge.ts" afterPath="$PROJECT_DIR$/BasePIMBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseReaderBridge.d.ts" afterPath="$PROJECT_DIR$/BaseReaderBridge.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseReaderBridge.js.map" afterPath="$PROJECT_DIR$/BaseReaderBridge.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseReaderBridge.js" afterPath="$PROJECT_DIR$/BaseReaderBridge.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseReaderBridge.ts" afterPath="$PROJECT_DIR$/BaseReaderBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSecurityBridge.d.ts" afterPath="$PROJECT_DIR$/BaseSecurityBridge.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSecurityBridge.js.map" afterPath="$PROJECT_DIR$/BaseSecurityBridge.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSecurityBridge.js" afterPath="$PROJECT_DIR$/BaseSecurityBridge.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSecurityBridge.ts" afterPath="$PROJECT_DIR$/BaseSecurityBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSensorBridge.d.ts" afterPath="$PROJECT_DIR$/BaseSensorBridge.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSensorBridge.js.map" afterPath="$PROJECT_DIR$/BaseSensorBridge.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSensorBridge.js" afterPath="$PROJECT_DIR$/BaseSensorBridge.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSensorBridge.ts" afterPath="$PROJECT_DIR$/BaseSensorBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSocialBridge.d.ts" afterPath="$PROJECT_DIR$/BaseSocialBridge.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSocialBridge.js.map" afterPath="$PROJECT_DIR$/BaseSocialBridge.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSocialBridge.js" afterPath="$PROJECT_DIR$/BaseSocialBridge.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSocialBridge.ts" afterPath="$PROJECT_DIR$/BaseSocialBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSystemBridge.d.ts" afterPath="$PROJECT_DIR$/BaseSystemBridge.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSystemBridge.js.map" afterPath="$PROJECT_DIR$/BaseSystemBridge.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSystemBridge.js" afterPath="$PROJECT_DIR$/BaseSystemBridge.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSystemBridge.ts" afterPath="$PROJECT_DIR$/BaseSystemBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseUIBridge.d.ts" afterPath="$PROJECT_DIR$/BaseUIBridge.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseUIBridge.js.map" afterPath="$PROJECT_DIR$/BaseUIBridge.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseUIBridge.js" afterPath="$PROJECT_DIR$/BaseUIBridge.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseUIBridge.ts" afterPath="$PROJECT_DIR$/BaseUIBridge.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseUtilBridge.d.ts" afterPath="$PROJECT_DIR$/BaseUtilBridge.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseUtilBridge.js.map" afterPath="$PROJECT_DIR$/BaseUtilBridge.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseUtilBridge.js" afterPath="$PROJECT_DIR$/BaseUtilBridge.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseUtilBridge.ts" afterPath="$PROJECT_DIR$/BaseUtilBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/BaseApplicationBridge.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/BaseApplicationBridge.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/impl/BaseApplicationDelegate.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/impl/BaseApplicationDelegate.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/BaseCallbackImpl.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/BaseCallbackImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/BaseCommerceBridge.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/BaseCommerceBridge.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/impl/BaseCommerceDelegate.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/impl/BaseCommerceDelegate.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/BaseCommunicationBridge.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/BaseCommunicationBridge.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/impl/BaseCommunicationDelegate.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/impl/BaseCommunicationDelegate.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/BaseDataBridge.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/BaseDataBridge.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/impl/BaseDataDelegate.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/impl/BaseDataDelegate.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/BaseListenerImpl.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/BaseListenerImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/BaseMediaBridge.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/BaseMediaBridge.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/impl/BaseMediaDelegate.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/impl/BaseMediaDelegate.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/BaseNotificationBridge.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/BaseNotificationBridge.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/impl/BaseNotificationDelegate.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/impl/BaseNotificationDelegate.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/BasePIMBridge.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/BasePIMBridge.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/impl/BasePIMDelegate.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/impl/BasePIMDelegate.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/BaseReaderBridge.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/BaseReaderBridge.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/impl/BaseReaderDelegate.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/impl/BaseReaderDelegate.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/BaseSecurityBridge.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/BaseSecurityBridge.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/impl/BaseSecurityDelegate.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/impl/BaseSecurityDelegate.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/BaseSensorBridge.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/BaseSensorBridge.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/impl/BaseSensorDelegate.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/impl/BaseSensorDelegate.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/BaseSocialBridge.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/BaseSocialBridge.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/impl/BaseSocialDelegate.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/impl/BaseSocialDelegate.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/BaseSystemBridge.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/BaseSystemBridge.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/impl/BaseSystemDelegate.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/impl/BaseSystemDelegate.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/BaseUIBridge.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/BaseUIBridge.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/impl/BaseUIDelegate.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/impl/BaseUIDelegate.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/BaseUtilBridge.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/BaseUtilBridge.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/impl/BaseUtilDelegate.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/impl/BaseUtilDelegate.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/IAdaptiveRP.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/IAdaptiveRP.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAdaptiveRP.d.ts" afterPath="$PROJECT_DIR$/IAdaptiveRP.d.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IAdaptiveRP.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IAdaptiveRP.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAdaptiveRP.js.map" afterPath="$PROJECT_DIR$/IAdaptiveRP.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAdaptiveRP.ts" afterPath="$PROJECT_DIR$/IAdaptiveRP.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/IAppRegistry.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/IAppRegistry.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAppRegistry.d.ts" afterPath="$PROJECT_DIR$/IAppRegistry.d.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IAppRegistry.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IAppRegistry.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAppRegistry.js.map" afterPath="$PROJECT_DIR$/IAppRegistry.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAppRegistry.ts" afterPath="$PROJECT_DIR$/IAppRegistry.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/typescript/TypeScriptGenerator.java" afterPath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/typescript/TypeScriptGenerator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/java/JavaGenerator.java" afterPath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/java/JavaGenerator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TypeScriptValidation.iws" />
@@ -189,9 +142,9 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-2502" />
+    <option name="x" value="-2501" />
     <option name="y" value="23" />
-    <option name="width" value="2461" />
+    <option name="width" value="2491" />
     <option name="height" value="1379" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -327,15 +280,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2502" y="23" width="2461" height="1379" extended-state="0" />
-    <editor active="true" />
+    <frame x="-2501" y="23" width="2491" height="1379" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17269403" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17061421" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26791278" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />

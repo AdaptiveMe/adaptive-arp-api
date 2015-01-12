@@ -62,6 +62,14 @@ public class BaseSocialDelegate implements IBaseSocial {
           return this.apiGroup;
      }
 
+     /**
+        Return the API version for the given interface.
+     */
+     @Override
+     public String getAPIVersion() {
+          return "v2.0.3";
+     }
+
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

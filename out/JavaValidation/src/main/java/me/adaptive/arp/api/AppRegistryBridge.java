@@ -1657,6 +1657,29 @@ public class AppRegistryBridge implements IAppRegistry {
      }
 
      /**
+        Method that returns the API version of the implementation.
+
+        @return API Version string.
+        @since ARP1.0
+     */
+     public String getAPIVersion() {
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getAPIVersion.");
+
+          String result = null;
+          if (this.delegate != null) {
+               result = this.delegate.getAPIVersion();
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getAPIVersion' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getAPIVersion'.");
+          }
+          return result;          
+     }
+
+     /**
         Returns a reference to the Platform Context
 
         @return Reference to the platform context

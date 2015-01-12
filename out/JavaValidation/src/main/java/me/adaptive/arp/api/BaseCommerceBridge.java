@@ -67,6 +67,15 @@ public class BaseCommerceBridge implements IBaseCommerce {
      public final IAdaptiveRPGroup getAPIGroup() {
           return this.apiGroup;
      }
+
+     /**
+        Return the API version for the given interface.
+     */
+     @Override
+     public String getAPIVersion() {
+          return "v2.0.3";
+     }
+
      /**
         Return the JSON serializer.
         @return Current JSON serializer.

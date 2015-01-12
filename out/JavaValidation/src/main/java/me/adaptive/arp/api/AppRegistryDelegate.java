@@ -1186,6 +1186,13 @@ public class AppRegistryDelegate implements IAppRegistry {
      }
 
      /**
+        Method that returns the API version of the implementation.
+     */
+     public String getAPIVersion() {
+          return "v2.0.3";
+     }
+
+     /**
         Returns a reference to the Platform Context
      */
      private AppContextBridge __appcontextBridge = null;
