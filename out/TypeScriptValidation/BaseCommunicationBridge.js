@@ -34,4 +34,30 @@ Release:
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRP.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IBaseCommunication.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Base application for Communication purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var BaseCommunicationBridge = (function () {
+        /**
+           Default constructor.
+        */
+        function BaseCommunicationBridge() {
+            this.apiGroup = Adaptive.IAdaptiveRPGroup.Communication;
+        }
+        /**
+           Return the API group for the given interface.
+        */
+        BaseCommunicationBridge.prototype.getAPIGroup = function () {
+            return this.apiGroup;
+        };
+        return BaseCommunicationBridge;
+    })();
+    Adaptive.BaseCommunicationBridge = BaseCommunicationBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=BaseCommunicationBridge.js.map

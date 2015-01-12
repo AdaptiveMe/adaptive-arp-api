@@ -31,8 +31,45 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="BaseSystemBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseSystem.ts"/>
+///<reference path="IOS.ts"/>
 ///<reference path="OSInfo.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Interface for Managing the OS operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var OSBridge = (function (_super) {
+        __extends(OSBridge, _super);
+        /**
+           Default constructor.
+        */
+        function OSBridge() {
+            _super.call(this);
+        }
+        /**
+           Returns the OSInfo for the current operating system.
+
+           @return OSInfo with name, version and vendor of the OS.
+           @since ARP1.0
+        */
+        OSBridge.prototype.getOSInfo = function () {
+            return null;
+        };
+        return OSBridge;
+    })(Adaptive.BaseSystemBridge);
+    Adaptive.OSBridge = OSBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=OSBridge.js.map

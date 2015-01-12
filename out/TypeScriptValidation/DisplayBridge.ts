@@ -32,11 +32,28 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="BaseSystemBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseSystem.ts"/>
+///<reference path="IDisplay.ts"/>
 module Adaptive {
-     //TODO: handler implementation.
+
+     /**
+        Interface for Managing the Display operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class DisplayBridge extends BaseSystemBridge implements IDisplay {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

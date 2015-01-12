@@ -31,7 +31,35 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="BaseMediaBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IAudio.ts"/>
 ///<reference path="IBaseMedia.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Interface for Audio purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var AudioBridge = (function (_super) {
+        __extends(AudioBridge, _super);
+        /**
+           Default constructor.
+        */
+        function AudioBridge() {
+            _super.call(this);
+        }
+        return AudioBridge;
+    })(Adaptive.BaseMediaBridge);
+    Adaptive.AudioBridge = AudioBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=AudioBridge.js.map

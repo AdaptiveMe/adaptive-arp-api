@@ -1,6 +1,8 @@
+/// <reference path="BaseMediaBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseMedia.d.ts" />
+/// <reference path="ICamera.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -35,4 +37,16 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Managing the camera operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    class CameraBridge extends BaseMediaBridge implements ICamera {
+        /**
+           Default constructor.
+        */
+        constructor();
+    }
 }

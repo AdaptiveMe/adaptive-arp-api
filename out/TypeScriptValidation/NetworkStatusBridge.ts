@@ -32,12 +32,55 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="BaseCommunicationBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseCommunication.ts"/>
+///<reference path="INetworkStatus.ts"/>
 ///<reference path="INetworkStatusListener.ts"/>
 module Adaptive {
-     //TODO: handler implementation.
+
+     /**
+        Interface for Managing the Network status
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class NetworkStatusBridge extends BaseCommunicationBridge implements INetworkStatus {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             Add the listener for network status changes of the app
+
+             @param listener Listener with the result
+             @since ARP1.0
+          */
+          addNetworkStatusListener(listener : INetworkStatusListener) : void {
+          }
+
+          /**
+             Un-registers an existing listener from receiving network status events.
+
+             @param listener Listener with the result
+             @since ARP1.0
+          */
+          removeNetworkStatusListener(listener : INetworkStatusListener) : void {
+          }
+
+          /**
+             Removes all existing listeners from receiving network status events.
+
+             @since ARP1.0
+          */
+          removeNetworkStatusListeners() : void {
+          }
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

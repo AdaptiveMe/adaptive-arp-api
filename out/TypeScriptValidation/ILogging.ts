@@ -53,14 +53,14 @@ module Adaptive {
              @param message  Message to be logged
              @since ARP1.0
           */
-          log(level:ILoggingLogLevel, category:string, message:string);
+          log_level_category_message(level:ILoggingLogLevel, category:string, message:string);
           /**
              Logs the given message, with the given log level if specified, to the standard platform/environment.
              @param level   Log level
              @param message Message to be logged
              @since ARP1.0
           */
-          log(level:ILoggingLogLevel, message:string);
+          log_level_message(level:ILoggingLogLevel, message:string);
      }
 }
 

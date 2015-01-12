@@ -1,6 +1,8 @@
+/// <reference path="BaseCommunicationBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseCommunication.d.ts" />
+/// <reference path="INetworkInfo.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -35,4 +37,16 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Managing the Network information operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    class NetworkInfoBridge extends BaseCommunicationBridge implements INetworkInfo {
+        /**
+           Default constructor.
+        */
+        constructor();
+    }
 }

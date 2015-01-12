@@ -1,6 +1,8 @@
+/// <reference path="BaseCommerceBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseCommerce.d.ts" />
+/// <reference path="IStore.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -35,4 +37,16 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Managing the Store operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    class StoreBridge extends BaseCommerceBridge implements IStore {
+        /**
+           Default constructor.
+        */
+        constructor();
+    }
 }

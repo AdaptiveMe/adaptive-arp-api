@@ -32,12 +32,65 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="BaseApplicationBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseApplication.ts"/>
+///<reference path="ILifecycle.ts"/>
 ///<reference path="ILifecycleListener.ts"/>
 module Adaptive {
-     //TODO: handler implementation.
+
+     /**
+        Interface for Managing the Lifecycle listeners
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class LifecycleBridge extends BaseApplicationBridge implements ILifecycle {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             Add the listener for the lifecycle of the app
+
+             @param listener Lifecycle listener
+             @since ARP1.0
+          */
+          addLifecycleListener(listener : ILifecycleListener) : void {
+          }
+
+          /**
+             Whether the application is in background or not
+
+             @return true if the application is in background;false otherwise
+             @since ARP1.0
+          */
+          isBackground() : boolean {
+               return null;
+          }
+
+          /**
+             Un-registers an existing listener from receiving lifecycle events.
+
+             @param listener Lifecycle listener
+             @since ARP1.0
+          */
+          removeLifecycleListener(listener : ILifecycleListener) : void {
+          }
+
+          /**
+             Removes all existing listeners from receiving lifecycle events.
+
+             @since ARP1.0
+          */
+          removeLifecycleListeners() : void {
+          }
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

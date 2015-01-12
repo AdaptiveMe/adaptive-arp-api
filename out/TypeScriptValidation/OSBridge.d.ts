@@ -1,6 +1,8 @@
+/// <reference path="BaseSystemBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseSystem.d.ts" />
+/// <reference path="IOS.d.ts" />
 /// <reference path="OSInfo.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
@@ -36,4 +38,23 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Managing the OS operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    class OSBridge extends BaseSystemBridge implements IOS {
+        /**
+           Default constructor.
+        */
+        constructor();
+        /**
+           Returns the OSInfo for the current operating system.
+
+           @return OSInfo with name, version and vendor of the OS.
+           @since ARP1.0
+        */
+        getOSInfo(): OSInfo;
+    }
 }

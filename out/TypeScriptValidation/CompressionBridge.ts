@@ -32,11 +32,28 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="BaseUtilBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseUtil.ts"/>
+///<reference path="ICompression.ts"/>
 module Adaptive {
-     //TODO: handler implementation.
+
+     /**
+        Interface for Managing the Compression operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class CompressionBridge extends BaseUtilBridge implements ICompression {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

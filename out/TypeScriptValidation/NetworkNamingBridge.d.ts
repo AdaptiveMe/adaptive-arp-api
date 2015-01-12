@@ -1,6 +1,8 @@
+/// <reference path="BaseCommunicationBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseCommunication.d.ts" />
+/// <reference path="INetworkNaming.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -35,4 +37,16 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Managing the Network naming operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    class NetworkNamingBridge extends BaseCommunicationBridge implements INetworkNaming {
+        /**
+           Default constructor.
+        */
+        constructor();
+    }
 }

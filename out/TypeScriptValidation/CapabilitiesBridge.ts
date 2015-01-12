@@ -32,9 +32,11 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="BaseSystemBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseSystem.ts"/>
+///<reference path="ICapabilities.ts"/>
 ///<reference path="ICapabilitiesButton.ts"/>
 ///<reference path="ICapabilitiesCommunication.ts"/>
 ///<reference path="ICapabilitiesData.ts"/>
@@ -43,7 +45,103 @@ Release:
 ///<reference path="ICapabilitiesNotification.ts"/>
 ///<reference path="ICapabilitiesSensor.ts"/>
 module Adaptive {
-     //TODO: handler implementation.
+
+     /**
+        Interface for testing the Capabilities operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class CapabilitiesBridge extends BaseSystemBridge implements ICapabilities {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             Determines whether a specific hardware button is supported for interaction.
+
+             @param type Type of feature to check.
+             @return true is supported, false otherwise.
+             @since ARP1.0
+          */
+          hasButtonSupport(type : ICapabilitiesButton) : boolean {
+               return null;
+          }
+
+          /**
+             Determines whether a specific Communication capability is supported by
+the device.
+
+             @param type Type of feature to check.
+             @return true if supported, false otherwise.
+             @since ARP1.0
+          */
+          hasCommunicationSupport(type : ICapabilitiesCommunication) : boolean {
+               return null;
+          }
+
+          /**
+             Determines whether a specific Data capability is supported by the device.
+
+             @param type Type of feature to check.
+             @return true if supported, false otherwise.
+             @since ARP1.0
+          */
+          hasDataSupport(type : ICapabilitiesData) : boolean {
+               return null;
+          }
+
+          /**
+             Determines whether a specific Media capability is supported by the
+device.
+
+             @param type Type of feature to check.
+             @return true if supported, false otherwise.
+             @since ARP1.0
+          */
+          hasMediaSupport(type : ICapabilitiesMedia) : boolean {
+               return null;
+          }
+
+          /**
+             Determines whether a specific Net capability is supported by the device.
+
+             @param type Type of feature to check.
+             @return true if supported, false otherwise.
+             @since ARP1.0
+          */
+          hasNetSupport(type : ICapabilitiesNet) : boolean {
+               return null;
+          }
+
+          /**
+             Determines whether a specific Notification capability is supported by the
+device.
+
+             @param type Type of feature to check.
+             @return true if supported, false otherwise.
+             @since ARP1.0
+          */
+          hasNotificationSupport(type : ICapabilitiesNotification) : boolean {
+               return null;
+          }
+
+          /**
+             Determines whether a specific Sensor capability is supported by the
+device.
+
+             @param type Type of feature to check.
+             @return true if supported, false otherwise.
+             @since ARP1.0
+          */
+          hasSensorSupport(type : ICapabilitiesSensor) : boolean {
+               return null;
+          }
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

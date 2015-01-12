@@ -1,6 +1,8 @@
+/// <reference path="BaseSystemBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseSystem.d.ts" />
+/// <reference path="IRuntime.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -35,4 +37,29 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Managing the Runtime operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    class RuntimeBridge extends BaseSystemBridge implements IRuntime {
+        /**
+           Default constructor.
+        */
+        constructor();
+        /**
+           Dismiss the current Application
+
+           @since ARP1.0
+        */
+        dismissApplication(): void;
+        /**
+           Whether the application dismiss the splash screen successfully or not
+
+           @return true if the application has dismissed the splash screen;false otherwise
+           @since ARP1.0
+        */
+        dismissSplashScreen(): boolean;
+    }
 }

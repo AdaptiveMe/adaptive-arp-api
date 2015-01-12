@@ -34,4 +34,30 @@ Release:
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRP.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IBaseCommerce.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Base application for Commerce purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var BaseCommerceBridge = (function () {
+        /**
+           Default constructor.
+        */
+        function BaseCommerceBridge() {
+            this.apiGroup = Adaptive.IAdaptiveRPGroup.Commerce;
+        }
+        /**
+           Return the API group for the given interface.
+        */
+        BaseCommerceBridge.prototype.getAPIGroup = function () {
+            return this.apiGroup;
+        };
+        return BaseCommerceBridge;
+    })();
+    Adaptive.BaseCommerceBridge = BaseCommerceBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=BaseCommerceBridge.js.map

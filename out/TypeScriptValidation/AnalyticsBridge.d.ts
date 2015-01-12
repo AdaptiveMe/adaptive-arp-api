@@ -1,5 +1,7 @@
+/// <reference path="BaseApplicationBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
+/// <reference path="IAnalytics.d.ts" />
 /// <reference path="IBaseApplication.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
@@ -35,4 +37,16 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Analytics purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    class AnalyticsBridge extends BaseApplicationBridge implements IAnalytics {
+        /**
+           Default constructor.
+        */
+        constructor();
+    }
 }

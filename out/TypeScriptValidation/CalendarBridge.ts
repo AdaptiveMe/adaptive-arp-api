@@ -32,11 +32,28 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="BasePIMBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBasePIM.ts"/>
+///<reference path="ICalendar.ts"/>
 module Adaptive {
-     //TODO: handler implementation.
+
+     /**
+        Interface for Managing the Calendar operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class CalendarBridge extends BasePIMBridge implements ICalendar {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

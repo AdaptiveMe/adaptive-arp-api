@@ -32,11 +32,28 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="BaseCommerceBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseCommerce.ts"/>
+///<reference path="IStore.ts"/>
 module Adaptive {
-     //TODO: handler implementation.
+
+     /**
+        Interface for Managing the Store operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class StoreBridge extends BaseCommerceBridge implements IStore {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

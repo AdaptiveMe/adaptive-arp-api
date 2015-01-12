@@ -32,13 +32,40 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="BasePIMBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="Email.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBasePIM.ts"/>
+///<reference path="IMail.ts"/>
 ///<reference path="IMessagingCallback.ts"/>
 module Adaptive {
-     //TODO: handler implementation.
+
+     /**
+        Interface for Managing the Mail operations
+
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
+     */
+     export class MailBridge extends BasePIMBridge implements IMail {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             Send an Email
+
+             @param data     Payload of the email
+             @param callback Result callback of the operation
+             @since ARP1.0
+          */
+          sendEmail(data : Email, callback : IMessagingCallback) : void {
+          }
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

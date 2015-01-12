@@ -1,6 +1,7 @@
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRP.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
+/// <reference path="IBaseMedia.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -35,4 +36,24 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Base application for Media purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    class BaseMediaBridge implements IBaseMedia {
+        /**
+           Group of API.
+        */
+        apiGroup: IAdaptiveRPGroup;
+        /**
+           Default constructor.
+        */
+        constructor();
+        /**
+           Return the API group for the given interface.
+        */
+        getAPIGroup(): IAdaptiveRPGroup;
+    }
 }

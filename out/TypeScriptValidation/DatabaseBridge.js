@@ -31,11 +31,122 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="BaseDataBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="Database.ts"/>
 ///<reference path="DatabaseTable.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseData.ts"/>
+///<reference path="IDatabase.ts"/>
 ///<reference path="IDatabaseResultCallback.ts"/>
 ///<reference path="IDatabaseTableResultCallback.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Interface for Managing the Cloud operations
+
+       @author Ferran Vila Conesa
+       @since ARP1.0
+    */
+    var DatabaseBridge = (function (_super) {
+        __extends(DatabaseBridge, _super);
+        /**
+           Default constructor.
+        */
+        function DatabaseBridge() {
+            _super.call(this);
+        }
+        /**
+           Creates a database on default path for every platform.
+
+           @param callback Asynchronous callback
+           @param database Database object to create
+           @since ARP1.0
+        */
+        DatabaseBridge.prototype.createDatabase = function (database, callback) {
+        };
+        /**
+           Creates a databaseTable inside a database for every platform.
+
+           @param database      Database for databaseTable creating.
+           @param databaseTable DatabaseTable object with the name of the databaseTable inside.
+           @param callback      DatabaseTable callback with the response
+           @since ARP1.0
+        */
+        DatabaseBridge.prototype.createTable = function (database, databaseTable, callback) {
+        };
+        /**
+           Deletes a database on default path for every platform.
+
+           @param database Database object to delete
+           @param callback Asynchronous callback
+           @since ARP1.0
+        */
+        DatabaseBridge.prototype.deleteDatabase = function (database, callback) {
+        };
+        /**
+           Deletes a databaseTable inside a database for every platform.
+
+           @param database      Database for databaseTable removal.
+           @param databaseTable DatabaseTable object with the name of the databaseTable inside.
+           @param callback      DatabaseTable callback with the response
+           @since ARP1.0
+        */
+        DatabaseBridge.prototype.deleteTable = function (database, databaseTable, callback) {
+        };
+        /**
+           Executes SQL statement into the given database. The replacements
+should be passed as a parameter
+
+           @param database     The database object reference.
+           @param statement    SQL statement.
+           @param replacements List of SQL statement replacements.
+           @param callback     DatabaseTable callback with the response.
+           @since ARP1.0
+        */
+        DatabaseBridge.prototype.executeSqlStatement = function (database, statement, replacements, callback) {
+        };
+        /**
+           Executes SQL transaction (some statements chain) inside given database.
+
+           @param database     The database object reference.
+           @param statements   The statements to be executed during transaction.
+           @param rollbackFlag Indicates if rollback should be performed when any
+                  statement execution fails.
+           @param callback     DatabaseTable callback with the response.
+           @since ARP1.0
+        */
+        DatabaseBridge.prototype.executeSqlTransactions = function (database, statements, rollbackFlag, callback) {
+        };
+        /**
+           Checks if database exists by given database name.
+
+           @param database Database Object to check if exists
+           @return True if exists, false otherwise
+           @since ARP1.0
+        */
+        DatabaseBridge.prototype.existsDatabase = function (database) {
+            return null;
+        };
+        /**
+           Checks if databaseTable exists by given database name.
+
+           @param database      Database for databaseTable consulting.
+           @param databaseTable DatabaseTable object with the name of the databaseTable inside.
+           @return True if exists, false otherwise
+           @since ARP1.0
+        */
+        DatabaseBridge.prototype.existsTable = function (database, databaseTable) {
+            return null;
+        };
+        return DatabaseBridge;
+    })(Adaptive.BaseDataBridge);
+    Adaptive.DatabaseBridge = DatabaseBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=DatabaseBridge.js.map

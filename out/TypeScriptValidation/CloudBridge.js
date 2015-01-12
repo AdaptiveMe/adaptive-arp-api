@@ -31,7 +31,35 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="BaseDataBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseData.ts"/>
+///<reference path="ICloud.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Interface for Managing the Cloud operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var CloudBridge = (function (_super) {
+        __extends(CloudBridge, _super);
+        /**
+           Default constructor.
+        */
+        function CloudBridge() {
+            _super.call(this);
+        }
+        return CloudBridge;
+    })(Adaptive.BaseDataBridge);
+    Adaptive.CloudBridge = CloudBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=CloudBridge.js.map

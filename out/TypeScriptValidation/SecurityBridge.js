@@ -31,9 +31,76 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="BaseSecurityBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseSecurity.ts"/>
+///<reference path="ISecurity.ts"/>
 ///<reference path="ISecurityResultCallback.ts"/>
 ///<reference path="SecureKeyPair.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Interface for Managing the Security operations
+
+       @author Aryslan
+       @since ARP1.0
+    */
+    var SecurityBridge = (function (_super) {
+        __extends(SecurityBridge, _super);
+        /**
+           Default constructor.
+        */
+        function SecurityBridge() {
+            _super.call(this);
+        }
+        /**
+           Deletes from the device internal storage the entry/entries containing the specified key names.
+
+           @param keys             Array with the key names to delete.
+           @param publicAccessName The name of the shared internal storage object (if needed).
+           @param callback         callback to be executed upon function result.
+           @since ARP 1.0
+        */
+        SecurityBridge.prototype.deleteSecureKeyValuePairs = function (keys, publicAccessName, callback) {
+        };
+        /**
+           Retrieves from the device internal storage the entry/entries containing the specified key names.
+
+           @param keys             Array with the key names to retrieve.
+           @param publicAccessName The name of the shared internal storage object (if needed).
+           @param callback         callback to be executed upon function result.
+           @since ARP 1.0
+        */
+        SecurityBridge.prototype.getSecureKeyValuePairs = function (keys, publicAccessName, callback) {
+        };
+        /**
+           Returns if the device has been modified in anyhow
+
+           @return true if the device has been modified; false otherwise
+           @since ARP1.0
+        */
+        SecurityBridge.prototype.isDeviceModified = function () {
+            return null;
+        };
+        /**
+           Stores in the device internal storage the specified item/s.
+
+           @param keyValues        Array containing the items to store on the device internal memory.
+           @param publicAccessName The name of the shared internal storage object (if needed).
+           @param callback         callback to be executed upon function result.
+           @since ARP 1.0
+        */
+        SecurityBridge.prototype.setSecureKeyValuePairs = function (keyValues, publicAccessName, callback) {
+        };
+        return SecurityBridge;
+    })(Adaptive.BaseSecurityBridge);
+    Adaptive.SecurityBridge = SecurityBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=SecurityBridge.js.map

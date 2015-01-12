@@ -31,7 +31,51 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="BaseSystemBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseSystem.ts"/>
+///<reference path="IRuntime.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Interface for Managing the Runtime operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var RuntimeBridge = (function (_super) {
+        __extends(RuntimeBridge, _super);
+        /**
+           Default constructor.
+        */
+        function RuntimeBridge() {
+            _super.call(this);
+        }
+        /**
+           Dismiss the current Application
+
+           @since ARP1.0
+        */
+        RuntimeBridge.prototype.dismissApplication = function () {
+        };
+        /**
+           Whether the application dismiss the splash screen successfully or not
+
+           @return true if the application has dismissed the splash screen;false otherwise
+           @since ARP1.0
+        */
+        RuntimeBridge.prototype.dismissSplashScreen = function () {
+            return null;
+        };
+        return RuntimeBridge;
+    })(Adaptive.BaseSystemBridge);
+    Adaptive.RuntimeBridge = RuntimeBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=RuntimeBridge.js.map

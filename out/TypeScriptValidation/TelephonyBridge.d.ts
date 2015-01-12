@@ -1,6 +1,8 @@
+/// <reference path="BaseCommunicationBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseCommunication.d.ts" />
+/// <reference path="ITelephony.d.ts" />
 /// <reference path="ITelephonyStatus.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
@@ -36,4 +38,24 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Managing the Telephony operations
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+    */
+    class TelephonyBridge extends BaseCommunicationBridge implements ITelephony {
+        /**
+           Default constructor.
+        */
+        constructor();
+        /**
+           Invoke a phone call
+
+           @param number to call
+           @return Status of the call
+           @since ARP1.0
+        */
+        call(number: string): ITelephonyStatus;
+    }
 }

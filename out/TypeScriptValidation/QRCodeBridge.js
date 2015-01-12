@@ -31,7 +31,35 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="BaseReaderBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseReader.ts"/>
+///<reference path="IQRCode.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Interface for Managing the QR Code operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var QRCodeBridge = (function (_super) {
+        __extends(QRCodeBridge, _super);
+        /**
+           Default constructor.
+        */
+        function QRCodeBridge() {
+            _super.call(this);
+        }
+        return QRCodeBridge;
+    })(Adaptive.BaseReaderBridge);
+    Adaptive.QRCodeBridge = QRCodeBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=QRCodeBridge.js.map

@@ -32,14 +32,77 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="BaseSystemBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="DeviceInfo.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseSystem.ts"/>
 ///<reference path="IButtonListener.ts"/>
+///<reference path="IDevice.ts"/>
 ///<reference path="Locale.ts"/>
 module Adaptive {
-     //TODO: handler implementation.
+
+     /**
+        Interface for Managing the Device operations
+
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
+     */
+     export class DeviceBridge extends BaseSystemBridge implements IDevice {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             Register a new listener that will receive button events.
+
+             @param listener to be registered.
+             @since ARP1.0
+          */
+          addButtonListener(listener : IButtonListener) : void {
+          }
+
+          /**
+             Returns the device information for the current device executing the runtime.
+
+             @return DeviceInfo for the current device.
+             @since ARP1.0
+          */
+          getDeviceInfo() : DeviceInfo {
+               return null;
+          }
+
+          /**
+             Gets the current Locale for the device.
+
+             @return The current Locale information.
+             @since ARP1.0
+          */
+          getLocaleCurrent() : Locale {
+               return null;
+          }
+
+          /**
+             De-registers an existing listener from receiving button events.
+
+             @param listener to be removed.
+             @since ARP1.0
+          */
+          removeButtonListener(listener : IButtonListener) : void {
+          }
+
+          /**
+             Removed all existing listeners from receiving button events.
+
+             @since ARP1.0
+          */
+          removeButtonListeners() : void {
+          }
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

@@ -32,11 +32,65 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="BaseUIBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseUI.ts"/>
+///<reference path="IBrowser.ts"/>
 module Adaptive {
-     //TODO: handler implementation.
+
+     /**
+        Interface for Managing the browser operations
+
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
+     */
+     export class BrowserBridge extends BaseUIBridge implements IBrowser {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             Method for opening a URL like a link in the native default browser
+
+             @param url Url to open
+             @return The result of the operation
+             @since ARP1.0
+          */
+          openExtenalBrowser(url : string) : boolean {
+               return null;
+          }
+
+          /**
+             Method for opening a browser embedded into the application
+
+             @param url            Url to open
+             @param title          Title of the Navigation bar
+             @param backButtonText Title of the Back button bar
+             @return The result of the operation
+             @since ARP1.0
+          */
+          openInternalBrowser(url : string, title : string, backButtonText : string) : boolean {
+               return null;
+          }
+
+          /**
+             Method for opening a browser embedded into the application in a modal window
+
+             @param url            Url to open
+             @param title          Title of the Navigation bar
+             @param backButtonText Title of the Back button bar
+             @return The result of the operation
+             @since ARP1.0
+          */
+          openInternalBrowserModal(url : string, title : string, backButtonText : string) : boolean {
+               return null;
+          }
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

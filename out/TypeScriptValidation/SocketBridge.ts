@@ -32,11 +32,28 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="BaseCommunicationBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseCommunication.ts"/>
+///<reference path="ISocket.ts"/>
 module Adaptive {
-     //TODO: handler implementation.
+
+     /**
+        Interface for Managing the Socket operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class SocketBridge extends BaseCommunicationBridge implements ISocket {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

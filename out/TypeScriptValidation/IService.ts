@@ -64,20 +64,6 @@ module Adaptive {
           */
           invokeService(serviceRequest:ServiceRequest, service:Service, callback:IServiceResultCallback);
           /**
-             Check whether a service by the given name is registered.
-             @param serviceName Name of service.
-             @return True if the service is registered, false otherwise.
-             @since ARP1.0
-          */
-          isRegistered(serviceName:string) : boolean;
-          /**
-             Check whether a service by the given name is registered.
-             @param serviceName Name of service.
-             @return True if the service is registered, false otherwise.
-             @since ARP1.0
-          */
-          isRegistered(service:Service) : boolean;
-          /**
              Register a new service
              @param service to register
              @since ARP1.0
@@ -94,6 +80,20 @@ module Adaptive {
              @since ARP1.0
           */
           unregisterService(service:Service);
+          /**
+             Check whether a service by the given name is registered.
+             @param serviceName Name of service.
+             @return True if the service is registered, false otherwise.
+             @since ARP1.0
+          */
+          isRegistered_serviceName(serviceName:string) : boolean;
+          /**
+             Check whether a service by the given name is registered.
+             @param serviceName Name of service.
+             @return True if the service is registered, false otherwise.
+             @since ARP1.0
+          */
+          isRegistered_service(service:Service) : boolean;
      }
 }
 

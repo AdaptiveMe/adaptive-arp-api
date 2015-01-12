@@ -1,6 +1,8 @@
+/// <reference path="BasePIMBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBasePIM.d.ts" />
+/// <reference path="IMessaging.d.ts" />
 /// <reference path="IMessagingCallback.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
@@ -36,4 +38,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Managing the Messaging operations
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+    */
+    class MessagingBridge extends BasePIMBridge implements IMessaging {
+        /**
+           Default constructor.
+        */
+        constructor();
+        /**
+           Send text SMS
+
+           @param number   to send
+           @param text     to send
+           @param callback with the result
+           @since ARP1.0
+        */
+        sendSMS(number: string, text: string, callback: IMessagingCallback): void;
+    }
 }

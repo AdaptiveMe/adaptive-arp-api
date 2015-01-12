@@ -34,4 +34,30 @@ Release:
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRP.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IBaseSystem.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Base application for System purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var BaseSystemBridge = (function () {
+        /**
+           Default constructor.
+        */
+        function BaseSystemBridge() {
+            this.apiGroup = Adaptive.IAdaptiveRPGroup.System;
+        }
+        /**
+           Return the API group for the given interface.
+        */
+        BaseSystemBridge.prototype.getAPIGroup = function () {
+            return this.apiGroup;
+        };
+        return BaseSystemBridge;
+    })();
+    Adaptive.BaseSystemBridge = BaseSystemBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=BaseSystemBridge.js.map

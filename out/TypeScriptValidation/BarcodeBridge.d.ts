@@ -1,5 +1,7 @@
+/// <reference path="BaseReaderBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
+/// <reference path="IBarcode.d.ts" />
 /// <reference path="IBaseReader.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
@@ -35,4 +37,16 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Barcode Reading purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    class BarcodeBridge extends BaseReaderBridge implements IBarcode {
+        /**
+           Default constructor.
+        */
+        constructor();
+    }
 }

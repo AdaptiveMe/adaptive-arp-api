@@ -1,6 +1,8 @@
+/// <reference path="BaseSensorBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseSensor.d.ts" />
+/// <reference path="IMagnetometer.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -35,4 +37,16 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Managing the Magnetometer operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    class MagnetometerBridge extends BaseSensorBridge implements IMagnetometer {
+        /**
+           Default constructor.
+        */
+        constructor();
+    }
 }

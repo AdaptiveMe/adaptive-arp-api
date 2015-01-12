@@ -1,6 +1,8 @@
+/// <reference path="BaseSensorBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseSensor.d.ts" />
+/// <reference path="IProximity.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -35,4 +37,16 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Managing the Proximity operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    class ProximityBridge extends BaseSensorBridge implements IProximity {
+        /**
+           Default constructor.
+        */
+        constructor();
+    }
 }

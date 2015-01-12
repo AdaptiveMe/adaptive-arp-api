@@ -1,6 +1,8 @@
+/// <reference path="BaseSocialBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseSocial.d.ts" />
+/// <reference path="ITwitter.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -35,4 +37,16 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Managing the Twitter operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    class TwitterBridge extends BaseSocialBridge implements ITwitter {
+        /**
+           Default constructor.
+        */
+        constructor();
+    }
 }

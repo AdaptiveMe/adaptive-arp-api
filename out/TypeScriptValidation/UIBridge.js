@@ -31,7 +31,35 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="BaseUIBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseUI.ts"/>
+///<reference path="IUI.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Interface for Managing the UI operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var UIBridge = (function (_super) {
+        __extends(UIBridge, _super);
+        /**
+           Default constructor.
+        */
+        function UIBridge() {
+            _super.call(this);
+        }
+        return UIBridge;
+    })(Adaptive.BaseUIBridge);
+    Adaptive.UIBridge = UIBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=UIBridge.js.map

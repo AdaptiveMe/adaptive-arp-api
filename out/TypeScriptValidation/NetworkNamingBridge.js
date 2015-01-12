@@ -31,7 +31,35 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="BaseCommunicationBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseCommunication.ts"/>
+///<reference path="INetworkNaming.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Interface for Managing the Network naming operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var NetworkNamingBridge = (function (_super) {
+        __extends(NetworkNamingBridge, _super);
+        /**
+           Default constructor.
+        */
+        function NetworkNamingBridge() {
+            _super.call(this);
+        }
+        return NetworkNamingBridge;
+    })(Adaptive.BaseCommunicationBridge);
+    Adaptive.NetworkNamingBridge = NetworkNamingBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=NetworkNamingBridge.js.map

@@ -34,4 +34,30 @@ Release:
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRP.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IBaseData.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Base application for Data purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var BaseDataBridge = (function () {
+        /**
+           Default constructor.
+        */
+        function BaseDataBridge() {
+            this.apiGroup = Adaptive.IAdaptiveRPGroup.Data;
+        }
+        /**
+           Return the API group for the given interface.
+        */
+        BaseDataBridge.prototype.getAPIGroup = function () {
+            return this.apiGroup;
+        };
+        return BaseDataBridge;
+    })();
+    Adaptive.BaseDataBridge = BaseDataBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=BaseDataBridge.js.map

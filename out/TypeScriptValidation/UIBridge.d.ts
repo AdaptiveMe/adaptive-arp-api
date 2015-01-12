@@ -1,6 +1,8 @@
+/// <reference path="BaseUIBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseUI.d.ts" />
+/// <reference path="IUI.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -35,4 +37,16 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Managing the UI operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    class UIBridge extends BaseUIBridge implements IUI {
+        /**
+           Default constructor.
+        */
+        constructor();
+    }
 }

@@ -1,6 +1,8 @@
+/// <reference path="BaseDataBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseData.d.ts" />
+/// <reference path="IDataStream.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -35,4 +37,16 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Managing the DataStream operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    class DataStreamBridge extends BaseDataBridge implements IDataStream {
+        /**
+           Default constructor.
+        */
+        constructor();
+    }
 }

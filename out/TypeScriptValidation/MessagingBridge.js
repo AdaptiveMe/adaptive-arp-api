@@ -31,8 +31,46 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="BasePIMBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBasePIM.ts"/>
+///<reference path="IMessaging.ts"/>
 ///<reference path="IMessagingCallback.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Interface for Managing the Messaging operations
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+    */
+    var MessagingBridge = (function (_super) {
+        __extends(MessagingBridge, _super);
+        /**
+           Default constructor.
+        */
+        function MessagingBridge() {
+            _super.call(this);
+        }
+        /**
+           Send text SMS
+
+           @param number   to send
+           @param text     to send
+           @param callback with the result
+           @since ARP1.0
+        */
+        MessagingBridge.prototype.sendSMS = function (number, text, callback) {
+        };
+        return MessagingBridge;
+    })(Adaptive.BasePIMBridge);
+    Adaptive.MessagingBridge = MessagingBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=MessagingBridge.js.map

@@ -31,8 +31,55 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="BaseUtilBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseUtil.ts"/>
+///<reference path="ILogging.ts"/>
 ///<reference path="ILoggingLogLevel.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Interface for Managing the Logging operations
+
+       @author Ferran Vila Conesa
+       @since ARP1.0
+    */
+    var LoggingBridge = (function (_super) {
+        __extends(LoggingBridge, _super);
+        /**
+           Default constructor.
+        */
+        function LoggingBridge() {
+            _super.call(this);
+        }
+        /**
+           Logs the given message, with the given log level if specified, to the standard platform/environment.
+
+           @param level   Log level
+           @param message Message to be logged
+           @since ARP1.0
+        */
+        LoggingBridge.prototype.log_level_message = function (level, message) {
+        };
+        /**
+           Logs the given message, with the given log level if specified, to the standard platform/environment.
+
+           @param level    Log level
+           @param category Category/tag name to identify/filter the log.
+           @param message  Message to be logged
+           @since ARP1.0
+        */
+        LoggingBridge.prototype.log_level_category_message = function (level, category, message) {
+        };
+        return LoggingBridge;
+    })(Adaptive.BaseUtilBridge);
+    Adaptive.LoggingBridge = LoggingBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=LoggingBridge.js.map

@@ -1,6 +1,8 @@
+/// <reference path="BaseApplicationBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseApplication.d.ts" />
+/// <reference path="IUpdate.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -35,4 +37,16 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Managing the Update operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    class UpdateBridge extends BaseApplicationBridge implements IUpdate {
+        /**
+           Default constructor.
+        */
+        constructor();
+    }
 }

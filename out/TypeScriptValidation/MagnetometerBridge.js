@@ -31,7 +31,35 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="BaseSensorBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseSensor.ts"/>
+///<reference path="IMagnetometer.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Interface for Managing the Magnetometer operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var MagnetometerBridge = (function (_super) {
+        __extends(MagnetometerBridge, _super);
+        /**
+           Default constructor.
+        */
+        function MagnetometerBridge() {
+            _super.call(this);
+        }
+        return MagnetometerBridge;
+    })(Adaptive.BaseSensorBridge);
+    Adaptive.MagnetometerBridge = MagnetometerBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=MagnetometerBridge.js.map

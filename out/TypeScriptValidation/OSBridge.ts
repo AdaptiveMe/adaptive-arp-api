@@ -32,12 +32,39 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="BaseSystemBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseSystem.ts"/>
+///<reference path="IOS.ts"/>
 ///<reference path="OSInfo.ts"/>
 module Adaptive {
-     //TODO: handler implementation.
+
+     /**
+        Interface for Managing the OS operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class OSBridge extends BaseSystemBridge implements IOS {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             Returns the OSInfo for the current operating system.
+
+             @return OSInfo with name, version and vendor of the OS.
+             @since ARP1.0
+          */
+          getOSInfo() : OSInfo {
+               return null;
+          }
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

@@ -1,6 +1,8 @@
+/// <reference path="BaseUIBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseUI.d.ts" />
+/// <reference path="IBrowser.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -35,4 +37,44 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Managing the browser operations
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+    */
+    class BrowserBridge extends BaseUIBridge implements IBrowser {
+        /**
+           Default constructor.
+        */
+        constructor();
+        /**
+           Method for opening a URL like a link in the native default browser
+
+           @param url Url to open
+           @return The result of the operation
+           @since ARP1.0
+        */
+        openExtenalBrowser(url: string): boolean;
+        /**
+           Method for opening a browser embedded into the application
+
+           @param url            Url to open
+           @param title          Title of the Navigation bar
+           @param backButtonText Title of the Back button bar
+           @return The result of the operation
+           @since ARP1.0
+        */
+        openInternalBrowser(url: string, title: string, backButtonText: string): boolean;
+        /**
+           Method for opening a browser embedded into the application in a modal window
+
+           @param url            Url to open
+           @param title          Title of the Navigation bar
+           @param backButtonText Title of the Back button bar
+           @return The result of the operation
+           @since ARP1.0
+        */
+        openInternalBrowserModal(url: string, title: string, backButtonText: string): boolean;
+    }
 }

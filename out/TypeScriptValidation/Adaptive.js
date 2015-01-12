@@ -5264,93 +5264,2394 @@ listener and subsequently, the listener will be deactivated and removed from the
         return ServiceResultCallback;
     })(BaseCallback);
     Adaptive.ServiceResultCallback = ServiceResultCallback;
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
-    //TODO: handler implementation.
+    /**
+       Base application for Application purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var BaseApplicationBridge = (function () {
+        /**
+           Default constructor.
+        */
+        function BaseApplicationBridge() {
+            this.apiGroup = IAdaptiveRPGroup.Application;
+        }
+        /**
+           Return the API group for the given interface.
+        */
+        BaseApplicationBridge.prototype.getAPIGroup = function () {
+            return this.apiGroup;
+        };
+        return BaseApplicationBridge;
+    })();
+    Adaptive.BaseApplicationBridge = BaseApplicationBridge;
+    /**
+       Base application for Commerce purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var BaseCommerceBridge = (function () {
+        /**
+           Default constructor.
+        */
+        function BaseCommerceBridge() {
+            this.apiGroup = IAdaptiveRPGroup.Commerce;
+        }
+        /**
+           Return the API group for the given interface.
+        */
+        BaseCommerceBridge.prototype.getAPIGroup = function () {
+            return this.apiGroup;
+        };
+        return BaseCommerceBridge;
+    })();
+    Adaptive.BaseCommerceBridge = BaseCommerceBridge;
+    /**
+       Base application for Communication purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var BaseCommunicationBridge = (function () {
+        /**
+           Default constructor.
+        */
+        function BaseCommunicationBridge() {
+            this.apiGroup = IAdaptiveRPGroup.Communication;
+        }
+        /**
+           Return the API group for the given interface.
+        */
+        BaseCommunicationBridge.prototype.getAPIGroup = function () {
+            return this.apiGroup;
+        };
+        return BaseCommunicationBridge;
+    })();
+    Adaptive.BaseCommunicationBridge = BaseCommunicationBridge;
+    /**
+       Base application for Data purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var BaseDataBridge = (function () {
+        /**
+           Default constructor.
+        */
+        function BaseDataBridge() {
+            this.apiGroup = IAdaptiveRPGroup.Data;
+        }
+        /**
+           Return the API group for the given interface.
+        */
+        BaseDataBridge.prototype.getAPIGroup = function () {
+            return this.apiGroup;
+        };
+        return BaseDataBridge;
+    })();
+    Adaptive.BaseDataBridge = BaseDataBridge;
+    /**
+       Base application for Media purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var BaseMediaBridge = (function () {
+        /**
+           Default constructor.
+        */
+        function BaseMediaBridge() {
+            this.apiGroup = IAdaptiveRPGroup.Media;
+        }
+        /**
+           Return the API group for the given interface.
+        */
+        BaseMediaBridge.prototype.getAPIGroup = function () {
+            return this.apiGroup;
+        };
+        return BaseMediaBridge;
+    })();
+    Adaptive.BaseMediaBridge = BaseMediaBridge;
+    /**
+       Base application for Notification purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var BaseNotificationBridge = (function () {
+        /**
+           Default constructor.
+        */
+        function BaseNotificationBridge() {
+            this.apiGroup = IAdaptiveRPGroup.Notification;
+        }
+        /**
+           Return the API group for the given interface.
+        */
+        BaseNotificationBridge.prototype.getAPIGroup = function () {
+            return this.apiGroup;
+        };
+        return BaseNotificationBridge;
+    })();
+    Adaptive.BaseNotificationBridge = BaseNotificationBridge;
+    /**
+       Base application for PIM purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var BasePIMBridge = (function () {
+        /**
+           Default constructor.
+        */
+        function BasePIMBridge() {
+            this.apiGroup = IAdaptiveRPGroup.PIM;
+        }
+        /**
+           Return the API group for the given interface.
+        */
+        BasePIMBridge.prototype.getAPIGroup = function () {
+            return this.apiGroup;
+        };
+        return BasePIMBridge;
+    })();
+    Adaptive.BasePIMBridge = BasePIMBridge;
+    /**
+       Base application for Reader purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var BaseReaderBridge = (function () {
+        /**
+           Default constructor.
+        */
+        function BaseReaderBridge() {
+            this.apiGroup = IAdaptiveRPGroup.Reader;
+        }
+        /**
+           Return the API group for the given interface.
+        */
+        BaseReaderBridge.prototype.getAPIGroup = function () {
+            return this.apiGroup;
+        };
+        return BaseReaderBridge;
+    })();
+    Adaptive.BaseReaderBridge = BaseReaderBridge;
+    /**
+       Base application for Security purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var BaseSecurityBridge = (function () {
+        /**
+           Default constructor.
+        */
+        function BaseSecurityBridge() {
+            this.apiGroup = IAdaptiveRPGroup.Security;
+        }
+        /**
+           Return the API group for the given interface.
+        */
+        BaseSecurityBridge.prototype.getAPIGroup = function () {
+            return this.apiGroup;
+        };
+        return BaseSecurityBridge;
+    })();
+    Adaptive.BaseSecurityBridge = BaseSecurityBridge;
+    /**
+       Base application for Sensor purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var BaseSensorBridge = (function () {
+        /**
+           Default constructor.
+        */
+        function BaseSensorBridge() {
+            this.apiGroup = IAdaptiveRPGroup.Sensor;
+        }
+        /**
+           Return the API group for the given interface.
+        */
+        BaseSensorBridge.prototype.getAPIGroup = function () {
+            return this.apiGroup;
+        };
+        return BaseSensorBridge;
+    })();
+    Adaptive.BaseSensorBridge = BaseSensorBridge;
+    /**
+       Base application for Social purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var BaseSocialBridge = (function () {
+        /**
+           Default constructor.
+        */
+        function BaseSocialBridge() {
+            this.apiGroup = IAdaptiveRPGroup.Social;
+        }
+        /**
+           Return the API group for the given interface.
+        */
+        BaseSocialBridge.prototype.getAPIGroup = function () {
+            return this.apiGroup;
+        };
+        return BaseSocialBridge;
+    })();
+    Adaptive.BaseSocialBridge = BaseSocialBridge;
+    /**
+       Base application for System purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var BaseSystemBridge = (function () {
+        /**
+           Default constructor.
+        */
+        function BaseSystemBridge() {
+            this.apiGroup = IAdaptiveRPGroup.System;
+        }
+        /**
+           Return the API group for the given interface.
+        */
+        BaseSystemBridge.prototype.getAPIGroup = function () {
+            return this.apiGroup;
+        };
+        return BaseSystemBridge;
+    })();
+    Adaptive.BaseSystemBridge = BaseSystemBridge;
+    /**
+       Base application for UI purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var BaseUIBridge = (function () {
+        /**
+           Default constructor.
+        */
+        function BaseUIBridge() {
+            this.apiGroup = IAdaptiveRPGroup.UI;
+        }
+        /**
+           Return the API group for the given interface.
+        */
+        BaseUIBridge.prototype.getAPIGroup = function () {
+            return this.apiGroup;
+        };
+        return BaseUIBridge;
+    })();
+    Adaptive.BaseUIBridge = BaseUIBridge;
+    /**
+       Base application for Utility purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var BaseUtilBridge = (function () {
+        /**
+           Default constructor.
+        */
+        function BaseUtilBridge() {
+            this.apiGroup = IAdaptiveRPGroup.Util;
+        }
+        /**
+           Return the API group for the given interface.
+        */
+        BaseUtilBridge.prototype.getAPIGroup = function () {
+            return this.apiGroup;
+        };
+        return BaseUtilBridge;
+    })();
+    Adaptive.BaseUtilBridge = BaseUtilBridge;
+    /**
+       Interface for Analytics purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var AnalyticsBridge = (function (_super) {
+        __extends(AnalyticsBridge, _super);
+        /**
+           Default constructor.
+        */
+        function AnalyticsBridge() {
+            _super.call(this);
+        }
+        return AnalyticsBridge;
+    })(BaseApplicationBridge);
+    Adaptive.AnalyticsBridge = AnalyticsBridge;
+    /**
+       Interface for Managing the Globalization results
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+    */
+    var GlobalizationBridge = (function (_super) {
+        __extends(GlobalizationBridge, _super);
+        /**
+           Default constructor.
+        */
+        function GlobalizationBridge() {
+            _super.call(this);
+        }
+        /**
+           List of supported locales for the application
+
+           @return List of locales
+           @since ARP1.0
+        */
+        GlobalizationBridge.prototype.getLocaleSupportedDescriptors = function () {
+            return null;
+        };
+        /**
+           Gets the text/message corresponding to the given key and locale.
+
+           @param key    to match text
+           @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
+           @return Localized text.
+           @since ARP1.0
+        */
+        GlobalizationBridge.prototype.getResourceLiteral = function (key, locale) {
+            return null;
+        };
+        /**
+           Gets the full application configured literals (key/message pairs) corresponding to the given locale.
+
+           @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
+           @return Localized texts in the form of an object.
+           @since ARP1.0
+        */
+        GlobalizationBridge.prototype.getResourceLiterals = function (locale) {
+            return null;
+        };
+        return GlobalizationBridge;
+    })(BaseApplicationBridge);
+    Adaptive.GlobalizationBridge = GlobalizationBridge;
+    /**
+       Interface for Managing the Lifecycle listeners
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var LifecycleBridge = (function (_super) {
+        __extends(LifecycleBridge, _super);
+        /**
+           Default constructor.
+        */
+        function LifecycleBridge() {
+            _super.call(this);
+        }
+        /**
+           Add the listener for the lifecycle of the app
+
+           @param listener Lifecycle listener
+           @since ARP1.0
+        */
+        LifecycleBridge.prototype.addLifecycleListener = function (listener) {
+        };
+        /**
+           Whether the application is in background or not
+
+           @return true if the application is in background;false otherwise
+           @since ARP1.0
+        */
+        LifecycleBridge.prototype.isBackground = function () {
+            return null;
+        };
+        /**
+           Un-registers an existing listener from receiving lifecycle events.
+
+           @param listener Lifecycle listener
+           @since ARP1.0
+        */
+        LifecycleBridge.prototype.removeLifecycleListener = function (listener) {
+        };
+        /**
+           Removes all existing listeners from receiving lifecycle events.
+
+           @since ARP1.0
+        */
+        LifecycleBridge.prototype.removeLifecycleListeners = function () {
+        };
+        return LifecycleBridge;
+    })(BaseApplicationBridge);
+    Adaptive.LifecycleBridge = LifecycleBridge;
+    /**
+       Interface for Managing the Management operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var ManagementBridge = (function (_super) {
+        __extends(ManagementBridge, _super);
+        /**
+           Default constructor.
+        */
+        function ManagementBridge() {
+            _super.call(this);
+        }
+        return ManagementBridge;
+    })(BaseApplicationBridge);
+    Adaptive.ManagementBridge = ManagementBridge;
+    /**
+       Interface for Managing the Printing operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var PrintingBridge = (function (_super) {
+        __extends(PrintingBridge, _super);
+        /**
+           Default constructor.
+        */
+        function PrintingBridge() {
+            _super.call(this);
+        }
+        return PrintingBridge;
+    })(BaseApplicationBridge);
+    Adaptive.PrintingBridge = PrintingBridge;
+    /**
+       Interface for Managing the Settings operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var SettingsBridge = (function (_super) {
+        __extends(SettingsBridge, _super);
+        /**
+           Default constructor.
+        */
+        function SettingsBridge() {
+            _super.call(this);
+        }
+        return SettingsBridge;
+    })(BaseApplicationBridge);
+    Adaptive.SettingsBridge = SettingsBridge;
+    /**
+       Interface for Managing the Update operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var UpdateBridge = (function (_super) {
+        __extends(UpdateBridge, _super);
+        /**
+           Default constructor.
+        */
+        function UpdateBridge() {
+            _super.call(this);
+        }
+        return UpdateBridge;
+    })(BaseApplicationBridge);
+    Adaptive.UpdateBridge = UpdateBridge;
+    /**
+       Interface for Advertising purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var AdsBridge = (function (_super) {
+        __extends(AdsBridge, _super);
+        /**
+           Default constructor.
+        */
+        function AdsBridge() {
+            _super.call(this);
+        }
+        return AdsBridge;
+    })(BaseCommerceBridge);
+    Adaptive.AdsBridge = AdsBridge;
+    /**
+       Interface for Managing the Store operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var StoreBridge = (function (_super) {
+        __extends(StoreBridge, _super);
+        /**
+           Default constructor.
+        */
+        function StoreBridge() {
+            _super.call(this);
+        }
+        return StoreBridge;
+    })(BaseCommerceBridge);
+    Adaptive.StoreBridge = StoreBridge;
+    /**
+       Interface for Managing the Wallet operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var WalletBridge = (function (_super) {
+        __extends(WalletBridge, _super);
+        /**
+           Default constructor.
+        */
+        function WalletBridge() {
+            _super.call(this);
+        }
+        return WalletBridge;
+    })(BaseCommerceBridge);
+    Adaptive.WalletBridge = WalletBridge;
+    /**
+       Interface for Bluetooth purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var BluetoothBridge = (function (_super) {
+        __extends(BluetoothBridge, _super);
+        /**
+           Default constructor.
+        */
+        function BluetoothBridge() {
+            _super.call(this);
+        }
+        return BluetoothBridge;
+    })(BaseCommunicationBridge);
+    Adaptive.BluetoothBridge = BluetoothBridge;
+    /**
+       Interface for Managing the Network information operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var NetworkInfoBridge = (function (_super) {
+        __extends(NetworkInfoBridge, _super);
+        /**
+           Default constructor.
+        */
+        function NetworkInfoBridge() {
+            _super.call(this);
+        }
+        return NetworkInfoBridge;
+    })(BaseCommunicationBridge);
+    Adaptive.NetworkInfoBridge = NetworkInfoBridge;
+    /**
+       Interface for Managing the Network naming operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var NetworkNamingBridge = (function (_super) {
+        __extends(NetworkNamingBridge, _super);
+        /**
+           Default constructor.
+        */
+        function NetworkNamingBridge() {
+            _super.call(this);
+        }
+        return NetworkNamingBridge;
+    })(BaseCommunicationBridge);
+    Adaptive.NetworkNamingBridge = NetworkNamingBridge;
+    /**
+       Interface for Managing the Network reachability operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var NetworkReachabilityBridge = (function (_super) {
+        __extends(NetworkReachabilityBridge, _super);
+        /**
+           Default constructor.
+        */
+        function NetworkReachabilityBridge() {
+            _super.call(this);
+        }
+        /**
+           Whether there is connectivity to a host, via domain name or ip address, or not.
+
+           @param host     domain name or ip address of host.
+           @param callback Callback called at the end.
+           @since ARP1.0
+        */
+        NetworkReachabilityBridge.prototype.isNetworkReachable = function (host, callback) {
+        };
+        /**
+           Whether there is connectivity to an url of a service or not.
+
+           @param url      to look for
+           @param callback Callback called at the end
+           @since ARP1.0
+        */
+        NetworkReachabilityBridge.prototype.isNetworkServiceReachable = function (url, callback) {
+        };
+        return NetworkReachabilityBridge;
+    })(BaseCommunicationBridge);
+    Adaptive.NetworkReachabilityBridge = NetworkReachabilityBridge;
+    /**
+       Interface for Managing the Network status
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var NetworkStatusBridge = (function (_super) {
+        __extends(NetworkStatusBridge, _super);
+        /**
+           Default constructor.
+        */
+        function NetworkStatusBridge() {
+            _super.call(this);
+        }
+        /**
+           Add the listener for network status changes of the app
+
+           @param listener Listener with the result
+           @since ARP1.0
+        */
+        NetworkStatusBridge.prototype.addNetworkStatusListener = function (listener) {
+        };
+        /**
+           Un-registers an existing listener from receiving network status events.
+
+           @param listener Listener with the result
+           @since ARP1.0
+        */
+        NetworkStatusBridge.prototype.removeNetworkStatusListener = function (listener) {
+        };
+        /**
+           Removes all existing listeners from receiving network status events.
+
+           @since ARP1.0
+        */
+        NetworkStatusBridge.prototype.removeNetworkStatusListeners = function () {
+        };
+        return NetworkStatusBridge;
+    })(BaseCommunicationBridge);
+    Adaptive.NetworkStatusBridge = NetworkStatusBridge;
+    /**
+       Interface for Managing the Services operations
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+    */
+    var ServiceBridge = (function (_super) {
+        __extends(ServiceBridge, _super);
+        /**
+           Default constructor.
+        */
+        function ServiceBridge() {
+            _super.call(this);
+        }
+        /**
+           Get a reference to a registered service by name.
+
+           @param serviceName Name of service.
+           @return A service, if registered, or null of the service does not exist.
+           @since ARP1.0
+        */
+        ServiceBridge.prototype.getService = function (serviceName) {
+            return null;
+        };
+        /**
+           Request async a service for an Url
+
+           @param serviceRequest Service Request to invoke
+           @param service        Service to call
+           @param callback       Callback to execute with the result
+           @since ARP1.0
+        */
+        ServiceBridge.prototype.invokeService = function (serviceRequest, service, callback) {
+        };
+        /**
+           Register a new service
+
+           @param service to register
+           @since ARP1.0
+        */
+        ServiceBridge.prototype.registerService = function (service) {
+        };
+        /**
+           Unregister a service
+
+           @param service to unregister
+           @since ARP1.0
+        */
+        ServiceBridge.prototype.unregisterService = function (service) {
+        };
+        /**
+           Unregister all services.
+
+           @since ARP1.0
+        */
+        ServiceBridge.prototype.unregisterServices = function () {
+        };
+        /**
+           Check whether a service by the given service is already registered.
+
+           @param service Service to check
+           @return True if the service is registered, false otherwise.
+           @since ARP1.0
+        */
+        ServiceBridge.prototype.isRegistered_service = function (service) {
+            return null;
+        };
+        /**
+           Check whether a service by the given name is registered.
+
+           @param serviceName Name of service.
+           @return True if the service is registered, false otherwise.
+           @since ARP1.0
+        */
+        ServiceBridge.prototype.isRegistered_serviceName = function (serviceName) {
+            return null;
+        };
+        return ServiceBridge;
+    })(BaseCommunicationBridge);
+    Adaptive.ServiceBridge = ServiceBridge;
+    /**
+       Interface for Managing the Socket operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var SocketBridge = (function (_super) {
+        __extends(SocketBridge, _super);
+        /**
+           Default constructor.
+        */
+        function SocketBridge() {
+            _super.call(this);
+        }
+        return SocketBridge;
+    })(BaseCommunicationBridge);
+    Adaptive.SocketBridge = SocketBridge;
+    /**
+       Interface for Managing the Telephony operations
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+    */
+    var TelephonyBridge = (function (_super) {
+        __extends(TelephonyBridge, _super);
+        /**
+           Default constructor.
+        */
+        function TelephonyBridge() {
+            _super.call(this);
+        }
+        /**
+           Invoke a phone call
+
+           @param number to call
+           @return Status of the call
+           @since ARP1.0
+        */
+        TelephonyBridge.prototype.call = function (number) {
+            return null;
+        };
+        return TelephonyBridge;
+    })(BaseCommunicationBridge);
+    Adaptive.TelephonyBridge = TelephonyBridge;
+    /**
+       Interface for Managing the Cloud operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var CloudBridge = (function (_super) {
+        __extends(CloudBridge, _super);
+        /**
+           Default constructor.
+        */
+        function CloudBridge() {
+            _super.call(this);
+        }
+        return CloudBridge;
+    })(BaseDataBridge);
+    Adaptive.CloudBridge = CloudBridge;
+    /**
+       Interface for Managing the DataStream operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var DataStreamBridge = (function (_super) {
+        __extends(DataStreamBridge, _super);
+        /**
+           Default constructor.
+        */
+        function DataStreamBridge() {
+            _super.call(this);
+        }
+        return DataStreamBridge;
+    })(BaseDataBridge);
+    Adaptive.DataStreamBridge = DataStreamBridge;
+    /**
+       Interface for Managing the Cloud operations
+
+       @author Ferran Vila Conesa
+       @since ARP1.0
+    */
+    var DatabaseBridge = (function (_super) {
+        __extends(DatabaseBridge, _super);
+        /**
+           Default constructor.
+        */
+        function DatabaseBridge() {
+            _super.call(this);
+        }
+        /**
+           Creates a database on default path for every platform.
+
+           @param callback Asynchronous callback
+           @param database Database object to create
+           @since ARP1.0
+        */
+        DatabaseBridge.prototype.createDatabase = function (database, callback) {
+        };
+        /**
+           Creates a databaseTable inside a database for every platform.
+
+           @param database      Database for databaseTable creating.
+           @param databaseTable DatabaseTable object with the name of the databaseTable inside.
+           @param callback      DatabaseTable callback with the response
+           @since ARP1.0
+        */
+        DatabaseBridge.prototype.createTable = function (database, databaseTable, callback) {
+        };
+        /**
+           Deletes a database on default path for every platform.
+
+           @param database Database object to delete
+           @param callback Asynchronous callback
+           @since ARP1.0
+        */
+        DatabaseBridge.prototype.deleteDatabase = function (database, callback) {
+        };
+        /**
+           Deletes a databaseTable inside a database for every platform.
+
+           @param database      Database for databaseTable removal.
+           @param databaseTable DatabaseTable object with the name of the databaseTable inside.
+           @param callback      DatabaseTable callback with the response
+           @since ARP1.0
+        */
+        DatabaseBridge.prototype.deleteTable = function (database, databaseTable, callback) {
+        };
+        /**
+           Executes SQL statement into the given database. The replacements
+should be passed as a parameter
+
+           @param database     The database object reference.
+           @param statement    SQL statement.
+           @param replacements List of SQL statement replacements.
+           @param callback     DatabaseTable callback with the response.
+           @since ARP1.0
+        */
+        DatabaseBridge.prototype.executeSqlStatement = function (database, statement, replacements, callback) {
+        };
+        /**
+           Executes SQL transaction (some statements chain) inside given database.
+
+           @param database     The database object reference.
+           @param statements   The statements to be executed during transaction.
+           @param rollbackFlag Indicates if rollback should be performed when any
+                  statement execution fails.
+           @param callback     DatabaseTable callback with the response.
+           @since ARP1.0
+        */
+        DatabaseBridge.prototype.executeSqlTransactions = function (database, statements, rollbackFlag, callback) {
+        };
+        /**
+           Checks if database exists by given database name.
+
+           @param database Database Object to check if exists
+           @return True if exists, false otherwise
+           @since ARP1.0
+        */
+        DatabaseBridge.prototype.existsDatabase = function (database) {
+            return null;
+        };
+        /**
+           Checks if databaseTable exists by given database name.
+
+           @param database      Database for databaseTable consulting.
+           @param databaseTable DatabaseTable object with the name of the databaseTable inside.
+           @return True if exists, false otherwise
+           @since ARP1.0
+        */
+        DatabaseBridge.prototype.existsTable = function (database, databaseTable) {
+            return null;
+        };
+        return DatabaseBridge;
+    })(BaseDataBridge);
+    Adaptive.DatabaseBridge = DatabaseBridge;
+    /**
+       Interface for Managing the File operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var FileBridge = (function (_super) {
+        __extends(FileBridge, _super);
+        /**
+           Default constructor.
+        */
+        function FileBridge() {
+            _super.call(this);
+        }
+        /**
+           Determine whether the current file/folder can be read from.
+
+           @param descriptor File descriptor of file or folder used for operation.
+           @return True if the folder/file is readable, false otherwise.
+           @since ARP1.0
+        */
+        FileBridge.prototype.canRead = function (descriptor) {
+            return null;
+        };
+        /**
+           Determine whether the current file/folder can be written to.
+
+           @param descriptor File descriptor of file or folder used for operation.
+           @return True if the folder/file is writable, false otherwise.
+           @since ARP1.0
+        */
+        FileBridge.prototype.canWrite = function (descriptor) {
+            return null;
+        };
+        /**
+           Creates a file with the specified name.
+
+           @param descriptor File descriptor of file or folder used for operation.
+           @param callback Result of the operation.
+           @since ARP1.0
+        */
+        FileBridge.prototype.create = function (descriptor, callback) {
+        };
+        /**
+           Deletes the given file or path. If the file is a directory and contains files and or subdirectories, these will be
+deleted if the cascade parameter is set to true.
+
+           @param descriptor File descriptor of file or folder used for operation.
+           @param cascade Whether to delete sub-files and sub-folders.
+           @return True if files (and sub-files and folders) whether deleted.
+           @since ARP1.0
+        */
+        FileBridge.prototype.delete = function (descriptor, cascade) {
+            return null;
+        };
+        /**
+           Check whether the file/path exists.
+
+           @param descriptor File descriptor of file or folder used for operation.
+           @return True if the file exists in the filesystem, false otherwise.
+           @since ARP1.0
+        */
+        FileBridge.prototype.exists = function (descriptor) {
+            return null;
+        };
+        /**
+           Loads the content of the file.
+
+           @param descriptor File descriptor of file or folder used for operation.
+           @param callback Result of the operation.
+           @since ARP1.0
+        */
+        FileBridge.prototype.getContent = function (descriptor, callback) {
+        };
+        /**
+           Returns the file storage type of the file
+
+           @param descriptor File descriptor of file or folder used for operation.
+           @return Storage Type file
+           @since ARP1.0
+        */
+        FileBridge.prototype.getFileStorageType = function (descriptor) {
+            return null;
+        };
+        /**
+           Returns the file type
+
+           @param descriptor File descriptor of file or folder used for operation.
+           @return Returns the file type of the file
+           @since ARP1.0
+        */
+        FileBridge.prototype.getFileType = function (descriptor) {
+            return null;
+        };
+        /**
+           Returns the security type of the file
+
+           @param descriptor File descriptor of file or folder used for operation.
+           @return Security Level of the file
+           @since ARP1.0
+        */
+        FileBridge.prototype.getSecurityType = function (descriptor) {
+            return null;
+        };
+        /**
+           Check whether this is a path of a file.
+
+           @param descriptor File descriptor of file or folder used for operation.
+           @return true if this is a path to a folder/directory, false if this is a path to a file.
+           @since ARP1.0
+        */
+        FileBridge.prototype.isDirectory = function (descriptor) {
+            return null;
+        };
+        /**
+           List all the files contained within this file/path reference. If the reference is a file, it will not yield
+any results.
+
+           @param descriptor File descriptor of file or folder used for operation.
+           @param callback Result of operation.
+           @since ARP1.0
+        */
+        FileBridge.prototype.listFiles = function (descriptor, callback) {
+        };
+        /**
+           List all the files matching the speficied regex filter within this file/path reference. If the reference
+is a file, it will not yield any results.
+
+           @param descriptor File descriptor of file or folder used for operation.
+           @param regex    Filter (eg. *.jpg, *.png, Fil*) name string.
+           @param callback Result of operation.
+           @since ARP1.0
+        */
+        FileBridge.prototype.listFilesForRegex = function (descriptor, regex, callback) {
+        };
+        /**
+           Creates the parent path (or paths, if recursive) to the given file/path if it doesn't already exist.
+
+           @param descriptor File descriptor of file or folder used for operation.
+           @param recursive Whether to create all parent path elements.
+           @return True if the path was created, false otherwise (or it exists already).
+           @since ARP1.0
+        */
+        FileBridge.prototype.mkDir = function (descriptor, recursive) {
+            return null;
+        };
+        /**
+           Moves the current file to the given file destination, optionally overwriting and creating the path to the
+new destination file.
+
+           @param source File descriptor of file or folder used for operation as source.
+           @param destination File descriptor of file or folder used for operation as destination.
+           @param createPath True to create the path if it does not already exist.
+           @param callback   Result of the operation.
+           @param overwrite  True to create the path if it does not already exist.
+           @since ARP1.0
+        */
+        FileBridge.prototype.move = function (source, destination, createPath, overwrite, callback) {
+        };
+        /**
+           Sets the content of the file.
+
+           @param descriptor File descriptor of file or folder used for operation.
+           @param content  Binary content to store in the file.
+           @param callback Result of the operation.
+           @since ARP1.0
+        */
+        FileBridge.prototype.setContent = function (descriptor, content, callback) {
+        };
+        return FileBridge;
+    })(BaseDataBridge);
+    Adaptive.FileBridge = FileBridge;
+    /**
+       Interface for Managing the File System operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var FileSystemBridge = (function (_super) {
+        __extends(FileSystemBridge, _super);
+        /**
+           Default constructor.
+        */
+        function FileSystemBridge() {
+            _super.call(this);
+        }
+        /**
+           Creates a new reference to a new or existing location in the filesystem.
+This method does not create the actual file in the specified folder.
+
+           @param parent Parent directory.
+           @param name   Name of new file or directory.
+           @return A reference to a new or existing location in the filesystem.
+           @since ARP1.0
+        */
+        FileSystemBridge.prototype.createFileDescriptor = function (parent, name) {
+            return null;
+        };
+        /**
+           Returns a reference to the cache folder for the current application.
+This path must always be writable by the current application.
+This path is volatile and may be cleaned by the OS periodically.
+
+           @return Path to the application's cache folder.
+           @since ARP1.0
+        */
+        FileSystemBridge.prototype.getApplicationCacheFolder = function () {
+            return null;
+        };
+        /**
+           Returns a reference to the cloud synchronizable folder for the current application.
+This path must always be writable by the current application.
+
+           @return Path to the application's cloud storage folder.
+           @since ARP1.0
+        */
+        FileSystemBridge.prototype.getApplicationCloudFolder = function () {
+            return null;
+        };
+        /**
+           Returns a reference to the documents folder for the current application.
+This path must always be writable by the current application.
+
+           @return Path to the application's documents folder.
+           @since ARP1.0
+        */
+        FileSystemBridge.prototype.getApplicationDocumentsFolder = function () {
+            return null;
+        };
+        /**
+           Returns a reference to the application installation folder.
+This path may or may not be directly readable or writable - it usually contains the app binary and data.
+
+           @return Path to the application folder.
+           @since ARP1.0
+        */
+        FileSystemBridge.prototype.getApplicationFolder = function () {
+            return null;
+        };
+        /**
+           Returns a reference to the protected storage folder for the current application.
+This path must always be writable by the current application.
+
+           @return Path to the application's protected storage folder.
+           @since ARP1.0
+        */
+        FileSystemBridge.prototype.getApplicationProtectedFolder = function () {
+            return null;
+        };
+        /**
+           Returns the file system dependent file separator.
+
+           @return char with the directory/file separator.
+           @since ARP1.0
+        */
+        FileSystemBridge.prototype.getSeparator = function () {
+            return null;
+        };
+        /**
+           Returns a reference to the external storage folder provided by the OS. This may
+be an external SSD card or similar. This type of storage is removable and by
+definition, not secure.
+This path may or may not be writable by the current application.
+
+           @return Path to the application's documents folder.
+           @since ARP1.0
+        */
+        FileSystemBridge.prototype.getSystemExternalFolder = function () {
+            return null;
+        };
+        return FileSystemBridge;
+    })(BaseDataBridge);
+    Adaptive.FileSystemBridge = FileSystemBridge;
+    /**
+       Interface for Managing the Internal Storage operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var InternalStorageBridge = (function (_super) {
+        __extends(InternalStorageBridge, _super);
+        /**
+           Default constructor.
+        */
+        function InternalStorageBridge() {
+            _super.call(this);
+        }
+        return InternalStorageBridge;
+    })(BaseDataBridge);
+    Adaptive.InternalStorageBridge = InternalStorageBridge;
+    /**
+       Interface for Managing the XML operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var XMLBridge = (function (_super) {
+        __extends(XMLBridge, _super);
+        /**
+           Default constructor.
+        */
+        function XMLBridge() {
+            _super.call(this);
+        }
+        return XMLBridge;
+    })(BaseDataBridge);
+    Adaptive.XMLBridge = XMLBridge;
+    /**
+       Interface for Audio purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var AudioBridge = (function (_super) {
+        __extends(AudioBridge, _super);
+        /**
+           Default constructor.
+        */
+        function AudioBridge() {
+            _super.call(this);
+        }
+        return AudioBridge;
+    })(BaseMediaBridge);
+    Adaptive.AudioBridge = AudioBridge;
+    /**
+       Interface for Managing the camera operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var CameraBridge = (function (_super) {
+        __extends(CameraBridge, _super);
+        /**
+           Default constructor.
+        */
+        function CameraBridge() {
+            _super.call(this);
+        }
+        return CameraBridge;
+    })(BaseMediaBridge);
+    Adaptive.CameraBridge = CameraBridge;
+    /**
+       Interface for Managing the Imaging operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var ImagingBridge = (function (_super) {
+        __extends(ImagingBridge, _super);
+        /**
+           Default constructor.
+        */
+        function ImagingBridge() {
+            _super.call(this);
+        }
+        return ImagingBridge;
+    })(BaseMediaBridge);
+    Adaptive.ImagingBridge = ImagingBridge;
+    /**
+       Interface for Managing the Video operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var VideoBridge = (function (_super) {
+        __extends(VideoBridge, _super);
+        /**
+           Default constructor.
+        */
+        function VideoBridge() {
+            _super.call(this);
+        }
+        /**
+           Play url video stream
+
+           @param url of the video
+           @since ARP1.0
+        */
+        VideoBridge.prototype.playStream = function (url) {
+        };
+        return VideoBridge;
+    })(BaseMediaBridge);
+    Adaptive.VideoBridge = VideoBridge;
+    /**
+       Interface for Alarm purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var AlarmBridge = (function (_super) {
+        __extends(AlarmBridge, _super);
+        /**
+           Default constructor.
+        */
+        function AlarmBridge() {
+            _super.call(this);
+        }
+        return AlarmBridge;
+    })(BaseNotificationBridge);
+    Adaptive.AlarmBridge = AlarmBridge;
+    /**
+       Interface for Managing the Notification operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var NotificationBridge = (function (_super) {
+        __extends(NotificationBridge, _super);
+        /**
+           Default constructor.
+        */
+        function NotificationBridge() {
+            _super.call(this);
+        }
+        return NotificationBridge;
+    })(BaseNotificationBridge);
+    Adaptive.NotificationBridge = NotificationBridge;
+    /**
+       Interface for Managing the Local Notifications operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var NotificationLocalBridge = (function (_super) {
+        __extends(NotificationLocalBridge, _super);
+        /**
+           Default constructor.
+        */
+        function NotificationLocalBridge() {
+            _super.call(this);
+        }
+        return NotificationLocalBridge;
+    })(BaseNotificationBridge);
+    Adaptive.NotificationLocalBridge = NotificationLocalBridge;
+    /**
+       Interface for Managing the Vibration operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var VibrationBridge = (function (_super) {
+        __extends(VibrationBridge, _super);
+        /**
+           Default constructor.
+        */
+        function VibrationBridge() {
+            _super.call(this);
+        }
+        return VibrationBridge;
+    })(BaseNotificationBridge);
+    Adaptive.VibrationBridge = VibrationBridge;
+    /**
+       Interface for Managing the Calendar operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var CalendarBridge = (function (_super) {
+        __extends(CalendarBridge, _super);
+        /**
+           Default constructor.
+        */
+        function CalendarBridge() {
+            _super.call(this);
+        }
+        return CalendarBridge;
+    })(BasePIMBridge);
+    Adaptive.CalendarBridge = CalendarBridge;
+    /**
+       Interface for Managing the Contact operations
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+    */
+    var ContactBridge = (function (_super) {
+        __extends(ContactBridge, _super);
+        /**
+           Default constructor.
+        */
+        function ContactBridge() {
+            _super.call(this);
+        }
+        /**
+           Get all the details of a contact according to its id
+
+           @param contact  id to search for
+           @param callback called for return
+           @since ARP1.0
+        */
+        ContactBridge.prototype.getContact = function (contact, callback) {
+        };
+        /**
+           Get the contact photo
+
+           @param contact  id to search for
+           @param callback called for return
+           @since ARP1.0
+        */
+        ContactBridge.prototype.getContactPhoto = function (contact, callback) {
+        };
+        /**
+           Get all contacts
+
+           @param callback called for return
+           @since ARP1.0
+        */
+        ContactBridge.prototype.getContacts = function (callback) {
+        };
+        /**
+           Get marked fields of all contacts
+
+           @param callback called for return
+           @param fields   to get for each Contact
+           @since ARP1.0
+        */
+        ContactBridge.prototype.getContactsForFields = function (callback, fields) {
+        };
+        /**
+           Get marked fields of all contacts according to a filter
+
+           @param callback called for return
+           @param fields   to get for each Contact
+           @param filter   to search for
+           @since ARP1.0
+        */
+        ContactBridge.prototype.getContactsWithFilter = function (callback, fields, filter) {
+        };
+        /**
+           Search contacts according to a term and send it to the callback
+
+           @param term     string to search
+           @param callback called for return
+           @since ARP1.0
+        */
+        ContactBridge.prototype.searchContacts = function (term, callback) {
+        };
+        /**
+           Search contacts according to a term with a filter and send it to the callback
+
+           @param term     string to search
+           @param callback called for return
+           @param filter   to search for
+           @since ARP1.0
+        */
+        ContactBridge.prototype.searchContactsWithFilter = function (term, callback, filter) {
+        };
+        /**
+           Set the contact photo
+
+           @param contact  id to assign the photo
+           @param pngImage photo as byte array
+           @return true if set is successful;false otherwise
+           @since ARP1.0
+        */
+        ContactBridge.prototype.setContactPhoto = function (contact, pngImage) {
+            return null;
+        };
+        return ContactBridge;
+    })(BasePIMBridge);
+    Adaptive.ContactBridge = ContactBridge;
+    /**
+       Interface for Managing the Mail operations
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+    */
+    var MailBridge = (function (_super) {
+        __extends(MailBridge, _super);
+        /**
+           Default constructor.
+        */
+        function MailBridge() {
+            _super.call(this);
+        }
+        /**
+           Send an Email
+
+           @param data     Payload of the email
+           @param callback Result callback of the operation
+           @since ARP1.0
+        */
+        MailBridge.prototype.sendEmail = function (data, callback) {
+        };
+        return MailBridge;
+    })(BasePIMBridge);
+    Adaptive.MailBridge = MailBridge;
+    /**
+       Interface for Managing the Messaging operations
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+    */
+    var MessagingBridge = (function (_super) {
+        __extends(MessagingBridge, _super);
+        /**
+           Default constructor.
+        */
+        function MessagingBridge() {
+            _super.call(this);
+        }
+        /**
+           Send text SMS
+
+           @param number   to send
+           @param text     to send
+           @param callback with the result
+           @since ARP1.0
+        */
+        MessagingBridge.prototype.sendSMS = function (number, text, callback) {
+        };
+        return MessagingBridge;
+    })(BasePIMBridge);
+    Adaptive.MessagingBridge = MessagingBridge;
+    /**
+       Interface for Barcode Reading purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var BarcodeBridge = (function (_super) {
+        __extends(BarcodeBridge, _super);
+        /**
+           Default constructor.
+        */
+        function BarcodeBridge() {
+            _super.call(this);
+        }
+        return BarcodeBridge;
+    })(BaseReaderBridge);
+    Adaptive.BarcodeBridge = BarcodeBridge;
+    /**
+       Interface for Managing the NFC operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var NFCBridge = (function (_super) {
+        __extends(NFCBridge, _super);
+        /**
+           Default constructor.
+        */
+        function NFCBridge() {
+            _super.call(this);
+        }
+        return NFCBridge;
+    })(BaseReaderBridge);
+    Adaptive.NFCBridge = NFCBridge;
+    /**
+       Interface for Managing the OCR operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var OCRBridge = (function (_super) {
+        __extends(OCRBridge, _super);
+        /**
+           Default constructor.
+        */
+        function OCRBridge() {
+            _super.call(this);
+        }
+        return OCRBridge;
+    })(BaseReaderBridge);
+    Adaptive.OCRBridge = OCRBridge;
+    /**
+       Interface for Managing the QR Code operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var QRCodeBridge = (function (_super) {
+        __extends(QRCodeBridge, _super);
+        /**
+           Default constructor.
+        */
+        function QRCodeBridge() {
+            _super.call(this);
+        }
+        return QRCodeBridge;
+    })(BaseReaderBridge);
+    Adaptive.QRCodeBridge = QRCodeBridge;
+    /**
+       Interface for Managing the OAuth operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var OAuthBridge = (function (_super) {
+        __extends(OAuthBridge, _super);
+        /**
+           Default constructor.
+        */
+        function OAuthBridge() {
+            _super.call(this);
+        }
+        return OAuthBridge;
+    })(BaseSecurityBridge);
+    Adaptive.OAuthBridge = OAuthBridge;
+    /**
+       Interface for Managing the OpenID operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var OpenIdBridge = (function (_super) {
+        __extends(OpenIdBridge, _super);
+        /**
+           Default constructor.
+        */
+        function OpenIdBridge() {
+            _super.call(this);
+        }
+        return OpenIdBridge;
+    })(BaseSecurityBridge);
+    Adaptive.OpenIdBridge = OpenIdBridge;
+    /**
+       Interface for Managing the Security operations
+
+       @author Aryslan
+       @since ARP1.0
+    */
+    var SecurityBridge = (function (_super) {
+        __extends(SecurityBridge, _super);
+        /**
+           Default constructor.
+        */
+        function SecurityBridge() {
+            _super.call(this);
+        }
+        /**
+           Deletes from the device internal storage the entry/entries containing the specified key names.
+
+           @param keys             Array with the key names to delete.
+           @param publicAccessName The name of the shared internal storage object (if needed).
+           @param callback         callback to be executed upon function result.
+           @since ARP 1.0
+        */
+        SecurityBridge.prototype.deleteSecureKeyValuePairs = function (keys, publicAccessName, callback) {
+        };
+        /**
+           Retrieves from the device internal storage the entry/entries containing the specified key names.
+
+           @param keys             Array with the key names to retrieve.
+           @param publicAccessName The name of the shared internal storage object (if needed).
+           @param callback         callback to be executed upon function result.
+           @since ARP 1.0
+        */
+        SecurityBridge.prototype.getSecureKeyValuePairs = function (keys, publicAccessName, callback) {
+        };
+        /**
+           Returns if the device has been modified in anyhow
+
+           @return true if the device has been modified; false otherwise
+           @since ARP1.0
+        */
+        SecurityBridge.prototype.isDeviceModified = function () {
+            return null;
+        };
+        /**
+           Stores in the device internal storage the specified item/s.
+
+           @param keyValues        Array containing the items to store on the device internal memory.
+           @param publicAccessName The name of the shared internal storage object (if needed).
+           @param callback         callback to be executed upon function result.
+           @since ARP 1.0
+        */
+        SecurityBridge.prototype.setSecureKeyValuePairs = function (keyValues, publicAccessName, callback) {
+        };
+        return SecurityBridge;
+    })(BaseSecurityBridge);
+    Adaptive.SecurityBridge = SecurityBridge;
+    /**
+       Interface defining methods about the acceleration sensor
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var AccelerationBridge = (function (_super) {
+        __extends(AccelerationBridge, _super);
+        /**
+           Default constructor.
+        */
+        function AccelerationBridge() {
+            _super.call(this);
+        }
+        /**
+           Register a new listener that will receive acceleration events.
+
+           @param listener to be registered.
+           @since ARP1.0
+        */
+        AccelerationBridge.prototype.addAccelerationListener = function (listener) {
+        };
+        /**
+           De-registers an existing listener from receiving acceleration events.
+
+           @param listener to be registered.
+           @since ARP1.0
+        */
+        AccelerationBridge.prototype.removeAccelerationListener = function (listener) {
+        };
+        /**
+           Removed all existing listeners from receiving acceleration events.
+
+           @since ARP1.0
+        */
+        AccelerationBridge.prototype.removeAccelerationListeners = function () {
+        };
+        return AccelerationBridge;
+    })(BaseSensorBridge);
+    Adaptive.AccelerationBridge = AccelerationBridge;
+    /**
+       Interface for managinf the Ambient Light
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var AmbientLightBridge = (function (_super) {
+        __extends(AmbientLightBridge, _super);
+        /**
+           Default constructor.
+        */
+        function AmbientLightBridge() {
+            _super.call(this);
+        }
+        return AmbientLightBridge;
+    })(BaseSensorBridge);
+    Adaptive.AmbientLightBridge = AmbientLightBridge;
+    /**
+       Interface for Barometer management purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var BarometerBridge = (function (_super) {
+        __extends(BarometerBridge, _super);
+        /**
+           Default constructor.
+        */
+        function BarometerBridge() {
+            _super.call(this);
+        }
+        return BarometerBridge;
+    })(BaseSensorBridge);
+    Adaptive.BarometerBridge = BarometerBridge;
+    /**
+       Interface for Managing the Geolocation operations
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+    */
+    var GeolocationBridge = (function (_super) {
+        __extends(GeolocationBridge, _super);
+        /**
+           Default constructor.
+        */
+        function GeolocationBridge() {
+            _super.call(this);
+        }
+        /**
+           Register a new listener that will receive geolocation events.
+
+           @param listener to be registered.
+           @since ARP1.0
+        */
+        GeolocationBridge.prototype.addGeolocationListener = function (listener) {
+        };
+        /**
+           De-registers an existing listener from receiving geolocation events.
+
+           @param listener to be registered.
+           @since ARP1.0
+        */
+        GeolocationBridge.prototype.removeGeolocationListener = function (listener) {
+        };
+        /**
+           Removed all existing listeners from receiving geolocation events.
+
+           @since ARP1.0
+        */
+        GeolocationBridge.prototype.removeGeolocationListeners = function () {
+        };
+        return GeolocationBridge;
+    })(BaseSensorBridge);
+    Adaptive.GeolocationBridge = GeolocationBridge;
+    /**
+       Interface for Managing the Giroscope operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var GyroscopeBridge = (function (_super) {
+        __extends(GyroscopeBridge, _super);
+        /**
+           Default constructor.
+        */
+        function GyroscopeBridge() {
+            _super.call(this);
+        }
+        return GyroscopeBridge;
+    })(BaseSensorBridge);
+    Adaptive.GyroscopeBridge = GyroscopeBridge;
+    /**
+       Interface for Managing the Magnetometer operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var MagnetometerBridge = (function (_super) {
+        __extends(MagnetometerBridge, _super);
+        /**
+           Default constructor.
+        */
+        function MagnetometerBridge() {
+            _super.call(this);
+        }
+        return MagnetometerBridge;
+    })(BaseSensorBridge);
+    Adaptive.MagnetometerBridge = MagnetometerBridge;
+    /**
+       Interface for Managing the Proximity operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var ProximityBridge = (function (_super) {
+        __extends(ProximityBridge, _super);
+        /**
+           Default constructor.
+        */
+        function ProximityBridge() {
+            _super.call(this);
+        }
+        return ProximityBridge;
+    })(BaseSensorBridge);
+    Adaptive.ProximityBridge = ProximityBridge;
+    /**
+       Interface for Managing the Facebook operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var FacebookBridge = (function (_super) {
+        __extends(FacebookBridge, _super);
+        /**
+           Default constructor.
+        */
+        function FacebookBridge() {
+            _super.call(this);
+        }
+        return FacebookBridge;
+    })(BaseSocialBridge);
+    Adaptive.FacebookBridge = FacebookBridge;
+    /**
+       Interface for Managing the Google Plus operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var GooglePlusBridge = (function (_super) {
+        __extends(GooglePlusBridge, _super);
+        /**
+           Default constructor.
+        */
+        function GooglePlusBridge() {
+            _super.call(this);
+        }
+        return GooglePlusBridge;
+    })(BaseSocialBridge);
+    Adaptive.GooglePlusBridge = GooglePlusBridge;
+    /**
+       Interface for Managing the Linkedin operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var LinkedInBridge = (function (_super) {
+        __extends(LinkedInBridge, _super);
+        /**
+           Default constructor.
+        */
+        function LinkedInBridge() {
+            _super.call(this);
+        }
+        return LinkedInBridge;
+    })(BaseSocialBridge);
+    Adaptive.LinkedInBridge = LinkedInBridge;
+    /**
+       Interface for Managing the RSS operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var RSSBridge = (function (_super) {
+        __extends(RSSBridge, _super);
+        /**
+           Default constructor.
+        */
+        function RSSBridge() {
+            _super.call(this);
+        }
+        return RSSBridge;
+    })(BaseSocialBridge);
+    Adaptive.RSSBridge = RSSBridge;
+    /**
+       Interface for Managing the Twitter operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var TwitterBridge = (function (_super) {
+        __extends(TwitterBridge, _super);
+        /**
+           Default constructor.
+        */
+        function TwitterBridge() {
+            _super.call(this);
+        }
+        return TwitterBridge;
+    })(BaseSocialBridge);
+    Adaptive.TwitterBridge = TwitterBridge;
+    /**
+       Interface for testing the Capabilities operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var CapabilitiesBridge = (function (_super) {
+        __extends(CapabilitiesBridge, _super);
+        /**
+           Default constructor.
+        */
+        function CapabilitiesBridge() {
+            _super.call(this);
+        }
+        /**
+           Determines whether a specific hardware button is supported for interaction.
+
+           @param type Type of feature to check.
+           @return true is supported, false otherwise.
+           @since ARP1.0
+        */
+        CapabilitiesBridge.prototype.hasButtonSupport = function (type) {
+            return null;
+        };
+        /**
+           Determines whether a specific Communication capability is supported by
+the device.
+
+           @param type Type of feature to check.
+           @return true if supported, false otherwise.
+           @since ARP1.0
+        */
+        CapabilitiesBridge.prototype.hasCommunicationSupport = function (type) {
+            return null;
+        };
+        /**
+           Determines whether a specific Data capability is supported by the device.
+
+           @param type Type of feature to check.
+           @return true if supported, false otherwise.
+           @since ARP1.0
+        */
+        CapabilitiesBridge.prototype.hasDataSupport = function (type) {
+            return null;
+        };
+        /**
+           Determines whether a specific Media capability is supported by the
+device.
+
+           @param type Type of feature to check.
+           @return true if supported, false otherwise.
+           @since ARP1.0
+        */
+        CapabilitiesBridge.prototype.hasMediaSupport = function (type) {
+            return null;
+        };
+        /**
+           Determines whether a specific Net capability is supported by the device.
+
+           @param type Type of feature to check.
+           @return true if supported, false otherwise.
+           @since ARP1.0
+        */
+        CapabilitiesBridge.prototype.hasNetSupport = function (type) {
+            return null;
+        };
+        /**
+           Determines whether a specific Notification capability is supported by the
+device.
+
+           @param type Type of feature to check.
+           @return true if supported, false otherwise.
+           @since ARP1.0
+        */
+        CapabilitiesBridge.prototype.hasNotificationSupport = function (type) {
+            return null;
+        };
+        /**
+           Determines whether a specific Sensor capability is supported by the
+device.
+
+           @param type Type of feature to check.
+           @return true if supported, false otherwise.
+           @since ARP1.0
+        */
+        CapabilitiesBridge.prototype.hasSensorSupport = function (type) {
+            return null;
+        };
+        return CapabilitiesBridge;
+    })(BaseSystemBridge);
+    Adaptive.CapabilitiesBridge = CapabilitiesBridge;
+    /**
+       Interface for Managing the Device operations
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+    */
+    var DeviceBridge = (function (_super) {
+        __extends(DeviceBridge, _super);
+        /**
+           Default constructor.
+        */
+        function DeviceBridge() {
+            _super.call(this);
+        }
+        /**
+           Register a new listener that will receive button events.
+
+           @param listener to be registered.
+           @since ARP1.0
+        */
+        DeviceBridge.prototype.addButtonListener = function (listener) {
+        };
+        /**
+           Returns the device information for the current device executing the runtime.
+
+           @return DeviceInfo for the current device.
+           @since ARP1.0
+        */
+        DeviceBridge.prototype.getDeviceInfo = function () {
+            return null;
+        };
+        /**
+           Gets the current Locale for the device.
+
+           @return The current Locale information.
+           @since ARP1.0
+        */
+        DeviceBridge.prototype.getLocaleCurrent = function () {
+            return null;
+        };
+        /**
+           De-registers an existing listener from receiving button events.
+
+           @param listener to be removed.
+           @since ARP1.0
+        */
+        DeviceBridge.prototype.removeButtonListener = function (listener) {
+        };
+        /**
+           Removed all existing listeners from receiving button events.
+
+           @since ARP1.0
+        */
+        DeviceBridge.prototype.removeButtonListeners = function () {
+        };
+        return DeviceBridge;
+    })(BaseSystemBridge);
+    Adaptive.DeviceBridge = DeviceBridge;
+    /**
+       Interface for Managing the Display operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var DisplayBridge = (function (_super) {
+        __extends(DisplayBridge, _super);
+        /**
+           Default constructor.
+        */
+        function DisplayBridge() {
+            _super.call(this);
+        }
+        return DisplayBridge;
+    })(BaseSystemBridge);
+    Adaptive.DisplayBridge = DisplayBridge;
+    /**
+       Interface for Managing the OS operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var OSBridge = (function (_super) {
+        __extends(OSBridge, _super);
+        /**
+           Default constructor.
+        */
+        function OSBridge() {
+            _super.call(this);
+        }
+        /**
+           Returns the OSInfo for the current operating system.
+
+           @return OSInfo with name, version and vendor of the OS.
+           @since ARP1.0
+        */
+        OSBridge.prototype.getOSInfo = function () {
+            return null;
+        };
+        return OSBridge;
+    })(BaseSystemBridge);
+    Adaptive.OSBridge = OSBridge;
+    /**
+       Interface for Managing the Runtime operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var RuntimeBridge = (function (_super) {
+        __extends(RuntimeBridge, _super);
+        /**
+           Default constructor.
+        */
+        function RuntimeBridge() {
+            _super.call(this);
+        }
+        /**
+           Dismiss the current Application
+
+           @since ARP1.0
+        */
+        RuntimeBridge.prototype.dismissApplication = function () {
+        };
+        /**
+           Whether the application dismiss the splash screen successfully or not
+
+           @return true if the application has dismissed the splash screen;false otherwise
+           @since ARP1.0
+        */
+        RuntimeBridge.prototype.dismissSplashScreen = function () {
+            return null;
+        };
+        return RuntimeBridge;
+    })(BaseSystemBridge);
+    Adaptive.RuntimeBridge = RuntimeBridge;
+    /**
+       Interface for Managing the browser operations
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+    */
+    var BrowserBridge = (function (_super) {
+        __extends(BrowserBridge, _super);
+        /**
+           Default constructor.
+        */
+        function BrowserBridge() {
+            _super.call(this);
+        }
+        /**
+           Method for opening a URL like a link in the native default browser
+
+           @param url Url to open
+           @return The result of the operation
+           @since ARP1.0
+        */
+        BrowserBridge.prototype.openExtenalBrowser = function (url) {
+            return null;
+        };
+        /**
+           Method for opening a browser embedded into the application
+
+           @param url            Url to open
+           @param title          Title of the Navigation bar
+           @param backButtonText Title of the Back button bar
+           @return The result of the operation
+           @since ARP1.0
+        */
+        BrowserBridge.prototype.openInternalBrowser = function (url, title, backButtonText) {
+            return null;
+        };
+        /**
+           Method for opening a browser embedded into the application in a modal window
+
+           @param url            Url to open
+           @param title          Title of the Navigation bar
+           @param backButtonText Title of the Back button bar
+           @return The result of the operation
+           @since ARP1.0
+        */
+        BrowserBridge.prototype.openInternalBrowserModal = function (url, title, backButtonText) {
+            return null;
+        };
+        return BrowserBridge;
+    })(BaseUIBridge);
+    Adaptive.BrowserBridge = BrowserBridge;
+    /**
+       Interface for Managing the Desktop operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var DesktopBridge = (function (_super) {
+        __extends(DesktopBridge, _super);
+        /**
+           Default constructor.
+        */
+        function DesktopBridge() {
+            _super.call(this);
+        }
+        return DesktopBridge;
+    })(BaseUIBridge);
+    Adaptive.DesktopBridge = DesktopBridge;
+    /**
+       Interface for Managing the Map operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var MapBridge = (function (_super) {
+        __extends(MapBridge, _super);
+        /**
+           Default constructor.
+        */
+        function MapBridge() {
+            _super.call(this);
+        }
+        return MapBridge;
+    })(BaseUIBridge);
+    Adaptive.MapBridge = MapBridge;
+    /**
+       Interface for Managing the UI operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var UIBridge = (function (_super) {
+        __extends(UIBridge, _super);
+        /**
+           Default constructor.
+        */
+        function UIBridge() {
+            _super.call(this);
+        }
+        return UIBridge;
+    })(BaseUIBridge);
+    Adaptive.UIBridge = UIBridge;
+    /**
+       Interface for Managing the Compression operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var CompressionBridge = (function (_super) {
+        __extends(CompressionBridge, _super);
+        /**
+           Default constructor.
+        */
+        function CompressionBridge() {
+            _super.call(this);
+        }
+        return CompressionBridge;
+    })(BaseUtilBridge);
+    Adaptive.CompressionBridge = CompressionBridge;
+    /**
+       Interface for Managing the Concurrent operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var ConcurrentBridge = (function (_super) {
+        __extends(ConcurrentBridge, _super);
+        /**
+           Default constructor.
+        */
+        function ConcurrentBridge() {
+            _super.call(this);
+        }
+        return ConcurrentBridge;
+    })(BaseUtilBridge);
+    Adaptive.ConcurrentBridge = ConcurrentBridge;
+    /**
+       Interface for Managing the Cloud operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var CryptoBridge = (function (_super) {
+        __extends(CryptoBridge, _super);
+        /**
+           Default constructor.
+        */
+        function CryptoBridge() {
+            _super.call(this);
+        }
+        return CryptoBridge;
+    })(BaseUtilBridge);
+    Adaptive.CryptoBridge = CryptoBridge;
+    /**
+       Interface for Managing the Logging operations
+
+       @author Ferran Vila Conesa
+       @since ARP1.0
+    */
+    var LoggingBridge = (function (_super) {
+        __extends(LoggingBridge, _super);
+        /**
+           Default constructor.
+        */
+        function LoggingBridge() {
+            _super.call(this);
+        }
+        /**
+           Logs the given message, with the given log level if specified, to the standard platform/environment.
+
+           @param level   Log level
+           @param message Message to be logged
+           @since ARP1.0
+        */
+        LoggingBridge.prototype.log_level_message = function (level, message) {
+        };
+        /**
+           Logs the given message, with the given log level if specified, to the standard platform/environment.
+
+           @param level    Log level
+           @param category Category/tag name to identify/filter the log.
+           @param message  Message to be logged
+           @since ARP1.0
+        */
+        LoggingBridge.prototype.log_level_category_message = function (level, category, message) {
+        };
+        return LoggingBridge;
+    })(BaseUtilBridge);
+    Adaptive.LoggingBridge = LoggingBridge;
+    /**
+       Interface for Managing the Timer operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var TimerBridge = (function (_super) {
+        __extends(TimerBridge, _super);
+        /**
+           Default constructor.
+        */
+        function TimerBridge() {
+            _super.call(this);
+        }
+        return TimerBridge;
+    })(BaseUtilBridge);
+    Adaptive.TimerBridge = TimerBridge;
+    /**
+       Interface to retrieve auto-registered service implementation references.
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var AppRegistryBridge = (function () {
+        function AppRegistryBridge() {
+        }
+        return AppRegistryBridge;
+    })();
+    Adaptive.AppRegistryBridge = AppRegistryBridge;
     /**
        Enumeration ContactAddressType
     */

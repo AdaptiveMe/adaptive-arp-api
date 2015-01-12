@@ -1,6 +1,8 @@
+/// <reference path="BaseReaderBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseReader.d.ts" />
+/// <reference path="IQRCode.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -35,4 +37,16 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Managing the QR Code operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    class QRCodeBridge extends BaseReaderBridge implements IQRCode {
+        /**
+           Default constructor.
+        */
+        constructor();
+    }
 }

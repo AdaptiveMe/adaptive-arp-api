@@ -1,6 +1,8 @@
+/// <reference path="BaseCommunicationBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseCommunication.d.ts" />
+/// <reference path="IBluetooth.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -35,4 +37,16 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Bluetooth purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    class BluetoothBridge extends BaseCommunicationBridge implements IBluetooth {
+        /**
+           Default constructor.
+        */
+        constructor();
+    }
 }

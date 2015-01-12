@@ -34,4 +34,30 @@ Release:
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRP.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IBasePIM.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Base application for PIM purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var BasePIMBridge = (function () {
+        /**
+           Default constructor.
+        */
+        function BasePIMBridge() {
+            this.apiGroup = Adaptive.IAdaptiveRPGroup.PIM;
+        }
+        /**
+           Return the API group for the given interface.
+        */
+        BasePIMBridge.prototype.getAPIGroup = function () {
+            return this.apiGroup;
+        };
+        return BasePIMBridge;
+    })();
+    Adaptive.BasePIMBridge = BasePIMBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=BasePIMBridge.js.map

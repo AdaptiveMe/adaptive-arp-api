@@ -31,8 +31,59 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="BaseCommunicationBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseCommunication.ts"/>
+///<reference path="INetworkStatus.ts"/>
 ///<reference path="INetworkStatusListener.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Interface for Managing the Network status
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var NetworkStatusBridge = (function (_super) {
+        __extends(NetworkStatusBridge, _super);
+        /**
+           Default constructor.
+        */
+        function NetworkStatusBridge() {
+            _super.call(this);
+        }
+        /**
+           Add the listener for network status changes of the app
+
+           @param listener Listener with the result
+           @since ARP1.0
+        */
+        NetworkStatusBridge.prototype.addNetworkStatusListener = function (listener) {
+        };
+        /**
+           Un-registers an existing listener from receiving network status events.
+
+           @param listener Listener with the result
+           @since ARP1.0
+        */
+        NetworkStatusBridge.prototype.removeNetworkStatusListener = function (listener) {
+        };
+        /**
+           Removes all existing listeners from receiving network status events.
+
+           @since ARP1.0
+        */
+        NetworkStatusBridge.prototype.removeNetworkStatusListeners = function () {
+        };
+        return NetworkStatusBridge;
+    })(Adaptive.BaseCommunicationBridge);
+    Adaptive.NetworkStatusBridge = NetworkStatusBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=NetworkStatusBridge.js.map

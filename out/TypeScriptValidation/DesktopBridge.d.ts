@@ -1,6 +1,8 @@
+/// <reference path="BaseUIBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseUI.d.ts" />
+/// <reference path="IDesktop.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -35,4 +37,16 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Managing the Desktop operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    class DesktopBridge extends BaseUIBridge implements IDesktop {
+        /**
+           Default constructor.
+        */
+        constructor();
+    }
 }

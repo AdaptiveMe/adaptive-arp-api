@@ -32,11 +32,28 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="BaseSensorBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IBarometer.ts"/>
 ///<reference path="IBaseSensor.ts"/>
 module Adaptive {
-     //TODO: handler implementation.
+
+     /**
+        Interface for Barometer management purposes
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class BarometerBridge extends BaseSensorBridge implements IBarometer {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

@@ -35,8 +35,36 @@ Release:
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRP.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IBaseData.ts"/>
 module Adaptive {
-     //TODO: handler implementation.
+
+     /**
+        Base application for Data purposes
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class BaseDataBridge implements IBaseData {
+
+          /**
+             Group of API.
+          */
+          apiGroup : IAdaptiveRPGroup;
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               this.apiGroup = IAdaptiveRPGroup.Data;
+          }
+
+          /**
+             Return the API group for the given interface.
+          */
+          getAPIGroup() : IAdaptiveRPGroup {
+               return this.apiGroup;
+          }
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

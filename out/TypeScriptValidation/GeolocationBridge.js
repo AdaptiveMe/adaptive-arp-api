@@ -31,8 +31,59 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="BaseSensorBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseSensor.ts"/>
+///<reference path="IGeolocation.ts"/>
 ///<reference path="IGeolocationListener.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Interface for Managing the Geolocation operations
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+    */
+    var GeolocationBridge = (function (_super) {
+        __extends(GeolocationBridge, _super);
+        /**
+           Default constructor.
+        */
+        function GeolocationBridge() {
+            _super.call(this);
+        }
+        /**
+           Register a new listener that will receive geolocation events.
+
+           @param listener to be registered.
+           @since ARP1.0
+        */
+        GeolocationBridge.prototype.addGeolocationListener = function (listener) {
+        };
+        /**
+           De-registers an existing listener from receiving geolocation events.
+
+           @param listener to be registered.
+           @since ARP1.0
+        */
+        GeolocationBridge.prototype.removeGeolocationListener = function (listener) {
+        };
+        /**
+           Removed all existing listeners from receiving geolocation events.
+
+           @since ARP1.0
+        */
+        GeolocationBridge.prototype.removeGeolocationListeners = function () {
+        };
+        return GeolocationBridge;
+    })(Adaptive.BaseSensorBridge);
+    Adaptive.GeolocationBridge = GeolocationBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=GeolocationBridge.js.map

@@ -1,6 +1,8 @@
+/// <reference path="BaseUtilBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseUtil.d.ts" />
+/// <reference path="IConcurrent.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -35,4 +37,16 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Managing the Concurrent operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    class ConcurrentBridge extends BaseUtilBridge implements IConcurrent {
+        /**
+           Default constructor.
+        */
+        constructor();
+    }
 }

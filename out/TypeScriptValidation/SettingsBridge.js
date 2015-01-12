@@ -31,7 +31,35 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="BaseApplicationBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseApplication.ts"/>
+///<reference path="ISettings.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Interface for Managing the Settings operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var SettingsBridge = (function (_super) {
+        __extends(SettingsBridge, _super);
+        /**
+           Default constructor.
+        */
+        function SettingsBridge() {
+            _super.call(this);
+        }
+        return SettingsBridge;
+    })(Adaptive.BaseApplicationBridge);
+    Adaptive.SettingsBridge = SettingsBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=SettingsBridge.js.map

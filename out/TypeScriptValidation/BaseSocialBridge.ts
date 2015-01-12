@@ -35,8 +35,36 @@ Release:
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRP.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IBaseSocial.ts"/>
 module Adaptive {
-     //TODO: handler implementation.
+
+     /**
+        Base application for Social purposes
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class BaseSocialBridge implements IBaseSocial {
+
+          /**
+             Group of API.
+          */
+          apiGroup : IAdaptiveRPGroup;
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               this.apiGroup = IAdaptiveRPGroup.Social;
+          }
+
+          /**
+             Return the API group for the given interface.
+          */
+          getAPIGroup() : IAdaptiveRPGroup {
+               return this.apiGroup;
+          }
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

@@ -31,7 +31,35 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="BaseSocialBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseSocial.ts"/>
+///<reference path="IGooglePlus.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Interface for Managing the Google Plus operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var GooglePlusBridge = (function (_super) {
+        __extends(GooglePlusBridge, _super);
+        /**
+           Default constructor.
+        */
+        function GooglePlusBridge() {
+            _super.call(this);
+        }
+        return GooglePlusBridge;
+    })(Adaptive.BaseSocialBridge);
+    Adaptive.GooglePlusBridge = GooglePlusBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=GooglePlusBridge.js.map

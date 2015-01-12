@@ -34,4 +34,30 @@ Release:
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRP.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IBaseSensor.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Base application for Sensor purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var BaseSensorBridge = (function () {
+        /**
+           Default constructor.
+        */
+        function BaseSensorBridge() {
+            this.apiGroup = Adaptive.IAdaptiveRPGroup.Sensor;
+        }
+        /**
+           Return the API group for the given interface.
+        */
+        BaseSensorBridge.prototype.getAPIGroup = function () {
+            return this.apiGroup;
+        };
+        return BaseSensorBridge;
+    })();
+    Adaptive.BaseSensorBridge = BaseSensorBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=BaseSensorBridge.js.map

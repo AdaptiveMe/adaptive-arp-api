@@ -1,8 +1,10 @@
+/// <reference path="BaseSystemBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="DeviceInfo.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseSystem.d.ts" />
 /// <reference path="IButtonListener.d.ts" />
+/// <reference path="IDevice.d.ts" />
 /// <reference path="Locale.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
@@ -38,4 +40,50 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Managing the Device operations
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+    */
+    class DeviceBridge extends BaseSystemBridge implements IDevice {
+        /**
+           Default constructor.
+        */
+        constructor();
+        /**
+           Register a new listener that will receive button events.
+
+           @param listener to be registered.
+           @since ARP1.0
+        */
+        addButtonListener(listener: IButtonListener): void;
+        /**
+           Returns the device information for the current device executing the runtime.
+
+           @return DeviceInfo for the current device.
+           @since ARP1.0
+        */
+        getDeviceInfo(): DeviceInfo;
+        /**
+           Gets the current Locale for the device.
+
+           @return The current Locale information.
+           @since ARP1.0
+        */
+        getLocaleCurrent(): Locale;
+        /**
+           De-registers an existing listener from receiving button events.
+
+           @param listener to be removed.
+           @since ARP1.0
+        */
+        removeButtonListener(listener: IButtonListener): void;
+        /**
+           Removed all existing listeners from receiving button events.
+
+           @since ARP1.0
+        */
+        removeButtonListeners(): void;
+    }
 }

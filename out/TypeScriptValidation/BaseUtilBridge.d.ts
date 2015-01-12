@@ -1,6 +1,7 @@
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRP.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
+/// <reference path="IBaseUtil.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -35,4 +36,24 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Base application for Utility purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    class BaseUtilBridge implements IBaseUtil {
+        /**
+           Group of API.
+        */
+        apiGroup: IAdaptiveRPGroup;
+        /**
+           Default constructor.
+        */
+        constructor();
+        /**
+           Return the API group for the given interface.
+        */
+        getAPIGroup(): IAdaptiveRPGroup;
+    }
 }

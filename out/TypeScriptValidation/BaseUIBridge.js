@@ -34,4 +34,30 @@ Release:
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRP.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IBaseUI.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Base application for UI purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var BaseUIBridge = (function () {
+        /**
+           Default constructor.
+        */
+        function BaseUIBridge() {
+            this.apiGroup = Adaptive.IAdaptiveRPGroup.UI;
+        }
+        /**
+           Return the API group for the given interface.
+        */
+        BaseUIBridge.prototype.getAPIGroup = function () {
+            return this.apiGroup;
+        };
+        return BaseUIBridge;
+    })();
+    Adaptive.BaseUIBridge = BaseUIBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=BaseUIBridge.js.map

@@ -31,8 +31,54 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="BaseCommunicationBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseCommunication.ts"/>
+///<reference path="INetworkReachability.ts"/>
 ///<reference path="INetworkReachabilityCallback.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Interface for Managing the Network reachability operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var NetworkReachabilityBridge = (function (_super) {
+        __extends(NetworkReachabilityBridge, _super);
+        /**
+           Default constructor.
+        */
+        function NetworkReachabilityBridge() {
+            _super.call(this);
+        }
+        /**
+           Whether there is connectivity to a host, via domain name or ip address, or not.
+
+           @param host     domain name or ip address of host.
+           @param callback Callback called at the end.
+           @since ARP1.0
+        */
+        NetworkReachabilityBridge.prototype.isNetworkReachable = function (host, callback) {
+        };
+        /**
+           Whether there is connectivity to an url of a service or not.
+
+           @param url      to look for
+           @param callback Callback called at the end
+           @since ARP1.0
+        */
+        NetworkReachabilityBridge.prototype.isNetworkServiceReachable = function (url, callback) {
+        };
+        return NetworkReachabilityBridge;
+    })(Adaptive.BaseCommunicationBridge);
+    Adaptive.NetworkReachabilityBridge = NetworkReachabilityBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=NetworkReachabilityBridge.js.map

@@ -1,7 +1,9 @@
+/// <reference path="BasePIMBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="Email.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBasePIM.d.ts" />
+/// <reference path="IMail.d.ts" />
 /// <reference path="IMessagingCallback.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
@@ -37,4 +39,24 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Managing the Mail operations
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+    */
+    class MailBridge extends BasePIMBridge implements IMail {
+        /**
+           Default constructor.
+        */
+        constructor();
+        /**
+           Send an Email
+
+           @param data     Payload of the email
+           @param callback Result callback of the operation
+           @since ARP1.0
+        */
+        sendEmail(data: Email, callback: IMessagingCallback): void;
+    }
 }

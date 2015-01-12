@@ -32,11 +32,28 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="BaseCommerceBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IAds.ts"/>
 ///<reference path="IBaseCommerce.ts"/>
 module Adaptive {
-     //TODO: handler implementation.
+
+     /**
+        Interface for Advertising purposes
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class AdsBridge extends BaseCommerceBridge implements IAds {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

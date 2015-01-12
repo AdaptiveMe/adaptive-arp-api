@@ -32,13 +32,73 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="BaseSecurityBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseSecurity.ts"/>
+///<reference path="ISecurity.ts"/>
 ///<reference path="ISecurityResultCallback.ts"/>
 ///<reference path="SecureKeyPair.ts"/>
 module Adaptive {
-     //TODO: handler implementation.
+
+     /**
+        Interface for Managing the Security operations
+
+        @author Aryslan
+        @since ARP1.0
+     */
+     export class SecurityBridge extends BaseSecurityBridge implements ISecurity {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             Deletes from the device internal storage the entry/entries containing the specified key names.
+
+             @param keys             Array with the key names to delete.
+             @param publicAccessName The name of the shared internal storage object (if needed).
+             @param callback         callback to be executed upon function result.
+             @since ARP 1.0
+          */
+          deleteSecureKeyValuePairs(keys : Array<string>, publicAccessName : string, callback : ISecurityResultCallback) : void {
+          }
+
+          /**
+             Retrieves from the device internal storage the entry/entries containing the specified key names.
+
+             @param keys             Array with the key names to retrieve.
+             @param publicAccessName The name of the shared internal storage object (if needed).
+             @param callback         callback to be executed upon function result.
+             @since ARP 1.0
+          */
+          getSecureKeyValuePairs(keys : Array<string>, publicAccessName : string, callback : ISecurityResultCallback) : void {
+          }
+
+          /**
+             Returns if the device has been modified in anyhow
+
+             @return true if the device has been modified; false otherwise
+             @since ARP1.0
+          */
+          isDeviceModified() : boolean {
+               return null;
+          }
+
+          /**
+             Stores in the device internal storage the specified item/s.
+
+             @param keyValues        Array containing the items to store on the device internal memory.
+             @param publicAccessName The name of the shared internal storage object (if needed).
+             @param callback         callback to be executed upon function result.
+             @since ARP 1.0
+          */
+          setSecureKeyValuePairs(keyValues : Array<SecureKeyPair>, publicAccessName : string, callback : ISecurityResultCallback) : void {
+          }
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

@@ -1,6 +1,8 @@
+/// <reference path="BaseCommunicationBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseCommunication.d.ts" />
+/// <reference path="INetworkStatus.d.ts" />
 /// <reference path="INetworkStatusListener.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
@@ -36,4 +38,36 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Managing the Network status
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    class NetworkStatusBridge extends BaseCommunicationBridge implements INetworkStatus {
+        /**
+           Default constructor.
+        */
+        constructor();
+        /**
+           Add the listener for network status changes of the app
+
+           @param listener Listener with the result
+           @since ARP1.0
+        */
+        addNetworkStatusListener(listener: INetworkStatusListener): void;
+        /**
+           Un-registers an existing listener from receiving network status events.
+
+           @param listener Listener with the result
+           @since ARP1.0
+        */
+        removeNetworkStatusListener(listener: INetworkStatusListener): void;
+        /**
+           Removes all existing listeners from receiving network status events.
+
+           @since ARP1.0
+        */
+        removeNetworkStatusListeners(): void;
+    }
 }

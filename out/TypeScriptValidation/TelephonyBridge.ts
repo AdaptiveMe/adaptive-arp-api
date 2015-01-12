@@ -32,12 +32,40 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="BaseCommunicationBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseCommunication.ts"/>
+///<reference path="ITelephony.ts"/>
 ///<reference path="ITelephonyStatus.ts"/>
 module Adaptive {
-     //TODO: handler implementation.
+
+     /**
+        Interface for Managing the Telephony operations
+
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
+     */
+     export class TelephonyBridge extends BaseCommunicationBridge implements ITelephony {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             Invoke a phone call
+
+             @param number to call
+             @return Status of the call
+             @since ARP1.0
+          */
+          call(number : string) : ITelephonyStatus {
+               return null;
+          }
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

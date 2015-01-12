@@ -34,4 +34,30 @@ Release:
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRP.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IBaseReader.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Base application for Reader purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var BaseReaderBridge = (function () {
+        /**
+           Default constructor.
+        */
+        function BaseReaderBridge() {
+            this.apiGroup = Adaptive.IAdaptiveRPGroup.Reader;
+        }
+        /**
+           Return the API group for the given interface.
+        */
+        BaseReaderBridge.prototype.getAPIGroup = function () {
+            return this.apiGroup;
+        };
+        return BaseReaderBridge;
+    })();
+    Adaptive.BaseReaderBridge = BaseReaderBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=BaseReaderBridge.js.map

@@ -31,7 +31,35 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="BaseUtilBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseUtil.ts"/>
+///<reference path="ICompression.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Interface for Managing the Compression operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var CompressionBridge = (function (_super) {
+        __extends(CompressionBridge, _super);
+        /**
+           Default constructor.
+        */
+        function CompressionBridge() {
+            _super.call(this);
+        }
+        return CompressionBridge;
+    })(Adaptive.BaseUtilBridge);
+    Adaptive.CompressionBridge = CompressionBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=CompressionBridge.js.map

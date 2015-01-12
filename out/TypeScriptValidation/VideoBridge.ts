@@ -32,11 +32,37 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="BaseMediaBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseMedia.ts"/>
+///<reference path="IVideo.ts"/>
 module Adaptive {
-     //TODO: handler implementation.
+
+     /**
+        Interface for Managing the Video operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class VideoBridge extends BaseMediaBridge implements IVideo {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             Play url video stream
+
+             @param url of the video
+             @since ARP1.0
+          */
+          playStream(url : string) : void {
+          }
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

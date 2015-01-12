@@ -32,11 +32,28 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="BaseApplicationBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IAnalytics.ts"/>
 ///<reference path="IBaseApplication.ts"/>
 module Adaptive {
-     //TODO: handler implementation.
+
+     /**
+        Interface for Analytics purposes
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class AnalyticsBridge extends BaseApplicationBridge implements IAnalytics {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

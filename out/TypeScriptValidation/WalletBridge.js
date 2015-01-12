@@ -31,7 +31,35 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="BaseCommerceBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseCommerce.ts"/>
+///<reference path="IWallet.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Interface for Managing the Wallet operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var WalletBridge = (function (_super) {
+        __extends(WalletBridge, _super);
+        /**
+           Default constructor.
+        */
+        function WalletBridge() {
+            _super.call(this);
+        }
+        return WalletBridge;
+    })(Adaptive.BaseCommerceBridge);
+    Adaptive.WalletBridge = WalletBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=WalletBridge.js.map

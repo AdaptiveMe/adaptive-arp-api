@@ -1,6 +1,8 @@
+/// <reference path="BaseSensorBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseSensor.d.ts" />
+/// <reference path="IGeolocation.d.ts" />
 /// <reference path="IGeolocationListener.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
@@ -36,4 +38,36 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Managing the Geolocation operations
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+    */
+    class GeolocationBridge extends BaseSensorBridge implements IGeolocation {
+        /**
+           Default constructor.
+        */
+        constructor();
+        /**
+           Register a new listener that will receive geolocation events.
+
+           @param listener to be registered.
+           @since ARP1.0
+        */
+        addGeolocationListener(listener: IGeolocationListener): void;
+        /**
+           De-registers an existing listener from receiving geolocation events.
+
+           @param listener to be registered.
+           @since ARP1.0
+        */
+        removeGeolocationListener(listener: IGeolocationListener): void;
+        /**
+           Removed all existing listeners from receiving geolocation events.
+
+           @since ARP1.0
+        */
+        removeGeolocationListeners(): void;
+    }
 }

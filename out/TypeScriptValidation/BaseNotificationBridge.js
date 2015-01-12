@@ -34,4 +34,30 @@ Release:
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRP.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IBaseNotification.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Base application for Notification purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var BaseNotificationBridge = (function () {
+        /**
+           Default constructor.
+        */
+        function BaseNotificationBridge() {
+            this.apiGroup = Adaptive.IAdaptiveRPGroup.Notification;
+        }
+        /**
+           Return the API group for the given interface.
+        */
+        BaseNotificationBridge.prototype.getAPIGroup = function () {
+            return this.apiGroup;
+        };
+        return BaseNotificationBridge;
+    })();
+    Adaptive.BaseNotificationBridge = BaseNotificationBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=BaseNotificationBridge.js.map

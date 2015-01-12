@@ -32,12 +32,55 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="BaseSensorBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
+///<reference path="IAcceleration.ts"/>
 ///<reference path="IAccelerationListener.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseSensor.ts"/>
 module Adaptive {
-     //TODO: handler implementation.
+
+     /**
+        Interface defining methods about the acceleration sensor
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class AccelerationBridge extends BaseSensorBridge implements IAcceleration {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             Register a new listener that will receive acceleration events.
+
+             @param listener to be registered.
+             @since ARP1.0
+          */
+          addAccelerationListener(listener : IAccelerationListener) : void {
+          }
+
+          /**
+             De-registers an existing listener from receiving acceleration events.
+
+             @param listener to be registered.
+             @since ARP1.0
+          */
+          removeAccelerationListener(listener : IAccelerationListener) : void {
+          }
+
+          /**
+             Removed all existing listeners from receiving acceleration events.
+
+             @since ARP1.0
+          */
+          removeAccelerationListeners() : void {
+          }
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

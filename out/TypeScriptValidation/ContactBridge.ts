@@ -32,16 +32,116 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="BasePIMBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="ContactUid.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBasePIM.ts"/>
+///<reference path="IContact.ts"/>
 ///<reference path="IContactFieldGroup.ts"/>
 ///<reference path="IContactFilter.ts"/>
 ///<reference path="IContactPhotoResultCallback.ts"/>
 ///<reference path="IContactResultCallback.ts"/>
 module Adaptive {
-     //TODO: handler implementation.
+
+     /**
+        Interface for Managing the Contact operations
+
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
+     */
+     export class ContactBridge extends BasePIMBridge implements IContact {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             Get all the details of a contact according to its id
+
+             @param contact  id to search for
+             @param callback called for return
+             @since ARP1.0
+          */
+          getContact(contact : ContactUid, callback : IContactResultCallback) : void {
+          }
+
+          /**
+             Get the contact photo
+
+             @param contact  id to search for
+             @param callback called for return
+             @since ARP1.0
+          */
+          getContactPhoto(contact : ContactUid, callback : IContactPhotoResultCallback) : void {
+          }
+
+          /**
+             Get all contacts
+
+             @param callback called for return
+             @since ARP1.0
+          */
+          getContacts(callback : IContactResultCallback) : void {
+          }
+
+          /**
+             Get marked fields of all contacts
+
+             @param callback called for return
+             @param fields   to get for each Contact
+             @since ARP1.0
+          */
+          getContactsForFields(callback : IContactResultCallback, fields : Array<IContactFieldGroup>) : void {
+          }
+
+          /**
+             Get marked fields of all contacts according to a filter
+
+             @param callback called for return
+             @param fields   to get for each Contact
+             @param filter   to search for
+             @since ARP1.0
+          */
+          getContactsWithFilter(callback : IContactResultCallback, fields : Array<IContactFieldGroup>, filter : Array<IContactFilter>) : void {
+          }
+
+          /**
+             Search contacts according to a term and send it to the callback
+
+             @param term     string to search
+             @param callback called for return
+             @since ARP1.0
+          */
+          searchContacts(term : string, callback : IContactResultCallback) : void {
+          }
+
+          /**
+             Search contacts according to a term with a filter and send it to the callback
+
+             @param term     string to search
+             @param callback called for return
+             @param filter   to search for
+             @since ARP1.0
+          */
+          searchContactsWithFilter(term : string, callback : IContactResultCallback, filter : Array<IContactFilter>) : void {
+          }
+
+          /**
+             Set the contact photo
+
+             @param contact  id to assign the photo
+             @param pngImage photo as byte array
+             @return true if set is successful;false otherwise
+             @since ARP1.0
+          */
+          setContactPhoto(contact : ContactUid, pngImage : Array<number>) : boolean {
+               return null;
+          }
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

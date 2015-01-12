@@ -35,8 +35,36 @@ Release:
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRP.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IBaseSecurity.ts"/>
 module Adaptive {
-     //TODO: handler implementation.
+
+     /**
+        Base application for Security purposes
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class BaseSecurityBridge implements IBaseSecurity {
+
+          /**
+             Group of API.
+          */
+          apiGroup : IAdaptiveRPGroup;
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               this.apiGroup = IAdaptiveRPGroup.Security;
+          }
+
+          /**
+             Return the API group for the given interface.
+          */
+          getAPIGroup() : IAdaptiveRPGroup {
+               return this.apiGroup;
+          }
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

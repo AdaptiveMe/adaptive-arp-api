@@ -31,9 +31,67 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="BaseApplicationBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseApplication.ts"/>
+///<reference path="IGlobalization.ts"/>
 ///<reference path="KeyPair.ts"/>
 ///<reference path="Locale.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Interface for Managing the Globalization results
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+    */
+    var GlobalizationBridge = (function (_super) {
+        __extends(GlobalizationBridge, _super);
+        /**
+           Default constructor.
+        */
+        function GlobalizationBridge() {
+            _super.call(this);
+        }
+        /**
+           List of supported locales for the application
+
+           @return List of locales
+           @since ARP1.0
+        */
+        GlobalizationBridge.prototype.getLocaleSupportedDescriptors = function () {
+            return null;
+        };
+        /**
+           Gets the text/message corresponding to the given key and locale.
+
+           @param key    to match text
+           @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
+           @return Localized text.
+           @since ARP1.0
+        */
+        GlobalizationBridge.prototype.getResourceLiteral = function (key, locale) {
+            return null;
+        };
+        /**
+           Gets the full application configured literals (key/message pairs) corresponding to the given locale.
+
+           @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
+           @return Localized texts in the form of an object.
+           @since ARP1.0
+        */
+        GlobalizationBridge.prototype.getResourceLiterals = function (locale) {
+            return null;
+        };
+        return GlobalizationBridge;
+    })(Adaptive.BaseApplicationBridge);
+    Adaptive.GlobalizationBridge = GlobalizationBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=GlobalizationBridge.js.map

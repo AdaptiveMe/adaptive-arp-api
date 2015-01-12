@@ -1,6 +1,8 @@
+/// <reference path="BaseSecurityBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseSecurity.d.ts" />
+/// <reference path="IOAuth.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -35,4 +37,16 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Managing the OAuth operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    class OAuthBridge extends BaseSecurityBridge implements IOAuth {
+        /**
+           Default constructor.
+        */
+        constructor();
+    }
 }

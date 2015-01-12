@@ -31,8 +31,46 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="BaseCommunicationBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseCommunication.ts"/>
+///<reference path="ITelephony.ts"/>
 ///<reference path="ITelephonyStatus.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Interface for Managing the Telephony operations
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+    */
+    var TelephonyBridge = (function (_super) {
+        __extends(TelephonyBridge, _super);
+        /**
+           Default constructor.
+        */
+        function TelephonyBridge() {
+            _super.call(this);
+        }
+        /**
+           Invoke a phone call
+
+           @param number to call
+           @return Status of the call
+           @since ARP1.0
+        */
+        TelephonyBridge.prototype.call = function (number) {
+            return null;
+        };
+        return TelephonyBridge;
+    })(Adaptive.BaseCommunicationBridge);
+    Adaptive.TelephonyBridge = TelephonyBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=TelephonyBridge.js.map

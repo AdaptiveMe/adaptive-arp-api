@@ -32,11 +32,46 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="BaseSystemBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseSystem.ts"/>
+///<reference path="IRuntime.ts"/>
 module Adaptive {
-     //TODO: handler implementation.
+
+     /**
+        Interface for Managing the Runtime operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class RuntimeBridge extends BaseSystemBridge implements IRuntime {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             Dismiss the current Application
+
+             @since ARP1.0
+          */
+          dismissApplication() : void {
+          }
+
+          /**
+             Whether the application dismiss the splash screen successfully or not
+
+             @return true if the application has dismissed the splash screen;false otherwise
+             @since ARP1.0
+          */
+          dismissSplashScreen() : boolean {
+               return null;
+          }
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

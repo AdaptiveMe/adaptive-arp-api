@@ -34,4 +34,30 @@ Release:
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRP.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IBaseMedia.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Base application for Media purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var BaseMediaBridge = (function () {
+        /**
+           Default constructor.
+        */
+        function BaseMediaBridge() {
+            this.apiGroup = Adaptive.IAdaptiveRPGroup.Media;
+        }
+        /**
+           Return the API group for the given interface.
+        */
+        BaseMediaBridge.prototype.getAPIGroup = function () {
+            return this.apiGroup;
+        };
+        return BaseMediaBridge;
+    })();
+    Adaptive.BaseMediaBridge = BaseMediaBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=BaseMediaBridge.js.map

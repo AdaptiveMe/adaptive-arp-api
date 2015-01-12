@@ -31,9 +31,46 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="BasePIMBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="Email.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBasePIM.ts"/>
+///<reference path="IMail.ts"/>
 ///<reference path="IMessagingCallback.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Interface for Managing the Mail operations
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+    */
+    var MailBridge = (function (_super) {
+        __extends(MailBridge, _super);
+        /**
+           Default constructor.
+        */
+        function MailBridge() {
+            _super.call(this);
+        }
+        /**
+           Send an Email
+
+           @param data     Payload of the email
+           @param callback Result callback of the operation
+           @since ARP1.0
+        */
+        MailBridge.prototype.sendEmail = function (data, callback) {
+        };
+        return MailBridge;
+    })(Adaptive.BasePIMBridge);
+    Adaptive.MailBridge = MailBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=MailBridge.js.map

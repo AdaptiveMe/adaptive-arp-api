@@ -1,6 +1,8 @@
+/// <reference path="BaseCommunicationBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseCommunication.d.ts" />
+/// <reference path="IService.d.ts" />
 /// <reference path="IServiceResultCallback.d.ts" />
 /// <reference path="Service.d.ts" />
 /// <reference path="ServiceRequest.d.ts" />
@@ -38,4 +40,69 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Managing the Services operations
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+    */
+    class ServiceBridge extends BaseCommunicationBridge implements IService {
+        /**
+           Default constructor.
+        */
+        constructor();
+        /**
+           Get a reference to a registered service by name.
+
+           @param serviceName Name of service.
+           @return A service, if registered, or null of the service does not exist.
+           @since ARP1.0
+        */
+        getService(serviceName: string): Service;
+        /**
+           Request async a service for an Url
+
+           @param serviceRequest Service Request to invoke
+           @param service        Service to call
+           @param callback       Callback to execute with the result
+           @since ARP1.0
+        */
+        invokeService(serviceRequest: ServiceRequest, service: Service, callback: IServiceResultCallback): void;
+        /**
+           Check whether a service by the given name is registered.
+
+           @param serviceName Name of service.
+           @return True if the service is registered, false otherwise.
+           @since ARP1.0
+        */
+        isRegistered(service: Service): boolean;
+        /**
+           Check whether a service by the given service is already registered.
+
+           @param service Service to check
+           @return True if the service is registered, false otherwise.
+           @since ARP1.0
+        */
+        isRegistered0(serviceName: string): boolean;
+        /**
+           Register a new service
+
+           @param service to register
+           @since ARP1.0
+        */
+        registerService(service: Service): void;
+        /**
+           Unregister a service
+
+           @param service to unregister
+           @since ARP1.0
+        */
+        unregisterService(service: Service): void;
+        /**
+           Unregister all services.
+
+           @since ARP1.0
+        */
+        unregisterServices(): void;
+    }
 }

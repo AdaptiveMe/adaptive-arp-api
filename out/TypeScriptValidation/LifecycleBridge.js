@@ -31,8 +31,68 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="BaseApplicationBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseApplication.ts"/>
+///<reference path="ILifecycle.ts"/>
 ///<reference path="ILifecycleListener.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Interface for Managing the Lifecycle listeners
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var LifecycleBridge = (function (_super) {
+        __extends(LifecycleBridge, _super);
+        /**
+           Default constructor.
+        */
+        function LifecycleBridge() {
+            _super.call(this);
+        }
+        /**
+           Add the listener for the lifecycle of the app
+
+           @param listener Lifecycle listener
+           @since ARP1.0
+        */
+        LifecycleBridge.prototype.addLifecycleListener = function (listener) {
+        };
+        /**
+           Whether the application is in background or not
+
+           @return true if the application is in background;false otherwise
+           @since ARP1.0
+        */
+        LifecycleBridge.prototype.isBackground = function () {
+            return null;
+        };
+        /**
+           Un-registers an existing listener from receiving lifecycle events.
+
+           @param listener Lifecycle listener
+           @since ARP1.0
+        */
+        LifecycleBridge.prototype.removeLifecycleListener = function (listener) {
+        };
+        /**
+           Removes all existing listeners from receiving lifecycle events.
+
+           @since ARP1.0
+        */
+        LifecycleBridge.prototype.removeLifecycleListeners = function () {
+        };
+        return LifecycleBridge;
+    })(Adaptive.BaseApplicationBridge);
+    Adaptive.LifecycleBridge = LifecycleBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=LifecycleBridge.js.map

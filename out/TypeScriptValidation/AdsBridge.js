@@ -31,7 +31,35 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="BaseCommerceBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IAds.ts"/>
 ///<reference path="IBaseCommerce.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Interface for Advertising purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var AdsBridge = (function (_super) {
+        __extends(AdsBridge, _super);
+        /**
+           Default constructor.
+        */
+        function AdsBridge() {
+            _super.call(this);
+        }
+        return AdsBridge;
+    })(Adaptive.BaseCommerceBridge);
+    Adaptive.AdsBridge = AdsBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=AdsBridge.js.map

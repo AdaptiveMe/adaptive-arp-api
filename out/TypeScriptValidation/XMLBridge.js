@@ -31,7 +31,35 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="BaseDataBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseData.ts"/>
+///<reference path="IXML.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Interface for Managing the XML operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var XMLBridge = (function (_super) {
+        __extends(XMLBridge, _super);
+        /**
+           Default constructor.
+        */
+        function XMLBridge() {
+            _super.call(this);
+        }
+        return XMLBridge;
+    })(Adaptive.BaseDataBridge);
+    Adaptive.XMLBridge = XMLBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=XMLBridge.js.map

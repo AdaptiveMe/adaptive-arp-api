@@ -31,7 +31,35 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="BaseNotificationBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseNotification.ts"/>
+///<reference path="INotification.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Interface for Managing the Notification operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var NotificationBridge = (function (_super) {
+        __extends(NotificationBridge, _super);
+        /**
+           Default constructor.
+        */
+        function NotificationBridge() {
+            _super.call(this);
+        }
+        return NotificationBridge;
+    })(Adaptive.BaseNotificationBridge);
+    Adaptive.NotificationBridge = NotificationBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=NotificationBridge.js.map

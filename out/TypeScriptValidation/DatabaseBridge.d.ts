@@ -1,8 +1,10 @@
+/// <reference path="BaseDataBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="Database.d.ts" />
 /// <reference path="DatabaseTable.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseData.d.ts" />
+/// <reference path="IDatabase.d.ts" />
 /// <reference path="IDatabaseResultCallback.d.ts" />
 /// <reference path="IDatabaseTableResultCallback.d.ts" />
 /**
@@ -39,4 +41,89 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Managing the Cloud operations
+
+       @author Ferran Vila Conesa
+       @since ARP1.0
+    */
+    class DatabaseBridge extends BaseDataBridge implements IDatabase {
+        /**
+           Default constructor.
+        */
+        constructor();
+        /**
+           Creates a database on default path for every platform.
+
+           @param callback Asynchronous callback
+           @param database Database object to create
+           @since ARP1.0
+        */
+        createDatabase(database: Database, callback: IDatabaseResultCallback): void;
+        /**
+           Creates a databaseTable inside a database for every platform.
+
+           @param database      Database for databaseTable creating.
+           @param databaseTable DatabaseTable object with the name of the databaseTable inside.
+           @param callback      DatabaseTable callback with the response
+           @since ARP1.0
+        */
+        createTable(database: Database, databaseTable: DatabaseTable, callback: IDatabaseTableResultCallback): void;
+        /**
+           Deletes a database on default path for every platform.
+
+           @param database Database object to delete
+           @param callback Asynchronous callback
+           @since ARP1.0
+        */
+        deleteDatabase(database: Database, callback: IDatabaseResultCallback): void;
+        /**
+           Deletes a databaseTable inside a database for every platform.
+
+           @param database      Database for databaseTable removal.
+           @param databaseTable DatabaseTable object with the name of the databaseTable inside.
+           @param callback      DatabaseTable callback with the response
+           @since ARP1.0
+        */
+        deleteTable(database: Database, databaseTable: DatabaseTable, callback: IDatabaseTableResultCallback): void;
+        /**
+           Executes SQL statement into the given database. The replacements
+should be passed as a parameter
+
+           @param database     The database object reference.
+           @param statement    SQL statement.
+           @param replacements List of SQL statement replacements.
+           @param callback     DatabaseTable callback with the response.
+           @since ARP1.0
+        */
+        executeSqlStatement(database: Database, statement: string, replacements: string[], callback: IDatabaseTableResultCallback): void;
+        /**
+           Executes SQL transaction (some statements chain) inside given database.
+
+           @param database     The database object reference.
+           @param statements   The statements to be executed during transaction.
+           @param rollbackFlag Indicates if rollback should be performed when any
+                  statement execution fails.
+           @param callback     DatabaseTable callback with the response.
+           @since ARP1.0
+        */
+        executeSqlTransactions(database: Database, statements: string[], rollbackFlag: boolean, callback: IDatabaseTableResultCallback): void;
+        /**
+           Checks if database exists by given database name.
+
+           @param database Database Object to check if exists
+           @return True if exists, false otherwise
+           @since ARP1.0
+        */
+        existsDatabase(database: Database): boolean;
+        /**
+           Checks if databaseTable exists by given database name.
+
+           @param database      Database for databaseTable consulting.
+           @param databaseTable DatabaseTable object with the name of the databaseTable inside.
+           @return True if exists, false otherwise
+           @since ARP1.0
+        */
+        existsTable(database: Database, databaseTable: DatabaseTable): boolean;
+    }
 }

@@ -32,11 +32,28 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="BaseMediaBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IAudio.ts"/>
 ///<reference path="IBaseMedia.ts"/>
 module Adaptive {
-     //TODO: handler implementation.
+
+     /**
+        Interface for Audio purposes
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class AudioBridge extends BaseMediaBridge implements IAudio {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

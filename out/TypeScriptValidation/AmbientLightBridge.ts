@@ -32,11 +32,28 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="BaseSensorBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IAmbientLight.ts"/>
 ///<reference path="IBaseSensor.ts"/>
 module Adaptive {
-     //TODO: handler implementation.
+
+     /**
+        Interface for managinf the Ambient Light
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class AmbientLightBridge extends BaseSensorBridge implements IAmbientLight {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

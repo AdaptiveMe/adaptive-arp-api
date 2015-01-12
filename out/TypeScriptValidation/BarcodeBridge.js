@@ -31,7 +31,35 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="BaseReaderBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IBarcode.ts"/>
 ///<reference path="IBaseReader.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Interface for Barcode Reading purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var BarcodeBridge = (function (_super) {
+        __extends(BarcodeBridge, _super);
+        /**
+           Default constructor.
+        */
+        function BarcodeBridge() {
+            _super.call(this);
+        }
+        return BarcodeBridge;
+    })(Adaptive.BaseReaderBridge);
+    Adaptive.BarcodeBridge = BarcodeBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=BarcodeBridge.js.map

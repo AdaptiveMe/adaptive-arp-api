@@ -1,6 +1,8 @@
+/// <reference path="BaseMediaBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseMedia.d.ts" />
+/// <reference path="IVideo.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -35,4 +37,23 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Managing the Video operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    class VideoBridge extends BaseMediaBridge implements IVideo {
+        /**
+           Default constructor.
+        */
+        constructor();
+        /**
+           Play url video stream
+
+           @param url of the video
+           @since ARP1.0
+        */
+        playStream(url: string): void;
+    }
 }

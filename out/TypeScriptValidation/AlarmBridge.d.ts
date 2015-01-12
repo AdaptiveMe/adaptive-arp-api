@@ -1,5 +1,7 @@
+/// <reference path="BaseNotificationBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
+/// <reference path="IAlarm.d.ts" />
 /// <reference path="IBaseNotification.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
@@ -35,4 +37,16 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Alarm purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    class AlarmBridge extends BaseNotificationBridge implements IAlarm {
+        /**
+           Default constructor.
+        */
+        constructor();
+    }
 }

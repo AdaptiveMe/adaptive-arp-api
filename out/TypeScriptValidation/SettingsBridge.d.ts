@@ -1,6 +1,8 @@
+/// <reference path="BaseApplicationBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseApplication.d.ts" />
+/// <reference path="ISettings.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -35,4 +37,16 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Managing the Settings operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    class SettingsBridge extends BaseApplicationBridge implements ISettings {
+        /**
+           Default constructor.
+        */
+        constructor();
+    }
 }

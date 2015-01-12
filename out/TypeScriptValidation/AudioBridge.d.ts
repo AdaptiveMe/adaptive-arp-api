@@ -1,5 +1,7 @@
+/// <reference path="BaseMediaBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
+/// <reference path="IAudio.d.ts" />
 /// <reference path="IBaseMedia.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
@@ -35,4 +37,16 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Audio purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    class AudioBridge extends BaseMediaBridge implements IAudio {
+        /**
+           Default constructor.
+        */
+        constructor();
+    }
 }

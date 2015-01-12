@@ -31,7 +31,69 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="BaseUIBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseUI.ts"/>
+///<reference path="IBrowser.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Interface for Managing the browser operations
+
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
+    */
+    var BrowserBridge = (function (_super) {
+        __extends(BrowserBridge, _super);
+        /**
+           Default constructor.
+        */
+        function BrowserBridge() {
+            _super.call(this);
+        }
+        /**
+           Method for opening a URL like a link in the native default browser
+
+           @param url Url to open
+           @return The result of the operation
+           @since ARP1.0
+        */
+        BrowserBridge.prototype.openExtenalBrowser = function (url) {
+            return null;
+        };
+        /**
+           Method for opening a browser embedded into the application
+
+           @param url            Url to open
+           @param title          Title of the Navigation bar
+           @param backButtonText Title of the Back button bar
+           @return The result of the operation
+           @since ARP1.0
+        */
+        BrowserBridge.prototype.openInternalBrowser = function (url, title, backButtonText) {
+            return null;
+        };
+        /**
+           Method for opening a browser embedded into the application in a modal window
+
+           @param url            Url to open
+           @param title          Title of the Navigation bar
+           @param backButtonText Title of the Back button bar
+           @return The result of the operation
+           @since ARP1.0
+        */
+        BrowserBridge.prototype.openInternalBrowserModal = function (url, title, backButtonText) {
+            return null;
+        };
+        return BrowserBridge;
+    })(Adaptive.BaseUIBridge);
+    Adaptive.BrowserBridge = BrowserBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=BrowserBridge.js.map

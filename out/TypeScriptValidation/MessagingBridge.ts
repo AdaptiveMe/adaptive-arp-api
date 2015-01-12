@@ -32,12 +32,40 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="BasePIMBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBasePIM.ts"/>
+///<reference path="IMessaging.ts"/>
 ///<reference path="IMessagingCallback.ts"/>
 module Adaptive {
-     //TODO: handler implementation.
+
+     /**
+        Interface for Managing the Messaging operations
+
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
+     */
+     export class MessagingBridge extends BasePIMBridge implements IMessaging {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             Send text SMS
+
+             @param number   to send
+             @param text     to send
+             @param callback with the result
+             @since ARP1.0
+          */
+          sendSMS(number : string, text : string, callback : IMessagingCallback) : void {
+          }
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

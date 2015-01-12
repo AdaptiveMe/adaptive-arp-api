@@ -32,13 +32,63 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="BaseApplicationBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseApplication.ts"/>
+///<reference path="IGlobalization.ts"/>
 ///<reference path="KeyPair.ts"/>
 ///<reference path="Locale.ts"/>
 module Adaptive {
-     //TODO: handler implementation.
+
+     /**
+        Interface for Managing the Globalization results
+
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
+     */
+     export class GlobalizationBridge extends BaseApplicationBridge implements IGlobalization {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             List of supported locales for the application
+
+             @return List of locales
+             @since ARP1.0
+          */
+          getLocaleSupportedDescriptors() : Array<Locale> {
+               return null;
+          }
+
+          /**
+             Gets the text/message corresponding to the given key and locale.
+
+             @param key    to match text
+             @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
+             @return Localized text.
+             @since ARP1.0
+          */
+          getResourceLiteral(key : string, locale : Locale) : string {
+               return null;
+          }
+
+          /**
+             Gets the full application configured literals (key/message pairs) corresponding to the given locale.
+
+             @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
+             @return Localized texts in the form of an object.
+             @since ARP1.0
+          */
+          getResourceLiterals(locale : Locale) : Array<KeyPair> {
+               return null;
+          }
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

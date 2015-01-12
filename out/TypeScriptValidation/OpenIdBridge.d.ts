@@ -1,6 +1,8 @@
+/// <reference path="BaseSecurityBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseSecurity.d.ts" />
+/// <reference path="IOpenId.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -35,4 +37,16 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Managing the OpenID operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    class OpenIdBridge extends BaseSecurityBridge implements IOpenId {
+        /**
+           Default constructor.
+        */
+        constructor();
+    }
 }

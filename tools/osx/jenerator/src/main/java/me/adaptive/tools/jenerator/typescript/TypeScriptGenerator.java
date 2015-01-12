@@ -116,127 +116,333 @@ public class TypeScriptGenerator extends GeneratorBase {
 
     @Override
     protected void createHandlerImplementation(String simpleName, Class clazz, JavaClass javaClass) {
-        List<String> referenceList = new ArrayList<>();
+        if (!clazz.getSimpleName().startsWith("IAppContext")) {
+            List<String> referenceList = new ArrayList<>();
 
-        referenceList.add("CommonUtil");
+            referenceList.add("CommonUtil");
 
-        if (!clazz.isEnum()) {
-            if (clazz.getInterfaces() != null && clazz.getInterfaces().length == 1) {
-                referenceList.add(clazz.getInterfaces()[0].getSimpleName());
-            }
-            for (Field field : clazz.getDeclaredFields()) {
-                if (field.getType().isArray()) {
-                    if (!field.getType().getComponentType().isPrimitive() && !field.getType().getComponentType().equals(String.class) && !field.getType().getComponentType().equals(Object.class)) {
-                        if (!referenceList.contains(field.getType().getComponentType().getSimpleName())) {
-                            referenceList.add(field.getType().getComponentType().getSimpleName());
-                        }
-                    }
-                } else if (field.getType().isEnum()) {
-                    if (!referenceList.contains(generateEnumClassName(field.getType()))) {
-                        referenceList.add(generateEnumClassName(field.getType()));
-                    }
-                } else if (!field.getType().isPrimitive() && !field.getType().equals(String.class) && !field.getType().equals(Object.class) && !field.getType().equals(clazz)) {
-                    if (!referenceList.contains(field.getType().getSimpleName())) {
-                        referenceList.add(field.getType().getSimpleName());
-                    }
+            if (clazz.getInterfaces().length>0 && clazz.getInterfaces()[0].getSimpleName().substring(1).startsWith("Base")) {
+                if (!simpleName.startsWith(clazz.getInterfaces()[0].getSimpleName().substring(1))) {
+                    referenceList.add(clazz.getInterfaces()[0].getSimpleName().substring(1)+"Bridge");
                 }
             }
-            for (Method method : clazz.getMethods()) {
-                for (Parameter parameter : method.getParameters()) {
-                    String typeName = null;
-                    if (parameter.getType().isArray()) {
-                        if (parameter.getType().getComponentType().isEnum()) {
-                            typeName = generateEnumClassName(parameter.getType().getComponentType());
-                        } else if (!parameter.getType().getComponentType().isPrimitive() && !parameter.getType().getComponentType().equals(String.class) && !parameter.getType().getComponentType().equals(Object.class) && !parameter.getType().getComponentType().equals(Class.class)) {
-                            typeName = parameter.getType().getComponentType().getSimpleName();
+            if (!clazz.isEnum()) {
+                if (clazz.getInterfaces() != null && clazz.getInterfaces().length == 1) {
+                    referenceList.add(clazz.getInterfaces()[0].getSimpleName());
+                }
+                for (Field field : clazz.getDeclaredFields()) {
+                    if (field.getType().isArray()) {
+                        if (!field.getType().getComponentType().isPrimitive() && !field.getType().getComponentType().equals(String.class) && !field.getType().getComponentType().equals(Object.class)) {
+                            if (!referenceList.contains(field.getType().getComponentType().getSimpleName())) {
+                                referenceList.add(field.getType().getComponentType().getSimpleName());
+                            }
                         }
-                    } else if (!parameter.getType().isPrimitive() && !parameter.getType().equals(String.class) && !parameter.getType().equals(Object.class) && !parameter.getType().equals(Class.class)) {
-                        if (parameter.getType().isEnum()) {
-                            typeName = generateEnumClassName(parameter.getType());
-                        } else {
-                            typeName = parameter.getType().getSimpleName();
+                    } else if (field.getType().isEnum()) {
+                        if (!referenceList.contains(generateEnumClassName(field.getType()))) {
+                            referenceList.add(generateEnumClassName(field.getType()));
                         }
-                    }
-
-                    if (typeName != null && !referenceList.contains(typeName) && !clazz.getSimpleName().equals(typeName)) {
-                        referenceList.add(typeName);
+                    } else if (!field.getType().isPrimitive() && !field.getType().equals(String.class) && !field.getType().equals(Object.class) && !field.getType().equals(clazz)) {
+                        if (!referenceList.contains(field.getType().getSimpleName())) {
+                            referenceList.add(field.getType().getSimpleName());
+                        }
                     }
                 }
-                if (!method.getReturnType().equals(Void.TYPE)) {
-                    String typeName = null;
-                    if (method.getReturnType().isArray()) {
-                        if (method.getReturnType().getComponentType().isEnum()) {
-                            typeName = generateEnumClassName(method.getReturnType().getComponentType());
-                        } else if (!method.getReturnType().getComponentType().isPrimitive() && !method.getReturnType().getComponentType().equals(String.class) && !method.getReturnType().getComponentType().equals(Object.class) && !method.getReturnType().getComponentType().equals(Class.class)) {
-                            typeName = method.getReturnType().getComponentType().getSimpleName();
+                for (Method method : clazz.getMethods()) {
+                    for (Parameter parameter : method.getParameters()) {
+                        String typeName = null;
+                        if (parameter.getType().isArray()) {
+                            if (parameter.getType().getComponentType().isEnum()) {
+                                typeName = generateEnumClassName(parameter.getType().getComponentType());
+                            } else if (!parameter.getType().getComponentType().isPrimitive() && !parameter.getType().getComponentType().equals(String.class) && !parameter.getType().getComponentType().equals(Object.class) && !parameter.getType().getComponentType().equals(Class.class)) {
+                                typeName = parameter.getType().getComponentType().getSimpleName();
+                            }
+                        } else if (!parameter.getType().isPrimitive() && !parameter.getType().equals(String.class) && !parameter.getType().equals(Object.class) && !parameter.getType().equals(Class.class)) {
+                            if (parameter.getType().isEnum()) {
+                                typeName = generateEnumClassName(parameter.getType());
+                            } else {
+                                typeName = parameter.getType().getSimpleName();
+                            }
                         }
-                    } else if (!method.getReturnType().isPrimitive() && !method.getReturnType().equals(String.class) && !method.getReturnType().equals(Object.class) && !method.getReturnType().equals(Class.class)) {
-                        if (method.getReturnType().isEnum()) {
-                            typeName = generateEnumClassName(method.getReturnType());
-                        } else if (method.getReturnType().equals(Map.class)) {
-                            typeName = "Dictionary";
-                        } else {
-                            typeName = method.getReturnType().getSimpleName();
+
+                        if (typeName != null && !referenceList.contains(typeName) && !clazz.getSimpleName().equals(typeName)) {
+                            referenceList.add(typeName);
+                        }
+                    }
+                    if (!method.getReturnType().equals(Void.TYPE)) {
+                        String typeName = null;
+                        if (method.getReturnType().isArray()) {
+                            if (method.getReturnType().getComponentType().isEnum()) {
+                                typeName = generateEnumClassName(method.getReturnType().getComponentType());
+                            } else if (!method.getReturnType().getComponentType().isPrimitive() && !method.getReturnType().getComponentType().equals(String.class) && !method.getReturnType().getComponentType().equals(Object.class) && !method.getReturnType().getComponentType().equals(Class.class)) {
+                                typeName = method.getReturnType().getComponentType().getSimpleName();
+                            }
+                        } else if (!method.getReturnType().isPrimitive() && !method.getReturnType().equals(String.class) && !method.getReturnType().equals(Object.class) && !method.getReturnType().equals(Class.class)) {
+                            if (method.getReturnType().isEnum()) {
+                                typeName = generateEnumClassName(method.getReturnType());
+                            } else if (method.getReturnType().equals(Map.class)) {
+                                typeName = "Dictionary";
+                            } else {
+                                typeName = method.getReturnType().getSimpleName();
+                            }
+                        }
+
+                        if (typeName != null && !referenceList.contains(typeName) && !clazz.getSimpleName().equals(typeName) && !typeName.startsWith("IAppContext")) {
+                            referenceList.add(typeName);
                         }
                     }
 
-                    if (typeName != null && !referenceList.contains(typeName) && !clazz.getSimpleName().equals(typeName) && !typeName.startsWith("IAppContext")) {
-                        referenceList.add(typeName);
-                    }
                 }
 
-            }
-            if (clazz.getSimpleName().equals("IAppRegistry")) {
-
-                // getters for all service classes!
-                Class superInterface = null;
-                try {
-                    superInterface = Class.forName("me.adaptive.arp.api.IAdaptiveRP");
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
-                Reflections reflections = new Reflections(new ConfigurationBuilder()
-                        .setScanners(new SubTypesScanner(false /* don't exclude Object.class */), new ResourcesScanner())
-                        .setUrls(ClasspathHelper.forPackage(superInterface.getPackage().getName()))
-                        .filterInputsBy(new FilterBuilder().include(FilterBuilder.prefix(superInterface.getPackage().getName()))));
-
-                Set<Class<? extends Object>> allClassesSet = reflections.getSubTypesOf(superInterface);
                 List<Class> serviceClasses = new ArrayList<>();
-                for (Class subClass : allClassesSet) {
-                    if (!subClass.getName().endsWith("Callback") && !subClass.getName().endsWith("Listener") && !subClass.getSimpleName().startsWith("IBase") && !subClass.getSimpleName().startsWith("IAppContext")) {
-                        serviceClasses.add(subClass);
+                if (clazz.getSimpleName().equals("IAppRegistry")) {
+
+                    // getters for all service classes!
+                    Class superInterface = null;
+                    try {
+                        superInterface = Class.forName("me.adaptive.arp.api.IAdaptiveRP");
+                    } catch (ClassNotFoundException e) {
+                        e.printStackTrace();
                     }
+                    Reflections reflections = new Reflections(new ConfigurationBuilder()
+                            .setScanners(new SubTypesScanner(false /* don't exclude Object.class */), new ResourcesScanner())
+                            .setUrls(ClasspathHelper.forPackage(superInterface.getPackage().getName()))
+                            .filterInputsBy(new FilterBuilder().include(FilterBuilder.prefix(superInterface.getPackage().getName()))));
+
+                    Set<Class<? extends Object>> allClassesSet = reflections.getSubTypesOf(superInterface);
+
+                    for (Class subClass : allClassesSet) {
+                        if (!subClass.getName().endsWith("Callback") && !subClass.getName().endsWith("Listener") && !subClass.getSimpleName().startsWith("IBase") && !subClass.getSimpleName().startsWith("IAppContext")) {
+                            serviceClasses.add(subClass);
+                        }
+                    }
+                    serviceClasses.sort(new Comparator<Class>() {
+                        @Override
+                        public int compare(Class o1, Class o2) {
+                            return o1.getName().compareTo(o2.getName());
+                        }
+                    });
+                    for (Class serviceClass : serviceClasses) {
+                        referenceList.add(serviceClass.getSimpleName());
+                    }
+                    referenceList.add("IAdaptiveRPGroup");
+                    referenceList.add(clazz.getSimpleName());
+                } else {
+                    referenceList.add(clazz.getSimpleName());
                 }
-                serviceClasses.sort(new Comparator<Class>() {
+                referenceList.sort(new Comparator<String>() {
                     @Override
-                    public int compare(Class o1, Class o2) {
-                        return o1.getName().compareTo(o2.getName());
+                    public int compare(String o1, String o2) {
+                        return o1.compareTo(o2);
                     }
                 });
-                for (Class serviceClass : serviceClasses) {
-                    referenceList.add(serviceClass.getSimpleName());
+
+                if (referenceList.size() > 0) {
+                    for (String reference : referenceList) {
+                        println("///<reference path=\"" + reference + ".ts\"/>");
+                    }
                 }
-                referenceList.add("IAdaptiveRPGroup");
-                referenceList.add(clazz.getSimpleName());
             }
-            referenceList.sort(new Comparator<String>() {
+
+
+            println("module Adaptive {");
+            printlnGlobal();
+
+            startCommentGlobal(5);
+            printlnGlobal(8, javaClass.getComment());
+            printlnGlobal();
+            for (DocletTag t : javaClass.getTags()) {
+                printlnGlobal(8, "@" + t.getName() + " " + t.getValue());
+            }
+            endCommentGlobal(5);
+            if (clazz.getSimpleName().startsWith("IBase") || clazz.getSimpleName().startsWith("IAppRegistry")) {
+                printlnGlobal(5, "export class " + simpleName + " implements " + clazz.getSimpleName() + " {");
+            } else {
+                printlnGlobal(5, "export class " + simpleName + " extends "+clazz.getInterfaces()[0].getSimpleName().substring(1)+"Bridge implements " + clazz.getSimpleName() + " {");
+            }
+
+            List<Method> methodList = new ArrayList<>();
+            List<JavaMethod> methodListDocs = new ArrayList<>();
+
+            for (Method m : clazz.getDeclaredMethods()) {
+                methodList.add(m);
+            }
+            for (JavaMethod m : javaClass.getMethods()) {
+                methodListDocs.add(m);
+            }
+
+            methodList.sort(new Comparator<Method>() {
                 @Override
-                public int compare(String o1, String o2) {
-                    return o1.compareTo(o2);
+                public int compare(Method o1, Method o2) {
+                    String first = o1.getName() + o1.getParameterCount();
+                    for (Parameter p : o1.getParameters()) {
+                        first += p.getName();
+                    }
+
+                    String second = o2.getName() + o2.getParameterCount();
+                    for (Parameter p : o2.getParameters()) {
+                        second += p.getName();
+                    }
+                    return first.compareTo(second);
+                }
+            });
+            methodListDocs.sort(new Comparator<JavaMethod>() {
+                @Override
+                public int compare(JavaMethod o1, JavaMethod o2) {
+                    String first = o1.getName() + o1.getParameters().size();
+                    for (JavaParameter p : o1.getParameters()) {
+                        first += p.getName();
+                    }
+
+                    String second = o2.getName() + o2.getParameters().size();
+                    for (JavaParameter p : o2.getParameters()) {
+                        second += p.getName();
+                    }
+                    return first.compareTo(second);
                 }
             });
 
-            if (referenceList.size() > 0) {
-                for (String reference : referenceList) {
-                    println("///<reference path=\"" + reference + ".ts\"/>");
+            if (clazz.getSimpleName().equals("IAppRegistry")) {
+                // TODO: singletons
+            } else {
+                if (clazz.getSimpleName().startsWith("IBase")) {
+                    printlnGlobal();
+                    startCommentGlobal(10);
+                    printlnGlobal(13, "Group of API.");
+                    endCommentGlobal(10);
+                    printlnGlobal(10, "apiGroup : IAdaptiveRPGroup;");
+                    printlnGlobal();
+
+                    startCommentGlobal(10);
+                    printlnGlobal(13, "Default constructor.");
+                    endCommentGlobal(10);
+                    printlnGlobal(10, "constructor() {");
+                    printlnGlobal(15, "this.apiGroup = IAdaptiveRPGroup." + getInterfaceGroup(clazz) + ";");
+                    printlnGlobal(10, "}");
+                    printlnGlobal();
+
+                    startCommentGlobal(10);
+                    printlnGlobal(13, "Return the API group for the given interface.");
+                    endCommentGlobal(10);
+                    printlnGlobal(10, "getAPIGroup() : IAdaptiveRPGroup {");
+                    printlnGlobal(15, "return this.apiGroup;");
+                    printlnGlobal(10, "}");
+                } else {
+                    printlnGlobal();
+                    startCommentGlobal(10);
+                    printlnGlobal(13, "Default constructor.");
+                    endCommentGlobal(10);
+                    printlnGlobal(10, "constructor() {");
+                    printlnGlobal(15, "super();");
+                    printlnGlobal(10, "}");
+
+                    List<Method> methodUniqueList = new ArrayList<>();
+                    List<Method> methodOverloadedList = new ArrayList<>();
+                    List<JavaMethod> methodUniqueListDocs = new ArrayList<>();
+                    List<JavaMethod> methodOverloadedListDocs = new ArrayList<>();
+                    for (int j = 0; j < methodList.size(); j++) {
+                        Method m = methodList.get(j);
+                        JavaMethod md = methodListDocs.get(j);
+                        int count = 0;
+                        for (Method m1 : methodList) {
+                            if (m1.getName().equals(m.getName())) {
+                                count++;
+                            }
+                        }
+                        if (count == 1) {
+                            methodUniqueList.add(m);
+                            methodUniqueListDocs.add(md);
+                        } else {
+                            methodOverloadedList.add(m);
+                            methodOverloadedListDocs.add(md);
+                        }
+                    }
+
+                    for (int j = 0; j < methodUniqueList.size(); j++) {
+
+                        Method m = methodUniqueList.get(j);
+                        JavaMethod md = methodUniqueListDocs.get(j);
+                        printlnGlobal();
+
+                        startCommentGlobal(10);
+                        printlnGlobal(13, md.getComment());
+                        printlnGlobal();
+                        for (DocletTag t : md.getTags()) {
+                            printlnGlobal(13, "@" + t.getName() + " " + t.getValue());
+                        }
+                        endCommentGlobal(10);
+                        printGlobal(10, m.getName() + "(");
+                        for (int i = 0; i < m.getParameterCount(); i++) {
+                            Parameter p = m.getParameters()[i];
+                            printGlobal(p.getName() + " : " + convertJavaToNativeType(p.getType()));
+                            if (i < m.getParameterCount() - 1) {
+                                printGlobal(", ");
+                            }
+                        }
+                        printGlobal(") : ");
+                        if (m.getReturnType().equals(Void.TYPE)) {
+                            printlnGlobal("void {");
+                        } else {
+                            printlnGlobal(convertJavaToNativeType(m.getReturnType()) + " {");
+                        }
+
+                        if (!m.getReturnType().equals(Void.TYPE)) {
+                            printlnGlobal(15, "return null;");
+                        }
+                        printlnGlobal(10, "}");
+                    }
+                    for (int j = 0; j < methodOverloadedList.size(); j++) {
+                        Method m = methodOverloadedList.get(j);
+                        JavaMethod md = methodOverloadedListDocs.get(j);
+                        printlnGlobal();
+
+                        startCommentGlobal(10);
+                        printlnGlobal(13, md.getComment());
+                        printlnGlobal();
+                        for (DocletTag t : md.getTags()) {
+                            printlnGlobal(13, "@" + t.getName() + " " + t.getValue());
+                        }
+                        endCommentGlobal(10);
+
+                        printGlobal(10, m.getName());
+                        if (m.getParameterCount() == 0) {
+                            printGlobal("(");
+                        } else {
+                            printGlobal("_");
+                            for (int i = 0; i < m.getParameterCount(); i++) {
+                                Parameter p = m.getParameters()[i];
+                                printGlobal(p.getName());
+                                if (i < m.getParameterCount() - 1) {
+                                    printGlobal("_");
+                                }
+                            }
+                            printGlobal("(");
+                        }
+
+                        for (int i = 0; i < m.getParameterCount(); i++) {
+                            Parameter p = m.getParameters()[i];
+                            printGlobal(p.getName() + " : " + convertJavaToNativeType(p.getType()));
+                            if (i < m.getParameterCount() - 1) {
+                                printGlobal(", ");
+                            }
+                        }
+                        printGlobal(") : ");
+                        if (m.getReturnType().equals(Void.TYPE)) {
+                            printlnGlobal("void {");
+                        } else {
+                            printlnGlobal(convertJavaToNativeType(m.getReturnType()) + " {");
+                        }
+
+                        if (!m.getReturnType().equals(Void.TYPE)) {
+                            printlnGlobal(15, "return null;");
+                        }
+                        printlnGlobal(10, "}");
+                    }
                 }
             }
+            printlnGlobal(5, "}");
+
+            println("}");
         }
-
-
-        println("module Adaptive {");
-        printlnGlobal(5, "//TODO: handler implementation.");
-        println("}");
     }
 
     @Override
@@ -788,9 +994,33 @@ public class TypeScriptGenerator extends GeneratorBase {
     }
 
     @Override
-    protected void declareInterfaceMethods(String simpleName, Class clazz, List<Method> interfaceMethods, List<JavaMethod> interfaceMethodsDoc) {
+    protected void declareInterfaceMethods(String simpleName, Class clazz, List<Method> _interfaceMethods, List<JavaMethod> _interfaceMethodsDoc) {
+        List<Method> methodUniqueList = new ArrayList<>();
+        List<Method> methodOverloadedList = new ArrayList<>();
+        List<JavaMethod> methodUniqueListDocs = new ArrayList<>();
+        List<JavaMethod> methodOverloadedListDocs = new ArrayList<>();
+        for (int j = 0; j < _interfaceMethods.size(); j++) {
+            Method m = _interfaceMethods.get(j);
+            JavaMethod md = _interfaceMethodsDoc.get(j);
+            int count = 0;
+            for (Method m1 : _interfaceMethods) {
+                if (m1.getName().equals(m.getName())) {
+                    count++;
+                }
+            }
+            if (count == 1) {
+                methodUniqueList.add(m);
+                methodUniqueListDocs.add(md);
+            } else {
+                methodOverloadedList.add(m);
+                methodOverloadedListDocs.add(md);
+            }
+        }
+
+
         if (!clazz.getSimpleName().startsWith("IAppContext")) {
-            for (Method method : interfaceMethods) {
+
+            for (Method method : methodUniqueList) {
                 if (method.getName().equals("get$Synthetic$")) {
                     // getters for all service classes!
                     Class superInterface = null;
@@ -838,7 +1068,7 @@ public class TypeScriptGenerator extends GeneratorBase {
                         startComment(10);
                         startCommentSF(10);
                         JavaMethod javaMethod = null;
-                        for (JavaMethod m : interfaceMethodsDoc) {
+                        for (JavaMethod m : methodUniqueListDocs) {
                             if (m.getName().equals(method.getName()) && m.getParameters().size() == method.getParameterCount()) {
                                 javaMethod = m;
                                 break;
@@ -858,6 +1088,114 @@ public class TypeScriptGenerator extends GeneratorBase {
                         endCommentSF(10);
                         printSF(10, method.getName());
                         printSF(0, "(");
+                        for (int i = 0; i < method.getParameterCount(); i++) {
+                            Parameter p = method.getParameters()[i];
+                            print(p.getName());
+                            print(":");
+                            print(convertJavaToNativeType(p.getType()));
+                            printSF(0, p.getName());
+                            printSF(0, ":");
+                            printSF(0, convertJavaToNativeType(p.getType()));
+                            if (i < method.getParameterCount() - 1) {
+                                print(", ");
+                                printSF(0, ", ");
+                            }
+                        }
+                        print(")");
+                        printSF(0, ")");
+
+                        if (!method.getReturnType().equals(Void.TYPE)) {
+                            print(" : ");
+                            print(convertJavaToNativeType(method.getReturnType()));
+                            printSF(0, " : ");
+                            printSF(0, convertJavaToNativeType(method.getReturnType()));
+                        }
+                        println(";");
+                        printlnSF(0, ";");
+                    }
+                }
+            }
+
+            for (Method method : methodOverloadedList) {
+                if (method.getName().equals("get$Synthetic$")) {
+                    // getters for all service classes!
+                    Class superInterface = null;
+                    try {
+                        superInterface = Class.forName("me.adaptive.arp.api.IAdaptiveRP");
+                    } catch (ClassNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                    Reflections reflections = new Reflections(new ConfigurationBuilder()
+                            .setScanners(new SubTypesScanner(false /* don't exclude Object.class */), new ResourcesScanner())
+                            .setUrls(ClasspathHelper.forPackage(superInterface.getPackage().getName()))
+                            .filterInputsBy(new FilterBuilder().include(FilterBuilder.prefix(superInterface.getPackage().getName()))));
+
+                    Set<Class<? extends Object>> allClassesSet = reflections.getSubTypesOf(superInterface);
+                    List<Class> serviceClasses = new ArrayList<>();
+                    for (Class subClass : allClassesSet) {
+                        if (!subClass.getName().endsWith("Callback") && !subClass.getName().endsWith("Listener") && !subClass.getSimpleName().startsWith("IBase")) {
+                            serviceClasses.add(subClass);
+                        }
+                    }
+                    serviceClasses.sort(new Comparator<Class>() {
+                        @Override
+                        public int compare(Class o1, Class o2) {
+                            return o1.getName().compareTo(o2.getName());
+                        }
+                    });
+                    for (Class serviceClass : serviceClasses) {
+                        startComment(10);
+                        startCommentSF(10);
+                        println(13, "Returns a reference to the registered " + serviceClass.getSimpleName().substring(1) + "Bridge.");
+                        println();
+                        println(13, "@return " + serviceClass.getSimpleName().substring(1) + "Bridge reference or null if a bridge of this type is not registered.");
+                        printlnSF(13, "Returns a reference to the registered " + serviceClass.getSimpleName().substring(1) + "Bridge.");
+                        printlnSF();
+                        printlnSF(13, "@return " + serviceClass.getSimpleName().substring(1) + "Bridge reference or null if a bridge of this type is not registered.");
+                        endComment(10);
+                        endCommentSF(10);
+                        println(10, "get" + serviceClass.getSimpleName().substring(1) + "Bridge() : " + serviceClass.getSimpleName());
+                        println();
+                        printlnSF(10, "get" + serviceClass.getSimpleName().substring(1) + "Bridge() : " + serviceClass.getSimpleName());
+                        printlnSF();
+                    }
+                } else {
+                    if (!clazz.getSimpleName().equals("IAppRegistry")) {
+                        startComment(10);
+                        startCommentSF(10);
+                        JavaMethod javaMethod = null;
+                        for (JavaMethod m : methodOverloadedListDocs) {
+                            if (m.getName().equals(method.getName()) && m.getParameters().size() == method.getParameterCount()) {
+                                javaMethod = m;
+                                break;
+                            }
+                        }
+                        if (javaMethod != null) {
+                            println(13, javaMethod.getComment());
+                            printlnSF(13, javaMethod.getComment());
+                            for (DocletTag tag : javaMethod.getTags()) {
+                                println(13, "@" + tag.getName() + " " + tag.getValue());
+                                printlnSF(13, "@" + tag.getName() + " " + tag.getValue());
+                            }
+                        }
+                        endComment(10);
+                        endCommentSF(10);
+
+                        printGlobal(10, method.getName());
+                        if (method.getParameterCount() == 0) {
+                            printGlobal("(");
+                        } else {
+                            printGlobal("_");
+                            for (int i = 0; i < method.getParameterCount(); i++) {
+                                Parameter p = method.getParameters()[i];
+                                printGlobal(p.getName());
+                                if (i < method.getParameterCount() - 1) {
+                                    printGlobal("_");
+                                }
+                            }
+                            printGlobal("(");
+                        }
+
                         for (int i = 0; i < method.getParameterCount(); i++) {
                             Parameter p = method.getParameters()[i];
                             print(p.getName());

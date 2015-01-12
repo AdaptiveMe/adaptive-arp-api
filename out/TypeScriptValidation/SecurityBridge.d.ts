@@ -1,6 +1,8 @@
+/// <reference path="BaseSecurityBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseSecurity.d.ts" />
+/// <reference path="ISecurity.d.ts" />
 /// <reference path="ISecurityResultCallback.d.ts" />
 /// <reference path="SecureKeyPair.d.ts" />
 /**
@@ -37,4 +39,50 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Managing the Security operations
+
+       @author Aryslan
+       @since ARP1.0
+    */
+    class SecurityBridge extends BaseSecurityBridge implements ISecurity {
+        /**
+           Default constructor.
+        */
+        constructor();
+        /**
+           Deletes from the device internal storage the entry/entries containing the specified key names.
+
+           @param keys             Array with the key names to delete.
+           @param publicAccessName The name of the shared internal storage object (if needed).
+           @param callback         callback to be executed upon function result.
+           @since ARP 1.0
+        */
+        deleteSecureKeyValuePairs(keys: string[], publicAccessName: string, callback: ISecurityResultCallback): void;
+        /**
+           Retrieves from the device internal storage the entry/entries containing the specified key names.
+
+           @param keys             Array with the key names to retrieve.
+           @param publicAccessName The name of the shared internal storage object (if needed).
+           @param callback         callback to be executed upon function result.
+           @since ARP 1.0
+        */
+        getSecureKeyValuePairs(keys: string[], publicAccessName: string, callback: ISecurityResultCallback): void;
+        /**
+           Returns if the device has been modified in anyhow
+
+           @return true if the device has been modified; false otherwise
+           @since ARP1.0
+        */
+        isDeviceModified(): boolean;
+        /**
+           Stores in the device internal storage the specified item/s.
+
+           @param keyValues        Array containing the items to store on the device internal memory.
+           @param publicAccessName The name of the shared internal storage object (if needed).
+           @param callback         callback to be executed upon function result.
+           @since ARP 1.0
+        */
+        setSecureKeyValuePairs(keyValues: SecureKeyPair[], publicAccessName: string, callback: ISecurityResultCallback): void;
+    }
 }

@@ -31,9 +31,17 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="BaseSystemBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseSystem.ts"/>
+///<reference path="ICapabilities.ts"/>
 ///<reference path="ICapabilitiesButton.ts"/>
 ///<reference path="ICapabilitiesCommunication.ts"/>
 ///<reference path="ICapabilitiesData.ts"/>
@@ -41,4 +49,98 @@ Release:
 ///<reference path="ICapabilitiesNet.ts"/>
 ///<reference path="ICapabilitiesNotification.ts"/>
 ///<reference path="ICapabilitiesSensor.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Interface for testing the Capabilities operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var CapabilitiesBridge = (function (_super) {
+        __extends(CapabilitiesBridge, _super);
+        /**
+           Default constructor.
+        */
+        function CapabilitiesBridge() {
+            _super.call(this);
+        }
+        /**
+           Determines whether a specific hardware button is supported for interaction.
+
+           @param type Type of feature to check.
+           @return true is supported, false otherwise.
+           @since ARP1.0
+        */
+        CapabilitiesBridge.prototype.hasButtonSupport = function (type) {
+            return null;
+        };
+        /**
+           Determines whether a specific Communication capability is supported by
+the device.
+
+           @param type Type of feature to check.
+           @return true if supported, false otherwise.
+           @since ARP1.0
+        */
+        CapabilitiesBridge.prototype.hasCommunicationSupport = function (type) {
+            return null;
+        };
+        /**
+           Determines whether a specific Data capability is supported by the device.
+
+           @param type Type of feature to check.
+           @return true if supported, false otherwise.
+           @since ARP1.0
+        */
+        CapabilitiesBridge.prototype.hasDataSupport = function (type) {
+            return null;
+        };
+        /**
+           Determines whether a specific Media capability is supported by the
+device.
+
+           @param type Type of feature to check.
+           @return true if supported, false otherwise.
+           @since ARP1.0
+        */
+        CapabilitiesBridge.prototype.hasMediaSupport = function (type) {
+            return null;
+        };
+        /**
+           Determines whether a specific Net capability is supported by the device.
+
+           @param type Type of feature to check.
+           @return true if supported, false otherwise.
+           @since ARP1.0
+        */
+        CapabilitiesBridge.prototype.hasNetSupport = function (type) {
+            return null;
+        };
+        /**
+           Determines whether a specific Notification capability is supported by the
+device.
+
+           @param type Type of feature to check.
+           @return true if supported, false otherwise.
+           @since ARP1.0
+        */
+        CapabilitiesBridge.prototype.hasNotificationSupport = function (type) {
+            return null;
+        };
+        /**
+           Determines whether a specific Sensor capability is supported by the
+device.
+
+           @param type Type of feature to check.
+           @return true if supported, false otherwise.
+           @since ARP1.0
+        */
+        CapabilitiesBridge.prototype.hasSensorSupport = function (type) {
+            return null;
+        };
+        return CapabilitiesBridge;
+    })(Adaptive.BaseSystemBridge);
+    Adaptive.CapabilitiesBridge = CapabilitiesBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=CapabilitiesBridge.js.map

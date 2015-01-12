@@ -106,7 +106,15 @@ Release:
 ///<reference path="IWallet.ts"/>
 ///<reference path="IXML.ts"/>
 module Adaptive {
-     //TODO: handler implementation.
+
+     /**
+        Interface to retrieve auto-registered service implementation references.
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class AppRegistryBridge implements IAppRegistry {
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

@@ -1,5 +1,7 @@
+/// <reference path="BaseCommerceBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
+/// <reference path="IAds.d.ts" />
 /// <reference path="IBaseCommerce.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
@@ -35,4 +37,16 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Advertising purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    class AdsBridge extends BaseCommerceBridge implements IAds {
+        /**
+           Default constructor.
+        */
+        constructor();
+    }
 }

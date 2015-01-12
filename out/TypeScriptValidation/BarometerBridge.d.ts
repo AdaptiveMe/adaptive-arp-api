@@ -1,5 +1,7 @@
+/// <reference path="BaseSensorBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
+/// <reference path="IBarometer.d.ts" />
 /// <reference path="IBaseSensor.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
@@ -35,4 +37,16 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Barometer management purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    class BarometerBridge extends BaseSensorBridge implements IBarometer {
+        /**
+           Default constructor.
+        */
+        constructor();
+    }
 }

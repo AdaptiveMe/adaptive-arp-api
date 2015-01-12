@@ -1346,20 +1346,6 @@ module Adaptive {
           */
           invokeService(serviceRequest:ServiceRequest, service:Service, callback:IServiceResultCallback);
           /**
-             Check whether a service by the given name is registered.
-             @param serviceName Name of service.
-             @return True if the service is registered, false otherwise.
-             @since ARP1.0
-          */
-          isRegistered(serviceName:string) : boolean;
-          /**
-             Check whether a service by the given name is registered.
-             @param serviceName Name of service.
-             @return True if the service is registered, false otherwise.
-             @since ARP1.0
-          */
-          isRegistered(service:Service) : boolean;
-          /**
              Register a new service
              @param service to register
              @since ARP1.0
@@ -1376,6 +1362,20 @@ module Adaptive {
              @since ARP1.0
           */
           unregisterService(service:Service);
+          /**
+             Check whether a service by the given name is registered.
+             @param serviceName Name of service.
+             @return True if the service is registered, false otherwise.
+             @since ARP1.0
+          */
+          isRegistered_serviceName(serviceName:string) : boolean;
+          /**
+             Check whether a service by the given name is registered.
+             @param serviceName Name of service.
+             @return True if the service is registered, false otherwise.
+             @since ARP1.0
+          */
+          isRegistered_service(service:Service) : boolean;
      }
      /**
         Interface for Managing the Socket operations
@@ -2516,14 +2516,14 @@ device.
              @param message  Message to be logged
              @since ARP1.0
           */
-          log(level:ILoggingLogLevel, category:string, message:string);
+          log_level_category_message(level:ILoggingLogLevel, category:string, message:string);
           /**
              Logs the given message, with the given log level if specified, to the standard platform/environment.
              @param level   Log level
              @param message Message to be logged
              @since ARP1.0
           */
-          log(level:ILoggingLogLevel, message:string);
+          log_level_message(level:ILoggingLogLevel, message:string);
      }
      /**
         Interface for Managing the Timer operations
@@ -8330,93 +8330,2497 @@ listener and subsequently, the listener will be deactivated and removed from the
           }
 
      }
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
-     //TODO: handler implementation.
+
+     /**
+        Base application for Application purposes
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class BaseApplicationBridge implements IBaseApplication {
+
+          /**
+             Group of API.
+          */
+          apiGroup : IAdaptiveRPGroup;
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               this.apiGroup = IAdaptiveRPGroup.Application;
+          }
+
+          /**
+             Return the API group for the given interface.
+          */
+          getAPIGroup() : IAdaptiveRPGroup {
+               return this.apiGroup;
+          }
+     }
+
+     /**
+        Base application for Commerce purposes
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class BaseCommerceBridge implements IBaseCommerce {
+
+          /**
+             Group of API.
+          */
+          apiGroup : IAdaptiveRPGroup;
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               this.apiGroup = IAdaptiveRPGroup.Commerce;
+          }
+
+          /**
+             Return the API group for the given interface.
+          */
+          getAPIGroup() : IAdaptiveRPGroup {
+               return this.apiGroup;
+          }
+     }
+
+     /**
+        Base application for Communication purposes
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class BaseCommunicationBridge implements IBaseCommunication {
+
+          /**
+             Group of API.
+          */
+          apiGroup : IAdaptiveRPGroup;
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               this.apiGroup = IAdaptiveRPGroup.Communication;
+          }
+
+          /**
+             Return the API group for the given interface.
+          */
+          getAPIGroup() : IAdaptiveRPGroup {
+               return this.apiGroup;
+          }
+     }
+
+     /**
+        Base application for Data purposes
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class BaseDataBridge implements IBaseData {
+
+          /**
+             Group of API.
+          */
+          apiGroup : IAdaptiveRPGroup;
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               this.apiGroup = IAdaptiveRPGroup.Data;
+          }
+
+          /**
+             Return the API group for the given interface.
+          */
+          getAPIGroup() : IAdaptiveRPGroup {
+               return this.apiGroup;
+          }
+     }
+
+     /**
+        Base application for Media purposes
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class BaseMediaBridge implements IBaseMedia {
+
+          /**
+             Group of API.
+          */
+          apiGroup : IAdaptiveRPGroup;
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               this.apiGroup = IAdaptiveRPGroup.Media;
+          }
+
+          /**
+             Return the API group for the given interface.
+          */
+          getAPIGroup() : IAdaptiveRPGroup {
+               return this.apiGroup;
+          }
+     }
+
+     /**
+        Base application for Notification purposes
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class BaseNotificationBridge implements IBaseNotification {
+
+          /**
+             Group of API.
+          */
+          apiGroup : IAdaptiveRPGroup;
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               this.apiGroup = IAdaptiveRPGroup.Notification;
+          }
+
+          /**
+             Return the API group for the given interface.
+          */
+          getAPIGroup() : IAdaptiveRPGroup {
+               return this.apiGroup;
+          }
+     }
+
+     /**
+        Base application for PIM purposes
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class BasePIMBridge implements IBasePIM {
+
+          /**
+             Group of API.
+          */
+          apiGroup : IAdaptiveRPGroup;
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               this.apiGroup = IAdaptiveRPGroup.PIM;
+          }
+
+          /**
+             Return the API group for the given interface.
+          */
+          getAPIGroup() : IAdaptiveRPGroup {
+               return this.apiGroup;
+          }
+     }
+
+     /**
+        Base application for Reader purposes
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class BaseReaderBridge implements IBaseReader {
+
+          /**
+             Group of API.
+          */
+          apiGroup : IAdaptiveRPGroup;
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               this.apiGroup = IAdaptiveRPGroup.Reader;
+          }
+
+          /**
+             Return the API group for the given interface.
+          */
+          getAPIGroup() : IAdaptiveRPGroup {
+               return this.apiGroup;
+          }
+     }
+
+     /**
+        Base application for Security purposes
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class BaseSecurityBridge implements IBaseSecurity {
+
+          /**
+             Group of API.
+          */
+          apiGroup : IAdaptiveRPGroup;
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               this.apiGroup = IAdaptiveRPGroup.Security;
+          }
+
+          /**
+             Return the API group for the given interface.
+          */
+          getAPIGroup() : IAdaptiveRPGroup {
+               return this.apiGroup;
+          }
+     }
+
+     /**
+        Base application for Sensor purposes
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class BaseSensorBridge implements IBaseSensor {
+
+          /**
+             Group of API.
+          */
+          apiGroup : IAdaptiveRPGroup;
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               this.apiGroup = IAdaptiveRPGroup.Sensor;
+          }
+
+          /**
+             Return the API group for the given interface.
+          */
+          getAPIGroup() : IAdaptiveRPGroup {
+               return this.apiGroup;
+          }
+     }
+
+     /**
+        Base application for Social purposes
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class BaseSocialBridge implements IBaseSocial {
+
+          /**
+             Group of API.
+          */
+          apiGroup : IAdaptiveRPGroup;
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               this.apiGroup = IAdaptiveRPGroup.Social;
+          }
+
+          /**
+             Return the API group for the given interface.
+          */
+          getAPIGroup() : IAdaptiveRPGroup {
+               return this.apiGroup;
+          }
+     }
+
+     /**
+        Base application for System purposes
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class BaseSystemBridge implements IBaseSystem {
+
+          /**
+             Group of API.
+          */
+          apiGroup : IAdaptiveRPGroup;
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               this.apiGroup = IAdaptiveRPGroup.System;
+          }
+
+          /**
+             Return the API group for the given interface.
+          */
+          getAPIGroup() : IAdaptiveRPGroup {
+               return this.apiGroup;
+          }
+     }
+
+     /**
+        Base application for UI purposes
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class BaseUIBridge implements IBaseUI {
+
+          /**
+             Group of API.
+          */
+          apiGroup : IAdaptiveRPGroup;
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               this.apiGroup = IAdaptiveRPGroup.UI;
+          }
+
+          /**
+             Return the API group for the given interface.
+          */
+          getAPIGroup() : IAdaptiveRPGroup {
+               return this.apiGroup;
+          }
+     }
+
+     /**
+        Base application for Utility purposes
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class BaseUtilBridge implements IBaseUtil {
+
+          /**
+             Group of API.
+          */
+          apiGroup : IAdaptiveRPGroup;
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               this.apiGroup = IAdaptiveRPGroup.Util;
+          }
+
+          /**
+             Return the API group for the given interface.
+          */
+          getAPIGroup() : IAdaptiveRPGroup {
+               return this.apiGroup;
+          }
+     }
+
+     /**
+        Interface for Analytics purposes
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class AnalyticsBridge extends BaseApplicationBridge implements IAnalytics {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the Globalization results
+
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
+     */
+     export class GlobalizationBridge extends BaseApplicationBridge implements IGlobalization {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             List of supported locales for the application
+
+             @return List of locales
+             @since ARP1.0
+          */
+          getLocaleSupportedDescriptors() : Array<Locale> {
+               return null;
+          }
+
+          /**
+             Gets the text/message corresponding to the given key and locale.
+
+             @param key    to match text
+             @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
+             @return Localized text.
+             @since ARP1.0
+          */
+          getResourceLiteral(key : string, locale : Locale) : string {
+               return null;
+          }
+
+          /**
+             Gets the full application configured literals (key/message pairs) corresponding to the given locale.
+
+             @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
+             @return Localized texts in the form of an object.
+             @since ARP1.0
+          */
+          getResourceLiterals(locale : Locale) : Array<KeyPair> {
+               return null;
+          }
+     }
+
+     /**
+        Interface for Managing the Lifecycle listeners
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class LifecycleBridge extends BaseApplicationBridge implements ILifecycle {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             Add the listener for the lifecycle of the app
+
+             @param listener Lifecycle listener
+             @since ARP1.0
+          */
+          addLifecycleListener(listener : ILifecycleListener) : void {
+          }
+
+          /**
+             Whether the application is in background or not
+
+             @return true if the application is in background;false otherwise
+             @since ARP1.0
+          */
+          isBackground() : boolean {
+               return null;
+          }
+
+          /**
+             Un-registers an existing listener from receiving lifecycle events.
+
+             @param listener Lifecycle listener
+             @since ARP1.0
+          */
+          removeLifecycleListener(listener : ILifecycleListener) : void {
+          }
+
+          /**
+             Removes all existing listeners from receiving lifecycle events.
+
+             @since ARP1.0
+          */
+          removeLifecycleListeners() : void {
+          }
+     }
+
+     /**
+        Interface for Managing the Management operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class ManagementBridge extends BaseApplicationBridge implements IManagement {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the Printing operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class PrintingBridge extends BaseApplicationBridge implements IPrinting {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the Settings operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class SettingsBridge extends BaseApplicationBridge implements ISettings {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the Update operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class UpdateBridge extends BaseApplicationBridge implements IUpdate {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Advertising purposes
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class AdsBridge extends BaseCommerceBridge implements IAds {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the Store operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class StoreBridge extends BaseCommerceBridge implements IStore {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the Wallet operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class WalletBridge extends BaseCommerceBridge implements IWallet {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Bluetooth purposes
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class BluetoothBridge extends BaseCommunicationBridge implements IBluetooth {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the Network information operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class NetworkInfoBridge extends BaseCommunicationBridge implements INetworkInfo {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the Network naming operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class NetworkNamingBridge extends BaseCommunicationBridge implements INetworkNaming {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the Network reachability operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class NetworkReachabilityBridge extends BaseCommunicationBridge implements INetworkReachability {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             Whether there is connectivity to a host, via domain name or ip address, or not.
+
+             @param host     domain name or ip address of host.
+             @param callback Callback called at the end.
+             @since ARP1.0
+          */
+          isNetworkReachable(host : string, callback : INetworkReachabilityCallback) : void {
+          }
+
+          /**
+             Whether there is connectivity to an url of a service or not.
+
+             @param url      to look for
+             @param callback Callback called at the end
+             @since ARP1.0
+          */
+          isNetworkServiceReachable(url : string, callback : INetworkReachabilityCallback) : void {
+          }
+     }
+
+     /**
+        Interface for Managing the Network status
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class NetworkStatusBridge extends BaseCommunicationBridge implements INetworkStatus {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             Add the listener for network status changes of the app
+
+             @param listener Listener with the result
+             @since ARP1.0
+          */
+          addNetworkStatusListener(listener : INetworkStatusListener) : void {
+          }
+
+          /**
+             Un-registers an existing listener from receiving network status events.
+
+             @param listener Listener with the result
+             @since ARP1.0
+          */
+          removeNetworkStatusListener(listener : INetworkStatusListener) : void {
+          }
+
+          /**
+             Removes all existing listeners from receiving network status events.
+
+             @since ARP1.0
+          */
+          removeNetworkStatusListeners() : void {
+          }
+     }
+
+     /**
+        Interface for Managing the Services operations
+
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
+     */
+     export class ServiceBridge extends BaseCommunicationBridge implements IService {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             Get a reference to a registered service by name.
+
+             @param serviceName Name of service.
+             @return A service, if registered, or null of the service does not exist.
+             @since ARP1.0
+          */
+          getService(serviceName : string) : Service {
+               return null;
+          }
+
+          /**
+             Request async a service for an Url
+
+             @param serviceRequest Service Request to invoke
+             @param service        Service to call
+             @param callback       Callback to execute with the result
+             @since ARP1.0
+          */
+          invokeService(serviceRequest : ServiceRequest, service : Service, callback : IServiceResultCallback) : void {
+          }
+
+          /**
+             Register a new service
+
+             @param service to register
+             @since ARP1.0
+          */
+          registerService(service : Service) : void {
+          }
+
+          /**
+             Unregister a service
+
+             @param service to unregister
+             @since ARP1.0
+          */
+          unregisterService(service : Service) : void {
+          }
+
+          /**
+             Unregister all services.
+
+             @since ARP1.0
+          */
+          unregisterServices() : void {
+          }
+
+          /**
+             Check whether a service by the given service is already registered.
+
+             @param service Service to check
+             @return True if the service is registered, false otherwise.
+             @since ARP1.0
+          */
+          isRegistered_service(service : Service) : boolean {
+               return null;
+          }
+
+          /**
+             Check whether a service by the given name is registered.
+
+             @param serviceName Name of service.
+             @return True if the service is registered, false otherwise.
+             @since ARP1.0
+          */
+          isRegistered_serviceName(serviceName : string) : boolean {
+               return null;
+          }
+     }
+
+     /**
+        Interface for Managing the Socket operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class SocketBridge extends BaseCommunicationBridge implements ISocket {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the Telephony operations
+
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
+     */
+     export class TelephonyBridge extends BaseCommunicationBridge implements ITelephony {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             Invoke a phone call
+
+             @param number to call
+             @return Status of the call
+             @since ARP1.0
+          */
+          call(number : string) : ITelephonyStatus {
+               return null;
+          }
+     }
+
+     /**
+        Interface for Managing the Cloud operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class CloudBridge extends BaseDataBridge implements ICloud {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the DataStream operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class DataStreamBridge extends BaseDataBridge implements IDataStream {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the Cloud operations
+
+        @author Ferran Vila Conesa
+        @since ARP1.0
+     */
+     export class DatabaseBridge extends BaseDataBridge implements IDatabase {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             Creates a database on default path for every platform.
+
+             @param callback Asynchronous callback
+             @param database Database object to create
+             @since ARP1.0
+          */
+          createDatabase(database : Database, callback : IDatabaseResultCallback) : void {
+          }
+
+          /**
+             Creates a databaseTable inside a database for every platform.
+
+             @param database      Database for databaseTable creating.
+             @param databaseTable DatabaseTable object with the name of the databaseTable inside.
+             @param callback      DatabaseTable callback with the response
+             @since ARP1.0
+          */
+          createTable(database : Database, databaseTable : DatabaseTable, callback : IDatabaseTableResultCallback) : void {
+          }
+
+          /**
+             Deletes a database on default path for every platform.
+
+             @param database Database object to delete
+             @param callback Asynchronous callback
+             @since ARP1.0
+          */
+          deleteDatabase(database : Database, callback : IDatabaseResultCallback) : void {
+          }
+
+          /**
+             Deletes a databaseTable inside a database for every platform.
+
+             @param database      Database for databaseTable removal.
+             @param databaseTable DatabaseTable object with the name of the databaseTable inside.
+             @param callback      DatabaseTable callback with the response
+             @since ARP1.0
+          */
+          deleteTable(database : Database, databaseTable : DatabaseTable, callback : IDatabaseTableResultCallback) : void {
+          }
+
+          /**
+             Executes SQL statement into the given database. The replacements
+should be passed as a parameter
+
+             @param database     The database object reference.
+             @param statement    SQL statement.
+             @param replacements List of SQL statement replacements.
+             @param callback     DatabaseTable callback with the response.
+             @since ARP1.0
+          */
+          executeSqlStatement(database : Database, statement : string, replacements : Array<string>, callback : IDatabaseTableResultCallback) : void {
+          }
+
+          /**
+             Executes SQL transaction (some statements chain) inside given database.
+
+             @param database     The database object reference.
+             @param statements   The statements to be executed during transaction.
+             @param rollbackFlag Indicates if rollback should be performed when any
+                    statement execution fails.
+             @param callback     DatabaseTable callback with the response.
+             @since ARP1.0
+          */
+          executeSqlTransactions(database : Database, statements : Array<string>, rollbackFlag : boolean, callback : IDatabaseTableResultCallback) : void {
+          }
+
+          /**
+             Checks if database exists by given database name.
+
+             @param database Database Object to check if exists
+             @return True if exists, false otherwise
+             @since ARP1.0
+          */
+          existsDatabase(database : Database) : boolean {
+               return null;
+          }
+
+          /**
+             Checks if databaseTable exists by given database name.
+
+             @param database      Database for databaseTable consulting.
+             @param databaseTable DatabaseTable object with the name of the databaseTable inside.
+             @return True if exists, false otherwise
+             @since ARP1.0
+          */
+          existsTable(database : Database, databaseTable : DatabaseTable) : boolean {
+               return null;
+          }
+     }
+
+     /**
+        Interface for Managing the File operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class FileBridge extends BaseDataBridge implements IFile {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             Determine whether the current file/folder can be read from.
+
+             @param descriptor File descriptor of file or folder used for operation.
+             @return True if the folder/file is readable, false otherwise.
+             @since ARP1.0
+          */
+          canRead(descriptor : FileDescriptor) : boolean {
+               return null;
+          }
+
+          /**
+             Determine whether the current file/folder can be written to.
+
+             @param descriptor File descriptor of file or folder used for operation.
+             @return True if the folder/file is writable, false otherwise.
+             @since ARP1.0
+          */
+          canWrite(descriptor : FileDescriptor) : boolean {
+               return null;
+          }
+
+          /**
+             Creates a file with the specified name.
+
+             @param descriptor File descriptor of file or folder used for operation.
+             @param callback Result of the operation.
+             @since ARP1.0
+          */
+          create(descriptor : FileDescriptor, callback : IFileResultCallback) : void {
+          }
+
+          /**
+             Deletes the given file or path. If the file is a directory and contains files and or subdirectories, these will be
+deleted if the cascade parameter is set to true.
+
+             @param descriptor File descriptor of file or folder used for operation.
+             @param cascade Whether to delete sub-files and sub-folders.
+             @return True if files (and sub-files and folders) whether deleted.
+             @since ARP1.0
+          */
+          delete(descriptor : FileDescriptor, cascade : boolean) : boolean {
+               return null;
+          }
+
+          /**
+             Check whether the file/path exists.
+
+             @param descriptor File descriptor of file or folder used for operation.
+             @return True if the file exists in the filesystem, false otherwise.
+             @since ARP1.0
+          */
+          exists(descriptor : FileDescriptor) : boolean {
+               return null;
+          }
+
+          /**
+             Loads the content of the file.
+
+             @param descriptor File descriptor of file or folder used for operation.
+             @param callback Result of the operation.
+             @since ARP1.0
+          */
+          getContent(descriptor : FileDescriptor, callback : IFileDataLoadResultCallback) : void {
+          }
+
+          /**
+             Returns the file storage type of the file
+
+             @param descriptor File descriptor of file or folder used for operation.
+             @return Storage Type file
+             @since ARP1.0
+          */
+          getFileStorageType(descriptor : FileDescriptor) : IFileSystemStorageType {
+               return null;
+          }
+
+          /**
+             Returns the file type
+
+             @param descriptor File descriptor of file or folder used for operation.
+             @return Returns the file type of the file
+             @since ARP1.0
+          */
+          getFileType(descriptor : FileDescriptor) : IFileSystemType {
+               return null;
+          }
+
+          /**
+             Returns the security type of the file
+
+             @param descriptor File descriptor of file or folder used for operation.
+             @return Security Level of the file
+             @since ARP1.0
+          */
+          getSecurityType(descriptor : FileDescriptor) : IFileSystemSecurity {
+               return null;
+          }
+
+          /**
+             Check whether this is a path of a file.
+
+             @param descriptor File descriptor of file or folder used for operation.
+             @return true if this is a path to a folder/directory, false if this is a path to a file.
+             @since ARP1.0
+          */
+          isDirectory(descriptor : FileDescriptor) : boolean {
+               return null;
+          }
+
+          /**
+             List all the files contained within this file/path reference. If the reference is a file, it will not yield
+any results.
+
+             @param descriptor File descriptor of file or folder used for operation.
+             @param callback Result of operation.
+             @since ARP1.0
+          */
+          listFiles(descriptor : FileDescriptor, callback : IFileListResultCallback) : void {
+          }
+
+          /**
+             List all the files matching the speficied regex filter within this file/path reference. If the reference
+is a file, it will not yield any results.
+
+             @param descriptor File descriptor of file or folder used for operation.
+             @param regex    Filter (eg. *.jpg, *.png, Fil*) name string.
+             @param callback Result of operation.
+             @since ARP1.0
+          */
+          listFilesForRegex(descriptor : FileDescriptor, regex : string, callback : IFileListResultCallback) : void {
+          }
+
+          /**
+             Creates the parent path (or paths, if recursive) to the given file/path if it doesn't already exist.
+
+             @param descriptor File descriptor of file or folder used for operation.
+             @param recursive Whether to create all parent path elements.
+             @return True if the path was created, false otherwise (or it exists already).
+             @since ARP1.0
+          */
+          mkDir(descriptor : FileDescriptor, recursive : boolean) : boolean {
+               return null;
+          }
+
+          /**
+             Moves the current file to the given file destination, optionally overwriting and creating the path to the
+new destination file.
+
+             @param source File descriptor of file or folder used for operation as source.
+             @param destination File descriptor of file or folder used for operation as destination.
+             @param createPath True to create the path if it does not already exist.
+             @param callback   Result of the operation.
+             @param overwrite  True to create the path if it does not already exist.
+             @since ARP1.0
+          */
+          move(source : FileDescriptor, destination : FileDescriptor, createPath : boolean, overwrite : boolean, callback : IFileResultCallback) : void {
+          }
+
+          /**
+             Sets the content of the file.
+
+             @param descriptor File descriptor of file or folder used for operation.
+             @param content  Binary content to store in the file.
+             @param callback Result of the operation.
+             @since ARP1.0
+          */
+          setContent(descriptor : FileDescriptor, content : Array<number>, callback : IFileDataStoreResultCallback) : void {
+          }
+     }
+
+     /**
+        Interface for Managing the File System operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class FileSystemBridge extends BaseDataBridge implements IFileSystem {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             Creates a new reference to a new or existing location in the filesystem.
+This method does not create the actual file in the specified folder.
+
+             @param parent Parent directory.
+             @param name   Name of new file or directory.
+             @return A reference to a new or existing location in the filesystem.
+             @since ARP1.0
+          */
+          createFileDescriptor(parent : FileDescriptor, name : string) : FileDescriptor {
+               return null;
+          }
+
+          /**
+             Returns a reference to the cache folder for the current application.
+This path must always be writable by the current application.
+This path is volatile and may be cleaned by the OS periodically.
+
+             @return Path to the application's cache folder.
+             @since ARP1.0
+          */
+          getApplicationCacheFolder() : FileDescriptor {
+               return null;
+          }
+
+          /**
+             Returns a reference to the cloud synchronizable folder for the current application.
+This path must always be writable by the current application.
+
+             @return Path to the application's cloud storage folder.
+             @since ARP1.0
+          */
+          getApplicationCloudFolder() : FileDescriptor {
+               return null;
+          }
+
+          /**
+             Returns a reference to the documents folder for the current application.
+This path must always be writable by the current application.
+
+             @return Path to the application's documents folder.
+             @since ARP1.0
+          */
+          getApplicationDocumentsFolder() : FileDescriptor {
+               return null;
+          }
+
+          /**
+             Returns a reference to the application installation folder.
+This path may or may not be directly readable or writable - it usually contains the app binary and data.
+
+             @return Path to the application folder.
+             @since ARP1.0
+          */
+          getApplicationFolder() : FileDescriptor {
+               return null;
+          }
+
+          /**
+             Returns a reference to the protected storage folder for the current application.
+This path must always be writable by the current application.
+
+             @return Path to the application's protected storage folder.
+             @since ARP1.0
+          */
+          getApplicationProtectedFolder() : FileDescriptor {
+               return null;
+          }
+
+          /**
+             Returns the file system dependent file separator.
+
+             @return char with the directory/file separator.
+             @since ARP1.0
+          */
+          getSeparator() : string {
+               return null;
+          }
+
+          /**
+             Returns a reference to the external storage folder provided by the OS. This may
+be an external SSD card or similar. This type of storage is removable and by
+definition, not secure.
+This path may or may not be writable by the current application.
+
+             @return Path to the application's documents folder.
+             @since ARP1.0
+          */
+          getSystemExternalFolder() : FileDescriptor {
+               return null;
+          }
+     }
+
+     /**
+        Interface for Managing the Internal Storage operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class InternalStorageBridge extends BaseDataBridge implements IInternalStorage {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the XML operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class XMLBridge extends BaseDataBridge implements IXML {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Audio purposes
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class AudioBridge extends BaseMediaBridge implements IAudio {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the camera operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class CameraBridge extends BaseMediaBridge implements ICamera {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the Imaging operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class ImagingBridge extends BaseMediaBridge implements IImaging {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the Video operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class VideoBridge extends BaseMediaBridge implements IVideo {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             Play url video stream
+
+             @param url of the video
+             @since ARP1.0
+          */
+          playStream(url : string) : void {
+          }
+     }
+
+     /**
+        Interface for Alarm purposes
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class AlarmBridge extends BaseNotificationBridge implements IAlarm {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the Notification operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class NotificationBridge extends BaseNotificationBridge implements INotification {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the Local Notifications operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class NotificationLocalBridge extends BaseNotificationBridge implements INotificationLocal {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the Vibration operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class VibrationBridge extends BaseNotificationBridge implements IVibration {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the Calendar operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class CalendarBridge extends BasePIMBridge implements ICalendar {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the Contact operations
+
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
+     */
+     export class ContactBridge extends BasePIMBridge implements IContact {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             Get all the details of a contact according to its id
+
+             @param contact  id to search for
+             @param callback called for return
+             @since ARP1.0
+          */
+          getContact(contact : ContactUid, callback : IContactResultCallback) : void {
+          }
+
+          /**
+             Get the contact photo
+
+             @param contact  id to search for
+             @param callback called for return
+             @since ARP1.0
+          */
+          getContactPhoto(contact : ContactUid, callback : IContactPhotoResultCallback) : void {
+          }
+
+          /**
+             Get all contacts
+
+             @param callback called for return
+             @since ARP1.0
+          */
+          getContacts(callback : IContactResultCallback) : void {
+          }
+
+          /**
+             Get marked fields of all contacts
+
+             @param callback called for return
+             @param fields   to get for each Contact
+             @since ARP1.0
+          */
+          getContactsForFields(callback : IContactResultCallback, fields : Array<IContactFieldGroup>) : void {
+          }
+
+          /**
+             Get marked fields of all contacts according to a filter
+
+             @param callback called for return
+             @param fields   to get for each Contact
+             @param filter   to search for
+             @since ARP1.0
+          */
+          getContactsWithFilter(callback : IContactResultCallback, fields : Array<IContactFieldGroup>, filter : Array<IContactFilter>) : void {
+          }
+
+          /**
+             Search contacts according to a term and send it to the callback
+
+             @param term     string to search
+             @param callback called for return
+             @since ARP1.0
+          */
+          searchContacts(term : string, callback : IContactResultCallback) : void {
+          }
+
+          /**
+             Search contacts according to a term with a filter and send it to the callback
+
+             @param term     string to search
+             @param callback called for return
+             @param filter   to search for
+             @since ARP1.0
+          */
+          searchContactsWithFilter(term : string, callback : IContactResultCallback, filter : Array<IContactFilter>) : void {
+          }
+
+          /**
+             Set the contact photo
+
+             @param contact  id to assign the photo
+             @param pngImage photo as byte array
+             @return true if set is successful;false otherwise
+             @since ARP1.0
+          */
+          setContactPhoto(contact : ContactUid, pngImage : Array<number>) : boolean {
+               return null;
+          }
+     }
+
+     /**
+        Interface for Managing the Mail operations
+
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
+     */
+     export class MailBridge extends BasePIMBridge implements IMail {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             Send an Email
+
+             @param data     Payload of the email
+             @param callback Result callback of the operation
+             @since ARP1.0
+          */
+          sendEmail(data : Email, callback : IMessagingCallback) : void {
+          }
+     }
+
+     /**
+        Interface for Managing the Messaging operations
+
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
+     */
+     export class MessagingBridge extends BasePIMBridge implements IMessaging {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             Send text SMS
+
+             @param number   to send
+             @param text     to send
+             @param callback with the result
+             @since ARP1.0
+          */
+          sendSMS(number : string, text : string, callback : IMessagingCallback) : void {
+          }
+     }
+
+     /**
+        Interface for Barcode Reading purposes
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class BarcodeBridge extends BaseReaderBridge implements IBarcode {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the NFC operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class NFCBridge extends BaseReaderBridge implements INFC {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the OCR operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class OCRBridge extends BaseReaderBridge implements IOCR {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the QR Code operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class QRCodeBridge extends BaseReaderBridge implements IQRCode {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the OAuth operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class OAuthBridge extends BaseSecurityBridge implements IOAuth {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the OpenID operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class OpenIdBridge extends BaseSecurityBridge implements IOpenId {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the Security operations
+
+        @author Aryslan
+        @since ARP1.0
+     */
+     export class SecurityBridge extends BaseSecurityBridge implements ISecurity {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             Deletes from the device internal storage the entry/entries containing the specified key names.
+
+             @param keys             Array with the key names to delete.
+             @param publicAccessName The name of the shared internal storage object (if needed).
+             @param callback         callback to be executed upon function result.
+             @since ARP 1.0
+          */
+          deleteSecureKeyValuePairs(keys : Array<string>, publicAccessName : string, callback : ISecurityResultCallback) : void {
+          }
+
+          /**
+             Retrieves from the device internal storage the entry/entries containing the specified key names.
+
+             @param keys             Array with the key names to retrieve.
+             @param publicAccessName The name of the shared internal storage object (if needed).
+             @param callback         callback to be executed upon function result.
+             @since ARP 1.0
+          */
+          getSecureKeyValuePairs(keys : Array<string>, publicAccessName : string, callback : ISecurityResultCallback) : void {
+          }
+
+          /**
+             Returns if the device has been modified in anyhow
+
+             @return true if the device has been modified; false otherwise
+             @since ARP1.0
+          */
+          isDeviceModified() : boolean {
+               return null;
+          }
+
+          /**
+             Stores in the device internal storage the specified item/s.
+
+             @param keyValues        Array containing the items to store on the device internal memory.
+             @param publicAccessName The name of the shared internal storage object (if needed).
+             @param callback         callback to be executed upon function result.
+             @since ARP 1.0
+          */
+          setSecureKeyValuePairs(keyValues : Array<SecureKeyPair>, publicAccessName : string, callback : ISecurityResultCallback) : void {
+          }
+     }
+
+     /**
+        Interface defining methods about the acceleration sensor
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class AccelerationBridge extends BaseSensorBridge implements IAcceleration {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             Register a new listener that will receive acceleration events.
+
+             @param listener to be registered.
+             @since ARP1.0
+          */
+          addAccelerationListener(listener : IAccelerationListener) : void {
+          }
+
+          /**
+             De-registers an existing listener from receiving acceleration events.
+
+             @param listener to be registered.
+             @since ARP1.0
+          */
+          removeAccelerationListener(listener : IAccelerationListener) : void {
+          }
+
+          /**
+             Removed all existing listeners from receiving acceleration events.
+
+             @since ARP1.0
+          */
+          removeAccelerationListeners() : void {
+          }
+     }
+
+     /**
+        Interface for managinf the Ambient Light
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class AmbientLightBridge extends BaseSensorBridge implements IAmbientLight {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Barometer management purposes
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class BarometerBridge extends BaseSensorBridge implements IBarometer {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the Geolocation operations
+
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
+     */
+     export class GeolocationBridge extends BaseSensorBridge implements IGeolocation {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             Register a new listener that will receive geolocation events.
+
+             @param listener to be registered.
+             @since ARP1.0
+          */
+          addGeolocationListener(listener : IGeolocationListener) : void {
+          }
+
+          /**
+             De-registers an existing listener from receiving geolocation events.
+
+             @param listener to be registered.
+             @since ARP1.0
+          */
+          removeGeolocationListener(listener : IGeolocationListener) : void {
+          }
+
+          /**
+             Removed all existing listeners from receiving geolocation events.
+
+             @since ARP1.0
+          */
+          removeGeolocationListeners() : void {
+          }
+     }
+
+     /**
+        Interface for Managing the Giroscope operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class GyroscopeBridge extends BaseSensorBridge implements IGyroscope {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the Magnetometer operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class MagnetometerBridge extends BaseSensorBridge implements IMagnetometer {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the Proximity operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class ProximityBridge extends BaseSensorBridge implements IProximity {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the Facebook operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class FacebookBridge extends BaseSocialBridge implements IFacebook {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the Google Plus operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class GooglePlusBridge extends BaseSocialBridge implements IGooglePlus {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the Linkedin operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class LinkedInBridge extends BaseSocialBridge implements ILinkedIn {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the RSS operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class RSSBridge extends BaseSocialBridge implements IRSS {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the Twitter operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class TwitterBridge extends BaseSocialBridge implements ITwitter {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for testing the Capabilities operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class CapabilitiesBridge extends BaseSystemBridge implements ICapabilities {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             Determines whether a specific hardware button is supported for interaction.
+
+             @param type Type of feature to check.
+             @return true is supported, false otherwise.
+             @since ARP1.0
+          */
+          hasButtonSupport(type : ICapabilitiesButton) : boolean {
+               return null;
+          }
+
+          /**
+             Determines whether a specific Communication capability is supported by
+the device.
+
+             @param type Type of feature to check.
+             @return true if supported, false otherwise.
+             @since ARP1.0
+          */
+          hasCommunicationSupport(type : ICapabilitiesCommunication) : boolean {
+               return null;
+          }
+
+          /**
+             Determines whether a specific Data capability is supported by the device.
+
+             @param type Type of feature to check.
+             @return true if supported, false otherwise.
+             @since ARP1.0
+          */
+          hasDataSupport(type : ICapabilitiesData) : boolean {
+               return null;
+          }
+
+          /**
+             Determines whether a specific Media capability is supported by the
+device.
+
+             @param type Type of feature to check.
+             @return true if supported, false otherwise.
+             @since ARP1.0
+          */
+          hasMediaSupport(type : ICapabilitiesMedia) : boolean {
+               return null;
+          }
+
+          /**
+             Determines whether a specific Net capability is supported by the device.
+
+             @param type Type of feature to check.
+             @return true if supported, false otherwise.
+             @since ARP1.0
+          */
+          hasNetSupport(type : ICapabilitiesNet) : boolean {
+               return null;
+          }
+
+          /**
+             Determines whether a specific Notification capability is supported by the
+device.
+
+             @param type Type of feature to check.
+             @return true if supported, false otherwise.
+             @since ARP1.0
+          */
+          hasNotificationSupport(type : ICapabilitiesNotification) : boolean {
+               return null;
+          }
+
+          /**
+             Determines whether a specific Sensor capability is supported by the
+device.
+
+             @param type Type of feature to check.
+             @return true if supported, false otherwise.
+             @since ARP1.0
+          */
+          hasSensorSupport(type : ICapabilitiesSensor) : boolean {
+               return null;
+          }
+     }
+
+     /**
+        Interface for Managing the Device operations
+
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
+     */
+     export class DeviceBridge extends BaseSystemBridge implements IDevice {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             Register a new listener that will receive button events.
+
+             @param listener to be registered.
+             @since ARP1.0
+          */
+          addButtonListener(listener : IButtonListener) : void {
+          }
+
+          /**
+             Returns the device information for the current device executing the runtime.
+
+             @return DeviceInfo for the current device.
+             @since ARP1.0
+          */
+          getDeviceInfo() : DeviceInfo {
+               return null;
+          }
+
+          /**
+             Gets the current Locale for the device.
+
+             @return The current Locale information.
+             @since ARP1.0
+          */
+          getLocaleCurrent() : Locale {
+               return null;
+          }
+
+          /**
+             De-registers an existing listener from receiving button events.
+
+             @param listener to be removed.
+             @since ARP1.0
+          */
+          removeButtonListener(listener : IButtonListener) : void {
+          }
+
+          /**
+             Removed all existing listeners from receiving button events.
+
+             @since ARP1.0
+          */
+          removeButtonListeners() : void {
+          }
+     }
+
+     /**
+        Interface for Managing the Display operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class DisplayBridge extends BaseSystemBridge implements IDisplay {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the OS operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class OSBridge extends BaseSystemBridge implements IOS {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             Returns the OSInfo for the current operating system.
+
+             @return OSInfo with name, version and vendor of the OS.
+             @since ARP1.0
+          */
+          getOSInfo() : OSInfo {
+               return null;
+          }
+     }
+
+     /**
+        Interface for Managing the Runtime operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class RuntimeBridge extends BaseSystemBridge implements IRuntime {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             Dismiss the current Application
+
+             @since ARP1.0
+          */
+          dismissApplication() : void {
+          }
+
+          /**
+             Whether the application dismiss the splash screen successfully or not
+
+             @return true if the application has dismissed the splash screen;false otherwise
+             @since ARP1.0
+          */
+          dismissSplashScreen() : boolean {
+               return null;
+          }
+     }
+
+     /**
+        Interface for Managing the browser operations
+
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
+     */
+     export class BrowserBridge extends BaseUIBridge implements IBrowser {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             Method for opening a URL like a link in the native default browser
+
+             @param url Url to open
+             @return The result of the operation
+             @since ARP1.0
+          */
+          openExtenalBrowser(url : string) : boolean {
+               return null;
+          }
+
+          /**
+             Method for opening a browser embedded into the application
+
+             @param url            Url to open
+             @param title          Title of the Navigation bar
+             @param backButtonText Title of the Back button bar
+             @return The result of the operation
+             @since ARP1.0
+          */
+          openInternalBrowser(url : string, title : string, backButtonText : string) : boolean {
+               return null;
+          }
+
+          /**
+             Method for opening a browser embedded into the application in a modal window
+
+             @param url            Url to open
+             @param title          Title of the Navigation bar
+             @param backButtonText Title of the Back button bar
+             @return The result of the operation
+             @since ARP1.0
+          */
+          openInternalBrowserModal(url : string, title : string, backButtonText : string) : boolean {
+               return null;
+          }
+     }
+
+     /**
+        Interface for Managing the Desktop operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class DesktopBridge extends BaseUIBridge implements IDesktop {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the Map operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class MapBridge extends BaseUIBridge implements IMap {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the UI operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class UIBridge extends BaseUIBridge implements IUI {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the Compression operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class CompressionBridge extends BaseUtilBridge implements ICompression {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the Concurrent operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class ConcurrentBridge extends BaseUtilBridge implements IConcurrent {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the Cloud operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class CryptoBridge extends BaseUtilBridge implements ICrypto {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface for Managing the Logging operations
+
+        @author Ferran Vila Conesa
+        @since ARP1.0
+     */
+     export class LoggingBridge extends BaseUtilBridge implements ILogging {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             Logs the given message, with the given log level if specified, to the standard platform/environment.
+
+             @param level   Log level
+             @param message Message to be logged
+             @since ARP1.0
+          */
+          log_level_message(level : ILoggingLogLevel, message : string) : void {
+          }
+
+          /**
+             Logs the given message, with the given log level if specified, to the standard platform/environment.
+
+             @param level    Log level
+             @param category Category/tag name to identify/filter the log.
+             @param message  Message to be logged
+             @since ARP1.0
+          */
+          log_level_category_message(level : ILoggingLogLevel, category : string, message : string) : void {
+          }
+     }
+
+     /**
+        Interface for Managing the Timer operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class TimerBridge extends BaseUtilBridge implements ITimer {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+     }
+
+     /**
+        Interface to retrieve auto-registered service implementation references.
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class AppRegistryBridge implements IAppRegistry {
+     }
      /**
         Enumeration ContactAddressType
      */

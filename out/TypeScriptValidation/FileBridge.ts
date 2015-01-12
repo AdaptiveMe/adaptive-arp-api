@@ -32,10 +32,12 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="BaseDataBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="FileDescriptor.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseData.ts"/>
+///<reference path="IFile.ts"/>
 ///<reference path="IFileDataLoadResultCallback.ts"/>
 ///<reference path="IFileDataStoreResultCallback.ts"/>
 ///<reference path="IFileListResultCallback.ts"/>
@@ -44,7 +46,192 @@ Release:
 ///<reference path="IFileSystemStorageType.ts"/>
 ///<reference path="IFileSystemType.ts"/>
 module Adaptive {
-     //TODO: handler implementation.
+
+     /**
+        Interface for Managing the File operations
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     export class FileBridge extends BaseDataBridge implements IFile {
+
+          /**
+             Default constructor.
+          */
+          constructor() {
+               super();
+          }
+
+          /**
+             Determine whether the current file/folder can be read from.
+
+             @param descriptor File descriptor of file or folder used for operation.
+             @return True if the folder/file is readable, false otherwise.
+             @since ARP1.0
+          */
+          canRead(descriptor : FileDescriptor) : boolean {
+               return null;
+          }
+
+          /**
+             Determine whether the current file/folder can be written to.
+
+             @param descriptor File descriptor of file or folder used for operation.
+             @return True if the folder/file is writable, false otherwise.
+             @since ARP1.0
+          */
+          canWrite(descriptor : FileDescriptor) : boolean {
+               return null;
+          }
+
+          /**
+             Creates a file with the specified name.
+
+             @param descriptor File descriptor of file or folder used for operation.
+             @param callback Result of the operation.
+             @since ARP1.0
+          */
+          create(descriptor : FileDescriptor, callback : IFileResultCallback) : void {
+          }
+
+          /**
+             Deletes the given file or path. If the file is a directory and contains files and or subdirectories, these will be
+deleted if the cascade parameter is set to true.
+
+             @param descriptor File descriptor of file or folder used for operation.
+             @param cascade Whether to delete sub-files and sub-folders.
+             @return True if files (and sub-files and folders) whether deleted.
+             @since ARP1.0
+          */
+          delete(descriptor : FileDescriptor, cascade : boolean) : boolean {
+               return null;
+          }
+
+          /**
+             Check whether the file/path exists.
+
+             @param descriptor File descriptor of file or folder used for operation.
+             @return True if the file exists in the filesystem, false otherwise.
+             @since ARP1.0
+          */
+          exists(descriptor : FileDescriptor) : boolean {
+               return null;
+          }
+
+          /**
+             Loads the content of the file.
+
+             @param descriptor File descriptor of file or folder used for operation.
+             @param callback Result of the operation.
+             @since ARP1.0
+          */
+          getContent(descriptor : FileDescriptor, callback : IFileDataLoadResultCallback) : void {
+          }
+
+          /**
+             Returns the file storage type of the file
+
+             @param descriptor File descriptor of file or folder used for operation.
+             @return Storage Type file
+             @since ARP1.0
+          */
+          getFileStorageType(descriptor : FileDescriptor) : IFileSystemStorageType {
+               return null;
+          }
+
+          /**
+             Returns the file type
+
+             @param descriptor File descriptor of file or folder used for operation.
+             @return Returns the file type of the file
+             @since ARP1.0
+          */
+          getFileType(descriptor : FileDescriptor) : IFileSystemType {
+               return null;
+          }
+
+          /**
+             Returns the security type of the file
+
+             @param descriptor File descriptor of file or folder used for operation.
+             @return Security Level of the file
+             @since ARP1.0
+          */
+          getSecurityType(descriptor : FileDescriptor) : IFileSystemSecurity {
+               return null;
+          }
+
+          /**
+             Check whether this is a path of a file.
+
+             @param descriptor File descriptor of file or folder used for operation.
+             @return true if this is a path to a folder/directory, false if this is a path to a file.
+             @since ARP1.0
+          */
+          isDirectory(descriptor : FileDescriptor) : boolean {
+               return null;
+          }
+
+          /**
+             List all the files contained within this file/path reference. If the reference is a file, it will not yield
+any results.
+
+             @param descriptor File descriptor of file or folder used for operation.
+             @param callback Result of operation.
+             @since ARP1.0
+          */
+          listFiles(descriptor : FileDescriptor, callback : IFileListResultCallback) : void {
+          }
+
+          /**
+             List all the files matching the speficied regex filter within this file/path reference. If the reference
+is a file, it will not yield any results.
+
+             @param descriptor File descriptor of file or folder used for operation.
+             @param regex    Filter (eg. *.jpg, *.png, Fil*) name string.
+             @param callback Result of operation.
+             @since ARP1.0
+          */
+          listFilesForRegex(descriptor : FileDescriptor, regex : string, callback : IFileListResultCallback) : void {
+          }
+
+          /**
+             Creates the parent path (or paths, if recursive) to the given file/path if it doesn't already exist.
+
+             @param descriptor File descriptor of file or folder used for operation.
+             @param recursive Whether to create all parent path elements.
+             @return True if the path was created, false otherwise (or it exists already).
+             @since ARP1.0
+          */
+          mkDir(descriptor : FileDescriptor, recursive : boolean) : boolean {
+               return null;
+          }
+
+          /**
+             Moves the current file to the given file destination, optionally overwriting and creating the path to the
+new destination file.
+
+             @param source File descriptor of file or folder used for operation as source.
+             @param destination File descriptor of file or folder used for operation as destination.
+             @param createPath True to create the path if it does not already exist.
+             @param callback   Result of the operation.
+             @param overwrite  True to create the path if it does not already exist.
+             @since ARP1.0
+          */
+          move(source : FileDescriptor, destination : FileDescriptor, createPath : boolean, overwrite : boolean, callback : IFileResultCallback) : void {
+          }
+
+          /**
+             Sets the content of the file.
+
+             @param descriptor File descriptor of file or folder used for operation.
+             @param content  Binary content to store in the file.
+             @param callback Result of the operation.
+             @since ARP1.0
+          */
+          setContent(descriptor : FileDescriptor, content : Array<number>, callback : IFileDataStoreResultCallback) : void {
+          }
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

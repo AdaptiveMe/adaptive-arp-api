@@ -1,6 +1,8 @@
+/// <reference path="BaseCommunicationBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseCommunication.d.ts" />
+/// <reference path="INetworkReachability.d.ts" />
 /// <reference path="INetworkReachabilityCallback.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
@@ -36,4 +38,32 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 declare module Adaptive {
+    /**
+       Interface for Managing the Network reachability operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    class NetworkReachabilityBridge extends BaseCommunicationBridge implements INetworkReachability {
+        /**
+           Default constructor.
+        */
+        constructor();
+        /**
+           Whether there is connectivity to a host, via domain name or ip address, or not.
+
+           @param host     domain name or ip address of host.
+           @param callback Callback called at the end.
+           @since ARP1.0
+        */
+        isNetworkReachable(host: string, callback: INetworkReachabilityCallback): void;
+        /**
+           Whether there is connectivity to an url of a service or not.
+
+           @param url      to look for
+           @param callback Callback called at the end
+           @since ARP1.0
+        */
+        isNetworkServiceReachable(url: string, callback: INetworkReachabilityCallback): void;
+    }
 }

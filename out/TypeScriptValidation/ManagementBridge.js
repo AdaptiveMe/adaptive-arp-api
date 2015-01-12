@@ -31,7 +31,35 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="BaseApplicationBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseApplication.ts"/>
+///<reference path="IManagement.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Interface for Managing the Management operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var ManagementBridge = (function (_super) {
+        __extends(ManagementBridge, _super);
+        /**
+           Default constructor.
+        */
+        function ManagementBridge() {
+            _super.call(this);
+        }
+        return ManagementBridge;
+    })(Adaptive.BaseApplicationBridge);
+    Adaptive.ManagementBridge = ManagementBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=ManagementBridge.js.map

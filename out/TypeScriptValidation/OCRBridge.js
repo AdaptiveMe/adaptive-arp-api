@@ -31,7 +31,35 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="BaseReaderBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseReader.ts"/>
+///<reference path="IOCR.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Interface for Managing the OCR operations
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var OCRBridge = (function (_super) {
+        __extends(OCRBridge, _super);
+        /**
+           Default constructor.
+        */
+        function OCRBridge() {
+            _super.call(this);
+        }
+        return OCRBridge;
+    })(Adaptive.BaseReaderBridge);
+    Adaptive.OCRBridge = OCRBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=OCRBridge.js.map

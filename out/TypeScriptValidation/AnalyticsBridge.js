@@ -31,7 +31,35 @@ Release:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="BaseApplicationBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IAnalytics.ts"/>
 ///<reference path="IBaseApplication.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Interface for Analytics purposes
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var AnalyticsBridge = (function (_super) {
+        __extends(AnalyticsBridge, _super);
+        /**
+           Default constructor.
+        */
+        function AnalyticsBridge() {
+            _super.call(this);
+        }
+        return AnalyticsBridge;
+    })(Adaptive.BaseApplicationBridge);
+    Adaptive.AnalyticsBridge = AnalyticsBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=AnalyticsBridge.js.map

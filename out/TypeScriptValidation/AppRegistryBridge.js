@@ -104,4 +104,19 @@ Release:
 ///<reference path="IVideo.ts"/>
 ///<reference path="IWallet.ts"/>
 ///<reference path="IXML.ts"/>
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Interface to retrieve auto-registered service implementation references.
+
+       @author Carlos Lozano Diez
+       @since ARP1.0
+    */
+    var AppRegistryBridge = (function () {
+        function AppRegistryBridge() {
+        }
+        return AppRegistryBridge;
+    })();
+    Adaptive.AppRegistryBridge = AppRegistryBridge;
+})(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=AppRegistryBridge.js.map
