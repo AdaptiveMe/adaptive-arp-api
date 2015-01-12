@@ -1186,6 +1186,24 @@ public class AppRegistryDelegate implements IAppRegistry {
      }
 
      /**
+        Method that returns the API version of the implementation.
+     */
+     private tringBridge __tringBridge = null;
+
+     /**
+        Method that returns the API version of the implementation.
+
+        @return API Version string.
+        @since ARP1.0
+     */
+     public tringBridge getAPIVersion() {
+           if(__tringBridge == null) {
+               __tringBridge = new tringBridge(null);
+          }
+          return __tringBridge;
+     }
+
+     /**
         Returns a reference to the Platform Context
      */
      private AppContextBridge __appcontextBridge = null;
