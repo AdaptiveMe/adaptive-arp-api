@@ -230,6 +230,7 @@ public class TypeScriptGenerator extends GeneratorBase {
                     referenceList.add(clazz.getSimpleName());
                 } else {
                     referenceList.add(clazz.getSimpleName());
+                    referenceList.add("APIRequest");
                 }
                 referenceList.sort(new Comparator<String>() {
                     @Override
@@ -381,6 +382,7 @@ public class TypeScriptGenerator extends GeneratorBase {
                     List<Method> methodOverloadedList = new ArrayList<>();
                     List<JavaMethod> methodUniqueListDocs = new ArrayList<>();
                     List<JavaMethod> methodOverloadedListDocs = new ArrayList<>();
+                    String currentMethodName = null;
                     for (int j = 0; j < methodList.size(); j++) {
                         Method m = methodList.get(j);
                         JavaMethod md = methodListDocs.get(j);
@@ -402,6 +404,7 @@ public class TypeScriptGenerator extends GeneratorBase {
                     for (int j = 0; j < methodUniqueList.size(); j++) {
 
                         Method m = methodUniqueList.get(j);
+                        currentMethodName = m.getName();
                         JavaMethod md = methodUniqueListDocs.get(j);
                         printlnGlobal();
 
@@ -432,8 +435,10 @@ public class TypeScriptGenerator extends GeneratorBase {
                         }
                         printlnGlobal(10, "}");
                     }
+
                     for (int j = 0; j < methodOverloadedList.size(); j++) {
                         Method m = methodOverloadedList.get(j);
+                        currentMethodName = m.getName();
                         JavaMethod md = methodOverloadedListDocs.get(j);
                         printlnGlobal();
 
@@ -476,6 +481,8 @@ public class TypeScriptGenerator extends GeneratorBase {
 
                         if (!m.getReturnType().equals(Void.TYPE)) {
                             printlnGlobal(15, "return null;");
+                        } else {
+
                         }
                         printlnGlobal(10, "}");
                     }
@@ -1062,6 +1069,16 @@ public class TypeScriptGenerator extends GeneratorBase {
 
         if (!clazz.getSimpleName().startsWith("IAppContext")) {
 
+            if (clazz.getSimpleName().startsWith("IBaseListener") || clazz.getSimpleName().startsWith("IBaseCallback")) {
+                printlnGlobal();
+                startCommentGlobal(10);
+                printlnGlobal(13, "Retrieve unique id of callback/listener.");
+                printlnGlobal();
+                printlnGlobal(13, "@return Callback/listener unique id.");
+                endCommentGlobal(10);
+                printlnGlobal(10, "getId() : number;");
+                printlnGlobal();
+            }
             for (Method method : methodUniqueList) {
                 if (method.getName().equals("get$Synthetic$")) {
                     // getters for all service classes!
