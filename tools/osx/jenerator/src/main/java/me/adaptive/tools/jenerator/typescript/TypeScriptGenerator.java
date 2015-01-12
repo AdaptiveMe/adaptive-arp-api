@@ -523,46 +523,46 @@ public class TypeScriptGenerator extends GeneratorBase {
             startCommentGlobal(10);
             printlnGlobal(13, "Unique id of listener.");
             endCommentGlobal(10);
-            println(10, "id : number;");
-            println();
+            printlnGlobal(10, "id : number;");
+            printlnGlobal();
 
-            startComment(10);
-            println(13, "Group of API.");
-            endComment(10);
-            println(10, "apiGroup : IAdaptiveRPGroup;");
-            println();
+            startCommentGlobal(10);
+            printlnGlobal(13, "Group of API.");
+            endCommentGlobal(10);
+            printlnGlobal(10, "apiGroup : IAdaptiveRPGroup;");
+            printlnGlobal();
 
 
-            startComment(10);
-            println(13, "Constructor with listener id.");
-            println();
-            println(13, "@param id  The id of the listener.");
-            endComment(10);
-            println(10, "constructor(id : number) {");
-            println(15, "this.id = id;");
-            println(15, "this.apiGroup = IAdaptiveRPGroup.Application;");
-            println(10, "}");
-            println();
+            startCommentGlobal(10);
+            printlnGlobal(13, "Constructor with listener id.");
+            printlnGlobal();
+            printlnGlobal(13, "@param id  The id of the listener.");
+            endCommentGlobal(10);
+            printlnGlobal(10, "constructor(id : number) {");
+            printlnGlobal(15, "this.id = id;");
+            printlnGlobal(15, "this.apiGroup = IAdaptiveRPGroup.Application;");
+            printlnGlobal(10, "}");
+            printlnGlobal();
 
-            startComment(10);
-            println(13, "Get the listener id.");
-            println(13, "@return long with the identifier of the listener.");
-            endComment(10);
-            println(10, "getId() : number {");
-            println(15, "return this.id;");
-            println(10, "}");
-            println();
+            startCommentGlobal(10);
+            printlnGlobal(13, "Get the listener id.");
+            printlnGlobal(13, "@return long with the identifier of the listener.");
+            endCommentGlobal(10);
+            printlnGlobal(10, "getId() : number {");
+            printlnGlobal(15, "return this.id;");
+            printlnGlobal(10, "}");
+            printlnGlobal();
 
-            startComment(10);
-            println(13, "Return the API group for the given interface.");
-            endComment(10);
-            println(10, "getAPIGroup() : IAdaptiveRPGroup {");
-            println(15, "return this.apiGroup;");
-            println(10, "}");
+            startCommentGlobal(10);
+            printlnGlobal(13, "Return the API group for the given interface.");
+            endCommentGlobal(10);
+            printlnGlobal(10, "getAPIGroup() : IAdaptiveRPGroup {");
+            printlnGlobal(15, "return this.apiGroup;");
+            printlnGlobal(10, "}");
 
         } else {
-            println(5, "export class " + simpleName + " extends BaseListenerImpl implements " + clazz.getSimpleName() + " {");
-            println();
+            printlnGlobal(5, "export class " + simpleName + " extends BaseListenerImpl implements " + clazz.getSimpleName() + " {");
+            printlnGlobal();
 
             List<Method> methodList = new ArrayList<>();
             for (Method m : clazz.getDeclaredMethods()) {
@@ -576,63 +576,63 @@ public class TypeScriptGenerator extends GeneratorBase {
             });
 
             for (Method m : methodList) {
-                print(10, m.getName() + "Function : (");
+                printGlobal(10, m.getName() + "Function : (");
                 for (int i = 0; i < m.getParameterCount(); i++) {
                     Parameter p = m.getParameters()[i];
-                    print(p.getName() + " : " + convertJavaToNativeType(p.getType()));
+                    printGlobal(p.getName() + " : " + convertJavaToNativeType(p.getType()));
                     if (i < m.getParameterCount() - 1) {
-                        print(", ");
+                        printGlobal(", ");
                     }
                 }
-                println(") => Function;");
+                printlnGlobal(") => Function;");
             }
 
-            println();
-            startComment(10);
-            println(13, "Constructor with anonymous handler functions for listener.");
-            println();
+            printlnGlobal();
+            startCommentGlobal(10);
+            printlnGlobal(13, "Constructor with anonymous handler functions for listener.");
+            printlnGlobal();
             for (Method m : methodList) {
-                print(13, "@param " + m.getName() + "Function Function receiving parameters of type: ");
+                printGlobal(13, "@param " + m.getName() + "Function Function receiving parameters of type: ");
                 for (int i = 0; i < m.getParameterCount(); i++) {
                     Parameter p = m.getParameters()[i];
-                    print(convertJavaToNativeType(p.getType()));
+                    printGlobal(convertJavaToNativeType(p.getType()));
                     if (i < m.getParameterCount() - 1) {
-                        print(", ");
+                        printGlobal(", ");
                     }
                 }
-                println();
+                printlnGlobal();
             }
-            endComment(10);
-            print(10, "constructor(");
+            endCommentGlobal(10);
+            printGlobal(10, "constructor(");
             for (int j = 0; j < methodList.size(); j++) {
                 Method m = methodList.get(j);
-                print(m.getName() + "Function : (");
+                printGlobal(m.getName() + "Function : (");
                 for (int i = 0; i < m.getParameterCount(); i++) {
                     Parameter p = m.getParameters()[i];
-                    print(p.getName() + " : " + convertJavaToNativeType(p.getType()));
+                    printGlobal(p.getName() + " : " + convertJavaToNativeType(p.getType()));
 
                     if (i < m.getParameterCount() - 1) {
-                        print(", ");
+                        printGlobal(", ");
                     }
                 }
-                print(") => Function");
+                printGlobal(") => Function");
                 if (j < methodList.size() - 1) {
-                    print(", ");
+                    printGlobal(", ");
                 }
             }
 
-            println(") {");
-            println(15, "super(++registeredCounter);");
+            printlnGlobal(") {");
+            printlnGlobal(15, "super(++registeredCounter);");
             for (Method m : methodList) {
-                println(15, "if (" + m.getName() + "Function == null) {");
-                println(20, "console.error(\"ERROR: " + simpleName + " " + m.getName() + "Function is not defined.\");");
-                println(15, "} else {");
-                println(20, "this." + m.getName() + "Function = " + m.getName() + "Function;");
-                println(15, "}");
+                printlnGlobal(15, "if (" + m.getName() + "Function == null) {");
+                printlnGlobal(20, "console.error(\"ERROR: " + simpleName + " " + m.getName() + "Function is not defined.\");");
+                printlnGlobal(15, "} else {");
+                printlnGlobal(20, "this." + m.getName() + "Function = " + m.getName() + "Function;");
+                printlnGlobal(15, "}");
             }
-            println(10, "}");
+            printlnGlobal(10, "}");
         }
-        println();
+        printlnGlobal();
 
         List<Method> classMethods = new ArrayList<>();
         Map<Method, JavaMethod> javaMethods = new HashMap<>();
@@ -652,49 +652,49 @@ public class TypeScriptGenerator extends GeneratorBase {
         });
         for (Method m : classMethods) {
             if (javaMethods.get(m) != null) {
-                startComment(10);
-                println(13, javaMethods.get(m).getComment());
-                println();
+                startCommentGlobal(10);
+                printlnGlobal(13, javaMethods.get(m).getComment());
+                printlnGlobal();
                 for (DocletTag tag : javaMethods.get(m).getTags()) {
-                    println(13, "@" + tag.getName() + " " + tag.getValue());
+                    printlnGlobal(13, "@" + tag.getName() + " " + tag.getValue());
                 }
-                endComment(10);
-                print(10, "public ");
-                print(m.getName() + "(");
+                endCommentGlobal(10);
+                printGlobal(10, "public ");
+                printGlobal(m.getName() + "(");
                 for (int i = 0; i < m.getParameterCount(); i++) {
                     Parameter p = m.getParameters()[i];
-                    print(p.getName());
-                    print(" : " + convertJavaToNativeType(p.getType()));
+                    printGlobal(p.getName());
+                    printGlobal(" : " + convertJavaToNativeType(p.getType()));
                     if (i < m.getParameterCount() - 1) {
-                        print(", ");
+                        printGlobal(", ");
                     }
                 }
-                print(") ");
+                printGlobal(") ");
 
                 if (m.getReturnType().equals(Void.TYPE)) {
-                    println(": void {");
+                    printlnGlobal(": void {");
                 } else {
-                    println(": " + convertJavaToNativeType(m.getReturnType()) + " {");
+                    printlnGlobal(": " + convertJavaToNativeType(m.getReturnType()) + " {");
                 }
 
-                println(15, "if (typeof this." + m.getName() + "Function === 'undefined' || this." + m.getName() + "Function == null) {");
-                println(20, "console.warn(\"WARNING: " + simpleName + " contains a null reference to " + m.getName() + "Function.\");");
-                println(15, "} else {");
-                print(20, "this." + m.getName() + "Function(");
+                printlnGlobal(15, "if (typeof this." + m.getName() + "Function === 'undefined' || this." + m.getName() + "Function == null) {");
+                printlnGlobal(20, "console.warn(\"WARNING: " + simpleName + " contains a null reference to " + m.getName() + "Function.\");");
+                printlnGlobal(15, "} else {");
+                printGlobal(20, "this." + m.getName() + "Function(");
                 for (int i = 0; i < m.getParameterCount(); i++) {
                     Parameter p = m.getParameters()[i];
-                    print(p.getName());
+                    printGlobal(p.getName());
                     if (i < m.getParameterCount() - 1) {
-                        print(", ");
+                        printGlobal(", ");
                     }
                 }
-                println(");");
-                println(15, "}");
-                println(10, "}");
-                println();
+                printlnGlobal(");");
+                printlnGlobal(15, "}");
+                printlnGlobal(10, "}");
+                printlnGlobal();
             }
         }
-        println(5, "}");
+        printlnGlobal(5, "}");
         println("}");
     }
 

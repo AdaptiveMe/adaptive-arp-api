@@ -6336,6 +6336,425 @@ Possible lifecycle States:
           }
 
      }
+     export class BaseListenerImpl implements IBaseListener {
+
+          /**
+             Unique id of listener.
+          */
+          id : number;
+
+          /**
+             Group of API.
+          */
+          apiGroup : IAdaptiveRPGroup;
+
+          /**
+             Constructor with listener id.
+
+             @param id  The id of the listener.
+          */
+          constructor(id : number) {
+               this.id = id;
+               this.apiGroup = IAdaptiveRPGroup.Application;
+          }
+
+          /**
+             Get the listener id.
+             @return long with the identifier of the listener.
+          */
+          getId() : number {
+               return this.id;
+          }
+
+          /**
+             Return the API group for the given interface.
+          */
+          getAPIGroup() : IAdaptiveRPGroup {
+               return this.apiGroup;
+          }
+
+     }
+     export class AccelerationListenerImpl extends BaseListenerImpl implements IAccelerationListener {
+
+          onErrorFunction : (error : IAccelerationListenerError) => Function;
+          onResultFunction : (acceleration : Acceleration) => Function;
+          onWarningFunction : (acceleration : Acceleration, warning : IAccelerationListenerWarning) => Function;
+
+          /**
+             Constructor with anonymous handler functions for listener.
+
+             @param onErrorFunction Function receiving parameters of type: IAccelerationListenerError
+             @param onResultFunction Function receiving parameters of type: Acceleration
+             @param onWarningFunction Function receiving parameters of type: Acceleration, IAccelerationListenerWarning
+          */
+          constructor(onErrorFunction : (error : IAccelerationListenerError) => Function, onResultFunction : (acceleration : Acceleration) => Function, onWarningFunction : (acceleration : Acceleration, warning : IAccelerationListenerWarning) => Function) {
+               super(++registeredCounter);
+               if (onErrorFunction == null) {
+                    console.error("ERROR: AccelerationListenerImpl onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (onResultFunction == null) {
+                    console.error("ERROR: AccelerationListenerImpl onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (onWarningFunction == null) {
+                    console.error("ERROR: AccelerationListenerImpl onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
+          }
+
+          /**
+             No data received - error condition, not authorized or hardware not available. This will be reported once for the
+listener and subsequently, the listener will be deactivated and removed from the internal list of listeners.
+
+             @param error Error fired
+             @since ARP1.0
+          */
+          public onError(error : IAccelerationListenerError) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: AccelerationListenerImpl contains a null reference to onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
+          }
+
+          /**
+             Correct data received.
+
+             @param acceleration Acceleration received
+             @since ARP1.0
+          */
+          public onResult(acceleration : Acceleration) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: AccelerationListenerImpl contains a null reference to onResultFunction.");
+               } else {
+                    this.onResultFunction(acceleration);
+               }
+          }
+
+          /**
+             Data received with warning - ie. Needs calibration.
+
+             @param acceleration Acceleration received
+             @param warning      Warning fired
+             @since ARP1.0
+          */
+          public onWarning(acceleration : Acceleration, warning : IAccelerationListenerWarning) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: AccelerationListenerImpl contains a null reference to onWarningFunction.");
+               } else {
+                    this.onWarningFunction(acceleration, warning);
+               }
+          }
+
+     }
+     export class ButtonListenerImpl extends BaseListenerImpl implements IButtonListener {
+
+          onErrorFunction : (error : IButtonListenerError) => Function;
+          onResultFunction : (button : Button) => Function;
+          onWarningFunction : (button : Button, warning : IButtonListenerWarning) => Function;
+
+          /**
+             Constructor with anonymous handler functions for listener.
+
+             @param onErrorFunction Function receiving parameters of type: IButtonListenerError
+             @param onResultFunction Function receiving parameters of type: Button
+             @param onWarningFunction Function receiving parameters of type: Button, IButtonListenerWarning
+          */
+          constructor(onErrorFunction : (error : IButtonListenerError) => Function, onResultFunction : (button : Button) => Function, onWarningFunction : (button : Button, warning : IButtonListenerWarning) => Function) {
+               super(++registeredCounter);
+               if (onErrorFunction == null) {
+                    console.error("ERROR: ButtonListenerImpl onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (onResultFunction == null) {
+                    console.error("ERROR: ButtonListenerImpl onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (onWarningFunction == null) {
+                    console.error("ERROR: ButtonListenerImpl onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
+          }
+
+          /**
+             No data received
+
+             @param error occurred
+             @since ARP1.0
+          */
+          public onError(error : IButtonListenerError) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: ButtonListenerImpl contains a null reference to onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
+          }
+
+          /**
+             Called on button pressed
+
+             @param button pressed
+             @since ARP1.0
+          */
+          public onResult(button : Button) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: ButtonListenerImpl contains a null reference to onResultFunction.");
+               } else {
+                    this.onResultFunction(button);
+               }
+          }
+
+          /**
+             Data received with warning
+
+             @param button  pressed
+             @param warning happened
+             @since ARP1.0
+          */
+          public onWarning(button : Button, warning : IButtonListenerWarning) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: ButtonListenerImpl contains a null reference to onWarningFunction.");
+               } else {
+                    this.onWarningFunction(button, warning);
+               }
+          }
+
+     }
+     export class GeolocationListenerImpl extends BaseListenerImpl implements IGeolocationListener {
+
+          onErrorFunction : (error : IGeolocationListenerError) => Function;
+          onResultFunction : (geolocation : Geolocation) => Function;
+          onWarningFunction : (geolocation : Geolocation, warning : IGeolocationListenerWarning) => Function;
+
+          /**
+             Constructor with anonymous handler functions for listener.
+
+             @param onErrorFunction Function receiving parameters of type: IGeolocationListenerError
+             @param onResultFunction Function receiving parameters of type: Geolocation
+             @param onWarningFunction Function receiving parameters of type: Geolocation, IGeolocationListenerWarning
+          */
+          constructor(onErrorFunction : (error : IGeolocationListenerError) => Function, onResultFunction : (geolocation : Geolocation) => Function, onWarningFunction : (geolocation : Geolocation, warning : IGeolocationListenerWarning) => Function) {
+               super(++registeredCounter);
+               if (onErrorFunction == null) {
+                    console.error("ERROR: GeolocationListenerImpl onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (onResultFunction == null) {
+                    console.error("ERROR: GeolocationListenerImpl onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (onWarningFunction == null) {
+                    console.error("ERROR: GeolocationListenerImpl onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
+          }
+
+          /**
+             No data received - error condition, not authorized or hardware not available.
+
+             @param error Type of error encountered during reading.
+             @since ARP1.0
+          */
+          public onError(error : IGeolocationListenerError) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: GeolocationListenerImpl contains a null reference to onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
+          }
+
+          /**
+             Correct data received.
+
+             @param geolocation Geolocation Bean
+             @since ARP1.0
+          */
+          public onResult(geolocation : Geolocation) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: GeolocationListenerImpl contains a null reference to onResultFunction.");
+               } else {
+                    this.onResultFunction(geolocation);
+               }
+          }
+
+          /**
+             Data received with warning - ie. HighDoP
+
+             @param geolocation Geolocation Bean
+             @param warning Type of warning encountered during reading.
+             @since ARP1.0
+          */
+          public onWarning(geolocation : Geolocation, warning : IGeolocationListenerWarning) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: GeolocationListenerImpl contains a null reference to onWarningFunction.");
+               } else {
+                    this.onWarningFunction(geolocation, warning);
+               }
+          }
+
+     }
+     export class LifecycleListenerImpl extends BaseListenerImpl implements ILifecycleListener {
+
+          onErrorFunction : (error : ILifecycleListenerError) => Function;
+          onResultFunction : (lifecycle : Lifecycle) => Function;
+          onWarningFunction : (lifecycle : Lifecycle, warning : ILifecycleListenerWarning) => Function;
+
+          /**
+             Constructor with anonymous handler functions for listener.
+
+             @param onErrorFunction Function receiving parameters of type: ILifecycleListenerError
+             @param onResultFunction Function receiving parameters of type: Lifecycle
+             @param onWarningFunction Function receiving parameters of type: Lifecycle, ILifecycleListenerWarning
+          */
+          constructor(onErrorFunction : (error : ILifecycleListenerError) => Function, onResultFunction : (lifecycle : Lifecycle) => Function, onWarningFunction : (lifecycle : Lifecycle, warning : ILifecycleListenerWarning) => Function) {
+               super(++registeredCounter);
+               if (onErrorFunction == null) {
+                    console.error("ERROR: LifecycleListenerImpl onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (onResultFunction == null) {
+                    console.error("ERROR: LifecycleListenerImpl onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (onWarningFunction == null) {
+                    console.error("ERROR: LifecycleListenerImpl onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
+          }
+
+          /**
+             No data received - error condition, not authorized or hardware not available.
+
+             @param error Type of error encountered during reading.
+             @since ARP1.0
+          */
+          public onError(error : ILifecycleListenerError) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: LifecycleListenerImpl contains a null reference to onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
+          }
+
+          /**
+             Called when lifecycle changes somehow.
+
+             @param lifecycle Lifecycle element
+             @since ARP1.0
+          */
+          public onResult(lifecycle : Lifecycle) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: LifecycleListenerImpl contains a null reference to onResultFunction.");
+               } else {
+                    this.onResultFunction(lifecycle);
+               }
+          }
+
+          /**
+             Data received with warning
+
+             @param lifecycle Lifecycle element
+             @param warning Type of warning encountered during reading.
+             @since ARP1.0
+          */
+          public onWarning(lifecycle : Lifecycle, warning : ILifecycleListenerWarning) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: LifecycleListenerImpl contains a null reference to onWarningFunction.");
+               } else {
+                    this.onWarningFunction(lifecycle, warning);
+               }
+          }
+
+     }
+     export class NetworkStatusListenerImpl extends BaseListenerImpl implements INetworkStatusListener {
+
+          onErrorFunction : (error : INetworkStatusListenerError) => Function;
+          onResultFunction : (network : ICapabilitiesNet) => Function;
+          onWarningFunction : (network : ICapabilitiesNet, warning : INetworkStatusListenerWarning) => Function;
+
+          /**
+             Constructor with anonymous handler functions for listener.
+
+             @param onErrorFunction Function receiving parameters of type: INetworkStatusListenerError
+             @param onResultFunction Function receiving parameters of type: ICapabilitiesNet
+             @param onWarningFunction Function receiving parameters of type: ICapabilitiesNet, INetworkStatusListenerWarning
+          */
+          constructor(onErrorFunction : (error : INetworkStatusListenerError) => Function, onResultFunction : (network : ICapabilitiesNet) => Function, onWarningFunction : (network : ICapabilitiesNet, warning : INetworkStatusListenerWarning) => Function) {
+               super(++registeredCounter);
+               if (onErrorFunction == null) {
+                    console.error("ERROR: NetworkStatusListenerImpl onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (onResultFunction == null) {
+                    console.error("ERROR: NetworkStatusListenerImpl onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (onWarningFunction == null) {
+                    console.error("ERROR: NetworkStatusListenerImpl onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
+          }
+
+          /**
+             No data received - error condition, not authorized or hardware not available.
+
+             @param error Type of error encountered during reading.
+             @since ARP1.0
+          */
+          public onError(error : INetworkStatusListenerError) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: NetworkStatusListenerImpl contains a null reference to onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
+          }
+
+          /**
+             Called when network connection changes somehow.
+
+             @param network Change to this network.
+             @since ARP1.0
+          */
+          public onResult(network : ICapabilitiesNet) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: NetworkStatusListenerImpl contains a null reference to onResultFunction.");
+               } else {
+                    this.onResultFunction(network);
+               }
+          }
+
+          /**
+             Status received with warning
+
+             @param network Change to this network.
+             @param warning Type of warning encountered during reading.
+             @since ARP1.0
+          */
+          public onWarning(network : ICapabilitiesNet, warning : INetworkStatusListenerWarning) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: NetworkStatusListenerImpl contains a null reference to onWarningFunction.");
+               } else {
+                    this.onWarningFunction(network, warning);
+               }
+          }
+
+     }
 
      export class BaseCallbackImpl implements IBaseCallback {
 

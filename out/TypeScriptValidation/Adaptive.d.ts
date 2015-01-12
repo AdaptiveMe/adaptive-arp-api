@@ -5333,6 +5333,207 @@ Possible lifecycle States:
         */
         setProfessionalInfo(professionalInfo: ContactProfessionalInfo): void;
     }
+    class BaseListenerImpl implements IBaseListener {
+        /**
+           Unique id of listener.
+        */
+        id: number;
+        /**
+           Group of API.
+        */
+        apiGroup: IAdaptiveRPGroup;
+        /**
+           Constructor with listener id.
+
+           @param id  The id of the listener.
+        */
+        constructor(id: number);
+        /**
+           Get the listener id.
+           @return long with the identifier of the listener.
+        */
+        getId(): number;
+        /**
+           Return the API group for the given interface.
+        */
+        getAPIGroup(): IAdaptiveRPGroup;
+    }
+    class AccelerationListenerImpl extends BaseListenerImpl implements IAccelerationListener {
+        onErrorFunction: (error: IAccelerationListenerError) => Function;
+        onResultFunction: (acceleration: Acceleration) => Function;
+        onWarningFunction: (acceleration: Acceleration, warning: IAccelerationListenerWarning) => Function;
+        /**
+           Constructor with anonymous handler functions for listener.
+
+           @param onErrorFunction Function receiving parameters of type: IAccelerationListenerError
+           @param onResultFunction Function receiving parameters of type: Acceleration
+           @param onWarningFunction Function receiving parameters of type: Acceleration, IAccelerationListenerWarning
+        */
+        constructor(onErrorFunction: (error: IAccelerationListenerError) => Function, onResultFunction: (acceleration: Acceleration) => Function, onWarningFunction: (acceleration: Acceleration, warning: IAccelerationListenerWarning) => Function);
+        /**
+           No data received - error condition, not authorized or hardware not available. This will be reported once for the
+listener and subsequently, the listener will be deactivated and removed from the internal list of listeners.
+
+           @param error Error fired
+           @since ARP1.0
+        */
+        onError(error: IAccelerationListenerError): void;
+        /**
+           Correct data received.
+
+           @param acceleration Acceleration received
+           @since ARP1.0
+        */
+        onResult(acceleration: Acceleration): void;
+        /**
+           Data received with warning - ie. Needs calibration.
+
+           @param acceleration Acceleration received
+           @param warning      Warning fired
+           @since ARP1.0
+        */
+        onWarning(acceleration: Acceleration, warning: IAccelerationListenerWarning): void;
+    }
+    class ButtonListenerImpl extends BaseListenerImpl implements IButtonListener {
+        onErrorFunction: (error: IButtonListenerError) => Function;
+        onResultFunction: (button: Button) => Function;
+        onWarningFunction: (button: Button, warning: IButtonListenerWarning) => Function;
+        /**
+           Constructor with anonymous handler functions for listener.
+
+           @param onErrorFunction Function receiving parameters of type: IButtonListenerError
+           @param onResultFunction Function receiving parameters of type: Button
+           @param onWarningFunction Function receiving parameters of type: Button, IButtonListenerWarning
+        */
+        constructor(onErrorFunction: (error: IButtonListenerError) => Function, onResultFunction: (button: Button) => Function, onWarningFunction: (button: Button, warning: IButtonListenerWarning) => Function);
+        /**
+           No data received
+
+           @param error occurred
+           @since ARP1.0
+        */
+        onError(error: IButtonListenerError): void;
+        /**
+           Called on button pressed
+
+           @param button pressed
+           @since ARP1.0
+        */
+        onResult(button: Button): void;
+        /**
+           Data received with warning
+
+           @param button  pressed
+           @param warning happened
+           @since ARP1.0
+        */
+        onWarning(button: Button, warning: IButtonListenerWarning): void;
+    }
+    class GeolocationListenerImpl extends BaseListenerImpl implements IGeolocationListener {
+        onErrorFunction: (error: IGeolocationListenerError) => Function;
+        onResultFunction: (geolocation: Geolocation) => Function;
+        onWarningFunction: (geolocation: Geolocation, warning: IGeolocationListenerWarning) => Function;
+        /**
+           Constructor with anonymous handler functions for listener.
+
+           @param onErrorFunction Function receiving parameters of type: IGeolocationListenerError
+           @param onResultFunction Function receiving parameters of type: Geolocation
+           @param onWarningFunction Function receiving parameters of type: Geolocation, IGeolocationListenerWarning
+        */
+        constructor(onErrorFunction: (error: IGeolocationListenerError) => Function, onResultFunction: (geolocation: Geolocation) => Function, onWarningFunction: (geolocation: Geolocation, warning: IGeolocationListenerWarning) => Function);
+        /**
+           No data received - error condition, not authorized or hardware not available.
+
+           @param error Type of error encountered during reading.
+           @since ARP1.0
+        */
+        onError(error: IGeolocationListenerError): void;
+        /**
+           Correct data received.
+
+           @param geolocation Geolocation Bean
+           @since ARP1.0
+        */
+        onResult(geolocation: Geolocation): void;
+        /**
+           Data received with warning - ie. HighDoP
+
+           @param geolocation Geolocation Bean
+           @param warning Type of warning encountered during reading.
+           @since ARP1.0
+        */
+        onWarning(geolocation: Geolocation, warning: IGeolocationListenerWarning): void;
+    }
+    class LifecycleListenerImpl extends BaseListenerImpl implements ILifecycleListener {
+        onErrorFunction: (error: ILifecycleListenerError) => Function;
+        onResultFunction: (lifecycle: Lifecycle) => Function;
+        onWarningFunction: (lifecycle: Lifecycle, warning: ILifecycleListenerWarning) => Function;
+        /**
+           Constructor with anonymous handler functions for listener.
+
+           @param onErrorFunction Function receiving parameters of type: ILifecycleListenerError
+           @param onResultFunction Function receiving parameters of type: Lifecycle
+           @param onWarningFunction Function receiving parameters of type: Lifecycle, ILifecycleListenerWarning
+        */
+        constructor(onErrorFunction: (error: ILifecycleListenerError) => Function, onResultFunction: (lifecycle: Lifecycle) => Function, onWarningFunction: (lifecycle: Lifecycle, warning: ILifecycleListenerWarning) => Function);
+        /**
+           No data received - error condition, not authorized or hardware not available.
+
+           @param error Type of error encountered during reading.
+           @since ARP1.0
+        */
+        onError(error: ILifecycleListenerError): void;
+        /**
+           Called when lifecycle changes somehow.
+
+           @param lifecycle Lifecycle element
+           @since ARP1.0
+        */
+        onResult(lifecycle: Lifecycle): void;
+        /**
+           Data received with warning
+
+           @param lifecycle Lifecycle element
+           @param warning Type of warning encountered during reading.
+           @since ARP1.0
+        */
+        onWarning(lifecycle: Lifecycle, warning: ILifecycleListenerWarning): void;
+    }
+    class NetworkStatusListenerImpl extends BaseListenerImpl implements INetworkStatusListener {
+        onErrorFunction: (error: INetworkStatusListenerError) => Function;
+        onResultFunction: (network: ICapabilitiesNet) => Function;
+        onWarningFunction: (network: ICapabilitiesNet, warning: INetworkStatusListenerWarning) => Function;
+        /**
+           Constructor with anonymous handler functions for listener.
+
+           @param onErrorFunction Function receiving parameters of type: INetworkStatusListenerError
+           @param onResultFunction Function receiving parameters of type: ICapabilitiesNet
+           @param onWarningFunction Function receiving parameters of type: ICapabilitiesNet, INetworkStatusListenerWarning
+        */
+        constructor(onErrorFunction: (error: INetworkStatusListenerError) => Function, onResultFunction: (network: ICapabilitiesNet) => Function, onWarningFunction: (network: ICapabilitiesNet, warning: INetworkStatusListenerWarning) => Function);
+        /**
+           No data received - error condition, not authorized or hardware not available.
+
+           @param error Type of error encountered during reading.
+           @since ARP1.0
+        */
+        onError(error: INetworkStatusListenerError): void;
+        /**
+           Called when network connection changes somehow.
+
+           @param network Change to this network.
+           @since ARP1.0
+        */
+        onResult(network: ICapabilitiesNet): void;
+        /**
+           Status received with warning
+
+           @param network Change to this network.
+           @param warning Type of warning encountered during reading.
+           @since ARP1.0
+        */
+        onWarning(network: ICapabilitiesNet, warning: INetworkStatusListenerWarning): void;
+    }
     class BaseCallbackImpl implements IBaseCallback {
         /**
            Unique id of callback.
