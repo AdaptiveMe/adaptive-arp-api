@@ -5333,6 +5333,451 @@ Possible lifecycle States:
         */
         setProfessionalInfo(professionalInfo: ContactProfessionalInfo): void;
     }
+    class BaseCallbackImpl implements IBaseCallback {
+        /**
+           Unique id of callback.
+        */
+        id: number;
+        /**
+           Group of API.
+        */
+        apiGroup: IAdaptiveRPGroup;
+        /**
+           Constructor with callback id.
+
+           @param id  The id of the callback.
+        */
+        constructor(id: number);
+        /**
+           Get the listener id.
+           @return long with the identifier of the callback.
+        */
+        getId(): number;
+        /**
+           Return the API group for the given interface.
+        */
+        getAPIGroup(): IAdaptiveRPGroup;
+    }
+    class ContactPhotoResultCallbackImpl extends BaseCallbackImpl implements IContactPhotoResultCallback {
+        onErrorFunction: (error: IContactPhotoResultCallbackError) => Function;
+        onResultFunction: (contactPhoto: number[]) => Function;
+        onWarningFunction: (contactPhoto: number[], warning: IContactPhotoResultCallbackWarning) => Function;
+        /**
+           Constructor with anonymous handler functions for callback.
+
+           @param onErrorFunction Function receiving parameters of type: IContactPhotoResultCallbackError
+           @param onResultFunction Function receiving parameters of type: Array<number>
+           @param onWarningFunction Function receiving parameters of type: Array<number>, IContactPhotoResultCallbackWarning
+        */
+        constructor(onErrorFunction: (error: IContactPhotoResultCallbackError) => Function, onResultFunction: (contactPhoto: number[]) => Function, onWarningFunction: (contactPhoto: number[], warning: IContactPhotoResultCallbackWarning) => Function);
+        /**
+           This method is called on Error
+
+           @param error returned by the platform
+           @since ARP1.0
+        */
+        onError(error: IContactPhotoResultCallbackError): void;
+        /**
+           This method is called on Result
+
+           @param contactPhoto returned by the platform
+           @since ARP1.0
+        */
+        onResult(contactPhoto: number[]): void;
+        /**
+           This method is called on Warning
+
+           @param contactPhoto returned by the platform
+           @param warning      returned by the platform
+           @since ARP1.0
+        */
+        onWarning(contactPhoto: number[], warning: IContactPhotoResultCallbackWarning): void;
+    }
+    class ContactResultCallbackImpl extends BaseCallbackImpl implements IContactResultCallback {
+        onErrorFunction: (error: IContactResultCallbackError) => Function;
+        onResultFunction: (contacts: Contact[]) => Function;
+        onWarningFunction: (contacts: Contact[], warning: IContactResultCallbackWarning) => Function;
+        /**
+           Constructor with anonymous handler functions for callback.
+
+           @param onErrorFunction Function receiving parameters of type: IContactResultCallbackError
+           @param onResultFunction Function receiving parameters of type: Array<Contact>
+           @param onWarningFunction Function receiving parameters of type: Array<Contact>, IContactResultCallbackWarning
+        */
+        constructor(onErrorFunction: (error: IContactResultCallbackError) => Function, onResultFunction: (contacts: Contact[]) => Function, onWarningFunction: (contacts: Contact[], warning: IContactResultCallbackWarning) => Function);
+        /**
+           This method is called on Error
+
+           @param error returned by the platform
+           @since ARP1.0
+        */
+        onError(error: IContactResultCallbackError): void;
+        /**
+           This method is called on Result
+
+           @param contacts returned by the platform
+           @since ARP1.0
+        */
+        onResult(contacts: Contact[]): void;
+        /**
+           This method is called on Warning
+
+           @param contacts returned by the platform
+           @param warning  returned by the platform
+           @since ARP1.0
+        */
+        onWarning(contacts: Contact[], warning: IContactResultCallbackWarning): void;
+    }
+    class DatabaseResultCallbackImpl extends BaseCallbackImpl implements IDatabaseResultCallback {
+        onErrorFunction: (error: IDatabaseResultCallbackError) => Function;
+        onResultFunction: (database: Database) => Function;
+        onWarningFunction: (database: Database, warning: IDatabaseResultCallbackWarning) => Function;
+        /**
+           Constructor with anonymous handler functions for callback.
+
+           @param onErrorFunction Function receiving parameters of type: IDatabaseResultCallbackError
+           @param onResultFunction Function receiving parameters of type: Database
+           @param onWarningFunction Function receiving parameters of type: Database, IDatabaseResultCallbackWarning
+        */
+        constructor(onErrorFunction: (error: IDatabaseResultCallbackError) => Function, onResultFunction: (database: Database) => Function, onWarningFunction: (database: Database, warning: IDatabaseResultCallbackWarning) => Function);
+        /**
+           Result callback for error responses
+
+           @param error Returned error
+           @since ARP1.0
+        */
+        onError(error: IDatabaseResultCallbackError): void;
+        /**
+           Result callback for correct responses
+
+           @param database Returns the database
+           @since ARP1.0
+        */
+        onResult(database: Database): void;
+        /**
+           Result callback for warning responses
+
+           @param database Returns the database
+           @param warning  Returned Warning
+           @since ARP1.0
+        */
+        onWarning(database: Database, warning: IDatabaseResultCallbackWarning): void;
+    }
+    class DatabaseTableResultCallbackImpl extends BaseCallbackImpl implements IDatabaseTableResultCallback {
+        onErrorFunction: (error: IDatabaseTableResultCallbackError) => Function;
+        onResultFunction: (databaseTable: DatabaseTable) => Function;
+        onWarningFunction: (databaseTable: DatabaseTable, warning: IDatabaseTableResultCallbackWarning) => Function;
+        /**
+           Constructor with anonymous handler functions for callback.
+
+           @param onErrorFunction Function receiving parameters of type: IDatabaseTableResultCallbackError
+           @param onResultFunction Function receiving parameters of type: DatabaseTable
+           @param onWarningFunction Function receiving parameters of type: DatabaseTable, IDatabaseTableResultCallbackWarning
+        */
+        constructor(onErrorFunction: (error: IDatabaseTableResultCallbackError) => Function, onResultFunction: (databaseTable: DatabaseTable) => Function, onWarningFunction: (databaseTable: DatabaseTable, warning: IDatabaseTableResultCallbackWarning) => Function);
+        /**
+           Result callback for error responses
+
+           @param error Returned error
+           @since ARP1.0
+        */
+        onError(error: IDatabaseTableResultCallbackError): void;
+        /**
+           Result callback for correct responses
+
+           @param databaseTable Returns the databaseTable
+           @since ARP1.0
+        */
+        onResult(databaseTable: DatabaseTable): void;
+        /**
+           Result callback for warning responses
+
+           @param databaseTable Returns the databaseTable
+           @param warning       Returned Warning
+           @since ARP1.0
+        */
+        onWarning(databaseTable: DatabaseTable, warning: IDatabaseTableResultCallbackWarning): void;
+    }
+    class FileDataLoadResultCallbackImpl extends BaseCallbackImpl implements IFileDataLoadResultCallback {
+        onErrorFunction: (error: IFileDataLoadResultCallbackError) => Function;
+        onResultFunction: (data: number[]) => Function;
+        onWarningFunction: (data: number[], warning: IFileDataLoadResultCallbackWarning) => Function;
+        /**
+           Constructor with anonymous handler functions for callback.
+
+           @param onErrorFunction Function receiving parameters of type: IFileDataLoadResultCallbackError
+           @param onResultFunction Function receiving parameters of type: Array<number>
+           @param onWarningFunction Function receiving parameters of type: Array<number>, IFileDataLoadResultCallbackWarning
+        */
+        constructor(onErrorFunction: (error: IFileDataLoadResultCallbackError) => Function, onResultFunction: (data: number[]) => Function, onWarningFunction: (data: number[], warning: IFileDataLoadResultCallbackWarning) => Function);
+        /**
+           Error processing data retrieval/storage operation.
+
+           @param error Error condition encountered.
+           @since ARP1.0
+        */
+        onError(error: IFileDataLoadResultCallbackError): void;
+        /**
+           Result of data retrieval operation.
+
+           @param data Data loaded.
+           @since ARP1.0
+        */
+        onResult(data: number[]): void;
+        /**
+           Result with warning of data retrieval/storage operation.
+
+           @param data    File being loaded.
+           @param warning Warning condition encountered.
+           @since ARP1.0
+        */
+        onWarning(data: number[], warning: IFileDataLoadResultCallbackWarning): void;
+    }
+    class FileDataStoreResultCallbackImpl extends BaseCallbackImpl implements IFileDataStoreResultCallback {
+        onErrorFunction: (error: IFileDataStoreResultCallbackError) => Function;
+        onResultFunction: (file: FileDescriptor) => Function;
+        onWarningFunction: (file: FileDescriptor, warning: IFileDataStoreResultCallbackWarning) => Function;
+        /**
+           Constructor with anonymous handler functions for callback.
+
+           @param onErrorFunction Function receiving parameters of type: IFileDataStoreResultCallbackError
+           @param onResultFunction Function receiving parameters of type: FileDescriptor
+           @param onWarningFunction Function receiving parameters of type: FileDescriptor, IFileDataStoreResultCallbackWarning
+        */
+        constructor(onErrorFunction: (error: IFileDataStoreResultCallbackError) => Function, onResultFunction: (file: FileDescriptor) => Function, onWarningFunction: (file: FileDescriptor, warning: IFileDataStoreResultCallbackWarning) => Function);
+        /**
+           Error processing data retrieval/storage operation.
+
+           @param error Error condition encountered.
+           @since ARP1.0
+        */
+        onError(error: IFileDataStoreResultCallbackError): void;
+        /**
+           Result of data storage operation.
+
+           @param file File reference to stored data.
+           @since ARP1.0
+        */
+        onResult(file: FileDescriptor): void;
+        /**
+           Result with warning of data retrieval/storage operation.
+
+           @param file    File being loaded/stored.
+           @param warning Warning condition encountered.
+           @since ARP1.0
+        */
+        onWarning(file: FileDescriptor, warning: IFileDataStoreResultCallbackWarning): void;
+    }
+    class FileListResultCallbackImpl extends BaseCallbackImpl implements IFileListResultCallback {
+        onErrorFunction: (error: IFileListResultCallbackError) => Function;
+        onResultFunction: (files: FileDescriptor[]) => Function;
+        onWarningFunction: (files: FileDescriptor[], warning: IFileListResultCallbackWarning) => Function;
+        /**
+           Constructor with anonymous handler functions for callback.
+
+           @param onErrorFunction Function receiving parameters of type: IFileListResultCallbackError
+           @param onResultFunction Function receiving parameters of type: Array<FileDescriptor>
+           @param onWarningFunction Function receiving parameters of type: Array<FileDescriptor>, IFileListResultCallbackWarning
+        */
+        constructor(onErrorFunction: (error: IFileListResultCallbackError) => Function, onResultFunction: (files: FileDescriptor[]) => Function, onWarningFunction: (files: FileDescriptor[], warning: IFileListResultCallbackWarning) => Function);
+        /**
+           On error result of a file operation.
+
+           @param error Error processing the request.
+           @since ARP1.0
+        */
+        onError(error: IFileListResultCallbackError): void;
+        /**
+           On correct result of a file operation.
+
+           @param files Array of resulting files/folders.
+           @since ARP1.0
+        */
+        onResult(files: FileDescriptor[]): void;
+        /**
+           On partial result of a file operation, containing a warning.
+
+           @param files   Array of resulting files/folders.
+           @param warning Warning condition encountered.
+           @since ARP1.0
+        */
+        onWarning(files: FileDescriptor[], warning: IFileListResultCallbackWarning): void;
+    }
+    class FileResultCallbackImpl extends BaseCallbackImpl implements IFileResultCallback {
+        onErrorFunction: (error: IFileResultCallbackError) => Function;
+        onResultFunction: (storageFile: FileDescriptor) => Function;
+        onWarningFunction: (file: FileDescriptor, warning: IFileResultCallbackWarning) => Function;
+        /**
+           Constructor with anonymous handler functions for callback.
+
+           @param onErrorFunction Function receiving parameters of type: IFileResultCallbackError
+           @param onResultFunction Function receiving parameters of type: FileDescriptor
+           @param onWarningFunction Function receiving parameters of type: FileDescriptor, IFileResultCallbackWarning
+        */
+        constructor(onErrorFunction: (error: IFileResultCallbackError) => Function, onResultFunction: (storageFile: FileDescriptor) => Function, onWarningFunction: (file: FileDescriptor, warning: IFileResultCallbackWarning) => Function);
+        /**
+           On error result of a file operation.
+
+           @param error Error processing the request.
+           @since ARP1.0
+        */
+        onError(error: IFileResultCallbackError): void;
+        /**
+           On correct result of a file operation.
+
+           @param storageFile Reference to the resulting file.
+           @since ARP1.0
+        */
+        onResult(storageFile: FileDescriptor): void;
+        /**
+           On partial result of a file operation, containing a warning.
+
+           @param file    Reference to the offending file.
+           @param warning Warning processing the request.
+           @since ARP1.0
+        */
+        onWarning(file: FileDescriptor, warning: IFileResultCallbackWarning): void;
+    }
+    class MessagingCallbackImpl extends BaseCallbackImpl implements IMessagingCallback {
+        onErrorFunction: (error: IMessagingCallbackError) => Function;
+        onResultFunction: (success: boolean) => Function;
+        onWarningFunction: (success: boolean, warning: IMessagingCallbackWarning) => Function;
+        /**
+           Constructor with anonymous handler functions for callback.
+
+           @param onErrorFunction Function receiving parameters of type: IMessagingCallbackError
+           @param onResultFunction Function receiving parameters of type: boolean
+           @param onWarningFunction Function receiving parameters of type: boolean, IMessagingCallbackWarning
+        */
+        constructor(onErrorFunction: (error: IMessagingCallbackError) => Function, onResultFunction: (success: boolean) => Function, onWarningFunction: (success: boolean, warning: IMessagingCallbackWarning) => Function);
+        /**
+           This method is called on Error
+
+           @param error returned by the platform
+           @since ARP1.0
+        */
+        onError(error: IMessagingCallbackError): void;
+        /**
+           This method is called on Result
+
+           @param success true if sent;false otherwise
+           @since ARP1.0
+        */
+        onResult(success: boolean): void;
+        /**
+           This method is called on Warning
+
+           @param success true if sent;false otherwise
+           @param warning returned by the platform
+           @since ARP1.0
+        */
+        onWarning(success: boolean, warning: IMessagingCallbackWarning): void;
+    }
+    class NetworkReachabilityCallbackImpl extends BaseCallbackImpl implements INetworkReachabilityCallback {
+        onErrorFunction: (error: INetworkReachabilityCallbackError) => Function;
+        onResultFunction: (reachable: boolean) => Function;
+        onWarningFunction: (reachable: boolean, warning: INetworkReachabilityCallbackWarning) => Function;
+        /**
+           Constructor with anonymous handler functions for callback.
+
+           @param onErrorFunction Function receiving parameters of type: INetworkReachabilityCallbackError
+           @param onResultFunction Function receiving parameters of type: boolean
+           @param onWarningFunction Function receiving parameters of type: boolean, INetworkReachabilityCallbackWarning
+        */
+        constructor(onErrorFunction: (error: INetworkReachabilityCallbackError) => Function, onResultFunction: (reachable: boolean) => Function, onWarningFunction: (reachable: boolean, warning: INetworkReachabilityCallbackWarning) => Function);
+        /**
+           No data received - error condition, not authorized .
+
+           @param error Error value
+           @since ARP1.0
+        */
+        onError(error: INetworkReachabilityCallbackError): void;
+        /**
+           Correct data received.
+
+           @param reachable Indicates if the host is reachable
+           @since ARP1.0
+        */
+        onResult(reachable: boolean): void;
+        /**
+           Data received with warning - ie Found entries with existing key and values have been overriden
+
+           @param reachable Indicates if the host is reachable
+           @param warning   Warning value
+           @since ARP1.0
+        */
+        onWarning(reachable: boolean, warning: INetworkReachabilityCallbackWarning): void;
+    }
+    class SecurityResultCallbackImpl extends BaseCallbackImpl implements ISecurityResultCallback {
+        onErrorFunction: (error: ISecurityResultCallbackError) => Function;
+        onResultFunction: (keyValues: SecureKeyPair[]) => Function;
+        onWarningFunction: (keyValues: SecureKeyPair[], warning: ISecurityResultCallbackWarning) => Function;
+        /**
+           Constructor with anonymous handler functions for callback.
+
+           @param onErrorFunction Function receiving parameters of type: ISecurityResultCallbackError
+           @param onResultFunction Function receiving parameters of type: Array<SecureKeyPair>
+           @param onWarningFunction Function receiving parameters of type: Array<SecureKeyPair>, ISecurityResultCallbackWarning
+        */
+        constructor(onErrorFunction: (error: ISecurityResultCallbackError) => Function, onResultFunction: (keyValues: SecureKeyPair[]) => Function, onWarningFunction: (keyValues: SecureKeyPair[], warning: ISecurityResultCallbackWarning) => Function);
+        /**
+           No data received - error condition, not authorized .
+
+           @param error Error values
+           @since ARP1.0
+        */
+        onError(error: ISecurityResultCallbackError): void;
+        /**
+           Correct data received.
+
+           @param keyValues key and values
+           @since ARP1.0
+        */
+        onResult(keyValues: SecureKeyPair[]): void;
+        /**
+           Data received with warning - ie Found entries with existing key and values have been overriden
+
+           @param keyValues key and values
+           @param warning   Warning values
+           @since ARP1.0
+        */
+        onWarning(keyValues: SecureKeyPair[], warning: ISecurityResultCallbackWarning): void;
+    }
+    class ServiceResultCallbackImpl extends BaseCallbackImpl implements IServiceResultCallback {
+        onErrorFunction: (error: IServiceResultCallbackError) => Function;
+        onResultFunction: (response: ServiceResponse) => Function;
+        onWarningFunction: (response: ServiceResponse, warning: IServiceResultCallbackWarning) => Function;
+        /**
+           Constructor with anonymous handler functions for callback.
+
+           @param onErrorFunction Function receiving parameters of type: IServiceResultCallbackError
+           @param onResultFunction Function receiving parameters of type: ServiceResponse
+           @param onWarningFunction Function receiving parameters of type: ServiceResponse, IServiceResultCallbackWarning
+        */
+        constructor(onErrorFunction: (error: IServiceResultCallbackError) => Function, onResultFunction: (response: ServiceResponse) => Function, onWarningFunction: (response: ServiceResponse, warning: IServiceResultCallbackWarning) => Function);
+        /**
+           This method is called on Error
+
+           @param error returned by the platform
+           @since ARP1.0
+        */
+        onError(error: IServiceResultCallbackError): void;
+        /**
+           This method is called on Result
+
+           @param response data
+           @since ARP1.0
+        */
+        onResult(response: ServiceResponse): void;
+        /**
+           This method is called on Warning
+
+           @param response data
+           @param warning  returned by the platform
+           @since ARP1.0
+        */
+        onWarning(response: ServiceResponse, warning: IServiceResultCallbackWarning): void;
+    }
     /**
        Enumeration ContactAddressType
     */
@@ -6097,5 +6542,37 @@ Possible lifecycle States:
         static Resuming: LifecycleState;
         static Stopping: LifecycleState;
         static Unknown: LifecycleState;
+    }
+    /**
+       Global unique id for listeners and callbacks.
+    */
+    var registeredCounter: number;
+    /**
+       Base url for for http/https JSON requests.
+    */
+    var bridgePath: string;
+    /**
+       Utility class for Dictionary type support.
+    */
+    interface IDictionary<V> {
+        add(key: string, value: V): void;
+        remove(key: string): void;
+        containsKey(key: string): boolean;
+        keys(): string[];
+        values(): V[];
+    }
+    class Dictionary<V> implements IDictionary<V> {
+        _keys: string[];
+        _values: V[];
+        constructor(init: {
+            key: string;
+            value: V;
+        }[]);
+        add(key: string, value: V): void;
+        remove(key: string): void;
+        keys(): string[];
+        values(): V[];
+        containsKey(key: string): boolean;
+        toLookup(): IDictionary<V>;
     }
 }

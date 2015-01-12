@@ -6336,6 +6336,969 @@ Possible lifecycle States:
           }
 
      }
+
+     export class BaseCallbackImpl implements IBaseCallback {
+
+          /**
+             Unique id of callback.
+          */
+          id : number;
+
+          /**
+             Group of API.
+          */
+          apiGroup : IAdaptiveRPGroup;
+
+          /**
+             Constructor with callback id.
+
+             @param id  The id of the callback.
+          */
+          constructor(id : number) {
+               this.id = id;
+               this.apiGroup = IAdaptiveRPGroup.Application;
+          }
+
+          /**
+             Get the listener id.
+             @return long with the identifier of the callback.
+          */
+          getId() : number {
+               return this.id;
+          }
+
+          /**
+             Return the API group for the given interface.
+          */
+          getAPIGroup() : IAdaptiveRPGroup {
+               return this.apiGroup;
+          }
+
+     }
+
+     export class ContactPhotoResultCallbackImpl extends BaseCallbackImpl implements IContactPhotoResultCallback {
+
+          onErrorFunction : (error : IContactPhotoResultCallbackError) => Function;
+          onResultFunction : (contactPhoto : Array<number>) => Function;
+          onWarningFunction : (contactPhoto : Array<number>, warning : IContactPhotoResultCallbackWarning) => Function;
+
+          /**
+             Constructor with anonymous handler functions for callback.
+
+             @param onErrorFunction Function receiving parameters of type: IContactPhotoResultCallbackError
+             @param onResultFunction Function receiving parameters of type: Array<number>
+             @param onWarningFunction Function receiving parameters of type: Array<number>, IContactPhotoResultCallbackWarning
+          */
+          constructor(onErrorFunction : (error : IContactPhotoResultCallbackError) => Function, onResultFunction : (contactPhoto : Array<number>) => Function, onWarningFunction : (contactPhoto : Array<number>, warning : IContactPhotoResultCallbackWarning) => Function) {
+               super(++registeredCounter);
+               if (onErrorFunction == null) {
+                    console.error("ERROR: ContactPhotoResultCallbackImpl onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (onResultFunction == null) {
+                    console.error("ERROR: ContactPhotoResultCallbackImpl onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (onWarningFunction == null) {
+                    console.error("ERROR: ContactPhotoResultCallbackImpl onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
+          }
+
+          /**
+             This method is called on Error
+
+             @param error returned by the platform
+             @since ARP1.0
+          */
+          public onError(error : IContactPhotoResultCallbackError) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: ContactPhotoResultCallbackImpl contains a null reference to onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
+          }
+
+          /**
+             This method is called on Result
+
+             @param contactPhoto returned by the platform
+             @since ARP1.0
+          */
+          public onResult(contactPhoto : Array<number>) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: ContactPhotoResultCallbackImpl contains a null reference to onResultFunction.");
+               } else {
+                    this.onResultFunction(contactPhoto);
+               }
+          }
+
+          /**
+             This method is called on Warning
+
+             @param contactPhoto returned by the platform
+             @param warning      returned by the platform
+             @since ARP1.0
+          */
+          public onWarning(contactPhoto : Array<number>, warning : IContactPhotoResultCallbackWarning) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: ContactPhotoResultCallbackImpl contains a null reference to onWarningFunction.");
+               } else {
+                    this.onWarningFunction(contactPhoto, warning);
+               }
+          }
+
+     }
+
+     export class ContactResultCallbackImpl extends BaseCallbackImpl implements IContactResultCallback {
+
+          onErrorFunction : (error : IContactResultCallbackError) => Function;
+          onResultFunction : (contacts : Array<Contact>) => Function;
+          onWarningFunction : (contacts : Array<Contact>, warning : IContactResultCallbackWarning) => Function;
+
+          /**
+             Constructor with anonymous handler functions for callback.
+
+             @param onErrorFunction Function receiving parameters of type: IContactResultCallbackError
+             @param onResultFunction Function receiving parameters of type: Array<Contact>
+             @param onWarningFunction Function receiving parameters of type: Array<Contact>, IContactResultCallbackWarning
+          */
+          constructor(onErrorFunction : (error : IContactResultCallbackError) => Function, onResultFunction : (contacts : Array<Contact>) => Function, onWarningFunction : (contacts : Array<Contact>, warning : IContactResultCallbackWarning) => Function) {
+               super(++registeredCounter);
+               if (onErrorFunction == null) {
+                    console.error("ERROR: ContactResultCallbackImpl onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (onResultFunction == null) {
+                    console.error("ERROR: ContactResultCallbackImpl onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (onWarningFunction == null) {
+                    console.error("ERROR: ContactResultCallbackImpl onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
+          }
+
+          /**
+             This method is called on Error
+
+             @param error returned by the platform
+             @since ARP1.0
+          */
+          public onError(error : IContactResultCallbackError) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: ContactResultCallbackImpl contains a null reference to onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
+          }
+
+          /**
+             This method is called on Result
+
+             @param contacts returned by the platform
+             @since ARP1.0
+          */
+          public onResult(contacts : Array<Contact>) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: ContactResultCallbackImpl contains a null reference to onResultFunction.");
+               } else {
+                    this.onResultFunction(contacts);
+               }
+          }
+
+          /**
+             This method is called on Warning
+
+             @param contacts returned by the platform
+             @param warning  returned by the platform
+             @since ARP1.0
+          */
+          public onWarning(contacts : Array<Contact>, warning : IContactResultCallbackWarning) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: ContactResultCallbackImpl contains a null reference to onWarningFunction.");
+               } else {
+                    this.onWarningFunction(contacts, warning);
+               }
+          }
+
+     }
+
+     export class DatabaseResultCallbackImpl extends BaseCallbackImpl implements IDatabaseResultCallback {
+
+          onErrorFunction : (error : IDatabaseResultCallbackError) => Function;
+          onResultFunction : (database : Database) => Function;
+          onWarningFunction : (database : Database, warning : IDatabaseResultCallbackWarning) => Function;
+
+          /**
+             Constructor with anonymous handler functions for callback.
+
+             @param onErrorFunction Function receiving parameters of type: IDatabaseResultCallbackError
+             @param onResultFunction Function receiving parameters of type: Database
+             @param onWarningFunction Function receiving parameters of type: Database, IDatabaseResultCallbackWarning
+          */
+          constructor(onErrorFunction : (error : IDatabaseResultCallbackError) => Function, onResultFunction : (database : Database) => Function, onWarningFunction : (database : Database, warning : IDatabaseResultCallbackWarning) => Function) {
+               super(++registeredCounter);
+               if (onErrorFunction == null) {
+                    console.error("ERROR: DatabaseResultCallbackImpl onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (onResultFunction == null) {
+                    console.error("ERROR: DatabaseResultCallbackImpl onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (onWarningFunction == null) {
+                    console.error("ERROR: DatabaseResultCallbackImpl onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
+          }
+
+          /**
+             Result callback for error responses
+
+             @param error Returned error
+             @since ARP1.0
+          */
+          public onError(error : IDatabaseResultCallbackError) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: DatabaseResultCallbackImpl contains a null reference to onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
+          }
+
+          /**
+             Result callback for correct responses
+
+             @param database Returns the database
+             @since ARP1.0
+          */
+          public onResult(database : Database) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: DatabaseResultCallbackImpl contains a null reference to onResultFunction.");
+               } else {
+                    this.onResultFunction(database);
+               }
+          }
+
+          /**
+             Result callback for warning responses
+
+             @param database Returns the database
+             @param warning  Returned Warning
+             @since ARP1.0
+          */
+          public onWarning(database : Database, warning : IDatabaseResultCallbackWarning) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: DatabaseResultCallbackImpl contains a null reference to onWarningFunction.");
+               } else {
+                    this.onWarningFunction(database, warning);
+               }
+          }
+
+     }
+
+     export class DatabaseTableResultCallbackImpl extends BaseCallbackImpl implements IDatabaseTableResultCallback {
+
+          onErrorFunction : (error : IDatabaseTableResultCallbackError) => Function;
+          onResultFunction : (databaseTable : DatabaseTable) => Function;
+          onWarningFunction : (databaseTable : DatabaseTable, warning : IDatabaseTableResultCallbackWarning) => Function;
+
+          /**
+             Constructor with anonymous handler functions for callback.
+
+             @param onErrorFunction Function receiving parameters of type: IDatabaseTableResultCallbackError
+             @param onResultFunction Function receiving parameters of type: DatabaseTable
+             @param onWarningFunction Function receiving parameters of type: DatabaseTable, IDatabaseTableResultCallbackWarning
+          */
+          constructor(onErrorFunction : (error : IDatabaseTableResultCallbackError) => Function, onResultFunction : (databaseTable : DatabaseTable) => Function, onWarningFunction : (databaseTable : DatabaseTable, warning : IDatabaseTableResultCallbackWarning) => Function) {
+               super(++registeredCounter);
+               if (onErrorFunction == null) {
+                    console.error("ERROR: DatabaseTableResultCallbackImpl onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (onResultFunction == null) {
+                    console.error("ERROR: DatabaseTableResultCallbackImpl onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (onWarningFunction == null) {
+                    console.error("ERROR: DatabaseTableResultCallbackImpl onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
+          }
+
+          /**
+             Result callback for error responses
+
+             @param error Returned error
+             @since ARP1.0
+          */
+          public onError(error : IDatabaseTableResultCallbackError) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: DatabaseTableResultCallbackImpl contains a null reference to onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
+          }
+
+          /**
+             Result callback for correct responses
+
+             @param databaseTable Returns the databaseTable
+             @since ARP1.0
+          */
+          public onResult(databaseTable : DatabaseTable) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: DatabaseTableResultCallbackImpl contains a null reference to onResultFunction.");
+               } else {
+                    this.onResultFunction(databaseTable);
+               }
+          }
+
+          /**
+             Result callback for warning responses
+
+             @param databaseTable Returns the databaseTable
+             @param warning       Returned Warning
+             @since ARP1.0
+          */
+          public onWarning(databaseTable : DatabaseTable, warning : IDatabaseTableResultCallbackWarning) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: DatabaseTableResultCallbackImpl contains a null reference to onWarningFunction.");
+               } else {
+                    this.onWarningFunction(databaseTable, warning);
+               }
+          }
+
+     }
+
+     export class FileDataLoadResultCallbackImpl extends BaseCallbackImpl implements IFileDataLoadResultCallback {
+
+          onErrorFunction : (error : IFileDataLoadResultCallbackError) => Function;
+          onResultFunction : (data : Array<number>) => Function;
+          onWarningFunction : (data : Array<number>, warning : IFileDataLoadResultCallbackWarning) => Function;
+
+          /**
+             Constructor with anonymous handler functions for callback.
+
+             @param onErrorFunction Function receiving parameters of type: IFileDataLoadResultCallbackError
+             @param onResultFunction Function receiving parameters of type: Array<number>
+             @param onWarningFunction Function receiving parameters of type: Array<number>, IFileDataLoadResultCallbackWarning
+          */
+          constructor(onErrorFunction : (error : IFileDataLoadResultCallbackError) => Function, onResultFunction : (data : Array<number>) => Function, onWarningFunction : (data : Array<number>, warning : IFileDataLoadResultCallbackWarning) => Function) {
+               super(++registeredCounter);
+               if (onErrorFunction == null) {
+                    console.error("ERROR: FileDataLoadResultCallbackImpl onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (onResultFunction == null) {
+                    console.error("ERROR: FileDataLoadResultCallbackImpl onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (onWarningFunction == null) {
+                    console.error("ERROR: FileDataLoadResultCallbackImpl onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
+          }
+
+          /**
+             Error processing data retrieval/storage operation.
+
+             @param error Error condition encountered.
+             @since ARP1.0
+          */
+          public onError(error : IFileDataLoadResultCallbackError) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: FileDataLoadResultCallbackImpl contains a null reference to onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
+          }
+
+          /**
+             Result of data retrieval operation.
+
+             @param data Data loaded.
+             @since ARP1.0
+          */
+          public onResult(data : Array<number>) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: FileDataLoadResultCallbackImpl contains a null reference to onResultFunction.");
+               } else {
+                    this.onResultFunction(data);
+               }
+          }
+
+          /**
+             Result with warning of data retrieval/storage operation.
+
+             @param data    File being loaded.
+             @param warning Warning condition encountered.
+             @since ARP1.0
+          */
+          public onWarning(data : Array<number>, warning : IFileDataLoadResultCallbackWarning) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: FileDataLoadResultCallbackImpl contains a null reference to onWarningFunction.");
+               } else {
+                    this.onWarningFunction(data, warning);
+               }
+          }
+
+     }
+
+     export class FileDataStoreResultCallbackImpl extends BaseCallbackImpl implements IFileDataStoreResultCallback {
+
+          onErrorFunction : (error : IFileDataStoreResultCallbackError) => Function;
+          onResultFunction : (file : FileDescriptor) => Function;
+          onWarningFunction : (file : FileDescriptor, warning : IFileDataStoreResultCallbackWarning) => Function;
+
+          /**
+             Constructor with anonymous handler functions for callback.
+
+             @param onErrorFunction Function receiving parameters of type: IFileDataStoreResultCallbackError
+             @param onResultFunction Function receiving parameters of type: FileDescriptor
+             @param onWarningFunction Function receiving parameters of type: FileDescriptor, IFileDataStoreResultCallbackWarning
+          */
+          constructor(onErrorFunction : (error : IFileDataStoreResultCallbackError) => Function, onResultFunction : (file : FileDescriptor) => Function, onWarningFunction : (file : FileDescriptor, warning : IFileDataStoreResultCallbackWarning) => Function) {
+               super(++registeredCounter);
+               if (onErrorFunction == null) {
+                    console.error("ERROR: FileDataStoreResultCallbackImpl onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (onResultFunction == null) {
+                    console.error("ERROR: FileDataStoreResultCallbackImpl onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (onWarningFunction == null) {
+                    console.error("ERROR: FileDataStoreResultCallbackImpl onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
+          }
+
+          /**
+             Error processing data retrieval/storage operation.
+
+             @param error Error condition encountered.
+             @since ARP1.0
+          */
+          public onError(error : IFileDataStoreResultCallbackError) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: FileDataStoreResultCallbackImpl contains a null reference to onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
+          }
+
+          /**
+             Result of data storage operation.
+
+             @param file File reference to stored data.
+             @since ARP1.0
+          */
+          public onResult(file : FileDescriptor) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: FileDataStoreResultCallbackImpl contains a null reference to onResultFunction.");
+               } else {
+                    this.onResultFunction(file);
+               }
+          }
+
+          /**
+             Result with warning of data retrieval/storage operation.
+
+             @param file    File being loaded/stored.
+             @param warning Warning condition encountered.
+             @since ARP1.0
+          */
+          public onWarning(file : FileDescriptor, warning : IFileDataStoreResultCallbackWarning) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: FileDataStoreResultCallbackImpl contains a null reference to onWarningFunction.");
+               } else {
+                    this.onWarningFunction(file, warning);
+               }
+          }
+
+     }
+
+     export class FileListResultCallbackImpl extends BaseCallbackImpl implements IFileListResultCallback {
+
+          onErrorFunction : (error : IFileListResultCallbackError) => Function;
+          onResultFunction : (files : Array<FileDescriptor>) => Function;
+          onWarningFunction : (files : Array<FileDescriptor>, warning : IFileListResultCallbackWarning) => Function;
+
+          /**
+             Constructor with anonymous handler functions for callback.
+
+             @param onErrorFunction Function receiving parameters of type: IFileListResultCallbackError
+             @param onResultFunction Function receiving parameters of type: Array<FileDescriptor>
+             @param onWarningFunction Function receiving parameters of type: Array<FileDescriptor>, IFileListResultCallbackWarning
+          */
+          constructor(onErrorFunction : (error : IFileListResultCallbackError) => Function, onResultFunction : (files : Array<FileDescriptor>) => Function, onWarningFunction : (files : Array<FileDescriptor>, warning : IFileListResultCallbackWarning) => Function) {
+               super(++registeredCounter);
+               if (onErrorFunction == null) {
+                    console.error("ERROR: FileListResultCallbackImpl onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (onResultFunction == null) {
+                    console.error("ERROR: FileListResultCallbackImpl onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (onWarningFunction == null) {
+                    console.error("ERROR: FileListResultCallbackImpl onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
+          }
+
+          /**
+             On error result of a file operation.
+
+             @param error Error processing the request.
+             @since ARP1.0
+          */
+          public onError(error : IFileListResultCallbackError) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: FileListResultCallbackImpl contains a null reference to onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
+          }
+
+          /**
+             On correct result of a file operation.
+
+             @param files Array of resulting files/folders.
+             @since ARP1.0
+          */
+          public onResult(files : Array<FileDescriptor>) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: FileListResultCallbackImpl contains a null reference to onResultFunction.");
+               } else {
+                    this.onResultFunction(files);
+               }
+          }
+
+          /**
+             On partial result of a file operation, containing a warning.
+
+             @param files   Array of resulting files/folders.
+             @param warning Warning condition encountered.
+             @since ARP1.0
+          */
+          public onWarning(files : Array<FileDescriptor>, warning : IFileListResultCallbackWarning) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: FileListResultCallbackImpl contains a null reference to onWarningFunction.");
+               } else {
+                    this.onWarningFunction(files, warning);
+               }
+          }
+
+     }
+
+     export class FileResultCallbackImpl extends BaseCallbackImpl implements IFileResultCallback {
+
+          onErrorFunction : (error : IFileResultCallbackError) => Function;
+          onResultFunction : (storageFile : FileDescriptor) => Function;
+          onWarningFunction : (file : FileDescriptor, warning : IFileResultCallbackWarning) => Function;
+
+          /**
+             Constructor with anonymous handler functions for callback.
+
+             @param onErrorFunction Function receiving parameters of type: IFileResultCallbackError
+             @param onResultFunction Function receiving parameters of type: FileDescriptor
+             @param onWarningFunction Function receiving parameters of type: FileDescriptor, IFileResultCallbackWarning
+          */
+          constructor(onErrorFunction : (error : IFileResultCallbackError) => Function, onResultFunction : (storageFile : FileDescriptor) => Function, onWarningFunction : (file : FileDescriptor, warning : IFileResultCallbackWarning) => Function) {
+               super(++registeredCounter);
+               if (onErrorFunction == null) {
+                    console.error("ERROR: FileResultCallbackImpl onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (onResultFunction == null) {
+                    console.error("ERROR: FileResultCallbackImpl onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (onWarningFunction == null) {
+                    console.error("ERROR: FileResultCallbackImpl onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
+          }
+
+          /**
+             On error result of a file operation.
+
+             @param error Error processing the request.
+             @since ARP1.0
+          */
+          public onError(error : IFileResultCallbackError) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: FileResultCallbackImpl contains a null reference to onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
+          }
+
+          /**
+             On correct result of a file operation.
+
+             @param storageFile Reference to the resulting file.
+             @since ARP1.0
+          */
+          public onResult(storageFile : FileDescriptor) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: FileResultCallbackImpl contains a null reference to onResultFunction.");
+               } else {
+                    this.onResultFunction(storageFile);
+               }
+          }
+
+          /**
+             On partial result of a file operation, containing a warning.
+
+             @param file    Reference to the offending file.
+             @param warning Warning processing the request.
+             @since ARP1.0
+          */
+          public onWarning(file : FileDescriptor, warning : IFileResultCallbackWarning) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: FileResultCallbackImpl contains a null reference to onWarningFunction.");
+               } else {
+                    this.onWarningFunction(file, warning);
+               }
+          }
+
+     }
+
+     export class MessagingCallbackImpl extends BaseCallbackImpl implements IMessagingCallback {
+
+          onErrorFunction : (error : IMessagingCallbackError) => Function;
+          onResultFunction : (success : boolean) => Function;
+          onWarningFunction : (success : boolean, warning : IMessagingCallbackWarning) => Function;
+
+          /**
+             Constructor with anonymous handler functions for callback.
+
+             @param onErrorFunction Function receiving parameters of type: IMessagingCallbackError
+             @param onResultFunction Function receiving parameters of type: boolean
+             @param onWarningFunction Function receiving parameters of type: boolean, IMessagingCallbackWarning
+          */
+          constructor(onErrorFunction : (error : IMessagingCallbackError) => Function, onResultFunction : (success : boolean) => Function, onWarningFunction : (success : boolean, warning : IMessagingCallbackWarning) => Function) {
+               super(++registeredCounter);
+               if (onErrorFunction == null) {
+                    console.error("ERROR: MessagingCallbackImpl onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (onResultFunction == null) {
+                    console.error("ERROR: MessagingCallbackImpl onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (onWarningFunction == null) {
+                    console.error("ERROR: MessagingCallbackImpl onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
+          }
+
+          /**
+             This method is called on Error
+
+             @param error returned by the platform
+             @since ARP1.0
+          */
+          public onError(error : IMessagingCallbackError) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: MessagingCallbackImpl contains a null reference to onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
+          }
+
+          /**
+             This method is called on Result
+
+             @param success true if sent;false otherwise
+             @since ARP1.0
+          */
+          public onResult(success : boolean) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: MessagingCallbackImpl contains a null reference to onResultFunction.");
+               } else {
+                    this.onResultFunction(success);
+               }
+          }
+
+          /**
+             This method is called on Warning
+
+             @param success true if sent;false otherwise
+             @param warning returned by the platform
+             @since ARP1.0
+          */
+          public onWarning(success : boolean, warning : IMessagingCallbackWarning) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: MessagingCallbackImpl contains a null reference to onWarningFunction.");
+               } else {
+                    this.onWarningFunction(success, warning);
+               }
+          }
+
+     }
+
+     export class NetworkReachabilityCallbackImpl extends BaseCallbackImpl implements INetworkReachabilityCallback {
+
+          onErrorFunction : (error : INetworkReachabilityCallbackError) => Function;
+          onResultFunction : (reachable : boolean) => Function;
+          onWarningFunction : (reachable : boolean, warning : INetworkReachabilityCallbackWarning) => Function;
+
+          /**
+             Constructor with anonymous handler functions for callback.
+
+             @param onErrorFunction Function receiving parameters of type: INetworkReachabilityCallbackError
+             @param onResultFunction Function receiving parameters of type: boolean
+             @param onWarningFunction Function receiving parameters of type: boolean, INetworkReachabilityCallbackWarning
+          */
+          constructor(onErrorFunction : (error : INetworkReachabilityCallbackError) => Function, onResultFunction : (reachable : boolean) => Function, onWarningFunction : (reachable : boolean, warning : INetworkReachabilityCallbackWarning) => Function) {
+               super(++registeredCounter);
+               if (onErrorFunction == null) {
+                    console.error("ERROR: NetworkReachabilityCallbackImpl onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (onResultFunction == null) {
+                    console.error("ERROR: NetworkReachabilityCallbackImpl onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (onWarningFunction == null) {
+                    console.error("ERROR: NetworkReachabilityCallbackImpl onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
+          }
+
+          /**
+             No data received - error condition, not authorized .
+
+             @param error Error value
+             @since ARP1.0
+          */
+          public onError(error : INetworkReachabilityCallbackError) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: NetworkReachabilityCallbackImpl contains a null reference to onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
+          }
+
+          /**
+             Correct data received.
+
+             @param reachable Indicates if the host is reachable
+             @since ARP1.0
+          */
+          public onResult(reachable : boolean) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: NetworkReachabilityCallbackImpl contains a null reference to onResultFunction.");
+               } else {
+                    this.onResultFunction(reachable);
+               }
+          }
+
+          /**
+             Data received with warning - ie Found entries with existing key and values have been overriden
+
+             @param reachable Indicates if the host is reachable
+             @param warning   Warning value
+             @since ARP1.0
+          */
+          public onWarning(reachable : boolean, warning : INetworkReachabilityCallbackWarning) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: NetworkReachabilityCallbackImpl contains a null reference to onWarningFunction.");
+               } else {
+                    this.onWarningFunction(reachable, warning);
+               }
+          }
+
+     }
+
+     export class SecurityResultCallbackImpl extends BaseCallbackImpl implements ISecurityResultCallback {
+
+          onErrorFunction : (error : ISecurityResultCallbackError) => Function;
+          onResultFunction : (keyValues : Array<SecureKeyPair>) => Function;
+          onWarningFunction : (keyValues : Array<SecureKeyPair>, warning : ISecurityResultCallbackWarning) => Function;
+
+          /**
+             Constructor with anonymous handler functions for callback.
+
+             @param onErrorFunction Function receiving parameters of type: ISecurityResultCallbackError
+             @param onResultFunction Function receiving parameters of type: Array<SecureKeyPair>
+             @param onWarningFunction Function receiving parameters of type: Array<SecureKeyPair>, ISecurityResultCallbackWarning
+          */
+          constructor(onErrorFunction : (error : ISecurityResultCallbackError) => Function, onResultFunction : (keyValues : Array<SecureKeyPair>) => Function, onWarningFunction : (keyValues : Array<SecureKeyPair>, warning : ISecurityResultCallbackWarning) => Function) {
+               super(++registeredCounter);
+               if (onErrorFunction == null) {
+                    console.error("ERROR: SecurityResultCallbackImpl onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (onResultFunction == null) {
+                    console.error("ERROR: SecurityResultCallbackImpl onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (onWarningFunction == null) {
+                    console.error("ERROR: SecurityResultCallbackImpl onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
+          }
+
+          /**
+             No data received - error condition, not authorized .
+
+             @param error Error values
+             @since ARP1.0
+          */
+          public onError(error : ISecurityResultCallbackError) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: SecurityResultCallbackImpl contains a null reference to onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
+          }
+
+          /**
+             Correct data received.
+
+             @param keyValues key and values
+             @since ARP1.0
+          */
+          public onResult(keyValues : Array<SecureKeyPair>) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: SecurityResultCallbackImpl contains a null reference to onResultFunction.");
+               } else {
+                    this.onResultFunction(keyValues);
+               }
+          }
+
+          /**
+             Data received with warning - ie Found entries with existing key and values have been overriden
+
+             @param keyValues key and values
+             @param warning   Warning values
+             @since ARP1.0
+          */
+          public onWarning(keyValues : Array<SecureKeyPair>, warning : ISecurityResultCallbackWarning) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: SecurityResultCallbackImpl contains a null reference to onWarningFunction.");
+               } else {
+                    this.onWarningFunction(keyValues, warning);
+               }
+          }
+
+     }
+
+     export class ServiceResultCallbackImpl extends BaseCallbackImpl implements IServiceResultCallback {
+
+          onErrorFunction : (error : IServiceResultCallbackError) => Function;
+          onResultFunction : (response : ServiceResponse) => Function;
+          onWarningFunction : (response : ServiceResponse, warning : IServiceResultCallbackWarning) => Function;
+
+          /**
+             Constructor with anonymous handler functions for callback.
+
+             @param onErrorFunction Function receiving parameters of type: IServiceResultCallbackError
+             @param onResultFunction Function receiving parameters of type: ServiceResponse
+             @param onWarningFunction Function receiving parameters of type: ServiceResponse, IServiceResultCallbackWarning
+          */
+          constructor(onErrorFunction : (error : IServiceResultCallbackError) => Function, onResultFunction : (response : ServiceResponse) => Function, onWarningFunction : (response : ServiceResponse, warning : IServiceResultCallbackWarning) => Function) {
+               super(++registeredCounter);
+               if (onErrorFunction == null) {
+                    console.error("ERROR: ServiceResultCallbackImpl onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (onResultFunction == null) {
+                    console.error("ERROR: ServiceResultCallbackImpl onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (onWarningFunction == null) {
+                    console.error("ERROR: ServiceResultCallbackImpl onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
+          }
+
+          /**
+             This method is called on Error
+
+             @param error returned by the platform
+             @since ARP1.0
+          */
+          public onError(error : IServiceResultCallbackError) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: ServiceResultCallbackImpl contains a null reference to onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
+          }
+
+          /**
+             This method is called on Result
+
+             @param response data
+             @since ARP1.0
+          */
+          public onResult(response : ServiceResponse) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: ServiceResultCallbackImpl contains a null reference to onResultFunction.");
+               } else {
+                    this.onResultFunction(response);
+               }
+          }
+
+          /**
+             This method is called on Warning
+
+             @param response data
+             @param warning  returned by the platform
+             @since ARP1.0
+          */
+          public onWarning(response : ServiceResponse, warning : IServiceResultCallbackWarning) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: ServiceResultCallbackImpl contains a null reference to onWarningFunction.");
+               } else {
+                    this.onWarningFunction(response, warning);
+               }
+          }
+
+     }
      /**
         Enumeration ContactAddressType
      */
@@ -7219,6 +8182,76 @@ Possible lifecycle States:
           static Unknown = new LifecycleState("Unknown");
 
      }
+     /**
+        Global unique id for listeners and callbacks.
+     */
+     export var registeredCounter : number = 0;
+
+     /**
+        Base url for for http/https JSON requests.
+     */
+     export var bridgePath : string = "https://adaptiveapp";
+
+     /**
+        Utility class for Dictionary type support.
+     */
+     export interface IDictionary<V> {
+          add(key: string, value: V): void;
+          remove(key: string): void;
+          containsKey(key: string): boolean;
+          keys(): string[];
+          values(): V[];
+     }
+
+     export class Dictionary<V> implements IDictionary<V>{
+     
+         _keys: Array<string> = new Array<string>();
+         _values: Array<V> = new Array<V>();
+     
+         constructor(init: { key: string; value: V; }[]) {
+     
+             for (var x = 0; x < init.length; x++) {
+                 this[init[x].key] = init[x].value;
+                 this._keys.push(init[x].key);
+                 this._values.push(init[x].value);
+             }
+         }
+     
+         add(key: string, value: V) {
+             this[key] = value;
+             this._keys.push(key);
+             this._values.push(value);
+         }
+     
+         remove(key: string) {
+             var index = this._keys.indexOf(key, 0);
+             this._keys.splice(index, 1);
+             this._values.splice(index, 1);
+     
+             delete this[key];
+         }
+     
+         keys(): string[] {
+             return this._keys;
+         }
+     
+         values(): V[] {
+             return this._values;
+         }
+     
+         containsKey(key: string) {
+             if (typeof this[key] === "undefined") {
+                 return false;
+             }
+     
+             return true;
+         }
+     
+         toLookup(): IDictionary<V> {
+             return this;
+         }
+     }
+
 
 }
 /**
