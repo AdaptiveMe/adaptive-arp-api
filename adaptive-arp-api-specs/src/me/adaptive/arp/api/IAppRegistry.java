@@ -65,6 +65,14 @@ public interface IAppRegistry {
     IAppContextWebview getPlatformContextWeb();
 
     /**
+     * Method that returns the API version of the implementation.
+     *
+     * @return API Version string.
+     * @since ARP1.0
+     */
+    String getAPIVersion();
+
+    /**
      * $synthetic$
      */
     Object get$Synthetic$(Class<? extends IAdaptiveRP> interfaceClass);
