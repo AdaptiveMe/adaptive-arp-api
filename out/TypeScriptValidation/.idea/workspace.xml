@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f2b62424-c85f-4dbf-8462-3858f1398c98" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/join.sh" afterPath="$PROJECT_DIR$/join.sh" />
-    </list>
+    <list default="true" id="f2b62424-c85f-4dbf-8462-3858f1398c98" name="Default" comment="" />
     <ignored path="TypeScriptValidation.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,11 +24,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Adaptive.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Adaptive.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Adaptive.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.558121" vertical-offset="188404" max-vertical-offset="189660">
+            <state vertical-scroll-proportion="0.0" vertical-offset="188404" max-vertical-offset="189660">
               <caret line="12607" column="40" selection-start-line="12607" selection-start-column="40" selection-end-line="12607" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OSBridge.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/OSBridge.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1155">
+              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Adaptive.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Adaptive.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.9013158" vertical-offset="141648" max-vertical-offset="142560">
+              <caret line="9498" column="36" selection-start-line="9498" selection-start-column="36" selection-end-line="9498" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -269,9 +287,9 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17269403" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17269403" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26791278" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26791278" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -305,14 +323,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/IAppRegistry.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="615" max-vertical-offset="9255">
-          <caret line="41" column="36" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Acceleration.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2595">
@@ -653,16 +663,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Adaptive.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="141364" max-vertical-offset="142620">
-          <caret line="9502" column="36" selection-start-line="9502" selection-start-column="36" selection-end-line="9502" selection-end-column="36" />
-          <folding>
-            <marker date="1421071358000" expanded="true" signature="-1:-1" placeholder="/**------------------------------------| Engineered with ♥ in Barcelona, Catalonia |-------------------------------------- ...*/" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AppRegistryBridge.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3675" max-vertical-offset="16860">
@@ -699,8 +699,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Adaptive.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.558121" vertical-offset="188404" max-vertical-offset="189660">
+        <state vertical-scroll-proportion="0.0" vertical-offset="188404" max-vertical-offset="189660">
           <caret line="12607" column="40" selection-start-line="12607" selection-start-column="40" selection-end-line="12607" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OSBridge.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1155">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Adaptive.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9013158" vertical-offset="141648" max-vertical-offset="142560">
+          <caret line="9498" column="36" selection-start-line="9498" selection-start-column="36" selection-end-line="9498" selection-end-column="36" />
           <folding />
         </state>
       </provider>
