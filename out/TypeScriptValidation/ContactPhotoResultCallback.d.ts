@@ -44,9 +44,9 @@ declare module Adaptive {
     function handleContactPhotoResultCallbackResult(id: number, contactPhoto: number[]): void;
     function handleContactPhotoResultCallbackWarning(id: number, contactPhoto: number[], warning: IContactPhotoResultCallbackWarning): void;
     class ContactPhotoResultCallback extends BaseCallback implements IContactPhotoResultCallback {
-        onErrorFunction: (error: IContactPhotoResultCallbackError) => Function;
-        onResultFunction: (contactPhoto: number[]) => Function;
-        onWarningFunction: (contactPhoto: number[], warning: IContactPhotoResultCallbackWarning) => Function;
+        onErrorFunction: (error: IContactPhotoResultCallbackError) => void;
+        onResultFunction: (contactPhoto: number[]) => void;
+        onWarningFunction: (contactPhoto: number[], warning: IContactPhotoResultCallbackWarning) => void;
         /**
            Constructor with anonymous handler functions for callback.
 
@@ -54,7 +54,7 @@ declare module Adaptive {
            @param onResultFunction Function receiving parameters of type: Array<number>
            @param onWarningFunction Function receiving parameters of type: Array<number>, IContactPhotoResultCallbackWarning
         */
-        constructor(onErrorFunction: (error: IContactPhotoResultCallbackError) => Function, onResultFunction: (contactPhoto: number[]) => Function, onWarningFunction: (contactPhoto: number[], warning: IContactPhotoResultCallbackWarning) => Function);
+        constructor(onErrorFunction: (error: IContactPhotoResultCallbackError) => void, onResultFunction: (contactPhoto: number[]) => void, onWarningFunction: (contactPhoto: number[], warning: IContactPhotoResultCallbackWarning) => void);
         /**
            This method is called on Error
 

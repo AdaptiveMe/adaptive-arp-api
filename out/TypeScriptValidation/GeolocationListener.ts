@@ -81,9 +81,9 @@ module Adaptive {
 
      export class GeolocationListener extends BaseListener implements IGeolocationListener {
 
-          onErrorFunction : (error : IGeolocationListenerError) => Function;
-          onResultFunction : (geolocation : Geolocation) => Function;
-          onWarningFunction : (geolocation : Geolocation, warning : IGeolocationListenerWarning) => Function;
+          onErrorFunction : (error : IGeolocationListenerError) => void;
+          onResultFunction : (geolocation : Geolocation) => void;
+          onWarningFunction : (geolocation : Geolocation, warning : IGeolocationListenerWarning) => void;
 
           /**
              Constructor with anonymous handler functions for listener.
@@ -92,7 +92,7 @@ module Adaptive {
              @param onResultFunction Function receiving parameters of type: Geolocation
              @param onWarningFunction Function receiving parameters of type: Geolocation, IGeolocationListenerWarning
           */
-          constructor(onErrorFunction : (error : IGeolocationListenerError) => Function, onResultFunction : (geolocation : Geolocation) => Function, onWarningFunction : (geolocation : Geolocation, warning : IGeolocationListenerWarning) => Function) {
+          constructor(onErrorFunction : (error : IGeolocationListenerError) => void, onResultFunction : (geolocation : Geolocation) => void, onWarningFunction : (geolocation : Geolocation, warning : IGeolocationListenerWarning) => void) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
                     console.error("ERROR: GeolocationListener onErrorFunction is not defined.");

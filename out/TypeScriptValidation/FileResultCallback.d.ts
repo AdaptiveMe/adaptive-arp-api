@@ -45,9 +45,9 @@ declare module Adaptive {
     function handleFileResultCallbackResult(id: number, storageFile: FileDescriptor): void;
     function handleFileResultCallbackWarning(id: number, file: FileDescriptor, warning: IFileResultCallbackWarning): void;
     class FileResultCallback extends BaseCallback implements IFileResultCallback {
-        onErrorFunction: (error: IFileResultCallbackError) => Function;
-        onResultFunction: (storageFile: FileDescriptor) => Function;
-        onWarningFunction: (file: FileDescriptor, warning: IFileResultCallbackWarning) => Function;
+        onErrorFunction: (error: IFileResultCallbackError) => void;
+        onResultFunction: (storageFile: FileDescriptor) => void;
+        onWarningFunction: (file: FileDescriptor, warning: IFileResultCallbackWarning) => void;
         /**
            Constructor with anonymous handler functions for callback.
 
@@ -55,7 +55,7 @@ declare module Adaptive {
            @param onResultFunction Function receiving parameters of type: FileDescriptor
            @param onWarningFunction Function receiving parameters of type: FileDescriptor, IFileResultCallbackWarning
         */
-        constructor(onErrorFunction: (error: IFileResultCallbackError) => Function, onResultFunction: (storageFile: FileDescriptor) => Function, onWarningFunction: (file: FileDescriptor, warning: IFileResultCallbackWarning) => Function);
+        constructor(onErrorFunction: (error: IFileResultCallbackError) => void, onResultFunction: (storageFile: FileDescriptor) => void, onWarningFunction: (file: FileDescriptor, warning: IFileResultCallbackWarning) => void);
         /**
            On error result of a file operation.
 

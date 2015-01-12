@@ -83,9 +83,9 @@ module Adaptive {
 
      export class ContactPhotoResultCallback extends BaseCallback implements IContactPhotoResultCallback {
 
-          onErrorFunction : (error : IContactPhotoResultCallbackError) => Function;
-          onResultFunction : (contactPhoto : Array<number>) => Function;
-          onWarningFunction : (contactPhoto : Array<number>, warning : IContactPhotoResultCallbackWarning) => Function;
+          onErrorFunction : (error : IContactPhotoResultCallbackError) => void;
+          onResultFunction : (contactPhoto : Array<number>) => void;
+          onWarningFunction : (contactPhoto : Array<number>, warning : IContactPhotoResultCallbackWarning) => void;
 
           /**
              Constructor with anonymous handler functions for callback.
@@ -94,7 +94,7 @@ module Adaptive {
              @param onResultFunction Function receiving parameters of type: Array<number>
              @param onWarningFunction Function receiving parameters of type: Array<number>, IContactPhotoResultCallbackWarning
           */
-          constructor(onErrorFunction : (error : IContactPhotoResultCallbackError) => Function, onResultFunction : (contactPhoto : Array<number>) => Function, onWarningFunction : (contactPhoto : Array<number>, warning : IContactPhotoResultCallbackWarning) => Function) {
+          constructor(onErrorFunction : (error : IContactPhotoResultCallbackError) => void, onResultFunction : (contactPhoto : Array<number>) => void, onWarningFunction : (contactPhoto : Array<number>, warning : IContactPhotoResultCallbackWarning) => void) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
                     console.error("ERROR: ContactPhotoResultCallback onErrorFunction is not defined.");

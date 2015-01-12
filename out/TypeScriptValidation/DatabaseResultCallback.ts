@@ -84,9 +84,9 @@ module Adaptive {
 
      export class DatabaseResultCallback extends BaseCallback implements IDatabaseResultCallback {
 
-          onErrorFunction : (error : IDatabaseResultCallbackError) => Function;
-          onResultFunction : (database : Database) => Function;
-          onWarningFunction : (database : Database, warning : IDatabaseResultCallbackWarning) => Function;
+          onErrorFunction : (error : IDatabaseResultCallbackError) => void;
+          onResultFunction : (database : Database) => void;
+          onWarningFunction : (database : Database, warning : IDatabaseResultCallbackWarning) => void;
 
           /**
              Constructor with anonymous handler functions for callback.
@@ -95,7 +95,7 @@ module Adaptive {
              @param onResultFunction Function receiving parameters of type: Database
              @param onWarningFunction Function receiving parameters of type: Database, IDatabaseResultCallbackWarning
           */
-          constructor(onErrorFunction : (error : IDatabaseResultCallbackError) => Function, onResultFunction : (database : Database) => Function, onWarningFunction : (database : Database, warning : IDatabaseResultCallbackWarning) => Function) {
+          constructor(onErrorFunction : (error : IDatabaseResultCallbackError) => void, onResultFunction : (database : Database) => void, onWarningFunction : (database : Database, warning : IDatabaseResultCallbackWarning) => void) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
                     console.error("ERROR: DatabaseResultCallback onErrorFunction is not defined.");

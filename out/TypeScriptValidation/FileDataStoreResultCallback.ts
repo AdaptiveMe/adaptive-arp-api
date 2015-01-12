@@ -84,9 +84,9 @@ module Adaptive {
 
      export class FileDataStoreResultCallback extends BaseCallback implements IFileDataStoreResultCallback {
 
-          onErrorFunction : (error : IFileDataStoreResultCallbackError) => Function;
-          onResultFunction : (file : FileDescriptor) => Function;
-          onWarningFunction : (file : FileDescriptor, warning : IFileDataStoreResultCallbackWarning) => Function;
+          onErrorFunction : (error : IFileDataStoreResultCallbackError) => void;
+          onResultFunction : (file : FileDescriptor) => void;
+          onWarningFunction : (file : FileDescriptor, warning : IFileDataStoreResultCallbackWarning) => void;
 
           /**
              Constructor with anonymous handler functions for callback.
@@ -95,7 +95,7 @@ module Adaptive {
              @param onResultFunction Function receiving parameters of type: FileDescriptor
              @param onWarningFunction Function receiving parameters of type: FileDescriptor, IFileDataStoreResultCallbackWarning
           */
-          constructor(onErrorFunction : (error : IFileDataStoreResultCallbackError) => Function, onResultFunction : (file : FileDescriptor) => Function, onWarningFunction : (file : FileDescriptor, warning : IFileDataStoreResultCallbackWarning) => Function) {
+          constructor(onErrorFunction : (error : IFileDataStoreResultCallbackError) => void, onResultFunction : (file : FileDescriptor) => void, onWarningFunction : (file : FileDescriptor, warning : IFileDataStoreResultCallbackWarning) => void) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
                     console.error("ERROR: FileDataStoreResultCallback onErrorFunction is not defined.");

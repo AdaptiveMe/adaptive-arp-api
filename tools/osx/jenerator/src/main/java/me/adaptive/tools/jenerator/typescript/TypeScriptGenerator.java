@@ -647,7 +647,7 @@ public class TypeScriptGenerator extends GeneratorBase {
                         printGlobal(", ");
                     }
                 }
-                printlnGlobal(") => Function;");
+                printlnGlobal(") => void;");
             }
 
             printlnGlobal();
@@ -678,7 +678,7 @@ public class TypeScriptGenerator extends GeneratorBase {
                         printGlobal(", ");
                     }
                 }
-                printGlobal(") => Function");
+                printGlobal(") => void");
                 if (j < methodList.size() - 1) {
                     printGlobal(", ");
                 }
@@ -921,7 +921,7 @@ public class TypeScriptGenerator extends GeneratorBase {
                         printGlobal(", ");
                     }
                 }
-                printlnGlobal(") => Function;");
+                printlnGlobal(") => void;");
             }
 
             printlnGlobal();
@@ -952,7 +952,7 @@ public class TypeScriptGenerator extends GeneratorBase {
                         printGlobal(", ");
                     }
                 }
-                printGlobal(") => Function");
+                printGlobal(") => void");
                 if (j < methodList.size() - 1) {
                     printGlobal(", ");
                 }

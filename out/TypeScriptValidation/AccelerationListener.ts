@@ -81,9 +81,9 @@ module Adaptive {
 
      export class AccelerationListener extends BaseListener implements IAccelerationListener {
 
-          onErrorFunction : (error : IAccelerationListenerError) => Function;
-          onResultFunction : (acceleration : Acceleration) => Function;
-          onWarningFunction : (acceleration : Acceleration, warning : IAccelerationListenerWarning) => Function;
+          onErrorFunction : (error : IAccelerationListenerError) => void;
+          onResultFunction : (acceleration : Acceleration) => void;
+          onWarningFunction : (acceleration : Acceleration, warning : IAccelerationListenerWarning) => void;
 
           /**
              Constructor with anonymous handler functions for listener.
@@ -92,7 +92,7 @@ module Adaptive {
              @param onResultFunction Function receiving parameters of type: Acceleration
              @param onWarningFunction Function receiving parameters of type: Acceleration, IAccelerationListenerWarning
           */
-          constructor(onErrorFunction : (error : IAccelerationListenerError) => Function, onResultFunction : (acceleration : Acceleration) => Function, onWarningFunction : (acceleration : Acceleration, warning : IAccelerationListenerWarning) => Function) {
+          constructor(onErrorFunction : (error : IAccelerationListenerError) => void, onResultFunction : (acceleration : Acceleration) => void, onWarningFunction : (acceleration : Acceleration, warning : IAccelerationListenerWarning) => void) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
                     console.error("ERROR: AccelerationListener onErrorFunction is not defined.");

@@ -1,7 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f2b62424-c85f-4dbf-8462-3858f1398c98" name="Default" comment="" />
+    <list default="true" id="f2b62424-c85f-4dbf-8462-3858f1398c98" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AccelerationListener.d.ts" afterPath="$PROJECT_DIR$/AccelerationListener.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AccelerationListener.js.map" afterPath="$PROJECT_DIR$/AccelerationListener.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AccelerationListener.ts" afterPath="$PROJECT_DIR$/AccelerationListener.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.d.ts" afterPath="$PROJECT_DIR$/Adaptive.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.js.map" afterPath="$PROJECT_DIR$/Adaptive.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.ts" afterPath="$PROJECT_DIR$/Adaptive.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ButtonListener.d.ts" afterPath="$PROJECT_DIR$/ButtonListener.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ButtonListener.js.map" afterPath="$PROJECT_DIR$/ButtonListener.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ButtonListener.ts" afterPath="$PROJECT_DIR$/ButtonListener.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactPhotoResultCallback.d.ts" afterPath="$PROJECT_DIR$/ContactPhotoResultCallback.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactPhotoResultCallback.js.map" afterPath="$PROJECT_DIR$/ContactPhotoResultCallback.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactPhotoResultCallback.ts" afterPath="$PROJECT_DIR$/ContactPhotoResultCallback.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactResultCallback.d.ts" afterPath="$PROJECT_DIR$/ContactResultCallback.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactResultCallback.js.map" afterPath="$PROJECT_DIR$/ContactResultCallback.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactResultCallback.ts" afterPath="$PROJECT_DIR$/ContactResultCallback.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseResultCallback.d.ts" afterPath="$PROJECT_DIR$/DatabaseResultCallback.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseResultCallback.js.map" afterPath="$PROJECT_DIR$/DatabaseResultCallback.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseResultCallback.ts" afterPath="$PROJECT_DIR$/DatabaseResultCallback.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseTableResultCallback.d.ts" afterPath="$PROJECT_DIR$/DatabaseTableResultCallback.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseTableResultCallback.js.map" afterPath="$PROJECT_DIR$/DatabaseTableResultCallback.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseTableResultCallback.ts" afterPath="$PROJECT_DIR$/DatabaseTableResultCallback.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileDataLoadResultCallback.d.ts" afterPath="$PROJECT_DIR$/FileDataLoadResultCallback.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileDataLoadResultCallback.js.map" afterPath="$PROJECT_DIR$/FileDataLoadResultCallback.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileDataLoadResultCallback.ts" afterPath="$PROJECT_DIR$/FileDataLoadResultCallback.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileDataStoreResultCallback.d.ts" afterPath="$PROJECT_DIR$/FileDataStoreResultCallback.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileDataStoreResultCallback.js.map" afterPath="$PROJECT_DIR$/FileDataStoreResultCallback.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileDataStoreResultCallback.ts" afterPath="$PROJECT_DIR$/FileDataStoreResultCallback.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileListResultCallback.d.ts" afterPath="$PROJECT_DIR$/FileListResultCallback.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileListResultCallback.js.map" afterPath="$PROJECT_DIR$/FileListResultCallback.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileListResultCallback.ts" afterPath="$PROJECT_DIR$/FileListResultCallback.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileResultCallback.d.ts" afterPath="$PROJECT_DIR$/FileResultCallback.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileResultCallback.js.map" afterPath="$PROJECT_DIR$/FileResultCallback.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileResultCallback.ts" afterPath="$PROJECT_DIR$/FileResultCallback.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GeolocationListener.d.ts" afterPath="$PROJECT_DIR$/GeolocationListener.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GeolocationListener.js.map" afterPath="$PROJECT_DIR$/GeolocationListener.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GeolocationListener.ts" afterPath="$PROJECT_DIR$/GeolocationListener.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LifecycleListener.d.ts" afterPath="$PROJECT_DIR$/LifecycleListener.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LifecycleListener.js.map" afterPath="$PROJECT_DIR$/LifecycleListener.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LifecycleListener.ts" afterPath="$PROJECT_DIR$/LifecycleListener.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MessagingCallback.d.ts" afterPath="$PROJECT_DIR$/MessagingCallback.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MessagingCallback.js.map" afterPath="$PROJECT_DIR$/MessagingCallback.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MessagingCallback.ts" afterPath="$PROJECT_DIR$/MessagingCallback.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkReachabilityCallback.d.ts" afterPath="$PROJECT_DIR$/NetworkReachabilityCallback.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkReachabilityCallback.js.map" afterPath="$PROJECT_DIR$/NetworkReachabilityCallback.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkReachabilityCallback.ts" afterPath="$PROJECT_DIR$/NetworkReachabilityCallback.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkStatusListener.d.ts" afterPath="$PROJECT_DIR$/NetworkStatusListener.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkStatusListener.js.map" afterPath="$PROJECT_DIR$/NetworkStatusListener.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkStatusListener.ts" afterPath="$PROJECT_DIR$/NetworkStatusListener.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SecurityResultCallback.d.ts" afterPath="$PROJECT_DIR$/SecurityResultCallback.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SecurityResultCallback.js.map" afterPath="$PROJECT_DIR$/SecurityResultCallback.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SecurityResultCallback.ts" afterPath="$PROJECT_DIR$/SecurityResultCallback.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceResultCallback.d.ts" afterPath="$PROJECT_DIR$/ServiceResultCallback.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceResultCallback.js.map" afterPath="$PROJECT_DIR$/ServiceResultCallback.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceResultCallback.ts" afterPath="$PROJECT_DIR$/ServiceResultCallback.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/typescript/TypeScriptGenerator.java" afterPath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/typescript/TypeScriptGenerator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="TypeScriptValidation.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,9 +84,40 @@
       <file leaf-file-name="Adaptive.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Adaptive.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="188404" max-vertical-offset="189660">
-              <caret line="12607" column="40" selection-start-line="12607" selection-start-column="40" selection-end-line="12607" selection-end-column="40" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="189570" max-vertical-offset="189660">
+              <caret line="12638" column="0" selection-start-line="12638" selection-start-column="0" selection-end-line="12638" selection-end-column="0" />
+              <folding>
+                <marker date="1421081499000" expanded="true" signature="1306:415133" placeholder="..." />
+                <marker date="1421081499000" expanded="true" signature="3092:3138" placeholder="/**Evaluate the specified javascript on the main webview of the application. ...*/" />
+                <marker date="1421081499000" expanded="true" signature="3146:3280" placeholder="/**Evaluate the specified javascript on the specified webview of the application. ...*/" />
+                <marker date="1421081499000" expanded="true" signature="3307:3634" placeholder="/**Returns a reference to the main application webview. This is the first application webview and can not be removed ...*/" />
+                <marker date="1421081499000" expanded="true" signature="3686:3838" placeholder="/**Returns an array of webviews currently managed by the context - composed of primary and the list of those added. ...*/" />
+                <marker date="1421081499000" expanded="true" signature="3865:4044" placeholder="/**When a webview is disposed - no longer in use from an external activity - the webview should be removed to unbind ...*/" />
+                <marker date="1421081499000" expanded="true" signature="19755:19905" placeholder="/**Returns a reference to the registered VideoBridge. ...*/" />
+                <marker date="1421081499000" expanded="true" signature="19986:20145" placeholder="/**Returns a reference to the registered WalletBridge. ...*/" />
+                <marker date="1421081499000" expanded="true" signature="20222:20369" placeholder="/**Returns a reference to the registered XMLBridge. ...*/" />
+                <marker date="1421081499000" expanded="true" signature="20447:20597" placeholder="/**Returns a reference to the Platform Context ...*/" />
+                <marker date="1421081499000" expanded="true" signature="20610:20781" placeholder="/**Returns a reference to the Webview platform context ...*/" />
+                <marker date="1421081499000" expanded="true" signature="41974:44186" placeholder="..." />
+                <marker date="1421081499000" expanded="true" signature="41998:42178" placeholder="/**Get a reference to a registered service by name. ...*/" />
+                <marker date="1421081499000" expanded="true" signature="42192:42982" placeholder="/**Request async a service for an Url ...*/" />
+                <marker date="1421081499000" expanded="true" signature="43099:43231" placeholder="/**Check whether a service by the given name is registered. ...*/" />
+                <marker date="1421081499000" expanded="true" signature="43287:43413" placeholder="/**Check whether a service by the given name is registered. ...*/" />
+                <marker date="1421081499000" expanded="true" signature="43487:43589" placeholder="/**Register a new service ...*/" />
+                <marker date="1421081499000" expanded="true" signature="43706:43821" placeholder="/**Unregister all services. ...*/" />
+                <marker date="1421081499000" expanded="true" signature="43899:44120" placeholder="/**Unregister a service ...*/" />
+                <marker date="1421081499000" expanded="true" signature="147149:147296" placeholder="{...}" />
+                <marker date="1421081499000" expanded="true" signature="147466:147513" placeholder="{...}" />
+                <marker date="1421081499000" expanded="true" signature="147686:147733" placeholder="{...}" />
+                <marker date="1421081499000" expanded="true" signature="382156:382177" placeholder="..." />
+                <marker date="1421081499000" expanded="true" signature="187690:381029" placeholder="/**Returns the personal info of the Contact ...*/" />
+                <marker date="1421081499000" expanded="true" signature="381121:381128" placeholder="{...}" />
+                <marker date="1421081499000" expanded="true" signature="381185:381406" placeholder="/**Set the personal info of the Contact ...*/" />
+                <marker date="1421081499000" expanded="true" signature="381456:381475" placeholder="{...}" />
+                <marker date="1421081499000" expanded="true" signature="381521:381738" placeholder="/**Returns the professional info of the Contact ...*/" />
+                <marker date="1421081499000" expanded="true" signature="381871:382032" placeholder="/**Set the professional info of the Contact ...*/" />
+                <marker date="1421081499000" expanded="true" signature="382161:382169" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -37,28 +125,30 @@
       <file leaf-file-name="OSBridge.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/OSBridge.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1155">
-              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="840" max-vertical-offset="1155">
+              <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+              <folding>
+                <marker date="1421081498000" expanded="true" signature="2121:2123" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Adaptive.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Adaptive.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Adaptive.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9013158" vertical-offset="141648" max-vertical-offset="142560">
-              <caret line="9498" column="36" selection-start-line="9498" selection-start-column="36" selection-end-line="9498" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="141304" max-vertical-offset="142560">
+              <caret line="9473" column="9" selection-start-line="9473" selection-start-column="9" selection-end-line="9473" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AccelerationListener.ts" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AccelerationListener.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AccelerationListener.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="2520">
-              <caret line="56" column="52" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="52" />
+            <state vertical-scroll-proportion="1.0361842" vertical-offset="960" max-vertical-offset="2520">
+              <caret line="127" column="0" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -118,8 +208,9 @@
         <option value="$PROJECT_DIR$/NetworkReachabilityBridge.ts" />
         <option value="$PROJECT_DIR$/BaseApplicationBridge.ts" />
         <option value="$PROJECT_DIR$/AppRegistryBridge.ts" />
-        <option value="$PROJECT_DIR$/Adaptive.js" />
         <option value="$PROJECT_DIR$/Adaptive.ts" />
+        <option value="$PROJECT_DIR$/Adaptive.js" />
+        <option value="$PROJECT_DIR$/AccelerationListener.ts" />
       </list>
     </option>
   </component>
@@ -128,7 +219,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-2527" />
-    <option name="y" value="-180" />
+    <option name="y" value="23" />
     <option name="width" value="2461" />
     <option name="height" value="1379" />
   </component>
@@ -155,7 +246,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -174,22 +264,9 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TypeScriptValidation" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TypeScriptValidation" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Adaptive.ts" />
-              <option name="myItemType" value="com.intellij.plugins.watcher.projectView.NestingTreeNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -208,21 +285,10 @@
       <ConfigurationWrapper RunnerId="Basic" />
       <method />
     </configuration>
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <method />
-    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <method />
     </configuration>
-    <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
-      <setting name="configLocationType" value="CONFIG_FILE" />
-      <setting name="settingsFile" value="" />
-      <setting name="serverType" value="INTERNAL" />
-      <setting name="preferredDebugBrowser" value="Chrome" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
-      <envs />
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <method />
     </configuration>
     <configuration default="true" type="BashConfigurationType" factoryName="Bash">
@@ -230,10 +296,21 @@
       <option name="INTERPRETER_PATH" value="/bin/bash" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <module name="" />
       <option name="SCRIPT_NAME" value="" />
       <option name="PARAMETERS" value="" />
-      <module name="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
       <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
+      <setting name="configLocationType" value="CONFIG_FILE" />
+      <setting name="settingsFile" value="" />
+      <setting name="serverType" value="INTERNAL" />
+      <setting name="preferredDebugBrowser" value="Chrome" />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
@@ -279,7 +356,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2527" y="-180" width="2461" height="1379" extended-state="0" />
+    <frame x="-2527" y="23" width="2461" height="1379" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -287,9 +364,9 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17269403" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17269403" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26791278" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26791278" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -323,17 +400,67 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Adaptive.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="108570" max-vertical-offset="108660">
+          <caret line="7238" column="0" selection-start-line="7238" selection-start-column="0" selection-end-line="7238" selection-end-column="0" />
+          <folding>
+            <marker date="1421081499000" expanded="true" signature="1306:415133" placeholder="..." />
+            <marker date="1421081499000" expanded="true" signature="3092:3138" placeholder="/**Evaluate the specified javascript on the main webview of the application. ...*/" />
+            <marker date="1421081499000" expanded="true" signature="3146:3280" placeholder="/**Evaluate the specified javascript on the specified webview of the application. ...*/" />
+            <marker date="1421081499000" expanded="true" signature="3307:3634" placeholder="/**Returns a reference to the main application webview. This is the first application webview and can not be removed ...*/" />
+            <marker date="1421081499000" expanded="true" signature="3686:3838" placeholder="/**Returns an array of webviews currently managed by the context - composed of primary and the list of those added. ...*/" />
+            <marker date="1421081499000" expanded="true" signature="3865:4044" placeholder="/**When a webview is disposed - no longer in use from an external activity - the webview should be removed to unbind ...*/" />
+            <marker date="1421081499000" expanded="true" signature="19755:19905" placeholder="/**Returns a reference to the registered VideoBridge. ...*/" />
+            <marker date="1421081499000" expanded="true" signature="19986:20145" placeholder="/**Returns a reference to the registered WalletBridge. ...*/" />
+            <marker date="1421081499000" expanded="true" signature="20222:20369" placeholder="/**Returns a reference to the registered XMLBridge. ...*/" />
+            <marker date="1421081499000" expanded="true" signature="20447:20597" placeholder="/**Returns a reference to the Platform Context ...*/" />
+            <marker date="1421081499000" expanded="true" signature="20610:20781" placeholder="/**Returns a reference to the Webview platform context ...*/" />
+            <marker date="1421081499000" expanded="true" signature="41974:44186" placeholder="..." />
+            <marker date="1421081499000" expanded="true" signature="41998:42178" placeholder="/**Get a reference to a registered service by name. ...*/" />
+            <marker date="1421081499000" expanded="true" signature="42192:42982" placeholder="/**Request async a service for an Url ...*/" />
+            <marker date="1421081499000" expanded="true" signature="43099:43231" placeholder="/**Check whether a service by the given name is registered. ...*/" />
+            <marker date="1421081499000" expanded="true" signature="43287:43413" placeholder="/**Check whether a service by the given name is registered. ...*/" />
+            <marker date="1421081499000" expanded="true" signature="43487:43589" placeholder="/**Register a new service ...*/" />
+            <marker date="1421081499000" expanded="true" signature="43706:43821" placeholder="/**Unregister all services. ...*/" />
+            <marker date="1421081499000" expanded="true" signature="43899:44120" placeholder="/**Unregister a service ...*/" />
+            <marker date="1421081499000" expanded="true" signature="147149:147296" placeholder="{...}" />
+            <marker date="1421081499000" expanded="true" signature="147466:147513" placeholder="{...}" />
+            <marker date="1421081499000" expanded="true" signature="147686:147733" placeholder="{...}" />
+            <marker date="1421081499000" expanded="true" signature="382156:382177" placeholder="..." />
+            <marker date="1421081499000" expanded="true" signature="187690:381029" placeholder="/**Returns the personal info of the Contact ...*/" />
+            <marker date="1421081499000" expanded="true" signature="381121:381128" placeholder="{...}" />
+            <marker date="1421081499000" expanded="true" signature="381185:381406" placeholder="/**Set the personal info of the Contact ...*/" />
+            <marker date="1421081499000" expanded="true" signature="381456:381475" placeholder="{...}" />
+            <marker date="1421081499000" expanded="true" signature="381521:381738" placeholder="/**Returns the professional info of the Contact ...*/" />
+            <marker date="1421081499000" expanded="true" signature="381871:382032" placeholder="/**Set the professional info of the Contact ...*/" />
+            <marker date="1421081499000" expanded="true" signature="382161:382169" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OSBridge.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="720">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding>
+            <marker date="1421081498000" expanded="true" signature="2121:2123" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Adaptive.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="64140">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Acceleration.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2595">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CommonUtil.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="1275">
-          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -442,13 +569,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CommonUtil.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1275">
-          <caret line="38" column="7" selection-start-line="38" selection-start-column="7" selection-end-line="38" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/IAccelerationListener.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1256">
@@ -474,7 +594,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3915">
           <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -557,16 +676,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2595">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AccelerationListener.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.06289809" vertical-offset="79" max-vertical-offset="1335">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -656,10 +765,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1155">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding>
-            <marker date="1421071345000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1421071345000" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -689,34 +795,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AccelerationListener.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="2520">
-          <caret line="56" column="52" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Adaptive.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="188404" max-vertical-offset="189660">
-          <caret line="12607" column="40" selection-start-line="12607" selection-start-column="40" selection-end-line="12607" selection-end-column="40" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="189570" max-vertical-offset="189660">
+          <caret line="12638" column="0" selection-start-line="12638" selection-start-column="0" selection-end-line="12638" selection-end-column="0" />
+          <folding>
+            <marker date="1421081499000" expanded="true" signature="1306:415133" placeholder="..." />
+            <marker date="1421081499000" expanded="true" signature="3092:3138" placeholder="/**Evaluate the specified javascript on the main webview of the application. ...*/" />
+            <marker date="1421081499000" expanded="true" signature="3146:3280" placeholder="/**Evaluate the specified javascript on the specified webview of the application. ...*/" />
+            <marker date="1421081499000" expanded="true" signature="3307:3634" placeholder="/**Returns a reference to the main application webview. This is the first application webview and can not be removed ...*/" />
+            <marker date="1421081499000" expanded="true" signature="3686:3838" placeholder="/**Returns an array of webviews currently managed by the context - composed of primary and the list of those added. ...*/" />
+            <marker date="1421081499000" expanded="true" signature="3865:4044" placeholder="/**When a webview is disposed - no longer in use from an external activity - the webview should be removed to unbind ...*/" />
+            <marker date="1421081499000" expanded="true" signature="19755:19905" placeholder="/**Returns a reference to the registered VideoBridge. ...*/" />
+            <marker date="1421081499000" expanded="true" signature="19986:20145" placeholder="/**Returns a reference to the registered WalletBridge. ...*/" />
+            <marker date="1421081499000" expanded="true" signature="20222:20369" placeholder="/**Returns a reference to the registered XMLBridge. ...*/" />
+            <marker date="1421081499000" expanded="true" signature="20447:20597" placeholder="/**Returns a reference to the Platform Context ...*/" />
+            <marker date="1421081499000" expanded="true" signature="20610:20781" placeholder="/**Returns a reference to the Webview platform context ...*/" />
+            <marker date="1421081499000" expanded="true" signature="41974:44186" placeholder="..." />
+            <marker date="1421081499000" expanded="true" signature="41998:42178" placeholder="/**Get a reference to a registered service by name. ...*/" />
+            <marker date="1421081499000" expanded="true" signature="42192:42982" placeholder="/**Request async a service for an Url ...*/" />
+            <marker date="1421081499000" expanded="true" signature="43099:43231" placeholder="/**Check whether a service by the given name is registered. ...*/" />
+            <marker date="1421081499000" expanded="true" signature="43287:43413" placeholder="/**Check whether a service by the given name is registered. ...*/" />
+            <marker date="1421081499000" expanded="true" signature="43487:43589" placeholder="/**Register a new service ...*/" />
+            <marker date="1421081499000" expanded="true" signature="43706:43821" placeholder="/**Unregister all services. ...*/" />
+            <marker date="1421081499000" expanded="true" signature="43899:44120" placeholder="/**Unregister a service ...*/" />
+            <marker date="1421081499000" expanded="true" signature="147149:147296" placeholder="{...}" />
+            <marker date="1421081499000" expanded="true" signature="147466:147513" placeholder="{...}" />
+            <marker date="1421081499000" expanded="true" signature="147686:147733" placeholder="{...}" />
+            <marker date="1421081499000" expanded="true" signature="382156:382177" placeholder="..." />
+            <marker date="1421081499000" expanded="true" signature="187690:381029" placeholder="/**Returns the personal info of the Contact ...*/" />
+            <marker date="1421081499000" expanded="true" signature="381121:381128" placeholder="{...}" />
+            <marker date="1421081499000" expanded="true" signature="381185:381406" placeholder="/**Set the personal info of the Contact ...*/" />
+            <marker date="1421081499000" expanded="true" signature="381456:381475" placeholder="{...}" />
+            <marker date="1421081499000" expanded="true" signature="381521:381738" placeholder="/**Returns the professional info of the Contact ...*/" />
+            <marker date="1421081499000" expanded="true" signature="381871:382032" placeholder="/**Set the professional info of the Contact ...*/" />
+            <marker date="1421081499000" expanded="true" signature="382161:382169" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/OSBridge.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1155">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="840" max-vertical-offset="1155">
+          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding>
+            <marker date="1421081498000" expanded="true" signature="2121:2123" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Adaptive.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9013158" vertical-offset="141648" max-vertical-offset="142560">
-          <caret line="9498" column="36" selection-start-line="9498" selection-start-column="36" selection-end-line="9498" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="141304" max-vertical-offset="142560">
+          <caret line="9473" column="9" selection-start-line="9473" selection-start-column="9" selection-end-line="9473" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AccelerationListener.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0361842" vertical-offset="960" max-vertical-offset="2520">
+          <caret line="127" column="0" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
           <folding />
         </state>
       </provider>

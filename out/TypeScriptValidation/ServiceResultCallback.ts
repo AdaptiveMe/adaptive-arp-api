@@ -84,9 +84,9 @@ module Adaptive {
 
      export class ServiceResultCallback extends BaseCallback implements IServiceResultCallback {
 
-          onErrorFunction : (error : IServiceResultCallbackError) => Function;
-          onResultFunction : (response : ServiceResponse) => Function;
-          onWarningFunction : (response : ServiceResponse, warning : IServiceResultCallbackWarning) => Function;
+          onErrorFunction : (error : IServiceResultCallbackError) => void;
+          onResultFunction : (response : ServiceResponse) => void;
+          onWarningFunction : (response : ServiceResponse, warning : IServiceResultCallbackWarning) => void;
 
           /**
              Constructor with anonymous handler functions for callback.
@@ -95,7 +95,7 @@ module Adaptive {
              @param onResultFunction Function receiving parameters of type: ServiceResponse
              @param onWarningFunction Function receiving parameters of type: ServiceResponse, IServiceResultCallbackWarning
           */
-          constructor(onErrorFunction : (error : IServiceResultCallbackError) => Function, onResultFunction : (response : ServiceResponse) => Function, onWarningFunction : (response : ServiceResponse, warning : IServiceResultCallbackWarning) => Function) {
+          constructor(onErrorFunction : (error : IServiceResultCallbackError) => void, onResultFunction : (response : ServiceResponse) => void, onWarningFunction : (response : ServiceResponse, warning : IServiceResultCallbackWarning) => void) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
                     console.error("ERROR: ServiceResultCallback onErrorFunction is not defined.");

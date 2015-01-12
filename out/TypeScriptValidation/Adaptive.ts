@@ -6408,9 +6408,9 @@ Possible lifecycle States:
 
      export class AccelerationListener extends BaseListener implements IAccelerationListener {
 
-          onErrorFunction : (error : IAccelerationListenerError) => Function;
-          onResultFunction : (acceleration : Acceleration) => Function;
-          onWarningFunction : (acceleration : Acceleration, warning : IAccelerationListenerWarning) => Function;
+          onErrorFunction : (error : IAccelerationListenerError) => void;
+          onResultFunction : (acceleration : Acceleration) => void;
+          onWarningFunction : (acceleration : Acceleration, warning : IAccelerationListenerWarning) => void;
 
           /**
              Constructor with anonymous handler functions for listener.
@@ -6419,7 +6419,7 @@ Possible lifecycle States:
              @param onResultFunction Function receiving parameters of type: Acceleration
              @param onWarningFunction Function receiving parameters of type: Acceleration, IAccelerationListenerWarning
           */
-          constructor(onErrorFunction : (error : IAccelerationListenerError) => Function, onResultFunction : (acceleration : Acceleration) => Function, onWarningFunction : (acceleration : Acceleration, warning : IAccelerationListenerWarning) => Function) {
+          constructor(onErrorFunction : (error : IAccelerationListenerError) => void, onResultFunction : (acceleration : Acceleration) => void, onWarningFunction : (acceleration : Acceleration, warning : IAccelerationListenerWarning) => void) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
                     console.error("ERROR: AccelerationListener onErrorFunction is not defined.");
@@ -6519,9 +6519,9 @@ listener and subsequently, the listener will be deactivated and removed from the
 
      export class ButtonListener extends BaseListener implements IButtonListener {
 
-          onErrorFunction : (error : IButtonListenerError) => Function;
-          onResultFunction : (button : Button) => Function;
-          onWarningFunction : (button : Button, warning : IButtonListenerWarning) => Function;
+          onErrorFunction : (error : IButtonListenerError) => void;
+          onResultFunction : (button : Button) => void;
+          onWarningFunction : (button : Button, warning : IButtonListenerWarning) => void;
 
           /**
              Constructor with anonymous handler functions for listener.
@@ -6530,7 +6530,7 @@ listener and subsequently, the listener will be deactivated and removed from the
              @param onResultFunction Function receiving parameters of type: Button
              @param onWarningFunction Function receiving parameters of type: Button, IButtonListenerWarning
           */
-          constructor(onErrorFunction : (error : IButtonListenerError) => Function, onResultFunction : (button : Button) => Function, onWarningFunction : (button : Button, warning : IButtonListenerWarning) => Function) {
+          constructor(onErrorFunction : (error : IButtonListenerError) => void, onResultFunction : (button : Button) => void, onWarningFunction : (button : Button, warning : IButtonListenerWarning) => void) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
                     console.error("ERROR: ButtonListener onErrorFunction is not defined.");
@@ -6629,9 +6629,9 @@ listener and subsequently, the listener will be deactivated and removed from the
 
      export class GeolocationListener extends BaseListener implements IGeolocationListener {
 
-          onErrorFunction : (error : IGeolocationListenerError) => Function;
-          onResultFunction : (geolocation : Geolocation) => Function;
-          onWarningFunction : (geolocation : Geolocation, warning : IGeolocationListenerWarning) => Function;
+          onErrorFunction : (error : IGeolocationListenerError) => void;
+          onResultFunction : (geolocation : Geolocation) => void;
+          onWarningFunction : (geolocation : Geolocation, warning : IGeolocationListenerWarning) => void;
 
           /**
              Constructor with anonymous handler functions for listener.
@@ -6640,7 +6640,7 @@ listener and subsequently, the listener will be deactivated and removed from the
              @param onResultFunction Function receiving parameters of type: Geolocation
              @param onWarningFunction Function receiving parameters of type: Geolocation, IGeolocationListenerWarning
           */
-          constructor(onErrorFunction : (error : IGeolocationListenerError) => Function, onResultFunction : (geolocation : Geolocation) => Function, onWarningFunction : (geolocation : Geolocation, warning : IGeolocationListenerWarning) => Function) {
+          constructor(onErrorFunction : (error : IGeolocationListenerError) => void, onResultFunction : (geolocation : Geolocation) => void, onWarningFunction : (geolocation : Geolocation, warning : IGeolocationListenerWarning) => void) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
                     console.error("ERROR: GeolocationListener onErrorFunction is not defined.");
@@ -6739,9 +6739,9 @@ listener and subsequently, the listener will be deactivated and removed from the
 
      export class LifecycleListener extends BaseListener implements ILifecycleListener {
 
-          onErrorFunction : (error : ILifecycleListenerError) => Function;
-          onResultFunction : (lifecycle : Lifecycle) => Function;
-          onWarningFunction : (lifecycle : Lifecycle, warning : ILifecycleListenerWarning) => Function;
+          onErrorFunction : (error : ILifecycleListenerError) => void;
+          onResultFunction : (lifecycle : Lifecycle) => void;
+          onWarningFunction : (lifecycle : Lifecycle, warning : ILifecycleListenerWarning) => void;
 
           /**
              Constructor with anonymous handler functions for listener.
@@ -6750,7 +6750,7 @@ listener and subsequently, the listener will be deactivated and removed from the
              @param onResultFunction Function receiving parameters of type: Lifecycle
              @param onWarningFunction Function receiving parameters of type: Lifecycle, ILifecycleListenerWarning
           */
-          constructor(onErrorFunction : (error : ILifecycleListenerError) => Function, onResultFunction : (lifecycle : Lifecycle) => Function, onWarningFunction : (lifecycle : Lifecycle, warning : ILifecycleListenerWarning) => Function) {
+          constructor(onErrorFunction : (error : ILifecycleListenerError) => void, onResultFunction : (lifecycle : Lifecycle) => void, onWarningFunction : (lifecycle : Lifecycle, warning : ILifecycleListenerWarning) => void) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
                     console.error("ERROR: LifecycleListener onErrorFunction is not defined.");
@@ -6849,9 +6849,9 @@ listener and subsequently, the listener will be deactivated and removed from the
 
      export class NetworkStatusListener extends BaseListener implements INetworkStatusListener {
 
-          onErrorFunction : (error : INetworkStatusListenerError) => Function;
-          onResultFunction : (network : ICapabilitiesNet) => Function;
-          onWarningFunction : (network : ICapabilitiesNet, warning : INetworkStatusListenerWarning) => Function;
+          onErrorFunction : (error : INetworkStatusListenerError) => void;
+          onResultFunction : (network : ICapabilitiesNet) => void;
+          onWarningFunction : (network : ICapabilitiesNet, warning : INetworkStatusListenerWarning) => void;
 
           /**
              Constructor with anonymous handler functions for listener.
@@ -6860,7 +6860,7 @@ listener and subsequently, the listener will be deactivated and removed from the
              @param onResultFunction Function receiving parameters of type: ICapabilitiesNet
              @param onWarningFunction Function receiving parameters of type: ICapabilitiesNet, INetworkStatusListenerWarning
           */
-          constructor(onErrorFunction : (error : INetworkStatusListenerError) => Function, onResultFunction : (network : ICapabilitiesNet) => Function, onWarningFunction : (network : ICapabilitiesNet, warning : INetworkStatusListenerWarning) => Function) {
+          constructor(onErrorFunction : (error : INetworkStatusListenerError) => void, onResultFunction : (network : ICapabilitiesNet) => void, onWarningFunction : (network : ICapabilitiesNet, warning : INetworkStatusListenerWarning) => void) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
                     console.error("ERROR: NetworkStatusListener onErrorFunction is not defined.");
@@ -7002,9 +7002,9 @@ listener and subsequently, the listener will be deactivated and removed from the
 
      export class ContactPhotoResultCallback extends BaseCallback implements IContactPhotoResultCallback {
 
-          onErrorFunction : (error : IContactPhotoResultCallbackError) => Function;
-          onResultFunction : (contactPhoto : Array<number>) => Function;
-          onWarningFunction : (contactPhoto : Array<number>, warning : IContactPhotoResultCallbackWarning) => Function;
+          onErrorFunction : (error : IContactPhotoResultCallbackError) => void;
+          onResultFunction : (contactPhoto : Array<number>) => void;
+          onWarningFunction : (contactPhoto : Array<number>, warning : IContactPhotoResultCallbackWarning) => void;
 
           /**
              Constructor with anonymous handler functions for callback.
@@ -7013,7 +7013,7 @@ listener and subsequently, the listener will be deactivated and removed from the
              @param onResultFunction Function receiving parameters of type: Array<number>
              @param onWarningFunction Function receiving parameters of type: Array<number>, IContactPhotoResultCallbackWarning
           */
-          constructor(onErrorFunction : (error : IContactPhotoResultCallbackError) => Function, onResultFunction : (contactPhoto : Array<number>) => Function, onWarningFunction : (contactPhoto : Array<number>, warning : IContactPhotoResultCallbackWarning) => Function) {
+          constructor(onErrorFunction : (error : IContactPhotoResultCallbackError) => void, onResultFunction : (contactPhoto : Array<number>) => void, onWarningFunction : (contactPhoto : Array<number>, warning : IContactPhotoResultCallbackWarning) => void) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
                     console.error("ERROR: ContactPhotoResultCallback onErrorFunction is not defined.");
@@ -7116,9 +7116,9 @@ listener and subsequently, the listener will be deactivated and removed from the
 
      export class ContactResultCallback extends BaseCallback implements IContactResultCallback {
 
-          onErrorFunction : (error : IContactResultCallbackError) => Function;
-          onResultFunction : (contacts : Array<Contact>) => Function;
-          onWarningFunction : (contacts : Array<Contact>, warning : IContactResultCallbackWarning) => Function;
+          onErrorFunction : (error : IContactResultCallbackError) => void;
+          onResultFunction : (contacts : Array<Contact>) => void;
+          onWarningFunction : (contacts : Array<Contact>, warning : IContactResultCallbackWarning) => void;
 
           /**
              Constructor with anonymous handler functions for callback.
@@ -7127,7 +7127,7 @@ listener and subsequently, the listener will be deactivated and removed from the
              @param onResultFunction Function receiving parameters of type: Array<Contact>
              @param onWarningFunction Function receiving parameters of type: Array<Contact>, IContactResultCallbackWarning
           */
-          constructor(onErrorFunction : (error : IContactResultCallbackError) => Function, onResultFunction : (contacts : Array<Contact>) => Function, onWarningFunction : (contacts : Array<Contact>, warning : IContactResultCallbackWarning) => Function) {
+          constructor(onErrorFunction : (error : IContactResultCallbackError) => void, onResultFunction : (contacts : Array<Contact>) => void, onWarningFunction : (contacts : Array<Contact>, warning : IContactResultCallbackWarning) => void) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
                     console.error("ERROR: ContactResultCallback onErrorFunction is not defined.");
@@ -7230,9 +7230,9 @@ listener and subsequently, the listener will be deactivated and removed from the
 
      export class DatabaseResultCallback extends BaseCallback implements IDatabaseResultCallback {
 
-          onErrorFunction : (error : IDatabaseResultCallbackError) => Function;
-          onResultFunction : (database : Database) => Function;
-          onWarningFunction : (database : Database, warning : IDatabaseResultCallbackWarning) => Function;
+          onErrorFunction : (error : IDatabaseResultCallbackError) => void;
+          onResultFunction : (database : Database) => void;
+          onWarningFunction : (database : Database, warning : IDatabaseResultCallbackWarning) => void;
 
           /**
              Constructor with anonymous handler functions for callback.
@@ -7241,7 +7241,7 @@ listener and subsequently, the listener will be deactivated and removed from the
              @param onResultFunction Function receiving parameters of type: Database
              @param onWarningFunction Function receiving parameters of type: Database, IDatabaseResultCallbackWarning
           */
-          constructor(onErrorFunction : (error : IDatabaseResultCallbackError) => Function, onResultFunction : (database : Database) => Function, onWarningFunction : (database : Database, warning : IDatabaseResultCallbackWarning) => Function) {
+          constructor(onErrorFunction : (error : IDatabaseResultCallbackError) => void, onResultFunction : (database : Database) => void, onWarningFunction : (database : Database, warning : IDatabaseResultCallbackWarning) => void) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
                     console.error("ERROR: DatabaseResultCallback onErrorFunction is not defined.");
@@ -7344,9 +7344,9 @@ listener and subsequently, the listener will be deactivated and removed from the
 
      export class DatabaseTableResultCallback extends BaseCallback implements IDatabaseTableResultCallback {
 
-          onErrorFunction : (error : IDatabaseTableResultCallbackError) => Function;
-          onResultFunction : (databaseTable : DatabaseTable) => Function;
-          onWarningFunction : (databaseTable : DatabaseTable, warning : IDatabaseTableResultCallbackWarning) => Function;
+          onErrorFunction : (error : IDatabaseTableResultCallbackError) => void;
+          onResultFunction : (databaseTable : DatabaseTable) => void;
+          onWarningFunction : (databaseTable : DatabaseTable, warning : IDatabaseTableResultCallbackWarning) => void;
 
           /**
              Constructor with anonymous handler functions for callback.
@@ -7355,7 +7355,7 @@ listener and subsequently, the listener will be deactivated and removed from the
              @param onResultFunction Function receiving parameters of type: DatabaseTable
              @param onWarningFunction Function receiving parameters of type: DatabaseTable, IDatabaseTableResultCallbackWarning
           */
-          constructor(onErrorFunction : (error : IDatabaseTableResultCallbackError) => Function, onResultFunction : (databaseTable : DatabaseTable) => Function, onWarningFunction : (databaseTable : DatabaseTable, warning : IDatabaseTableResultCallbackWarning) => Function) {
+          constructor(onErrorFunction : (error : IDatabaseTableResultCallbackError) => void, onResultFunction : (databaseTable : DatabaseTable) => void, onWarningFunction : (databaseTable : DatabaseTable, warning : IDatabaseTableResultCallbackWarning) => void) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
                     console.error("ERROR: DatabaseTableResultCallback onErrorFunction is not defined.");
@@ -7458,9 +7458,9 @@ listener and subsequently, the listener will be deactivated and removed from the
 
      export class FileDataLoadResultCallback extends BaseCallback implements IFileDataLoadResultCallback {
 
-          onErrorFunction : (error : IFileDataLoadResultCallbackError) => Function;
-          onResultFunction : (data : Array<number>) => Function;
-          onWarningFunction : (data : Array<number>, warning : IFileDataLoadResultCallbackWarning) => Function;
+          onErrorFunction : (error : IFileDataLoadResultCallbackError) => void;
+          onResultFunction : (data : Array<number>) => void;
+          onWarningFunction : (data : Array<number>, warning : IFileDataLoadResultCallbackWarning) => void;
 
           /**
              Constructor with anonymous handler functions for callback.
@@ -7469,7 +7469,7 @@ listener and subsequently, the listener will be deactivated and removed from the
              @param onResultFunction Function receiving parameters of type: Array<number>
              @param onWarningFunction Function receiving parameters of type: Array<number>, IFileDataLoadResultCallbackWarning
           */
-          constructor(onErrorFunction : (error : IFileDataLoadResultCallbackError) => Function, onResultFunction : (data : Array<number>) => Function, onWarningFunction : (data : Array<number>, warning : IFileDataLoadResultCallbackWarning) => Function) {
+          constructor(onErrorFunction : (error : IFileDataLoadResultCallbackError) => void, onResultFunction : (data : Array<number>) => void, onWarningFunction : (data : Array<number>, warning : IFileDataLoadResultCallbackWarning) => void) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
                     console.error("ERROR: FileDataLoadResultCallback onErrorFunction is not defined.");
@@ -7572,9 +7572,9 @@ listener and subsequently, the listener will be deactivated and removed from the
 
      export class FileDataStoreResultCallback extends BaseCallback implements IFileDataStoreResultCallback {
 
-          onErrorFunction : (error : IFileDataStoreResultCallbackError) => Function;
-          onResultFunction : (file : FileDescriptor) => Function;
-          onWarningFunction : (file : FileDescriptor, warning : IFileDataStoreResultCallbackWarning) => Function;
+          onErrorFunction : (error : IFileDataStoreResultCallbackError) => void;
+          onResultFunction : (file : FileDescriptor) => void;
+          onWarningFunction : (file : FileDescriptor, warning : IFileDataStoreResultCallbackWarning) => void;
 
           /**
              Constructor with anonymous handler functions for callback.
@@ -7583,7 +7583,7 @@ listener and subsequently, the listener will be deactivated and removed from the
              @param onResultFunction Function receiving parameters of type: FileDescriptor
              @param onWarningFunction Function receiving parameters of type: FileDescriptor, IFileDataStoreResultCallbackWarning
           */
-          constructor(onErrorFunction : (error : IFileDataStoreResultCallbackError) => Function, onResultFunction : (file : FileDescriptor) => Function, onWarningFunction : (file : FileDescriptor, warning : IFileDataStoreResultCallbackWarning) => Function) {
+          constructor(onErrorFunction : (error : IFileDataStoreResultCallbackError) => void, onResultFunction : (file : FileDescriptor) => void, onWarningFunction : (file : FileDescriptor, warning : IFileDataStoreResultCallbackWarning) => void) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
                     console.error("ERROR: FileDataStoreResultCallback onErrorFunction is not defined.");
@@ -7686,9 +7686,9 @@ listener and subsequently, the listener will be deactivated and removed from the
 
      export class FileListResultCallback extends BaseCallback implements IFileListResultCallback {
 
-          onErrorFunction : (error : IFileListResultCallbackError) => Function;
-          onResultFunction : (files : Array<FileDescriptor>) => Function;
-          onWarningFunction : (files : Array<FileDescriptor>, warning : IFileListResultCallbackWarning) => Function;
+          onErrorFunction : (error : IFileListResultCallbackError) => void;
+          onResultFunction : (files : Array<FileDescriptor>) => void;
+          onWarningFunction : (files : Array<FileDescriptor>, warning : IFileListResultCallbackWarning) => void;
 
           /**
              Constructor with anonymous handler functions for callback.
@@ -7697,7 +7697,7 @@ listener and subsequently, the listener will be deactivated and removed from the
              @param onResultFunction Function receiving parameters of type: Array<FileDescriptor>
              @param onWarningFunction Function receiving parameters of type: Array<FileDescriptor>, IFileListResultCallbackWarning
           */
-          constructor(onErrorFunction : (error : IFileListResultCallbackError) => Function, onResultFunction : (files : Array<FileDescriptor>) => Function, onWarningFunction : (files : Array<FileDescriptor>, warning : IFileListResultCallbackWarning) => Function) {
+          constructor(onErrorFunction : (error : IFileListResultCallbackError) => void, onResultFunction : (files : Array<FileDescriptor>) => void, onWarningFunction : (files : Array<FileDescriptor>, warning : IFileListResultCallbackWarning) => void) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
                     console.error("ERROR: FileListResultCallback onErrorFunction is not defined.");
@@ -7800,9 +7800,9 @@ listener and subsequently, the listener will be deactivated and removed from the
 
      export class FileResultCallback extends BaseCallback implements IFileResultCallback {
 
-          onErrorFunction : (error : IFileResultCallbackError) => Function;
-          onResultFunction : (storageFile : FileDescriptor) => Function;
-          onWarningFunction : (file : FileDescriptor, warning : IFileResultCallbackWarning) => Function;
+          onErrorFunction : (error : IFileResultCallbackError) => void;
+          onResultFunction : (storageFile : FileDescriptor) => void;
+          onWarningFunction : (file : FileDescriptor, warning : IFileResultCallbackWarning) => void;
 
           /**
              Constructor with anonymous handler functions for callback.
@@ -7811,7 +7811,7 @@ listener and subsequently, the listener will be deactivated and removed from the
              @param onResultFunction Function receiving parameters of type: FileDescriptor
              @param onWarningFunction Function receiving parameters of type: FileDescriptor, IFileResultCallbackWarning
           */
-          constructor(onErrorFunction : (error : IFileResultCallbackError) => Function, onResultFunction : (storageFile : FileDescriptor) => Function, onWarningFunction : (file : FileDescriptor, warning : IFileResultCallbackWarning) => Function) {
+          constructor(onErrorFunction : (error : IFileResultCallbackError) => void, onResultFunction : (storageFile : FileDescriptor) => void, onWarningFunction : (file : FileDescriptor, warning : IFileResultCallbackWarning) => void) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
                     console.error("ERROR: FileResultCallback onErrorFunction is not defined.");
@@ -7914,9 +7914,9 @@ listener and subsequently, the listener will be deactivated and removed from the
 
      export class MessagingCallback extends BaseCallback implements IMessagingCallback {
 
-          onErrorFunction : (error : IMessagingCallbackError) => Function;
-          onResultFunction : (success : boolean) => Function;
-          onWarningFunction : (success : boolean, warning : IMessagingCallbackWarning) => Function;
+          onErrorFunction : (error : IMessagingCallbackError) => void;
+          onResultFunction : (success : boolean) => void;
+          onWarningFunction : (success : boolean, warning : IMessagingCallbackWarning) => void;
 
           /**
              Constructor with anonymous handler functions for callback.
@@ -7925,7 +7925,7 @@ listener and subsequently, the listener will be deactivated and removed from the
              @param onResultFunction Function receiving parameters of type: boolean
              @param onWarningFunction Function receiving parameters of type: boolean, IMessagingCallbackWarning
           */
-          constructor(onErrorFunction : (error : IMessagingCallbackError) => Function, onResultFunction : (success : boolean) => Function, onWarningFunction : (success : boolean, warning : IMessagingCallbackWarning) => Function) {
+          constructor(onErrorFunction : (error : IMessagingCallbackError) => void, onResultFunction : (success : boolean) => void, onWarningFunction : (success : boolean, warning : IMessagingCallbackWarning) => void) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
                     console.error("ERROR: MessagingCallback onErrorFunction is not defined.");
@@ -8028,9 +8028,9 @@ listener and subsequently, the listener will be deactivated and removed from the
 
      export class NetworkReachabilityCallback extends BaseCallback implements INetworkReachabilityCallback {
 
-          onErrorFunction : (error : INetworkReachabilityCallbackError) => Function;
-          onResultFunction : (reachable : boolean) => Function;
-          onWarningFunction : (reachable : boolean, warning : INetworkReachabilityCallbackWarning) => Function;
+          onErrorFunction : (error : INetworkReachabilityCallbackError) => void;
+          onResultFunction : (reachable : boolean) => void;
+          onWarningFunction : (reachable : boolean, warning : INetworkReachabilityCallbackWarning) => void;
 
           /**
              Constructor with anonymous handler functions for callback.
@@ -8039,7 +8039,7 @@ listener and subsequently, the listener will be deactivated and removed from the
              @param onResultFunction Function receiving parameters of type: boolean
              @param onWarningFunction Function receiving parameters of type: boolean, INetworkReachabilityCallbackWarning
           */
-          constructor(onErrorFunction : (error : INetworkReachabilityCallbackError) => Function, onResultFunction : (reachable : boolean) => Function, onWarningFunction : (reachable : boolean, warning : INetworkReachabilityCallbackWarning) => Function) {
+          constructor(onErrorFunction : (error : INetworkReachabilityCallbackError) => void, onResultFunction : (reachable : boolean) => void, onWarningFunction : (reachable : boolean, warning : INetworkReachabilityCallbackWarning) => void) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
                     console.error("ERROR: NetworkReachabilityCallback onErrorFunction is not defined.");
@@ -8142,9 +8142,9 @@ listener and subsequently, the listener will be deactivated and removed from the
 
      export class SecurityResultCallback extends BaseCallback implements ISecurityResultCallback {
 
-          onErrorFunction : (error : ISecurityResultCallbackError) => Function;
-          onResultFunction : (keyValues : Array<SecureKeyPair>) => Function;
-          onWarningFunction : (keyValues : Array<SecureKeyPair>, warning : ISecurityResultCallbackWarning) => Function;
+          onErrorFunction : (error : ISecurityResultCallbackError) => void;
+          onResultFunction : (keyValues : Array<SecureKeyPair>) => void;
+          onWarningFunction : (keyValues : Array<SecureKeyPair>, warning : ISecurityResultCallbackWarning) => void;
 
           /**
              Constructor with anonymous handler functions for callback.
@@ -8153,7 +8153,7 @@ listener and subsequently, the listener will be deactivated and removed from the
              @param onResultFunction Function receiving parameters of type: Array<SecureKeyPair>
              @param onWarningFunction Function receiving parameters of type: Array<SecureKeyPair>, ISecurityResultCallbackWarning
           */
-          constructor(onErrorFunction : (error : ISecurityResultCallbackError) => Function, onResultFunction : (keyValues : Array<SecureKeyPair>) => Function, onWarningFunction : (keyValues : Array<SecureKeyPair>, warning : ISecurityResultCallbackWarning) => Function) {
+          constructor(onErrorFunction : (error : ISecurityResultCallbackError) => void, onResultFunction : (keyValues : Array<SecureKeyPair>) => void, onWarningFunction : (keyValues : Array<SecureKeyPair>, warning : ISecurityResultCallbackWarning) => void) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
                     console.error("ERROR: SecurityResultCallback onErrorFunction is not defined.");
@@ -8256,9 +8256,9 @@ listener and subsequently, the listener will be deactivated and removed from the
 
      export class ServiceResultCallback extends BaseCallback implements IServiceResultCallback {
 
-          onErrorFunction : (error : IServiceResultCallbackError) => Function;
-          onResultFunction : (response : ServiceResponse) => Function;
-          onWarningFunction : (response : ServiceResponse, warning : IServiceResultCallbackWarning) => Function;
+          onErrorFunction : (error : IServiceResultCallbackError) => void;
+          onResultFunction : (response : ServiceResponse) => void;
+          onWarningFunction : (response : ServiceResponse, warning : IServiceResultCallbackWarning) => void;
 
           /**
              Constructor with anonymous handler functions for callback.
@@ -8267,7 +8267,7 @@ listener and subsequently, the listener will be deactivated and removed from the
              @param onResultFunction Function receiving parameters of type: ServiceResponse
              @param onWarningFunction Function receiving parameters of type: ServiceResponse, IServiceResultCallbackWarning
           */
-          constructor(onErrorFunction : (error : IServiceResultCallbackError) => Function, onResultFunction : (response : ServiceResponse) => Function, onWarningFunction : (response : ServiceResponse, warning : IServiceResultCallbackWarning) => Function) {
+          constructor(onErrorFunction : (error : IServiceResultCallbackError) => void, onResultFunction : (response : ServiceResponse) => void, onWarningFunction : (response : ServiceResponse, warning : IServiceResultCallbackWarning) => void) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
                     console.error("ERROR: ServiceResultCallback onErrorFunction is not defined.");

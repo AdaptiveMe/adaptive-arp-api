@@ -45,9 +45,9 @@ declare module Adaptive {
     function handleFileDataStoreResultCallbackResult(id: number, file: FileDescriptor): void;
     function handleFileDataStoreResultCallbackWarning(id: number, file: FileDescriptor, warning: IFileDataStoreResultCallbackWarning): void;
     class FileDataStoreResultCallback extends BaseCallback implements IFileDataStoreResultCallback {
-        onErrorFunction: (error: IFileDataStoreResultCallbackError) => Function;
-        onResultFunction: (file: FileDescriptor) => Function;
-        onWarningFunction: (file: FileDescriptor, warning: IFileDataStoreResultCallbackWarning) => Function;
+        onErrorFunction: (error: IFileDataStoreResultCallbackError) => void;
+        onResultFunction: (file: FileDescriptor) => void;
+        onWarningFunction: (file: FileDescriptor, warning: IFileDataStoreResultCallbackWarning) => void;
         /**
            Constructor with anonymous handler functions for callback.
 
@@ -55,7 +55,7 @@ declare module Adaptive {
            @param onResultFunction Function receiving parameters of type: FileDescriptor
            @param onWarningFunction Function receiving parameters of type: FileDescriptor, IFileDataStoreResultCallbackWarning
         */
-        constructor(onErrorFunction: (error: IFileDataStoreResultCallbackError) => Function, onResultFunction: (file: FileDescriptor) => Function, onWarningFunction: (file: FileDescriptor, warning: IFileDataStoreResultCallbackWarning) => Function);
+        constructor(onErrorFunction: (error: IFileDataStoreResultCallbackError) => void, onResultFunction: (file: FileDescriptor) => void, onWarningFunction: (file: FileDescriptor, warning: IFileDataStoreResultCallbackWarning) => void);
         /**
            Error processing data retrieval/storage operation.
 

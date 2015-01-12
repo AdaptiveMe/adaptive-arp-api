@@ -45,9 +45,9 @@ declare module Adaptive {
     function handleAccelerationListenerResult(id: number, acceleration: Acceleration): void;
     function handleAccelerationListenerWarning(id: number, acceleration: Acceleration, warning: IAccelerationListenerWarning): void;
     class AccelerationListener extends BaseListener implements IAccelerationListener {
-        onErrorFunction: (error: IAccelerationListenerError) => Function;
-        onResultFunction: (acceleration: Acceleration) => Function;
-        onWarningFunction: (acceleration: Acceleration, warning: IAccelerationListenerWarning) => Function;
+        onErrorFunction: (error: IAccelerationListenerError) => void;
+        onResultFunction: (acceleration: Acceleration) => void;
+        onWarningFunction: (acceleration: Acceleration, warning: IAccelerationListenerWarning) => void;
         /**
            Constructor with anonymous handler functions for listener.
 
@@ -55,7 +55,7 @@ declare module Adaptive {
            @param onResultFunction Function receiving parameters of type: Acceleration
            @param onWarningFunction Function receiving parameters of type: Acceleration, IAccelerationListenerWarning
         */
-        constructor(onErrorFunction: (error: IAccelerationListenerError) => Function, onResultFunction: (acceleration: Acceleration) => Function, onWarningFunction: (acceleration: Acceleration, warning: IAccelerationListenerWarning) => Function);
+        constructor(onErrorFunction: (error: IAccelerationListenerError) => void, onResultFunction: (acceleration: Acceleration) => void, onWarningFunction: (acceleration: Acceleration, warning: IAccelerationListenerWarning) => void);
         /**
            No data received - error condition, not authorized or hardware not available. This will be reported once for the
 listener and subsequently, the listener will be deactivated and removed from the internal list of listeners.

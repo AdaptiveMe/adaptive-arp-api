@@ -81,9 +81,9 @@ module Adaptive {
 
      export class LifecycleListener extends BaseListener implements ILifecycleListener {
 
-          onErrorFunction : (error : ILifecycleListenerError) => Function;
-          onResultFunction : (lifecycle : Lifecycle) => Function;
-          onWarningFunction : (lifecycle : Lifecycle, warning : ILifecycleListenerWarning) => Function;
+          onErrorFunction : (error : ILifecycleListenerError) => void;
+          onResultFunction : (lifecycle : Lifecycle) => void;
+          onWarningFunction : (lifecycle : Lifecycle, warning : ILifecycleListenerWarning) => void;
 
           /**
              Constructor with anonymous handler functions for listener.
@@ -92,7 +92,7 @@ module Adaptive {
              @param onResultFunction Function receiving parameters of type: Lifecycle
              @param onWarningFunction Function receiving parameters of type: Lifecycle, ILifecycleListenerWarning
           */
-          constructor(onErrorFunction : (error : ILifecycleListenerError) => Function, onResultFunction : (lifecycle : Lifecycle) => Function, onWarningFunction : (lifecycle : Lifecycle, warning : ILifecycleListenerWarning) => Function) {
+          constructor(onErrorFunction : (error : ILifecycleListenerError) => void, onResultFunction : (lifecycle : Lifecycle) => void, onWarningFunction : (lifecycle : Lifecycle, warning : ILifecycleListenerWarning) => void) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
                     console.error("ERROR: LifecycleListener onErrorFunction is not defined.");

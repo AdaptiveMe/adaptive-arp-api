@@ -45,9 +45,9 @@ declare module Adaptive {
     function handleFileListResultCallbackResult(id: number, files: FileDescriptor[]): void;
     function handleFileListResultCallbackWarning(id: number, files: FileDescriptor[], warning: IFileListResultCallbackWarning): void;
     class FileListResultCallback extends BaseCallback implements IFileListResultCallback {
-        onErrorFunction: (error: IFileListResultCallbackError) => Function;
-        onResultFunction: (files: FileDescriptor[]) => Function;
-        onWarningFunction: (files: FileDescriptor[], warning: IFileListResultCallbackWarning) => Function;
+        onErrorFunction: (error: IFileListResultCallbackError) => void;
+        onResultFunction: (files: FileDescriptor[]) => void;
+        onWarningFunction: (files: FileDescriptor[], warning: IFileListResultCallbackWarning) => void;
         /**
            Constructor with anonymous handler functions for callback.
 
@@ -55,7 +55,7 @@ declare module Adaptive {
            @param onResultFunction Function receiving parameters of type: Array<FileDescriptor>
            @param onWarningFunction Function receiving parameters of type: Array<FileDescriptor>, IFileListResultCallbackWarning
         */
-        constructor(onErrorFunction: (error: IFileListResultCallbackError) => Function, onResultFunction: (files: FileDescriptor[]) => Function, onWarningFunction: (files: FileDescriptor[], warning: IFileListResultCallbackWarning) => Function);
+        constructor(onErrorFunction: (error: IFileListResultCallbackError) => void, onResultFunction: (files: FileDescriptor[]) => void, onWarningFunction: (files: FileDescriptor[], warning: IFileListResultCallbackWarning) => void);
         /**
            On error result of a file operation.
 

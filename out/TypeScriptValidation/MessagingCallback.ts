@@ -83,9 +83,9 @@ module Adaptive {
 
      export class MessagingCallback extends BaseCallback implements IMessagingCallback {
 
-          onErrorFunction : (error : IMessagingCallbackError) => Function;
-          onResultFunction : (success : boolean) => Function;
-          onWarningFunction : (success : boolean, warning : IMessagingCallbackWarning) => Function;
+          onErrorFunction : (error : IMessagingCallbackError) => void;
+          onResultFunction : (success : boolean) => void;
+          onWarningFunction : (success : boolean, warning : IMessagingCallbackWarning) => void;
 
           /**
              Constructor with anonymous handler functions for callback.
@@ -94,7 +94,7 @@ module Adaptive {
              @param onResultFunction Function receiving parameters of type: boolean
              @param onWarningFunction Function receiving parameters of type: boolean, IMessagingCallbackWarning
           */
-          constructor(onErrorFunction : (error : IMessagingCallbackError) => Function, onResultFunction : (success : boolean) => Function, onWarningFunction : (success : boolean, warning : IMessagingCallbackWarning) => Function) {
+          constructor(onErrorFunction : (error : IMessagingCallbackError) => void, onResultFunction : (success : boolean) => void, onWarningFunction : (success : boolean, warning : IMessagingCallbackWarning) => void) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
                     console.error("ERROR: MessagingCallback onErrorFunction is not defined.");

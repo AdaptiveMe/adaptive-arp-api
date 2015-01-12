@@ -45,9 +45,9 @@ declare module Adaptive {
     function handleSecurityResultCallbackResult(id: number, keyValues: SecureKeyPair[]): void;
     function handleSecurityResultCallbackWarning(id: number, keyValues: SecureKeyPair[], warning: ISecurityResultCallbackWarning): void;
     class SecurityResultCallback extends BaseCallback implements ISecurityResultCallback {
-        onErrorFunction: (error: ISecurityResultCallbackError) => Function;
-        onResultFunction: (keyValues: SecureKeyPair[]) => Function;
-        onWarningFunction: (keyValues: SecureKeyPair[], warning: ISecurityResultCallbackWarning) => Function;
+        onErrorFunction: (error: ISecurityResultCallbackError) => void;
+        onResultFunction: (keyValues: SecureKeyPair[]) => void;
+        onWarningFunction: (keyValues: SecureKeyPair[], warning: ISecurityResultCallbackWarning) => void;
         /**
            Constructor with anonymous handler functions for callback.
 
@@ -55,7 +55,7 @@ declare module Adaptive {
            @param onResultFunction Function receiving parameters of type: Array<SecureKeyPair>
            @param onWarningFunction Function receiving parameters of type: Array<SecureKeyPair>, ISecurityResultCallbackWarning
         */
-        constructor(onErrorFunction: (error: ISecurityResultCallbackError) => Function, onResultFunction: (keyValues: SecureKeyPair[]) => Function, onWarningFunction: (keyValues: SecureKeyPair[], warning: ISecurityResultCallbackWarning) => Function);
+        constructor(onErrorFunction: (error: ISecurityResultCallbackError) => void, onResultFunction: (keyValues: SecureKeyPair[]) => void, onWarningFunction: (keyValues: SecureKeyPair[], warning: ISecurityResultCallbackWarning) => void);
         /**
            No data received - error condition, not authorized .
 

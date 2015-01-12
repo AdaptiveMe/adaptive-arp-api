@@ -81,9 +81,9 @@ module Adaptive {
 
      export class ButtonListener extends BaseListener implements IButtonListener {
 
-          onErrorFunction : (error : IButtonListenerError) => Function;
-          onResultFunction : (button : Button) => Function;
-          onWarningFunction : (button : Button, warning : IButtonListenerWarning) => Function;
+          onErrorFunction : (error : IButtonListenerError) => void;
+          onResultFunction : (button : Button) => void;
+          onWarningFunction : (button : Button, warning : IButtonListenerWarning) => void;
 
           /**
              Constructor with anonymous handler functions for listener.
@@ -92,7 +92,7 @@ module Adaptive {
              @param onResultFunction Function receiving parameters of type: Button
              @param onWarningFunction Function receiving parameters of type: Button, IButtonListenerWarning
           */
-          constructor(onErrorFunction : (error : IButtonListenerError) => Function, onResultFunction : (button : Button) => Function, onWarningFunction : (button : Button, warning : IButtonListenerWarning) => Function) {
+          constructor(onErrorFunction : (error : IButtonListenerError) => void, onResultFunction : (button : Button) => void, onWarningFunction : (button : Button, warning : IButtonListenerWarning) => void) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
                     console.error("ERROR: ButtonListener onErrorFunction is not defined.");

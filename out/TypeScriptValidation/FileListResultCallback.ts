@@ -84,9 +84,9 @@ module Adaptive {
 
      export class FileListResultCallback extends BaseCallback implements IFileListResultCallback {
 
-          onErrorFunction : (error : IFileListResultCallbackError) => Function;
-          onResultFunction : (files : Array<FileDescriptor>) => Function;
-          onWarningFunction : (files : Array<FileDescriptor>, warning : IFileListResultCallbackWarning) => Function;
+          onErrorFunction : (error : IFileListResultCallbackError) => void;
+          onResultFunction : (files : Array<FileDescriptor>) => void;
+          onWarningFunction : (files : Array<FileDescriptor>, warning : IFileListResultCallbackWarning) => void;
 
           /**
              Constructor with anonymous handler functions for callback.
@@ -95,7 +95,7 @@ module Adaptive {
              @param onResultFunction Function receiving parameters of type: Array<FileDescriptor>
              @param onWarningFunction Function receiving parameters of type: Array<FileDescriptor>, IFileListResultCallbackWarning
           */
-          constructor(onErrorFunction : (error : IFileListResultCallbackError) => Function, onResultFunction : (files : Array<FileDescriptor>) => Function, onWarningFunction : (files : Array<FileDescriptor>, warning : IFileListResultCallbackWarning) => Function) {
+          constructor(onErrorFunction : (error : IFileListResultCallbackError) => void, onResultFunction : (files : Array<FileDescriptor>) => void, onWarningFunction : (files : Array<FileDescriptor>, warning : IFileListResultCallbackWarning) => void) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
                     console.error("ERROR: FileListResultCallback onErrorFunction is not defined.");

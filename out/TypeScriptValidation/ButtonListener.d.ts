@@ -45,9 +45,9 @@ declare module Adaptive {
     function handleButtonListenerResult(id: number, button: Button): void;
     function handleButtonListenerWarning(id: number, button: Button, warning: IButtonListenerWarning): void;
     class ButtonListener extends BaseListener implements IButtonListener {
-        onErrorFunction: (error: IButtonListenerError) => Function;
-        onResultFunction: (button: Button) => Function;
-        onWarningFunction: (button: Button, warning: IButtonListenerWarning) => Function;
+        onErrorFunction: (error: IButtonListenerError) => void;
+        onResultFunction: (button: Button) => void;
+        onWarningFunction: (button: Button, warning: IButtonListenerWarning) => void;
         /**
            Constructor with anonymous handler functions for listener.
 
@@ -55,7 +55,7 @@ declare module Adaptive {
            @param onResultFunction Function receiving parameters of type: Button
            @param onWarningFunction Function receiving parameters of type: Button, IButtonListenerWarning
         */
-        constructor(onErrorFunction: (error: IButtonListenerError) => Function, onResultFunction: (button: Button) => Function, onWarningFunction: (button: Button, warning: IButtonListenerWarning) => Function);
+        constructor(onErrorFunction: (error: IButtonListenerError) => void, onResultFunction: (button: Button) => void, onWarningFunction: (button: Button, warning: IButtonListenerWarning) => void);
         /**
            No data received
 

@@ -45,9 +45,9 @@ declare module Adaptive {
     function handleDatabaseTableResultCallbackResult(id: number, databaseTable: DatabaseTable): void;
     function handleDatabaseTableResultCallbackWarning(id: number, databaseTable: DatabaseTable, warning: IDatabaseTableResultCallbackWarning): void;
     class DatabaseTableResultCallback extends BaseCallback implements IDatabaseTableResultCallback {
-        onErrorFunction: (error: IDatabaseTableResultCallbackError) => Function;
-        onResultFunction: (databaseTable: DatabaseTable) => Function;
-        onWarningFunction: (databaseTable: DatabaseTable, warning: IDatabaseTableResultCallbackWarning) => Function;
+        onErrorFunction: (error: IDatabaseTableResultCallbackError) => void;
+        onResultFunction: (databaseTable: DatabaseTable) => void;
+        onWarningFunction: (databaseTable: DatabaseTable, warning: IDatabaseTableResultCallbackWarning) => void;
         /**
            Constructor with anonymous handler functions for callback.
 
@@ -55,7 +55,7 @@ declare module Adaptive {
            @param onResultFunction Function receiving parameters of type: DatabaseTable
            @param onWarningFunction Function receiving parameters of type: DatabaseTable, IDatabaseTableResultCallbackWarning
         */
-        constructor(onErrorFunction: (error: IDatabaseTableResultCallbackError) => Function, onResultFunction: (databaseTable: DatabaseTable) => Function, onWarningFunction: (databaseTable: DatabaseTable, warning: IDatabaseTableResultCallbackWarning) => Function);
+        constructor(onErrorFunction: (error: IDatabaseTableResultCallbackError) => void, onResultFunction: (databaseTable: DatabaseTable) => void, onWarningFunction: (databaseTable: DatabaseTable, warning: IDatabaseTableResultCallbackWarning) => void);
         /**
            Result callback for error responses
 

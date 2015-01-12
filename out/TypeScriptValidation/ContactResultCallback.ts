@@ -84,9 +84,9 @@ module Adaptive {
 
      export class ContactResultCallback extends BaseCallback implements IContactResultCallback {
 
-          onErrorFunction : (error : IContactResultCallbackError) => Function;
-          onResultFunction : (contacts : Array<Contact>) => Function;
-          onWarningFunction : (contacts : Array<Contact>, warning : IContactResultCallbackWarning) => Function;
+          onErrorFunction : (error : IContactResultCallbackError) => void;
+          onResultFunction : (contacts : Array<Contact>) => void;
+          onWarningFunction : (contacts : Array<Contact>, warning : IContactResultCallbackWarning) => void;
 
           /**
              Constructor with anonymous handler functions for callback.
@@ -95,7 +95,7 @@ module Adaptive {
              @param onResultFunction Function receiving parameters of type: Array<Contact>
              @param onWarningFunction Function receiving parameters of type: Array<Contact>, IContactResultCallbackWarning
           */
-          constructor(onErrorFunction : (error : IContactResultCallbackError) => Function, onResultFunction : (contacts : Array<Contact>) => Function, onWarningFunction : (contacts : Array<Contact>, warning : IContactResultCallbackWarning) => Function) {
+          constructor(onErrorFunction : (error : IContactResultCallbackError) => void, onResultFunction : (contacts : Array<Contact>) => void, onWarningFunction : (contacts : Array<Contact>, warning : IContactResultCallbackWarning) => void) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
                     console.error("ERROR: ContactResultCallback onErrorFunction is not defined.");

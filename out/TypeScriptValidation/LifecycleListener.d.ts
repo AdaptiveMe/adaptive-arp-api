@@ -45,9 +45,9 @@ declare module Adaptive {
     function handleLifecycleListenerResult(id: number, lifecycle: Lifecycle): void;
     function handleLifecycleListenerWarning(id: number, lifecycle: Lifecycle, warning: ILifecycleListenerWarning): void;
     class LifecycleListener extends BaseListener implements ILifecycleListener {
-        onErrorFunction: (error: ILifecycleListenerError) => Function;
-        onResultFunction: (lifecycle: Lifecycle) => Function;
-        onWarningFunction: (lifecycle: Lifecycle, warning: ILifecycleListenerWarning) => Function;
+        onErrorFunction: (error: ILifecycleListenerError) => void;
+        onResultFunction: (lifecycle: Lifecycle) => void;
+        onWarningFunction: (lifecycle: Lifecycle, warning: ILifecycleListenerWarning) => void;
         /**
            Constructor with anonymous handler functions for listener.
 
@@ -55,7 +55,7 @@ declare module Adaptive {
            @param onResultFunction Function receiving parameters of type: Lifecycle
            @param onWarningFunction Function receiving parameters of type: Lifecycle, ILifecycleListenerWarning
         */
-        constructor(onErrorFunction: (error: ILifecycleListenerError) => Function, onResultFunction: (lifecycle: Lifecycle) => Function, onWarningFunction: (lifecycle: Lifecycle, warning: ILifecycleListenerWarning) => Function);
+        constructor(onErrorFunction: (error: ILifecycleListenerError) => void, onResultFunction: (lifecycle: Lifecycle) => void, onWarningFunction: (lifecycle: Lifecycle, warning: ILifecycleListenerWarning) => void);
         /**
            No data received - error condition, not authorized or hardware not available.
 

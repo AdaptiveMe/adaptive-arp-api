@@ -81,9 +81,9 @@ module Adaptive {
 
      export class NetworkStatusListener extends BaseListener implements INetworkStatusListener {
 
-          onErrorFunction : (error : INetworkStatusListenerError) => Function;
-          onResultFunction : (network : ICapabilitiesNet) => Function;
-          onWarningFunction : (network : ICapabilitiesNet, warning : INetworkStatusListenerWarning) => Function;
+          onErrorFunction : (error : INetworkStatusListenerError) => void;
+          onResultFunction : (network : ICapabilitiesNet) => void;
+          onWarningFunction : (network : ICapabilitiesNet, warning : INetworkStatusListenerWarning) => void;
 
           /**
              Constructor with anonymous handler functions for listener.
@@ -92,7 +92,7 @@ module Adaptive {
              @param onResultFunction Function receiving parameters of type: ICapabilitiesNet
              @param onWarningFunction Function receiving parameters of type: ICapabilitiesNet, INetworkStatusListenerWarning
           */
-          constructor(onErrorFunction : (error : INetworkStatusListenerError) => Function, onResultFunction : (network : ICapabilitiesNet) => Function, onWarningFunction : (network : ICapabilitiesNet, warning : INetworkStatusListenerWarning) => Function) {
+          constructor(onErrorFunction : (error : INetworkStatusListenerError) => void, onResultFunction : (network : ICapabilitiesNet) => void, onWarningFunction : (network : ICapabilitiesNet, warning : INetworkStatusListenerWarning) => void) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
                     console.error("ERROR: NetworkStatusListener onErrorFunction is not defined.");

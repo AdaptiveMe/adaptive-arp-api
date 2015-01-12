@@ -45,9 +45,9 @@ declare module Adaptive {
     function handleGeolocationListenerResult(id: number, geolocation: Geolocation): void;
     function handleGeolocationListenerWarning(id: number, geolocation: Geolocation, warning: IGeolocationListenerWarning): void;
     class GeolocationListener extends BaseListener implements IGeolocationListener {
-        onErrorFunction: (error: IGeolocationListenerError) => Function;
-        onResultFunction: (geolocation: Geolocation) => Function;
-        onWarningFunction: (geolocation: Geolocation, warning: IGeolocationListenerWarning) => Function;
+        onErrorFunction: (error: IGeolocationListenerError) => void;
+        onResultFunction: (geolocation: Geolocation) => void;
+        onWarningFunction: (geolocation: Geolocation, warning: IGeolocationListenerWarning) => void;
         /**
            Constructor with anonymous handler functions for listener.
 
@@ -55,7 +55,7 @@ declare module Adaptive {
            @param onResultFunction Function receiving parameters of type: Geolocation
            @param onWarningFunction Function receiving parameters of type: Geolocation, IGeolocationListenerWarning
         */
-        constructor(onErrorFunction: (error: IGeolocationListenerError) => Function, onResultFunction: (geolocation: Geolocation) => Function, onWarningFunction: (geolocation: Geolocation, warning: IGeolocationListenerWarning) => Function);
+        constructor(onErrorFunction: (error: IGeolocationListenerError) => void, onResultFunction: (geolocation: Geolocation) => void, onWarningFunction: (geolocation: Geolocation, warning: IGeolocationListenerWarning) => void);
         /**
            No data received - error condition, not authorized or hardware not available.
 

@@ -83,9 +83,9 @@ module Adaptive {
 
      export class NetworkReachabilityCallback extends BaseCallback implements INetworkReachabilityCallback {
 
-          onErrorFunction : (error : INetworkReachabilityCallbackError) => Function;
-          onResultFunction : (reachable : boolean) => Function;
-          onWarningFunction : (reachable : boolean, warning : INetworkReachabilityCallbackWarning) => Function;
+          onErrorFunction : (error : INetworkReachabilityCallbackError) => void;
+          onResultFunction : (reachable : boolean) => void;
+          onWarningFunction : (reachable : boolean, warning : INetworkReachabilityCallbackWarning) => void;
 
           /**
              Constructor with anonymous handler functions for callback.
@@ -94,7 +94,7 @@ module Adaptive {
              @param onResultFunction Function receiving parameters of type: boolean
              @param onWarningFunction Function receiving parameters of type: boolean, INetworkReachabilityCallbackWarning
           */
-          constructor(onErrorFunction : (error : INetworkReachabilityCallbackError) => Function, onResultFunction : (reachable : boolean) => Function, onWarningFunction : (reachable : boolean, warning : INetworkReachabilityCallbackWarning) => Function) {
+          constructor(onErrorFunction : (error : INetworkReachabilityCallbackError) => void, onResultFunction : (reachable : boolean) => void, onWarningFunction : (reachable : boolean, warning : INetworkReachabilityCallbackWarning) => void) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
                     console.error("ERROR: NetworkReachabilityCallback onErrorFunction is not defined.");

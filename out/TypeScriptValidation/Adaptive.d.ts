@@ -5325,9 +5325,9 @@ Possible lifecycle States:
     function handleAccelerationListenerResult(id: number, acceleration: Acceleration): void;
     function handleAccelerationListenerWarning(id: number, acceleration: Acceleration, warning: IAccelerationListenerWarning): void;
     class AccelerationListener extends BaseListener implements IAccelerationListener {
-        onErrorFunction: (error: IAccelerationListenerError) => Function;
-        onResultFunction: (acceleration: Acceleration) => Function;
-        onWarningFunction: (acceleration: Acceleration, warning: IAccelerationListenerWarning) => Function;
+        onErrorFunction: (error: IAccelerationListenerError) => void;
+        onResultFunction: (acceleration: Acceleration) => void;
+        onWarningFunction: (acceleration: Acceleration, warning: IAccelerationListenerWarning) => void;
         /**
            Constructor with anonymous handler functions for listener.
 
@@ -5335,7 +5335,7 @@ Possible lifecycle States:
            @param onResultFunction Function receiving parameters of type: Acceleration
            @param onWarningFunction Function receiving parameters of type: Acceleration, IAccelerationListenerWarning
         */
-        constructor(onErrorFunction: (error: IAccelerationListenerError) => Function, onResultFunction: (acceleration: Acceleration) => Function, onWarningFunction: (acceleration: Acceleration, warning: IAccelerationListenerWarning) => Function);
+        constructor(onErrorFunction: (error: IAccelerationListenerError) => void, onResultFunction: (acceleration: Acceleration) => void, onWarningFunction: (acceleration: Acceleration, warning: IAccelerationListenerWarning) => void);
         /**
            No data received - error condition, not authorized or hardware not available. This will be reported once for the
 listener and subsequently, the listener will be deactivated and removed from the internal list of listeners.
@@ -5367,9 +5367,9 @@ listener and subsequently, the listener will be deactivated and removed from the
     function handleButtonListenerResult(id: number, button: Button): void;
     function handleButtonListenerWarning(id: number, button: Button, warning: IButtonListenerWarning): void;
     class ButtonListener extends BaseListener implements IButtonListener {
-        onErrorFunction: (error: IButtonListenerError) => Function;
-        onResultFunction: (button: Button) => Function;
-        onWarningFunction: (button: Button, warning: IButtonListenerWarning) => Function;
+        onErrorFunction: (error: IButtonListenerError) => void;
+        onResultFunction: (button: Button) => void;
+        onWarningFunction: (button: Button, warning: IButtonListenerWarning) => void;
         /**
            Constructor with anonymous handler functions for listener.
 
@@ -5377,7 +5377,7 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param onResultFunction Function receiving parameters of type: Button
            @param onWarningFunction Function receiving parameters of type: Button, IButtonListenerWarning
         */
-        constructor(onErrorFunction: (error: IButtonListenerError) => Function, onResultFunction: (button: Button) => Function, onWarningFunction: (button: Button, warning: IButtonListenerWarning) => Function);
+        constructor(onErrorFunction: (error: IButtonListenerError) => void, onResultFunction: (button: Button) => void, onWarningFunction: (button: Button, warning: IButtonListenerWarning) => void);
         /**
            No data received
 
@@ -5408,9 +5408,9 @@ listener and subsequently, the listener will be deactivated and removed from the
     function handleGeolocationListenerResult(id: number, geolocation: Geolocation): void;
     function handleGeolocationListenerWarning(id: number, geolocation: Geolocation, warning: IGeolocationListenerWarning): void;
     class GeolocationListener extends BaseListener implements IGeolocationListener {
-        onErrorFunction: (error: IGeolocationListenerError) => Function;
-        onResultFunction: (geolocation: Geolocation) => Function;
-        onWarningFunction: (geolocation: Geolocation, warning: IGeolocationListenerWarning) => Function;
+        onErrorFunction: (error: IGeolocationListenerError) => void;
+        onResultFunction: (geolocation: Geolocation) => void;
+        onWarningFunction: (geolocation: Geolocation, warning: IGeolocationListenerWarning) => void;
         /**
            Constructor with anonymous handler functions for listener.
 
@@ -5418,7 +5418,7 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param onResultFunction Function receiving parameters of type: Geolocation
            @param onWarningFunction Function receiving parameters of type: Geolocation, IGeolocationListenerWarning
         */
-        constructor(onErrorFunction: (error: IGeolocationListenerError) => Function, onResultFunction: (geolocation: Geolocation) => Function, onWarningFunction: (geolocation: Geolocation, warning: IGeolocationListenerWarning) => Function);
+        constructor(onErrorFunction: (error: IGeolocationListenerError) => void, onResultFunction: (geolocation: Geolocation) => void, onWarningFunction: (geolocation: Geolocation, warning: IGeolocationListenerWarning) => void);
         /**
            No data received - error condition, not authorized or hardware not available.
 
@@ -5449,9 +5449,9 @@ listener and subsequently, the listener will be deactivated and removed from the
     function handleLifecycleListenerResult(id: number, lifecycle: Lifecycle): void;
     function handleLifecycleListenerWarning(id: number, lifecycle: Lifecycle, warning: ILifecycleListenerWarning): void;
     class LifecycleListener extends BaseListener implements ILifecycleListener {
-        onErrorFunction: (error: ILifecycleListenerError) => Function;
-        onResultFunction: (lifecycle: Lifecycle) => Function;
-        onWarningFunction: (lifecycle: Lifecycle, warning: ILifecycleListenerWarning) => Function;
+        onErrorFunction: (error: ILifecycleListenerError) => void;
+        onResultFunction: (lifecycle: Lifecycle) => void;
+        onWarningFunction: (lifecycle: Lifecycle, warning: ILifecycleListenerWarning) => void;
         /**
            Constructor with anonymous handler functions for listener.
 
@@ -5459,7 +5459,7 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param onResultFunction Function receiving parameters of type: Lifecycle
            @param onWarningFunction Function receiving parameters of type: Lifecycle, ILifecycleListenerWarning
         */
-        constructor(onErrorFunction: (error: ILifecycleListenerError) => Function, onResultFunction: (lifecycle: Lifecycle) => Function, onWarningFunction: (lifecycle: Lifecycle, warning: ILifecycleListenerWarning) => Function);
+        constructor(onErrorFunction: (error: ILifecycleListenerError) => void, onResultFunction: (lifecycle: Lifecycle) => void, onWarningFunction: (lifecycle: Lifecycle, warning: ILifecycleListenerWarning) => void);
         /**
            No data received - error condition, not authorized or hardware not available.
 
@@ -5490,9 +5490,9 @@ listener and subsequently, the listener will be deactivated and removed from the
     function handleNetworkStatusListenerResult(id: number, network: ICapabilitiesNet): void;
     function handleNetworkStatusListenerWarning(id: number, network: ICapabilitiesNet, warning: INetworkStatusListenerWarning): void;
     class NetworkStatusListener extends BaseListener implements INetworkStatusListener {
-        onErrorFunction: (error: INetworkStatusListenerError) => Function;
-        onResultFunction: (network: ICapabilitiesNet) => Function;
-        onWarningFunction: (network: ICapabilitiesNet, warning: INetworkStatusListenerWarning) => Function;
+        onErrorFunction: (error: INetworkStatusListenerError) => void;
+        onResultFunction: (network: ICapabilitiesNet) => void;
+        onWarningFunction: (network: ICapabilitiesNet, warning: INetworkStatusListenerWarning) => void;
         /**
            Constructor with anonymous handler functions for listener.
 
@@ -5500,7 +5500,7 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param onResultFunction Function receiving parameters of type: ICapabilitiesNet
            @param onWarningFunction Function receiving parameters of type: ICapabilitiesNet, INetworkStatusListenerWarning
         */
-        constructor(onErrorFunction: (error: INetworkStatusListenerError) => Function, onResultFunction: (network: ICapabilitiesNet) => Function, onWarningFunction: (network: ICapabilitiesNet, warning: INetworkStatusListenerWarning) => Function);
+        constructor(onErrorFunction: (error: INetworkStatusListenerError) => void, onResultFunction: (network: ICapabilitiesNet) => void, onWarningFunction: (network: ICapabilitiesNet, warning: INetworkStatusListenerWarning) => void);
         /**
            No data received - error condition, not authorized or hardware not available.
 
@@ -5556,9 +5556,9 @@ listener and subsequently, the listener will be deactivated and removed from the
     function handleContactPhotoResultCallbackResult(id: number, contactPhoto: number[]): void;
     function handleContactPhotoResultCallbackWarning(id: number, contactPhoto: number[], warning: IContactPhotoResultCallbackWarning): void;
     class ContactPhotoResultCallback extends BaseCallback implements IContactPhotoResultCallback {
-        onErrorFunction: (error: IContactPhotoResultCallbackError) => Function;
-        onResultFunction: (contactPhoto: number[]) => Function;
-        onWarningFunction: (contactPhoto: number[], warning: IContactPhotoResultCallbackWarning) => Function;
+        onErrorFunction: (error: IContactPhotoResultCallbackError) => void;
+        onResultFunction: (contactPhoto: number[]) => void;
+        onWarningFunction: (contactPhoto: number[], warning: IContactPhotoResultCallbackWarning) => void;
         /**
            Constructor with anonymous handler functions for callback.
 
@@ -5566,7 +5566,7 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param onResultFunction Function receiving parameters of type: Array<number>
            @param onWarningFunction Function receiving parameters of type: Array<number>, IContactPhotoResultCallbackWarning
         */
-        constructor(onErrorFunction: (error: IContactPhotoResultCallbackError) => Function, onResultFunction: (contactPhoto: number[]) => Function, onWarningFunction: (contactPhoto: number[], warning: IContactPhotoResultCallbackWarning) => Function);
+        constructor(onErrorFunction: (error: IContactPhotoResultCallbackError) => void, onResultFunction: (contactPhoto: number[]) => void, onWarningFunction: (contactPhoto: number[], warning: IContactPhotoResultCallbackWarning) => void);
         /**
            This method is called on Error
 
@@ -5597,9 +5597,9 @@ listener and subsequently, the listener will be deactivated and removed from the
     function handleContactResultCallbackResult(id: number, contacts: Contact[]): void;
     function handleContactResultCallbackWarning(id: number, contacts: Contact[], warning: IContactResultCallbackWarning): void;
     class ContactResultCallback extends BaseCallback implements IContactResultCallback {
-        onErrorFunction: (error: IContactResultCallbackError) => Function;
-        onResultFunction: (contacts: Contact[]) => Function;
-        onWarningFunction: (contacts: Contact[], warning: IContactResultCallbackWarning) => Function;
+        onErrorFunction: (error: IContactResultCallbackError) => void;
+        onResultFunction: (contacts: Contact[]) => void;
+        onWarningFunction: (contacts: Contact[], warning: IContactResultCallbackWarning) => void;
         /**
            Constructor with anonymous handler functions for callback.
 
@@ -5607,7 +5607,7 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param onResultFunction Function receiving parameters of type: Array<Contact>
            @param onWarningFunction Function receiving parameters of type: Array<Contact>, IContactResultCallbackWarning
         */
-        constructor(onErrorFunction: (error: IContactResultCallbackError) => Function, onResultFunction: (contacts: Contact[]) => Function, onWarningFunction: (contacts: Contact[], warning: IContactResultCallbackWarning) => Function);
+        constructor(onErrorFunction: (error: IContactResultCallbackError) => void, onResultFunction: (contacts: Contact[]) => void, onWarningFunction: (contacts: Contact[], warning: IContactResultCallbackWarning) => void);
         /**
            This method is called on Error
 
@@ -5638,9 +5638,9 @@ listener and subsequently, the listener will be deactivated and removed from the
     function handleDatabaseResultCallbackResult(id: number, database: Database): void;
     function handleDatabaseResultCallbackWarning(id: number, database: Database, warning: IDatabaseResultCallbackWarning): void;
     class DatabaseResultCallback extends BaseCallback implements IDatabaseResultCallback {
-        onErrorFunction: (error: IDatabaseResultCallbackError) => Function;
-        onResultFunction: (database: Database) => Function;
-        onWarningFunction: (database: Database, warning: IDatabaseResultCallbackWarning) => Function;
+        onErrorFunction: (error: IDatabaseResultCallbackError) => void;
+        onResultFunction: (database: Database) => void;
+        onWarningFunction: (database: Database, warning: IDatabaseResultCallbackWarning) => void;
         /**
            Constructor with anonymous handler functions for callback.
 
@@ -5648,7 +5648,7 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param onResultFunction Function receiving parameters of type: Database
            @param onWarningFunction Function receiving parameters of type: Database, IDatabaseResultCallbackWarning
         */
-        constructor(onErrorFunction: (error: IDatabaseResultCallbackError) => Function, onResultFunction: (database: Database) => Function, onWarningFunction: (database: Database, warning: IDatabaseResultCallbackWarning) => Function);
+        constructor(onErrorFunction: (error: IDatabaseResultCallbackError) => void, onResultFunction: (database: Database) => void, onWarningFunction: (database: Database, warning: IDatabaseResultCallbackWarning) => void);
         /**
            Result callback for error responses
 
@@ -5679,9 +5679,9 @@ listener and subsequently, the listener will be deactivated and removed from the
     function handleDatabaseTableResultCallbackResult(id: number, databaseTable: DatabaseTable): void;
     function handleDatabaseTableResultCallbackWarning(id: number, databaseTable: DatabaseTable, warning: IDatabaseTableResultCallbackWarning): void;
     class DatabaseTableResultCallback extends BaseCallback implements IDatabaseTableResultCallback {
-        onErrorFunction: (error: IDatabaseTableResultCallbackError) => Function;
-        onResultFunction: (databaseTable: DatabaseTable) => Function;
-        onWarningFunction: (databaseTable: DatabaseTable, warning: IDatabaseTableResultCallbackWarning) => Function;
+        onErrorFunction: (error: IDatabaseTableResultCallbackError) => void;
+        onResultFunction: (databaseTable: DatabaseTable) => void;
+        onWarningFunction: (databaseTable: DatabaseTable, warning: IDatabaseTableResultCallbackWarning) => void;
         /**
            Constructor with anonymous handler functions for callback.
 
@@ -5689,7 +5689,7 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param onResultFunction Function receiving parameters of type: DatabaseTable
            @param onWarningFunction Function receiving parameters of type: DatabaseTable, IDatabaseTableResultCallbackWarning
         */
-        constructor(onErrorFunction: (error: IDatabaseTableResultCallbackError) => Function, onResultFunction: (databaseTable: DatabaseTable) => Function, onWarningFunction: (databaseTable: DatabaseTable, warning: IDatabaseTableResultCallbackWarning) => Function);
+        constructor(onErrorFunction: (error: IDatabaseTableResultCallbackError) => void, onResultFunction: (databaseTable: DatabaseTable) => void, onWarningFunction: (databaseTable: DatabaseTable, warning: IDatabaseTableResultCallbackWarning) => void);
         /**
            Result callback for error responses
 
@@ -5720,9 +5720,9 @@ listener and subsequently, the listener will be deactivated and removed from the
     function handleFileDataLoadResultCallbackResult(id: number, data: number[]): void;
     function handleFileDataLoadResultCallbackWarning(id: number, data: number[], warning: IFileDataLoadResultCallbackWarning): void;
     class FileDataLoadResultCallback extends BaseCallback implements IFileDataLoadResultCallback {
-        onErrorFunction: (error: IFileDataLoadResultCallbackError) => Function;
-        onResultFunction: (data: number[]) => Function;
-        onWarningFunction: (data: number[], warning: IFileDataLoadResultCallbackWarning) => Function;
+        onErrorFunction: (error: IFileDataLoadResultCallbackError) => void;
+        onResultFunction: (data: number[]) => void;
+        onWarningFunction: (data: number[], warning: IFileDataLoadResultCallbackWarning) => void;
         /**
            Constructor with anonymous handler functions for callback.
 
@@ -5730,7 +5730,7 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param onResultFunction Function receiving parameters of type: Array<number>
            @param onWarningFunction Function receiving parameters of type: Array<number>, IFileDataLoadResultCallbackWarning
         */
-        constructor(onErrorFunction: (error: IFileDataLoadResultCallbackError) => Function, onResultFunction: (data: number[]) => Function, onWarningFunction: (data: number[], warning: IFileDataLoadResultCallbackWarning) => Function);
+        constructor(onErrorFunction: (error: IFileDataLoadResultCallbackError) => void, onResultFunction: (data: number[]) => void, onWarningFunction: (data: number[], warning: IFileDataLoadResultCallbackWarning) => void);
         /**
            Error processing data retrieval/storage operation.
 
@@ -5761,9 +5761,9 @@ listener and subsequently, the listener will be deactivated and removed from the
     function handleFileDataStoreResultCallbackResult(id: number, file: FileDescriptor): void;
     function handleFileDataStoreResultCallbackWarning(id: number, file: FileDescriptor, warning: IFileDataStoreResultCallbackWarning): void;
     class FileDataStoreResultCallback extends BaseCallback implements IFileDataStoreResultCallback {
-        onErrorFunction: (error: IFileDataStoreResultCallbackError) => Function;
-        onResultFunction: (file: FileDescriptor) => Function;
-        onWarningFunction: (file: FileDescriptor, warning: IFileDataStoreResultCallbackWarning) => Function;
+        onErrorFunction: (error: IFileDataStoreResultCallbackError) => void;
+        onResultFunction: (file: FileDescriptor) => void;
+        onWarningFunction: (file: FileDescriptor, warning: IFileDataStoreResultCallbackWarning) => void;
         /**
            Constructor with anonymous handler functions for callback.
 
@@ -5771,7 +5771,7 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param onResultFunction Function receiving parameters of type: FileDescriptor
            @param onWarningFunction Function receiving parameters of type: FileDescriptor, IFileDataStoreResultCallbackWarning
         */
-        constructor(onErrorFunction: (error: IFileDataStoreResultCallbackError) => Function, onResultFunction: (file: FileDescriptor) => Function, onWarningFunction: (file: FileDescriptor, warning: IFileDataStoreResultCallbackWarning) => Function);
+        constructor(onErrorFunction: (error: IFileDataStoreResultCallbackError) => void, onResultFunction: (file: FileDescriptor) => void, onWarningFunction: (file: FileDescriptor, warning: IFileDataStoreResultCallbackWarning) => void);
         /**
            Error processing data retrieval/storage operation.
 
@@ -5802,9 +5802,9 @@ listener and subsequently, the listener will be deactivated and removed from the
     function handleFileListResultCallbackResult(id: number, files: FileDescriptor[]): void;
     function handleFileListResultCallbackWarning(id: number, files: FileDescriptor[], warning: IFileListResultCallbackWarning): void;
     class FileListResultCallback extends BaseCallback implements IFileListResultCallback {
-        onErrorFunction: (error: IFileListResultCallbackError) => Function;
-        onResultFunction: (files: FileDescriptor[]) => Function;
-        onWarningFunction: (files: FileDescriptor[], warning: IFileListResultCallbackWarning) => Function;
+        onErrorFunction: (error: IFileListResultCallbackError) => void;
+        onResultFunction: (files: FileDescriptor[]) => void;
+        onWarningFunction: (files: FileDescriptor[], warning: IFileListResultCallbackWarning) => void;
         /**
            Constructor with anonymous handler functions for callback.
 
@@ -5812,7 +5812,7 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param onResultFunction Function receiving parameters of type: Array<FileDescriptor>
            @param onWarningFunction Function receiving parameters of type: Array<FileDescriptor>, IFileListResultCallbackWarning
         */
-        constructor(onErrorFunction: (error: IFileListResultCallbackError) => Function, onResultFunction: (files: FileDescriptor[]) => Function, onWarningFunction: (files: FileDescriptor[], warning: IFileListResultCallbackWarning) => Function);
+        constructor(onErrorFunction: (error: IFileListResultCallbackError) => void, onResultFunction: (files: FileDescriptor[]) => void, onWarningFunction: (files: FileDescriptor[], warning: IFileListResultCallbackWarning) => void);
         /**
            On error result of a file operation.
 
@@ -5843,9 +5843,9 @@ listener and subsequently, the listener will be deactivated and removed from the
     function handleFileResultCallbackResult(id: number, storageFile: FileDescriptor): void;
     function handleFileResultCallbackWarning(id: number, file: FileDescriptor, warning: IFileResultCallbackWarning): void;
     class FileResultCallback extends BaseCallback implements IFileResultCallback {
-        onErrorFunction: (error: IFileResultCallbackError) => Function;
-        onResultFunction: (storageFile: FileDescriptor) => Function;
-        onWarningFunction: (file: FileDescriptor, warning: IFileResultCallbackWarning) => Function;
+        onErrorFunction: (error: IFileResultCallbackError) => void;
+        onResultFunction: (storageFile: FileDescriptor) => void;
+        onWarningFunction: (file: FileDescriptor, warning: IFileResultCallbackWarning) => void;
         /**
            Constructor with anonymous handler functions for callback.
 
@@ -5853,7 +5853,7 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param onResultFunction Function receiving parameters of type: FileDescriptor
            @param onWarningFunction Function receiving parameters of type: FileDescriptor, IFileResultCallbackWarning
         */
-        constructor(onErrorFunction: (error: IFileResultCallbackError) => Function, onResultFunction: (storageFile: FileDescriptor) => Function, onWarningFunction: (file: FileDescriptor, warning: IFileResultCallbackWarning) => Function);
+        constructor(onErrorFunction: (error: IFileResultCallbackError) => void, onResultFunction: (storageFile: FileDescriptor) => void, onWarningFunction: (file: FileDescriptor, warning: IFileResultCallbackWarning) => void);
         /**
            On error result of a file operation.
 
@@ -5884,9 +5884,9 @@ listener and subsequently, the listener will be deactivated and removed from the
     function handleMessagingCallbackResult(id: number, success: boolean): void;
     function handleMessagingCallbackWarning(id: number, success: boolean, warning: IMessagingCallbackWarning): void;
     class MessagingCallback extends BaseCallback implements IMessagingCallback {
-        onErrorFunction: (error: IMessagingCallbackError) => Function;
-        onResultFunction: (success: boolean) => Function;
-        onWarningFunction: (success: boolean, warning: IMessagingCallbackWarning) => Function;
+        onErrorFunction: (error: IMessagingCallbackError) => void;
+        onResultFunction: (success: boolean) => void;
+        onWarningFunction: (success: boolean, warning: IMessagingCallbackWarning) => void;
         /**
            Constructor with anonymous handler functions for callback.
 
@@ -5894,7 +5894,7 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param onResultFunction Function receiving parameters of type: boolean
            @param onWarningFunction Function receiving parameters of type: boolean, IMessagingCallbackWarning
         */
-        constructor(onErrorFunction: (error: IMessagingCallbackError) => Function, onResultFunction: (success: boolean) => Function, onWarningFunction: (success: boolean, warning: IMessagingCallbackWarning) => Function);
+        constructor(onErrorFunction: (error: IMessagingCallbackError) => void, onResultFunction: (success: boolean) => void, onWarningFunction: (success: boolean, warning: IMessagingCallbackWarning) => void);
         /**
            This method is called on Error
 
@@ -5925,9 +5925,9 @@ listener and subsequently, the listener will be deactivated and removed from the
     function handleNetworkReachabilityCallbackResult(id: number, reachable: boolean): void;
     function handleNetworkReachabilityCallbackWarning(id: number, reachable: boolean, warning: INetworkReachabilityCallbackWarning): void;
     class NetworkReachabilityCallback extends BaseCallback implements INetworkReachabilityCallback {
-        onErrorFunction: (error: INetworkReachabilityCallbackError) => Function;
-        onResultFunction: (reachable: boolean) => Function;
-        onWarningFunction: (reachable: boolean, warning: INetworkReachabilityCallbackWarning) => Function;
+        onErrorFunction: (error: INetworkReachabilityCallbackError) => void;
+        onResultFunction: (reachable: boolean) => void;
+        onWarningFunction: (reachable: boolean, warning: INetworkReachabilityCallbackWarning) => void;
         /**
            Constructor with anonymous handler functions for callback.
 
@@ -5935,7 +5935,7 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param onResultFunction Function receiving parameters of type: boolean
            @param onWarningFunction Function receiving parameters of type: boolean, INetworkReachabilityCallbackWarning
         */
-        constructor(onErrorFunction: (error: INetworkReachabilityCallbackError) => Function, onResultFunction: (reachable: boolean) => Function, onWarningFunction: (reachable: boolean, warning: INetworkReachabilityCallbackWarning) => Function);
+        constructor(onErrorFunction: (error: INetworkReachabilityCallbackError) => void, onResultFunction: (reachable: boolean) => void, onWarningFunction: (reachable: boolean, warning: INetworkReachabilityCallbackWarning) => void);
         /**
            No data received - error condition, not authorized .
 
@@ -5966,9 +5966,9 @@ listener and subsequently, the listener will be deactivated and removed from the
     function handleSecurityResultCallbackResult(id: number, keyValues: SecureKeyPair[]): void;
     function handleSecurityResultCallbackWarning(id: number, keyValues: SecureKeyPair[], warning: ISecurityResultCallbackWarning): void;
     class SecurityResultCallback extends BaseCallback implements ISecurityResultCallback {
-        onErrorFunction: (error: ISecurityResultCallbackError) => Function;
-        onResultFunction: (keyValues: SecureKeyPair[]) => Function;
-        onWarningFunction: (keyValues: SecureKeyPair[], warning: ISecurityResultCallbackWarning) => Function;
+        onErrorFunction: (error: ISecurityResultCallbackError) => void;
+        onResultFunction: (keyValues: SecureKeyPair[]) => void;
+        onWarningFunction: (keyValues: SecureKeyPair[], warning: ISecurityResultCallbackWarning) => void;
         /**
            Constructor with anonymous handler functions for callback.
 
@@ -5976,7 +5976,7 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param onResultFunction Function receiving parameters of type: Array<SecureKeyPair>
            @param onWarningFunction Function receiving parameters of type: Array<SecureKeyPair>, ISecurityResultCallbackWarning
         */
-        constructor(onErrorFunction: (error: ISecurityResultCallbackError) => Function, onResultFunction: (keyValues: SecureKeyPair[]) => Function, onWarningFunction: (keyValues: SecureKeyPair[], warning: ISecurityResultCallbackWarning) => Function);
+        constructor(onErrorFunction: (error: ISecurityResultCallbackError) => void, onResultFunction: (keyValues: SecureKeyPair[]) => void, onWarningFunction: (keyValues: SecureKeyPair[], warning: ISecurityResultCallbackWarning) => void);
         /**
            No data received - error condition, not authorized .
 
@@ -6007,9 +6007,9 @@ listener and subsequently, the listener will be deactivated and removed from the
     function handleServiceResultCallbackResult(id: number, response: ServiceResponse): void;
     function handleServiceResultCallbackWarning(id: number, response: ServiceResponse, warning: IServiceResultCallbackWarning): void;
     class ServiceResultCallback extends BaseCallback implements IServiceResultCallback {
-        onErrorFunction: (error: IServiceResultCallbackError) => Function;
-        onResultFunction: (response: ServiceResponse) => Function;
-        onWarningFunction: (response: ServiceResponse, warning: IServiceResultCallbackWarning) => Function;
+        onErrorFunction: (error: IServiceResultCallbackError) => void;
+        onResultFunction: (response: ServiceResponse) => void;
+        onWarningFunction: (response: ServiceResponse, warning: IServiceResultCallbackWarning) => void;
         /**
            Constructor with anonymous handler functions for callback.
 
@@ -6017,7 +6017,7 @@ listener and subsequently, the listener will be deactivated and removed from the
            @param onResultFunction Function receiving parameters of type: ServiceResponse
            @param onWarningFunction Function receiving parameters of type: ServiceResponse, IServiceResultCallbackWarning
         */
-        constructor(onErrorFunction: (error: IServiceResultCallbackError) => Function, onResultFunction: (response: ServiceResponse) => Function, onWarningFunction: (response: ServiceResponse, warning: IServiceResultCallbackWarning) => Function);
+        constructor(onErrorFunction: (error: IServiceResultCallbackError) => void, onResultFunction: (response: ServiceResponse) => void, onWarningFunction: (response: ServiceResponse, warning: IServiceResultCallbackWarning) => void);
         /**
            This method is called on Error
 

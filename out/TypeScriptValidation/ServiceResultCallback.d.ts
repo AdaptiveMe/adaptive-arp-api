@@ -45,9 +45,9 @@ declare module Adaptive {
     function handleServiceResultCallbackResult(id: number, response: ServiceResponse): void;
     function handleServiceResultCallbackWarning(id: number, response: ServiceResponse, warning: IServiceResultCallbackWarning): void;
     class ServiceResultCallback extends BaseCallback implements IServiceResultCallback {
-        onErrorFunction: (error: IServiceResultCallbackError) => Function;
-        onResultFunction: (response: ServiceResponse) => Function;
-        onWarningFunction: (response: ServiceResponse, warning: IServiceResultCallbackWarning) => Function;
+        onErrorFunction: (error: IServiceResultCallbackError) => void;
+        onResultFunction: (response: ServiceResponse) => void;
+        onWarningFunction: (response: ServiceResponse, warning: IServiceResultCallbackWarning) => void;
         /**
            Constructor with anonymous handler functions for callback.
 
@@ -55,7 +55,7 @@ declare module Adaptive {
            @param onResultFunction Function receiving parameters of type: ServiceResponse
            @param onWarningFunction Function receiving parameters of type: ServiceResponse, IServiceResultCallbackWarning
         */
-        constructor(onErrorFunction: (error: IServiceResultCallbackError) => Function, onResultFunction: (response: ServiceResponse) => Function, onWarningFunction: (response: ServiceResponse, warning: IServiceResultCallbackWarning) => Function);
+        constructor(onErrorFunction: (error: IServiceResultCallbackError) => void, onResultFunction: (response: ServiceResponse) => void, onWarningFunction: (response: ServiceResponse, warning: IServiceResultCallbackWarning) => void);
         /**
            This method is called on Error
 

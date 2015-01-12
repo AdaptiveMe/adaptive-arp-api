@@ -83,9 +83,9 @@ module Adaptive {
 
      export class FileDataLoadResultCallback extends BaseCallback implements IFileDataLoadResultCallback {
 
-          onErrorFunction : (error : IFileDataLoadResultCallbackError) => Function;
-          onResultFunction : (data : Array<number>) => Function;
-          onWarningFunction : (data : Array<number>, warning : IFileDataLoadResultCallbackWarning) => Function;
+          onErrorFunction : (error : IFileDataLoadResultCallbackError) => void;
+          onResultFunction : (data : Array<number>) => void;
+          onWarningFunction : (data : Array<number>, warning : IFileDataLoadResultCallbackWarning) => void;
 
           /**
              Constructor with anonymous handler functions for callback.
@@ -94,7 +94,7 @@ module Adaptive {
              @param onResultFunction Function receiving parameters of type: Array<number>
              @param onWarningFunction Function receiving parameters of type: Array<number>, IFileDataLoadResultCallbackWarning
           */
-          constructor(onErrorFunction : (error : IFileDataLoadResultCallbackError) => Function, onResultFunction : (data : Array<number>) => Function, onWarningFunction : (data : Array<number>, warning : IFileDataLoadResultCallbackWarning) => Function) {
+          constructor(onErrorFunction : (error : IFileDataLoadResultCallbackError) => void, onResultFunction : (data : Array<number>) => void, onWarningFunction : (data : Array<number>, warning : IFileDataLoadResultCallbackWarning) => void) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
                     console.error("ERROR: FileDataLoadResultCallback onErrorFunction is not defined.");

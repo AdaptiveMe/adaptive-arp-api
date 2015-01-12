@@ -84,9 +84,9 @@ module Adaptive {
 
      export class SecurityResultCallback extends BaseCallback implements ISecurityResultCallback {
 
-          onErrorFunction : (error : ISecurityResultCallbackError) => Function;
-          onResultFunction : (keyValues : Array<SecureKeyPair>) => Function;
-          onWarningFunction : (keyValues : Array<SecureKeyPair>, warning : ISecurityResultCallbackWarning) => Function;
+          onErrorFunction : (error : ISecurityResultCallbackError) => void;
+          onResultFunction : (keyValues : Array<SecureKeyPair>) => void;
+          onWarningFunction : (keyValues : Array<SecureKeyPair>, warning : ISecurityResultCallbackWarning) => void;
 
           /**
              Constructor with anonymous handler functions for callback.
@@ -95,7 +95,7 @@ module Adaptive {
              @param onResultFunction Function receiving parameters of type: Array<SecureKeyPair>
              @param onWarningFunction Function receiving parameters of type: Array<SecureKeyPair>, ISecurityResultCallbackWarning
           */
-          constructor(onErrorFunction : (error : ISecurityResultCallbackError) => Function, onResultFunction : (keyValues : Array<SecureKeyPair>) => Function, onWarningFunction : (keyValues : Array<SecureKeyPair>, warning : ISecurityResultCallbackWarning) => Function) {
+          constructor(onErrorFunction : (error : ISecurityResultCallbackError) => void, onResultFunction : (keyValues : Array<SecureKeyPair>) => void, onWarningFunction : (keyValues : Array<SecureKeyPair>, warning : ISecurityResultCallbackWarning) => void) {
                super(++registeredCounter);
                if (onErrorFunction == null) {
                     console.error("ERROR: SecurityResultCallback onErrorFunction is not defined.");

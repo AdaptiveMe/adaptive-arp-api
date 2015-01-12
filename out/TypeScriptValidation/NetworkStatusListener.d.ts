@@ -45,9 +45,9 @@ declare module Adaptive {
     function handleNetworkStatusListenerResult(id: number, network: ICapabilitiesNet): void;
     function handleNetworkStatusListenerWarning(id: number, network: ICapabilitiesNet, warning: INetworkStatusListenerWarning): void;
     class NetworkStatusListener extends BaseListener implements INetworkStatusListener {
-        onErrorFunction: (error: INetworkStatusListenerError) => Function;
-        onResultFunction: (network: ICapabilitiesNet) => Function;
-        onWarningFunction: (network: ICapabilitiesNet, warning: INetworkStatusListenerWarning) => Function;
+        onErrorFunction: (error: INetworkStatusListenerError) => void;
+        onResultFunction: (network: ICapabilitiesNet) => void;
+        onWarningFunction: (network: ICapabilitiesNet, warning: INetworkStatusListenerWarning) => void;
         /**
            Constructor with anonymous handler functions for listener.
 
@@ -55,7 +55,7 @@ declare module Adaptive {
            @param onResultFunction Function receiving parameters of type: ICapabilitiesNet
            @param onWarningFunction Function receiving parameters of type: ICapabilitiesNet, INetworkStatusListenerWarning
         */
-        constructor(onErrorFunction: (error: INetworkStatusListenerError) => Function, onResultFunction: (network: ICapabilitiesNet) => Function, onWarningFunction: (network: ICapabilitiesNet, warning: INetworkStatusListenerWarning) => Function);
+        constructor(onErrorFunction: (error: INetworkStatusListenerError) => void, onResultFunction: (network: ICapabilitiesNet) => void, onWarningFunction: (network: ICapabilitiesNet, warning: INetworkStatusListenerWarning) => void);
         /**
            No data received - error condition, not authorized or hardware not available.
 
