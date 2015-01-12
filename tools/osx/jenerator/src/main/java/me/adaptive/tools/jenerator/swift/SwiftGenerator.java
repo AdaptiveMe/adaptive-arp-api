@@ -92,6 +92,14 @@ public class SwiftGenerator extends GeneratorBase {
             println(4, "public final func getAPIGroup() -> IAdaptiveRPGroup? {");
             println(8, "return self.apiGroup!");
             println(4, "}");
+            println();
+
+            startComment(4);
+            println(7, "Return the API version for the given interface.");
+            endComment(4);
+            println(4, "public final func getAPIVersion() -> String? {");
+            println(8, "return \"" + getGenerationTagVersion() + "\"");
+            println(4, "}");
         } else {
             if (clazz.getInterfaces().length > 0) {
                 println("public class " + simpleName + " : " + clazz.getInterfaces()[0].getSimpleName().substring(1) + "Delegate, " + clazz.getSimpleName() + " {");
@@ -196,13 +204,15 @@ public class SwiftGenerator extends GeneratorBase {
                     println();
                     println(7, "@return " + serviceClass.getSimpleName().substring(1) + "Bridge reference or nil if a bridge of this type is not registered.");
                     endComment(4);
-                    println(4, "public final func get" + serviceClass.getSimpleName().substring(1) + "Bridge() -> " + serviceClass.getSimpleName().substring(1) + "Bridge {");
-                    println(8, " if(__" + serviceClass.getSimpleName().substring(1).toLowerCase() + "Bridge == nil) {");
-                    println(12, "__" + serviceClass.getSimpleName().substring(1).toLowerCase() + "Bridge = " + serviceClass.getSimpleName().substring(1) + "Bridge(delegate: nil);");//+serviceClass.getSimpleName().substring(1)+"Delegate());");
-                    println(8, "}");
-                    println(8, "return __" + serviceClass.getSimpleName().substring(1).toLowerCase() + "Bridge!");
-                    println(4, "}");
-                    println();
+                    if (!serviceClass.equals(String.class)) {
+                        println(4, "public final func get" + serviceClass.getSimpleName().substring(1) + "Bridge() -> " + serviceClass.getSimpleName().substring(1) + "Bridge {");
+                        println(8, " if(__" + serviceClass.getSimpleName().substring(1).toLowerCase() + "Bridge == nil) {");
+                        println(12, "__" + serviceClass.getSimpleName().substring(1).toLowerCase() + "Bridge = " + serviceClass.getSimpleName().substring(1) + "Bridge(delegate: nil);");//+serviceClass.getSimpleName().substring(1)+"Delegate());");
+                        println(8, "}");
+                        println(8, "return __" + serviceClass.getSimpleName().substring(1).toLowerCase() + "Bridge!");
+                        println(4, "}");
+                        println();
+                    }
                 }
                 // APIBridge specific
                 startComment(4);
@@ -227,26 +237,38 @@ public class SwiftGenerator extends GeneratorBase {
                 println();
             } else if (javaMethods.get(m) != null) {
                 if (simpleName.startsWith("AppRegistry")) {
-                    startComment(4);
-                    println(7, javaMethods.get(m).getComment());
-                    endComment(4);
-                    println(4, "private var __" + m.getReturnType().getSimpleName().substring(1).toLowerCase() + "Bridge : " + m.getReturnType().getSimpleName().substring(1) + "Bridge? = nil");
-                    println();
-                    startComment(4);
-                    println(7, javaMethods.get(m).getComment());
-                    println();
-                    for (DocletTag tag : javaMethods.get(m).getTags()) {
-                        println(7, "@" + tag.getName() + " " + tag.getValue());
+
+                    if (!m.getName().equals("getAPIVersion")) {
+
+                        startComment(4);
+                        println(7, javaMethods.get(m).getComment());
+                        endComment(4);
+                        println(4, "private var __" + m.getReturnType().getSimpleName().substring(1).toLowerCase() + "Bridge : " + m.getReturnType().getSimpleName().substring(1) + "Bridge? = nil");
+
+                        println();
+                        startComment(4);
+                        println(7, javaMethods.get(m).getComment());
+                        println();
+                        for (DocletTag tag : javaMethods.get(m).getTags()) {
+                            println(7, "@" + tag.getName() + " " + tag.getValue());
+                        }
+                        endComment(4);
+                        print(4, "public func ");
+                        print(m.getName() + "()");
+                        println(" -> " + m.getReturnType().getSimpleName().substring(1) + "Bridge {");
+                        println(8, " if(__" + m.getReturnType().getSimpleName().substring(1).toLowerCase() + "Bridge == nil) {");
+                        println(12, "__" + m.getReturnType().getSimpleName().substring(1).toLowerCase() + "Bridge = " + m.getReturnType().getSimpleName().substring(1) + "Bridge(delegate: nil)");
+                        println(8, "}");
+                        println(8, "return __" + m.getReturnType().getSimpleName().substring(1).toLowerCase() + "Bridge!");
+                        println(4, "}");
+                    } else {
+                        startComment(4);
+                        println(7, javaMethods.get(m).getComment());
+                        endComment(4);
+                        println(4, "public func getAPIVersion() -> String? {");
+                        println(8, "return \""+getGenerationTagVersion()+"\"");
+                        println(4, "}");
                     }
-                    endComment(4);
-                    print(4, "public func ");
-                    print(m.getName() + "()");
-                    println(" -> " + m.getReturnType().getSimpleName().substring(1) + "Bridge {");
-                    println(8, " if(__" + m.getReturnType().getSimpleName().substring(1).toLowerCase() + "Bridge == nil) {");
-                    println(12, "__" + m.getReturnType().getSimpleName().substring(1).toLowerCase() + "Bridge = " + m.getReturnType().getSimpleName().substring(1) + "Bridge(delegate: nil)");
-                    println(8, "}");
-                    println(8, "return __" + m.getReturnType().getSimpleName().substring(1).toLowerCase() + "Bridge!");
-                    println(4, "}");
                     println();
                 } else {
                     startComment(4);
@@ -319,7 +341,7 @@ public class SwiftGenerator extends GeneratorBase {
         if (implementation) {
             String parent = getOutputRootDirectory().getAbsolutePath().substring(0, getOutputRootDirectory().getAbsolutePath().lastIndexOf('.')) + ".Impl";
             currentFile = new File(parent, File.separator + className + ".swift");
-            if (currentFile.exists()) {
+            if (currentFile.exists() && !className.startsWith("Base")) {
                 currentFile = new File(parent, File.separator + className + ".swift.new");
             }
         } else {
@@ -378,6 +400,14 @@ public class SwiftGenerator extends GeneratorBase {
             println(4, "public final func getAPIGroup() -> IAdaptiveRPGroup? {");
             println(8, "return self.apiGroup!");
             println(4, "}");
+            println();
+
+            startComment(4);
+            println(7, "Return the API version for the given interface.");
+            endComment(4);
+            println(4, "public final func getAPIVersion() -> String? {");
+            println(8, "return \"" + getGenerationTagVersion() + "\"");
+            println(4, "}");
 
         } else {
             if (clazz.getInterfaces().length > 0) {
@@ -388,7 +418,7 @@ public class SwiftGenerator extends GeneratorBase {
                 startComment(4);
                 println(7, "Group of API.");
                 endComment(4);
-                println(4, "private var apiGroup : IAdaptiveRPGroup = IAdaptiveRPGroup.Kernel;");
+                println(4, "private var apiGroup : IAdaptiveRPGroup = IAdaptiveRPGroup.Kernel");
                 println();
                 println(4, "public func getAPIGroup() -> IAdaptiveRPGroup? {");
                 println(8, "return self.apiGroup");
@@ -604,7 +634,7 @@ public class SwiftGenerator extends GeneratorBase {
                 if (m.getReturnType().equals(Void.TYPE)) {
                     //print("void ");
                 } else {
-                    if (simpleName.startsWith("AppRegistry")) {
+                    if (simpleName.startsWith("AppRegistry") && !m.getName().equals("getAPIVersion")) {
                         print("-> " + m.getReturnType().getSimpleName().substring(1) + "Bridge ");
                     } else {
                         print("-> " + convertJavaToNativeType(m.getReturnType()) + "? ");
@@ -646,7 +676,7 @@ public class SwiftGenerator extends GeneratorBase {
                             println(8, "var result : " + convertJavaToNativeType(m.getReturnType()) + "? = " + m.getReturnType());
                         }
                     } else {
-                        if (simpleName.startsWith("AppRegistry")) {
+                        if (simpleName.startsWith("AppRegistry") && !m.getName().equals("getAPIVersion")) {
                             println(8, "var result : " + m.getReturnType().getSimpleName().substring(1) + "Bridge? = nil");
                         } else {
                             println(8, "var result : " + convertJavaToNativeType(m.getReturnType()) + "? = nil");
@@ -1091,7 +1121,14 @@ public class SwiftGenerator extends GeneratorBase {
             println(4, "public func getAPIGroup() -> IAdaptiveRPGroup? {");
             println(8, "return self.apiGroup!");
             println(4, "}");
+            println();
 
+            startComment(4);
+            println(7, "Return the API version for the given interface.");
+            endComment(4);
+            println(4, "public final func getAPIVersion() -> String? {");
+            println(8, "return \"" + getGenerationTagVersion() + "\"");
+            println(4, "}");
         } else {
             println("public class " + simpleName + " : BaseCallbackImpl, " + clazz.getSimpleName() + " {");
             println();
@@ -1251,6 +1288,14 @@ public class SwiftGenerator extends GeneratorBase {
             println(4, "public final func getAPIGroup() -> IAdaptiveRPGroup? {");
             println(8, "return self.apiGroup!");
             println(4, "}");
+            println();
+
+            startComment(4);
+            println(7, "Return the API version for the given interface.");
+            endComment(4);
+            println(4, "public final func getAPIVersion() -> String? {");
+            println(8, "return \"" + getGenerationTagVersion() + "\"");
+            println(4, "}");
 
         } else {
             println("public class " + simpleName + " : BaseListenerImpl, " + clazz.getSimpleName() + " {");
@@ -1359,7 +1404,7 @@ public class SwiftGenerator extends GeneratorBase {
                 if (method.getReturnType().equals(Void.TYPE)) {
                     println();
                 } else {
-                    if (simpleName.startsWith("IAppRegistry")) {
+                    if (simpleName.startsWith("IAppRegistry") && !method.getName().equals("getAPIVersion")) {
                         println(" -> " + method.getReturnType().getSimpleName().substring(1) + "Bridge ");
                     } else if (simpleName.equals("APIBridge")) {
                         println(" -> " + convertJavaToNativeType(method.getReturnType()) + "?");
