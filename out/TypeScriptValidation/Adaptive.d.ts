@@ -4168,7 +4168,7 @@ Possible lifecycle States:
         /**
            The name of the operating system.
         */
-        name: string;
+        name: IOSType;
         /**
            The vendor of the operating system.
         */
@@ -4185,20 +4185,20 @@ Possible lifecycle States:
            @param vendor  of the OS.
            @since ARP1.0
         */
-        constructor(name: string, version: string, vendor: string);
+        constructor(name: IOSType, version: string, vendor: string);
         /**
            Returns the name of the operating system.
 
            @return OS name.
            @since ARP1.0
         */
-        getName(): string;
+        getName(): IOSType;
         /**
            Sets The name of the operating system.
 
            @param name The name of the operating system.
         */
-        setName(name: string): void;
+        setName(name: IOSType): void;
         /**
            Returns the vendor of the operating system.
 
@@ -6662,6 +6662,26 @@ listener and subsequently, the listener will be deactivated and removed from the
         static IpAddressNotAssigned: INetworkStatusListenerWarning;
         static IpAddressChanged: INetworkStatusListenerWarning;
         static Unknown: INetworkStatusListenerWarning;
+    }
+    /**
+       Enumeration IOSType
+    */
+    class IOSType {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static iOS: IOSType;
+        static OSX: IOSType;
+        static Windows: IOSType;
+        static WindowsPhone: IOSType;
+        static Android: IOSType;
+        static Linux: IOSType;
+        static Blackberry: IOSType;
+        static Tizen: IOSType;
+        static FirefoxOS: IOSType;
+        static Chromium: IOSType;
+        static Unspecified: IOSType;
+        static Unknown: IOSType;
     }
     /**
        Enumeration ISecurityResultCallbackError

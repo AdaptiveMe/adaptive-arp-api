@@ -1,4 +1,5 @@
 /// <reference path="APIBean.d.ts" />
+/// <reference path="IOSType.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -44,7 +45,7 @@ declare module Adaptive {
         /**
            The name of the operating system.
         */
-        name: string;
+        name: IOSType;
         /**
            The vendor of the operating system.
         */
@@ -61,20 +62,20 @@ declare module Adaptive {
            @param vendor  of the OS.
            @since ARP1.0
         */
-        constructor(name: string, version: string, vendor: string);
+        constructor(name: IOSType, version: string, vendor: string);
         /**
            Returns the name of the operating system.
 
            @return OS name.
            @since ARP1.0
         */
-        getName(): string;
+        getName(): IOSType;
         /**
            Sets The name of the operating system.
 
            @param name The name of the operating system.
         */
-        setName(name: string): void;
+        setName(name: IOSType): void;
         /**
            Returns the vendor of the operating system.
 

@@ -6219,6 +6219,31 @@ listener and subsequently, the listener will be deactivated and removed from the
     })();
     Adaptive.INetworkStatusListenerWarning = INetworkStatusListenerWarning;
     /**
+       Enumeration IOSType
+    */
+    var IOSType = (function () {
+        function IOSType(value) {
+            this.value = value;
+        }
+        IOSType.prototype.toString = function () {
+            return this.value;
+        };
+        IOSType.iOS = new IOSType("iOS");
+        IOSType.OSX = new IOSType("OSX");
+        IOSType.Windows = new IOSType("Windows");
+        IOSType.WindowsPhone = new IOSType("WindowsPhone");
+        IOSType.Android = new IOSType("Android");
+        IOSType.Linux = new IOSType("Linux");
+        IOSType.Blackberry = new IOSType("Blackberry");
+        IOSType.Tizen = new IOSType("Tizen");
+        IOSType.FirefoxOS = new IOSType("FirefoxOS");
+        IOSType.Chromium = new IOSType("Chromium");
+        IOSType.Unspecified = new IOSType("Unspecified");
+        IOSType.Unknown = new IOSType("Unknown");
+        return IOSType;
+    })();
+    Adaptive.IOSType = IOSType;
+    /**
        Enumeration ISecurityResultCallbackError
     */
     var ISecurityResultCallbackError = (function () {

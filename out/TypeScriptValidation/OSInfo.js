@@ -38,6 +38,7 @@ var __extends = this.__extends || function (d, b) {
     d.prototype = new __();
 };
 ///<reference path="APIBean.ts"/>
+///<reference path="IOSType.ts"/>
 var Adaptive;
 (function (Adaptive) {
     /**
