@@ -52,39 +52,39 @@ var Adaptive;
     /**
        FileDataStoreResultCallback control dictionary.
     */
-    var registeredFileDataStoreResultCallback = new Adaptive.Dictionary([]);
+    Adaptive.registeredFileDataStoreResultCallback = new Adaptive.Dictionary([]);
     /**
        FileDataStoreResultCallback global callback handlers.
     */
     function handleFileDataStoreResultCallbackError(id, error) {
-        var callback = registeredFileDataStoreResultCallback["" + id];
+        var callback = Adaptive.registeredFileDataStoreResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredFileDataStoreResultCallback dictionary.");
         }
         else {
-            registeredFileDataStoreResultCallback.remove("" + id);
+            Adaptive.registeredFileDataStoreResultCallback.remove("" + id);
             callback.onError(error);
         }
     }
     Adaptive.handleFileDataStoreResultCallbackError = handleFileDataStoreResultCallbackError;
     function handleFileDataStoreResultCallbackResult(id, file) {
-        var callback = registeredFileDataStoreResultCallback["" + id];
+        var callback = Adaptive.registeredFileDataStoreResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredFileDataStoreResultCallback dictionary.");
         }
         else {
-            registeredFileDataStoreResultCallback.remove("" + id);
+            Adaptive.registeredFileDataStoreResultCallback.remove("" + id);
             callback.onResult(file);
         }
     }
     Adaptive.handleFileDataStoreResultCallbackResult = handleFileDataStoreResultCallbackResult;
     function handleFileDataStoreResultCallbackWarning(id, file, warning) {
-        var callback = registeredFileDataStoreResultCallback["" + id];
+        var callback = Adaptive.registeredFileDataStoreResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredFileDataStoreResultCallback dictionary.");
         }
         else {
-            registeredFileDataStoreResultCallback.remove("" + id);
+            Adaptive.registeredFileDataStoreResultCallback.remove("" + id);
             callback.onWarning(file, warning);
         }
     }

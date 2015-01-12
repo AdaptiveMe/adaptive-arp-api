@@ -64,6 +64,19 @@ module Adaptive {
              @since ARP1.0
           */
           call(number : string) : ITelephonyStatus {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(number));
+               var ar : APIRequest = new APIRequest("ITelephony","call",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'TelephonyBridge.call' request.");
+               }
                return null;
           }
      }

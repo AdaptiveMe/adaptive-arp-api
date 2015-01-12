@@ -7,6 +7,7 @@
 /// <reference path="IServiceResultCallback.d.ts" />
 /// <reference path="Service.d.ts" />
 /// <reference path="ServiceRequest.d.ts" />
+/// <reference path="ServiceResultCallback.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 

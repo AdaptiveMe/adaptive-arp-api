@@ -52,39 +52,39 @@ var Adaptive;
     /**
        DatabaseTableResultCallback control dictionary.
     */
-    var registeredDatabaseTableResultCallback = new Adaptive.Dictionary([]);
+    Adaptive.registeredDatabaseTableResultCallback = new Adaptive.Dictionary([]);
     /**
        DatabaseTableResultCallback global callback handlers.
     */
     function handleDatabaseTableResultCallbackError(id, error) {
-        var callback = registeredDatabaseTableResultCallback["" + id];
+        var callback = Adaptive.registeredDatabaseTableResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredDatabaseTableResultCallback dictionary.");
         }
         else {
-            registeredDatabaseTableResultCallback.remove("" + id);
+            Adaptive.registeredDatabaseTableResultCallback.remove("" + id);
             callback.onError(error);
         }
     }
     Adaptive.handleDatabaseTableResultCallbackError = handleDatabaseTableResultCallbackError;
     function handleDatabaseTableResultCallbackResult(id, databaseTable) {
-        var callback = registeredDatabaseTableResultCallback["" + id];
+        var callback = Adaptive.registeredDatabaseTableResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredDatabaseTableResultCallback dictionary.");
         }
         else {
-            registeredDatabaseTableResultCallback.remove("" + id);
+            Adaptive.registeredDatabaseTableResultCallback.remove("" + id);
             callback.onResult(databaseTable);
         }
     }
     Adaptive.handleDatabaseTableResultCallbackResult = handleDatabaseTableResultCallbackResult;
     function handleDatabaseTableResultCallbackWarning(id, databaseTable, warning) {
-        var callback = registeredDatabaseTableResultCallback["" + id];
+        var callback = Adaptive.registeredDatabaseTableResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredDatabaseTableResultCallback dictionary.");
         }
         else {
-            registeredDatabaseTableResultCallback.remove("" + id);
+            Adaptive.registeredDatabaseTableResultCallback.remove("" + id);
             callback.onWarning(databaseTable, warning);
         }
     }

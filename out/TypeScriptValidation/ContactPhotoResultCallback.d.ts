@@ -38,6 +38,14 @@ Release:
 */
 declare module Adaptive {
     /**
+       Interface for Managing the Contact operations
+       Auto-generated implementation of IContactPhotoResultCallback specification.
+    */
+    /**
+       ContactPhotoResultCallback control dictionary.
+    */
+    var registeredContactPhotoResultCallback: Dictionary<IContactPhotoResultCallback>;
+    /**
        ContactPhotoResultCallback global callback handlers.
     */
     function handleContactPhotoResultCallbackError(id: number, error: IContactPhotoResultCallbackError): void;

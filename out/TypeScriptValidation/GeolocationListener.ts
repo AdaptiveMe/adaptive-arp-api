@@ -49,7 +49,7 @@ module Adaptive {
      /**
         GeolocationListener control dictionary.
      */
-     var registeredGeolocationListener = new Dictionary<IGeolocationListener>([]);
+     export var registeredGeolocationListener = new Dictionary<IGeolocationListener>([]);
 
      /**
         GeolocationListener global listener handlers.

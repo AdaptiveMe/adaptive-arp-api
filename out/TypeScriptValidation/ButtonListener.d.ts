@@ -39,6 +39,14 @@ Release:
 */
 declare module Adaptive {
     /**
+       Interface for Managing the button  operations
+       Auto-generated implementation of IButtonListener specification.
+    */
+    /**
+       ButtonListener control dictionary.
+    */
+    var registeredButtonListener: Dictionary<IButtonListener>;
+    /**
        ButtonListener global listener handlers.
     */
     function handleButtonListenerError(id: number, error: IButtonListenerError): void;

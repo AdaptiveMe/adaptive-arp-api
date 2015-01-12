@@ -6409,7 +6409,7 @@ Possible lifecycle States:
      /**
         AccelerationListener control dictionary.
      */
-     var registeredAccelerationListener = new Dictionary<IAccelerationListener>([]);
+     export var registeredAccelerationListener = new Dictionary<IAccelerationListener>([]);
 
      /**
         AccelerationListener global listener handlers.
@@ -6520,7 +6520,7 @@ listener and subsequently, the listener will be deactivated and removed from the
      /**
         ButtonListener control dictionary.
      */
-     var registeredButtonListener = new Dictionary<IButtonListener>([]);
+     export var registeredButtonListener = new Dictionary<IButtonListener>([]);
 
      /**
         ButtonListener global listener handlers.
@@ -6630,7 +6630,7 @@ listener and subsequently, the listener will be deactivated and removed from the
      /**
         GeolocationListener control dictionary.
      */
-     var registeredGeolocationListener = new Dictionary<IGeolocationListener>([]);
+     export var registeredGeolocationListener = new Dictionary<IGeolocationListener>([]);
 
      /**
         GeolocationListener global listener handlers.
@@ -6740,7 +6740,7 @@ listener and subsequently, the listener will be deactivated and removed from the
      /**
         LifecycleListener control dictionary.
      */
-     var registeredLifecycleListener = new Dictionary<ILifecycleListener>([]);
+     export var registeredLifecycleListener = new Dictionary<ILifecycleListener>([]);
 
      /**
         LifecycleListener global listener handlers.
@@ -6850,7 +6850,7 @@ listener and subsequently, the listener will be deactivated and removed from the
      /**
         NetworkStatusListener control dictionary.
      */
-     var registeredNetworkStatusListener = new Dictionary<INetworkStatusListener>([]);
+     export var registeredNetworkStatusListener = new Dictionary<INetworkStatusListener>([]);
 
      /**
         NetworkStatusListener global listener handlers.
@@ -7007,7 +7007,7 @@ listener and subsequently, the listener will be deactivated and removed from the
      /**
         ContactPhotoResultCallback control dictionary.
      */
-     var registeredContactPhotoResultCallback = new Dictionary<IContactPhotoResultCallback>([]);
+     export var registeredContactPhotoResultCallback = new Dictionary<IContactPhotoResultCallback>([]);
 
      /**
         ContactPhotoResultCallback global callback handlers.
@@ -7121,7 +7121,7 @@ listener and subsequently, the listener will be deactivated and removed from the
      /**
         ContactResultCallback control dictionary.
      */
-     var registeredContactResultCallback = new Dictionary<IContactResultCallback>([]);
+     export var registeredContactResultCallback = new Dictionary<IContactResultCallback>([]);
 
      /**
         ContactResultCallback global callback handlers.
@@ -7235,7 +7235,7 @@ listener and subsequently, the listener will be deactivated and removed from the
      /**
         DatabaseResultCallback control dictionary.
      */
-     var registeredDatabaseResultCallback = new Dictionary<IDatabaseResultCallback>([]);
+     export var registeredDatabaseResultCallback = new Dictionary<IDatabaseResultCallback>([]);
 
      /**
         DatabaseResultCallback global callback handlers.
@@ -7349,7 +7349,7 @@ listener and subsequently, the listener will be deactivated and removed from the
      /**
         DatabaseTableResultCallback control dictionary.
      */
-     var registeredDatabaseTableResultCallback = new Dictionary<IDatabaseTableResultCallback>([]);
+     export var registeredDatabaseTableResultCallback = new Dictionary<IDatabaseTableResultCallback>([]);
 
      /**
         DatabaseTableResultCallback global callback handlers.
@@ -7463,7 +7463,7 @@ listener and subsequently, the listener will be deactivated and removed from the
      /**
         FileDataLoadResultCallback control dictionary.
      */
-     var registeredFileDataLoadResultCallback = new Dictionary<IFileDataLoadResultCallback>([]);
+     export var registeredFileDataLoadResultCallback = new Dictionary<IFileDataLoadResultCallback>([]);
 
      /**
         FileDataLoadResultCallback global callback handlers.
@@ -7577,7 +7577,7 @@ listener and subsequently, the listener will be deactivated and removed from the
      /**
         FileDataStoreResultCallback control dictionary.
      */
-     var registeredFileDataStoreResultCallback = new Dictionary<IFileDataStoreResultCallback>([]);
+     export var registeredFileDataStoreResultCallback = new Dictionary<IFileDataStoreResultCallback>([]);
 
      /**
         FileDataStoreResultCallback global callback handlers.
@@ -7691,7 +7691,7 @@ listener and subsequently, the listener will be deactivated and removed from the
      /**
         FileListResultCallback control dictionary.
      */
-     var registeredFileListResultCallback = new Dictionary<IFileListResultCallback>([]);
+     export var registeredFileListResultCallback = new Dictionary<IFileListResultCallback>([]);
 
      /**
         FileListResultCallback global callback handlers.
@@ -7805,7 +7805,7 @@ listener and subsequently, the listener will be deactivated and removed from the
      /**
         FileResultCallback control dictionary.
      */
-     var registeredFileResultCallback = new Dictionary<IFileResultCallback>([]);
+     export var registeredFileResultCallback = new Dictionary<IFileResultCallback>([]);
 
      /**
         FileResultCallback global callback handlers.
@@ -7919,7 +7919,7 @@ listener and subsequently, the listener will be deactivated and removed from the
      /**
         MessagingCallback control dictionary.
      */
-     var registeredMessagingCallback = new Dictionary<IMessagingCallback>([]);
+     export var registeredMessagingCallback = new Dictionary<IMessagingCallback>([]);
 
      /**
         MessagingCallback global callback handlers.
@@ -8033,7 +8033,7 @@ listener and subsequently, the listener will be deactivated and removed from the
      /**
         NetworkReachabilityCallback control dictionary.
      */
-     var registeredNetworkReachabilityCallback = new Dictionary<INetworkReachabilityCallback>([]);
+     export var registeredNetworkReachabilityCallback = new Dictionary<INetworkReachabilityCallback>([]);
 
      /**
         NetworkReachabilityCallback global callback handlers.
@@ -8147,7 +8147,7 @@ listener and subsequently, the listener will be deactivated and removed from the
      /**
         SecurityResultCallback control dictionary.
      */
-     var registeredSecurityResultCallback = new Dictionary<ISecurityResultCallback>([]);
+     export var registeredSecurityResultCallback = new Dictionary<ISecurityResultCallback>([]);
 
      /**
         SecurityResultCallback global callback handlers.
@@ -8261,7 +8261,7 @@ listener and subsequently, the listener will be deactivated and removed from the
      /**
         ServiceResultCallback control dictionary.
      */
-     var registeredServiceResultCallback = new Dictionary<IServiceResultCallback>([]);
+     export var registeredServiceResultCallback = new Dictionary<IServiceResultCallback>([]);
 
      /**
         ServiceResultCallback global callback handlers.
@@ -8899,6 +8899,18 @@ listener and subsequently, the listener will be deactivated and removed from the
              @since ARP1.0
           */
           getLocaleSupportedDescriptors() : Array<Locale> {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("IGlobalization","getLocaleSupportedDescriptors",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'GlobalizationBridge.getLocaleSupportedDescriptors' request.");
+               }
                return null;
           }
 
@@ -8911,6 +8923,20 @@ listener and subsequently, the listener will be deactivated and removed from the
              @since ARP1.0
           */
           getResourceLiteral(key : string, locale : Locale) : string {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(key));
+               arParams.push(JSON.stringify(locale));
+               var ar : APIRequest = new APIRequest("IGlobalization","getResourceLiteral",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'GlobalizationBridge.getResourceLiteral' request.");
+               }
                return null;
           }
 
@@ -8922,6 +8948,19 @@ listener and subsequently, the listener will be deactivated and removed from the
              @since ARP1.0
           */
           getResourceLiterals(locale : Locale) : Array<KeyPair> {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(locale));
+               var ar : APIRequest = new APIRequest("IGlobalization","getResourceLiterals",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'GlobalizationBridge.getResourceLiterals' request.");
+               }
                return null;
           }
      }
@@ -8948,6 +8987,20 @@ listener and subsequently, the listener will be deactivated and removed from the
              @since ARP1.0
           */
           addLifecycleListener(listener : ILifecycleListener) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("ILifecycle","addLifecycleListener",arParams, listener.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add listener reference to local dictionary.
+                    registeredLifecycleListener.add(""+listener.getId(), listener);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'LifecycleBridge.addLifecycleListener' request.");
+               }
           }
 
           /**
@@ -8957,6 +9010,18 @@ listener and subsequently, the listener will be deactivated and removed from the
              @since ARP1.0
           */
           isBackground() : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("ILifecycle","isBackground",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'LifecycleBridge.isBackground' request.");
+               }
                return null;
           }
 
@@ -8967,6 +9032,20 @@ listener and subsequently, the listener will be deactivated and removed from the
              @since ARP1.0
           */
           removeLifecycleListener(listener : ILifecycleListener) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("ILifecycle","removeLifecycleListener",arParams, listener.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Remove listener reference from local dictionary.
+                    registeredLifecycleListener.remove(""+listener.getId());
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'LifecycleBridge.removeLifecycleListener' request.");
+               }
           }
 
           /**
@@ -8975,6 +9054,23 @@ listener and subsequently, the listener will be deactivated and removed from the
              @since ARP1.0
           */
           removeLifecycleListeners() : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("ILifecycle","removeLifecycleListeners",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Remove all listeners references from local dictionary.
+                    var keys = registeredLifecycleListener.keys();
+                    for (var key in keys) {
+                         registeredLifecycleListener.remove(key);
+                    }
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'LifecycleBridge.removeLifecycleListeners' request.");
+               }
           }
      }
 
@@ -9161,6 +9257,21 @@ listener and subsequently, the listener will be deactivated and removed from the
              @since ARP1.0
           */
           isNetworkReachable(host : string, callback : INetworkReachabilityCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(host));
+               var ar : APIRequest = new APIRequest("INetworkReachability","isNetworkReachable",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredNetworkReachabilityCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'NetworkReachabilityBridge.isNetworkReachable' request.");
+               }
           }
 
           /**
@@ -9171,6 +9282,21 @@ listener and subsequently, the listener will be deactivated and removed from the
              @since ARP1.0
           */
           isNetworkServiceReachable(url : string, callback : INetworkReachabilityCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(url));
+               var ar : APIRequest = new APIRequest("INetworkReachability","isNetworkServiceReachable",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredNetworkReachabilityCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'NetworkReachabilityBridge.isNetworkServiceReachable' request.");
+               }
           }
      }
 
@@ -9196,6 +9322,20 @@ listener and subsequently, the listener will be deactivated and removed from the
              @since ARP1.0
           */
           addNetworkStatusListener(listener : INetworkStatusListener) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("INetworkStatus","addNetworkStatusListener",arParams, listener.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add listener reference to local dictionary.
+                    registeredNetworkStatusListener.add(""+listener.getId(), listener);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'NetworkStatusBridge.addNetworkStatusListener' request.");
+               }
           }
 
           /**
@@ -9205,6 +9345,20 @@ listener and subsequently, the listener will be deactivated and removed from the
              @since ARP1.0
           */
           removeNetworkStatusListener(listener : INetworkStatusListener) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("INetworkStatus","removeNetworkStatusListener",arParams, listener.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Remove listener reference from local dictionary.
+                    registeredNetworkStatusListener.remove(""+listener.getId());
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'NetworkStatusBridge.removeNetworkStatusListener' request.");
+               }
           }
 
           /**
@@ -9213,6 +9367,23 @@ listener and subsequently, the listener will be deactivated and removed from the
              @since ARP1.0
           */
           removeNetworkStatusListeners() : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("INetworkStatus","removeNetworkStatusListeners",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Remove all listeners references from local dictionary.
+                    var keys = registeredNetworkStatusListener.keys();
+                    for (var key in keys) {
+                         registeredNetworkStatusListener.remove(key);
+                    }
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'NetworkStatusBridge.removeNetworkStatusListeners' request.");
+               }
           }
      }
 
@@ -9239,6 +9410,19 @@ listener and subsequently, the listener will be deactivated and removed from the
              @since ARP1.0
           */
           getService(serviceName : string) : Service {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(serviceName));
+               var ar : APIRequest = new APIRequest("IService","getService",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'ServiceBridge.getService' request.");
+               }
                return null;
           }
 
@@ -9251,6 +9435,22 @@ listener and subsequently, the listener will be deactivated and removed from the
              @since ARP1.0
           */
           invokeService(serviceRequest : ServiceRequest, service : Service, callback : IServiceResultCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(serviceRequest));
+               arParams.push(JSON.stringify(service));
+               var ar : APIRequest = new APIRequest("IService","invokeService",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredServiceResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'ServiceBridge.invokeService' request.");
+               }
           }
 
           /**
@@ -9260,6 +9460,19 @@ listener and subsequently, the listener will be deactivated and removed from the
              @since ARP1.0
           */
           registerService(service : Service) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(service));
+               var ar : APIRequest = new APIRequest("IService","registerService",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'ServiceBridge.registerService' request.");
+               }
           }
 
           /**
@@ -9269,6 +9482,19 @@ listener and subsequently, the listener will be deactivated and removed from the
              @since ARP1.0
           */
           unregisterService(service : Service) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(service));
+               var ar : APIRequest = new APIRequest("IService","unregisterService",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'ServiceBridge.unregisterService' request.");
+               }
           }
 
           /**
@@ -9277,6 +9503,18 @@ listener and subsequently, the listener will be deactivated and removed from the
              @since ARP1.0
           */
           unregisterServices() : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("IService","unregisterServices",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'ServiceBridge.unregisterServices' request.");
+               }
           }
 
           /**
@@ -9287,6 +9525,7 @@ listener and subsequently, the listener will be deactivated and removed from the
              @since ARP1.0
           */
           isRegistered_service(service : Service) : boolean {
+               // TODO: Implement overloaded methods.
                return null;
           }
 
@@ -9298,6 +9537,7 @@ listener and subsequently, the listener will be deactivated and removed from the
              @since ARP1.0
           */
           isRegistered_serviceName(serviceName : string) : boolean {
+               // TODO: Implement overloaded methods.
                return null;
           }
      }
@@ -9341,6 +9581,19 @@ listener and subsequently, the listener will be deactivated and removed from the
              @since ARP1.0
           */
           call(number : string) : ITelephonyStatus {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(number));
+               var ar : APIRequest = new APIRequest("ITelephony","call",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'TelephonyBridge.call' request.");
+               }
                return null;
           }
      }
@@ -9400,6 +9653,21 @@ listener and subsequently, the listener will be deactivated and removed from the
              @since ARP1.0
           */
           createDatabase(database : Database, callback : IDatabaseResultCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(database));
+               var ar : APIRequest = new APIRequest("IDatabase","createDatabase",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredDatabaseResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'DatabaseBridge.createDatabase' request.");
+               }
           }
 
           /**
@@ -9411,6 +9679,22 @@ listener and subsequently, the listener will be deactivated and removed from the
              @since ARP1.0
           */
           createTable(database : Database, databaseTable : DatabaseTable, callback : IDatabaseTableResultCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(database));
+               arParams.push(JSON.stringify(databaseTable));
+               var ar : APIRequest = new APIRequest("IDatabase","createTable",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredDatabaseTableResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'DatabaseBridge.createTable' request.");
+               }
           }
 
           /**
@@ -9421,6 +9705,21 @@ listener and subsequently, the listener will be deactivated and removed from the
              @since ARP1.0
           */
           deleteDatabase(database : Database, callback : IDatabaseResultCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(database));
+               var ar : APIRequest = new APIRequest("IDatabase","deleteDatabase",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredDatabaseResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'DatabaseBridge.deleteDatabase' request.");
+               }
           }
 
           /**
@@ -9432,6 +9731,22 @@ listener and subsequently, the listener will be deactivated and removed from the
              @since ARP1.0
           */
           deleteTable(database : Database, databaseTable : DatabaseTable, callback : IDatabaseTableResultCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(database));
+               arParams.push(JSON.stringify(databaseTable));
+               var ar : APIRequest = new APIRequest("IDatabase","deleteTable",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredDatabaseTableResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'DatabaseBridge.deleteTable' request.");
+               }
           }
 
           /**
@@ -9445,6 +9760,23 @@ should be passed as a parameter
              @since ARP1.0
           */
           executeSqlStatement(database : Database, statement : string, replacements : Array<string>, callback : IDatabaseTableResultCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(database));
+               arParams.push(JSON.stringify(statement));
+               arParams.push(JSON.stringify(replacements));
+               var ar : APIRequest = new APIRequest("IDatabase","executeSqlStatement",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredDatabaseTableResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'DatabaseBridge.executeSqlStatement' request.");
+               }
           }
 
           /**
@@ -9458,6 +9790,23 @@ should be passed as a parameter
              @since ARP1.0
           */
           executeSqlTransactions(database : Database, statements : Array<string>, rollbackFlag : boolean, callback : IDatabaseTableResultCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(database));
+               arParams.push(JSON.stringify(statements));
+               arParams.push(JSON.stringify(rollbackFlag));
+               var ar : APIRequest = new APIRequest("IDatabase","executeSqlTransactions",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredDatabaseTableResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'DatabaseBridge.executeSqlTransactions' request.");
+               }
           }
 
           /**
@@ -9468,6 +9817,19 @@ should be passed as a parameter
              @since ARP1.0
           */
           existsDatabase(database : Database) : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(database));
+               var ar : APIRequest = new APIRequest("IDatabase","existsDatabase",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'DatabaseBridge.existsDatabase' request.");
+               }
                return null;
           }
 
@@ -9480,6 +9842,20 @@ should be passed as a parameter
              @since ARP1.0
           */
           existsTable(database : Database, databaseTable : DatabaseTable) : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(database));
+               arParams.push(JSON.stringify(databaseTable));
+               var ar : APIRequest = new APIRequest("IDatabase","existsTable",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'DatabaseBridge.existsTable' request.");
+               }
                return null;
           }
      }
@@ -9507,6 +9883,19 @@ should be passed as a parameter
              @since ARP1.0
           */
           canRead(descriptor : FileDescriptor) : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(descriptor));
+               var ar : APIRequest = new APIRequest("IFile","canRead",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileBridge.canRead' request.");
+               }
                return null;
           }
 
@@ -9518,6 +9907,19 @@ should be passed as a parameter
              @since ARP1.0
           */
           canWrite(descriptor : FileDescriptor) : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(descriptor));
+               var ar : APIRequest = new APIRequest("IFile","canWrite",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileBridge.canWrite' request.");
+               }
                return null;
           }
 
@@ -9529,6 +9931,21 @@ should be passed as a parameter
              @since ARP1.0
           */
           create(descriptor : FileDescriptor, callback : IFileResultCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(descriptor));
+               var ar : APIRequest = new APIRequest("IFile","create",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredFileResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileBridge.create' request.");
+               }
           }
 
           /**
@@ -9541,6 +9958,20 @@ deleted if the cascade parameter is set to true.
              @since ARP1.0
           */
           delete(descriptor : FileDescriptor, cascade : boolean) : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(descriptor));
+               arParams.push(JSON.stringify(cascade));
+               var ar : APIRequest = new APIRequest("IFile","delete",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileBridge.delete' request.");
+               }
                return null;
           }
 
@@ -9552,6 +9983,19 @@ deleted if the cascade parameter is set to true.
              @since ARP1.0
           */
           exists(descriptor : FileDescriptor) : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(descriptor));
+               var ar : APIRequest = new APIRequest("IFile","exists",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileBridge.exists' request.");
+               }
                return null;
           }
 
@@ -9563,6 +10007,21 @@ deleted if the cascade parameter is set to true.
              @since ARP1.0
           */
           getContent(descriptor : FileDescriptor, callback : IFileDataLoadResultCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(descriptor));
+               var ar : APIRequest = new APIRequest("IFile","getContent",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredFileDataLoadResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileBridge.getContent' request.");
+               }
           }
 
           /**
@@ -9573,6 +10032,19 @@ deleted if the cascade parameter is set to true.
              @since ARP1.0
           */
           getFileStorageType(descriptor : FileDescriptor) : IFileSystemStorageType {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(descriptor));
+               var ar : APIRequest = new APIRequest("IFile","getFileStorageType",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileBridge.getFileStorageType' request.");
+               }
                return null;
           }
 
@@ -9584,6 +10056,19 @@ deleted if the cascade parameter is set to true.
              @since ARP1.0
           */
           getFileType(descriptor : FileDescriptor) : IFileSystemType {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(descriptor));
+               var ar : APIRequest = new APIRequest("IFile","getFileType",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileBridge.getFileType' request.");
+               }
                return null;
           }
 
@@ -9595,6 +10080,19 @@ deleted if the cascade parameter is set to true.
              @since ARP1.0
           */
           getSecurityType(descriptor : FileDescriptor) : IFileSystemSecurity {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(descriptor));
+               var ar : APIRequest = new APIRequest("IFile","getSecurityType",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileBridge.getSecurityType' request.");
+               }
                return null;
           }
 
@@ -9606,6 +10104,19 @@ deleted if the cascade parameter is set to true.
              @since ARP1.0
           */
           isDirectory(descriptor : FileDescriptor) : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(descriptor));
+               var ar : APIRequest = new APIRequest("IFile","isDirectory",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileBridge.isDirectory' request.");
+               }
                return null;
           }
 
@@ -9618,6 +10129,21 @@ any results.
              @since ARP1.0
           */
           listFiles(descriptor : FileDescriptor, callback : IFileListResultCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(descriptor));
+               var ar : APIRequest = new APIRequest("IFile","listFiles",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredFileListResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileBridge.listFiles' request.");
+               }
           }
 
           /**
@@ -9630,6 +10156,22 @@ is a file, it will not yield any results.
              @since ARP1.0
           */
           listFilesForRegex(descriptor : FileDescriptor, regex : string, callback : IFileListResultCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(descriptor));
+               arParams.push(JSON.stringify(regex));
+               var ar : APIRequest = new APIRequest("IFile","listFilesForRegex",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredFileListResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileBridge.listFilesForRegex' request.");
+               }
           }
 
           /**
@@ -9641,6 +10183,20 @@ is a file, it will not yield any results.
              @since ARP1.0
           */
           mkDir(descriptor : FileDescriptor, recursive : boolean) : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(descriptor));
+               arParams.push(JSON.stringify(recursive));
+               var ar : APIRequest = new APIRequest("IFile","mkDir",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileBridge.mkDir' request.");
+               }
                return null;
           }
 
@@ -9656,6 +10212,24 @@ new destination file.
              @since ARP1.0
           */
           move(source : FileDescriptor, destination : FileDescriptor, createPath : boolean, overwrite : boolean, callback : IFileResultCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(source));
+               arParams.push(JSON.stringify(destination));
+               arParams.push(JSON.stringify(createPath));
+               arParams.push(JSON.stringify(overwrite));
+               var ar : APIRequest = new APIRequest("IFile","move",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredFileResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileBridge.move' request.");
+               }
           }
 
           /**
@@ -9667,6 +10241,22 @@ new destination file.
              @since ARP1.0
           */
           setContent(descriptor : FileDescriptor, content : Array<number>, callback : IFileDataStoreResultCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(descriptor));
+               arParams.push(JSON.stringify(content));
+               var ar : APIRequest = new APIRequest("IFile","setContent",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredFileDataStoreResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileBridge.setContent' request.");
+               }
           }
      }
 
@@ -9695,6 +10285,20 @@ This method does not create the actual file in the specified folder.
              @since ARP1.0
           */
           createFileDescriptor(parent : FileDescriptor, name : string) : FileDescriptor {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(parent));
+               arParams.push(JSON.stringify(name));
+               var ar : APIRequest = new APIRequest("IFileSystem","createFileDescriptor",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileSystemBridge.createFileDescriptor' request.");
+               }
                return null;
           }
 
@@ -9707,6 +10311,18 @@ This path is volatile and may be cleaned by the OS periodically.
              @since ARP1.0
           */
           getApplicationCacheFolder() : FileDescriptor {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("IFileSystem","getApplicationCacheFolder",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileSystemBridge.getApplicationCacheFolder' request.");
+               }
                return null;
           }
 
@@ -9718,6 +10334,18 @@ This path must always be writable by the current application.
              @since ARP1.0
           */
           getApplicationCloudFolder() : FileDescriptor {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("IFileSystem","getApplicationCloudFolder",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileSystemBridge.getApplicationCloudFolder' request.");
+               }
                return null;
           }
 
@@ -9729,6 +10357,18 @@ This path must always be writable by the current application.
              @since ARP1.0
           */
           getApplicationDocumentsFolder() : FileDescriptor {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("IFileSystem","getApplicationDocumentsFolder",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileSystemBridge.getApplicationDocumentsFolder' request.");
+               }
                return null;
           }
 
@@ -9740,6 +10380,18 @@ This path may or may not be directly readable or writable - it usually contains 
              @since ARP1.0
           */
           getApplicationFolder() : FileDescriptor {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("IFileSystem","getApplicationFolder",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileSystemBridge.getApplicationFolder' request.");
+               }
                return null;
           }
 
@@ -9751,6 +10403,18 @@ This path must always be writable by the current application.
              @since ARP1.0
           */
           getApplicationProtectedFolder() : FileDescriptor {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("IFileSystem","getApplicationProtectedFolder",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileSystemBridge.getApplicationProtectedFolder' request.");
+               }
                return null;
           }
 
@@ -9761,6 +10425,18 @@ This path must always be writable by the current application.
              @since ARP1.0
           */
           getSeparator() : string {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("IFileSystem","getSeparator",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileSystemBridge.getSeparator' request.");
+               }
                return null;
           }
 
@@ -9774,6 +10450,18 @@ This path may or may not be writable by the current application.
              @since ARP1.0
           */
           getSystemExternalFolder() : FileDescriptor {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("IFileSystem","getSystemExternalFolder",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileSystemBridge.getSystemExternalFolder' request.");
+               }
                return null;
           }
      }
@@ -9880,6 +10568,19 @@ This path may or may not be writable by the current application.
              @since ARP1.0
           */
           playStream(url : string) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(url));
+               var ar : APIRequest = new APIRequest("IVideo","playStream",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'VideoBridge.playStream' request.");
+               }
           }
      }
 
@@ -9986,6 +10687,21 @@ This path may or may not be writable by the current application.
              @since ARP1.0
           */
           getContact(contact : ContactUid, callback : IContactResultCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(contact));
+               var ar : APIRequest = new APIRequest("IContact","getContact",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredContactResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'ContactBridge.getContact' request.");
+               }
           }
 
           /**
@@ -9996,6 +10712,21 @@ This path may or may not be writable by the current application.
              @since ARP1.0
           */
           getContactPhoto(contact : ContactUid, callback : IContactPhotoResultCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(contact));
+               var ar : APIRequest = new APIRequest("IContact","getContactPhoto",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredContactPhotoResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'ContactBridge.getContactPhoto' request.");
+               }
           }
 
           /**
@@ -10005,6 +10736,20 @@ This path may or may not be writable by the current application.
              @since ARP1.0
           */
           getContacts(callback : IContactResultCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("IContact","getContacts",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredContactResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'ContactBridge.getContacts' request.");
+               }
           }
 
           /**
@@ -10015,6 +10760,21 @@ This path may or may not be writable by the current application.
              @since ARP1.0
           */
           getContactsForFields(callback : IContactResultCallback, fields : Array<IContactFieldGroup>) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(fields));
+               var ar : APIRequest = new APIRequest("IContact","getContactsForFields",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredContactResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'ContactBridge.getContactsForFields' request.");
+               }
           }
 
           /**
@@ -10026,6 +10786,22 @@ This path may or may not be writable by the current application.
              @since ARP1.0
           */
           getContactsWithFilter(callback : IContactResultCallback, fields : Array<IContactFieldGroup>, filter : Array<IContactFilter>) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(fields));
+               arParams.push(JSON.stringify(filter));
+               var ar : APIRequest = new APIRequest("IContact","getContactsWithFilter",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredContactResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'ContactBridge.getContactsWithFilter' request.");
+               }
           }
 
           /**
@@ -10036,6 +10812,21 @@ This path may or may not be writable by the current application.
              @since ARP1.0
           */
           searchContacts(term : string, callback : IContactResultCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(term));
+               var ar : APIRequest = new APIRequest("IContact","searchContacts",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredContactResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'ContactBridge.searchContacts' request.");
+               }
           }
 
           /**
@@ -10047,6 +10838,22 @@ This path may or may not be writable by the current application.
              @since ARP1.0
           */
           searchContactsWithFilter(term : string, callback : IContactResultCallback, filter : Array<IContactFilter>) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(term));
+               arParams.push(JSON.stringify(filter));
+               var ar : APIRequest = new APIRequest("IContact","searchContactsWithFilter",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredContactResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'ContactBridge.searchContactsWithFilter' request.");
+               }
           }
 
           /**
@@ -10058,6 +10865,20 @@ This path may or may not be writable by the current application.
              @since ARP1.0
           */
           setContactPhoto(contact : ContactUid, pngImage : Array<number>) : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(contact));
+               arParams.push(JSON.stringify(pngImage));
+               var ar : APIRequest = new APIRequest("IContact","setContactPhoto",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'ContactBridge.setContactPhoto' request.");
+               }
                return null;
           }
      }
@@ -10085,6 +10906,21 @@ This path may or may not be writable by the current application.
              @since ARP1.0
           */
           sendEmail(data : Email, callback : IMessagingCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(data));
+               var ar : APIRequest = new APIRequest("IMail","sendEmail",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredMessagingCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'MailBridge.sendEmail' request.");
+               }
           }
      }
 
@@ -10112,6 +10948,22 @@ This path may or may not be writable by the current application.
              @since ARP1.0
           */
           sendSMS(number : string, text : string, callback : IMessagingCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(number));
+               arParams.push(JSON.stringify(text));
+               var ar : APIRequest = new APIRequest("IMessaging","sendSMS",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredMessagingCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'MessagingBridge.sendSMS' request.");
+               }
           }
      }
 
@@ -10235,6 +11087,22 @@ This path may or may not be writable by the current application.
              @since ARP 1.0
           */
           deleteSecureKeyValuePairs(keys : Array<string>, publicAccessName : string, callback : ISecurityResultCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(keys));
+               arParams.push(JSON.stringify(publicAccessName));
+               var ar : APIRequest = new APIRequest("ISecurity","deleteSecureKeyValuePairs",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredSecurityResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'SecurityBridge.deleteSecureKeyValuePairs' request.");
+               }
           }
 
           /**
@@ -10246,6 +11114,22 @@ This path may or may not be writable by the current application.
              @since ARP 1.0
           */
           getSecureKeyValuePairs(keys : Array<string>, publicAccessName : string, callback : ISecurityResultCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(keys));
+               arParams.push(JSON.stringify(publicAccessName));
+               var ar : APIRequest = new APIRequest("ISecurity","getSecureKeyValuePairs",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredSecurityResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'SecurityBridge.getSecureKeyValuePairs' request.");
+               }
           }
 
           /**
@@ -10255,6 +11139,18 @@ This path may or may not be writable by the current application.
              @since ARP1.0
           */
           isDeviceModified() : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("ISecurity","isDeviceModified",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'SecurityBridge.isDeviceModified' request.");
+               }
                return null;
           }
 
@@ -10267,6 +11163,22 @@ This path may or may not be writable by the current application.
              @since ARP 1.0
           */
           setSecureKeyValuePairs(keyValues : Array<SecureKeyPair>, publicAccessName : string, callback : ISecurityResultCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(keyValues));
+               arParams.push(JSON.stringify(publicAccessName));
+               var ar : APIRequest = new APIRequest("ISecurity","setSecureKeyValuePairs",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredSecurityResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'SecurityBridge.setSecureKeyValuePairs' request.");
+               }
           }
      }
 
@@ -10292,6 +11204,20 @@ This path may or may not be writable by the current application.
              @since ARP1.0
           */
           addAccelerationListener(listener : IAccelerationListener) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("IAcceleration","addAccelerationListener",arParams, listener.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add listener reference to local dictionary.
+                    registeredAccelerationListener.add(""+listener.getId(), listener);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'AccelerationBridge.addAccelerationListener' request.");
+               }
           }
 
           /**
@@ -10301,6 +11227,20 @@ This path may or may not be writable by the current application.
              @since ARP1.0
           */
           removeAccelerationListener(listener : IAccelerationListener) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("IAcceleration","removeAccelerationListener",arParams, listener.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Remove listener reference from local dictionary.
+                    registeredAccelerationListener.remove(""+listener.getId());
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'AccelerationBridge.removeAccelerationListener' request.");
+               }
           }
 
           /**
@@ -10309,6 +11249,23 @@ This path may or may not be writable by the current application.
              @since ARP1.0
           */
           removeAccelerationListeners() : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("IAcceleration","removeAccelerationListeners",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Remove all listeners references from local dictionary.
+                    var keys = registeredAccelerationListener.keys();
+                    for (var key in keys) {
+                         registeredAccelerationListener.remove(key);
+                    }
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'AccelerationBridge.removeAccelerationListeners' request.");
+               }
           }
      }
 
@@ -10366,6 +11323,20 @@ This path may or may not be writable by the current application.
              @since ARP1.0
           */
           addGeolocationListener(listener : IGeolocationListener) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("IGeolocation","addGeolocationListener",arParams, listener.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add listener reference to local dictionary.
+                    registeredGeolocationListener.add(""+listener.getId(), listener);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'GeolocationBridge.addGeolocationListener' request.");
+               }
           }
 
           /**
@@ -10375,6 +11346,20 @@ This path may or may not be writable by the current application.
              @since ARP1.0
           */
           removeGeolocationListener(listener : IGeolocationListener) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("IGeolocation","removeGeolocationListener",arParams, listener.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Remove listener reference from local dictionary.
+                    registeredGeolocationListener.remove(""+listener.getId());
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'GeolocationBridge.removeGeolocationListener' request.");
+               }
           }
 
           /**
@@ -10383,6 +11368,23 @@ This path may or may not be writable by the current application.
              @since ARP1.0
           */
           removeGeolocationListeners() : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("IGeolocation","removeGeolocationListeners",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Remove all listeners references from local dictionary.
+                    var keys = registeredGeolocationListener.keys();
+                    for (var key in keys) {
+                         registeredGeolocationListener.remove(key);
+                    }
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'GeolocationBridge.removeGeolocationListeners' request.");
+               }
           }
      }
 
@@ -10537,6 +11539,19 @@ This path may or may not be writable by the current application.
              @since ARP1.0
           */
           hasButtonSupport(type : ICapabilitiesButton) : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(type));
+               var ar : APIRequest = new APIRequest("ICapabilities","hasButtonSupport",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'CapabilitiesBridge.hasButtonSupport' request.");
+               }
                return null;
           }
 
@@ -10549,6 +11564,19 @@ the device.
              @since ARP1.0
           */
           hasCommunicationSupport(type : ICapabilitiesCommunication) : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(type));
+               var ar : APIRequest = new APIRequest("ICapabilities","hasCommunicationSupport",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'CapabilitiesBridge.hasCommunicationSupport' request.");
+               }
                return null;
           }
 
@@ -10560,6 +11588,19 @@ the device.
              @since ARP1.0
           */
           hasDataSupport(type : ICapabilitiesData) : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(type));
+               var ar : APIRequest = new APIRequest("ICapabilities","hasDataSupport",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'CapabilitiesBridge.hasDataSupport' request.");
+               }
                return null;
           }
 
@@ -10572,6 +11613,19 @@ device.
              @since ARP1.0
           */
           hasMediaSupport(type : ICapabilitiesMedia) : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(type));
+               var ar : APIRequest = new APIRequest("ICapabilities","hasMediaSupport",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'CapabilitiesBridge.hasMediaSupport' request.");
+               }
                return null;
           }
 
@@ -10583,6 +11637,19 @@ device.
              @since ARP1.0
           */
           hasNetSupport(type : ICapabilitiesNet) : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(type));
+               var ar : APIRequest = new APIRequest("ICapabilities","hasNetSupport",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'CapabilitiesBridge.hasNetSupport' request.");
+               }
                return null;
           }
 
@@ -10595,6 +11662,19 @@ device.
              @since ARP1.0
           */
           hasNotificationSupport(type : ICapabilitiesNotification) : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(type));
+               var ar : APIRequest = new APIRequest("ICapabilities","hasNotificationSupport",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'CapabilitiesBridge.hasNotificationSupport' request.");
+               }
                return null;
           }
 
@@ -10607,6 +11687,19 @@ device.
              @since ARP1.0
           */
           hasSensorSupport(type : ICapabilitiesSensor) : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(type));
+               var ar : APIRequest = new APIRequest("ICapabilities","hasSensorSupport",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'CapabilitiesBridge.hasSensorSupport' request.");
+               }
                return null;
           }
      }
@@ -10633,6 +11726,20 @@ device.
              @since ARP1.0
           */
           addButtonListener(listener : IButtonListener) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("IDevice","addButtonListener",arParams, listener.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add listener reference to local dictionary.
+                    registeredButtonListener.add(""+listener.getId(), listener);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'DeviceBridge.addButtonListener' request.");
+               }
           }
 
           /**
@@ -10642,6 +11749,18 @@ device.
              @since ARP1.0
           */
           getDeviceInfo() : DeviceInfo {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("IDevice","getDeviceInfo",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'DeviceBridge.getDeviceInfo' request.");
+               }
                return null;
           }
 
@@ -10652,6 +11771,18 @@ device.
              @since ARP1.0
           */
           getLocaleCurrent() : Locale {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("IDevice","getLocaleCurrent",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'DeviceBridge.getLocaleCurrent' request.");
+               }
                return null;
           }
 
@@ -10662,6 +11793,20 @@ device.
              @since ARP1.0
           */
           removeButtonListener(listener : IButtonListener) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("IDevice","removeButtonListener",arParams, listener.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Remove listener reference from local dictionary.
+                    registeredButtonListener.remove(""+listener.getId());
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'DeviceBridge.removeButtonListener' request.");
+               }
           }
 
           /**
@@ -10670,6 +11815,23 @@ device.
              @since ARP1.0
           */
           removeButtonListeners() : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("IDevice","removeButtonListeners",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Remove all listeners references from local dictionary.
+                    var keys = registeredButtonListener.keys();
+                    for (var key in keys) {
+                         registeredButtonListener.remove(key);
+                    }
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'DeviceBridge.removeButtonListeners' request.");
+               }
           }
      }
 
@@ -10711,6 +11873,18 @@ device.
              @since ARP1.0
           */
           getOSInfo() : OSInfo {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("IOS","getOSInfo",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'OSBridge.getOSInfo' request.");
+               }
                return null;
           }
      }
@@ -10736,6 +11910,18 @@ device.
              @since ARP1.0
           */
           dismissApplication() : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("IRuntime","dismissApplication",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'RuntimeBridge.dismissApplication' request.");
+               }
           }
 
           /**
@@ -10745,6 +11931,18 @@ device.
              @since ARP1.0
           */
           dismissSplashScreen() : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("IRuntime","dismissSplashScreen",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'RuntimeBridge.dismissSplashScreen' request.");
+               }
                return null;
           }
      }
@@ -10772,6 +11970,19 @@ device.
              @since ARP1.0
           */
           openExtenalBrowser(url : string) : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(url));
+               var ar : APIRequest = new APIRequest("IBrowser","openExtenalBrowser",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'BrowserBridge.openExtenalBrowser' request.");
+               }
                return null;
           }
 
@@ -10785,6 +11996,21 @@ device.
              @since ARP1.0
           */
           openInternalBrowser(url : string, title : string, backButtonText : string) : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(url));
+               arParams.push(JSON.stringify(title));
+               arParams.push(JSON.stringify(backButtonText));
+               var ar : APIRequest = new APIRequest("IBrowser","openInternalBrowser",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'BrowserBridge.openInternalBrowser' request.");
+               }
                return null;
           }
 
@@ -10798,6 +12024,21 @@ device.
              @since ARP1.0
           */
           openInternalBrowserModal(url : string, title : string, backButtonText : string) : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(url));
+               arParams.push(JSON.stringify(title));
+               arParams.push(JSON.stringify(backButtonText));
+               var ar : APIRequest = new APIRequest("IBrowser","openInternalBrowserModal",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'BrowserBridge.openInternalBrowserModal' request.");
+               }
                return null;
           }
      }
@@ -10921,6 +12162,7 @@ device.
              @since ARP1.0
           */
           log_level_message(level : ILoggingLogLevel, message : string) : void {
+               // TODO: Implement overloaded methods.
           }
 
           /**
@@ -10932,6 +12174,7 @@ device.
              @since ARP1.0
           */
           log_level_category_message(level : ILoggingLogLevel, category : string, message : string) : void {
+               // TODO: Implement overloaded methods.
           }
      }
 

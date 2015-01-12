@@ -39,6 +39,14 @@ Release:
 */
 declare module Adaptive {
     /**
+       Interface for Managing the Contact operations
+       Auto-generated implementation of IContactResultCallback specification.
+    */
+    /**
+       ContactResultCallback control dictionary.
+    */
+    var registeredContactResultCallback: Dictionary<IContactResultCallback>;
+    /**
        ContactResultCallback global callback handlers.
     */
     function handleContactResultCallbackError(id: number, error: IContactResultCallbackError): void;

@@ -38,6 +38,14 @@ Release:
 */
 declare module Adaptive {
     /**
+       Interface for Managing the Network reachability callback result
+       Auto-generated implementation of INetworkReachabilityCallback specification.
+    */
+    /**
+       NetworkReachabilityCallback control dictionary.
+    */
+    var registeredNetworkReachabilityCallback: Dictionary<INetworkReachabilityCallback>;
+    /**
        NetworkReachabilityCallback global callback handlers.
     */
     function handleNetworkReachabilityCallbackError(id: number, error: INetworkReachabilityCallbackError): void;

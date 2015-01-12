@@ -48,7 +48,7 @@ module Adaptive {
      /**
         ContactPhotoResultCallback control dictionary.
      */
-     var registeredContactPhotoResultCallback = new Dictionary<IContactPhotoResultCallback>([]);
+     export var registeredContactPhotoResultCallback = new Dictionary<IContactPhotoResultCallback>([]);
 
      /**
         ContactPhotoResultCallback global callback handlers.

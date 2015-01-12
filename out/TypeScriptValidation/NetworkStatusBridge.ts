@@ -39,6 +39,7 @@ Release:
 ///<reference path="IBaseCommunication.ts"/>
 ///<reference path="INetworkStatus.ts"/>
 ///<reference path="INetworkStatusListener.ts"/>
+///<reference path="NetworkStatusListener.ts"/>
 module Adaptive {
 
      /**
@@ -63,6 +64,20 @@ module Adaptive {
              @since ARP1.0
           */
           addNetworkStatusListener(listener : INetworkStatusListener) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("INetworkStatus","addNetworkStatusListener",arParams, listener.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add listener reference to local dictionary.
+                    registeredNetworkStatusListener.add(""+listener.getId(), listener);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'NetworkStatusBridge.addNetworkStatusListener' request.");
+               }
           }
 
           /**
@@ -72,6 +87,20 @@ module Adaptive {
              @since ARP1.0
           */
           removeNetworkStatusListener(listener : INetworkStatusListener) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("INetworkStatus","removeNetworkStatusListener",arParams, listener.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Remove listener reference from local dictionary.
+                    registeredNetworkStatusListener.remove(""+listener.getId());
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'NetworkStatusBridge.removeNetworkStatusListener' request.");
+               }
           }
 
           /**
@@ -80,6 +109,23 @@ module Adaptive {
              @since ARP1.0
           */
           removeNetworkStatusListeners() : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("INetworkStatus","removeNetworkStatusListeners",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Remove all listeners references from local dictionary.
+                    var keys = registeredNetworkStatusListener.keys();
+                    for (var key in keys) {
+                         registeredNetworkStatusListener.remove(key);
+                    }
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'NetworkStatusBridge.removeNetworkStatusListeners' request.");
+               }
           }
      }
 }

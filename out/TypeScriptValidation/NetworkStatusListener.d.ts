@@ -39,6 +39,14 @@ Release:
 */
 declare module Adaptive {
     /**
+       Interface for Managing the Network status listener events
+       Auto-generated implementation of INetworkStatusListener specification.
+    */
+    /**
+       NetworkStatusListener control dictionary.
+    */
+    var registeredNetworkStatusListener: Dictionary<INetworkStatusListener>;
+    /**
        NetworkStatusListener global listener handlers.
     */
     function handleNetworkStatusListenerError(id: number, error: INetworkStatusListenerError): void;

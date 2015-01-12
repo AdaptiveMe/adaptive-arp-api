@@ -52,39 +52,39 @@ var Adaptive;
     /**
        SecurityResultCallback control dictionary.
     */
-    var registeredSecurityResultCallback = new Adaptive.Dictionary([]);
+    Adaptive.registeredSecurityResultCallback = new Adaptive.Dictionary([]);
     /**
        SecurityResultCallback global callback handlers.
     */
     function handleSecurityResultCallbackError(id, error) {
-        var callback = registeredSecurityResultCallback["" + id];
+        var callback = Adaptive.registeredSecurityResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredSecurityResultCallback dictionary.");
         }
         else {
-            registeredSecurityResultCallback.remove("" + id);
+            Adaptive.registeredSecurityResultCallback.remove("" + id);
             callback.onError(error);
         }
     }
     Adaptive.handleSecurityResultCallbackError = handleSecurityResultCallbackError;
     function handleSecurityResultCallbackResult(id, keyValues) {
-        var callback = registeredSecurityResultCallback["" + id];
+        var callback = Adaptive.registeredSecurityResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredSecurityResultCallback dictionary.");
         }
         else {
-            registeredSecurityResultCallback.remove("" + id);
+            Adaptive.registeredSecurityResultCallback.remove("" + id);
             callback.onResult(keyValues);
         }
     }
     Adaptive.handleSecurityResultCallbackResult = handleSecurityResultCallbackResult;
     function handleSecurityResultCallbackWarning(id, keyValues, warning) {
-        var callback = registeredSecurityResultCallback["" + id];
+        var callback = Adaptive.registeredSecurityResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredSecurityResultCallback dictionary.");
         }
         else {
-            registeredSecurityResultCallback.remove("" + id);
+            Adaptive.registeredSecurityResultCallback.remove("" + id);
             callback.onWarning(keyValues, warning);
         }
     }

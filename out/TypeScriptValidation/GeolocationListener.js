@@ -52,12 +52,12 @@ var Adaptive;
     /**
        GeolocationListener control dictionary.
     */
-    var registeredGeolocationListener = new Adaptive.Dictionary([]);
+    Adaptive.registeredGeolocationListener = new Adaptive.Dictionary([]);
     /**
        GeolocationListener global listener handlers.
     */
     function handleGeolocationListenerError(id, error) {
-        var listener = registeredGeolocationListener["" + id];
+        var listener = Adaptive.registeredGeolocationListener["" + id];
         if (typeof listener === 'undefined' || listener == null) {
             console.error("ERROR: No listener with id " + id + " registered in registeredGeolocationListener dictionary.");
         }
@@ -67,7 +67,7 @@ var Adaptive;
     }
     Adaptive.handleGeolocationListenerError = handleGeolocationListenerError;
     function handleGeolocationListenerResult(id, geolocation) {
-        var listener = registeredGeolocationListener["" + id];
+        var listener = Adaptive.registeredGeolocationListener["" + id];
         if (typeof listener === 'undefined' || listener == null) {
             console.error("ERROR: No listener with id " + id + " registered in registeredGeolocationListener dictionary.");
         }
@@ -77,7 +77,7 @@ var Adaptive;
     }
     Adaptive.handleGeolocationListenerResult = handleGeolocationListenerResult;
     function handleGeolocationListenerWarning(id, geolocation, warning) {
-        var listener = registeredGeolocationListener["" + id];
+        var listener = Adaptive.registeredGeolocationListener["" + id];
         if (typeof listener === 'undefined' || listener == null) {
             console.error("ERROR: No listener with id " + id + " registered in registeredGeolocationListener dictionary.");
         }

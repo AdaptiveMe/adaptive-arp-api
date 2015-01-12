@@ -52,39 +52,39 @@ var Adaptive;
     /**
        FileListResultCallback control dictionary.
     */
-    var registeredFileListResultCallback = new Adaptive.Dictionary([]);
+    Adaptive.registeredFileListResultCallback = new Adaptive.Dictionary([]);
     /**
        FileListResultCallback global callback handlers.
     */
     function handleFileListResultCallbackError(id, error) {
-        var callback = registeredFileListResultCallback["" + id];
+        var callback = Adaptive.registeredFileListResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredFileListResultCallback dictionary.");
         }
         else {
-            registeredFileListResultCallback.remove("" + id);
+            Adaptive.registeredFileListResultCallback.remove("" + id);
             callback.onError(error);
         }
     }
     Adaptive.handleFileListResultCallbackError = handleFileListResultCallbackError;
     function handleFileListResultCallbackResult(id, files) {
-        var callback = registeredFileListResultCallback["" + id];
+        var callback = Adaptive.registeredFileListResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredFileListResultCallback dictionary.");
         }
         else {
-            registeredFileListResultCallback.remove("" + id);
+            Adaptive.registeredFileListResultCallback.remove("" + id);
             callback.onResult(files);
         }
     }
     Adaptive.handleFileListResultCallbackResult = handleFileListResultCallbackResult;
     function handleFileListResultCallbackWarning(id, files, warning) {
-        var callback = registeredFileListResultCallback["" + id];
+        var callback = Adaptive.registeredFileListResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredFileListResultCallback dictionary.");
         }
         else {
-            registeredFileListResultCallback.remove("" + id);
+            Adaptive.registeredFileListResultCallback.remove("" + id);
             callback.onWarning(files, warning);
         }
     }

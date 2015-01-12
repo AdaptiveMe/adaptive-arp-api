@@ -52,12 +52,12 @@ var Adaptive;
     /**
        AccelerationListener control dictionary.
     */
-    var registeredAccelerationListener = new Adaptive.Dictionary([]);
+    Adaptive.registeredAccelerationListener = new Adaptive.Dictionary([]);
     /**
        AccelerationListener global listener handlers.
     */
     function handleAccelerationListenerError(id, error) {
-        var listener = registeredAccelerationListener["" + id];
+        var listener = Adaptive.registeredAccelerationListener["" + id];
         if (typeof listener === 'undefined' || listener == null) {
             console.error("ERROR: No listener with id " + id + " registered in registeredAccelerationListener dictionary.");
         }
@@ -67,7 +67,7 @@ var Adaptive;
     }
     Adaptive.handleAccelerationListenerError = handleAccelerationListenerError;
     function handleAccelerationListenerResult(id, acceleration) {
-        var listener = registeredAccelerationListener["" + id];
+        var listener = Adaptive.registeredAccelerationListener["" + id];
         if (typeof listener === 'undefined' || listener == null) {
             console.error("ERROR: No listener with id " + id + " registered in registeredAccelerationListener dictionary.");
         }
@@ -77,7 +77,7 @@ var Adaptive;
     }
     Adaptive.handleAccelerationListenerResult = handleAccelerationListenerResult;
     function handleAccelerationListenerWarning(id, acceleration, warning) {
-        var listener = registeredAccelerationListener["" + id];
+        var listener = Adaptive.registeredAccelerationListener["" + id];
         if (typeof listener === 'undefined' || listener == null) {
             console.error("ERROR: No listener with id " + id + " registered in registeredAccelerationListener dictionary.");
         }

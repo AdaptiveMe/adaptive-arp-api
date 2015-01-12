@@ -49,7 +49,7 @@ module Adaptive {
      /**
         AccelerationListener control dictionary.
      */
-     var registeredAccelerationListener = new Dictionary<IAccelerationListener>([]);
+     export var registeredAccelerationListener = new Dictionary<IAccelerationListener>([]);
 
      /**
         AccelerationListener global listener handlers.

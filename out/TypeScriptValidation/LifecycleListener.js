@@ -52,12 +52,12 @@ var Adaptive;
     /**
        LifecycleListener control dictionary.
     */
-    var registeredLifecycleListener = new Adaptive.Dictionary([]);
+    Adaptive.registeredLifecycleListener = new Adaptive.Dictionary([]);
     /**
        LifecycleListener global listener handlers.
     */
     function handleLifecycleListenerError(id, error) {
-        var listener = registeredLifecycleListener["" + id];
+        var listener = Adaptive.registeredLifecycleListener["" + id];
         if (typeof listener === 'undefined' || listener == null) {
             console.error("ERROR: No listener with id " + id + " registered in registeredLifecycleListener dictionary.");
         }
@@ -67,7 +67,7 @@ var Adaptive;
     }
     Adaptive.handleLifecycleListenerError = handleLifecycleListenerError;
     function handleLifecycleListenerResult(id, lifecycle) {
-        var listener = registeredLifecycleListener["" + id];
+        var listener = Adaptive.registeredLifecycleListener["" + id];
         if (typeof listener === 'undefined' || listener == null) {
             console.error("ERROR: No listener with id " + id + " registered in registeredLifecycleListener dictionary.");
         }
@@ -77,7 +77,7 @@ var Adaptive;
     }
     Adaptive.handleLifecycleListenerResult = handleLifecycleListenerResult;
     function handleLifecycleListenerWarning(id, lifecycle, warning) {
-        var listener = registeredLifecycleListener["" + id];
+        var listener = Adaptive.registeredLifecycleListener["" + id];
         if (typeof listener === 'undefined' || listener == null) {
             console.error("ERROR: No listener with id " + id + " registered in registeredLifecycleListener dictionary.");
         }

@@ -36,7 +36,9 @@ Release:
 ///<reference path="BaseDataBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="Database.ts"/>
+///<reference path="DatabaseResultCallback.ts"/>
 ///<reference path="DatabaseTable.ts"/>
+///<reference path="DatabaseTableResultCallback.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseData.ts"/>
 ///<reference path="IDatabase.ts"/>
@@ -67,6 +69,21 @@ module Adaptive {
              @since ARP1.0
           */
           createDatabase(database : Database, callback : IDatabaseResultCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(database));
+               var ar : APIRequest = new APIRequest("IDatabase","createDatabase",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredDatabaseResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'DatabaseBridge.createDatabase' request.");
+               }
           }
 
           /**
@@ -78,6 +95,22 @@ module Adaptive {
              @since ARP1.0
           */
           createTable(database : Database, databaseTable : DatabaseTable, callback : IDatabaseTableResultCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(database));
+               arParams.push(JSON.stringify(databaseTable));
+               var ar : APIRequest = new APIRequest("IDatabase","createTable",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredDatabaseTableResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'DatabaseBridge.createTable' request.");
+               }
           }
 
           /**
@@ -88,6 +121,21 @@ module Adaptive {
              @since ARP1.0
           */
           deleteDatabase(database : Database, callback : IDatabaseResultCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(database));
+               var ar : APIRequest = new APIRequest("IDatabase","deleteDatabase",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredDatabaseResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'DatabaseBridge.deleteDatabase' request.");
+               }
           }
 
           /**
@@ -99,6 +147,22 @@ module Adaptive {
              @since ARP1.0
           */
           deleteTable(database : Database, databaseTable : DatabaseTable, callback : IDatabaseTableResultCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(database));
+               arParams.push(JSON.stringify(databaseTable));
+               var ar : APIRequest = new APIRequest("IDatabase","deleteTable",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredDatabaseTableResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'DatabaseBridge.deleteTable' request.");
+               }
           }
 
           /**
@@ -112,6 +176,23 @@ should be passed as a parameter
              @since ARP1.0
           */
           executeSqlStatement(database : Database, statement : string, replacements : Array<string>, callback : IDatabaseTableResultCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(database));
+               arParams.push(JSON.stringify(statement));
+               arParams.push(JSON.stringify(replacements));
+               var ar : APIRequest = new APIRequest("IDatabase","executeSqlStatement",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredDatabaseTableResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'DatabaseBridge.executeSqlStatement' request.");
+               }
           }
 
           /**
@@ -125,6 +206,23 @@ should be passed as a parameter
              @since ARP1.0
           */
           executeSqlTransactions(database : Database, statements : Array<string>, rollbackFlag : boolean, callback : IDatabaseTableResultCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(database));
+               arParams.push(JSON.stringify(statements));
+               arParams.push(JSON.stringify(rollbackFlag));
+               var ar : APIRequest = new APIRequest("IDatabase","executeSqlTransactions",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredDatabaseTableResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'DatabaseBridge.executeSqlTransactions' request.");
+               }
           }
 
           /**
@@ -135,6 +233,19 @@ should be passed as a parameter
              @since ARP1.0
           */
           existsDatabase(database : Database) : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(database));
+               var ar : APIRequest = new APIRequest("IDatabase","existsDatabase",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'DatabaseBridge.existsDatabase' request.");
+               }
                return null;
           }
 
@@ -147,6 +258,20 @@ should be passed as a parameter
              @since ARP1.0
           */
           existsTable(database : Database, databaseTable : DatabaseTable) : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(database));
+               arParams.push(JSON.stringify(databaseTable));
+               var ar : APIRequest = new APIRequest("IDatabase","existsTable",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'DatabaseBridge.existsTable' request.");
+               }
                return null;
           }
      }

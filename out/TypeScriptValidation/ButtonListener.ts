@@ -49,7 +49,7 @@ module Adaptive {
      /**
         ButtonListener control dictionary.
      */
-     var registeredButtonListener = new Dictionary<IButtonListener>([]);
+     export var registeredButtonListener = new Dictionary<IButtonListener>([]);
 
      /**
         ButtonListener global listener handlers.

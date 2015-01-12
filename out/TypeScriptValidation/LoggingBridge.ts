@@ -64,6 +64,7 @@ module Adaptive {
              @since ARP1.0
           */
           log_level_message(level : ILoggingLogLevel, message : string) : void {
+               // TODO: Implement overloaded methods.
           }
 
           /**
@@ -75,6 +76,7 @@ module Adaptive {
              @since ARP1.0
           */
           log_level_category_message(level : ILoggingLogLevel, category : string, message : string) : void {
+               // TODO: Implement overloaded methods.
           }
      }
 }

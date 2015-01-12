@@ -39,6 +39,14 @@ Release:
 */
 declare module Adaptive {
     /**
+       Interface for Managing the Cloud operations
+       Auto-generated implementation of IDatabaseTableResultCallback specification.
+    */
+    /**
+       DatabaseTableResultCallback control dictionary.
+    */
+    var registeredDatabaseTableResultCallback: Dictionary<IDatabaseTableResultCallback>;
+    /**
        DatabaseTableResultCallback global callback handlers.
     */
     function handleDatabaseTableResultCallbackError(id: number, error: IDatabaseTableResultCallbackError): void;

@@ -49,7 +49,7 @@ module Adaptive {
      /**
         LifecycleListener control dictionary.
      */
-     var registeredLifecycleListener = new Dictionary<ILifecycleListener>([]);
+     export var registeredLifecycleListener = new Dictionary<ILifecycleListener>([]);
 
      /**
         LifecycleListener global listener handlers.

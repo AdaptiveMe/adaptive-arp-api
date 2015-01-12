@@ -68,6 +68,7 @@ var Adaptive;
            @since ARP1.0
         */
         LoggingBridge.prototype.log_level_message = function (level, message) {
+            // TODO: Implement overloaded methods.
         };
         /**
            Logs the given message, with the given log level if specified, to the standard platform/environment.
@@ -78,6 +79,7 @@ var Adaptive;
            @since ARP1.0
         */
         LoggingBridge.prototype.log_level_category_message = function (level, category, message) {
+            // TODO: Implement overloaded methods.
         };
         return LoggingBridge;
     })(Adaptive.BaseUtilBridge);

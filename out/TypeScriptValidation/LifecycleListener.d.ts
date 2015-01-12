@@ -39,6 +39,14 @@ Release:
 */
 declare module Adaptive {
     /**
+       Interface for Managing the Lifecycle listeners
+       Auto-generated implementation of ILifecycleListener specification.
+    */
+    /**
+       LifecycleListener control dictionary.
+    */
+    var registeredLifecycleListener: Dictionary<ILifecycleListener>;
+    /**
        LifecycleListener global listener handlers.
     */
     function handleLifecycleListenerError(id: number, error: ILifecycleListenerError): void;

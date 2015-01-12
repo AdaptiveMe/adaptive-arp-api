@@ -35,7 +35,11 @@ Release:
 ///<reference path="APIRequest.ts"/>
 ///<reference path="BaseDataBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
+///<reference path="FileDataLoadResultCallback.ts"/>
+///<reference path="FileDataStoreResultCallback.ts"/>
 ///<reference path="FileDescriptor.ts"/>
+///<reference path="FileListResultCallback.ts"/>
+///<reference path="FileResultCallback.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseData.ts"/>
 ///<reference path="IFile.ts"/>
@@ -71,6 +75,19 @@ module Adaptive {
              @since ARP1.0
           */
           canRead(descriptor : FileDescriptor) : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(descriptor));
+               var ar : APIRequest = new APIRequest("IFile","canRead",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileBridge.canRead' request.");
+               }
                return null;
           }
 
@@ -82,6 +99,19 @@ module Adaptive {
              @since ARP1.0
           */
           canWrite(descriptor : FileDescriptor) : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(descriptor));
+               var ar : APIRequest = new APIRequest("IFile","canWrite",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileBridge.canWrite' request.");
+               }
                return null;
           }
 
@@ -93,6 +123,21 @@ module Adaptive {
              @since ARP1.0
           */
           create(descriptor : FileDescriptor, callback : IFileResultCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(descriptor));
+               var ar : APIRequest = new APIRequest("IFile","create",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredFileResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileBridge.create' request.");
+               }
           }
 
           /**
@@ -105,6 +150,20 @@ deleted if the cascade parameter is set to true.
              @since ARP1.0
           */
           delete(descriptor : FileDescriptor, cascade : boolean) : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(descriptor));
+               arParams.push(JSON.stringify(cascade));
+               var ar : APIRequest = new APIRequest("IFile","delete",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileBridge.delete' request.");
+               }
                return null;
           }
 
@@ -116,6 +175,19 @@ deleted if the cascade parameter is set to true.
              @since ARP1.0
           */
           exists(descriptor : FileDescriptor) : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(descriptor));
+               var ar : APIRequest = new APIRequest("IFile","exists",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileBridge.exists' request.");
+               }
                return null;
           }
 
@@ -127,6 +199,21 @@ deleted if the cascade parameter is set to true.
              @since ARP1.0
           */
           getContent(descriptor : FileDescriptor, callback : IFileDataLoadResultCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(descriptor));
+               var ar : APIRequest = new APIRequest("IFile","getContent",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredFileDataLoadResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileBridge.getContent' request.");
+               }
           }
 
           /**
@@ -137,6 +224,19 @@ deleted if the cascade parameter is set to true.
              @since ARP1.0
           */
           getFileStorageType(descriptor : FileDescriptor) : IFileSystemStorageType {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(descriptor));
+               var ar : APIRequest = new APIRequest("IFile","getFileStorageType",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileBridge.getFileStorageType' request.");
+               }
                return null;
           }
 
@@ -148,6 +248,19 @@ deleted if the cascade parameter is set to true.
              @since ARP1.0
           */
           getFileType(descriptor : FileDescriptor) : IFileSystemType {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(descriptor));
+               var ar : APIRequest = new APIRequest("IFile","getFileType",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileBridge.getFileType' request.");
+               }
                return null;
           }
 
@@ -159,6 +272,19 @@ deleted if the cascade parameter is set to true.
              @since ARP1.0
           */
           getSecurityType(descriptor : FileDescriptor) : IFileSystemSecurity {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(descriptor));
+               var ar : APIRequest = new APIRequest("IFile","getSecurityType",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileBridge.getSecurityType' request.");
+               }
                return null;
           }
 
@@ -170,6 +296,19 @@ deleted if the cascade parameter is set to true.
              @since ARP1.0
           */
           isDirectory(descriptor : FileDescriptor) : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(descriptor));
+               var ar : APIRequest = new APIRequest("IFile","isDirectory",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileBridge.isDirectory' request.");
+               }
                return null;
           }
 
@@ -182,6 +321,21 @@ any results.
              @since ARP1.0
           */
           listFiles(descriptor : FileDescriptor, callback : IFileListResultCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(descriptor));
+               var ar : APIRequest = new APIRequest("IFile","listFiles",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredFileListResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileBridge.listFiles' request.");
+               }
           }
 
           /**
@@ -194,6 +348,22 @@ is a file, it will not yield any results.
              @since ARP1.0
           */
           listFilesForRegex(descriptor : FileDescriptor, regex : string, callback : IFileListResultCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(descriptor));
+               arParams.push(JSON.stringify(regex));
+               var ar : APIRequest = new APIRequest("IFile","listFilesForRegex",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredFileListResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileBridge.listFilesForRegex' request.");
+               }
           }
 
           /**
@@ -205,6 +375,20 @@ is a file, it will not yield any results.
              @since ARP1.0
           */
           mkDir(descriptor : FileDescriptor, recursive : boolean) : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(descriptor));
+               arParams.push(JSON.stringify(recursive));
+               var ar : APIRequest = new APIRequest("IFile","mkDir",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileBridge.mkDir' request.");
+               }
                return null;
           }
 
@@ -220,6 +404,24 @@ new destination file.
              @since ARP1.0
           */
           move(source : FileDescriptor, destination : FileDescriptor, createPath : boolean, overwrite : boolean, callback : IFileResultCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(source));
+               arParams.push(JSON.stringify(destination));
+               arParams.push(JSON.stringify(createPath));
+               arParams.push(JSON.stringify(overwrite));
+               var ar : APIRequest = new APIRequest("IFile","move",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredFileResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileBridge.move' request.");
+               }
           }
 
           /**
@@ -231,6 +433,22 @@ new destination file.
              @since ARP1.0
           */
           setContent(descriptor : FileDescriptor, content : Array<number>, callback : IFileDataStoreResultCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(descriptor));
+               arParams.push(JSON.stringify(content));
+               var ar : APIRequest = new APIRequest("IFile","setContent",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredFileDataStoreResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileBridge.setContent' request.");
+               }
           }
      }
 }

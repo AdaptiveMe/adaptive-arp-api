@@ -51,39 +51,39 @@ var Adaptive;
     /**
        NetworkReachabilityCallback control dictionary.
     */
-    var registeredNetworkReachabilityCallback = new Adaptive.Dictionary([]);
+    Adaptive.registeredNetworkReachabilityCallback = new Adaptive.Dictionary([]);
     /**
        NetworkReachabilityCallback global callback handlers.
     */
     function handleNetworkReachabilityCallbackError(id, error) {
-        var callback = registeredNetworkReachabilityCallback["" + id];
+        var callback = Adaptive.registeredNetworkReachabilityCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredNetworkReachabilityCallback dictionary.");
         }
         else {
-            registeredNetworkReachabilityCallback.remove("" + id);
+            Adaptive.registeredNetworkReachabilityCallback.remove("" + id);
             callback.onError(error);
         }
     }
     Adaptive.handleNetworkReachabilityCallbackError = handleNetworkReachabilityCallbackError;
     function handleNetworkReachabilityCallbackResult(id, reachable) {
-        var callback = registeredNetworkReachabilityCallback["" + id];
+        var callback = Adaptive.registeredNetworkReachabilityCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredNetworkReachabilityCallback dictionary.");
         }
         else {
-            registeredNetworkReachabilityCallback.remove("" + id);
+            Adaptive.registeredNetworkReachabilityCallback.remove("" + id);
             callback.onResult(reachable);
         }
     }
     Adaptive.handleNetworkReachabilityCallbackResult = handleNetworkReachabilityCallbackResult;
     function handleNetworkReachabilityCallbackWarning(id, reachable, warning) {
-        var callback = registeredNetworkReachabilityCallback["" + id];
+        var callback = Adaptive.registeredNetworkReachabilityCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredNetworkReachabilityCallback dictionary.");
         }
         else {
-            registeredNetworkReachabilityCallback.remove("" + id);
+            Adaptive.registeredNetworkReachabilityCallback.remove("" + id);
             callback.onWarning(reachable, warning);
         }
     }

@@ -44,6 +44,7 @@ var __extends = this.__extends || function (d, b) {
 ///<reference path="IBaseCommunication.ts"/>
 ///<reference path="INetworkReachability.ts"/>
 ///<reference path="INetworkReachabilityCallback.ts"/>
+///<reference path="NetworkReachabilityCallback.ts"/>
 var Adaptive;
 (function (Adaptive) {
     /**
@@ -68,6 +69,22 @@ var Adaptive;
            @since ARP1.0
         */
         NetworkReachabilityBridge.prototype.isNetworkReachable = function (host, callback) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(host));
+            var ar = new Adaptive.APIRequest("INetworkReachability", "isNetworkReachable", arParams, callback.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add callback reference to local dictionary.
+                Adaptive.registeredNetworkReachabilityCallback.add("" + callback.getId(), callback);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'NetworkReachabilityBridge.isNetworkReachable' request.");
+            }
         };
         /**
            Whether there is connectivity to an url of a service or not.
@@ -77,6 +94,22 @@ var Adaptive;
            @since ARP1.0
         */
         NetworkReachabilityBridge.prototype.isNetworkServiceReachable = function (url, callback) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(url));
+            var ar = new Adaptive.APIRequest("INetworkReachability", "isNetworkServiceReachable", arParams, callback.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add callback reference to local dictionary.
+                Adaptive.registeredNetworkReachabilityCallback.add("" + callback.getId(), callback);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'NetworkReachabilityBridge.isNetworkServiceReachable' request.");
+            }
         };
         return NetworkReachabilityBridge;
     })(Adaptive.BaseCommunicationBridge);

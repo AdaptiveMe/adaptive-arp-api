@@ -6,6 +6,7 @@
 /// <reference path="ISecurity.d.ts" />
 /// <reference path="ISecurityResultCallback.d.ts" />
 /// <reference path="SecureKeyPair.d.ts" />
+/// <reference path="SecurityResultCallback.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 

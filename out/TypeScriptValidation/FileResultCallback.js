@@ -52,39 +52,39 @@ var Adaptive;
     /**
        FileResultCallback control dictionary.
     */
-    var registeredFileResultCallback = new Adaptive.Dictionary([]);
+    Adaptive.registeredFileResultCallback = new Adaptive.Dictionary([]);
     /**
        FileResultCallback global callback handlers.
     */
     function handleFileResultCallbackError(id, error) {
-        var callback = registeredFileResultCallback["" + id];
+        var callback = Adaptive.registeredFileResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredFileResultCallback dictionary.");
         }
         else {
-            registeredFileResultCallback.remove("" + id);
+            Adaptive.registeredFileResultCallback.remove("" + id);
             callback.onError(error);
         }
     }
     Adaptive.handleFileResultCallbackError = handleFileResultCallbackError;
     function handleFileResultCallbackResult(id, storageFile) {
-        var callback = registeredFileResultCallback["" + id];
+        var callback = Adaptive.registeredFileResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredFileResultCallback dictionary.");
         }
         else {
-            registeredFileResultCallback.remove("" + id);
+            Adaptive.registeredFileResultCallback.remove("" + id);
             callback.onResult(storageFile);
         }
     }
     Adaptive.handleFileResultCallbackResult = handleFileResultCallbackResult;
     function handleFileResultCallbackWarning(id, file, warning) {
-        var callback = registeredFileResultCallback["" + id];
+        var callback = Adaptive.registeredFileResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredFileResultCallback dictionary.");
         }
         else {
-            registeredFileResultCallback.remove("" + id);
+            Adaptive.registeredFileResultCallback.remove("" + id);
             callback.onWarning(file, warning);
         }
     }

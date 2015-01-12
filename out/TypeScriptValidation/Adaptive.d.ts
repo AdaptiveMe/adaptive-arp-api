@@ -5345,6 +5345,10 @@ Possible lifecycle States:
         getAPIVersion(): string;
     }
     /**
+       AccelerationListener control dictionary.
+    */
+    var registeredAccelerationListener: Dictionary<IAccelerationListener>;
+    /**
        AccelerationListener global listener handlers.
     */
     function handleAccelerationListenerError(id: number, error: IAccelerationListenerError): void;
@@ -5387,6 +5391,10 @@ listener and subsequently, the listener will be deactivated and removed from the
         onWarning(acceleration: Acceleration, warning: IAccelerationListenerWarning): void;
     }
     /**
+       ButtonListener control dictionary.
+    */
+    var registeredButtonListener: Dictionary<IButtonListener>;
+    /**
        ButtonListener global listener handlers.
     */
     function handleButtonListenerError(id: number, error: IButtonListenerError): void;
@@ -5427,6 +5435,10 @@ listener and subsequently, the listener will be deactivated and removed from the
         */
         onWarning(button: Button, warning: IButtonListenerWarning): void;
     }
+    /**
+       GeolocationListener control dictionary.
+    */
+    var registeredGeolocationListener: Dictionary<IGeolocationListener>;
     /**
        GeolocationListener global listener handlers.
     */
@@ -5469,6 +5481,10 @@ listener and subsequently, the listener will be deactivated and removed from the
         onWarning(geolocation: Geolocation, warning: IGeolocationListenerWarning): void;
     }
     /**
+       LifecycleListener control dictionary.
+    */
+    var registeredLifecycleListener: Dictionary<ILifecycleListener>;
+    /**
        LifecycleListener global listener handlers.
     */
     function handleLifecycleListenerError(id: number, error: ILifecycleListenerError): void;
@@ -5509,6 +5525,10 @@ listener and subsequently, the listener will be deactivated and removed from the
         */
         onWarning(lifecycle: Lifecycle, warning: ILifecycleListenerWarning): void;
     }
+    /**
+       NetworkStatusListener control dictionary.
+    */
+    var registeredNetworkStatusListener: Dictionary<INetworkStatusListener>;
     /**
        NetworkStatusListener global listener handlers.
     */
@@ -5580,6 +5600,10 @@ listener and subsequently, the listener will be deactivated and removed from the
         getAPIVersion(): string;
     }
     /**
+       ContactPhotoResultCallback control dictionary.
+    */
+    var registeredContactPhotoResultCallback: Dictionary<IContactPhotoResultCallback>;
+    /**
        ContactPhotoResultCallback global callback handlers.
     */
     function handleContactPhotoResultCallbackError(id: number, error: IContactPhotoResultCallbackError): void;
@@ -5620,6 +5644,10 @@ listener and subsequently, the listener will be deactivated and removed from the
         */
         onWarning(contactPhoto: number[], warning: IContactPhotoResultCallbackWarning): void;
     }
+    /**
+       ContactResultCallback control dictionary.
+    */
+    var registeredContactResultCallback: Dictionary<IContactResultCallback>;
     /**
        ContactResultCallback global callback handlers.
     */
@@ -5662,6 +5690,10 @@ listener and subsequently, the listener will be deactivated and removed from the
         onWarning(contacts: Contact[], warning: IContactResultCallbackWarning): void;
     }
     /**
+       DatabaseResultCallback control dictionary.
+    */
+    var registeredDatabaseResultCallback: Dictionary<IDatabaseResultCallback>;
+    /**
        DatabaseResultCallback global callback handlers.
     */
     function handleDatabaseResultCallbackError(id: number, error: IDatabaseResultCallbackError): void;
@@ -5702,6 +5734,10 @@ listener and subsequently, the listener will be deactivated and removed from the
         */
         onWarning(database: Database, warning: IDatabaseResultCallbackWarning): void;
     }
+    /**
+       DatabaseTableResultCallback control dictionary.
+    */
+    var registeredDatabaseTableResultCallback: Dictionary<IDatabaseTableResultCallback>;
     /**
        DatabaseTableResultCallback global callback handlers.
     */
@@ -5744,6 +5780,10 @@ listener and subsequently, the listener will be deactivated and removed from the
         onWarning(databaseTable: DatabaseTable, warning: IDatabaseTableResultCallbackWarning): void;
     }
     /**
+       FileDataLoadResultCallback control dictionary.
+    */
+    var registeredFileDataLoadResultCallback: Dictionary<IFileDataLoadResultCallback>;
+    /**
        FileDataLoadResultCallback global callback handlers.
     */
     function handleFileDataLoadResultCallbackError(id: number, error: IFileDataLoadResultCallbackError): void;
@@ -5784,6 +5824,10 @@ listener and subsequently, the listener will be deactivated and removed from the
         */
         onWarning(data: number[], warning: IFileDataLoadResultCallbackWarning): void;
     }
+    /**
+       FileDataStoreResultCallback control dictionary.
+    */
+    var registeredFileDataStoreResultCallback: Dictionary<IFileDataStoreResultCallback>;
     /**
        FileDataStoreResultCallback global callback handlers.
     */
@@ -5826,6 +5870,10 @@ listener and subsequently, the listener will be deactivated and removed from the
         onWarning(file: FileDescriptor, warning: IFileDataStoreResultCallbackWarning): void;
     }
     /**
+       FileListResultCallback control dictionary.
+    */
+    var registeredFileListResultCallback: Dictionary<IFileListResultCallback>;
+    /**
        FileListResultCallback global callback handlers.
     */
     function handleFileListResultCallbackError(id: number, error: IFileListResultCallbackError): void;
@@ -5866,6 +5914,10 @@ listener and subsequently, the listener will be deactivated and removed from the
         */
         onWarning(files: FileDescriptor[], warning: IFileListResultCallbackWarning): void;
     }
+    /**
+       FileResultCallback control dictionary.
+    */
+    var registeredFileResultCallback: Dictionary<IFileResultCallback>;
     /**
        FileResultCallback global callback handlers.
     */
@@ -5908,6 +5960,10 @@ listener and subsequently, the listener will be deactivated and removed from the
         onWarning(file: FileDescriptor, warning: IFileResultCallbackWarning): void;
     }
     /**
+       MessagingCallback control dictionary.
+    */
+    var registeredMessagingCallback: Dictionary<IMessagingCallback>;
+    /**
        MessagingCallback global callback handlers.
     */
     function handleMessagingCallbackError(id: number, error: IMessagingCallbackError): void;
@@ -5948,6 +6004,10 @@ listener and subsequently, the listener will be deactivated and removed from the
         */
         onWarning(success: boolean, warning: IMessagingCallbackWarning): void;
     }
+    /**
+       NetworkReachabilityCallback control dictionary.
+    */
+    var registeredNetworkReachabilityCallback: Dictionary<INetworkReachabilityCallback>;
     /**
        NetworkReachabilityCallback global callback handlers.
     */
@@ -5990,6 +6050,10 @@ listener and subsequently, the listener will be deactivated and removed from the
         onWarning(reachable: boolean, warning: INetworkReachabilityCallbackWarning): void;
     }
     /**
+       SecurityResultCallback control dictionary.
+    */
+    var registeredSecurityResultCallback: Dictionary<ISecurityResultCallback>;
+    /**
        SecurityResultCallback global callback handlers.
     */
     function handleSecurityResultCallbackError(id: number, error: ISecurityResultCallbackError): void;
@@ -6030,6 +6094,10 @@ listener and subsequently, the listener will be deactivated and removed from the
         */
         onWarning(keyValues: SecureKeyPair[], warning: ISecurityResultCallbackWarning): void;
     }
+    /**
+       ServiceResultCallback control dictionary.
+    */
+    var registeredServiceResultCallback: Dictionary<IServiceResultCallback>;
     /**
        ServiceResultCallback global callback handlers.
     */

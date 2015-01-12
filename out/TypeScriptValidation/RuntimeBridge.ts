@@ -61,6 +61,18 @@ module Adaptive {
              @since ARP1.0
           */
           dismissApplication() : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("IRuntime","dismissApplication",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'RuntimeBridge.dismissApplication' request.");
+               }
           }
 
           /**
@@ -70,6 +82,18 @@ module Adaptive {
              @since ARP1.0
           */
           dismissSplashScreen() : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("IRuntime","dismissSplashScreen",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'RuntimeBridge.dismissSplashScreen' request.");
+               }
                return null;
           }
      }

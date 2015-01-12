@@ -44,6 +44,7 @@ var __extends = this.__extends || function (d, b) {
 ///<reference path="IBasePIM.ts"/>
 ///<reference path="IMessaging.ts"/>
 ///<reference path="IMessagingCallback.ts"/>
+///<reference path="MessagingCallback.ts"/>
 var Adaptive;
 (function (Adaptive) {
     /**
@@ -69,6 +70,23 @@ var Adaptive;
            @since ARP1.0
         */
         MessagingBridge.prototype.sendSMS = function (number, text, callback) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(number));
+            arParams.push(JSON.stringify(text));
+            var ar = new Adaptive.APIRequest("IMessaging", "sendSMS", arParams, callback.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add callback reference to local dictionary.
+                Adaptive.registeredMessagingCallback.add("" + callback.getId(), callback);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'MessagingBridge.sendSMS' request.");
+            }
         };
         return MessagingBridge;
     })(Adaptive.BasePIMBridge);

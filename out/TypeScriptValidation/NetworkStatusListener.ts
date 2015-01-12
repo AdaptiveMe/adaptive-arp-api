@@ -49,7 +49,7 @@ module Adaptive {
      /**
         NetworkStatusListener control dictionary.
      */
-     var registeredNetworkStatusListener = new Dictionary<INetworkStatusListener>([]);
+     export var registeredNetworkStatusListener = new Dictionary<INetworkStatusListener>([]);
 
      /**
         NetworkStatusListener global listener handlers.

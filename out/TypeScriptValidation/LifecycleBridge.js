@@ -44,6 +44,7 @@ var __extends = this.__extends || function (d, b) {
 ///<reference path="IBaseApplication.ts"/>
 ///<reference path="ILifecycle.ts"/>
 ///<reference path="ILifecycleListener.ts"/>
+///<reference path="LifecycleListener.ts"/>
 var Adaptive;
 (function (Adaptive) {
     /**
@@ -67,6 +68,21 @@ var Adaptive;
            @since ARP1.0
         */
         LifecycleBridge.prototype.addLifecycleListener = function (listener) {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new Adaptive.APIRequest("ILifecycle", "addLifecycleListener", arParams, listener.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add listener reference to local dictionary.
+                Adaptive.registeredLifecycleListener.add("" + listener.getId(), listener);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'LifecycleBridge.addLifecycleListener' request.");
+            }
         };
         /**
            Whether the application is in background or not
@@ -75,6 +91,19 @@ var Adaptive;
            @since ARP1.0
         */
         LifecycleBridge.prototype.isBackground = function () {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new Adaptive.APIRequest("ILifecycle", "isBackground", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'LifecycleBridge.isBackground' request.");
+            }
             return null;
         };
         /**
@@ -84,6 +113,21 @@ var Adaptive;
            @since ARP1.0
         */
         LifecycleBridge.prototype.removeLifecycleListener = function (listener) {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new Adaptive.APIRequest("ILifecycle", "removeLifecycleListener", arParams, listener.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Remove listener reference from local dictionary.
+                Adaptive.registeredLifecycleListener.remove("" + listener.getId());
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'LifecycleBridge.removeLifecycleListener' request.");
+            }
         };
         /**
            Removes all existing listeners from receiving lifecycle events.
@@ -91,6 +135,24 @@ var Adaptive;
            @since ARP1.0
         */
         LifecycleBridge.prototype.removeLifecycleListeners = function () {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new Adaptive.APIRequest("ILifecycle", "removeLifecycleListeners", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Remove all listeners references from local dictionary.
+                var keys = Adaptive.registeredLifecycleListener.keys();
+                for (var key in keys) {
+                    Adaptive.registeredLifecycleListener.remove(key);
+                }
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'LifecycleBridge.removeLifecycleListeners' request.");
+            }
         };
         return LifecycleBridge;
     })(Adaptive.BaseApplicationBridge);

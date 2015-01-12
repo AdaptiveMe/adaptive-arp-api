@@ -52,39 +52,39 @@ var Adaptive;
     /**
        ContactResultCallback control dictionary.
     */
-    var registeredContactResultCallback = new Adaptive.Dictionary([]);
+    Adaptive.registeredContactResultCallback = new Adaptive.Dictionary([]);
     /**
        ContactResultCallback global callback handlers.
     */
     function handleContactResultCallbackError(id, error) {
-        var callback = registeredContactResultCallback["" + id];
+        var callback = Adaptive.registeredContactResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredContactResultCallback dictionary.");
         }
         else {
-            registeredContactResultCallback.remove("" + id);
+            Adaptive.registeredContactResultCallback.remove("" + id);
             callback.onError(error);
         }
     }
     Adaptive.handleContactResultCallbackError = handleContactResultCallbackError;
     function handleContactResultCallbackResult(id, contacts) {
-        var callback = registeredContactResultCallback["" + id];
+        var callback = Adaptive.registeredContactResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredContactResultCallback dictionary.");
         }
         else {
-            registeredContactResultCallback.remove("" + id);
+            Adaptive.registeredContactResultCallback.remove("" + id);
             callback.onResult(contacts);
         }
     }
     Adaptive.handleContactResultCallbackResult = handleContactResultCallbackResult;
     function handleContactResultCallbackWarning(id, contacts, warning) {
-        var callback = registeredContactResultCallback["" + id];
+        var callback = Adaptive.registeredContactResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredContactResultCallback dictionary.");
         }
         else {
-            registeredContactResultCallback.remove("" + id);
+            Adaptive.registeredContactResultCallback.remove("" + id);
             callback.onWarning(contacts, warning);
         }
     }

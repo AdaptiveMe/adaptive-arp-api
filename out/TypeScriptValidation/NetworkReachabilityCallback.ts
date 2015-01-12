@@ -48,7 +48,7 @@ module Adaptive {
      /**
         NetworkReachabilityCallback control dictionary.
      */
-     var registeredNetworkReachabilityCallback = new Dictionary<INetworkReachabilityCallback>([]);
+     export var registeredNetworkReachabilityCallback = new Dictionary<INetworkReachabilityCallback>([]);
 
      /**
         NetworkReachabilityCallback global callback handlers.

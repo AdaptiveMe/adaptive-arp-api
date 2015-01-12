@@ -38,6 +38,7 @@ var __extends = this.__extends || function (d, b) {
     d.prototype = new __();
 };
 ///<reference path="APIRequest.ts"/>
+///<reference path="AccelerationListener.ts"/>
 ///<reference path="BaseSensorBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="IAcceleration.ts"/>
@@ -67,6 +68,21 @@ var Adaptive;
            @since ARP1.0
         */
         AccelerationBridge.prototype.addAccelerationListener = function (listener) {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new Adaptive.APIRequest("IAcceleration", "addAccelerationListener", arParams, listener.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add listener reference to local dictionary.
+                Adaptive.registeredAccelerationListener.add("" + listener.getId(), listener);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'AccelerationBridge.addAccelerationListener' request.");
+            }
         };
         /**
            De-registers an existing listener from receiving acceleration events.
@@ -75,6 +91,21 @@ var Adaptive;
            @since ARP1.0
         */
         AccelerationBridge.prototype.removeAccelerationListener = function (listener) {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new Adaptive.APIRequest("IAcceleration", "removeAccelerationListener", arParams, listener.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Remove listener reference from local dictionary.
+                Adaptive.registeredAccelerationListener.remove("" + listener.getId());
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'AccelerationBridge.removeAccelerationListener' request.");
+            }
         };
         /**
            Removed all existing listeners from receiving acceleration events.
@@ -82,6 +113,24 @@ var Adaptive;
            @since ARP1.0
         */
         AccelerationBridge.prototype.removeAccelerationListeners = function () {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new Adaptive.APIRequest("IAcceleration", "removeAccelerationListeners", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Remove all listeners references from local dictionary.
+                var keys = Adaptive.registeredAccelerationListener.keys();
+                for (var key in keys) {
+                    Adaptive.registeredAccelerationListener.remove(key);
+                }
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'AccelerationBridge.removeAccelerationListeners' request.");
+            }
         };
         return AccelerationBridge;
     })(Adaptive.BaseSensorBridge);

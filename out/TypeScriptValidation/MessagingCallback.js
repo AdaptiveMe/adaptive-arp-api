@@ -51,39 +51,39 @@ var Adaptive;
     /**
        MessagingCallback control dictionary.
     */
-    var registeredMessagingCallback = new Adaptive.Dictionary([]);
+    Adaptive.registeredMessagingCallback = new Adaptive.Dictionary([]);
     /**
        MessagingCallback global callback handlers.
     */
     function handleMessagingCallbackError(id, error) {
-        var callback = registeredMessagingCallback["" + id];
+        var callback = Adaptive.registeredMessagingCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredMessagingCallback dictionary.");
         }
         else {
-            registeredMessagingCallback.remove("" + id);
+            Adaptive.registeredMessagingCallback.remove("" + id);
             callback.onError(error);
         }
     }
     Adaptive.handleMessagingCallbackError = handleMessagingCallbackError;
     function handleMessagingCallbackResult(id, success) {
-        var callback = registeredMessagingCallback["" + id];
+        var callback = Adaptive.registeredMessagingCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredMessagingCallback dictionary.");
         }
         else {
-            registeredMessagingCallback.remove("" + id);
+            Adaptive.registeredMessagingCallback.remove("" + id);
             callback.onResult(success);
         }
     }
     Adaptive.handleMessagingCallbackResult = handleMessagingCallbackResult;
     function handleMessagingCallbackWarning(id, success, warning) {
-        var callback = registeredMessagingCallback["" + id];
+        var callback = Adaptive.registeredMessagingCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredMessagingCallback dictionary.");
         }
         else {
-            registeredMessagingCallback.remove("" + id);
+            Adaptive.registeredMessagingCallback.remove("" + id);
             callback.onWarning(success, warning);
         }
     }

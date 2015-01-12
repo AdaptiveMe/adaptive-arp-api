@@ -52,39 +52,39 @@ var Adaptive;
     /**
        DatabaseResultCallback control dictionary.
     */
-    var registeredDatabaseResultCallback = new Adaptive.Dictionary([]);
+    Adaptive.registeredDatabaseResultCallback = new Adaptive.Dictionary([]);
     /**
        DatabaseResultCallback global callback handlers.
     */
     function handleDatabaseResultCallbackError(id, error) {
-        var callback = registeredDatabaseResultCallback["" + id];
+        var callback = Adaptive.registeredDatabaseResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredDatabaseResultCallback dictionary.");
         }
         else {
-            registeredDatabaseResultCallback.remove("" + id);
+            Adaptive.registeredDatabaseResultCallback.remove("" + id);
             callback.onError(error);
         }
     }
     Adaptive.handleDatabaseResultCallbackError = handleDatabaseResultCallbackError;
     function handleDatabaseResultCallbackResult(id, database) {
-        var callback = registeredDatabaseResultCallback["" + id];
+        var callback = Adaptive.registeredDatabaseResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredDatabaseResultCallback dictionary.");
         }
         else {
-            registeredDatabaseResultCallback.remove("" + id);
+            Adaptive.registeredDatabaseResultCallback.remove("" + id);
             callback.onResult(database);
         }
     }
     Adaptive.handleDatabaseResultCallbackResult = handleDatabaseResultCallbackResult;
     function handleDatabaseResultCallbackWarning(id, database, warning) {
-        var callback = registeredDatabaseResultCallback["" + id];
+        var callback = Adaptive.registeredDatabaseResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredDatabaseResultCallback dictionary.");
         }
         else {
-            registeredDatabaseResultCallback.remove("" + id);
+            Adaptive.registeredDatabaseResultCallback.remove("" + id);
             callback.onWarning(database, warning);
         }
     }

@@ -49,7 +49,7 @@ module Adaptive {
      /**
         ServiceResultCallback control dictionary.
      */
-     var registeredServiceResultCallback = new Dictionary<IServiceResultCallback>([]);
+     export var registeredServiceResultCallback = new Dictionary<IServiceResultCallback>([]);
 
      /**
         ServiceResultCallback global callback handlers.

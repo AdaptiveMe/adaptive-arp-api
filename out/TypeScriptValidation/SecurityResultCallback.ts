@@ -49,7 +49,7 @@ module Adaptive {
      /**
         SecurityResultCallback control dictionary.
      */
-     var registeredSecurityResultCallback = new Dictionary<ISecurityResultCallback>([]);
+     export var registeredSecurityResultCallback = new Dictionary<ISecurityResultCallback>([]);
 
      /**
         SecurityResultCallback global callback handlers.

@@ -39,6 +39,7 @@ var __extends = this.__extends || function (d, b) {
 };
 ///<reference path="APIRequest.ts"/>
 ///<reference path="BaseSystemBridge.ts"/>
+///<reference path="ButtonListener.ts"/>
 ///<reference path="CommonUtil.ts"/>
 ///<reference path="DeviceInfo.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
@@ -69,6 +70,21 @@ var Adaptive;
            @since ARP1.0
         */
         DeviceBridge.prototype.addButtonListener = function (listener) {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new Adaptive.APIRequest("IDevice", "addButtonListener", arParams, listener.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add listener reference to local dictionary.
+                Adaptive.registeredButtonListener.add("" + listener.getId(), listener);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'DeviceBridge.addButtonListener' request.");
+            }
         };
         /**
            Returns the device information for the current device executing the runtime.
@@ -77,6 +93,19 @@ var Adaptive;
            @since ARP1.0
         */
         DeviceBridge.prototype.getDeviceInfo = function () {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new Adaptive.APIRequest("IDevice", "getDeviceInfo", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'DeviceBridge.getDeviceInfo' request.");
+            }
             return null;
         };
         /**
@@ -86,6 +115,19 @@ var Adaptive;
            @since ARP1.0
         */
         DeviceBridge.prototype.getLocaleCurrent = function () {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new Adaptive.APIRequest("IDevice", "getLocaleCurrent", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'DeviceBridge.getLocaleCurrent' request.");
+            }
             return null;
         };
         /**
@@ -95,6 +137,21 @@ var Adaptive;
            @since ARP1.0
         */
         DeviceBridge.prototype.removeButtonListener = function (listener) {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new Adaptive.APIRequest("IDevice", "removeButtonListener", arParams, listener.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Remove listener reference from local dictionary.
+                Adaptive.registeredButtonListener.remove("" + listener.getId());
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'DeviceBridge.removeButtonListener' request.");
+            }
         };
         /**
            Removed all existing listeners from receiving button events.
@@ -102,6 +159,24 @@ var Adaptive;
            @since ARP1.0
         */
         DeviceBridge.prototype.removeButtonListeners = function () {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new Adaptive.APIRequest("IDevice", "removeButtonListeners", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Remove all listeners references from local dictionary.
+                var keys = Adaptive.registeredButtonListener.keys();
+                for (var key in keys) {
+                    Adaptive.registeredButtonListener.remove(key);
+                }
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'DeviceBridge.removeButtonListeners' request.");
+            }
         };
         return DeviceBridge;
     })(Adaptive.BaseSystemBridge);

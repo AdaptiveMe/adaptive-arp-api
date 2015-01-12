@@ -65,6 +65,19 @@ var Adaptive;
            @since ARP1.0
         */
         RuntimeBridge.prototype.dismissApplication = function () {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new Adaptive.APIRequest("IRuntime", "dismissApplication", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'RuntimeBridge.dismissApplication' request.");
+            }
         };
         /**
            Whether the application dismiss the splash screen successfully or not
@@ -73,6 +86,19 @@ var Adaptive;
            @since ARP1.0
         */
         RuntimeBridge.prototype.dismissSplashScreen = function () {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new Adaptive.APIRequest("IRuntime", "dismissSplashScreen", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'RuntimeBridge.dismissSplashScreen' request.");
+            }
             return null;
         };
         return RuntimeBridge;

@@ -48,7 +48,7 @@ module Adaptive {
      /**
         MessagingCallback control dictionary.
      */
-     var registeredMessagingCallback = new Dictionary<IMessagingCallback>([]);
+     export var registeredMessagingCallback = new Dictionary<IMessagingCallback>([]);
 
      /**
         MessagingCallback global callback handlers.

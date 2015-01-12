@@ -49,7 +49,7 @@ module Adaptive {
      /**
         ContactResultCallback control dictionary.
      */
-     var registeredContactResultCallback = new Dictionary<IContactResultCallback>([]);
+     export var registeredContactResultCallback = new Dictionary<IContactResultCallback>([]);
 
      /**
         ContactResultCallback global callback handlers.

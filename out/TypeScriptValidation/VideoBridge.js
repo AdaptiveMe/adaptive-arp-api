@@ -66,6 +66,20 @@ var Adaptive;
            @since ARP1.0
         */
         VideoBridge.prototype.playStream = function (url) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(url));
+            var ar = new Adaptive.APIRequest("IVideo", "playStream", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'VideoBridge.playStream' request.");
+            }
         };
         return VideoBridge;
     })(Adaptive.BaseMediaBridge);

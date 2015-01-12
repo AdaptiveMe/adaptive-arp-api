@@ -39,6 +39,14 @@ Release:
 */
 declare module Adaptive {
     /**
+       Interface for Managing the Geolocation results
+       Auto-generated implementation of IGeolocationListener specification.
+    */
+    /**
+       GeolocationListener control dictionary.
+    */
+    var registeredGeolocationListener: Dictionary<IGeolocationListener>;
+    /**
        GeolocationListener global listener handlers.
     */
     function handleGeolocationListenerError(id: number, error: IGeolocationListenerError): void;

@@ -52,12 +52,12 @@ var Adaptive;
     /**
        NetworkStatusListener control dictionary.
     */
-    var registeredNetworkStatusListener = new Adaptive.Dictionary([]);
+    Adaptive.registeredNetworkStatusListener = new Adaptive.Dictionary([]);
     /**
        NetworkStatusListener global listener handlers.
     */
     function handleNetworkStatusListenerError(id, error) {
-        var listener = registeredNetworkStatusListener["" + id];
+        var listener = Adaptive.registeredNetworkStatusListener["" + id];
         if (typeof listener === 'undefined' || listener == null) {
             console.error("ERROR: No listener with id " + id + " registered in registeredNetworkStatusListener dictionary.");
         }
@@ -67,7 +67,7 @@ var Adaptive;
     }
     Adaptive.handleNetworkStatusListenerError = handleNetworkStatusListenerError;
     function handleNetworkStatusListenerResult(id, network) {
-        var listener = registeredNetworkStatusListener["" + id];
+        var listener = Adaptive.registeredNetworkStatusListener["" + id];
         if (typeof listener === 'undefined' || listener == null) {
             console.error("ERROR: No listener with id " + id + " registered in registeredNetworkStatusListener dictionary.");
         }
@@ -77,7 +77,7 @@ var Adaptive;
     }
     Adaptive.handleNetworkStatusListenerResult = handleNetworkStatusListenerResult;
     function handleNetworkStatusListenerWarning(id, network, warning) {
-        var listener = registeredNetworkStatusListener["" + id];
+        var listener = Adaptive.registeredNetworkStatusListener["" + id];
         if (typeof listener === 'undefined' || listener == null) {
             console.error("ERROR: No listener with id " + id + " registered in registeredNetworkStatusListener dictionary.");
         }

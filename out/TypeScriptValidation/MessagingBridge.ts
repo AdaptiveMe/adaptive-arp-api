@@ -39,6 +39,7 @@ Release:
 ///<reference path="IBasePIM.ts"/>
 ///<reference path="IMessaging.ts"/>
 ///<reference path="IMessagingCallback.ts"/>
+///<reference path="MessagingCallback.ts"/>
 module Adaptive {
 
      /**
@@ -65,6 +66,22 @@ module Adaptive {
              @since ARP1.0
           */
           sendSMS(number : string, text : string, callback : IMessagingCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(number));
+               arParams.push(JSON.stringify(text));
+               var ar : APIRequest = new APIRequest("IMessaging","sendSMS",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredMessagingCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'MessagingBridge.sendSMS' request.");
+               }
           }
      }
 }

@@ -40,6 +40,7 @@ var __extends = this.__extends || function (d, b) {
 ///<reference path="APIRequest.ts"/>
 ///<reference path="BaseSensorBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
+///<reference path="GeolocationListener.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseSensor.ts"/>
 ///<reference path="IGeolocation.ts"/>
@@ -67,6 +68,21 @@ var Adaptive;
            @since ARP1.0
         */
         GeolocationBridge.prototype.addGeolocationListener = function (listener) {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new Adaptive.APIRequest("IGeolocation", "addGeolocationListener", arParams, listener.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add listener reference to local dictionary.
+                Adaptive.registeredGeolocationListener.add("" + listener.getId(), listener);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'GeolocationBridge.addGeolocationListener' request.");
+            }
         };
         /**
            De-registers an existing listener from receiving geolocation events.
@@ -75,6 +91,21 @@ var Adaptive;
            @since ARP1.0
         */
         GeolocationBridge.prototype.removeGeolocationListener = function (listener) {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new Adaptive.APIRequest("IGeolocation", "removeGeolocationListener", arParams, listener.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Remove listener reference from local dictionary.
+                Adaptive.registeredGeolocationListener.remove("" + listener.getId());
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'GeolocationBridge.removeGeolocationListener' request.");
+            }
         };
         /**
            Removed all existing listeners from receiving geolocation events.
@@ -82,6 +113,24 @@ var Adaptive;
            @since ARP1.0
         */
         GeolocationBridge.prototype.removeGeolocationListeners = function () {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new Adaptive.APIRequest("IGeolocation", "removeGeolocationListeners", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Remove all listeners references from local dictionary.
+                var keys = Adaptive.registeredGeolocationListener.keys();
+                for (var key in keys) {
+                    Adaptive.registeredGeolocationListener.remove(key);
+                }
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'GeolocationBridge.removeGeolocationListeners' request.");
+            }
         };
         return GeolocationBridge;
     })(Adaptive.BaseSensorBridge);

@@ -5,6 +5,7 @@
 /// <reference path="IBaseCommunication.d.ts" />
 /// <reference path="INetworkStatus.d.ts" />
 /// <reference path="INetworkStatusListener.d.ts" />
+/// <reference path="NetworkStatusListener.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 

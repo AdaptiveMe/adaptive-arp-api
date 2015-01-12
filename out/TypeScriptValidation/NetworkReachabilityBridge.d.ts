@@ -5,6 +5,7 @@
 /// <reference path="IBaseCommunication.d.ts" />
 /// <reference path="INetworkReachability.d.ts" />
 /// <reference path="INetworkReachabilityCallback.d.ts" />
+/// <reference path="NetworkReachabilityCallback.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 

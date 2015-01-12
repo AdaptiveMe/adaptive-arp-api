@@ -40,6 +40,7 @@ Release:
 ///<reference path="ISecurity.ts"/>
 ///<reference path="ISecurityResultCallback.ts"/>
 ///<reference path="SecureKeyPair.ts"/>
+///<reference path="SecurityResultCallback.ts"/>
 module Adaptive {
 
      /**
@@ -66,6 +67,22 @@ module Adaptive {
              @since ARP 1.0
           */
           deleteSecureKeyValuePairs(keys : Array<string>, publicAccessName : string, callback : ISecurityResultCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(keys));
+               arParams.push(JSON.stringify(publicAccessName));
+               var ar : APIRequest = new APIRequest("ISecurity","deleteSecureKeyValuePairs",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredSecurityResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'SecurityBridge.deleteSecureKeyValuePairs' request.");
+               }
           }
 
           /**
@@ -77,6 +94,22 @@ module Adaptive {
              @since ARP 1.0
           */
           getSecureKeyValuePairs(keys : Array<string>, publicAccessName : string, callback : ISecurityResultCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(keys));
+               arParams.push(JSON.stringify(publicAccessName));
+               var ar : APIRequest = new APIRequest("ISecurity","getSecureKeyValuePairs",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredSecurityResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'SecurityBridge.getSecureKeyValuePairs' request.");
+               }
           }
 
           /**
@@ -86,6 +119,18 @@ module Adaptive {
              @since ARP1.0
           */
           isDeviceModified() : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("ISecurity","isDeviceModified",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'SecurityBridge.isDeviceModified' request.");
+               }
                return null;
           }
 
@@ -98,6 +143,22 @@ module Adaptive {
              @since ARP 1.0
           */
           setSecureKeyValuePairs(keyValues : Array<SecureKeyPair>, publicAccessName : string, callback : ISecurityResultCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(keyValues));
+               arParams.push(JSON.stringify(publicAccessName));
+               var ar : APIRequest = new APIRequest("ISecurity","setSecureKeyValuePairs",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredSecurityResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'SecurityBridge.setSecureKeyValuePairs' request.");
+               }
           }
      }
 }

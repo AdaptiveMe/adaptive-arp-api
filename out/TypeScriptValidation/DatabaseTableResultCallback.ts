@@ -49,7 +49,7 @@ module Adaptive {
      /**
         DatabaseTableResultCallback control dictionary.
      */
-     var registeredDatabaseTableResultCallback = new Dictionary<IDatabaseTableResultCallback>([]);
+     export var registeredDatabaseTableResultCallback = new Dictionary<IDatabaseTableResultCallback>([]);
 
      /**
         DatabaseTableResultCallback global callback handlers.

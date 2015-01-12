@@ -38,6 +38,14 @@ Release:
 */
 declare module Adaptive {
     /**
+       Interface for Managing the Messaging responses
+       Auto-generated implementation of IMessagingCallback specification.
+    */
+    /**
+       MessagingCallback control dictionary.
+    */
+    var registeredMessagingCallback: Dictionary<IMessagingCallback>;
+    /**
        MessagingCallback global callback handlers.
     */
     function handleMessagingCallbackError(id: number, error: IMessagingCallbackError): void;

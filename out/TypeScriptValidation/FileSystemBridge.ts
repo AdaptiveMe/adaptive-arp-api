@@ -66,6 +66,20 @@ This method does not create the actual file in the specified folder.
              @since ARP1.0
           */
           createFileDescriptor(parent : FileDescriptor, name : string) : FileDescriptor {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(parent));
+               arParams.push(JSON.stringify(name));
+               var ar : APIRequest = new APIRequest("IFileSystem","createFileDescriptor",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileSystemBridge.createFileDescriptor' request.");
+               }
                return null;
           }
 
@@ -78,6 +92,18 @@ This path is volatile and may be cleaned by the OS periodically.
              @since ARP1.0
           */
           getApplicationCacheFolder() : FileDescriptor {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("IFileSystem","getApplicationCacheFolder",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileSystemBridge.getApplicationCacheFolder' request.");
+               }
                return null;
           }
 
@@ -89,6 +115,18 @@ This path must always be writable by the current application.
              @since ARP1.0
           */
           getApplicationCloudFolder() : FileDescriptor {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("IFileSystem","getApplicationCloudFolder",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileSystemBridge.getApplicationCloudFolder' request.");
+               }
                return null;
           }
 
@@ -100,6 +138,18 @@ This path must always be writable by the current application.
              @since ARP1.0
           */
           getApplicationDocumentsFolder() : FileDescriptor {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("IFileSystem","getApplicationDocumentsFolder",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileSystemBridge.getApplicationDocumentsFolder' request.");
+               }
                return null;
           }
 
@@ -111,6 +161,18 @@ This path may or may not be directly readable or writable - it usually contains 
              @since ARP1.0
           */
           getApplicationFolder() : FileDescriptor {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("IFileSystem","getApplicationFolder",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileSystemBridge.getApplicationFolder' request.");
+               }
                return null;
           }
 
@@ -122,6 +184,18 @@ This path must always be writable by the current application.
              @since ARP1.0
           */
           getApplicationProtectedFolder() : FileDescriptor {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("IFileSystem","getApplicationProtectedFolder",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileSystemBridge.getApplicationProtectedFolder' request.");
+               }
                return null;
           }
 
@@ -132,6 +206,18 @@ This path must always be writable by the current application.
              @since ARP1.0
           */
           getSeparator() : string {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("IFileSystem","getSeparator",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileSystemBridge.getSeparator' request.");
+               }
                return null;
           }
 
@@ -145,6 +231,18 @@ This path may or may not be writable by the current application.
              @since ARP1.0
           */
           getSystemExternalFolder() : FileDescriptor {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("IFileSystem","getSystemExternalFolder",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'FileSystemBridge.getSystemExternalFolder' request.");
+               }
                return null;
           }
      }

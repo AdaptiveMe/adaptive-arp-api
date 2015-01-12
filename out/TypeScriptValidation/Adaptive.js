@@ -3289,12 +3289,12 @@ doesn't exist, this will be -1. Used internally.
     /**
        AccelerationListener control dictionary.
     */
-    var registeredAccelerationListener = new Dictionary([]);
+    Adaptive.registeredAccelerationListener = new Dictionary([]);
     /**
        AccelerationListener global listener handlers.
     */
     function handleAccelerationListenerError(id, error) {
-        var listener = registeredAccelerationListener["" + id];
+        var listener = Adaptive.registeredAccelerationListener["" + id];
         if (typeof listener === 'undefined' || listener == null) {
             console.error("ERROR: No listener with id " + id + " registered in registeredAccelerationListener dictionary.");
         }
@@ -3304,7 +3304,7 @@ doesn't exist, this will be -1. Used internally.
     }
     Adaptive.handleAccelerationListenerError = handleAccelerationListenerError;
     function handleAccelerationListenerResult(id, acceleration) {
-        var listener = registeredAccelerationListener["" + id];
+        var listener = Adaptive.registeredAccelerationListener["" + id];
         if (typeof listener === 'undefined' || listener == null) {
             console.error("ERROR: No listener with id " + id + " registered in registeredAccelerationListener dictionary.");
         }
@@ -3314,7 +3314,7 @@ doesn't exist, this will be -1. Used internally.
     }
     Adaptive.handleAccelerationListenerResult = handleAccelerationListenerResult;
     function handleAccelerationListenerWarning(id, acceleration, warning) {
-        var listener = registeredAccelerationListener["" + id];
+        var listener = Adaptive.registeredAccelerationListener["" + id];
         if (typeof listener === 'undefined' || listener == null) {
             console.error("ERROR: No listener with id " + id + " registered in registeredAccelerationListener dictionary.");
         }
@@ -3403,12 +3403,12 @@ listener and subsequently, the listener will be deactivated and removed from the
     /**
        ButtonListener control dictionary.
     */
-    var registeredButtonListener = new Dictionary([]);
+    Adaptive.registeredButtonListener = new Dictionary([]);
     /**
        ButtonListener global listener handlers.
     */
     function handleButtonListenerError(id, error) {
-        var listener = registeredButtonListener["" + id];
+        var listener = Adaptive.registeredButtonListener["" + id];
         if (typeof listener === 'undefined' || listener == null) {
             console.error("ERROR: No listener with id " + id + " registered in registeredButtonListener dictionary.");
         }
@@ -3418,7 +3418,7 @@ listener and subsequently, the listener will be deactivated and removed from the
     }
     Adaptive.handleButtonListenerError = handleButtonListenerError;
     function handleButtonListenerResult(id, button) {
-        var listener = registeredButtonListener["" + id];
+        var listener = Adaptive.registeredButtonListener["" + id];
         if (typeof listener === 'undefined' || listener == null) {
             console.error("ERROR: No listener with id " + id + " registered in registeredButtonListener dictionary.");
         }
@@ -3428,7 +3428,7 @@ listener and subsequently, the listener will be deactivated and removed from the
     }
     Adaptive.handleButtonListenerResult = handleButtonListenerResult;
     function handleButtonListenerWarning(id, button, warning) {
-        var listener = registeredButtonListener["" + id];
+        var listener = Adaptive.registeredButtonListener["" + id];
         if (typeof listener === 'undefined' || listener == null) {
             console.error("ERROR: No listener with id " + id + " registered in registeredButtonListener dictionary.");
         }
@@ -3516,12 +3516,12 @@ listener and subsequently, the listener will be deactivated and removed from the
     /**
        GeolocationListener control dictionary.
     */
-    var registeredGeolocationListener = new Dictionary([]);
+    Adaptive.registeredGeolocationListener = new Dictionary([]);
     /**
        GeolocationListener global listener handlers.
     */
     function handleGeolocationListenerError(id, error) {
-        var listener = registeredGeolocationListener["" + id];
+        var listener = Adaptive.registeredGeolocationListener["" + id];
         if (typeof listener === 'undefined' || listener == null) {
             console.error("ERROR: No listener with id " + id + " registered in registeredGeolocationListener dictionary.");
         }
@@ -3531,7 +3531,7 @@ listener and subsequently, the listener will be deactivated and removed from the
     }
     Adaptive.handleGeolocationListenerError = handleGeolocationListenerError;
     function handleGeolocationListenerResult(id, geolocation) {
-        var listener = registeredGeolocationListener["" + id];
+        var listener = Adaptive.registeredGeolocationListener["" + id];
         if (typeof listener === 'undefined' || listener == null) {
             console.error("ERROR: No listener with id " + id + " registered in registeredGeolocationListener dictionary.");
         }
@@ -3541,7 +3541,7 @@ listener and subsequently, the listener will be deactivated and removed from the
     }
     Adaptive.handleGeolocationListenerResult = handleGeolocationListenerResult;
     function handleGeolocationListenerWarning(id, geolocation, warning) {
-        var listener = registeredGeolocationListener["" + id];
+        var listener = Adaptive.registeredGeolocationListener["" + id];
         if (typeof listener === 'undefined' || listener == null) {
             console.error("ERROR: No listener with id " + id + " registered in registeredGeolocationListener dictionary.");
         }
@@ -3629,12 +3629,12 @@ listener and subsequently, the listener will be deactivated and removed from the
     /**
        LifecycleListener control dictionary.
     */
-    var registeredLifecycleListener = new Dictionary([]);
+    Adaptive.registeredLifecycleListener = new Dictionary([]);
     /**
        LifecycleListener global listener handlers.
     */
     function handleLifecycleListenerError(id, error) {
-        var listener = registeredLifecycleListener["" + id];
+        var listener = Adaptive.registeredLifecycleListener["" + id];
         if (typeof listener === 'undefined' || listener == null) {
             console.error("ERROR: No listener with id " + id + " registered in registeredLifecycleListener dictionary.");
         }
@@ -3644,7 +3644,7 @@ listener and subsequently, the listener will be deactivated and removed from the
     }
     Adaptive.handleLifecycleListenerError = handleLifecycleListenerError;
     function handleLifecycleListenerResult(id, lifecycle) {
-        var listener = registeredLifecycleListener["" + id];
+        var listener = Adaptive.registeredLifecycleListener["" + id];
         if (typeof listener === 'undefined' || listener == null) {
             console.error("ERROR: No listener with id " + id + " registered in registeredLifecycleListener dictionary.");
         }
@@ -3654,7 +3654,7 @@ listener and subsequently, the listener will be deactivated and removed from the
     }
     Adaptive.handleLifecycleListenerResult = handleLifecycleListenerResult;
     function handleLifecycleListenerWarning(id, lifecycle, warning) {
-        var listener = registeredLifecycleListener["" + id];
+        var listener = Adaptive.registeredLifecycleListener["" + id];
         if (typeof listener === 'undefined' || listener == null) {
             console.error("ERROR: No listener with id " + id + " registered in registeredLifecycleListener dictionary.");
         }
@@ -3742,12 +3742,12 @@ listener and subsequently, the listener will be deactivated and removed from the
     /**
        NetworkStatusListener control dictionary.
     */
-    var registeredNetworkStatusListener = new Dictionary([]);
+    Adaptive.registeredNetworkStatusListener = new Dictionary([]);
     /**
        NetworkStatusListener global listener handlers.
     */
     function handleNetworkStatusListenerError(id, error) {
-        var listener = registeredNetworkStatusListener["" + id];
+        var listener = Adaptive.registeredNetworkStatusListener["" + id];
         if (typeof listener === 'undefined' || listener == null) {
             console.error("ERROR: No listener with id " + id + " registered in registeredNetworkStatusListener dictionary.");
         }
@@ -3757,7 +3757,7 @@ listener and subsequently, the listener will be deactivated and removed from the
     }
     Adaptive.handleNetworkStatusListenerError = handleNetworkStatusListenerError;
     function handleNetworkStatusListenerResult(id, network) {
-        var listener = registeredNetworkStatusListener["" + id];
+        var listener = Adaptive.registeredNetworkStatusListener["" + id];
         if (typeof listener === 'undefined' || listener == null) {
             console.error("ERROR: No listener with id " + id + " registered in registeredNetworkStatusListener dictionary.");
         }
@@ -3767,7 +3767,7 @@ listener and subsequently, the listener will be deactivated and removed from the
     }
     Adaptive.handleNetworkStatusListenerResult = handleNetworkStatusListenerResult;
     function handleNetworkStatusListenerWarning(id, network, warning) {
-        var listener = registeredNetworkStatusListener["" + id];
+        var listener = Adaptive.registeredNetworkStatusListener["" + id];
         if (typeof listener === 'undefined' || listener == null) {
             console.error("ERROR: No listener with id " + id + " registered in registeredNetworkStatusListener dictionary.");
         }
@@ -3887,39 +3887,39 @@ listener and subsequently, the listener will be deactivated and removed from the
     /**
        ContactPhotoResultCallback control dictionary.
     */
-    var registeredContactPhotoResultCallback = new Dictionary([]);
+    Adaptive.registeredContactPhotoResultCallback = new Dictionary([]);
     /**
        ContactPhotoResultCallback global callback handlers.
     */
     function handleContactPhotoResultCallbackError(id, error) {
-        var callback = registeredContactPhotoResultCallback["" + id];
+        var callback = Adaptive.registeredContactPhotoResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredContactPhotoResultCallback dictionary.");
         }
         else {
-            registeredContactPhotoResultCallback.remove("" + id);
+            Adaptive.registeredContactPhotoResultCallback.remove("" + id);
             callback.onError(error);
         }
     }
     Adaptive.handleContactPhotoResultCallbackError = handleContactPhotoResultCallbackError;
     function handleContactPhotoResultCallbackResult(id, contactPhoto) {
-        var callback = registeredContactPhotoResultCallback["" + id];
+        var callback = Adaptive.registeredContactPhotoResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredContactPhotoResultCallback dictionary.");
         }
         else {
-            registeredContactPhotoResultCallback.remove("" + id);
+            Adaptive.registeredContactPhotoResultCallback.remove("" + id);
             callback.onResult(contactPhoto);
         }
     }
     Adaptive.handleContactPhotoResultCallbackResult = handleContactPhotoResultCallbackResult;
     function handleContactPhotoResultCallbackWarning(id, contactPhoto, warning) {
-        var callback = registeredContactPhotoResultCallback["" + id];
+        var callback = Adaptive.registeredContactPhotoResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredContactPhotoResultCallback dictionary.");
         }
         else {
-            registeredContactPhotoResultCallback.remove("" + id);
+            Adaptive.registeredContactPhotoResultCallback.remove("" + id);
             callback.onWarning(contactPhoto, warning);
         }
     }
@@ -4003,39 +4003,39 @@ listener and subsequently, the listener will be deactivated and removed from the
     /**
        ContactResultCallback control dictionary.
     */
-    var registeredContactResultCallback = new Dictionary([]);
+    Adaptive.registeredContactResultCallback = new Dictionary([]);
     /**
        ContactResultCallback global callback handlers.
     */
     function handleContactResultCallbackError(id, error) {
-        var callback = registeredContactResultCallback["" + id];
+        var callback = Adaptive.registeredContactResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredContactResultCallback dictionary.");
         }
         else {
-            registeredContactResultCallback.remove("" + id);
+            Adaptive.registeredContactResultCallback.remove("" + id);
             callback.onError(error);
         }
     }
     Adaptive.handleContactResultCallbackError = handleContactResultCallbackError;
     function handleContactResultCallbackResult(id, contacts) {
-        var callback = registeredContactResultCallback["" + id];
+        var callback = Adaptive.registeredContactResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredContactResultCallback dictionary.");
         }
         else {
-            registeredContactResultCallback.remove("" + id);
+            Adaptive.registeredContactResultCallback.remove("" + id);
             callback.onResult(contacts);
         }
     }
     Adaptive.handleContactResultCallbackResult = handleContactResultCallbackResult;
     function handleContactResultCallbackWarning(id, contacts, warning) {
-        var callback = registeredContactResultCallback["" + id];
+        var callback = Adaptive.registeredContactResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredContactResultCallback dictionary.");
         }
         else {
-            registeredContactResultCallback.remove("" + id);
+            Adaptive.registeredContactResultCallback.remove("" + id);
             callback.onWarning(contacts, warning);
         }
     }
@@ -4119,39 +4119,39 @@ listener and subsequently, the listener will be deactivated and removed from the
     /**
        DatabaseResultCallback control dictionary.
     */
-    var registeredDatabaseResultCallback = new Dictionary([]);
+    Adaptive.registeredDatabaseResultCallback = new Dictionary([]);
     /**
        DatabaseResultCallback global callback handlers.
     */
     function handleDatabaseResultCallbackError(id, error) {
-        var callback = registeredDatabaseResultCallback["" + id];
+        var callback = Adaptive.registeredDatabaseResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredDatabaseResultCallback dictionary.");
         }
         else {
-            registeredDatabaseResultCallback.remove("" + id);
+            Adaptive.registeredDatabaseResultCallback.remove("" + id);
             callback.onError(error);
         }
     }
     Adaptive.handleDatabaseResultCallbackError = handleDatabaseResultCallbackError;
     function handleDatabaseResultCallbackResult(id, database) {
-        var callback = registeredDatabaseResultCallback["" + id];
+        var callback = Adaptive.registeredDatabaseResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredDatabaseResultCallback dictionary.");
         }
         else {
-            registeredDatabaseResultCallback.remove("" + id);
+            Adaptive.registeredDatabaseResultCallback.remove("" + id);
             callback.onResult(database);
         }
     }
     Adaptive.handleDatabaseResultCallbackResult = handleDatabaseResultCallbackResult;
     function handleDatabaseResultCallbackWarning(id, database, warning) {
-        var callback = registeredDatabaseResultCallback["" + id];
+        var callback = Adaptive.registeredDatabaseResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredDatabaseResultCallback dictionary.");
         }
         else {
-            registeredDatabaseResultCallback.remove("" + id);
+            Adaptive.registeredDatabaseResultCallback.remove("" + id);
             callback.onWarning(database, warning);
         }
     }
@@ -4235,39 +4235,39 @@ listener and subsequently, the listener will be deactivated and removed from the
     /**
        DatabaseTableResultCallback control dictionary.
     */
-    var registeredDatabaseTableResultCallback = new Dictionary([]);
+    Adaptive.registeredDatabaseTableResultCallback = new Dictionary([]);
     /**
        DatabaseTableResultCallback global callback handlers.
     */
     function handleDatabaseTableResultCallbackError(id, error) {
-        var callback = registeredDatabaseTableResultCallback["" + id];
+        var callback = Adaptive.registeredDatabaseTableResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredDatabaseTableResultCallback dictionary.");
         }
         else {
-            registeredDatabaseTableResultCallback.remove("" + id);
+            Adaptive.registeredDatabaseTableResultCallback.remove("" + id);
             callback.onError(error);
         }
     }
     Adaptive.handleDatabaseTableResultCallbackError = handleDatabaseTableResultCallbackError;
     function handleDatabaseTableResultCallbackResult(id, databaseTable) {
-        var callback = registeredDatabaseTableResultCallback["" + id];
+        var callback = Adaptive.registeredDatabaseTableResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredDatabaseTableResultCallback dictionary.");
         }
         else {
-            registeredDatabaseTableResultCallback.remove("" + id);
+            Adaptive.registeredDatabaseTableResultCallback.remove("" + id);
             callback.onResult(databaseTable);
         }
     }
     Adaptive.handleDatabaseTableResultCallbackResult = handleDatabaseTableResultCallbackResult;
     function handleDatabaseTableResultCallbackWarning(id, databaseTable, warning) {
-        var callback = registeredDatabaseTableResultCallback["" + id];
+        var callback = Adaptive.registeredDatabaseTableResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredDatabaseTableResultCallback dictionary.");
         }
         else {
-            registeredDatabaseTableResultCallback.remove("" + id);
+            Adaptive.registeredDatabaseTableResultCallback.remove("" + id);
             callback.onWarning(databaseTable, warning);
         }
     }
@@ -4351,39 +4351,39 @@ listener and subsequently, the listener will be deactivated and removed from the
     /**
        FileDataLoadResultCallback control dictionary.
     */
-    var registeredFileDataLoadResultCallback = new Dictionary([]);
+    Adaptive.registeredFileDataLoadResultCallback = new Dictionary([]);
     /**
        FileDataLoadResultCallback global callback handlers.
     */
     function handleFileDataLoadResultCallbackError(id, error) {
-        var callback = registeredFileDataLoadResultCallback["" + id];
+        var callback = Adaptive.registeredFileDataLoadResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredFileDataLoadResultCallback dictionary.");
         }
         else {
-            registeredFileDataLoadResultCallback.remove("" + id);
+            Adaptive.registeredFileDataLoadResultCallback.remove("" + id);
             callback.onError(error);
         }
     }
     Adaptive.handleFileDataLoadResultCallbackError = handleFileDataLoadResultCallbackError;
     function handleFileDataLoadResultCallbackResult(id, data) {
-        var callback = registeredFileDataLoadResultCallback["" + id];
+        var callback = Adaptive.registeredFileDataLoadResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredFileDataLoadResultCallback dictionary.");
         }
         else {
-            registeredFileDataLoadResultCallback.remove("" + id);
+            Adaptive.registeredFileDataLoadResultCallback.remove("" + id);
             callback.onResult(data);
         }
     }
     Adaptive.handleFileDataLoadResultCallbackResult = handleFileDataLoadResultCallbackResult;
     function handleFileDataLoadResultCallbackWarning(id, data, warning) {
-        var callback = registeredFileDataLoadResultCallback["" + id];
+        var callback = Adaptive.registeredFileDataLoadResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredFileDataLoadResultCallback dictionary.");
         }
         else {
-            registeredFileDataLoadResultCallback.remove("" + id);
+            Adaptive.registeredFileDataLoadResultCallback.remove("" + id);
             callback.onWarning(data, warning);
         }
     }
@@ -4467,39 +4467,39 @@ listener and subsequently, the listener will be deactivated and removed from the
     /**
        FileDataStoreResultCallback control dictionary.
     */
-    var registeredFileDataStoreResultCallback = new Dictionary([]);
+    Adaptive.registeredFileDataStoreResultCallback = new Dictionary([]);
     /**
        FileDataStoreResultCallback global callback handlers.
     */
     function handleFileDataStoreResultCallbackError(id, error) {
-        var callback = registeredFileDataStoreResultCallback["" + id];
+        var callback = Adaptive.registeredFileDataStoreResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredFileDataStoreResultCallback dictionary.");
         }
         else {
-            registeredFileDataStoreResultCallback.remove("" + id);
+            Adaptive.registeredFileDataStoreResultCallback.remove("" + id);
             callback.onError(error);
         }
     }
     Adaptive.handleFileDataStoreResultCallbackError = handleFileDataStoreResultCallbackError;
     function handleFileDataStoreResultCallbackResult(id, file) {
-        var callback = registeredFileDataStoreResultCallback["" + id];
+        var callback = Adaptive.registeredFileDataStoreResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredFileDataStoreResultCallback dictionary.");
         }
         else {
-            registeredFileDataStoreResultCallback.remove("" + id);
+            Adaptive.registeredFileDataStoreResultCallback.remove("" + id);
             callback.onResult(file);
         }
     }
     Adaptive.handleFileDataStoreResultCallbackResult = handleFileDataStoreResultCallbackResult;
     function handleFileDataStoreResultCallbackWarning(id, file, warning) {
-        var callback = registeredFileDataStoreResultCallback["" + id];
+        var callback = Adaptive.registeredFileDataStoreResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredFileDataStoreResultCallback dictionary.");
         }
         else {
-            registeredFileDataStoreResultCallback.remove("" + id);
+            Adaptive.registeredFileDataStoreResultCallback.remove("" + id);
             callback.onWarning(file, warning);
         }
     }
@@ -4583,39 +4583,39 @@ listener and subsequently, the listener will be deactivated and removed from the
     /**
        FileListResultCallback control dictionary.
     */
-    var registeredFileListResultCallback = new Dictionary([]);
+    Adaptive.registeredFileListResultCallback = new Dictionary([]);
     /**
        FileListResultCallback global callback handlers.
     */
     function handleFileListResultCallbackError(id, error) {
-        var callback = registeredFileListResultCallback["" + id];
+        var callback = Adaptive.registeredFileListResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredFileListResultCallback dictionary.");
         }
         else {
-            registeredFileListResultCallback.remove("" + id);
+            Adaptive.registeredFileListResultCallback.remove("" + id);
             callback.onError(error);
         }
     }
     Adaptive.handleFileListResultCallbackError = handleFileListResultCallbackError;
     function handleFileListResultCallbackResult(id, files) {
-        var callback = registeredFileListResultCallback["" + id];
+        var callback = Adaptive.registeredFileListResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredFileListResultCallback dictionary.");
         }
         else {
-            registeredFileListResultCallback.remove("" + id);
+            Adaptive.registeredFileListResultCallback.remove("" + id);
             callback.onResult(files);
         }
     }
     Adaptive.handleFileListResultCallbackResult = handleFileListResultCallbackResult;
     function handleFileListResultCallbackWarning(id, files, warning) {
-        var callback = registeredFileListResultCallback["" + id];
+        var callback = Adaptive.registeredFileListResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredFileListResultCallback dictionary.");
         }
         else {
-            registeredFileListResultCallback.remove("" + id);
+            Adaptive.registeredFileListResultCallback.remove("" + id);
             callback.onWarning(files, warning);
         }
     }
@@ -4699,39 +4699,39 @@ listener and subsequently, the listener will be deactivated and removed from the
     /**
        FileResultCallback control dictionary.
     */
-    var registeredFileResultCallback = new Dictionary([]);
+    Adaptive.registeredFileResultCallback = new Dictionary([]);
     /**
        FileResultCallback global callback handlers.
     */
     function handleFileResultCallbackError(id, error) {
-        var callback = registeredFileResultCallback["" + id];
+        var callback = Adaptive.registeredFileResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredFileResultCallback dictionary.");
         }
         else {
-            registeredFileResultCallback.remove("" + id);
+            Adaptive.registeredFileResultCallback.remove("" + id);
             callback.onError(error);
         }
     }
     Adaptive.handleFileResultCallbackError = handleFileResultCallbackError;
     function handleFileResultCallbackResult(id, storageFile) {
-        var callback = registeredFileResultCallback["" + id];
+        var callback = Adaptive.registeredFileResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredFileResultCallback dictionary.");
         }
         else {
-            registeredFileResultCallback.remove("" + id);
+            Adaptive.registeredFileResultCallback.remove("" + id);
             callback.onResult(storageFile);
         }
     }
     Adaptive.handleFileResultCallbackResult = handleFileResultCallbackResult;
     function handleFileResultCallbackWarning(id, file, warning) {
-        var callback = registeredFileResultCallback["" + id];
+        var callback = Adaptive.registeredFileResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredFileResultCallback dictionary.");
         }
         else {
-            registeredFileResultCallback.remove("" + id);
+            Adaptive.registeredFileResultCallback.remove("" + id);
             callback.onWarning(file, warning);
         }
     }
@@ -4815,39 +4815,39 @@ listener and subsequently, the listener will be deactivated and removed from the
     /**
        MessagingCallback control dictionary.
     */
-    var registeredMessagingCallback = new Dictionary([]);
+    Adaptive.registeredMessagingCallback = new Dictionary([]);
     /**
        MessagingCallback global callback handlers.
     */
     function handleMessagingCallbackError(id, error) {
-        var callback = registeredMessagingCallback["" + id];
+        var callback = Adaptive.registeredMessagingCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredMessagingCallback dictionary.");
         }
         else {
-            registeredMessagingCallback.remove("" + id);
+            Adaptive.registeredMessagingCallback.remove("" + id);
             callback.onError(error);
         }
     }
     Adaptive.handleMessagingCallbackError = handleMessagingCallbackError;
     function handleMessagingCallbackResult(id, success) {
-        var callback = registeredMessagingCallback["" + id];
+        var callback = Adaptive.registeredMessagingCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredMessagingCallback dictionary.");
         }
         else {
-            registeredMessagingCallback.remove("" + id);
+            Adaptive.registeredMessagingCallback.remove("" + id);
             callback.onResult(success);
         }
     }
     Adaptive.handleMessagingCallbackResult = handleMessagingCallbackResult;
     function handleMessagingCallbackWarning(id, success, warning) {
-        var callback = registeredMessagingCallback["" + id];
+        var callback = Adaptive.registeredMessagingCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredMessagingCallback dictionary.");
         }
         else {
-            registeredMessagingCallback.remove("" + id);
+            Adaptive.registeredMessagingCallback.remove("" + id);
             callback.onWarning(success, warning);
         }
     }
@@ -4931,39 +4931,39 @@ listener and subsequently, the listener will be deactivated and removed from the
     /**
        NetworkReachabilityCallback control dictionary.
     */
-    var registeredNetworkReachabilityCallback = new Dictionary([]);
+    Adaptive.registeredNetworkReachabilityCallback = new Dictionary([]);
     /**
        NetworkReachabilityCallback global callback handlers.
     */
     function handleNetworkReachabilityCallbackError(id, error) {
-        var callback = registeredNetworkReachabilityCallback["" + id];
+        var callback = Adaptive.registeredNetworkReachabilityCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredNetworkReachabilityCallback dictionary.");
         }
         else {
-            registeredNetworkReachabilityCallback.remove("" + id);
+            Adaptive.registeredNetworkReachabilityCallback.remove("" + id);
             callback.onError(error);
         }
     }
     Adaptive.handleNetworkReachabilityCallbackError = handleNetworkReachabilityCallbackError;
     function handleNetworkReachabilityCallbackResult(id, reachable) {
-        var callback = registeredNetworkReachabilityCallback["" + id];
+        var callback = Adaptive.registeredNetworkReachabilityCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredNetworkReachabilityCallback dictionary.");
         }
         else {
-            registeredNetworkReachabilityCallback.remove("" + id);
+            Adaptive.registeredNetworkReachabilityCallback.remove("" + id);
             callback.onResult(reachable);
         }
     }
     Adaptive.handleNetworkReachabilityCallbackResult = handleNetworkReachabilityCallbackResult;
     function handleNetworkReachabilityCallbackWarning(id, reachable, warning) {
-        var callback = registeredNetworkReachabilityCallback["" + id];
+        var callback = Adaptive.registeredNetworkReachabilityCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredNetworkReachabilityCallback dictionary.");
         }
         else {
-            registeredNetworkReachabilityCallback.remove("" + id);
+            Adaptive.registeredNetworkReachabilityCallback.remove("" + id);
             callback.onWarning(reachable, warning);
         }
     }
@@ -5047,39 +5047,39 @@ listener and subsequently, the listener will be deactivated and removed from the
     /**
        SecurityResultCallback control dictionary.
     */
-    var registeredSecurityResultCallback = new Dictionary([]);
+    Adaptive.registeredSecurityResultCallback = new Dictionary([]);
     /**
        SecurityResultCallback global callback handlers.
     */
     function handleSecurityResultCallbackError(id, error) {
-        var callback = registeredSecurityResultCallback["" + id];
+        var callback = Adaptive.registeredSecurityResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredSecurityResultCallback dictionary.");
         }
         else {
-            registeredSecurityResultCallback.remove("" + id);
+            Adaptive.registeredSecurityResultCallback.remove("" + id);
             callback.onError(error);
         }
     }
     Adaptive.handleSecurityResultCallbackError = handleSecurityResultCallbackError;
     function handleSecurityResultCallbackResult(id, keyValues) {
-        var callback = registeredSecurityResultCallback["" + id];
+        var callback = Adaptive.registeredSecurityResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredSecurityResultCallback dictionary.");
         }
         else {
-            registeredSecurityResultCallback.remove("" + id);
+            Adaptive.registeredSecurityResultCallback.remove("" + id);
             callback.onResult(keyValues);
         }
     }
     Adaptive.handleSecurityResultCallbackResult = handleSecurityResultCallbackResult;
     function handleSecurityResultCallbackWarning(id, keyValues, warning) {
-        var callback = registeredSecurityResultCallback["" + id];
+        var callback = Adaptive.registeredSecurityResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredSecurityResultCallback dictionary.");
         }
         else {
-            registeredSecurityResultCallback.remove("" + id);
+            Adaptive.registeredSecurityResultCallback.remove("" + id);
             callback.onWarning(keyValues, warning);
         }
     }
@@ -5163,39 +5163,39 @@ listener and subsequently, the listener will be deactivated and removed from the
     /**
        ServiceResultCallback control dictionary.
     */
-    var registeredServiceResultCallback = new Dictionary([]);
+    Adaptive.registeredServiceResultCallback = new Dictionary([]);
     /**
        ServiceResultCallback global callback handlers.
     */
     function handleServiceResultCallbackError(id, error) {
-        var callback = registeredServiceResultCallback["" + id];
+        var callback = Adaptive.registeredServiceResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredServiceResultCallback dictionary.");
         }
         else {
-            registeredServiceResultCallback.remove("" + id);
+            Adaptive.registeredServiceResultCallback.remove("" + id);
             callback.onError(error);
         }
     }
     Adaptive.handleServiceResultCallbackError = handleServiceResultCallbackError;
     function handleServiceResultCallbackResult(id, response) {
-        var callback = registeredServiceResultCallback["" + id];
+        var callback = Adaptive.registeredServiceResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredServiceResultCallback dictionary.");
         }
         else {
-            registeredServiceResultCallback.remove("" + id);
+            Adaptive.registeredServiceResultCallback.remove("" + id);
             callback.onResult(response);
         }
     }
     Adaptive.handleServiceResultCallbackResult = handleServiceResultCallbackResult;
     function handleServiceResultCallbackWarning(id, response, warning) {
-        var callback = registeredServiceResultCallback["" + id];
+        var callback = Adaptive.registeredServiceResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredServiceResultCallback dictionary.");
         }
         else {
-            registeredServiceResultCallback.remove("" + id);
+            Adaptive.registeredServiceResultCallback.remove("" + id);
             callback.onWarning(response, warning);
         }
     }
@@ -5705,6 +5705,19 @@ listener and subsequently, the listener will be deactivated and removed from the
            @since ARP1.0
         */
         GlobalizationBridge.prototype.getLocaleSupportedDescriptors = function () {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new APIRequest("IGlobalization", "getLocaleSupportedDescriptors", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'GlobalizationBridge.getLocaleSupportedDescriptors' request.");
+            }
             return null;
         };
         /**
@@ -5716,6 +5729,21 @@ listener and subsequently, the listener will be deactivated and removed from the
            @since ARP1.0
         */
         GlobalizationBridge.prototype.getResourceLiteral = function (key, locale) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(key));
+            arParams.push(JSON.stringify(locale));
+            var ar = new APIRequest("IGlobalization", "getResourceLiteral", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'GlobalizationBridge.getResourceLiteral' request.");
+            }
             return null;
         };
         /**
@@ -5726,6 +5754,20 @@ listener and subsequently, the listener will be deactivated and removed from the
            @since ARP1.0
         */
         GlobalizationBridge.prototype.getResourceLiterals = function (locale) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(locale));
+            var ar = new APIRequest("IGlobalization", "getResourceLiterals", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'GlobalizationBridge.getResourceLiterals' request.");
+            }
             return null;
         };
         return GlobalizationBridge;
@@ -5751,6 +5793,21 @@ listener and subsequently, the listener will be deactivated and removed from the
            @since ARP1.0
         */
         LifecycleBridge.prototype.addLifecycleListener = function (listener) {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new APIRequest("ILifecycle", "addLifecycleListener", arParams, listener.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add listener reference to local dictionary.
+                Adaptive.registeredLifecycleListener.add("" + listener.getId(), listener);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'LifecycleBridge.addLifecycleListener' request.");
+            }
         };
         /**
            Whether the application is in background or not
@@ -5759,6 +5816,19 @@ listener and subsequently, the listener will be deactivated and removed from the
            @since ARP1.0
         */
         LifecycleBridge.prototype.isBackground = function () {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new APIRequest("ILifecycle", "isBackground", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'LifecycleBridge.isBackground' request.");
+            }
             return null;
         };
         /**
@@ -5768,6 +5838,21 @@ listener and subsequently, the listener will be deactivated and removed from the
            @since ARP1.0
         */
         LifecycleBridge.prototype.removeLifecycleListener = function (listener) {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new APIRequest("ILifecycle", "removeLifecycleListener", arParams, listener.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Remove listener reference from local dictionary.
+                Adaptive.registeredLifecycleListener.remove("" + listener.getId());
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'LifecycleBridge.removeLifecycleListener' request.");
+            }
         };
         /**
            Removes all existing listeners from receiving lifecycle events.
@@ -5775,6 +5860,24 @@ listener and subsequently, the listener will be deactivated and removed from the
            @since ARP1.0
         */
         LifecycleBridge.prototype.removeLifecycleListeners = function () {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new APIRequest("ILifecycle", "removeLifecycleListeners", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Remove all listeners references from local dictionary.
+                var keys = registeredLifecycleListenerListener.keys();
+                for (var key in keys) {
+                    Adaptive.registeredLifecycleListener.remove(key);
+                }
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'LifecycleBridge.removeLifecycleListeners' request.");
+            }
         };
         return LifecycleBridge;
     })(BaseApplicationBridge);
@@ -5960,6 +6063,22 @@ listener and subsequently, the listener will be deactivated and removed from the
            @since ARP1.0
         */
         NetworkReachabilityBridge.prototype.isNetworkReachable = function (host, callback) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(host));
+            var ar = new APIRequest("INetworkReachability", "isNetworkReachable", arParams, callback.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add callback reference to local dictionary.
+                Adaptive.registeredNetworkReachabilityCallback.add("" + callback.getId(), callback);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'NetworkReachabilityBridge.isNetworkReachable' request.");
+            }
         };
         /**
            Whether there is connectivity to an url of a service or not.
@@ -5969,6 +6088,22 @@ listener and subsequently, the listener will be deactivated and removed from the
            @since ARP1.0
         */
         NetworkReachabilityBridge.prototype.isNetworkServiceReachable = function (url, callback) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(url));
+            var ar = new APIRequest("INetworkReachability", "isNetworkServiceReachable", arParams, callback.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add callback reference to local dictionary.
+                Adaptive.registeredNetworkReachabilityCallback.add("" + callback.getId(), callback);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'NetworkReachabilityBridge.isNetworkServiceReachable' request.");
+            }
         };
         return NetworkReachabilityBridge;
     })(BaseCommunicationBridge);
@@ -5993,6 +6128,21 @@ listener and subsequently, the listener will be deactivated and removed from the
            @since ARP1.0
         */
         NetworkStatusBridge.prototype.addNetworkStatusListener = function (listener) {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new APIRequest("INetworkStatus", "addNetworkStatusListener", arParams, listener.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add listener reference to local dictionary.
+                Adaptive.registeredNetworkStatusListener.add("" + listener.getId(), listener);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'NetworkStatusBridge.addNetworkStatusListener' request.");
+            }
         };
         /**
            Un-registers an existing listener from receiving network status events.
@@ -6001,6 +6151,21 @@ listener and subsequently, the listener will be deactivated and removed from the
            @since ARP1.0
         */
         NetworkStatusBridge.prototype.removeNetworkStatusListener = function (listener) {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new APIRequest("INetworkStatus", "removeNetworkStatusListener", arParams, listener.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Remove listener reference from local dictionary.
+                Adaptive.registeredNetworkStatusListener.remove("" + listener.getId());
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'NetworkStatusBridge.removeNetworkStatusListener' request.");
+            }
         };
         /**
            Removes all existing listeners from receiving network status events.
@@ -6008,6 +6173,24 @@ listener and subsequently, the listener will be deactivated and removed from the
            @since ARP1.0
         */
         NetworkStatusBridge.prototype.removeNetworkStatusListeners = function () {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new APIRequest("INetworkStatus", "removeNetworkStatusListeners", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Remove all listeners references from local dictionary.
+                var keys = registeredNetworkStatusListenerListener.keys();
+                for (var key in keys) {
+                    Adaptive.registeredNetworkStatusListener.remove(key);
+                }
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'NetworkStatusBridge.removeNetworkStatusListeners' request.");
+            }
         };
         return NetworkStatusBridge;
     })(BaseCommunicationBridge);
@@ -6033,6 +6216,20 @@ listener and subsequently, the listener will be deactivated and removed from the
            @since ARP1.0
         */
         ServiceBridge.prototype.getService = function (serviceName) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(serviceName));
+            var ar = new APIRequest("IService", "getService", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'ServiceBridge.getService' request.");
+            }
             return null;
         };
         /**
@@ -6044,6 +6241,23 @@ listener and subsequently, the listener will be deactivated and removed from the
            @since ARP1.0
         */
         ServiceBridge.prototype.invokeService = function (serviceRequest, service, callback) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(serviceRequest));
+            arParams.push(JSON.stringify(service));
+            var ar = new APIRequest("IService", "invokeService", arParams, callback.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add callback reference to local dictionary.
+                Adaptive.registeredServiceResultCallback.add("" + callback.getId(), callback);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'ServiceBridge.invokeService' request.");
+            }
         };
         /**
            Register a new service
@@ -6052,6 +6266,20 @@ listener and subsequently, the listener will be deactivated and removed from the
            @since ARP1.0
         */
         ServiceBridge.prototype.registerService = function (service) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(service));
+            var ar = new APIRequest("IService", "registerService", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'ServiceBridge.registerService' request.");
+            }
         };
         /**
            Unregister a service
@@ -6060,6 +6288,20 @@ listener and subsequently, the listener will be deactivated and removed from the
            @since ARP1.0
         */
         ServiceBridge.prototype.unregisterService = function (service) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(service));
+            var ar = new APIRequest("IService", "unregisterService", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'ServiceBridge.unregisterService' request.");
+            }
         };
         /**
            Unregister all services.
@@ -6067,6 +6309,19 @@ listener and subsequently, the listener will be deactivated and removed from the
            @since ARP1.0
         */
         ServiceBridge.prototype.unregisterServices = function () {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new APIRequest("IService", "unregisterServices", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'ServiceBridge.unregisterServices' request.");
+            }
         };
         /**
            Check whether a service by the given service is already registered.
@@ -6076,6 +6331,7 @@ listener and subsequently, the listener will be deactivated and removed from the
            @since ARP1.0
         */
         ServiceBridge.prototype.isRegistered_service = function (service) {
+            // TODO: Implement overloaded methods.
             return null;
         };
         /**
@@ -6086,6 +6342,7 @@ listener and subsequently, the listener will be deactivated and removed from the
            @since ARP1.0
         */
         ServiceBridge.prototype.isRegistered_serviceName = function (serviceName) {
+            // TODO: Implement overloaded methods.
             return null;
         };
         return ServiceBridge;
@@ -6128,6 +6385,20 @@ listener and subsequently, the listener will be deactivated and removed from the
            @since ARP1.0
         */
         TelephonyBridge.prototype.call = function (number) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(number));
+            var ar = new APIRequest("ITelephony", "call", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'TelephonyBridge.call' request.");
+            }
             return null;
         };
         return TelephonyBridge;
@@ -6186,6 +6457,22 @@ listener and subsequently, the listener will be deactivated and removed from the
            @since ARP1.0
         */
         DatabaseBridge.prototype.createDatabase = function (database, callback) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(database));
+            var ar = new APIRequest("IDatabase", "createDatabase", arParams, callback.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add callback reference to local dictionary.
+                Adaptive.registeredDatabaseResultCallback.add("" + callback.getId(), callback);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'DatabaseBridge.createDatabase' request.");
+            }
         };
         /**
            Creates a databaseTable inside a database for every platform.
@@ -6196,6 +6483,23 @@ listener and subsequently, the listener will be deactivated and removed from the
            @since ARP1.0
         */
         DatabaseBridge.prototype.createTable = function (database, databaseTable, callback) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(database));
+            arParams.push(JSON.stringify(databaseTable));
+            var ar = new APIRequest("IDatabase", "createTable", arParams, callback.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add callback reference to local dictionary.
+                Adaptive.registeredDatabaseTableResultCallback.add("" + callback.getId(), callback);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'DatabaseBridge.createTable' request.");
+            }
         };
         /**
            Deletes a database on default path for every platform.
@@ -6205,6 +6509,22 @@ listener and subsequently, the listener will be deactivated and removed from the
            @since ARP1.0
         */
         DatabaseBridge.prototype.deleteDatabase = function (database, callback) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(database));
+            var ar = new APIRequest("IDatabase", "deleteDatabase", arParams, callback.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add callback reference to local dictionary.
+                Adaptive.registeredDatabaseResultCallback.add("" + callback.getId(), callback);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'DatabaseBridge.deleteDatabase' request.");
+            }
         };
         /**
            Deletes a databaseTable inside a database for every platform.
@@ -6215,6 +6535,23 @@ listener and subsequently, the listener will be deactivated and removed from the
            @since ARP1.0
         */
         DatabaseBridge.prototype.deleteTable = function (database, databaseTable, callback) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(database));
+            arParams.push(JSON.stringify(databaseTable));
+            var ar = new APIRequest("IDatabase", "deleteTable", arParams, callback.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add callback reference to local dictionary.
+                Adaptive.registeredDatabaseTableResultCallback.add("" + callback.getId(), callback);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'DatabaseBridge.deleteTable' request.");
+            }
         };
         /**
            Executes SQL statement into the given database. The replacements
@@ -6227,6 +6564,24 @@ should be passed as a parameter
            @since ARP1.0
         */
         DatabaseBridge.prototype.executeSqlStatement = function (database, statement, replacements, callback) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(database));
+            arParams.push(JSON.stringify(statement));
+            arParams.push(JSON.stringify(replacements));
+            var ar = new APIRequest("IDatabase", "executeSqlStatement", arParams, callback.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add callback reference to local dictionary.
+                Adaptive.registeredDatabaseTableResultCallback.add("" + callback.getId(), callback);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'DatabaseBridge.executeSqlStatement' request.");
+            }
         };
         /**
            Executes SQL transaction (some statements chain) inside given database.
@@ -6239,6 +6594,24 @@ should be passed as a parameter
            @since ARP1.0
         */
         DatabaseBridge.prototype.executeSqlTransactions = function (database, statements, rollbackFlag, callback) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(database));
+            arParams.push(JSON.stringify(statements));
+            arParams.push(JSON.stringify(rollbackFlag));
+            var ar = new APIRequest("IDatabase", "executeSqlTransactions", arParams, callback.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add callback reference to local dictionary.
+                Adaptive.registeredDatabaseTableResultCallback.add("" + callback.getId(), callback);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'DatabaseBridge.executeSqlTransactions' request.");
+            }
         };
         /**
            Checks if database exists by given database name.
@@ -6248,6 +6621,20 @@ should be passed as a parameter
            @since ARP1.0
         */
         DatabaseBridge.prototype.existsDatabase = function (database) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(database));
+            var ar = new APIRequest("IDatabase", "existsDatabase", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'DatabaseBridge.existsDatabase' request.");
+            }
             return null;
         };
         /**
@@ -6259,6 +6646,21 @@ should be passed as a parameter
            @since ARP1.0
         */
         DatabaseBridge.prototype.existsTable = function (database, databaseTable) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(database));
+            arParams.push(JSON.stringify(databaseTable));
+            var ar = new APIRequest("IDatabase", "existsTable", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'DatabaseBridge.existsTable' request.");
+            }
             return null;
         };
         return DatabaseBridge;
@@ -6285,6 +6687,20 @@ should be passed as a parameter
            @since ARP1.0
         */
         FileBridge.prototype.canRead = function (descriptor) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(descriptor));
+            var ar = new APIRequest("IFile", "canRead", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'FileBridge.canRead' request.");
+            }
             return null;
         };
         /**
@@ -6295,6 +6711,20 @@ should be passed as a parameter
            @since ARP1.0
         */
         FileBridge.prototype.canWrite = function (descriptor) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(descriptor));
+            var ar = new APIRequest("IFile", "canWrite", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'FileBridge.canWrite' request.");
+            }
             return null;
         };
         /**
@@ -6305,6 +6735,22 @@ should be passed as a parameter
            @since ARP1.0
         */
         FileBridge.prototype.create = function (descriptor, callback) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(descriptor));
+            var ar = new APIRequest("IFile", "create", arParams, callback.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add callback reference to local dictionary.
+                Adaptive.registeredFileResultCallback.add("" + callback.getId(), callback);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'FileBridge.create' request.");
+            }
         };
         /**
            Deletes the given file or path. If the file is a directory and contains files and or subdirectories, these will be
@@ -6316,6 +6762,21 @@ deleted if the cascade parameter is set to true.
            @since ARP1.0
         */
         FileBridge.prototype.delete = function (descriptor, cascade) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(descriptor));
+            arParams.push(JSON.stringify(cascade));
+            var ar = new APIRequest("IFile", "delete", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'FileBridge.delete' request.");
+            }
             return null;
         };
         /**
@@ -6326,6 +6787,20 @@ deleted if the cascade parameter is set to true.
            @since ARP1.0
         */
         FileBridge.prototype.exists = function (descriptor) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(descriptor));
+            var ar = new APIRequest("IFile", "exists", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'FileBridge.exists' request.");
+            }
             return null;
         };
         /**
@@ -6336,6 +6811,22 @@ deleted if the cascade parameter is set to true.
            @since ARP1.0
         */
         FileBridge.prototype.getContent = function (descriptor, callback) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(descriptor));
+            var ar = new APIRequest("IFile", "getContent", arParams, callback.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add callback reference to local dictionary.
+                Adaptive.registeredFileDataLoadResultCallback.add("" + callback.getId(), callback);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'FileBridge.getContent' request.");
+            }
         };
         /**
            Returns the file storage type of the file
@@ -6345,6 +6836,20 @@ deleted if the cascade parameter is set to true.
            @since ARP1.0
         */
         FileBridge.prototype.getFileStorageType = function (descriptor) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(descriptor));
+            var ar = new APIRequest("IFile", "getFileStorageType", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'FileBridge.getFileStorageType' request.");
+            }
             return null;
         };
         /**
@@ -6355,6 +6860,20 @@ deleted if the cascade parameter is set to true.
            @since ARP1.0
         */
         FileBridge.prototype.getFileType = function (descriptor) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(descriptor));
+            var ar = new APIRequest("IFile", "getFileType", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'FileBridge.getFileType' request.");
+            }
             return null;
         };
         /**
@@ -6365,6 +6884,20 @@ deleted if the cascade parameter is set to true.
            @since ARP1.0
         */
         FileBridge.prototype.getSecurityType = function (descriptor) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(descriptor));
+            var ar = new APIRequest("IFile", "getSecurityType", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'FileBridge.getSecurityType' request.");
+            }
             return null;
         };
         /**
@@ -6375,6 +6908,20 @@ deleted if the cascade parameter is set to true.
            @since ARP1.0
         */
         FileBridge.prototype.isDirectory = function (descriptor) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(descriptor));
+            var ar = new APIRequest("IFile", "isDirectory", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'FileBridge.isDirectory' request.");
+            }
             return null;
         };
         /**
@@ -6386,6 +6933,22 @@ any results.
            @since ARP1.0
         */
         FileBridge.prototype.listFiles = function (descriptor, callback) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(descriptor));
+            var ar = new APIRequest("IFile", "listFiles", arParams, callback.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add callback reference to local dictionary.
+                Adaptive.registeredFileListResultCallback.add("" + callback.getId(), callback);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'FileBridge.listFiles' request.");
+            }
         };
         /**
            List all the files matching the speficied regex filter within this file/path reference. If the reference
@@ -6397,6 +6960,23 @@ is a file, it will not yield any results.
            @since ARP1.0
         */
         FileBridge.prototype.listFilesForRegex = function (descriptor, regex, callback) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(descriptor));
+            arParams.push(JSON.stringify(regex));
+            var ar = new APIRequest("IFile", "listFilesForRegex", arParams, callback.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add callback reference to local dictionary.
+                Adaptive.registeredFileListResultCallback.add("" + callback.getId(), callback);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'FileBridge.listFilesForRegex' request.");
+            }
         };
         /**
            Creates the parent path (or paths, if recursive) to the given file/path if it doesn't already exist.
@@ -6407,6 +6987,21 @@ is a file, it will not yield any results.
            @since ARP1.0
         */
         FileBridge.prototype.mkDir = function (descriptor, recursive) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(descriptor));
+            arParams.push(JSON.stringify(recursive));
+            var ar = new APIRequest("IFile", "mkDir", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'FileBridge.mkDir' request.");
+            }
             return null;
         };
         /**
@@ -6421,6 +7016,25 @@ new destination file.
            @since ARP1.0
         */
         FileBridge.prototype.move = function (source, destination, createPath, overwrite, callback) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(source));
+            arParams.push(JSON.stringify(destination));
+            arParams.push(JSON.stringify(createPath));
+            arParams.push(JSON.stringify(overwrite));
+            var ar = new APIRequest("IFile", "move", arParams, callback.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add callback reference to local dictionary.
+                Adaptive.registeredFileResultCallback.add("" + callback.getId(), callback);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'FileBridge.move' request.");
+            }
         };
         /**
            Sets the content of the file.
@@ -6431,6 +7045,23 @@ new destination file.
            @since ARP1.0
         */
         FileBridge.prototype.setContent = function (descriptor, content, callback) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(descriptor));
+            arParams.push(JSON.stringify(content));
+            var ar = new APIRequest("IFile", "setContent", arParams, callback.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add callback reference to local dictionary.
+                Adaptive.registeredFileDataStoreResultCallback.add("" + callback.getId(), callback);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'FileBridge.setContent' request.");
+            }
         };
         return FileBridge;
     })(BaseDataBridge);
@@ -6458,6 +7089,21 @@ This method does not create the actual file in the specified folder.
            @since ARP1.0
         */
         FileSystemBridge.prototype.createFileDescriptor = function (parent, name) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(parent));
+            arParams.push(JSON.stringify(name));
+            var ar = new APIRequest("IFileSystem", "createFileDescriptor", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'FileSystemBridge.createFileDescriptor' request.");
+            }
             return null;
         };
         /**
@@ -6469,6 +7115,19 @@ This path is volatile and may be cleaned by the OS periodically.
            @since ARP1.0
         */
         FileSystemBridge.prototype.getApplicationCacheFolder = function () {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new APIRequest("IFileSystem", "getApplicationCacheFolder", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'FileSystemBridge.getApplicationCacheFolder' request.");
+            }
             return null;
         };
         /**
@@ -6479,6 +7138,19 @@ This path must always be writable by the current application.
            @since ARP1.0
         */
         FileSystemBridge.prototype.getApplicationCloudFolder = function () {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new APIRequest("IFileSystem", "getApplicationCloudFolder", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'FileSystemBridge.getApplicationCloudFolder' request.");
+            }
             return null;
         };
         /**
@@ -6489,6 +7161,19 @@ This path must always be writable by the current application.
            @since ARP1.0
         */
         FileSystemBridge.prototype.getApplicationDocumentsFolder = function () {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new APIRequest("IFileSystem", "getApplicationDocumentsFolder", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'FileSystemBridge.getApplicationDocumentsFolder' request.");
+            }
             return null;
         };
         /**
@@ -6499,6 +7184,19 @@ This path may or may not be directly readable or writable - it usually contains 
            @since ARP1.0
         */
         FileSystemBridge.prototype.getApplicationFolder = function () {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new APIRequest("IFileSystem", "getApplicationFolder", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'FileSystemBridge.getApplicationFolder' request.");
+            }
             return null;
         };
         /**
@@ -6509,6 +7207,19 @@ This path must always be writable by the current application.
            @since ARP1.0
         */
         FileSystemBridge.prototype.getApplicationProtectedFolder = function () {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new APIRequest("IFileSystem", "getApplicationProtectedFolder", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'FileSystemBridge.getApplicationProtectedFolder' request.");
+            }
             return null;
         };
         /**
@@ -6518,6 +7229,19 @@ This path must always be writable by the current application.
            @since ARP1.0
         */
         FileSystemBridge.prototype.getSeparator = function () {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new APIRequest("IFileSystem", "getSeparator", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'FileSystemBridge.getSeparator' request.");
+            }
             return null;
         };
         /**
@@ -6530,6 +7254,19 @@ This path may or may not be writable by the current application.
            @since ARP1.0
         */
         FileSystemBridge.prototype.getSystemExternalFolder = function () {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new APIRequest("IFileSystem", "getSystemExternalFolder", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'FileSystemBridge.getSystemExternalFolder' request.");
+            }
             return null;
         };
         return FileSystemBridge;
@@ -6635,6 +7372,20 @@ This path may or may not be writable by the current application.
            @since ARP1.0
         */
         VideoBridge.prototype.playStream = function (url) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(url));
+            var ar = new APIRequest("IVideo", "playStream", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'VideoBridge.playStream' request.");
+            }
         };
         return VideoBridge;
     })(BaseMediaBridge);
@@ -6740,6 +7491,22 @@ This path may or may not be writable by the current application.
            @since ARP1.0
         */
         ContactBridge.prototype.getContact = function (contact, callback) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(contact));
+            var ar = new APIRequest("IContact", "getContact", arParams, callback.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add callback reference to local dictionary.
+                Adaptive.registeredContactResultCallback.add("" + callback.getId(), callback);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'ContactBridge.getContact' request.");
+            }
         };
         /**
            Get the contact photo
@@ -6749,6 +7516,22 @@ This path may or may not be writable by the current application.
            @since ARP1.0
         */
         ContactBridge.prototype.getContactPhoto = function (contact, callback) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(contact));
+            var ar = new APIRequest("IContact", "getContactPhoto", arParams, callback.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add callback reference to local dictionary.
+                Adaptive.registeredContactPhotoResultCallback.add("" + callback.getId(), callback);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'ContactBridge.getContactPhoto' request.");
+            }
         };
         /**
            Get all contacts
@@ -6757,6 +7540,21 @@ This path may or may not be writable by the current application.
            @since ARP1.0
         */
         ContactBridge.prototype.getContacts = function (callback) {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new APIRequest("IContact", "getContacts", arParams, callback.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add callback reference to local dictionary.
+                Adaptive.registeredContactResultCallback.add("" + callback.getId(), callback);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'ContactBridge.getContacts' request.");
+            }
         };
         /**
            Get marked fields of all contacts
@@ -6766,6 +7564,22 @@ This path may or may not be writable by the current application.
            @since ARP1.0
         */
         ContactBridge.prototype.getContactsForFields = function (callback, fields) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(fields));
+            var ar = new APIRequest("IContact", "getContactsForFields", arParams, callback.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add callback reference to local dictionary.
+                Adaptive.registeredContactResultCallback.add("" + callback.getId(), callback);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'ContactBridge.getContactsForFields' request.");
+            }
         };
         /**
            Get marked fields of all contacts according to a filter
@@ -6776,6 +7590,23 @@ This path may or may not be writable by the current application.
            @since ARP1.0
         */
         ContactBridge.prototype.getContactsWithFilter = function (callback, fields, filter) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(fields));
+            arParams.push(JSON.stringify(filter));
+            var ar = new APIRequest("IContact", "getContactsWithFilter", arParams, callback.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add callback reference to local dictionary.
+                Adaptive.registeredContactResultCallback.add("" + callback.getId(), callback);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'ContactBridge.getContactsWithFilter' request.");
+            }
         };
         /**
            Search contacts according to a term and send it to the callback
@@ -6785,6 +7616,22 @@ This path may or may not be writable by the current application.
            @since ARP1.0
         */
         ContactBridge.prototype.searchContacts = function (term, callback) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(term));
+            var ar = new APIRequest("IContact", "searchContacts", arParams, callback.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add callback reference to local dictionary.
+                Adaptive.registeredContactResultCallback.add("" + callback.getId(), callback);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'ContactBridge.searchContacts' request.");
+            }
         };
         /**
            Search contacts according to a term with a filter and send it to the callback
@@ -6795,6 +7642,23 @@ This path may or may not be writable by the current application.
            @since ARP1.0
         */
         ContactBridge.prototype.searchContactsWithFilter = function (term, callback, filter) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(term));
+            arParams.push(JSON.stringify(filter));
+            var ar = new APIRequest("IContact", "searchContactsWithFilter", arParams, callback.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add callback reference to local dictionary.
+                Adaptive.registeredContactResultCallback.add("" + callback.getId(), callback);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'ContactBridge.searchContactsWithFilter' request.");
+            }
         };
         /**
            Set the contact photo
@@ -6805,6 +7669,21 @@ This path may or may not be writable by the current application.
            @since ARP1.0
         */
         ContactBridge.prototype.setContactPhoto = function (contact, pngImage) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(contact));
+            arParams.push(JSON.stringify(pngImage));
+            var ar = new APIRequest("IContact", "setContactPhoto", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'ContactBridge.setContactPhoto' request.");
+            }
             return null;
         };
         return ContactBridge;
@@ -6831,6 +7710,22 @@ This path may or may not be writable by the current application.
            @since ARP1.0
         */
         MailBridge.prototype.sendEmail = function (data, callback) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(data));
+            var ar = new APIRequest("IMail", "sendEmail", arParams, callback.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add callback reference to local dictionary.
+                Adaptive.registeredMessagingCallback.add("" + callback.getId(), callback);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'MailBridge.sendEmail' request.");
+            }
         };
         return MailBridge;
     })(BasePIMBridge);
@@ -6857,6 +7752,23 @@ This path may or may not be writable by the current application.
            @since ARP1.0
         */
         MessagingBridge.prototype.sendSMS = function (number, text, callback) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(number));
+            arParams.push(JSON.stringify(text));
+            var ar = new APIRequest("IMessaging", "sendSMS", arParams, callback.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add callback reference to local dictionary.
+                Adaptive.registeredMessagingCallback.add("" + callback.getId(), callback);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'MessagingBridge.sendSMS' request.");
+            }
         };
         return MessagingBridge;
     })(BasePIMBridge);
@@ -6979,6 +7891,23 @@ This path may or may not be writable by the current application.
            @since ARP 1.0
         */
         SecurityBridge.prototype.deleteSecureKeyValuePairs = function (keys, publicAccessName, callback) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(keys));
+            arParams.push(JSON.stringify(publicAccessName));
+            var ar = new APIRequest("ISecurity", "deleteSecureKeyValuePairs", arParams, callback.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add callback reference to local dictionary.
+                Adaptive.registeredSecurityResultCallback.add("" + callback.getId(), callback);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'SecurityBridge.deleteSecureKeyValuePairs' request.");
+            }
         };
         /**
            Retrieves from the device internal storage the entry/entries containing the specified key names.
@@ -6989,6 +7918,23 @@ This path may or may not be writable by the current application.
            @since ARP 1.0
         */
         SecurityBridge.prototype.getSecureKeyValuePairs = function (keys, publicAccessName, callback) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(keys));
+            arParams.push(JSON.stringify(publicAccessName));
+            var ar = new APIRequest("ISecurity", "getSecureKeyValuePairs", arParams, callback.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add callback reference to local dictionary.
+                Adaptive.registeredSecurityResultCallback.add("" + callback.getId(), callback);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'SecurityBridge.getSecureKeyValuePairs' request.");
+            }
         };
         /**
            Returns if the device has been modified in anyhow
@@ -6997,6 +7943,19 @@ This path may or may not be writable by the current application.
            @since ARP1.0
         */
         SecurityBridge.prototype.isDeviceModified = function () {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new APIRequest("ISecurity", "isDeviceModified", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'SecurityBridge.isDeviceModified' request.");
+            }
             return null;
         };
         /**
@@ -7008,6 +7967,23 @@ This path may or may not be writable by the current application.
            @since ARP 1.0
         */
         SecurityBridge.prototype.setSecureKeyValuePairs = function (keyValues, publicAccessName, callback) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(keyValues));
+            arParams.push(JSON.stringify(publicAccessName));
+            var ar = new APIRequest("ISecurity", "setSecureKeyValuePairs", arParams, callback.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add callback reference to local dictionary.
+                Adaptive.registeredSecurityResultCallback.add("" + callback.getId(), callback);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'SecurityBridge.setSecureKeyValuePairs' request.");
+            }
         };
         return SecurityBridge;
     })(BaseSecurityBridge);
@@ -7032,6 +8008,21 @@ This path may or may not be writable by the current application.
            @since ARP1.0
         */
         AccelerationBridge.prototype.addAccelerationListener = function (listener) {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new APIRequest("IAcceleration", "addAccelerationListener", arParams, listener.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add listener reference to local dictionary.
+                Adaptive.registeredAccelerationListener.add("" + listener.getId(), listener);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'AccelerationBridge.addAccelerationListener' request.");
+            }
         };
         /**
            De-registers an existing listener from receiving acceleration events.
@@ -7040,6 +8031,21 @@ This path may or may not be writable by the current application.
            @since ARP1.0
         */
         AccelerationBridge.prototype.removeAccelerationListener = function (listener) {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new APIRequest("IAcceleration", "removeAccelerationListener", arParams, listener.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Remove listener reference from local dictionary.
+                Adaptive.registeredAccelerationListener.remove("" + listener.getId());
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'AccelerationBridge.removeAccelerationListener' request.");
+            }
         };
         /**
            Removed all existing listeners from receiving acceleration events.
@@ -7047,6 +8053,24 @@ This path may or may not be writable by the current application.
            @since ARP1.0
         */
         AccelerationBridge.prototype.removeAccelerationListeners = function () {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new APIRequest("IAcceleration", "removeAccelerationListeners", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Remove all listeners references from local dictionary.
+                var keys = registeredAccelerationListenerListener.keys();
+                for (var key in keys) {
+                    Adaptive.registeredAccelerationListener.remove(key);
+                }
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'AccelerationBridge.removeAccelerationListeners' request.");
+            }
         };
         return AccelerationBridge;
     })(BaseSensorBridge);
@@ -7103,6 +8127,21 @@ This path may or may not be writable by the current application.
            @since ARP1.0
         */
         GeolocationBridge.prototype.addGeolocationListener = function (listener) {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new APIRequest("IGeolocation", "addGeolocationListener", arParams, listener.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add listener reference to local dictionary.
+                Adaptive.registeredGeolocationListener.add("" + listener.getId(), listener);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'GeolocationBridge.addGeolocationListener' request.");
+            }
         };
         /**
            De-registers an existing listener from receiving geolocation events.
@@ -7111,6 +8150,21 @@ This path may or may not be writable by the current application.
            @since ARP1.0
         */
         GeolocationBridge.prototype.removeGeolocationListener = function (listener) {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new APIRequest("IGeolocation", "removeGeolocationListener", arParams, listener.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Remove listener reference from local dictionary.
+                Adaptive.registeredGeolocationListener.remove("" + listener.getId());
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'GeolocationBridge.removeGeolocationListener' request.");
+            }
         };
         /**
            Removed all existing listeners from receiving geolocation events.
@@ -7118,6 +8172,24 @@ This path may or may not be writable by the current application.
            @since ARP1.0
         */
         GeolocationBridge.prototype.removeGeolocationListeners = function () {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new APIRequest("IGeolocation", "removeGeolocationListeners", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Remove all listeners references from local dictionary.
+                var keys = registeredGeolocationListenerListener.keys();
+                for (var key in keys) {
+                    Adaptive.registeredGeolocationListener.remove(key);
+                }
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'GeolocationBridge.removeGeolocationListeners' request.");
+            }
         };
         return GeolocationBridge;
     })(BaseSensorBridge);
@@ -7271,6 +8343,20 @@ This path may or may not be writable by the current application.
            @since ARP1.0
         */
         CapabilitiesBridge.prototype.hasButtonSupport = function (type) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(type));
+            var ar = new APIRequest("ICapabilities", "hasButtonSupport", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'CapabilitiesBridge.hasButtonSupport' request.");
+            }
             return null;
         };
         /**
@@ -7282,6 +8368,20 @@ the device.
            @since ARP1.0
         */
         CapabilitiesBridge.prototype.hasCommunicationSupport = function (type) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(type));
+            var ar = new APIRequest("ICapabilities", "hasCommunicationSupport", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'CapabilitiesBridge.hasCommunicationSupport' request.");
+            }
             return null;
         };
         /**
@@ -7292,6 +8392,20 @@ the device.
            @since ARP1.0
         */
         CapabilitiesBridge.prototype.hasDataSupport = function (type) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(type));
+            var ar = new APIRequest("ICapabilities", "hasDataSupport", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'CapabilitiesBridge.hasDataSupport' request.");
+            }
             return null;
         };
         /**
@@ -7303,6 +8417,20 @@ device.
            @since ARP1.0
         */
         CapabilitiesBridge.prototype.hasMediaSupport = function (type) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(type));
+            var ar = new APIRequest("ICapabilities", "hasMediaSupport", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'CapabilitiesBridge.hasMediaSupport' request.");
+            }
             return null;
         };
         /**
@@ -7313,6 +8441,20 @@ device.
            @since ARP1.0
         */
         CapabilitiesBridge.prototype.hasNetSupport = function (type) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(type));
+            var ar = new APIRequest("ICapabilities", "hasNetSupport", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'CapabilitiesBridge.hasNetSupport' request.");
+            }
             return null;
         };
         /**
@@ -7324,6 +8466,20 @@ device.
            @since ARP1.0
         */
         CapabilitiesBridge.prototype.hasNotificationSupport = function (type) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(type));
+            var ar = new APIRequest("ICapabilities", "hasNotificationSupport", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'CapabilitiesBridge.hasNotificationSupport' request.");
+            }
             return null;
         };
         /**
@@ -7335,6 +8491,20 @@ device.
            @since ARP1.0
         */
         CapabilitiesBridge.prototype.hasSensorSupport = function (type) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(type));
+            var ar = new APIRequest("ICapabilities", "hasSensorSupport", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'CapabilitiesBridge.hasSensorSupport' request.");
+            }
             return null;
         };
         return CapabilitiesBridge;
@@ -7360,6 +8530,21 @@ device.
            @since ARP1.0
         */
         DeviceBridge.prototype.addButtonListener = function (listener) {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new APIRequest("IDevice", "addButtonListener", arParams, listener.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add listener reference to local dictionary.
+                Adaptive.registeredButtonListener.add("" + listener.getId(), listener);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'DeviceBridge.addButtonListener' request.");
+            }
         };
         /**
            Returns the device information for the current device executing the runtime.
@@ -7368,6 +8553,19 @@ device.
            @since ARP1.0
         */
         DeviceBridge.prototype.getDeviceInfo = function () {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new APIRequest("IDevice", "getDeviceInfo", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'DeviceBridge.getDeviceInfo' request.");
+            }
             return null;
         };
         /**
@@ -7377,6 +8575,19 @@ device.
            @since ARP1.0
         */
         DeviceBridge.prototype.getLocaleCurrent = function () {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new APIRequest("IDevice", "getLocaleCurrent", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'DeviceBridge.getLocaleCurrent' request.");
+            }
             return null;
         };
         /**
@@ -7386,6 +8597,21 @@ device.
            @since ARP1.0
         */
         DeviceBridge.prototype.removeButtonListener = function (listener) {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new APIRequest("IDevice", "removeButtonListener", arParams, listener.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Remove listener reference from local dictionary.
+                Adaptive.registeredButtonListener.remove("" + listener.getId());
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'DeviceBridge.removeButtonListener' request.");
+            }
         };
         /**
            Removed all existing listeners from receiving button events.
@@ -7393,6 +8619,24 @@ device.
            @since ARP1.0
         */
         DeviceBridge.prototype.removeButtonListeners = function () {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new APIRequest("IDevice", "removeButtonListeners", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Remove all listeners references from local dictionary.
+                var keys = registeredButtonListenerListener.keys();
+                for (var key in keys) {
+                    Adaptive.registeredButtonListener.remove(key);
+                }
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'DeviceBridge.removeButtonListeners' request.");
+            }
         };
         return DeviceBridge;
     })(BaseSystemBridge);
@@ -7433,6 +8677,19 @@ device.
            @since ARP1.0
         */
         OSBridge.prototype.getOSInfo = function () {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new APIRequest("IOS", "getOSInfo", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'OSBridge.getOSInfo' request.");
+            }
             return null;
         };
         return OSBridge;
@@ -7457,6 +8714,19 @@ device.
            @since ARP1.0
         */
         RuntimeBridge.prototype.dismissApplication = function () {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new APIRequest("IRuntime", "dismissApplication", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'RuntimeBridge.dismissApplication' request.");
+            }
         };
         /**
            Whether the application dismiss the splash screen successfully or not
@@ -7465,6 +8735,19 @@ device.
            @since ARP1.0
         */
         RuntimeBridge.prototype.dismissSplashScreen = function () {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new APIRequest("IRuntime", "dismissSplashScreen", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'RuntimeBridge.dismissSplashScreen' request.");
+            }
             return null;
         };
         return RuntimeBridge;
@@ -7491,6 +8774,20 @@ device.
            @since ARP1.0
         */
         BrowserBridge.prototype.openExtenalBrowser = function (url) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(url));
+            var ar = new APIRequest("IBrowser", "openExtenalBrowser", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'BrowserBridge.openExtenalBrowser' request.");
+            }
             return null;
         };
         /**
@@ -7503,6 +8800,22 @@ device.
            @since ARP1.0
         */
         BrowserBridge.prototype.openInternalBrowser = function (url, title, backButtonText) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(url));
+            arParams.push(JSON.stringify(title));
+            arParams.push(JSON.stringify(backButtonText));
+            var ar = new APIRequest("IBrowser", "openInternalBrowser", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'BrowserBridge.openInternalBrowser' request.");
+            }
             return null;
         };
         /**
@@ -7515,6 +8828,22 @@ device.
            @since ARP1.0
         */
         BrowserBridge.prototype.openInternalBrowserModal = function (url, title, backButtonText) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(url));
+            arParams.push(JSON.stringify(title));
+            arParams.push(JSON.stringify(backButtonText));
+            var ar = new APIRequest("IBrowser", "openInternalBrowserModal", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'BrowserBridge.openInternalBrowserModal' request.");
+            }
             return null;
         };
         return BrowserBridge;
@@ -7637,6 +8966,7 @@ device.
            @since ARP1.0
         */
         LoggingBridge.prototype.log_level_message = function (level, message) {
+            // TODO: Implement overloaded methods.
         };
         /**
            Logs the given message, with the given log level if specified, to the standard platform/environment.
@@ -7647,6 +8977,7 @@ device.
            @since ARP1.0
         */
         LoggingBridge.prototype.log_level_category_message = function (level, category, message) {
+            // TODO: Implement overloaded methods.
         };
         return LoggingBridge;
     })(BaseUtilBridge);

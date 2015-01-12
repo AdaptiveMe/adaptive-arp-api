@@ -68,6 +68,20 @@ var Adaptive;
            @since ARP1.0
         */
         TelephonyBridge.prototype.call = function (number) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(number));
+            var ar = new Adaptive.APIRequest("ITelephony", "call", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'TelephonyBridge.call' request.");
+            }
             return null;
         };
         return TelephonyBridge;

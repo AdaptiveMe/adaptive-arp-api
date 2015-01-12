@@ -49,7 +49,7 @@ module Adaptive {
      /**
         FileResultCallback control dictionary.
      */
-     var registeredFileResultCallback = new Dictionary<IFileResultCallback>([]);
+     export var registeredFileResultCallback = new Dictionary<IFileResultCallback>([]);
 
      /**
         FileResultCallback global callback handlers.

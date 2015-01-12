@@ -51,39 +51,39 @@ var Adaptive;
     /**
        ContactPhotoResultCallback control dictionary.
     */
-    var registeredContactPhotoResultCallback = new Adaptive.Dictionary([]);
+    Adaptive.registeredContactPhotoResultCallback = new Adaptive.Dictionary([]);
     /**
        ContactPhotoResultCallback global callback handlers.
     */
     function handleContactPhotoResultCallbackError(id, error) {
-        var callback = registeredContactPhotoResultCallback["" + id];
+        var callback = Adaptive.registeredContactPhotoResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredContactPhotoResultCallback dictionary.");
         }
         else {
-            registeredContactPhotoResultCallback.remove("" + id);
+            Adaptive.registeredContactPhotoResultCallback.remove("" + id);
             callback.onError(error);
         }
     }
     Adaptive.handleContactPhotoResultCallbackError = handleContactPhotoResultCallbackError;
     function handleContactPhotoResultCallbackResult(id, contactPhoto) {
-        var callback = registeredContactPhotoResultCallback["" + id];
+        var callback = Adaptive.registeredContactPhotoResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredContactPhotoResultCallback dictionary.");
         }
         else {
-            registeredContactPhotoResultCallback.remove("" + id);
+            Adaptive.registeredContactPhotoResultCallback.remove("" + id);
             callback.onResult(contactPhoto);
         }
     }
     Adaptive.handleContactPhotoResultCallbackResult = handleContactPhotoResultCallbackResult;
     function handleContactPhotoResultCallbackWarning(id, contactPhoto, warning) {
-        var callback = registeredContactPhotoResultCallback["" + id];
+        var callback = Adaptive.registeredContactPhotoResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
             console.error("ERROR: No callback with id " + id + " registered in registeredContactPhotoResultCallback dictionary.");
         }
         else {
-            registeredContactPhotoResultCallback.remove("" + id);
+            Adaptive.registeredContactPhotoResultCallback.remove("" + id);
             callback.onWarning(contactPhoto, warning);
         }
     }

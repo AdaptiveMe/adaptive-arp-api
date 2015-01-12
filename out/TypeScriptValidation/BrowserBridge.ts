@@ -63,6 +63,19 @@ module Adaptive {
              @since ARP1.0
           */
           openExtenalBrowser(url : string) : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(url));
+               var ar : APIRequest = new APIRequest("IBrowser","openExtenalBrowser",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'BrowserBridge.openExtenalBrowser' request.");
+               }
                return null;
           }
 
@@ -76,6 +89,21 @@ module Adaptive {
              @since ARP1.0
           */
           openInternalBrowser(url : string, title : string, backButtonText : string) : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(url));
+               arParams.push(JSON.stringify(title));
+               arParams.push(JSON.stringify(backButtonText));
+               var ar : APIRequest = new APIRequest("IBrowser","openInternalBrowser",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'BrowserBridge.openInternalBrowser' request.");
+               }
                return null;
           }
 
@@ -89,6 +117,21 @@ module Adaptive {
              @since ARP1.0
           */
           openInternalBrowserModal(url : string, title : string, backButtonText : string) : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(url));
+               arParams.push(JSON.stringify(title));
+               arParams.push(JSON.stringify(backButtonText));
+               var ar : APIRequest = new APIRequest("IBrowser","openInternalBrowserModal",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'BrowserBridge.openInternalBrowserModal' request.");
+               }
                return null;
           }
      }

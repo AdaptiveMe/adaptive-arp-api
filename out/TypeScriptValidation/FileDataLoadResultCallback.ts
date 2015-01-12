@@ -48,7 +48,7 @@ module Adaptive {
      /**
         FileDataLoadResultCallback control dictionary.
      */
-     var registeredFileDataLoadResultCallback = new Dictionary<IFileDataLoadResultCallback>([]);
+     export var registeredFileDataLoadResultCallback = new Dictionary<IFileDataLoadResultCallback>([]);
 
      /**
         FileDataLoadResultCallback global callback handlers.

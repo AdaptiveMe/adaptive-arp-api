@@ -70,6 +70,19 @@ module Adaptive {
              @since ARP1.0
           */
           hasButtonSupport(type : ICapabilitiesButton) : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(type));
+               var ar : APIRequest = new APIRequest("ICapabilities","hasButtonSupport",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'CapabilitiesBridge.hasButtonSupport' request.");
+               }
                return null;
           }
 
@@ -82,6 +95,19 @@ the device.
              @since ARP1.0
           */
           hasCommunicationSupport(type : ICapabilitiesCommunication) : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(type));
+               var ar : APIRequest = new APIRequest("ICapabilities","hasCommunicationSupport",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'CapabilitiesBridge.hasCommunicationSupport' request.");
+               }
                return null;
           }
 
@@ -93,6 +119,19 @@ the device.
              @since ARP1.0
           */
           hasDataSupport(type : ICapabilitiesData) : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(type));
+               var ar : APIRequest = new APIRequest("ICapabilities","hasDataSupport",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'CapabilitiesBridge.hasDataSupport' request.");
+               }
                return null;
           }
 
@@ -105,6 +144,19 @@ device.
              @since ARP1.0
           */
           hasMediaSupport(type : ICapabilitiesMedia) : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(type));
+               var ar : APIRequest = new APIRequest("ICapabilities","hasMediaSupport",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'CapabilitiesBridge.hasMediaSupport' request.");
+               }
                return null;
           }
 
@@ -116,6 +168,19 @@ device.
              @since ARP1.0
           */
           hasNetSupport(type : ICapabilitiesNet) : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(type));
+               var ar : APIRequest = new APIRequest("ICapabilities","hasNetSupport",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'CapabilitiesBridge.hasNetSupport' request.");
+               }
                return null;
           }
 
@@ -128,6 +193,19 @@ device.
              @since ARP1.0
           */
           hasNotificationSupport(type : ICapabilitiesNotification) : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(type));
+               var ar : APIRequest = new APIRequest("ICapabilities","hasNotificationSupport",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'CapabilitiesBridge.hasNotificationSupport' request.");
+               }
                return null;
           }
 
@@ -140,6 +218,19 @@ device.
              @since ARP1.0
           */
           hasSensorSupport(type : ICapabilitiesSensor) : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(type));
+               var ar : APIRequest = new APIRequest("ICapabilities","hasSensorSupport",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'CapabilitiesBridge.hasSensorSupport' request.");
+               }
                return null;
           }
      }

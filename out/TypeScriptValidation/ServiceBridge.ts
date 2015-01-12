@@ -41,6 +41,7 @@ Release:
 ///<reference path="IServiceResultCallback.ts"/>
 ///<reference path="Service.ts"/>
 ///<reference path="ServiceRequest.ts"/>
+///<reference path="ServiceResultCallback.ts"/>
 module Adaptive {
 
      /**
@@ -66,6 +67,19 @@ module Adaptive {
              @since ARP1.0
           */
           getService(serviceName : string) : Service {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(serviceName));
+               var ar : APIRequest = new APIRequest("IService","getService",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'ServiceBridge.getService' request.");
+               }
                return null;
           }
 
@@ -78,6 +92,22 @@ module Adaptive {
              @since ARP1.0
           */
           invokeService(serviceRequest : ServiceRequest, service : Service, callback : IServiceResultCallback) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(serviceRequest));
+               arParams.push(JSON.stringify(service));
+               var ar : APIRequest = new APIRequest("IService","invokeService",arParams, callback.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add callback reference to local dictionary.
+                    registeredServiceResultCallback.add(""+callback.getId(), callback);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'ServiceBridge.invokeService' request.");
+               }
           }
 
           /**
@@ -87,6 +117,19 @@ module Adaptive {
              @since ARP1.0
           */
           registerService(service : Service) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(service));
+               var ar : APIRequest = new APIRequest("IService","registerService",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'ServiceBridge.registerService' request.");
+               }
           }
 
           /**
@@ -96,6 +139,19 @@ module Adaptive {
              @since ARP1.0
           */
           unregisterService(service : Service) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(service));
+               var ar : APIRequest = new APIRequest("IService","unregisterService",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'ServiceBridge.unregisterService' request.");
+               }
           }
 
           /**
@@ -104,6 +160,18 @@ module Adaptive {
              @since ARP1.0
           */
           unregisterServices() : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("IService","unregisterServices",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'ServiceBridge.unregisterServices' request.");
+               }
           }
 
           /**
@@ -114,6 +182,7 @@ module Adaptive {
              @since ARP1.0
           */
           isRegistered_service(service : Service) : boolean {
+               // TODO: Implement overloaded methods.
                return null;
           }
 
@@ -125,6 +194,7 @@ module Adaptive {
              @since ARP1.0
           */
           isRegistered_serviceName(serviceName : string) : boolean {
+               // TODO: Implement overloaded methods.
                return null;
           }
      }

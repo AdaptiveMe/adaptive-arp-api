@@ -1,6 +1,7 @@
 /// <reference path="APIRequest.d.ts" />
 /// <reference path="BaseSensorBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
+/// <reference path="GeolocationListener.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseSensor.d.ts" />
 /// <reference path="IGeolocation.d.ts" />

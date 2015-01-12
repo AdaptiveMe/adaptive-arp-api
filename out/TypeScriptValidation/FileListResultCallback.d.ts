@@ -39,6 +39,14 @@ Release:
 */
 declare module Adaptive {
     /**
+       Interface for Managing the File result operations
+       Auto-generated implementation of IFileListResultCallback specification.
+    */
+    /**
+       FileListResultCallback control dictionary.
+    */
+    var registeredFileListResultCallback: Dictionary<IFileListResultCallback>;
+    /**
        FileListResultCallback global callback handlers.
     */
     function handleFileListResultCallbackError(id: number, error: IFileListResultCallbackError): void;

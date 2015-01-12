@@ -63,6 +63,18 @@ module Adaptive {
              @since ARP1.0
           */
           getOSInfo() : OSInfo {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("IOS","getOSInfo",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'OSBridge.getOSInfo' request.");
+               }
                return null;
           }
      }

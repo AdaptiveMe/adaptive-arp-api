@@ -39,6 +39,7 @@ Release:
 ///<reference path="IBaseApplication.ts"/>
 ///<reference path="ILifecycle.ts"/>
 ///<reference path="ILifecycleListener.ts"/>
+///<reference path="LifecycleListener.ts"/>
 module Adaptive {
 
      /**
@@ -63,6 +64,20 @@ module Adaptive {
              @since ARP1.0
           */
           addLifecycleListener(listener : ILifecycleListener) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("ILifecycle","addLifecycleListener",arParams, listener.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Add listener reference to local dictionary.
+                    registeredLifecycleListener.add(""+listener.getId(), listener);
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'LifecycleBridge.addLifecycleListener' request.");
+               }
           }
 
           /**
@@ -72,6 +87,18 @@ module Adaptive {
              @since ARP1.0
           */
           isBackground() : boolean {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("ILifecycle","isBackground",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'LifecycleBridge.isBackground' request.");
+               }
                return null;
           }
 
@@ -82,6 +109,20 @@ module Adaptive {
              @since ARP1.0
           */
           removeLifecycleListener(listener : ILifecycleListener) : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("ILifecycle","removeLifecycleListener",arParams, listener.getId());
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Remove listener reference from local dictionary.
+                    registeredLifecycleListener.remove(""+listener.getId());
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'LifecycleBridge.removeLifecycleListener' request.");
+               }
           }
 
           /**
@@ -90,6 +131,23 @@ module Adaptive {
              @since ARP1.0
           */
           removeLifecycleListeners() : void {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("ILifecycle","removeLifecycleListeners",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+                    // Remove all listeners references from local dictionary.
+                    var keys = registeredLifecycleListener.keys();
+                    for (var key in keys) {
+                         registeredLifecycleListener.remove(key);
+                    }
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'LifecycleBridge.removeLifecycleListeners' request.");
+               }
           }
      }
 }

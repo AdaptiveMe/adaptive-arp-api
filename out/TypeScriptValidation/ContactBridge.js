@@ -40,6 +40,8 @@ var __extends = this.__extends || function (d, b) {
 ///<reference path="APIRequest.ts"/>
 ///<reference path="BasePIMBridge.ts"/>
 ///<reference path="CommonUtil.ts"/>
+///<reference path="ContactPhotoResultCallback.ts"/>
+///<reference path="ContactResultCallback.ts"/>
 ///<reference path="ContactUid.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBasePIM.ts"/>
@@ -72,6 +74,22 @@ var Adaptive;
            @since ARP1.0
         */
         ContactBridge.prototype.getContact = function (contact, callback) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(contact));
+            var ar = new Adaptive.APIRequest("IContact", "getContact", arParams, callback.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add callback reference to local dictionary.
+                Adaptive.registeredContactResultCallback.add("" + callback.getId(), callback);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'ContactBridge.getContact' request.");
+            }
         };
         /**
            Get the contact photo
@@ -81,6 +99,22 @@ var Adaptive;
            @since ARP1.0
         */
         ContactBridge.prototype.getContactPhoto = function (contact, callback) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(contact));
+            var ar = new Adaptive.APIRequest("IContact", "getContactPhoto", arParams, callback.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add callback reference to local dictionary.
+                Adaptive.registeredContactPhotoResultCallback.add("" + callback.getId(), callback);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'ContactBridge.getContactPhoto' request.");
+            }
         };
         /**
            Get all contacts
@@ -89,6 +123,21 @@ var Adaptive;
            @since ARP1.0
         */
         ContactBridge.prototype.getContacts = function (callback) {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new Adaptive.APIRequest("IContact", "getContacts", arParams, callback.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add callback reference to local dictionary.
+                Adaptive.registeredContactResultCallback.add("" + callback.getId(), callback);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'ContactBridge.getContacts' request.");
+            }
         };
         /**
            Get marked fields of all contacts
@@ -98,6 +147,22 @@ var Adaptive;
            @since ARP1.0
         */
         ContactBridge.prototype.getContactsForFields = function (callback, fields) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(fields));
+            var ar = new Adaptive.APIRequest("IContact", "getContactsForFields", arParams, callback.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add callback reference to local dictionary.
+                Adaptive.registeredContactResultCallback.add("" + callback.getId(), callback);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'ContactBridge.getContactsForFields' request.");
+            }
         };
         /**
            Get marked fields of all contacts according to a filter
@@ -108,6 +173,23 @@ var Adaptive;
            @since ARP1.0
         */
         ContactBridge.prototype.getContactsWithFilter = function (callback, fields, filter) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(fields));
+            arParams.push(JSON.stringify(filter));
+            var ar = new Adaptive.APIRequest("IContact", "getContactsWithFilter", arParams, callback.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add callback reference to local dictionary.
+                Adaptive.registeredContactResultCallback.add("" + callback.getId(), callback);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'ContactBridge.getContactsWithFilter' request.");
+            }
         };
         /**
            Search contacts according to a term and send it to the callback
@@ -117,6 +199,22 @@ var Adaptive;
            @since ARP1.0
         */
         ContactBridge.prototype.searchContacts = function (term, callback) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(term));
+            var ar = new Adaptive.APIRequest("IContact", "searchContacts", arParams, callback.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add callback reference to local dictionary.
+                Adaptive.registeredContactResultCallback.add("" + callback.getId(), callback);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'ContactBridge.searchContacts' request.");
+            }
         };
         /**
            Search contacts according to a term with a filter and send it to the callback
@@ -127,6 +225,23 @@ var Adaptive;
            @since ARP1.0
         */
         ContactBridge.prototype.searchContactsWithFilter = function (term, callback, filter) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(term));
+            arParams.push(JSON.stringify(filter));
+            var ar = new Adaptive.APIRequest("IContact", "searchContactsWithFilter", arParams, callback.getId());
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+                // Add callback reference to local dictionary.
+                Adaptive.registeredContactResultCallback.add("" + callback.getId(), callback);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'ContactBridge.searchContactsWithFilter' request.");
+            }
         };
         /**
            Set the contact photo
@@ -137,6 +252,21 @@ var Adaptive;
            @since ARP1.0
         */
         ContactBridge.prototype.setContactPhoto = function (contact, pngImage) {
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(contact));
+            arParams.push(JSON.stringify(pngImage));
+            var ar = new Adaptive.APIRequest("IContact", "setContactPhoto", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'ContactBridge.setContactPhoto' request.");
+            }
             return null;
         };
         return ContactBridge;

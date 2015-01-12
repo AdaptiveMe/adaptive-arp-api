@@ -67,6 +67,19 @@ var Adaptive;
            @since ARP1.0
         */
         OSBridge.prototype.getOSInfo = function () {
+            // Create and populate API request.
+            var arParams = [];
+            var ar = new Adaptive.APIRequest("IOS", "getOSInfo", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'OSBridge.getOSInfo' request.");
+            }
             return null;
         };
         return OSBridge;

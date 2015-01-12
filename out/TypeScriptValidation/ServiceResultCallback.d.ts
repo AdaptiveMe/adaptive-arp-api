@@ -39,6 +39,14 @@ Release:
 */
 declare module Adaptive {
     /**
+       Interface for Managing the Services operations
+       Auto-generated implementation of IServiceResultCallback specification.
+    */
+    /**
+       ServiceResultCallback control dictionary.
+    */
+    var registeredServiceResultCallback: Dictionary<IServiceResultCallback>;
+    /**
        ServiceResultCallback global callback handlers.
     */
     function handleServiceResultCallbackError(id: number, error: IServiceResultCallbackError): void;

@@ -64,6 +64,18 @@ module Adaptive {
              @since ARP1.0
           */
           getLocaleSupportedDescriptors() : Array<Locale> {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               var ar : APIRequest = new APIRequest("IGlobalization","getLocaleSupportedDescriptors",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'GlobalizationBridge.getLocaleSupportedDescriptors' request.");
+               }
                return null;
           }
 
@@ -76,6 +88,20 @@ module Adaptive {
              @since ARP1.0
           */
           getResourceLiteral(key : string, locale : Locale) : string {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(key));
+               arParams.push(JSON.stringify(locale));
+               var ar : APIRequest = new APIRequest("IGlobalization","getResourceLiteral",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'GlobalizationBridge.getResourceLiteral' request.");
+               }
                return null;
           }
 
@@ -87,6 +113,19 @@ module Adaptive {
              @since ARP1.0
           */
           getResourceLiterals(locale : Locale) : Array<KeyPair> {
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(locale));
+               var ar : APIRequest = new APIRequest("IGlobalization","getResourceLiterals",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'GlobalizationBridge.getResourceLiterals' request.");
+               }
                return null;
           }
      }

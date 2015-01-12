@@ -39,6 +39,14 @@ Release:
 */
 declare module Adaptive {
     /**
+       Interface for Managing the Security result callback
+       Auto-generated implementation of ISecurityResultCallback specification.
+    */
+    /**
+       SecurityResultCallback control dictionary.
+    */
+    var registeredSecurityResultCallback: Dictionary<ISecurityResultCallback>;
+    /**
        SecurityResultCallback global callback handlers.
     */
     function handleSecurityResultCallbackError(id: number, error: ISecurityResultCallbackError): void;
