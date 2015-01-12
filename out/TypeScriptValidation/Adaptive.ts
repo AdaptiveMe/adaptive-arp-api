@@ -649,6 +649,14 @@ module Adaptive {
         @version 1.0
      */
      export interface IBaseCallback extends IAdaptiveRP {
+
+          /**
+             Retrieve unique id of callback/listener.
+
+             @return Callback/listener unique id.
+          */
+          getId() : number;
+
      }
      /**
         Base application for Commerce purposes
@@ -685,6 +693,14 @@ module Adaptive {
         @version 1.0
      */
      export interface IBaseListener extends IAdaptiveRP {
+
+          /**
+             Retrieve unique id of callback/listener.
+
+             @return Callback/listener unique id.
+          */
+          getId() : number;
+
      }
      /**
         Base application for Media purposes

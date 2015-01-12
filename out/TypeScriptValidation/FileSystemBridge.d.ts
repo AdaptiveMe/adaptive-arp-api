@@ -1,3 +1,4 @@
+/// <reference path="APIRequest.d.ts" />
 /// <reference path="BaseDataBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="FileDescriptor.d.ts" />

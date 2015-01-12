@@ -1,3 +1,4 @@
+/// <reference path="APIRequest.d.ts" />
 /// <reference path="BasePIMBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="ContactUid.d.ts" />

@@ -540,6 +540,12 @@ declare module Adaptive {
        @version 1.0
     */
     interface IBaseCallback extends IAdaptiveRP {
+        /**
+           Retrieve unique id of callback/listener.
+
+           @return Callback/listener unique id.
+        */
+        getId(): number;
     }
     /**
        Base application for Commerce purposes
@@ -576,6 +582,12 @@ declare module Adaptive {
        @version 1.0
     */
     interface IBaseListener extends IAdaptiveRP {
+        /**
+           Retrieve unique id of callback/listener.
+
+           @return Callback/listener unique id.
+        */
+        getId(): number;
     }
     /**
        Base application for Media purposes

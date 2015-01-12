@@ -1,3 +1,4 @@
+/// <reference path="APIRequest.d.ts" />
 /// <reference path="BaseSocialBridge.d.ts" />
 /// <reference path="CommonUtil.d.ts" />
 /// <reference path="IAdaptiveRPGroup.d.ts" />
