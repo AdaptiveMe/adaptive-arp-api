@@ -37,7 +37,7 @@ Release:
 ///<reference path="IBaseUtil.ts"/>
 ///<reference path="ILoggingLogLevel.ts"/>
 module Adaptive {
-
+     //TODO: handler implementation.
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

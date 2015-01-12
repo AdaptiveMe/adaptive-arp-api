@@ -37,7 +37,7 @@ Release:
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseData.ts"/>
 module Adaptive {
-
+     //TODO: handler implementation.
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

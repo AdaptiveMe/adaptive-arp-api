@@ -134,78 +134,6 @@ module Adaptive {
           getAPIGroup() : IAdaptiveRPGroup;
      }
      /**
-        Interface for context management purposes
-
-        @author Carlos Lozano Diez
-        @since ARP1.0
-        @version 1.0
-     */
-     export interface IAppContext {
-          /**
-             The main application context. This should be cast to the platform specific implementation.
-             @return Object representing the specific singleton application context provided by the OS.
-             @since ARP1.0
-          */
-          getContext() : any;
-          /**
-             The type of context provided by the getContext method.
-             @return Type of platform context.
-             @since ARP1.0
-          */
-          getContextType() : IOSType;
-     }
-     /**
-        Interface for webview context management purposes
-
-        @author Carlos Lozano Diez
-        @since ARP1.0
-        @version 1.0
-     */
-     export interface IAppContextWebview {
-          /**
-             Additional views may be added to an application - a separate activity - and if these will make calls to the
-ARP methods, they must be registered by adding them to the context. When they are added to the context, ARP
-methods are bound to the webview so that they're callable from the HTML application. The primary webview should
-not be added using this method.
-             @param webView Platform specific webview reference (WebView, UIWebView, WKWebView,etc.)
-             @since ARP1.0
-          */
-          addWebview(webView:any);
-          /**
-             Evaluate the specified javascript on the main webview of the application.
-             @param javaScriptText    The javascript expression to execute on the webview.
-          */
-          executeJavaScript(javaScriptText:string);
-          /**
-             Evaluate the specified javascript on the specified webview of the application.
-             @param javaScriptText    The javascript expression to execute on the webview.
-             @param webViewReference  The target webview on which to execute the expression.
-          */
-          executeJavaScript(javaScriptText:string, webViewReference:any);
-          /**
-             Returns a reference to the main application webview. This is the first application webview and can not be removed
-with the removeWebview method. The object returned should be cast to the platform specific implementation
-WebView, WKWebView, etc.
-             @return Object representing the specific and primary webview instance of the application.
-             @since ARP1.0
-          */
-          getWebviewPrimary() : any;
-          /**
-             Returns an array of webviews currently managed by the context - composed of primary and the list of those added.
-This method will always return at least one element; the primary webview.
-             @return Array with all the Webview instances being managed by ARP.
-             @since ARP1.0
-          */
-          getWebviews() : Array<any>;
-          /**
-             When a webview is disposed - no longer in use from an external activity - the webview should be removed to unbind
-ARP functions and release resources. The primary webview can not be removed.
-             @param webView The instance of the webview to be removed from the binding.
-             @since ARP1.0
-          */
-          removeWebview(webView:any);
-     }
-     /**
         Interface to retrieve auto-registered service implementation references.
 
         @author Carlos Lozano Diez
@@ -8402,6 +8330,93 @@ listener and subsequently, the listener will be deactivated and removed from the
           }
 
      }
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
+     //TODO: handler implementation.
      /**
         Enumeration ContactAddressType
      */
@@ -9120,28 +9135,6 @@ listener and subsequently, the listener will be deactivated and removed from the
           static IpAddressNotAssigned = new INetworkStatusListenerWarning("IpAddressNotAssigned");
           static IpAddressChanged = new INetworkStatusListenerWarning("IpAddressChanged");
           static Unknown = new INetworkStatusListenerWarning("Unknown");
-
-     }
-     /**
-        Enumeration IOSType
-     */
-     export class IOSType {
-
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static iOS = new IOSType("iOS");
-          static OSX = new IOSType("OSX");
-          static Windows = new IOSType("Windows");
-          static WindowsPhone = new IOSType("WindowsPhone");
-          static Android = new IOSType("Android");
-          static Linux = new IOSType("Linux");
-          static Blackberry = new IOSType("Blackberry");
-          static Tizen = new IOSType("Tizen");
-          static FirefoxOS = new IOSType("FirefoxOS");
-          static Chromium = new IOSType("Chromium");
-          static Unspecified = new IOSType("Unspecified");
-          static Unknown = new IOSType("Unknown");
 
      }
      /**

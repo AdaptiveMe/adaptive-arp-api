@@ -40,7 +40,7 @@ Release:
 ///<reference path="IDatabaseResultCallback.ts"/>
 ///<reference path="IDatabaseTableResultCallback.ts"/>
 module Adaptive {
-
+     //TODO: handler implementation.
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

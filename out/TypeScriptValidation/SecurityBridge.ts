@@ -38,7 +38,7 @@ Release:
 ///<reference path="ISecurityResultCallback.ts"/>
 ///<reference path="SecureKeyPair.ts"/>
 module Adaptive {
-
+     //TODO: handler implementation.
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

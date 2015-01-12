@@ -44,7 +44,7 @@ Release:
 ///<reference path="IFileSystemStorageType.ts"/>
 ///<reference path="IFileSystemType.ts"/>
 module Adaptive {
-
+     //TODO: handler implementation.
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

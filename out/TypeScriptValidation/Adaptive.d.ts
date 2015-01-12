@@ -95,78 +95,6 @@ declare module Adaptive {
         getAPIGroup(): IAdaptiveRPGroup;
     }
     /**
-       Interface for context management purposes
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IAppContext {
-        /**
-           The main application context. This should be cast to the platform specific implementation.
-           @return Object representing the specific singleton application context provided by the OS.
-           @since ARP1.0
-        */
-        getContext(): any;
-        /**
-           The type of context provided by the getContext method.
-           @return Type of platform context.
-           @since ARP1.0
-        */
-        getContextType(): IOSType;
-    }
-    /**
-       Interface for webview context management purposes
-
-       @author Carlos Lozano Diez
-       @since ARP1.0
-       @version 1.0
-    */
-    interface IAppContextWebview {
-        /**
-           Additional views may be added to an application - a separate activity - and if these will make calls to the
-ARP methods, they must be registered by adding them to the context. When they are added to the context, ARP
-methods are bound to the webview so that they're callable from the HTML application. The primary webview should
-not be added using this method.
-           @param webView Platform specific webview reference (WebView, UIWebView, WKWebView,etc.)
-           @since ARP1.0
-        */
-        addWebview(webView: any): any;
-        /**
-           Evaluate the specified javascript on the main webview of the application.
-           @param javaScriptText    The javascript expression to execute on the webview.
-        */
-        executeJavaScript(javaScriptText: string): any;
-        /**
-           Evaluate the specified javascript on the specified webview of the application.
-           @param javaScriptText    The javascript expression to execute on the webview.
-           @param webViewReference  The target webview on which to execute the expression.
-        */
-        executeJavaScript(javaScriptText: string, webViewReference: any): any;
-        /**
-           Returns a reference to the main application webview. This is the first application webview and can not be removed
-with the removeWebview method. The object returned should be cast to the platform specific implementation
-WebView, WKWebView, etc.
-           @return Object representing the specific and primary webview instance of the application.
-           @since ARP1.0
-        */
-        getWebviewPrimary(): any;
-        /**
-           Returns an array of webviews currently managed by the context - composed of primary and the list of those added.
-This method will always return at least one element; the primary webview.
-           @return Array with all the Webview instances being managed by ARP.
-           @since ARP1.0
-        */
-        getWebviews(): any[];
-        /**
-           When a webview is disposed - no longer in use from an external activity - the webview should be removed to unbind
-ARP functions and release resources. The primary webview can not be removed.
-           @param webView The instance of the webview to be removed from the binding.
-           @since ARP1.0
-        */
-        removeWebview(webView: any): any;
-    }
-    /**
        Interface to retrieve auto-registered service implementation references.
 
        @author Carlos Lozano Diez
@@ -6734,26 +6662,6 @@ listener and subsequently, the listener will be deactivated and removed from the
         static IpAddressNotAssigned: INetworkStatusListenerWarning;
         static IpAddressChanged: INetworkStatusListenerWarning;
         static Unknown: INetworkStatusListenerWarning;
-    }
-    /**
-       Enumeration IOSType
-    */
-    class IOSType {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static iOS: IOSType;
-        static OSX: IOSType;
-        static Windows: IOSType;
-        static WindowsPhone: IOSType;
-        static Android: IOSType;
-        static Linux: IOSType;
-        static Blackberry: IOSType;
-        static Tizen: IOSType;
-        static FirefoxOS: IOSType;
-        static Chromium: IOSType;
-        static Unspecified: IOSType;
-        static Unknown: IOSType;
     }
     /**
        Enumeration ISecurityResultCallbackError

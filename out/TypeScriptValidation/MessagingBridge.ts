@@ -37,7 +37,7 @@ Release:
 ///<reference path="IBasePIM.ts"/>
 ///<reference path="IMessagingCallback.ts"/>
 module Adaptive {
-
+     //TODO: handler implementation.
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

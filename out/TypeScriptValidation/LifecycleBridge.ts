@@ -37,7 +37,7 @@ Release:
 ///<reference path="IBaseApplication.ts"/>
 ///<reference path="ILifecycleListener.ts"/>
 module Adaptive {
-
+     //TODO: handler implementation.
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

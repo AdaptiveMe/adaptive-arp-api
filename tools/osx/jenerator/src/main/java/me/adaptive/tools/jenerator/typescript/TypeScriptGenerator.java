@@ -235,13 +235,13 @@ public class TypeScriptGenerator extends GeneratorBase {
 
 
         println("module Adaptive {");
-        println(); //TODO: handler implementation.
+        printlnGlobal(5, "//TODO: handler implementation.");
         println("}");
     }
 
     @Override
     protected void createCallbackImplementation(String simpleName, Class clazz, JavaClass javaClass) {
-        simpleName = simpleName.substring(0, simpleName.length()-4);
+        simpleName = simpleName.substring(0, simpleName.length() - 4);
 
         List<String> referenceList = new ArrayList<>();
         if (clazz.getSimpleName().equals("IBaseCallback")) {
@@ -370,7 +370,7 @@ public class TypeScriptGenerator extends GeneratorBase {
                 printlnGlobal(10, "if (typeof callback === 'undefined' || callback == null) {");
                 printlnGlobal(15, "console.error(\"ERROR: No callback with id \"+id+\" registered in registered" + clazz.getSimpleName().substring(1) + " dictionary.\");");
                 printlnGlobal(10, "} else {");
-                printlnGlobal(15, "registered"+clazz.getSimpleName().substring(1)+".remove(\"\"+id);");
+                printlnGlobal(15, "registered" + clazz.getSimpleName().substring(1) + ".remove(\"\"+id);");
                 printGlobal(15, "callback." + m.getName() + "(");
                 for (int i = 0; i < m.getParameterCount(); i++) {
                     Parameter p = m.getParameters()[i];
@@ -388,7 +388,6 @@ public class TypeScriptGenerator extends GeneratorBase {
             printlnGlobal();
             printlnGlobal(5, "export class " + simpleName + " extends BaseCallback implements " + clazz.getSimpleName() + " {");
             printlnGlobal();
-
 
 
             for (Method m : methodList) {
@@ -516,7 +515,7 @@ public class TypeScriptGenerator extends GeneratorBase {
 
     @Override
     protected void createListenerImplementation(String simpleName, Class clazz, JavaClass javaClass) {
-        simpleName = simpleName.substring(0, simpleName.length()-4);
+        simpleName = simpleName.substring(0, simpleName.length() - 4);
         List<String> referenceList = new ArrayList<>();
         if (clazz.getSimpleName().equals("IBaseListener")) {
             referenceList.add("IAdaptiveRPGroup");
@@ -790,98 +789,100 @@ public class TypeScriptGenerator extends GeneratorBase {
 
     @Override
     protected void declareInterfaceMethods(String simpleName, Class clazz, List<Method> interfaceMethods, List<JavaMethod> interfaceMethodsDoc) {
-        for (Method method : interfaceMethods) {
-            if (method.getName().equals("get$Synthetic$")) {
-                // getters for all service classes!
-                Class superInterface = null;
-                try {
-                    superInterface = Class.forName("me.adaptive.arp.api.IAdaptiveRP");
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
-                Reflections reflections = new Reflections(new ConfigurationBuilder()
-                        .setScanners(new SubTypesScanner(false /* don't exclude Object.class */), new ResourcesScanner())
-                        .setUrls(ClasspathHelper.forPackage(superInterface.getPackage().getName()))
-                        .filterInputsBy(new FilterBuilder().include(FilterBuilder.prefix(superInterface.getPackage().getName()))));
+        if (!clazz.getSimpleName().startsWith("IAppContext")) {
+            for (Method method : interfaceMethods) {
+                if (method.getName().equals("get$Synthetic$")) {
+                    // getters for all service classes!
+                    Class superInterface = null;
+                    try {
+                        superInterface = Class.forName("me.adaptive.arp.api.IAdaptiveRP");
+                    } catch (ClassNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                    Reflections reflections = new Reflections(new ConfigurationBuilder()
+                            .setScanners(new SubTypesScanner(false /* don't exclude Object.class */), new ResourcesScanner())
+                            .setUrls(ClasspathHelper.forPackage(superInterface.getPackage().getName()))
+                            .filterInputsBy(new FilterBuilder().include(FilterBuilder.prefix(superInterface.getPackage().getName()))));
 
-                Set<Class<? extends Object>> allClassesSet = reflections.getSubTypesOf(superInterface);
-                List<Class> serviceClasses = new ArrayList<>();
-                for (Class subClass : allClassesSet) {
-                    if (!subClass.getName().endsWith("Callback") && !subClass.getName().endsWith("Listener") && !subClass.getSimpleName().startsWith("IBase")) {
-                        serviceClasses.add(subClass);
-                    }
-                }
-                serviceClasses.sort(new Comparator<Class>() {
-                    @Override
-                    public int compare(Class o1, Class o2) {
-                        return o1.getName().compareTo(o2.getName());
-                    }
-                });
-                for (Class serviceClass : serviceClasses) {
-                    startComment(10);
-                    startCommentSF(10);
-                    println(13, "Returns a reference to the registered " + serviceClass.getSimpleName().substring(1) + "Bridge.");
-                    println();
-                    println(13, "@return " + serviceClass.getSimpleName().substring(1) + "Bridge reference or null if a bridge of this type is not registered.");
-                    printlnSF(13, "Returns a reference to the registered " + serviceClass.getSimpleName().substring(1) + "Bridge.");
-                    printlnSF();
-                    printlnSF(13, "@return " + serviceClass.getSimpleName().substring(1) + "Bridge reference or null if a bridge of this type is not registered.");
-                    endComment(10);
-                    endCommentSF(10);
-                    println(10, "get" + serviceClass.getSimpleName().substring(1) + "Bridge() : " + serviceClass.getSimpleName());
-                    println();
-                    printlnSF(10, "get" + serviceClass.getSimpleName().substring(1) + "Bridge() : " + serviceClass.getSimpleName());
-                    printlnSF();
-                }
-            } else {
-                if (!clazz.getSimpleName().equals("IAppRegistry")) {
-                    startComment(10);
-                    startCommentSF(10);
-                    JavaMethod javaMethod = null;
-                    for (JavaMethod m : interfaceMethodsDoc) {
-                        if (m.getName().equals(method.getName()) && m.getParameters().size() == method.getParameterCount()) {
-                            javaMethod = m;
-                            break;
+                    Set<Class<? extends Object>> allClassesSet = reflections.getSubTypesOf(superInterface);
+                    List<Class> serviceClasses = new ArrayList<>();
+                    for (Class subClass : allClassesSet) {
+                        if (!subClass.getName().endsWith("Callback") && !subClass.getName().endsWith("Listener") && !subClass.getSimpleName().startsWith("IBase")) {
+                            serviceClasses.add(subClass);
                         }
                     }
-                    if (javaMethod != null) {
-                        println(13, javaMethod.getComment());
-                        printlnSF(13, javaMethod.getComment());
-                        for (DocletTag tag : javaMethod.getTags()) {
-                            println(13, "@" + tag.getName() + " " + tag.getValue());
-                            printlnSF(13, "@" + tag.getName() + " " + tag.getValue());
+                    serviceClasses.sort(new Comparator<Class>() {
+                        @Override
+                        public int compare(Class o1, Class o2) {
+                            return o1.getName().compareTo(o2.getName());
                         }
+                    });
+                    for (Class serviceClass : serviceClasses) {
+                        startComment(10);
+                        startCommentSF(10);
+                        println(13, "Returns a reference to the registered " + serviceClass.getSimpleName().substring(1) + "Bridge.");
+                        println();
+                        println(13, "@return " + serviceClass.getSimpleName().substring(1) + "Bridge reference or null if a bridge of this type is not registered.");
+                        printlnSF(13, "Returns a reference to the registered " + serviceClass.getSimpleName().substring(1) + "Bridge.");
+                        printlnSF();
+                        printlnSF(13, "@return " + serviceClass.getSimpleName().substring(1) + "Bridge reference or null if a bridge of this type is not registered.");
+                        endComment(10);
+                        endCommentSF(10);
+                        println(10, "get" + serviceClass.getSimpleName().substring(1) + "Bridge() : " + serviceClass.getSimpleName());
+                        println();
+                        printlnSF(10, "get" + serviceClass.getSimpleName().substring(1) + "Bridge() : " + serviceClass.getSimpleName());
+                        printlnSF();
                     }
-                    endComment(10);
-                    print(10, method.getName());
-                    print("(");
-                    endCommentSF(10);
-                    printSF(10, method.getName());
-                    printSF(0, "(");
-                    for (int i = 0; i < method.getParameterCount(); i++) {
-                        Parameter p = method.getParameters()[i];
-                        print(p.getName());
-                        print(":");
-                        print(convertJavaToNativeType(p.getType()));
-                        printSF(0, p.getName());
-                        printSF(0, ":");
-                        printSF(0, convertJavaToNativeType(p.getType()));
-                        if (i < method.getParameterCount() - 1) {
-                            print(", ");
-                            printSF(0, ", ");
+                } else {
+                    if (!clazz.getSimpleName().equals("IAppRegistry")) {
+                        startComment(10);
+                        startCommentSF(10);
+                        JavaMethod javaMethod = null;
+                        for (JavaMethod m : interfaceMethodsDoc) {
+                            if (m.getName().equals(method.getName()) && m.getParameters().size() == method.getParameterCount()) {
+                                javaMethod = m;
+                                break;
+                            }
                         }
-                    }
-                    print(")");
-                    printSF(0, ")");
+                        if (javaMethod != null) {
+                            println(13, javaMethod.getComment());
+                            printlnSF(13, javaMethod.getComment());
+                            for (DocletTag tag : javaMethod.getTags()) {
+                                println(13, "@" + tag.getName() + " " + tag.getValue());
+                                printlnSF(13, "@" + tag.getName() + " " + tag.getValue());
+                            }
+                        }
+                        endComment(10);
+                        print(10, method.getName());
+                        print("(");
+                        endCommentSF(10);
+                        printSF(10, method.getName());
+                        printSF(0, "(");
+                        for (int i = 0; i < method.getParameterCount(); i++) {
+                            Parameter p = method.getParameters()[i];
+                            print(p.getName());
+                            print(":");
+                            print(convertJavaToNativeType(p.getType()));
+                            printSF(0, p.getName());
+                            printSF(0, ":");
+                            printSF(0, convertJavaToNativeType(p.getType()));
+                            if (i < method.getParameterCount() - 1) {
+                                print(", ");
+                                printSF(0, ", ");
+                            }
+                        }
+                        print(")");
+                        printSF(0, ")");
 
-                    if (!method.getReturnType().equals(Void.TYPE)) {
-                        print(" : ");
-                        print(convertJavaToNativeType(method.getReturnType()));
-                        printSF(0, " : ");
-                        printSF(0, convertJavaToNativeType(method.getReturnType()));
+                        if (!method.getReturnType().equals(Void.TYPE)) {
+                            print(" : ");
+                            print(convertJavaToNativeType(method.getReturnType()));
+                            printSF(0, " : ");
+                            printSF(0, convertJavaToNativeType(method.getReturnType()));
+                        }
+                        println(";");
+                        printlnSF(0, ";");
                     }
-                    println(";");
-                    printlnSF(0, ";");
                 }
             }
         }
@@ -890,7 +891,7 @@ public class TypeScriptGenerator extends GeneratorBase {
     @Override
     protected void endInterface(String simpleName, Class clazz) {
         println(5, "}"); // Class
-        indentPrintStreamSF.println(5, "}");
+        if (!clazz.getSimpleName().startsWith("IAppContext")) indentPrintStreamSF.println(5, "}");
         println("}"); // Module
     }
 
@@ -1017,28 +1018,31 @@ public class TypeScriptGenerator extends GeneratorBase {
         println("module Adaptive {"); // Module
         println();
         startComment(5);
-        startCommentSF(5);
+        if (!clazz.getSimpleName().startsWith("IAppContext")) startCommentSF(5);
         println(8, classComment);
-        printlnSF(8, classComment);
+        if (!clazz.getSimpleName().startsWith("IAppContext")) printlnSF(8, classComment);
         if (tagList.size() > 0) {
             println();
-            printlnSF();
+            if (!clazz.getSimpleName().startsWith("IAppContext")) printlnSF();
             for (DocletTag tag : tagList) {
                 println(8, "@" + tag.getName() + " " + tag.getValue());
-                printlnSF(8, "@" + tag.getName() + " " + tag.getValue());
+                if (!clazz.getSimpleName().startsWith("IAppContext"))
+                    printlnSF(8, "@" + tag.getName() + " " + tag.getValue());
             }
         }
         endComment(5);
-        endCommentSF(5);
+        if (!clazz.getSimpleName().startsWith("IAppContext")) endCommentSF(5);
         if (clazz.isEnum()) {
             println(5, "export interface " + generateEnumClassName(clazz) + " {");
-            printlnSF(5, "export interface " + generateEnumClassName(clazz) + " {");
+            if (!clazz.getSimpleName().startsWith("IAppContext"))
+                printlnSF(5, "export interface " + generateEnumClassName(clazz) + " {");
         } else if (clazz.getInterfaces() != null && clazz.getInterfaces().length == 1) {
             println(5, "export interface " + simpleName + " extends " + clazz.getInterfaces()[0].getSimpleName() + " {");
-            printlnSF(5, "export interface " + simpleName + " extends " + clazz.getInterfaces()[0].getSimpleName() + " {");
+            if (!clazz.getSimpleName().startsWith("IAppContext"))
+                printlnSF(5, "export interface " + simpleName + " extends " + clazz.getInterfaces()[0].getSimpleName() + " {");
         } else {
             println(5, "export interface " + simpleName + " {");
-            printlnSF(5, "export interface " + simpleName + " {");
+            if (!clazz.getSimpleName().startsWith("IAppContext")) printlnSF(5, "export interface " + simpleName + " {");
         }
         /**
          * Process all enums.
@@ -1057,10 +1061,10 @@ public class TypeScriptGenerator extends GeneratorBase {
             print(" : ");
             print(convertJavaToNativeType(field.getType()));
             println(";");
-            printSF(10, field.getName());
-            printSF(0, " : ");
-            printSF(0, convertJavaToNativeType(field.getType()));
-            printlnSF(0, ";");
+            if (!clazz.getSimpleName().startsWith("IAppContext")) printSF(10, field.getName());
+            if (!clazz.getSimpleName().startsWith("IAppContext")) printSF(0, " : ");
+            if (!clazz.getSimpleName().startsWith("IAppContext")) printSF(0, convertJavaToNativeType(field.getType()));
+            if (!clazz.getSimpleName().startsWith("IAppContext")) printlnSF(0, ";");
         }
     }
 

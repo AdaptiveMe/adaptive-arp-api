@@ -37,7 +37,7 @@ Release:
 ///<reference path="IBaseSystem.ts"/>
 ///<reference path="OSInfo.ts"/>
 module Adaptive {
-
+     //TODO: handler implementation.
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

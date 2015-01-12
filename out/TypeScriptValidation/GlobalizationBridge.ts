@@ -38,7 +38,7 @@ Release:
 ///<reference path="KeyPair.ts"/>
 ///<reference path="Locale.ts"/>
 module Adaptive {
-
+     //TODO: handler implementation.
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

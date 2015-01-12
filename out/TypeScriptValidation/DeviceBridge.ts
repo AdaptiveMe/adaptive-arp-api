@@ -39,7 +39,7 @@ Release:
 ///<reference path="IButtonListener.ts"/>
 ///<reference path="Locale.ts"/>
 module Adaptive {
-
+     //TODO: handler implementation.
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

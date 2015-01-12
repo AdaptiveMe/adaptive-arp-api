@@ -106,7 +106,7 @@ Release:
 ///<reference path="IWallet.ts"/>
 ///<reference path="IXML.ts"/>
 module Adaptive {
-
+     //TODO: handler implementation.
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

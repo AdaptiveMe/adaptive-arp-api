@@ -43,7 +43,7 @@ Release:
 ///<reference path="ICapabilitiesNotification.ts"/>
 ///<reference path="ICapabilitiesSensor.ts"/>
 module Adaptive {
-
+     //TODO: handler implementation.
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

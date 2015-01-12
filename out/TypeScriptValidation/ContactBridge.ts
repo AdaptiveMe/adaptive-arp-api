@@ -41,7 +41,7 @@ Release:
 ///<reference path="IContactPhotoResultCallback.ts"/>
 ///<reference path="IContactResultCallback.ts"/>
 module Adaptive {
-
+     //TODO: handler implementation.
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

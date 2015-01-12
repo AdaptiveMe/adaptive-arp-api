@@ -37,7 +37,7 @@ Release:
 ///<reference path="IBaseSensor.ts"/>
 ///<reference path="IGeolocationListener.ts"/>
 module Adaptive {
-
+     //TODO: handler implementation.
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

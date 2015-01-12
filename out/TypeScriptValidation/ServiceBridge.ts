@@ -39,7 +39,7 @@ Release:
 ///<reference path="Service.ts"/>
 ///<reference path="ServiceRequest.ts"/>
 module Adaptive {
-
+     //TODO: handler implementation.
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
