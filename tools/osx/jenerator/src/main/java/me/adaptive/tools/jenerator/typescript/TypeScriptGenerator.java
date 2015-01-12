@@ -257,9 +257,10 @@ public class TypeScriptGenerator extends GeneratorBase {
             }
             endCommentGlobal(5);
             if (clazz.getSimpleName().startsWith("IBase") || clazz.getSimpleName().startsWith("IAppRegistry")) {
+                printlnGlobal(5, "export class " + simpleName + " implements " + clazz.getSimpleName() + " {");
 
                 if (clazz.getSimpleName().startsWith("IAppRegistry")) {
-                    printlnGlobal(5, "export class " + simpleName + " implements " + clazz.getSimpleName() + " {");
+
                     printlnGlobal();
                     startCommentGlobal(10);
                     printlnGlobal(13, "Singleton instance of AppRegistry.");
@@ -285,21 +286,20 @@ public class TypeScriptGenerator extends GeneratorBase {
                         startCommentGlobal(10);
                         printlnGlobal(13, "Obtain a reference to the " + c.getSimpleName() + " bridge.");
                         printlnGlobal();
-                        printlnGlobal(13, "@return "+c.getSimpleName()+" bridge instance.");
+                        printlnGlobal(13, "@return " + c.getSimpleName() + " bridge instance.");
                         endCommentGlobal(10);
                         printlnGlobal(10, "public get" + c.getSimpleName().substring(1) + "Bridge() : " + c.getSimpleName() + " {");
-                        printlnGlobal(15, "if (AppRegistryBridge.instance"+c.getSimpleName().substring(1)+" === null) {");
-                        printlnGlobal(20, "AppRegistryBridge.instance"+ c.getSimpleName().substring(1) +"= new "+c.getSimpleName().substring(1)+"Bridge();");
+                        printlnGlobal(15, "if (AppRegistryBridge.instance" + c.getSimpleName().substring(1) + " === null) {");
+                        printlnGlobal(20, "AppRegistryBridge.instance" + c.getSimpleName().substring(1) + "= new " + c.getSimpleName().substring(1) + "Bridge();");
                         printlnGlobal(15, "}");
                         printlnGlobal(15, "return AppRegistryBridge.instance"+ c.getSimpleName().substring(1)+";");
                         printlnGlobal(10, "}");
                         printlnGlobal();
                     }
-                } else {
-                    printlnGlobal(5, "class " + simpleName + " implements " + clazz.getSimpleName() + " {");
                 }
             } else {
-                printlnGlobal(5, "class " + simpleName + " extends " + clazz.getInterfaces()[0].getSimpleName().substring(1) + "Bridge implements " + clazz.getSimpleName() + " {");
+                println(5, "export class " + simpleName + " extends " + clazz.getInterfaces()[0].getSimpleName().substring(1) + "Bridge implements " + clazz.getSimpleName() + " {");
+                printlnSF(5, "class " + simpleName + " extends " + clazz.getInterfaces()[0].getSimpleName().substring(1) + "Bridge implements " + clazz.getSimpleName() + " {");
             }
 
             List<Method> methodList = new ArrayList<>();

@@ -5588,7 +5588,6 @@ listener and subsequently, the listener will be deactivated and removed from the
         }
         return AnalyticsBridge;
     })(BaseApplicationBridge);
-    Adaptive.AnalyticsBridge = AnalyticsBridge;
     /**
        Interface for Managing the Globalization results
 
@@ -5635,7 +5634,6 @@ listener and subsequently, the listener will be deactivated and removed from the
         };
         return GlobalizationBridge;
     })(BaseApplicationBridge);
-    Adaptive.GlobalizationBridge = GlobalizationBridge;
     /**
        Interface for Managing the Lifecycle listeners
 
@@ -5684,7 +5682,6 @@ listener and subsequently, the listener will be deactivated and removed from the
         };
         return LifecycleBridge;
     })(BaseApplicationBridge);
-    Adaptive.LifecycleBridge = LifecycleBridge;
     /**
        Interface for Managing the Management operations
 
@@ -5701,7 +5698,6 @@ listener and subsequently, the listener will be deactivated and removed from the
         }
         return ManagementBridge;
     })(BaseApplicationBridge);
-    Adaptive.ManagementBridge = ManagementBridge;
     /**
        Interface for Managing the Printing operations
 
@@ -5718,7 +5714,6 @@ listener and subsequently, the listener will be deactivated and removed from the
         }
         return PrintingBridge;
     })(BaseApplicationBridge);
-    Adaptive.PrintingBridge = PrintingBridge;
     /**
        Interface for Managing the Settings operations
 
@@ -5735,7 +5730,6 @@ listener and subsequently, the listener will be deactivated and removed from the
         }
         return SettingsBridge;
     })(BaseApplicationBridge);
-    Adaptive.SettingsBridge = SettingsBridge;
     /**
        Interface for Managing the Update operations
 
@@ -5752,7 +5746,6 @@ listener and subsequently, the listener will be deactivated and removed from the
         }
         return UpdateBridge;
     })(BaseApplicationBridge);
-    Adaptive.UpdateBridge = UpdateBridge;
     /**
        Interface for Advertising purposes
 
@@ -5769,7 +5762,6 @@ listener and subsequently, the listener will be deactivated and removed from the
         }
         return AdsBridge;
     })(BaseCommerceBridge);
-    Adaptive.AdsBridge = AdsBridge;
     /**
        Interface for Managing the Store operations
 
@@ -5786,7 +5778,6 @@ listener and subsequently, the listener will be deactivated and removed from the
         }
         return StoreBridge;
     })(BaseCommerceBridge);
-    Adaptive.StoreBridge = StoreBridge;
     /**
        Interface for Managing the Wallet operations
 
@@ -5803,7 +5794,6 @@ listener and subsequently, the listener will be deactivated and removed from the
         }
         return WalletBridge;
     })(BaseCommerceBridge);
-    Adaptive.WalletBridge = WalletBridge;
     /**
        Interface for Bluetooth purposes
 
@@ -5820,7 +5810,6 @@ listener and subsequently, the listener will be deactivated and removed from the
         }
         return BluetoothBridge;
     })(BaseCommunicationBridge);
-    Adaptive.BluetoothBridge = BluetoothBridge;
     /**
        Interface for Managing the Network information operations
 
@@ -5837,7 +5826,6 @@ listener and subsequently, the listener will be deactivated and removed from the
         }
         return NetworkInfoBridge;
     })(BaseCommunicationBridge);
-    Adaptive.NetworkInfoBridge = NetworkInfoBridge;
     /**
        Interface for Managing the Network naming operations
 
@@ -5854,7 +5842,6 @@ listener and subsequently, the listener will be deactivated and removed from the
         }
         return NetworkNamingBridge;
     })(BaseCommunicationBridge);
-    Adaptive.NetworkNamingBridge = NetworkNamingBridge;
     /**
        Interface for Managing the Network reachability operations
 
@@ -5889,7 +5876,6 @@ listener and subsequently, the listener will be deactivated and removed from the
         };
         return NetworkReachabilityBridge;
     })(BaseCommunicationBridge);
-    Adaptive.NetworkReachabilityBridge = NetworkReachabilityBridge;
     /**
        Interface for Managing the Network status
 
@@ -5929,7 +5915,6 @@ listener and subsequently, the listener will be deactivated and removed from the
         };
         return NetworkStatusBridge;
     })(BaseCommunicationBridge);
-    Adaptive.NetworkStatusBridge = NetworkStatusBridge;
     /**
        Interface for Managing the Services operations
 
@@ -6009,7 +5994,6 @@ listener and subsequently, the listener will be deactivated and removed from the
         };
         return ServiceBridge;
     })(BaseCommunicationBridge);
-    Adaptive.ServiceBridge = ServiceBridge;
     /**
        Interface for Managing the Socket operations
 
@@ -6026,7 +6010,6 @@ listener and subsequently, the listener will be deactivated and removed from the
         }
         return SocketBridge;
     })(BaseCommunicationBridge);
-    Adaptive.SocketBridge = SocketBridge;
     /**
        Interface for Managing the Telephony operations
 
@@ -6053,7 +6036,6 @@ listener and subsequently, the listener will be deactivated and removed from the
         };
         return TelephonyBridge;
     })(BaseCommunicationBridge);
-    Adaptive.TelephonyBridge = TelephonyBridge;
     /**
        Interface for Managing the Cloud operations
 
@@ -6070,7 +6052,6 @@ listener and subsequently, the listener will be deactivated and removed from the
         }
         return CloudBridge;
     })(BaseDataBridge);
-    Adaptive.CloudBridge = CloudBridge;
     /**
        Interface for Managing the DataStream operations
 
@@ -6087,7 +6068,6 @@ listener and subsequently, the listener will be deactivated and removed from the
         }
         return DataStreamBridge;
     })(BaseDataBridge);
-    Adaptive.DataStreamBridge = DataStreamBridge;
     /**
        Interface for Managing the Cloud operations
 
@@ -6187,7 +6167,6 @@ should be passed as a parameter
         };
         return DatabaseBridge;
     })(BaseDataBridge);
-    Adaptive.DatabaseBridge = DatabaseBridge;
     /**
        Interface for Managing the File operations
 
@@ -6359,7 +6338,6 @@ new destination file.
         };
         return FileBridge;
     })(BaseDataBridge);
-    Adaptive.FileBridge = FileBridge;
     /**
        Interface for Managing the File System operations
 
@@ -6460,7 +6438,6 @@ This path may or may not be writable by the current application.
         };
         return FileSystemBridge;
     })(BaseDataBridge);
-    Adaptive.FileSystemBridge = FileSystemBridge;
     /**
        Interface for Managing the Internal Storage operations
 
@@ -6477,7 +6454,6 @@ This path may or may not be writable by the current application.
         }
         return InternalStorageBridge;
     })(BaseDataBridge);
-    Adaptive.InternalStorageBridge = InternalStorageBridge;
     /**
        Interface for Managing the XML operations
 
@@ -6494,7 +6470,6 @@ This path may or may not be writable by the current application.
         }
         return XMLBridge;
     })(BaseDataBridge);
-    Adaptive.XMLBridge = XMLBridge;
     /**
        Interface for Audio purposes
 
@@ -6511,7 +6486,6 @@ This path may or may not be writable by the current application.
         }
         return AudioBridge;
     })(BaseMediaBridge);
-    Adaptive.AudioBridge = AudioBridge;
     /**
        Interface for Managing the camera operations
 
@@ -6528,7 +6502,6 @@ This path may or may not be writable by the current application.
         }
         return CameraBridge;
     })(BaseMediaBridge);
-    Adaptive.CameraBridge = CameraBridge;
     /**
        Interface for Managing the Imaging operations
 
@@ -6545,7 +6518,6 @@ This path may or may not be writable by the current application.
         }
         return ImagingBridge;
     })(BaseMediaBridge);
-    Adaptive.ImagingBridge = ImagingBridge;
     /**
        Interface for Managing the Video operations
 
@@ -6570,7 +6542,6 @@ This path may or may not be writable by the current application.
         };
         return VideoBridge;
     })(BaseMediaBridge);
-    Adaptive.VideoBridge = VideoBridge;
     /**
        Interface for Alarm purposes
 
@@ -6587,7 +6558,6 @@ This path may or may not be writable by the current application.
         }
         return AlarmBridge;
     })(BaseNotificationBridge);
-    Adaptive.AlarmBridge = AlarmBridge;
     /**
        Interface for Managing the Notification operations
 
@@ -6604,7 +6574,6 @@ This path may or may not be writable by the current application.
         }
         return NotificationBridge;
     })(BaseNotificationBridge);
-    Adaptive.NotificationBridge = NotificationBridge;
     /**
        Interface for Managing the Local Notifications operations
 
@@ -6621,7 +6590,6 @@ This path may or may not be writable by the current application.
         }
         return NotificationLocalBridge;
     })(BaseNotificationBridge);
-    Adaptive.NotificationLocalBridge = NotificationLocalBridge;
     /**
        Interface for Managing the Vibration operations
 
@@ -6638,7 +6606,6 @@ This path may or may not be writable by the current application.
         }
         return VibrationBridge;
     })(BaseNotificationBridge);
-    Adaptive.VibrationBridge = VibrationBridge;
     /**
        Interface for Managing the Calendar operations
 
@@ -6655,7 +6622,6 @@ This path may or may not be writable by the current application.
         }
         return CalendarBridge;
     })(BasePIMBridge);
-    Adaptive.CalendarBridge = CalendarBridge;
     /**
        Interface for Managing the Contact operations
 
@@ -6747,7 +6713,6 @@ This path may or may not be writable by the current application.
         };
         return ContactBridge;
     })(BasePIMBridge);
-    Adaptive.ContactBridge = ContactBridge;
     /**
        Interface for Managing the Mail operations
 
@@ -6773,7 +6738,6 @@ This path may or may not be writable by the current application.
         };
         return MailBridge;
     })(BasePIMBridge);
-    Adaptive.MailBridge = MailBridge;
     /**
        Interface for Managing the Messaging operations
 
@@ -6800,7 +6764,6 @@ This path may or may not be writable by the current application.
         };
         return MessagingBridge;
     })(BasePIMBridge);
-    Adaptive.MessagingBridge = MessagingBridge;
     /**
        Interface for Barcode Reading purposes
 
@@ -6817,7 +6780,6 @@ This path may or may not be writable by the current application.
         }
         return BarcodeBridge;
     })(BaseReaderBridge);
-    Adaptive.BarcodeBridge = BarcodeBridge;
     /**
        Interface for Managing the NFC operations
 
@@ -6834,7 +6796,6 @@ This path may or may not be writable by the current application.
         }
         return NFCBridge;
     })(BaseReaderBridge);
-    Adaptive.NFCBridge = NFCBridge;
     /**
        Interface for Managing the OCR operations
 
@@ -6851,7 +6812,6 @@ This path may or may not be writable by the current application.
         }
         return OCRBridge;
     })(BaseReaderBridge);
-    Adaptive.OCRBridge = OCRBridge;
     /**
        Interface for Managing the QR Code operations
 
@@ -6868,7 +6828,6 @@ This path may or may not be writable by the current application.
         }
         return QRCodeBridge;
     })(BaseReaderBridge);
-    Adaptive.QRCodeBridge = QRCodeBridge;
     /**
        Interface for Managing the OAuth operations
 
@@ -6885,7 +6844,6 @@ This path may or may not be writable by the current application.
         }
         return OAuthBridge;
     })(BaseSecurityBridge);
-    Adaptive.OAuthBridge = OAuthBridge;
     /**
        Interface for Managing the OpenID operations
 
@@ -6902,7 +6860,6 @@ This path may or may not be writable by the current application.
         }
         return OpenIdBridge;
     })(BaseSecurityBridge);
-    Adaptive.OpenIdBridge = OpenIdBridge;
     /**
        Interface for Managing the Security operations
 
@@ -6958,7 +6915,6 @@ This path may or may not be writable by the current application.
         };
         return SecurityBridge;
     })(BaseSecurityBridge);
-    Adaptive.SecurityBridge = SecurityBridge;
     /**
        Interface defining methods about the acceleration sensor
 
@@ -6998,7 +6954,6 @@ This path may or may not be writable by the current application.
         };
         return AccelerationBridge;
     })(BaseSensorBridge);
-    Adaptive.AccelerationBridge = AccelerationBridge;
     /**
        Interface for managinf the Ambient Light
 
@@ -7015,7 +6970,6 @@ This path may or may not be writable by the current application.
         }
         return AmbientLightBridge;
     })(BaseSensorBridge);
-    Adaptive.AmbientLightBridge = AmbientLightBridge;
     /**
        Interface for Barometer management purposes
 
@@ -7032,7 +6986,6 @@ This path may or may not be writable by the current application.
         }
         return BarometerBridge;
     })(BaseSensorBridge);
-    Adaptive.BarometerBridge = BarometerBridge;
     /**
        Interface for Managing the Geolocation operations
 
@@ -7072,7 +7025,6 @@ This path may or may not be writable by the current application.
         };
         return GeolocationBridge;
     })(BaseSensorBridge);
-    Adaptive.GeolocationBridge = GeolocationBridge;
     /**
        Interface for Managing the Giroscope operations
 
@@ -7089,7 +7041,6 @@ This path may or may not be writable by the current application.
         }
         return GyroscopeBridge;
     })(BaseSensorBridge);
-    Adaptive.GyroscopeBridge = GyroscopeBridge;
     /**
        Interface for Managing the Magnetometer operations
 
@@ -7106,7 +7057,6 @@ This path may or may not be writable by the current application.
         }
         return MagnetometerBridge;
     })(BaseSensorBridge);
-    Adaptive.MagnetometerBridge = MagnetometerBridge;
     /**
        Interface for Managing the Proximity operations
 
@@ -7123,7 +7073,6 @@ This path may or may not be writable by the current application.
         }
         return ProximityBridge;
     })(BaseSensorBridge);
-    Adaptive.ProximityBridge = ProximityBridge;
     /**
        Interface for Managing the Facebook operations
 
@@ -7140,7 +7089,6 @@ This path may or may not be writable by the current application.
         }
         return FacebookBridge;
     })(BaseSocialBridge);
-    Adaptive.FacebookBridge = FacebookBridge;
     /**
        Interface for Managing the Google Plus operations
 
@@ -7157,7 +7105,6 @@ This path may or may not be writable by the current application.
         }
         return GooglePlusBridge;
     })(BaseSocialBridge);
-    Adaptive.GooglePlusBridge = GooglePlusBridge;
     /**
        Interface for Managing the Linkedin operations
 
@@ -7174,7 +7121,6 @@ This path may or may not be writable by the current application.
         }
         return LinkedInBridge;
     })(BaseSocialBridge);
-    Adaptive.LinkedInBridge = LinkedInBridge;
     /**
        Interface for Managing the RSS operations
 
@@ -7191,7 +7137,6 @@ This path may or may not be writable by the current application.
         }
         return RSSBridge;
     })(BaseSocialBridge);
-    Adaptive.RSSBridge = RSSBridge;
     /**
        Interface for Managing the Twitter operations
 
@@ -7208,7 +7153,6 @@ This path may or may not be writable by the current application.
         }
         return TwitterBridge;
     })(BaseSocialBridge);
-    Adaptive.TwitterBridge = TwitterBridge;
     /**
        Interface for testing the Capabilities operations
 
@@ -7299,7 +7243,6 @@ device.
         };
         return CapabilitiesBridge;
     })(BaseSystemBridge);
-    Adaptive.CapabilitiesBridge = CapabilitiesBridge;
     /**
        Interface for Managing the Device operations
 
@@ -7357,7 +7300,6 @@ device.
         };
         return DeviceBridge;
     })(BaseSystemBridge);
-    Adaptive.DeviceBridge = DeviceBridge;
     /**
        Interface for Managing the Display operations
 
@@ -7374,7 +7316,6 @@ device.
         }
         return DisplayBridge;
     })(BaseSystemBridge);
-    Adaptive.DisplayBridge = DisplayBridge;
     /**
        Interface for Managing the OS operations
 
@@ -7400,7 +7341,6 @@ device.
         };
         return OSBridge;
     })(BaseSystemBridge);
-    Adaptive.OSBridge = OSBridge;
     /**
        Interface for Managing the Runtime operations
 
@@ -7433,7 +7373,6 @@ device.
         };
         return RuntimeBridge;
     })(BaseSystemBridge);
-    Adaptive.RuntimeBridge = RuntimeBridge;
     /**
        Interface for Managing the browser operations
 
@@ -7484,7 +7423,6 @@ device.
         };
         return BrowserBridge;
     })(BaseUIBridge);
-    Adaptive.BrowserBridge = BrowserBridge;
     /**
        Interface for Managing the Desktop operations
 
@@ -7501,7 +7439,6 @@ device.
         }
         return DesktopBridge;
     })(BaseUIBridge);
-    Adaptive.DesktopBridge = DesktopBridge;
     /**
        Interface for Managing the Map operations
 
@@ -7518,7 +7455,6 @@ device.
         }
         return MapBridge;
     })(BaseUIBridge);
-    Adaptive.MapBridge = MapBridge;
     /**
        Interface for Managing the UI operations
 
@@ -7535,7 +7471,6 @@ device.
         }
         return UIBridge;
     })(BaseUIBridge);
-    Adaptive.UIBridge = UIBridge;
     /**
        Interface for Managing the Compression operations
 
@@ -7552,7 +7487,6 @@ device.
         }
         return CompressionBridge;
     })(BaseUtilBridge);
-    Adaptive.CompressionBridge = CompressionBridge;
     /**
        Interface for Managing the Concurrent operations
 
@@ -7569,7 +7503,6 @@ device.
         }
         return ConcurrentBridge;
     })(BaseUtilBridge);
-    Adaptive.ConcurrentBridge = ConcurrentBridge;
     /**
        Interface for Managing the Cloud operations
 
@@ -7586,7 +7519,6 @@ device.
         }
         return CryptoBridge;
     })(BaseUtilBridge);
-    Adaptive.CryptoBridge = CryptoBridge;
     /**
        Interface for Managing the Logging operations
 
@@ -7622,7 +7554,6 @@ device.
         };
         return LoggingBridge;
     })(BaseUtilBridge);
-    Adaptive.LoggingBridge = LoggingBridge;
     /**
        Interface for Managing the Timer operations
 
@@ -7639,7 +7570,6 @@ device.
         }
         return TimerBridge;
     })(BaseUtilBridge);
-    Adaptive.TimerBridge = TimerBridge;
     /**
        Interface to retrieve auto-registered service implementation references.
 

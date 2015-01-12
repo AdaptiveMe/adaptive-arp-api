@@ -8729,7 +8729,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class AnalyticsBridge extends BaseApplicationBridge implements IAnalytics {
+     class AnalyticsBridge extends BaseApplicationBridge implements IAnalytics {
 
           /**
              Default constructor.
@@ -8745,7 +8745,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         @author Francisco Javier Martin Bueno
         @since ARP1.0
      */
-     export class GlobalizationBridge extends BaseApplicationBridge implements IGlobalization {
+     class GlobalizationBridge extends BaseApplicationBridge implements IGlobalization {
 
           /**
              Default constructor.
@@ -8794,7 +8794,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class LifecycleBridge extends BaseApplicationBridge implements ILifecycle {
+     class LifecycleBridge extends BaseApplicationBridge implements ILifecycle {
 
           /**
              Default constructor.
@@ -8846,7 +8846,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class ManagementBridge extends BaseApplicationBridge implements IManagement {
+     class ManagementBridge extends BaseApplicationBridge implements IManagement {
 
           /**
              Default constructor.
@@ -8862,7 +8862,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class PrintingBridge extends BaseApplicationBridge implements IPrinting {
+     class PrintingBridge extends BaseApplicationBridge implements IPrinting {
 
           /**
              Default constructor.
@@ -8878,7 +8878,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class SettingsBridge extends BaseApplicationBridge implements ISettings {
+     class SettingsBridge extends BaseApplicationBridge implements ISettings {
 
           /**
              Default constructor.
@@ -8894,7 +8894,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class UpdateBridge extends BaseApplicationBridge implements IUpdate {
+     class UpdateBridge extends BaseApplicationBridge implements IUpdate {
 
           /**
              Default constructor.
@@ -8910,7 +8910,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class AdsBridge extends BaseCommerceBridge implements IAds {
+     class AdsBridge extends BaseCommerceBridge implements IAds {
 
           /**
              Default constructor.
@@ -8926,7 +8926,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class StoreBridge extends BaseCommerceBridge implements IStore {
+     class StoreBridge extends BaseCommerceBridge implements IStore {
 
           /**
              Default constructor.
@@ -8942,7 +8942,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class WalletBridge extends BaseCommerceBridge implements IWallet {
+     class WalletBridge extends BaseCommerceBridge implements IWallet {
 
           /**
              Default constructor.
@@ -8958,7 +8958,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class BluetoothBridge extends BaseCommunicationBridge implements IBluetooth {
+     class BluetoothBridge extends BaseCommunicationBridge implements IBluetooth {
 
           /**
              Default constructor.
@@ -8974,7 +8974,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class NetworkInfoBridge extends BaseCommunicationBridge implements INetworkInfo {
+     class NetworkInfoBridge extends BaseCommunicationBridge implements INetworkInfo {
 
           /**
              Default constructor.
@@ -8990,7 +8990,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class NetworkNamingBridge extends BaseCommunicationBridge implements INetworkNaming {
+     class NetworkNamingBridge extends BaseCommunicationBridge implements INetworkNaming {
 
           /**
              Default constructor.
@@ -9006,7 +9006,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class NetworkReachabilityBridge extends BaseCommunicationBridge implements INetworkReachability {
+     class NetworkReachabilityBridge extends BaseCommunicationBridge implements INetworkReachability {
 
           /**
              Default constructor.
@@ -9042,7 +9042,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class NetworkStatusBridge extends BaseCommunicationBridge implements INetworkStatus {
+     class NetworkStatusBridge extends BaseCommunicationBridge implements INetworkStatus {
 
           /**
              Default constructor.
@@ -9084,7 +9084,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         @author Francisco Javier Martin Bueno
         @since ARP1.0
      */
-     export class ServiceBridge extends BaseCommunicationBridge implements IService {
+     class ServiceBridge extends BaseCommunicationBridge implements IService {
 
           /**
              Default constructor.
@@ -9170,7 +9170,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class SocketBridge extends BaseCommunicationBridge implements ISocket {
+     class SocketBridge extends BaseCommunicationBridge implements ISocket {
 
           /**
              Default constructor.
@@ -9186,7 +9186,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         @author Francisco Javier Martin Bueno
         @since ARP1.0
      */
-     export class TelephonyBridge extends BaseCommunicationBridge implements ITelephony {
+     class TelephonyBridge extends BaseCommunicationBridge implements ITelephony {
 
           /**
              Default constructor.
@@ -9213,7 +9213,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class CloudBridge extends BaseDataBridge implements ICloud {
+     class CloudBridge extends BaseDataBridge implements ICloud {
 
           /**
              Default constructor.
@@ -9229,7 +9229,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class DataStreamBridge extends BaseDataBridge implements IDataStream {
+     class DataStreamBridge extends BaseDataBridge implements IDataStream {
 
           /**
              Default constructor.
@@ -9245,7 +9245,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         @author Ferran Vila Conesa
         @since ARP1.0
      */
-     export class DatabaseBridge extends BaseDataBridge implements IDatabase {
+     class DatabaseBridge extends BaseDataBridge implements IDatabase {
 
           /**
              Default constructor.
@@ -9352,7 +9352,7 @@ should be passed as a parameter
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class FileBridge extends BaseDataBridge implements IFile {
+     class FileBridge extends BaseDataBridge implements IFile {
 
           /**
              Default constructor.
@@ -9538,7 +9538,7 @@ new destination file.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class FileSystemBridge extends BaseDataBridge implements IFileSystem {
+     class FileSystemBridge extends BaseDataBridge implements IFileSystem {
 
           /**
              Default constructor.
@@ -9646,7 +9646,7 @@ This path may or may not be writable by the current application.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class InternalStorageBridge extends BaseDataBridge implements IInternalStorage {
+     class InternalStorageBridge extends BaseDataBridge implements IInternalStorage {
 
           /**
              Default constructor.
@@ -9662,7 +9662,7 @@ This path may or may not be writable by the current application.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class XMLBridge extends BaseDataBridge implements IXML {
+     class XMLBridge extends BaseDataBridge implements IXML {
 
           /**
              Default constructor.
@@ -9678,7 +9678,7 @@ This path may or may not be writable by the current application.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class AudioBridge extends BaseMediaBridge implements IAudio {
+     class AudioBridge extends BaseMediaBridge implements IAudio {
 
           /**
              Default constructor.
@@ -9694,7 +9694,7 @@ This path may or may not be writable by the current application.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class CameraBridge extends BaseMediaBridge implements ICamera {
+     class CameraBridge extends BaseMediaBridge implements ICamera {
 
           /**
              Default constructor.
@@ -9710,7 +9710,7 @@ This path may or may not be writable by the current application.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class ImagingBridge extends BaseMediaBridge implements IImaging {
+     class ImagingBridge extends BaseMediaBridge implements IImaging {
 
           /**
              Default constructor.
@@ -9726,7 +9726,7 @@ This path may or may not be writable by the current application.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class VideoBridge extends BaseMediaBridge implements IVideo {
+     class VideoBridge extends BaseMediaBridge implements IVideo {
 
           /**
              Default constructor.
@@ -9751,7 +9751,7 @@ This path may or may not be writable by the current application.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class AlarmBridge extends BaseNotificationBridge implements IAlarm {
+     class AlarmBridge extends BaseNotificationBridge implements IAlarm {
 
           /**
              Default constructor.
@@ -9767,7 +9767,7 @@ This path may or may not be writable by the current application.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class NotificationBridge extends BaseNotificationBridge implements INotification {
+     class NotificationBridge extends BaseNotificationBridge implements INotification {
 
           /**
              Default constructor.
@@ -9783,7 +9783,7 @@ This path may or may not be writable by the current application.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class NotificationLocalBridge extends BaseNotificationBridge implements INotificationLocal {
+     class NotificationLocalBridge extends BaseNotificationBridge implements INotificationLocal {
 
           /**
              Default constructor.
@@ -9799,7 +9799,7 @@ This path may or may not be writable by the current application.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class VibrationBridge extends BaseNotificationBridge implements IVibration {
+     class VibrationBridge extends BaseNotificationBridge implements IVibration {
 
           /**
              Default constructor.
@@ -9815,7 +9815,7 @@ This path may or may not be writable by the current application.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class CalendarBridge extends BasePIMBridge implements ICalendar {
+     class CalendarBridge extends BasePIMBridge implements ICalendar {
 
           /**
              Default constructor.
@@ -9831,7 +9831,7 @@ This path may or may not be writable by the current application.
         @author Francisco Javier Martin Bueno
         @since ARP1.0
      */
-     export class ContactBridge extends BasePIMBridge implements IContact {
+     class ContactBridge extends BasePIMBridge implements IContact {
 
           /**
              Default constructor.
@@ -9930,7 +9930,7 @@ This path may or may not be writable by the current application.
         @author Francisco Javier Martin Bueno
         @since ARP1.0
      */
-     export class MailBridge extends BasePIMBridge implements IMail {
+     class MailBridge extends BasePIMBridge implements IMail {
 
           /**
              Default constructor.
@@ -9956,7 +9956,7 @@ This path may or may not be writable by the current application.
         @author Francisco Javier Martin Bueno
         @since ARP1.0
      */
-     export class MessagingBridge extends BasePIMBridge implements IMessaging {
+     class MessagingBridge extends BasePIMBridge implements IMessaging {
 
           /**
              Default constructor.
@@ -9983,7 +9983,7 @@ This path may or may not be writable by the current application.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class BarcodeBridge extends BaseReaderBridge implements IBarcode {
+     class BarcodeBridge extends BaseReaderBridge implements IBarcode {
 
           /**
              Default constructor.
@@ -9999,7 +9999,7 @@ This path may or may not be writable by the current application.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class NFCBridge extends BaseReaderBridge implements INFC {
+     class NFCBridge extends BaseReaderBridge implements INFC {
 
           /**
              Default constructor.
@@ -10015,7 +10015,7 @@ This path may or may not be writable by the current application.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class OCRBridge extends BaseReaderBridge implements IOCR {
+     class OCRBridge extends BaseReaderBridge implements IOCR {
 
           /**
              Default constructor.
@@ -10031,7 +10031,7 @@ This path may or may not be writable by the current application.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class QRCodeBridge extends BaseReaderBridge implements IQRCode {
+     class QRCodeBridge extends BaseReaderBridge implements IQRCode {
 
           /**
              Default constructor.
@@ -10047,7 +10047,7 @@ This path may or may not be writable by the current application.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class OAuthBridge extends BaseSecurityBridge implements IOAuth {
+     class OAuthBridge extends BaseSecurityBridge implements IOAuth {
 
           /**
              Default constructor.
@@ -10063,7 +10063,7 @@ This path may or may not be writable by the current application.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class OpenIdBridge extends BaseSecurityBridge implements IOpenId {
+     class OpenIdBridge extends BaseSecurityBridge implements IOpenId {
 
           /**
              Default constructor.
@@ -10079,7 +10079,7 @@ This path may or may not be writable by the current application.
         @author Aryslan
         @since ARP1.0
      */
-     export class SecurityBridge extends BaseSecurityBridge implements ISecurity {
+     class SecurityBridge extends BaseSecurityBridge implements ISecurity {
 
           /**
              Default constructor.
@@ -10138,7 +10138,7 @@ This path may or may not be writable by the current application.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class AccelerationBridge extends BaseSensorBridge implements IAcceleration {
+     class AccelerationBridge extends BaseSensorBridge implements IAcceleration {
 
           /**
              Default constructor.
@@ -10180,7 +10180,7 @@ This path may or may not be writable by the current application.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class AmbientLightBridge extends BaseSensorBridge implements IAmbientLight {
+     class AmbientLightBridge extends BaseSensorBridge implements IAmbientLight {
 
           /**
              Default constructor.
@@ -10196,7 +10196,7 @@ This path may or may not be writable by the current application.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class BarometerBridge extends BaseSensorBridge implements IBarometer {
+     class BarometerBridge extends BaseSensorBridge implements IBarometer {
 
           /**
              Default constructor.
@@ -10212,7 +10212,7 @@ This path may or may not be writable by the current application.
         @author Francisco Javier Martin Bueno
         @since ARP1.0
      */
-     export class GeolocationBridge extends BaseSensorBridge implements IGeolocation {
+     class GeolocationBridge extends BaseSensorBridge implements IGeolocation {
 
           /**
              Default constructor.
@@ -10254,7 +10254,7 @@ This path may or may not be writable by the current application.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class GyroscopeBridge extends BaseSensorBridge implements IGyroscope {
+     class GyroscopeBridge extends BaseSensorBridge implements IGyroscope {
 
           /**
              Default constructor.
@@ -10270,7 +10270,7 @@ This path may or may not be writable by the current application.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class MagnetometerBridge extends BaseSensorBridge implements IMagnetometer {
+     class MagnetometerBridge extends BaseSensorBridge implements IMagnetometer {
 
           /**
              Default constructor.
@@ -10286,7 +10286,7 @@ This path may or may not be writable by the current application.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class ProximityBridge extends BaseSensorBridge implements IProximity {
+     class ProximityBridge extends BaseSensorBridge implements IProximity {
 
           /**
              Default constructor.
@@ -10302,7 +10302,7 @@ This path may or may not be writable by the current application.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class FacebookBridge extends BaseSocialBridge implements IFacebook {
+     class FacebookBridge extends BaseSocialBridge implements IFacebook {
 
           /**
              Default constructor.
@@ -10318,7 +10318,7 @@ This path may or may not be writable by the current application.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class GooglePlusBridge extends BaseSocialBridge implements IGooglePlus {
+     class GooglePlusBridge extends BaseSocialBridge implements IGooglePlus {
 
           /**
              Default constructor.
@@ -10334,7 +10334,7 @@ This path may or may not be writable by the current application.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class LinkedInBridge extends BaseSocialBridge implements ILinkedIn {
+     class LinkedInBridge extends BaseSocialBridge implements ILinkedIn {
 
           /**
              Default constructor.
@@ -10350,7 +10350,7 @@ This path may or may not be writable by the current application.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class RSSBridge extends BaseSocialBridge implements IRSS {
+     class RSSBridge extends BaseSocialBridge implements IRSS {
 
           /**
              Default constructor.
@@ -10366,7 +10366,7 @@ This path may or may not be writable by the current application.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class TwitterBridge extends BaseSocialBridge implements ITwitter {
+     class TwitterBridge extends BaseSocialBridge implements ITwitter {
 
           /**
              Default constructor.
@@ -10382,7 +10382,7 @@ This path may or may not be writable by the current application.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class CapabilitiesBridge extends BaseSystemBridge implements ICapabilities {
+     class CapabilitiesBridge extends BaseSystemBridge implements ICapabilities {
 
           /**
              Default constructor.
@@ -10479,7 +10479,7 @@ device.
         @author Francisco Javier Martin Bueno
         @since ARP1.0
      */
-     export class DeviceBridge extends BaseSystemBridge implements IDevice {
+     class DeviceBridge extends BaseSystemBridge implements IDevice {
 
           /**
              Default constructor.
@@ -10541,7 +10541,7 @@ device.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class DisplayBridge extends BaseSystemBridge implements IDisplay {
+     class DisplayBridge extends BaseSystemBridge implements IDisplay {
 
           /**
              Default constructor.
@@ -10557,7 +10557,7 @@ device.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class OSBridge extends BaseSystemBridge implements IOS {
+     class OSBridge extends BaseSystemBridge implements IOS {
 
           /**
              Default constructor.
@@ -10583,7 +10583,7 @@ device.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class RuntimeBridge extends BaseSystemBridge implements IRuntime {
+     class RuntimeBridge extends BaseSystemBridge implements IRuntime {
 
           /**
              Default constructor.
@@ -10617,7 +10617,7 @@ device.
         @author Francisco Javier Martin Bueno
         @since ARP1.0
      */
-     export class BrowserBridge extends BaseUIBridge implements IBrowser {
+     class BrowserBridge extends BaseUIBridge implements IBrowser {
 
           /**
              Default constructor.
@@ -10670,7 +10670,7 @@ device.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class DesktopBridge extends BaseUIBridge implements IDesktop {
+     class DesktopBridge extends BaseUIBridge implements IDesktop {
 
           /**
              Default constructor.
@@ -10686,7 +10686,7 @@ device.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class MapBridge extends BaseUIBridge implements IMap {
+     class MapBridge extends BaseUIBridge implements IMap {
 
           /**
              Default constructor.
@@ -10702,7 +10702,7 @@ device.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class UIBridge extends BaseUIBridge implements IUI {
+     class UIBridge extends BaseUIBridge implements IUI {
 
           /**
              Default constructor.
@@ -10718,7 +10718,7 @@ device.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class CompressionBridge extends BaseUtilBridge implements ICompression {
+     class CompressionBridge extends BaseUtilBridge implements ICompression {
 
           /**
              Default constructor.
@@ -10734,7 +10734,7 @@ device.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class ConcurrentBridge extends BaseUtilBridge implements IConcurrent {
+     class ConcurrentBridge extends BaseUtilBridge implements IConcurrent {
 
           /**
              Default constructor.
@@ -10750,7 +10750,7 @@ device.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class CryptoBridge extends BaseUtilBridge implements ICrypto {
+     class CryptoBridge extends BaseUtilBridge implements ICrypto {
 
           /**
              Default constructor.
@@ -10766,7 +10766,7 @@ device.
         @author Ferran Vila Conesa
         @since ARP1.0
      */
-     export class LoggingBridge extends BaseUtilBridge implements ILogging {
+     class LoggingBridge extends BaseUtilBridge implements ILogging {
 
           /**
              Default constructor.
@@ -10803,7 +10803,7 @@ device.
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     export class TimerBridge extends BaseUtilBridge implements ITimer {
+     class TimerBridge extends BaseUtilBridge implements ITimer {
 
           /**
              Default constructor.
