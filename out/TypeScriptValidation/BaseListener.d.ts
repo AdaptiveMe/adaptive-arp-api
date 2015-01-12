@@ -62,5 +62,9 @@ declare module Adaptive {
            Return the API group for the given interface.
         */
         getAPIGroup(): IAdaptiveRPGroup;
+        /**
+           Return the API version for the given interface.
+        */
+        getAPIVersion(): string;
     }
 }

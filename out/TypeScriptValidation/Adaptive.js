@@ -3277,6 +3277,12 @@ doesn't exist, this will be -1. Used internally.
         BaseListener.prototype.getAPIGroup = function () {
             return this.apiGroup;
         };
+        /**
+           Return the API version for the given interface.
+        */
+        BaseListener.prototype.getAPIVersion = function () {
+            return "v2.0.3";
+        };
         return BaseListener;
     })();
     Adaptive.BaseListener = BaseListener;
@@ -3868,6 +3874,12 @@ listener and subsequently, the listener will be deactivated and removed from the
         */
         BaseCallback.prototype.getAPIGroup = function () {
             return this.apiGroup;
+        };
+        /**
+           Return the API version for the given interface.
+        */
+        BaseCallback.prototype.getAPIVersion = function () {
+            return "v2.0.3";
         };
         return BaseCallback;
     })();
@@ -5283,6 +5295,12 @@ listener and subsequently, the listener will be deactivated and removed from the
         BaseApplicationBridge.prototype.getAPIGroup = function () {
             return this.apiGroup;
         };
+        /**
+           Return the API version for the given interface.
+        */
+        BaseApplicationBridge.prototype.getAPIVersion = function () {
+            return "v2.0.3";
+        };
         return BaseApplicationBridge;
     })();
     Adaptive.BaseApplicationBridge = BaseApplicationBridge;
@@ -5304,6 +5322,12 @@ listener and subsequently, the listener will be deactivated and removed from the
         */
         BaseCommerceBridge.prototype.getAPIGroup = function () {
             return this.apiGroup;
+        };
+        /**
+           Return the API version for the given interface.
+        */
+        BaseCommerceBridge.prototype.getAPIVersion = function () {
+            return "v2.0.3";
         };
         return BaseCommerceBridge;
     })();
@@ -5327,6 +5351,12 @@ listener and subsequently, the listener will be deactivated and removed from the
         BaseCommunicationBridge.prototype.getAPIGroup = function () {
             return this.apiGroup;
         };
+        /**
+           Return the API version for the given interface.
+        */
+        BaseCommunicationBridge.prototype.getAPIVersion = function () {
+            return "v2.0.3";
+        };
         return BaseCommunicationBridge;
     })();
     Adaptive.BaseCommunicationBridge = BaseCommunicationBridge;
@@ -5348,6 +5378,12 @@ listener and subsequently, the listener will be deactivated and removed from the
         */
         BaseDataBridge.prototype.getAPIGroup = function () {
             return this.apiGroup;
+        };
+        /**
+           Return the API version for the given interface.
+        */
+        BaseDataBridge.prototype.getAPIVersion = function () {
+            return "v2.0.3";
         };
         return BaseDataBridge;
     })();
@@ -5371,6 +5407,12 @@ listener and subsequently, the listener will be deactivated and removed from the
         BaseMediaBridge.prototype.getAPIGroup = function () {
             return this.apiGroup;
         };
+        /**
+           Return the API version for the given interface.
+        */
+        BaseMediaBridge.prototype.getAPIVersion = function () {
+            return "v2.0.3";
+        };
         return BaseMediaBridge;
     })();
     Adaptive.BaseMediaBridge = BaseMediaBridge;
@@ -5392,6 +5434,12 @@ listener and subsequently, the listener will be deactivated and removed from the
         */
         BaseNotificationBridge.prototype.getAPIGroup = function () {
             return this.apiGroup;
+        };
+        /**
+           Return the API version for the given interface.
+        */
+        BaseNotificationBridge.prototype.getAPIVersion = function () {
+            return "v2.0.3";
         };
         return BaseNotificationBridge;
     })();
@@ -5415,6 +5463,12 @@ listener and subsequently, the listener will be deactivated and removed from the
         BasePIMBridge.prototype.getAPIGroup = function () {
             return this.apiGroup;
         };
+        /**
+           Return the API version for the given interface.
+        */
+        BasePIMBridge.prototype.getAPIVersion = function () {
+            return "v2.0.3";
+        };
         return BasePIMBridge;
     })();
     Adaptive.BasePIMBridge = BasePIMBridge;
@@ -5436,6 +5490,12 @@ listener and subsequently, the listener will be deactivated and removed from the
         */
         BaseReaderBridge.prototype.getAPIGroup = function () {
             return this.apiGroup;
+        };
+        /**
+           Return the API version for the given interface.
+        */
+        BaseReaderBridge.prototype.getAPIVersion = function () {
+            return "v2.0.3";
         };
         return BaseReaderBridge;
     })();
@@ -5459,6 +5519,12 @@ listener and subsequently, the listener will be deactivated and removed from the
         BaseSecurityBridge.prototype.getAPIGroup = function () {
             return this.apiGroup;
         };
+        /**
+           Return the API version for the given interface.
+        */
+        BaseSecurityBridge.prototype.getAPIVersion = function () {
+            return "v2.0.3";
+        };
         return BaseSecurityBridge;
     })();
     Adaptive.BaseSecurityBridge = BaseSecurityBridge;
@@ -5480,6 +5546,12 @@ listener and subsequently, the listener will be deactivated and removed from the
         */
         BaseSensorBridge.prototype.getAPIGroup = function () {
             return this.apiGroup;
+        };
+        /**
+           Return the API version for the given interface.
+        */
+        BaseSensorBridge.prototype.getAPIVersion = function () {
+            return "v2.0.3";
         };
         return BaseSensorBridge;
     })();
@@ -5503,6 +5575,12 @@ listener and subsequently, the listener will be deactivated and removed from the
         BaseSocialBridge.prototype.getAPIGroup = function () {
             return this.apiGroup;
         };
+        /**
+           Return the API version for the given interface.
+        */
+        BaseSocialBridge.prototype.getAPIVersion = function () {
+            return "v2.0.3";
+        };
         return BaseSocialBridge;
     })();
     Adaptive.BaseSocialBridge = BaseSocialBridge;
@@ -5524,6 +5602,12 @@ listener and subsequently, the listener will be deactivated and removed from the
         */
         BaseSystemBridge.prototype.getAPIGroup = function () {
             return this.apiGroup;
+        };
+        /**
+           Return the API version for the given interface.
+        */
+        BaseSystemBridge.prototype.getAPIVersion = function () {
+            return "v2.0.3";
         };
         return BaseSystemBridge;
     })();
@@ -5547,6 +5631,12 @@ listener and subsequently, the listener will be deactivated and removed from the
         BaseUIBridge.prototype.getAPIGroup = function () {
             return this.apiGroup;
         };
+        /**
+           Return the API version for the given interface.
+        */
+        BaseUIBridge.prototype.getAPIVersion = function () {
+            return "v2.0.3";
+        };
         return BaseUIBridge;
     })();
     Adaptive.BaseUIBridge = BaseUIBridge;
@@ -5568,6 +5658,12 @@ listener and subsequently, the listener will be deactivated and removed from the
         */
         BaseUtilBridge.prototype.getAPIGroup = function () {
             return this.apiGroup;
+        };
+        /**
+           Return the API version for the given interface.
+        */
+        BaseUtilBridge.prototype.getAPIVersion = function () {
+            return "v2.0.3";
         };
         return BaseUtilBridge;
     })();
@@ -8354,6 +8450,12 @@ device.
                 AppRegistryBridge.instanceXML = new XMLBridge();
             }
             return AppRegistryBridge.instanceXML;
+        };
+        /**
+           Return the API version for the given interface.
+        */
+        AppRegistryBridge.prototype.getAPIVersion = function () {
+            return "v2.0.3";
         };
         /**
            Singleton instance of AppRegistry.

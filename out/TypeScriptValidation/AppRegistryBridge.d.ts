@@ -680,5 +680,9 @@ declare module Adaptive {
            @return IXML bridge instance.
         */
         getXMLBridge(): IXML;
+        /**
+           Return the API version for the given interface.
+        */
+        getAPIVersion(): string;
     }
 }

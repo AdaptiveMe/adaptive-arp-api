@@ -89,10 +89,16 @@ declare module Adaptive {
     interface IAdaptiveRP {
         /**
            Method that returns the API group of the implementation
-           @return API GRoup
+           @return API Group name.
            @since ARP1.0
         */
         getAPIGroup(): IAdaptiveRPGroup;
+        /**
+           Method that returns the API version of the implementation.
+           @return API Version string.
+           @since ARP1.0
+        */
+        getAPIVersion(): string;
     }
     /**
        Interface to retrieve auto-registered service implementation references.
@@ -522,6 +528,10 @@ declare module Adaptive {
            @return XMLBridge reference or null if a bridge of this type is not registered.
         */
         getXMLBridge(): IXML;
+        /**
+           Return the API version for the given interface.
+        */
+        getAPIVersion(): string;
     }
     /**
        Base application for Application purposes
@@ -5329,6 +5339,10 @@ Possible lifecycle States:
            Return the API group for the given interface.
         */
         getAPIGroup(): IAdaptiveRPGroup;
+        /**
+           Return the API version for the given interface.
+        */
+        getAPIVersion(): string;
     }
     /**
        AccelerationListener global listener handlers.
@@ -5560,6 +5574,10 @@ listener and subsequently, the listener will be deactivated and removed from the
            Return the API group for the given interface.
         */
         getAPIGroup(): IAdaptiveRPGroup;
+        /**
+           Return the API version for the given interface.
+        */
+        getAPIVersion(): string;
     }
     /**
        ContactPhotoResultCallback global callback handlers.
@@ -6072,6 +6090,10 @@ listener and subsequently, the listener will be deactivated and removed from the
            Return the API group for the given interface.
         */
         getAPIGroup(): IAdaptiveRPGroup;
+        /**
+           Return the API version for the given interface.
+        */
+        getAPIVersion(): string;
     }
     /**
        Base application for Commerce purposes
@@ -6092,6 +6114,10 @@ listener and subsequently, the listener will be deactivated and removed from the
            Return the API group for the given interface.
         */
         getAPIGroup(): IAdaptiveRPGroup;
+        /**
+           Return the API version for the given interface.
+        */
+        getAPIVersion(): string;
     }
     /**
        Base application for Communication purposes
@@ -6112,6 +6138,10 @@ listener and subsequently, the listener will be deactivated and removed from the
            Return the API group for the given interface.
         */
         getAPIGroup(): IAdaptiveRPGroup;
+        /**
+           Return the API version for the given interface.
+        */
+        getAPIVersion(): string;
     }
     /**
        Base application for Data purposes
@@ -6132,6 +6162,10 @@ listener and subsequently, the listener will be deactivated and removed from the
            Return the API group for the given interface.
         */
         getAPIGroup(): IAdaptiveRPGroup;
+        /**
+           Return the API version for the given interface.
+        */
+        getAPIVersion(): string;
     }
     /**
        Base application for Media purposes
@@ -6152,6 +6186,10 @@ listener and subsequently, the listener will be deactivated and removed from the
            Return the API group for the given interface.
         */
         getAPIGroup(): IAdaptiveRPGroup;
+        /**
+           Return the API version for the given interface.
+        */
+        getAPIVersion(): string;
     }
     /**
        Base application for Notification purposes
@@ -6172,6 +6210,10 @@ listener and subsequently, the listener will be deactivated and removed from the
            Return the API group for the given interface.
         */
         getAPIGroup(): IAdaptiveRPGroup;
+        /**
+           Return the API version for the given interface.
+        */
+        getAPIVersion(): string;
     }
     /**
        Base application for PIM purposes
@@ -6192,6 +6234,10 @@ listener and subsequently, the listener will be deactivated and removed from the
            Return the API group for the given interface.
         */
         getAPIGroup(): IAdaptiveRPGroup;
+        /**
+           Return the API version for the given interface.
+        */
+        getAPIVersion(): string;
     }
     /**
        Base application for Reader purposes
@@ -6212,6 +6258,10 @@ listener and subsequently, the listener will be deactivated and removed from the
            Return the API group for the given interface.
         */
         getAPIGroup(): IAdaptiveRPGroup;
+        /**
+           Return the API version for the given interface.
+        */
+        getAPIVersion(): string;
     }
     /**
        Base application for Security purposes
@@ -6232,6 +6282,10 @@ listener and subsequently, the listener will be deactivated and removed from the
            Return the API group for the given interface.
         */
         getAPIGroup(): IAdaptiveRPGroup;
+        /**
+           Return the API version for the given interface.
+        */
+        getAPIVersion(): string;
     }
     /**
        Base application for Sensor purposes
@@ -6252,6 +6306,10 @@ listener and subsequently, the listener will be deactivated and removed from the
            Return the API group for the given interface.
         */
         getAPIGroup(): IAdaptiveRPGroup;
+        /**
+           Return the API version for the given interface.
+        */
+        getAPIVersion(): string;
     }
     /**
        Base application for Social purposes
@@ -6272,6 +6330,10 @@ listener and subsequently, the listener will be deactivated and removed from the
            Return the API group for the given interface.
         */
         getAPIGroup(): IAdaptiveRPGroup;
+        /**
+           Return the API version for the given interface.
+        */
+        getAPIVersion(): string;
     }
     /**
        Base application for System purposes
@@ -6292,6 +6354,10 @@ listener and subsequently, the listener will be deactivated and removed from the
            Return the API group for the given interface.
         */
         getAPIGroup(): IAdaptiveRPGroup;
+        /**
+           Return the API version for the given interface.
+        */
+        getAPIVersion(): string;
     }
     /**
        Base application for UI purposes
@@ -6312,6 +6378,10 @@ listener and subsequently, the listener will be deactivated and removed from the
            Return the API group for the given interface.
         */
         getAPIGroup(): IAdaptiveRPGroup;
+        /**
+           Return the API version for the given interface.
+        */
+        getAPIVersion(): string;
     }
     /**
        Base application for Utility purposes
@@ -6332,6 +6402,10 @@ listener and subsequently, the listener will be deactivated and removed from the
            Return the API group for the given interface.
         */
         getAPIGroup(): IAdaptiveRPGroup;
+        /**
+           Return the API version for the given interface.
+        */
+        getAPIVersion(): string;
     }
     /**
        Interface to retrieve auto-registered service implementation references.
@@ -6838,6 +6912,10 @@ listener and subsequently, the listener will be deactivated and removed from the
            @return IXML bridge instance.
         */
         getXMLBridge(): IXML;
+        /**
+           Return the API version for the given interface.
+        */
+        getAPIVersion(): string;
     }
     /**
        Enumeration ContactAddressType

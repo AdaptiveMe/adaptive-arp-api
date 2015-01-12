@@ -1111,6 +1111,12 @@ module Adaptive {
                return AppRegistryBridge.instanceXML;
           }
 
+          /**
+             Return the API version for the given interface.
+          */
+          public getAPIVersion() : string {
+               return "v2.0.3"
+          }
      }
 }
 /**

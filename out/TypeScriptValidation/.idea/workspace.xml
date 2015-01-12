@@ -1,7 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f2b62424-c85f-4dbf-8462-3858f1398c98" name="Default" comment="" />
+    <list default="true" id="f2b62424-c85f-4dbf-8462-3858f1398c98" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.d.ts" afterPath="$PROJECT_DIR$/Adaptive.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.js.map" afterPath="$PROJECT_DIR$/Adaptive.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.js" afterPath="$PROJECT_DIR$/Adaptive.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.ts" afterPath="$PROJECT_DIR$/Adaptive.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/AppRegistryBridge.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/AppRegistryBridge.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AppRegistryBridge.d.ts" afterPath="$PROJECT_DIR$/AppRegistryBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/AppRegistryBridge.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/AppRegistryBridge.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AppRegistryBridge.js.map" afterPath="$PROJECT_DIR$/AppRegistryBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AppRegistryBridge.js" afterPath="$PROJECT_DIR$/AppRegistryBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AppRegistryBridge.ts" afterPath="$PROJECT_DIR$/AppRegistryBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/AppRegistryDelegate.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/AppRegistryDelegate.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/AppRegistryDelegate.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/AppRegistryDelegate.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseApplicationBridge.d.ts" afterPath="$PROJECT_DIR$/BaseApplicationBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseApplicationBridge.js.map" afterPath="$PROJECT_DIR$/BaseApplicationBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseApplicationBridge.js" afterPath="$PROJECT_DIR$/BaseApplicationBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseApplicationBridge.ts" afterPath="$PROJECT_DIR$/BaseApplicationBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCallback.d.ts" afterPath="$PROJECT_DIR$/BaseCallback.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCallback.js.map" afterPath="$PROJECT_DIR$/BaseCallback.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCallback.js" afterPath="$PROJECT_DIR$/BaseCallback.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCallback.ts" afterPath="$PROJECT_DIR$/BaseCallback.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCommerceBridge.d.ts" afterPath="$PROJECT_DIR$/BaseCommerceBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCommerceBridge.js.map" afterPath="$PROJECT_DIR$/BaseCommerceBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCommerceBridge.js" afterPath="$PROJECT_DIR$/BaseCommerceBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCommerceBridge.ts" afterPath="$PROJECT_DIR$/BaseCommerceBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCommunicationBridge.d.ts" afterPath="$PROJECT_DIR$/BaseCommunicationBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCommunicationBridge.js.map" afterPath="$PROJECT_DIR$/BaseCommunicationBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCommunicationBridge.js" afterPath="$PROJECT_DIR$/BaseCommunicationBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseCommunicationBridge.ts" afterPath="$PROJECT_DIR$/BaseCommunicationBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseDataBridge.d.ts" afterPath="$PROJECT_DIR$/BaseDataBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseDataBridge.js.map" afterPath="$PROJECT_DIR$/BaseDataBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseDataBridge.js" afterPath="$PROJECT_DIR$/BaseDataBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseDataBridge.ts" afterPath="$PROJECT_DIR$/BaseDataBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseListener.d.ts" afterPath="$PROJECT_DIR$/BaseListener.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseListener.js.map" afterPath="$PROJECT_DIR$/BaseListener.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseListener.js" afterPath="$PROJECT_DIR$/BaseListener.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseListener.ts" afterPath="$PROJECT_DIR$/BaseListener.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseMediaBridge.d.ts" afterPath="$PROJECT_DIR$/BaseMediaBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseMediaBridge.js.map" afterPath="$PROJECT_DIR$/BaseMediaBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseMediaBridge.js" afterPath="$PROJECT_DIR$/BaseMediaBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseMediaBridge.ts" afterPath="$PROJECT_DIR$/BaseMediaBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseNotificationBridge.d.ts" afterPath="$PROJECT_DIR$/BaseNotificationBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseNotificationBridge.js.map" afterPath="$PROJECT_DIR$/BaseNotificationBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseNotificationBridge.js" afterPath="$PROJECT_DIR$/BaseNotificationBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseNotificationBridge.ts" afterPath="$PROJECT_DIR$/BaseNotificationBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BasePIMBridge.d.ts" afterPath="$PROJECT_DIR$/BasePIMBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BasePIMBridge.js.map" afterPath="$PROJECT_DIR$/BasePIMBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BasePIMBridge.js" afterPath="$PROJECT_DIR$/BasePIMBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BasePIMBridge.ts" afterPath="$PROJECT_DIR$/BasePIMBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseReaderBridge.d.ts" afterPath="$PROJECT_DIR$/BaseReaderBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseReaderBridge.js.map" afterPath="$PROJECT_DIR$/BaseReaderBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseReaderBridge.js" afterPath="$PROJECT_DIR$/BaseReaderBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseReaderBridge.ts" afterPath="$PROJECT_DIR$/BaseReaderBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSecurityBridge.d.ts" afterPath="$PROJECT_DIR$/BaseSecurityBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSecurityBridge.js.map" afterPath="$PROJECT_DIR$/BaseSecurityBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSecurityBridge.js" afterPath="$PROJECT_DIR$/BaseSecurityBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSecurityBridge.ts" afterPath="$PROJECT_DIR$/BaseSecurityBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSensorBridge.d.ts" afterPath="$PROJECT_DIR$/BaseSensorBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSensorBridge.js.map" afterPath="$PROJECT_DIR$/BaseSensorBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSensorBridge.js" afterPath="$PROJECT_DIR$/BaseSensorBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSensorBridge.ts" afterPath="$PROJECT_DIR$/BaseSensorBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSocialBridge.d.ts" afterPath="$PROJECT_DIR$/BaseSocialBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSocialBridge.js.map" afterPath="$PROJECT_DIR$/BaseSocialBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSocialBridge.js" afterPath="$PROJECT_DIR$/BaseSocialBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSocialBridge.ts" afterPath="$PROJECT_DIR$/BaseSocialBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSystemBridge.d.ts" afterPath="$PROJECT_DIR$/BaseSystemBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSystemBridge.js.map" afterPath="$PROJECT_DIR$/BaseSystemBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSystemBridge.js" afterPath="$PROJECT_DIR$/BaseSystemBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseSystemBridge.ts" afterPath="$PROJECT_DIR$/BaseSystemBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseUIBridge.d.ts" afterPath="$PROJECT_DIR$/BaseUIBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseUIBridge.js.map" afterPath="$PROJECT_DIR$/BaseUIBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseUIBridge.js" afterPath="$PROJECT_DIR$/BaseUIBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseUIBridge.ts" afterPath="$PROJECT_DIR$/BaseUIBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseUtilBridge.d.ts" afterPath="$PROJECT_DIR$/BaseUtilBridge.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseUtilBridge.js.map" afterPath="$PROJECT_DIR$/BaseUtilBridge.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseUtilBridge.js" afterPath="$PROJECT_DIR$/BaseUtilBridge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseUtilBridge.ts" afterPath="$PROJECT_DIR$/BaseUtilBridge.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/IAdaptiveRP.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/IAdaptiveRP.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAdaptiveRP.d.ts" afterPath="$PROJECT_DIR$/IAdaptiveRP.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IAdaptiveRP.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IAdaptiveRP.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAdaptiveRP.js.map" afterPath="$PROJECT_DIR$/IAdaptiveRP.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAdaptiveRP.ts" afterPath="$PROJECT_DIR$/IAdaptiveRP.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/IAppRegistry.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/IAppRegistry.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAppRegistry.d.ts" afterPath="$PROJECT_DIR$/IAppRegistry.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IAppRegistry.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IAppRegistry.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAppRegistry.js.map" afterPath="$PROJECT_DIR$/IAppRegistry.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAppRegistry.ts" afterPath="$PROJECT_DIR$/IAppRegistry.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/typescript/TypeScriptGenerator.java" afterPath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/typescript/TypeScriptGenerator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="TypeScriptValidation.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,7 +112,18 @@
     <favorites_list name="TypeScriptValidation" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="AppRegistryBridge.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/AppRegistryBridge.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.21178344" vertical-offset="15694" max-vertical-offset="16950">
+              <caret line="1064" column="0" selection-start-line="1064" selection-start-column="0" selection-end-line="1064" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -31,9 +131,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Service.ts" />
-        <option value="$PROJECT_DIR$/Row.ts" />
-        <option value="$PROJECT_DIR$/ContactSocialNetwork.ts" />
         <option value="$PROJECT_DIR$/Acceleration.js" />
         <option value="$PROJECT_DIR$/AttachmentData.ts" />
         <option value="$PROJECT_DIR$/Acceleration.ts" />
@@ -65,23 +162,26 @@
         <option value="$PROJECT_DIR$/IAccelerationListenerError.ts" />
         <option value="$PROJECT_DIR$/ButtonListenerImpl.ts" />
         <option value="$PROJECT_DIR$/IAdaptiveRP.d.ts" />
-        <option value="$PROJECT_DIR$/IAdaptiveRP.ts" />
         <option value="$PROJECT_DIR$/IOS.ts" />
         <option value="$PROJECT_DIR$/BarcodeBridge.ts" />
         <option value="$PROJECT_DIR$/FacebookBridge.ts" />
-        <option value="$PROJECT_DIR$/IAppRegistry.ts" />
         <option value="$PROJECT_DIR$/IService.ts" />
         <option value="$PROJECT_DIR$/ServiceBridge.ts" />
         <option value="$PROJECT_DIR$/BaseCommunicationBridge.ts" />
         <option value="$PROJECT_DIR$/NetworkReachabilityBridge.ts" />
         <option value="$PROJECT_DIR$/BaseApplicationBridge.ts" />
-        <option value="$PROJECT_DIR$/AppRegistryBridge.ts" />
-        <option value="$PROJECT_DIR$/Adaptive.ts" />
         <option value="$PROJECT_DIR$/Adaptive.js" />
         <option value="$PROJECT_DIR$/BaseListener.ts" />
         <option value="$PROJECT_DIR$/AccelerationBridge.ts" />
         <option value="$PROJECT_DIR$/IBaseListener.ts" />
         <option value="$PROJECT_DIR$/AccelerationListener.ts" />
+        <option value="$PROJECT_DIR$/IAdaptiveRP.ts" />
+        <option value="$PROJECT_DIR$/BaseCommerceBridge.ts" />
+        <option value="$PROJECT_DIR$/BaseCallback.ts" />
+        <option value="$PROJECT_DIR$/Adaptive.ts" />
+        <option value="$PROJECT_DIR$/ISocket.ts" />
+        <option value="$PROJECT_DIR$/IAppRegistry.ts" />
+        <option value="$PROJECT_DIR$/AppRegistryBridge.ts" />
       </list>
     </option>
   </component>
@@ -156,25 +256,10 @@
       <ConfigurationWrapper RunnerId="Basic" />
       <method />
     </configuration>
-    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
-      <method />
-    </configuration>
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <method />
     </configuration>
-    <configuration default="true" type="BashConfigurationType" factoryName="Bash">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="INTERPRETER_PATH" value="/bin/bash" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <module name="" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
-      <envs />
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <method />
     </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
@@ -182,6 +267,21 @@
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="Chrome" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="BashConfigurationType" factoryName="Bash">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="INTERPRETER_PATH" value="/bin/bash" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <module name="" />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
@@ -228,7 +328,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-2502" y="23" width="2461" height="1379" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -243,11 +343,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991952" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991952" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -271,20 +371,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Acceleration.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2595">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Adaptive.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="15900" max-vertical-offset="108660">
-          <caret line="1060" column="13" selection-start-line="1060" selection-start-column="13" selection-end-line="1060" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/APIRequest.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="2535">
@@ -390,13 +476,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IAdaptiveRP.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1910828" vertical-offset="0" max-vertical-offset="1256">
-          <caret line="16" column="39" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/join.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3915">
@@ -484,14 +563,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IAppRegistry.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="5.995223" vertical-offset="885" max-vertical-offset="9255">
-          <caret line="561" column="39" selection-start-line="561" selection-start-column="31" selection-end-line="561" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BaseSensorBridge.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6210191" vertical-offset="0" max-vertical-offset="1256">
@@ -540,14 +611,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BaseCommerceBridge.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="1155">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BaseCommunicationBridge.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="243" max-vertical-offset="1155">
@@ -564,22 +627,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BaseApplicationBridge.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1155">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AppRegistryBridge.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3675" max-vertical-offset="16860">
-          <caret line="274" column="60" selection-start-line="274" selection-start-column="60" selection-end-line="274" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AccelerationBridge.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1256">
@@ -588,56 +635,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Adaptive.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="189810" max-vertical-offset="189900">
-          <caret line="12654" column="0" selection-start-line="12654" selection-start-column="0" selection-end-line="12654" selection-end-column="0" />
-          <folding>
-            <marker date="1421083496000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1421083496000" expanded="true" signature="-1:-1" placeholder="/**Evaluate the specified javascript on the main webview of the application. ...*/" />
-            <marker date="1421083496000" expanded="true" signature="-1:-1" placeholder="/**Evaluate the specified javascript on the specified webview of the application. ...*/" />
-            <marker date="1421083496000" expanded="true" signature="-1:-1" placeholder="/**Returns a reference to the main application webview. This is the first application webview and can not be removed ...*/" />
-            <marker date="1421083496000" expanded="true" signature="-1:-1" placeholder="/**Returns an array of webviews currently managed by the context - composed of primary and the list of those added. ...*/" />
-            <marker date="1421083496000" expanded="true" signature="-1:-1" placeholder="/**When a webview is disposed - no longer in use from an external activity - the webview should be removed to unbind ...*/" />
-            <marker date="1421083496000" expanded="true" signature="-1:-1" placeholder="/**Returns a reference to the registered VideoBridge. ...*/" />
-            <marker date="1421083496000" expanded="true" signature="-1:-1" placeholder="/**Returns a reference to the registered WalletBridge. ...*/" />
-            <marker date="1421083496000" expanded="true" signature="-1:-1" placeholder="/**Returns a reference to the registered XMLBridge. ...*/" />
-            <marker date="1421083496000" expanded="true" signature="-1:-1" placeholder="/**Returns a reference to the Platform Context ...*/" />
-            <marker date="1421083496000" expanded="true" signature="-1:-1" placeholder="/**Returns a reference to the Webview platform context ...*/" />
-            <marker date="1421083496000" expanded="true" signature="-1:-1" placeholder="/**Base application for Commerce purposes ...*/" />
-            <marker date="1421083496000" expanded="true" signature="-1:-1" placeholder="/**Base application for Communication purposes ...*/" />
-            <marker date="1421083496000" expanded="true" signature="-1:-1" placeholder="/**Base application for Data purposes ...*/" />
-            <marker date="1421083496000" expanded="true" signature="-1:-1" placeholder="/**Base application for Listener purposes ...*/" />
-            <marker date="1421083496000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1421083496000" expanded="true" signature="-1:-1" placeholder="/**Get a reference to a registered service by name. ...*/" />
-            <marker date="1421083496000" expanded="true" signature="-1:-1" placeholder="/**Request async a service for an Url ...*/" />
-            <marker date="1421083496000" expanded="true" signature="-1:-1" placeholder="/**Check whether a service by the given name is registered. ...*/" />
-            <marker date="1421083496000" expanded="true" signature="-1:-1" placeholder="/**Check whether a service by the given name is registered. ...*/" />
-            <marker date="1421083496000" expanded="true" signature="-1:-1" placeholder="/**Register a new service ...*/" />
-            <marker date="1421083496000" expanded="true" signature="-1:-1" placeholder="/**Unregister all services. ...*/" />
-            <marker date="1421083496000" expanded="true" signature="-1:-1" placeholder="/**Unregister a service ...*/" />
-            <marker date="1421083496000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1421083496000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1421083496000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1421083496000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1421083496000" expanded="true" signature="-1:-1" placeholder="/**Returns the personal info of the Contact ...*/" />
-            <marker date="1421083496000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1421083496000" expanded="true" signature="-1:-1" placeholder="/**Set the personal info of the Contact ...*/" />
-            <marker date="1421083496000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1421083496000" expanded="true" signature="-1:-1" placeholder="/**Returns the professional info of the Contact ...*/" />
-            <marker date="1421083496000" expanded="true" signature="-1:-1" placeholder="/**Set the professional info of the Contact ...*/" />
-            <marker date="1421083496000" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/OSBridge.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="870" max-vertical-offset="1170">
           <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-          <folding>
-            <marker date="1421083496000" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -669,9 +671,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.011942675" vertical-offset="0" max-vertical-offset="1256">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding>
-            <marker date="1421083495000" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -691,10 +691,74 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/BaseApplicationBridge.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1155">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BaseCommerceBridge.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="363" max-vertical-offset="1275">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/AccelerationListener.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1910828" vertical-offset="210" max-vertical-offset="2520">
+        <state vertical-scroll-proportion="0.0" vertical-offset="930" max-vertical-offset="2520">
           <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BaseCallback.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="214" max-vertical-offset="1470">
+          <caret line="47" column="12" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Adaptive.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="189795" max-vertical-offset="191670">
+          <caret line="12680" column="32" selection-start-line="12680" selection-start-column="32" selection-end-line="12680" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ISocket.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5493631" vertical-offset="0" max-vertical-offset="1256">
+          <caret line="46" column="59" selection-start-line="46" selection-start-column="59" selection-end-line="46" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IAdaptiveRP.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="138" max-vertical-offset="1050">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IAppRegistry.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="8403" max-vertical-offset="9315">
+          <caret line="575" column="37" selection-start-line="575" selection-start-column="37" selection-end-line="575" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AppRegistryBridge.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21178344" vertical-offset="15694" max-vertical-offset="16950">
+          <caret line="1064" column="0" selection-start-line="1064" selection-start-column="0" selection-end-line="1064" selection-end-column="0" />
           <folding />
         </state>
       </provider>

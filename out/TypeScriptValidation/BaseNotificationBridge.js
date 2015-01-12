@@ -57,6 +57,12 @@ var Adaptive;
         BaseNotificationBridge.prototype.getAPIGroup = function () {
             return this.apiGroup;
         };
+        /**
+           Return the API version for the given interface.
+        */
+        BaseNotificationBridge.prototype.getAPIVersion = function () {
+            return "v2.0.3";
+        };
         return BaseNotificationBridge;
     })();
     Adaptive.BaseNotificationBridge = BaseNotificationBridge;

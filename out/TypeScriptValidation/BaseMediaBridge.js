@@ -57,6 +57,12 @@ var Adaptive;
         BaseMediaBridge.prototype.getAPIGroup = function () {
             return this.apiGroup;
         };
+        /**
+           Return the API version for the given interface.
+        */
+        BaseMediaBridge.prototype.getAPIVersion = function () {
+            return "v2.0.3";
+        };
         return BaseMediaBridge;
     })();
     Adaptive.BaseMediaBridge = BaseMediaBridge;

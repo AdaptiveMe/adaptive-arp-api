@@ -57,6 +57,12 @@ var Adaptive;
         BaseUIBridge.prototype.getAPIGroup = function () {
             return this.apiGroup;
         };
+        /**
+           Return the API version for the given interface.
+        */
+        BaseUIBridge.prototype.getAPIVersion = function () {
+            return "v2.0.3";
+        };
         return BaseUIBridge;
     })();
     Adaptive.BaseUIBridge = BaseUIBridge;

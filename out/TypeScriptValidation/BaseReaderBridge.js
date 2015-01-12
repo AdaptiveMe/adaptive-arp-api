@@ -57,6 +57,12 @@ var Adaptive;
         BaseReaderBridge.prototype.getAPIGroup = function () {
             return this.apiGroup;
         };
+        /**
+           Return the API version for the given interface.
+        */
+        BaseReaderBridge.prototype.getAPIVersion = function () {
+            return "v2.0.3";
+        };
         return BaseReaderBridge;
     })();
     Adaptive.BaseReaderBridge = BaseReaderBridge;

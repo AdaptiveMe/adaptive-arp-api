@@ -57,6 +57,12 @@ var Adaptive;
         BaseDataBridge.prototype.getAPIGroup = function () {
             return this.apiGroup;
         };
+        /**
+           Return the API version for the given interface.
+        */
+        BaseDataBridge.prototype.getAPIVersion = function () {
+            return "v2.0.3";
+        };
         return BaseDataBridge;
     })();
     Adaptive.BaseDataBridge = BaseDataBridge;

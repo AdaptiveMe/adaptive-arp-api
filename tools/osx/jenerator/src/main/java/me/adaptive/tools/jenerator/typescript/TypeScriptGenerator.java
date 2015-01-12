@@ -297,6 +297,12 @@ public class TypeScriptGenerator extends GeneratorBase {
                         printlnGlobal(10, "}");
                         printlnGlobal();
                     }
+                    startCommentGlobal(10);
+                    printlnGlobal(13, "Return the API version for the given interface.");
+                    endCommentGlobal(10);
+                    printlnGlobal(10, "public getAPIVersion() : string {");
+                    printlnGlobal(15, "return \""+getGenerationTagVersion()+"\"");
+                    printlnGlobal(10, "}");
                 }
             } else {
                 println(5, "export class " + simpleName + " extends " + clazz.getInterfaces()[0].getSimpleName().substring(1) + "Bridge implements " + clazz.getSimpleName() + " {");
@@ -368,6 +374,14 @@ public class TypeScriptGenerator extends GeneratorBase {
                     endCommentGlobal(10);
                     printlnGlobal(10, "getAPIGroup() : IAdaptiveRPGroup {");
                     printlnGlobal(15, "return this.apiGroup;");
+                    printlnGlobal(10, "}");
+                    printlnGlobal();
+
+                    startCommentGlobal(10);
+                    printlnGlobal(13, "Return the API version for the given interface.");
+                    endCommentGlobal(10);
+                    printlnGlobal(10, "getAPIVersion() : string {");
+                    printlnGlobal(15, "return \""+getGenerationTagVersion()+"\"");
                     printlnGlobal(10, "}");
                 } else {
                     printlnGlobal();
@@ -588,7 +602,14 @@ public class TypeScriptGenerator extends GeneratorBase {
             printlnGlobal(10, "getAPIGroup() : IAdaptiveRPGroup {");
             printlnGlobal(15, "return this.apiGroup;");
             printlnGlobal(10, "}");
+            printlnGlobal();
 
+            startCommentGlobal(10);
+            printlnGlobal(13, "Return the API version for the given interface.");
+            endCommentGlobal(10);
+            printlnGlobal(10, "getAPIVersion() : string {");
+            printlnGlobal(15, "return \""+getGenerationTagVersion()+"\"");
+            printlnGlobal(10, "}");
         } else {
             List<Method> methodList = new ArrayList<>();
             for (Method m : clazz.getDeclaredMethods()) {
@@ -862,6 +883,14 @@ public class TypeScriptGenerator extends GeneratorBase {
             printlnGlobal(10, "getAPIGroup() : IAdaptiveRPGroup {");
             printlnGlobal(15, "return this.apiGroup;");
             printlnGlobal(10, "}");
+            printlnGlobal();
+
+            startCommentGlobal(10);
+            printlnGlobal(13, "Return the API version for the given interface.");
+            endCommentGlobal(10);
+            printlnGlobal(10, "getAPIVersion() : string {");
+            printlnGlobal(15, "return \""+getGenerationTagVersion()+"\"");
+            printlnGlobal(10, "}");
 
         } else {
 
@@ -1117,11 +1146,15 @@ public class TypeScriptGenerator extends GeneratorBase {
                         printlnSF(13, "@return " + serviceClass.getSimpleName().substring(1) + "Bridge reference or null if a bridge of this type is not registered.");
                         endComment(10);
                         endCommentSF(10);
-                        println(10, "get" + serviceClass.getSimpleName().substring(1) + "Bridge() : " + serviceClass.getSimpleName());
+                        println(10, "get" + serviceClass.getSimpleName().substring(1) + "Bridge() : " + serviceClass.getSimpleName()+";");
                         println();
-                        printlnSF(10, "get" + serviceClass.getSimpleName().substring(1) + "Bridge() : " + serviceClass.getSimpleName());
+                        printlnSF(10, "get" + serviceClass.getSimpleName().substring(1) + "Bridge() : " + serviceClass.getSimpleName()+";");
                         printlnSF();
                     }
+                    startCommentGlobal(10);
+                    printlnGlobal(13, "Return the API version for the given interface.");
+                    endCommentGlobal(10);
+                    printlnGlobal(10, "getAPIVersion() : string;");
                 } else {
                     if (!clazz.getSimpleName().equals("IAppRegistry")) {
                         startComment(10);
@@ -1213,11 +1246,15 @@ public class TypeScriptGenerator extends GeneratorBase {
                         printlnSF(13, "@return " + serviceClass.getSimpleName().substring(1) + "Bridge reference or null if a bridge of this type is not registered.");
                         endComment(10);
                         endCommentSF(10);
-                        println(10, "get" + serviceClass.getSimpleName().substring(1) + "Bridge() : " + serviceClass.getSimpleName());
+                        println(10, "get" + serviceClass.getSimpleName().substring(1) + "Bridge() : " + serviceClass.getSimpleName()+";");
                         println();
-                        printlnSF(10, "get" + serviceClass.getSimpleName().substring(1) + "Bridge() : " + serviceClass.getSimpleName());
+                        printlnSF(10, "get" + serviceClass.getSimpleName().substring(1) + "Bridge() : " + serviceClass.getSimpleName()+";");
                         printlnSF();
                     }
+                    startCommentGlobal(10);
+                    printlnGlobal(13, "Return the API version for the given interface.");
+                    endCommentGlobal(10);
+                    printlnGlobal(10, "getAPIVersion() : string;");
                 } else {
                     if (!clazz.getSimpleName().equals("IAppRegistry")) {
                         startComment(10);

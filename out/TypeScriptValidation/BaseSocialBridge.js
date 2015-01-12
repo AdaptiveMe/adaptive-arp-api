@@ -57,6 +57,12 @@ var Adaptive;
         BaseSocialBridge.prototype.getAPIGroup = function () {
             return this.apiGroup;
         };
+        /**
+           Return the API version for the given interface.
+        */
+        BaseSocialBridge.prototype.getAPIVersion = function () {
+            return "v2.0.3";
+        };
         return BaseSocialBridge;
     })();
     Adaptive.BaseSocialBridge = BaseSocialBridge;

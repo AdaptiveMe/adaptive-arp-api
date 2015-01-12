@@ -78,6 +78,13 @@ module Adaptive {
                return this.apiGroup;
           }
 
+          /**
+             Return the API version for the given interface.
+          */
+          getAPIVersion() : string {
+               return "v2.0.3"
+          }
+
      }
 }
 /**

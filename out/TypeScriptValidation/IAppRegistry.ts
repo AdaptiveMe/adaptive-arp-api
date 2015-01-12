@@ -118,491 +118,495 @@ module Adaptive {
 
              @return AccelerationBridge reference or null if a bridge of this type is not registered.
           */
-          getAccelerationBridge() : IAcceleration
+          getAccelerationBridge() : IAcceleration;
 
           /**
              Returns a reference to the registered AdsBridge.
 
              @return AdsBridge reference or null if a bridge of this type is not registered.
           */
-          getAdsBridge() : IAds
+          getAdsBridge() : IAds;
 
           /**
              Returns a reference to the registered AlarmBridge.
 
              @return AlarmBridge reference or null if a bridge of this type is not registered.
           */
-          getAlarmBridge() : IAlarm
+          getAlarmBridge() : IAlarm;
 
           /**
              Returns a reference to the registered AmbientLightBridge.
 
              @return AmbientLightBridge reference or null if a bridge of this type is not registered.
           */
-          getAmbientLightBridge() : IAmbientLight
+          getAmbientLightBridge() : IAmbientLight;
 
           /**
              Returns a reference to the registered AnalyticsBridge.
 
              @return AnalyticsBridge reference or null if a bridge of this type is not registered.
           */
-          getAnalyticsBridge() : IAnalytics
+          getAnalyticsBridge() : IAnalytics;
 
           /**
              Returns a reference to the registered AudioBridge.
 
              @return AudioBridge reference or null if a bridge of this type is not registered.
           */
-          getAudioBridge() : IAudio
+          getAudioBridge() : IAudio;
 
           /**
              Returns a reference to the registered BarcodeBridge.
 
              @return BarcodeBridge reference or null if a bridge of this type is not registered.
           */
-          getBarcodeBridge() : IBarcode
+          getBarcodeBridge() : IBarcode;
 
           /**
              Returns a reference to the registered BarometerBridge.
 
              @return BarometerBridge reference or null if a bridge of this type is not registered.
           */
-          getBarometerBridge() : IBarometer
+          getBarometerBridge() : IBarometer;
 
           /**
              Returns a reference to the registered BluetoothBridge.
 
              @return BluetoothBridge reference or null if a bridge of this type is not registered.
           */
-          getBluetoothBridge() : IBluetooth
+          getBluetoothBridge() : IBluetooth;
 
           /**
              Returns a reference to the registered BrowserBridge.
 
              @return BrowserBridge reference or null if a bridge of this type is not registered.
           */
-          getBrowserBridge() : IBrowser
+          getBrowserBridge() : IBrowser;
 
           /**
              Returns a reference to the registered CalendarBridge.
 
              @return CalendarBridge reference or null if a bridge of this type is not registered.
           */
-          getCalendarBridge() : ICalendar
+          getCalendarBridge() : ICalendar;
 
           /**
              Returns a reference to the registered CameraBridge.
 
              @return CameraBridge reference or null if a bridge of this type is not registered.
           */
-          getCameraBridge() : ICamera
+          getCameraBridge() : ICamera;
 
           /**
              Returns a reference to the registered CapabilitiesBridge.
 
              @return CapabilitiesBridge reference or null if a bridge of this type is not registered.
           */
-          getCapabilitiesBridge() : ICapabilities
+          getCapabilitiesBridge() : ICapabilities;
 
           /**
              Returns a reference to the registered CloudBridge.
 
              @return CloudBridge reference or null if a bridge of this type is not registered.
           */
-          getCloudBridge() : ICloud
+          getCloudBridge() : ICloud;
 
           /**
              Returns a reference to the registered CompressionBridge.
 
              @return CompressionBridge reference or null if a bridge of this type is not registered.
           */
-          getCompressionBridge() : ICompression
+          getCompressionBridge() : ICompression;
 
           /**
              Returns a reference to the registered ConcurrentBridge.
 
              @return ConcurrentBridge reference or null if a bridge of this type is not registered.
           */
-          getConcurrentBridge() : IConcurrent
+          getConcurrentBridge() : IConcurrent;
 
           /**
              Returns a reference to the registered ContactBridge.
 
              @return ContactBridge reference or null if a bridge of this type is not registered.
           */
-          getContactBridge() : IContact
+          getContactBridge() : IContact;
 
           /**
              Returns a reference to the registered CryptoBridge.
 
              @return CryptoBridge reference or null if a bridge of this type is not registered.
           */
-          getCryptoBridge() : ICrypto
+          getCryptoBridge() : ICrypto;
 
           /**
              Returns a reference to the registered DataStreamBridge.
 
              @return DataStreamBridge reference or null if a bridge of this type is not registered.
           */
-          getDataStreamBridge() : IDataStream
+          getDataStreamBridge() : IDataStream;
 
           /**
              Returns a reference to the registered DatabaseBridge.
 
              @return DatabaseBridge reference or null if a bridge of this type is not registered.
           */
-          getDatabaseBridge() : IDatabase
+          getDatabaseBridge() : IDatabase;
 
           /**
              Returns a reference to the registered DesktopBridge.
 
              @return DesktopBridge reference or null if a bridge of this type is not registered.
           */
-          getDesktopBridge() : IDesktop
+          getDesktopBridge() : IDesktop;
 
           /**
              Returns a reference to the registered DeviceBridge.
 
              @return DeviceBridge reference or null if a bridge of this type is not registered.
           */
-          getDeviceBridge() : IDevice
+          getDeviceBridge() : IDevice;
 
           /**
              Returns a reference to the registered DisplayBridge.
 
              @return DisplayBridge reference or null if a bridge of this type is not registered.
           */
-          getDisplayBridge() : IDisplay
+          getDisplayBridge() : IDisplay;
 
           /**
              Returns a reference to the registered FacebookBridge.
 
              @return FacebookBridge reference or null if a bridge of this type is not registered.
           */
-          getFacebookBridge() : IFacebook
+          getFacebookBridge() : IFacebook;
 
           /**
              Returns a reference to the registered FileBridge.
 
              @return FileBridge reference or null if a bridge of this type is not registered.
           */
-          getFileBridge() : IFile
+          getFileBridge() : IFile;
 
           /**
              Returns a reference to the registered FileSystemBridge.
 
              @return FileSystemBridge reference or null if a bridge of this type is not registered.
           */
-          getFileSystemBridge() : IFileSystem
+          getFileSystemBridge() : IFileSystem;
 
           /**
              Returns a reference to the registered GeolocationBridge.
 
              @return GeolocationBridge reference or null if a bridge of this type is not registered.
           */
-          getGeolocationBridge() : IGeolocation
+          getGeolocationBridge() : IGeolocation;
 
           /**
              Returns a reference to the registered GlobalizationBridge.
 
              @return GlobalizationBridge reference or null if a bridge of this type is not registered.
           */
-          getGlobalizationBridge() : IGlobalization
+          getGlobalizationBridge() : IGlobalization;
 
           /**
              Returns a reference to the registered GooglePlusBridge.
 
              @return GooglePlusBridge reference or null if a bridge of this type is not registered.
           */
-          getGooglePlusBridge() : IGooglePlus
+          getGooglePlusBridge() : IGooglePlus;
 
           /**
              Returns a reference to the registered GyroscopeBridge.
 
              @return GyroscopeBridge reference or null if a bridge of this type is not registered.
           */
-          getGyroscopeBridge() : IGyroscope
+          getGyroscopeBridge() : IGyroscope;
 
           /**
              Returns a reference to the registered ImagingBridge.
 
              @return ImagingBridge reference or null if a bridge of this type is not registered.
           */
-          getImagingBridge() : IImaging
+          getImagingBridge() : IImaging;
 
           /**
              Returns a reference to the registered InternalStorageBridge.
 
              @return InternalStorageBridge reference or null if a bridge of this type is not registered.
           */
-          getInternalStorageBridge() : IInternalStorage
+          getInternalStorageBridge() : IInternalStorage;
 
           /**
              Returns a reference to the registered LifecycleBridge.
 
              @return LifecycleBridge reference or null if a bridge of this type is not registered.
           */
-          getLifecycleBridge() : ILifecycle
+          getLifecycleBridge() : ILifecycle;
 
           /**
              Returns a reference to the registered LinkedInBridge.
 
              @return LinkedInBridge reference or null if a bridge of this type is not registered.
           */
-          getLinkedInBridge() : ILinkedIn
+          getLinkedInBridge() : ILinkedIn;
 
           /**
              Returns a reference to the registered LoggingBridge.
 
              @return LoggingBridge reference or null if a bridge of this type is not registered.
           */
-          getLoggingBridge() : ILogging
+          getLoggingBridge() : ILogging;
 
           /**
              Returns a reference to the registered MagnetometerBridge.
 
              @return MagnetometerBridge reference or null if a bridge of this type is not registered.
           */
-          getMagnetometerBridge() : IMagnetometer
+          getMagnetometerBridge() : IMagnetometer;
 
           /**
              Returns a reference to the registered MailBridge.
 
              @return MailBridge reference or null if a bridge of this type is not registered.
           */
-          getMailBridge() : IMail
+          getMailBridge() : IMail;
 
           /**
              Returns a reference to the registered ManagementBridge.
 
              @return ManagementBridge reference or null if a bridge of this type is not registered.
           */
-          getManagementBridge() : IManagement
+          getManagementBridge() : IManagement;
 
           /**
              Returns a reference to the registered MapBridge.
 
              @return MapBridge reference or null if a bridge of this type is not registered.
           */
-          getMapBridge() : IMap
+          getMapBridge() : IMap;
 
           /**
              Returns a reference to the registered MessagingBridge.
 
              @return MessagingBridge reference or null if a bridge of this type is not registered.
           */
-          getMessagingBridge() : IMessaging
+          getMessagingBridge() : IMessaging;
 
           /**
              Returns a reference to the registered NFCBridge.
 
              @return NFCBridge reference or null if a bridge of this type is not registered.
           */
-          getNFCBridge() : INFC
+          getNFCBridge() : INFC;
 
           /**
              Returns a reference to the registered NetworkInfoBridge.
 
              @return NetworkInfoBridge reference or null if a bridge of this type is not registered.
           */
-          getNetworkInfoBridge() : INetworkInfo
+          getNetworkInfoBridge() : INetworkInfo;
 
           /**
              Returns a reference to the registered NetworkNamingBridge.
 
              @return NetworkNamingBridge reference or null if a bridge of this type is not registered.
           */
-          getNetworkNamingBridge() : INetworkNaming
+          getNetworkNamingBridge() : INetworkNaming;
 
           /**
              Returns a reference to the registered NetworkReachabilityBridge.
 
              @return NetworkReachabilityBridge reference or null if a bridge of this type is not registered.
           */
-          getNetworkReachabilityBridge() : INetworkReachability
+          getNetworkReachabilityBridge() : INetworkReachability;
 
           /**
              Returns a reference to the registered NetworkStatusBridge.
 
              @return NetworkStatusBridge reference or null if a bridge of this type is not registered.
           */
-          getNetworkStatusBridge() : INetworkStatus
+          getNetworkStatusBridge() : INetworkStatus;
 
           /**
              Returns a reference to the registered NotificationBridge.
 
              @return NotificationBridge reference or null if a bridge of this type is not registered.
           */
-          getNotificationBridge() : INotification
+          getNotificationBridge() : INotification;
 
           /**
              Returns a reference to the registered NotificationLocalBridge.
 
              @return NotificationLocalBridge reference or null if a bridge of this type is not registered.
           */
-          getNotificationLocalBridge() : INotificationLocal
+          getNotificationLocalBridge() : INotificationLocal;
 
           /**
              Returns a reference to the registered OAuthBridge.
 
              @return OAuthBridge reference or null if a bridge of this type is not registered.
           */
-          getOAuthBridge() : IOAuth
+          getOAuthBridge() : IOAuth;
 
           /**
              Returns a reference to the registered OCRBridge.
 
              @return OCRBridge reference or null if a bridge of this type is not registered.
           */
-          getOCRBridge() : IOCR
+          getOCRBridge() : IOCR;
 
           /**
              Returns a reference to the registered OSBridge.
 
              @return OSBridge reference or null if a bridge of this type is not registered.
           */
-          getOSBridge() : IOS
+          getOSBridge() : IOS;
 
           /**
              Returns a reference to the registered OpenIdBridge.
 
              @return OpenIdBridge reference or null if a bridge of this type is not registered.
           */
-          getOpenIdBridge() : IOpenId
+          getOpenIdBridge() : IOpenId;
 
           /**
              Returns a reference to the registered PrintingBridge.
 
              @return PrintingBridge reference or null if a bridge of this type is not registered.
           */
-          getPrintingBridge() : IPrinting
+          getPrintingBridge() : IPrinting;
 
           /**
              Returns a reference to the registered ProximityBridge.
 
              @return ProximityBridge reference or null if a bridge of this type is not registered.
           */
-          getProximityBridge() : IProximity
+          getProximityBridge() : IProximity;
 
           /**
              Returns a reference to the registered QRCodeBridge.
 
              @return QRCodeBridge reference or null if a bridge of this type is not registered.
           */
-          getQRCodeBridge() : IQRCode
+          getQRCodeBridge() : IQRCode;
 
           /**
              Returns a reference to the registered RSSBridge.
 
              @return RSSBridge reference or null if a bridge of this type is not registered.
           */
-          getRSSBridge() : IRSS
+          getRSSBridge() : IRSS;
 
           /**
              Returns a reference to the registered RuntimeBridge.
 
              @return RuntimeBridge reference or null if a bridge of this type is not registered.
           */
-          getRuntimeBridge() : IRuntime
+          getRuntimeBridge() : IRuntime;
 
           /**
              Returns a reference to the registered SecurityBridge.
 
              @return SecurityBridge reference or null if a bridge of this type is not registered.
           */
-          getSecurityBridge() : ISecurity
+          getSecurityBridge() : ISecurity;
 
           /**
              Returns a reference to the registered ServiceBridge.
 
              @return ServiceBridge reference or null if a bridge of this type is not registered.
           */
-          getServiceBridge() : IService
+          getServiceBridge() : IService;
 
           /**
              Returns a reference to the registered SettingsBridge.
 
              @return SettingsBridge reference or null if a bridge of this type is not registered.
           */
-          getSettingsBridge() : ISettings
+          getSettingsBridge() : ISettings;
 
           /**
              Returns a reference to the registered SocketBridge.
 
              @return SocketBridge reference or null if a bridge of this type is not registered.
           */
-          getSocketBridge() : ISocket
+          getSocketBridge() : ISocket;
 
           /**
              Returns a reference to the registered StoreBridge.
 
              @return StoreBridge reference or null if a bridge of this type is not registered.
           */
-          getStoreBridge() : IStore
+          getStoreBridge() : IStore;
 
           /**
              Returns a reference to the registered TelephonyBridge.
 
              @return TelephonyBridge reference or null if a bridge of this type is not registered.
           */
-          getTelephonyBridge() : ITelephony
+          getTelephonyBridge() : ITelephony;
 
           /**
              Returns a reference to the registered TimerBridge.
 
              @return TimerBridge reference or null if a bridge of this type is not registered.
           */
-          getTimerBridge() : ITimer
+          getTimerBridge() : ITimer;
 
           /**
              Returns a reference to the registered TwitterBridge.
 
              @return TwitterBridge reference or null if a bridge of this type is not registered.
           */
-          getTwitterBridge() : ITwitter
+          getTwitterBridge() : ITwitter;
 
           /**
              Returns a reference to the registered UIBridge.
 
              @return UIBridge reference or null if a bridge of this type is not registered.
           */
-          getUIBridge() : IUI
+          getUIBridge() : IUI;
 
           /**
              Returns a reference to the registered UpdateBridge.
 
              @return UpdateBridge reference or null if a bridge of this type is not registered.
           */
-          getUpdateBridge() : IUpdate
+          getUpdateBridge() : IUpdate;
 
           /**
              Returns a reference to the registered VibrationBridge.
 
              @return VibrationBridge reference or null if a bridge of this type is not registered.
           */
-          getVibrationBridge() : IVibration
+          getVibrationBridge() : IVibration;
 
           /**
              Returns a reference to the registered VideoBridge.
 
              @return VideoBridge reference or null if a bridge of this type is not registered.
           */
-          getVideoBridge() : IVideo
+          getVideoBridge() : IVideo;
 
           /**
              Returns a reference to the registered WalletBridge.
 
              @return WalletBridge reference or null if a bridge of this type is not registered.
           */
-          getWalletBridge() : IWallet
+          getWalletBridge() : IWallet;
 
           /**
              Returns a reference to the registered XMLBridge.
 
              @return XMLBridge reference or null if a bridge of this type is not registered.
           */
-          getXMLBridge() : IXML
+          getXMLBridge() : IXML;
 
+          /**
+             Return the API version for the given interface.
+          */
+          getAPIVersion() : string;
      }
 }
 

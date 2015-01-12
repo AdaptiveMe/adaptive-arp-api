@@ -57,6 +57,12 @@ var Adaptive;
         BaseSecurityBridge.prototype.getAPIGroup = function () {
             return this.apiGroup;
         };
+        /**
+           Return the API version for the given interface.
+        */
+        BaseSecurityBridge.prototype.getAPIVersion = function () {
+            return "v2.0.3";
+        };
         return BaseSecurityBridge;
     })();
     Adaptive.BaseSecurityBridge = BaseSecurityBridge;

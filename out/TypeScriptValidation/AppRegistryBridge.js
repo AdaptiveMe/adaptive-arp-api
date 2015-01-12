@@ -962,6 +962,12 @@ var Adaptive;
             return AppRegistryBridge.instanceXML;
         };
         /**
+           Return the API version for the given interface.
+        */
+        AppRegistryBridge.prototype.getAPIVersion = function () {
+            return "v2.0.3";
+        };
+        /**
            Singleton instance of AppRegistry.
         */
         AppRegistryBridge.instance = null;

@@ -530,5 +530,9 @@ declare module Adaptive {
            @return XMLBridge reference or null if a bridge of this type is not registered.
         */
         getXMLBridge(): IXML;
+        /**
+           Return the API version for the given interface.
+        */
+        getAPIVersion(): string;
     }
 }

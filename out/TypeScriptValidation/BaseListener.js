@@ -62,6 +62,12 @@ var Adaptive;
         BaseListener.prototype.getAPIGroup = function () {
             return this.apiGroup;
         };
+        /**
+           Return the API version for the given interface.
+        */
+        BaseListener.prototype.getAPIVersion = function () {
+            return "v2.0.3";
+        };
         return BaseListener;
     })();
     Adaptive.BaseListener = BaseListener;

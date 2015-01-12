@@ -57,6 +57,12 @@ var Adaptive;
         BasePIMBridge.prototype.getAPIGroup = function () {
             return this.apiGroup;
         };
+        /**
+           Return the API version for the given interface.
+        */
+        BasePIMBridge.prototype.getAPIVersion = function () {
+            return "v2.0.3";
+        };
         return BasePIMBridge;
     })();
     Adaptive.BasePIMBridge = BasePIMBridge;

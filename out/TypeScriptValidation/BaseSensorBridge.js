@@ -57,6 +57,12 @@ var Adaptive;
         BaseSensorBridge.prototype.getAPIGroup = function () {
             return this.apiGroup;
         };
+        /**
+           Return the API version for the given interface.
+        */
+        BaseSensorBridge.prototype.getAPIVersion = function () {
+            return "v2.0.3";
+        };
         return BaseSensorBridge;
     })();
     Adaptive.BaseSensorBridge = BaseSensorBridge;
