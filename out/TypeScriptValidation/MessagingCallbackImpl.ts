@@ -44,6 +44,43 @@ module Adaptive {
         Interface for Managing the Messaging responses
         Auto-generated implementation of IMessagingCallback specification.
      */
+
+     /**
+        MessagingCallback control dictionary.
+     */
+     var registeredMessagingCallback = new Dictionary<IMessagingCallback>([]);
+
+     /**
+        MessagingCallback global callback handlers.
+     */
+     export function handleMessagingCallbackError(id : number, error : IMessagingCallbackError) : void {
+          var callback : IMessagingCallback = registeredMessagingCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredMessagingCallback dictionary.");
+          } else {
+               registeredMessagingCallback.remove(""+id);
+               callback.onError(error);
+          }
+     }
+     export function handleMessagingCallbackResult(id : number, success : boolean) : void {
+          var callback : IMessagingCallback = registeredMessagingCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredMessagingCallback dictionary.");
+          } else {
+               registeredMessagingCallback.remove(""+id);
+               callback.onResult(success);
+          }
+     }
+     export function handleMessagingCallbackWarning(id : number, success : boolean, warning : IMessagingCallbackWarning) : void {
+          var callback : IMessagingCallback = registeredMessagingCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredMessagingCallback dictionary.");
+          } else {
+               registeredMessagingCallback.remove(""+id);
+               callback.onWarning(success, warning);
+          }
+     }
+
      export class MessagingCallbackImpl extends BaseCallbackImpl implements IMessagingCallback {
 
           onErrorFunction : (error : IMessagingCallbackError) => Function;

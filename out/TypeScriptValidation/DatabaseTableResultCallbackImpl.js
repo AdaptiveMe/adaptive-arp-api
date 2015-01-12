@@ -49,6 +49,46 @@ var Adaptive;
        Interface for Managing the Cloud operations
        Auto-generated implementation of IDatabaseTableResultCallback specification.
     */
+    /**
+       DatabaseTableResultCallback control dictionary.
+    */
+    var registeredDatabaseTableResultCallback = new Adaptive.Dictionary([]);
+    /**
+       DatabaseTableResultCallback global callback handlers.
+    */
+    function handleDatabaseTableResultCallbackError(id, error) {
+        var callback = registeredDatabaseTableResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredDatabaseTableResultCallback dictionary.");
+        }
+        else {
+            registeredDatabaseTableResultCallback.remove("" + id);
+            callback.onError(error);
+        }
+    }
+    Adaptive.handleDatabaseTableResultCallbackError = handleDatabaseTableResultCallbackError;
+    function handleDatabaseTableResultCallbackResult(id, databaseTable) {
+        var callback = registeredDatabaseTableResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredDatabaseTableResultCallback dictionary.");
+        }
+        else {
+            registeredDatabaseTableResultCallback.remove("" + id);
+            callback.onResult(databaseTable);
+        }
+    }
+    Adaptive.handleDatabaseTableResultCallbackResult = handleDatabaseTableResultCallbackResult;
+    function handleDatabaseTableResultCallbackWarning(id, databaseTable, warning) {
+        var callback = registeredDatabaseTableResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredDatabaseTableResultCallback dictionary.");
+        }
+        else {
+            registeredDatabaseTableResultCallback.remove("" + id);
+            callback.onWarning(databaseTable, warning);
+        }
+    }
+    Adaptive.handleDatabaseTableResultCallbackWarning = handleDatabaseTableResultCallbackWarning;
     var DatabaseTableResultCallbackImpl = (function (_super) {
         __extends(DatabaseTableResultCallbackImpl, _super);
         /**

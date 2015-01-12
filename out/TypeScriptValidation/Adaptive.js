@@ -3233,6 +3233,43 @@ doesn't exist, this will be -1. Used internally.
         return BaseListenerImpl;
     })();
     Adaptive.BaseListenerImpl = BaseListenerImpl;
+    /**
+       AccelerationListener control dictionary.
+    */
+    var registeredAccelerationListener = new Dictionary([]);
+    /**
+       AccelerationListener global listener handlers.
+    */
+    function handleAccelerationListenerError(id, error) {
+        var listener = registeredAccelerationListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredAccelerationListener dictionary.");
+        }
+        else {
+            listener.onError(error);
+        }
+    }
+    Adaptive.handleAccelerationListenerError = handleAccelerationListenerError;
+    function handleAccelerationListenerResult(id, acceleration) {
+        var listener = registeredAccelerationListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredAccelerationListener dictionary.");
+        }
+        else {
+            listener.onResult(acceleration);
+        }
+    }
+    Adaptive.handleAccelerationListenerResult = handleAccelerationListenerResult;
+    function handleAccelerationListenerWarning(id, acceleration, warning) {
+        var listener = registeredAccelerationListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredAccelerationListener dictionary.");
+        }
+        else {
+            listener.onWarning(acceleration, warning);
+        }
+    }
+    Adaptive.handleAccelerationListenerWarning = handleAccelerationListenerWarning;
     var AccelerationListenerImpl = (function (_super) {
         __extends(AccelerationListenerImpl, _super);
         /**
@@ -3310,6 +3347,43 @@ listener and subsequently, the listener will be deactivated and removed from the
         return AccelerationListenerImpl;
     })(BaseListenerImpl);
     Adaptive.AccelerationListenerImpl = AccelerationListenerImpl;
+    /**
+       ButtonListener control dictionary.
+    */
+    var registeredButtonListener = new Dictionary([]);
+    /**
+       ButtonListener global listener handlers.
+    */
+    function handleButtonListenerError(id, error) {
+        var listener = registeredButtonListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredButtonListener dictionary.");
+        }
+        else {
+            listener.onError(error);
+        }
+    }
+    Adaptive.handleButtonListenerError = handleButtonListenerError;
+    function handleButtonListenerResult(id, button) {
+        var listener = registeredButtonListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredButtonListener dictionary.");
+        }
+        else {
+            listener.onResult(button);
+        }
+    }
+    Adaptive.handleButtonListenerResult = handleButtonListenerResult;
+    function handleButtonListenerWarning(id, button, warning) {
+        var listener = registeredButtonListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredButtonListener dictionary.");
+        }
+        else {
+            listener.onWarning(button, warning);
+        }
+    }
+    Adaptive.handleButtonListenerWarning = handleButtonListenerWarning;
     var ButtonListenerImpl = (function (_super) {
         __extends(ButtonListenerImpl, _super);
         /**
@@ -3386,6 +3460,43 @@ listener and subsequently, the listener will be deactivated and removed from the
         return ButtonListenerImpl;
     })(BaseListenerImpl);
     Adaptive.ButtonListenerImpl = ButtonListenerImpl;
+    /**
+       GeolocationListener control dictionary.
+    */
+    var registeredGeolocationListener = new Dictionary([]);
+    /**
+       GeolocationListener global listener handlers.
+    */
+    function handleGeolocationListenerError(id, error) {
+        var listener = registeredGeolocationListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredGeolocationListener dictionary.");
+        }
+        else {
+            listener.onError(error);
+        }
+    }
+    Adaptive.handleGeolocationListenerError = handleGeolocationListenerError;
+    function handleGeolocationListenerResult(id, geolocation) {
+        var listener = registeredGeolocationListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredGeolocationListener dictionary.");
+        }
+        else {
+            listener.onResult(geolocation);
+        }
+    }
+    Adaptive.handleGeolocationListenerResult = handleGeolocationListenerResult;
+    function handleGeolocationListenerWarning(id, geolocation, warning) {
+        var listener = registeredGeolocationListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredGeolocationListener dictionary.");
+        }
+        else {
+            listener.onWarning(geolocation, warning);
+        }
+    }
+    Adaptive.handleGeolocationListenerWarning = handleGeolocationListenerWarning;
     var GeolocationListenerImpl = (function (_super) {
         __extends(GeolocationListenerImpl, _super);
         /**
@@ -3462,6 +3573,43 @@ listener and subsequently, the listener will be deactivated and removed from the
         return GeolocationListenerImpl;
     })(BaseListenerImpl);
     Adaptive.GeolocationListenerImpl = GeolocationListenerImpl;
+    /**
+       LifecycleListener control dictionary.
+    */
+    var registeredLifecycleListener = new Dictionary([]);
+    /**
+       LifecycleListener global listener handlers.
+    */
+    function handleLifecycleListenerError(id, error) {
+        var listener = registeredLifecycleListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredLifecycleListener dictionary.");
+        }
+        else {
+            listener.onError(error);
+        }
+    }
+    Adaptive.handleLifecycleListenerError = handleLifecycleListenerError;
+    function handleLifecycleListenerResult(id, lifecycle) {
+        var listener = registeredLifecycleListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredLifecycleListener dictionary.");
+        }
+        else {
+            listener.onResult(lifecycle);
+        }
+    }
+    Adaptive.handleLifecycleListenerResult = handleLifecycleListenerResult;
+    function handleLifecycleListenerWarning(id, lifecycle, warning) {
+        var listener = registeredLifecycleListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredLifecycleListener dictionary.");
+        }
+        else {
+            listener.onWarning(lifecycle, warning);
+        }
+    }
+    Adaptive.handleLifecycleListenerWarning = handleLifecycleListenerWarning;
     var LifecycleListenerImpl = (function (_super) {
         __extends(LifecycleListenerImpl, _super);
         /**
@@ -3538,6 +3686,43 @@ listener and subsequently, the listener will be deactivated and removed from the
         return LifecycleListenerImpl;
     })(BaseListenerImpl);
     Adaptive.LifecycleListenerImpl = LifecycleListenerImpl;
+    /**
+       NetworkStatusListener control dictionary.
+    */
+    var registeredNetworkStatusListener = new Dictionary([]);
+    /**
+       NetworkStatusListener global listener handlers.
+    */
+    function handleNetworkStatusListenerError(id, error) {
+        var listener = registeredNetworkStatusListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredNetworkStatusListener dictionary.");
+        }
+        else {
+            listener.onError(error);
+        }
+    }
+    Adaptive.handleNetworkStatusListenerError = handleNetworkStatusListenerError;
+    function handleNetworkStatusListenerResult(id, network) {
+        var listener = registeredNetworkStatusListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredNetworkStatusListener dictionary.");
+        }
+        else {
+            listener.onResult(network);
+        }
+    }
+    Adaptive.handleNetworkStatusListenerResult = handleNetworkStatusListenerResult;
+    function handleNetworkStatusListenerWarning(id, network, warning) {
+        var listener = registeredNetworkStatusListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredNetworkStatusListener dictionary.");
+        }
+        else {
+            listener.onWarning(network, warning);
+        }
+    }
+    Adaptive.handleNetworkStatusListenerWarning = handleNetworkStatusListenerWarning;
     var NetworkStatusListenerImpl = (function (_super) {
         __extends(NetworkStatusListenerImpl, _super);
         /**
@@ -3640,6 +3825,46 @@ listener and subsequently, the listener will be deactivated and removed from the
         return BaseCallbackImpl;
     })();
     Adaptive.BaseCallbackImpl = BaseCallbackImpl;
+    /**
+       ContactPhotoResultCallback control dictionary.
+    */
+    var registeredContactPhotoResultCallback = new Dictionary([]);
+    /**
+       ContactPhotoResultCallback global callback handlers.
+    */
+    function handleContactPhotoResultCallbackError(id, error) {
+        var callback = registeredContactPhotoResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredContactPhotoResultCallback dictionary.");
+        }
+        else {
+            registeredContactPhotoResultCallback.remove("" + id);
+            callback.onError(error);
+        }
+    }
+    Adaptive.handleContactPhotoResultCallbackError = handleContactPhotoResultCallbackError;
+    function handleContactPhotoResultCallbackResult(id, contactPhoto) {
+        var callback = registeredContactPhotoResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredContactPhotoResultCallback dictionary.");
+        }
+        else {
+            registeredContactPhotoResultCallback.remove("" + id);
+            callback.onResult(contactPhoto);
+        }
+    }
+    Adaptive.handleContactPhotoResultCallbackResult = handleContactPhotoResultCallbackResult;
+    function handleContactPhotoResultCallbackWarning(id, contactPhoto, warning) {
+        var callback = registeredContactPhotoResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredContactPhotoResultCallback dictionary.");
+        }
+        else {
+            registeredContactPhotoResultCallback.remove("" + id);
+            callback.onWarning(contactPhoto, warning);
+        }
+    }
+    Adaptive.handleContactPhotoResultCallbackWarning = handleContactPhotoResultCallbackWarning;
     var ContactPhotoResultCallbackImpl = (function (_super) {
         __extends(ContactPhotoResultCallbackImpl, _super);
         /**
@@ -3716,6 +3941,46 @@ listener and subsequently, the listener will be deactivated and removed from the
         return ContactPhotoResultCallbackImpl;
     })(BaseCallbackImpl);
     Adaptive.ContactPhotoResultCallbackImpl = ContactPhotoResultCallbackImpl;
+    /**
+       ContactResultCallback control dictionary.
+    */
+    var registeredContactResultCallback = new Dictionary([]);
+    /**
+       ContactResultCallback global callback handlers.
+    */
+    function handleContactResultCallbackError(id, error) {
+        var callback = registeredContactResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredContactResultCallback dictionary.");
+        }
+        else {
+            registeredContactResultCallback.remove("" + id);
+            callback.onError(error);
+        }
+    }
+    Adaptive.handleContactResultCallbackError = handleContactResultCallbackError;
+    function handleContactResultCallbackResult(id, contacts) {
+        var callback = registeredContactResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredContactResultCallback dictionary.");
+        }
+        else {
+            registeredContactResultCallback.remove("" + id);
+            callback.onResult(contacts);
+        }
+    }
+    Adaptive.handleContactResultCallbackResult = handleContactResultCallbackResult;
+    function handleContactResultCallbackWarning(id, contacts, warning) {
+        var callback = registeredContactResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredContactResultCallback dictionary.");
+        }
+        else {
+            registeredContactResultCallback.remove("" + id);
+            callback.onWarning(contacts, warning);
+        }
+    }
+    Adaptive.handleContactResultCallbackWarning = handleContactResultCallbackWarning;
     var ContactResultCallbackImpl = (function (_super) {
         __extends(ContactResultCallbackImpl, _super);
         /**
@@ -3792,6 +4057,46 @@ listener and subsequently, the listener will be deactivated and removed from the
         return ContactResultCallbackImpl;
     })(BaseCallbackImpl);
     Adaptive.ContactResultCallbackImpl = ContactResultCallbackImpl;
+    /**
+       DatabaseResultCallback control dictionary.
+    */
+    var registeredDatabaseResultCallback = new Dictionary([]);
+    /**
+       DatabaseResultCallback global callback handlers.
+    */
+    function handleDatabaseResultCallbackError(id, error) {
+        var callback = registeredDatabaseResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredDatabaseResultCallback dictionary.");
+        }
+        else {
+            registeredDatabaseResultCallback.remove("" + id);
+            callback.onError(error);
+        }
+    }
+    Adaptive.handleDatabaseResultCallbackError = handleDatabaseResultCallbackError;
+    function handleDatabaseResultCallbackResult(id, database) {
+        var callback = registeredDatabaseResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredDatabaseResultCallback dictionary.");
+        }
+        else {
+            registeredDatabaseResultCallback.remove("" + id);
+            callback.onResult(database);
+        }
+    }
+    Adaptive.handleDatabaseResultCallbackResult = handleDatabaseResultCallbackResult;
+    function handleDatabaseResultCallbackWarning(id, database, warning) {
+        var callback = registeredDatabaseResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredDatabaseResultCallback dictionary.");
+        }
+        else {
+            registeredDatabaseResultCallback.remove("" + id);
+            callback.onWarning(database, warning);
+        }
+    }
+    Adaptive.handleDatabaseResultCallbackWarning = handleDatabaseResultCallbackWarning;
     var DatabaseResultCallbackImpl = (function (_super) {
         __extends(DatabaseResultCallbackImpl, _super);
         /**
@@ -3868,6 +4173,46 @@ listener and subsequently, the listener will be deactivated and removed from the
         return DatabaseResultCallbackImpl;
     })(BaseCallbackImpl);
     Adaptive.DatabaseResultCallbackImpl = DatabaseResultCallbackImpl;
+    /**
+       DatabaseTableResultCallback control dictionary.
+    */
+    var registeredDatabaseTableResultCallback = new Dictionary([]);
+    /**
+       DatabaseTableResultCallback global callback handlers.
+    */
+    function handleDatabaseTableResultCallbackError(id, error) {
+        var callback = registeredDatabaseTableResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredDatabaseTableResultCallback dictionary.");
+        }
+        else {
+            registeredDatabaseTableResultCallback.remove("" + id);
+            callback.onError(error);
+        }
+    }
+    Adaptive.handleDatabaseTableResultCallbackError = handleDatabaseTableResultCallbackError;
+    function handleDatabaseTableResultCallbackResult(id, databaseTable) {
+        var callback = registeredDatabaseTableResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredDatabaseTableResultCallback dictionary.");
+        }
+        else {
+            registeredDatabaseTableResultCallback.remove("" + id);
+            callback.onResult(databaseTable);
+        }
+    }
+    Adaptive.handleDatabaseTableResultCallbackResult = handleDatabaseTableResultCallbackResult;
+    function handleDatabaseTableResultCallbackWarning(id, databaseTable, warning) {
+        var callback = registeredDatabaseTableResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredDatabaseTableResultCallback dictionary.");
+        }
+        else {
+            registeredDatabaseTableResultCallback.remove("" + id);
+            callback.onWarning(databaseTable, warning);
+        }
+    }
+    Adaptive.handleDatabaseTableResultCallbackWarning = handleDatabaseTableResultCallbackWarning;
     var DatabaseTableResultCallbackImpl = (function (_super) {
         __extends(DatabaseTableResultCallbackImpl, _super);
         /**
@@ -3944,6 +4289,46 @@ listener and subsequently, the listener will be deactivated and removed from the
         return DatabaseTableResultCallbackImpl;
     })(BaseCallbackImpl);
     Adaptive.DatabaseTableResultCallbackImpl = DatabaseTableResultCallbackImpl;
+    /**
+       FileDataLoadResultCallback control dictionary.
+    */
+    var registeredFileDataLoadResultCallback = new Dictionary([]);
+    /**
+       FileDataLoadResultCallback global callback handlers.
+    */
+    function handleFileDataLoadResultCallbackError(id, error) {
+        var callback = registeredFileDataLoadResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredFileDataLoadResultCallback dictionary.");
+        }
+        else {
+            registeredFileDataLoadResultCallback.remove("" + id);
+            callback.onError(error);
+        }
+    }
+    Adaptive.handleFileDataLoadResultCallbackError = handleFileDataLoadResultCallbackError;
+    function handleFileDataLoadResultCallbackResult(id, data) {
+        var callback = registeredFileDataLoadResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredFileDataLoadResultCallback dictionary.");
+        }
+        else {
+            registeredFileDataLoadResultCallback.remove("" + id);
+            callback.onResult(data);
+        }
+    }
+    Adaptive.handleFileDataLoadResultCallbackResult = handleFileDataLoadResultCallbackResult;
+    function handleFileDataLoadResultCallbackWarning(id, data, warning) {
+        var callback = registeredFileDataLoadResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredFileDataLoadResultCallback dictionary.");
+        }
+        else {
+            registeredFileDataLoadResultCallback.remove("" + id);
+            callback.onWarning(data, warning);
+        }
+    }
+    Adaptive.handleFileDataLoadResultCallbackWarning = handleFileDataLoadResultCallbackWarning;
     var FileDataLoadResultCallbackImpl = (function (_super) {
         __extends(FileDataLoadResultCallbackImpl, _super);
         /**
@@ -4020,6 +4405,46 @@ listener and subsequently, the listener will be deactivated and removed from the
         return FileDataLoadResultCallbackImpl;
     })(BaseCallbackImpl);
     Adaptive.FileDataLoadResultCallbackImpl = FileDataLoadResultCallbackImpl;
+    /**
+       FileDataStoreResultCallback control dictionary.
+    */
+    var registeredFileDataStoreResultCallback = new Dictionary([]);
+    /**
+       FileDataStoreResultCallback global callback handlers.
+    */
+    function handleFileDataStoreResultCallbackError(id, error) {
+        var callback = registeredFileDataStoreResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredFileDataStoreResultCallback dictionary.");
+        }
+        else {
+            registeredFileDataStoreResultCallback.remove("" + id);
+            callback.onError(error);
+        }
+    }
+    Adaptive.handleFileDataStoreResultCallbackError = handleFileDataStoreResultCallbackError;
+    function handleFileDataStoreResultCallbackResult(id, file) {
+        var callback = registeredFileDataStoreResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredFileDataStoreResultCallback dictionary.");
+        }
+        else {
+            registeredFileDataStoreResultCallback.remove("" + id);
+            callback.onResult(file);
+        }
+    }
+    Adaptive.handleFileDataStoreResultCallbackResult = handleFileDataStoreResultCallbackResult;
+    function handleFileDataStoreResultCallbackWarning(id, file, warning) {
+        var callback = registeredFileDataStoreResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredFileDataStoreResultCallback dictionary.");
+        }
+        else {
+            registeredFileDataStoreResultCallback.remove("" + id);
+            callback.onWarning(file, warning);
+        }
+    }
+    Adaptive.handleFileDataStoreResultCallbackWarning = handleFileDataStoreResultCallbackWarning;
     var FileDataStoreResultCallbackImpl = (function (_super) {
         __extends(FileDataStoreResultCallbackImpl, _super);
         /**
@@ -4096,6 +4521,46 @@ listener and subsequently, the listener will be deactivated and removed from the
         return FileDataStoreResultCallbackImpl;
     })(BaseCallbackImpl);
     Adaptive.FileDataStoreResultCallbackImpl = FileDataStoreResultCallbackImpl;
+    /**
+       FileListResultCallback control dictionary.
+    */
+    var registeredFileListResultCallback = new Dictionary([]);
+    /**
+       FileListResultCallback global callback handlers.
+    */
+    function handleFileListResultCallbackError(id, error) {
+        var callback = registeredFileListResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredFileListResultCallback dictionary.");
+        }
+        else {
+            registeredFileListResultCallback.remove("" + id);
+            callback.onError(error);
+        }
+    }
+    Adaptive.handleFileListResultCallbackError = handleFileListResultCallbackError;
+    function handleFileListResultCallbackResult(id, files) {
+        var callback = registeredFileListResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredFileListResultCallback dictionary.");
+        }
+        else {
+            registeredFileListResultCallback.remove("" + id);
+            callback.onResult(files);
+        }
+    }
+    Adaptive.handleFileListResultCallbackResult = handleFileListResultCallbackResult;
+    function handleFileListResultCallbackWarning(id, files, warning) {
+        var callback = registeredFileListResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredFileListResultCallback dictionary.");
+        }
+        else {
+            registeredFileListResultCallback.remove("" + id);
+            callback.onWarning(files, warning);
+        }
+    }
+    Adaptive.handleFileListResultCallbackWarning = handleFileListResultCallbackWarning;
     var FileListResultCallbackImpl = (function (_super) {
         __extends(FileListResultCallbackImpl, _super);
         /**
@@ -4172,6 +4637,46 @@ listener and subsequently, the listener will be deactivated and removed from the
         return FileListResultCallbackImpl;
     })(BaseCallbackImpl);
     Adaptive.FileListResultCallbackImpl = FileListResultCallbackImpl;
+    /**
+       FileResultCallback control dictionary.
+    */
+    var registeredFileResultCallback = new Dictionary([]);
+    /**
+       FileResultCallback global callback handlers.
+    */
+    function handleFileResultCallbackError(id, error) {
+        var callback = registeredFileResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredFileResultCallback dictionary.");
+        }
+        else {
+            registeredFileResultCallback.remove("" + id);
+            callback.onError(error);
+        }
+    }
+    Adaptive.handleFileResultCallbackError = handleFileResultCallbackError;
+    function handleFileResultCallbackResult(id, storageFile) {
+        var callback = registeredFileResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredFileResultCallback dictionary.");
+        }
+        else {
+            registeredFileResultCallback.remove("" + id);
+            callback.onResult(storageFile);
+        }
+    }
+    Adaptive.handleFileResultCallbackResult = handleFileResultCallbackResult;
+    function handleFileResultCallbackWarning(id, file, warning) {
+        var callback = registeredFileResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredFileResultCallback dictionary.");
+        }
+        else {
+            registeredFileResultCallback.remove("" + id);
+            callback.onWarning(file, warning);
+        }
+    }
+    Adaptive.handleFileResultCallbackWarning = handleFileResultCallbackWarning;
     var FileResultCallbackImpl = (function (_super) {
         __extends(FileResultCallbackImpl, _super);
         /**
@@ -4248,6 +4753,46 @@ listener and subsequently, the listener will be deactivated and removed from the
         return FileResultCallbackImpl;
     })(BaseCallbackImpl);
     Adaptive.FileResultCallbackImpl = FileResultCallbackImpl;
+    /**
+       MessagingCallback control dictionary.
+    */
+    var registeredMessagingCallback = new Dictionary([]);
+    /**
+       MessagingCallback global callback handlers.
+    */
+    function handleMessagingCallbackError(id, error) {
+        var callback = registeredMessagingCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredMessagingCallback dictionary.");
+        }
+        else {
+            registeredMessagingCallback.remove("" + id);
+            callback.onError(error);
+        }
+    }
+    Adaptive.handleMessagingCallbackError = handleMessagingCallbackError;
+    function handleMessagingCallbackResult(id, success) {
+        var callback = registeredMessagingCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredMessagingCallback dictionary.");
+        }
+        else {
+            registeredMessagingCallback.remove("" + id);
+            callback.onResult(success);
+        }
+    }
+    Adaptive.handleMessagingCallbackResult = handleMessagingCallbackResult;
+    function handleMessagingCallbackWarning(id, success, warning) {
+        var callback = registeredMessagingCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredMessagingCallback dictionary.");
+        }
+        else {
+            registeredMessagingCallback.remove("" + id);
+            callback.onWarning(success, warning);
+        }
+    }
+    Adaptive.handleMessagingCallbackWarning = handleMessagingCallbackWarning;
     var MessagingCallbackImpl = (function (_super) {
         __extends(MessagingCallbackImpl, _super);
         /**
@@ -4324,6 +4869,46 @@ listener and subsequently, the listener will be deactivated and removed from the
         return MessagingCallbackImpl;
     })(BaseCallbackImpl);
     Adaptive.MessagingCallbackImpl = MessagingCallbackImpl;
+    /**
+       NetworkReachabilityCallback control dictionary.
+    */
+    var registeredNetworkReachabilityCallback = new Dictionary([]);
+    /**
+       NetworkReachabilityCallback global callback handlers.
+    */
+    function handleNetworkReachabilityCallbackError(id, error) {
+        var callback = registeredNetworkReachabilityCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredNetworkReachabilityCallback dictionary.");
+        }
+        else {
+            registeredNetworkReachabilityCallback.remove("" + id);
+            callback.onError(error);
+        }
+    }
+    Adaptive.handleNetworkReachabilityCallbackError = handleNetworkReachabilityCallbackError;
+    function handleNetworkReachabilityCallbackResult(id, reachable) {
+        var callback = registeredNetworkReachabilityCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredNetworkReachabilityCallback dictionary.");
+        }
+        else {
+            registeredNetworkReachabilityCallback.remove("" + id);
+            callback.onResult(reachable);
+        }
+    }
+    Adaptive.handleNetworkReachabilityCallbackResult = handleNetworkReachabilityCallbackResult;
+    function handleNetworkReachabilityCallbackWarning(id, reachable, warning) {
+        var callback = registeredNetworkReachabilityCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredNetworkReachabilityCallback dictionary.");
+        }
+        else {
+            registeredNetworkReachabilityCallback.remove("" + id);
+            callback.onWarning(reachable, warning);
+        }
+    }
+    Adaptive.handleNetworkReachabilityCallbackWarning = handleNetworkReachabilityCallbackWarning;
     var NetworkReachabilityCallbackImpl = (function (_super) {
         __extends(NetworkReachabilityCallbackImpl, _super);
         /**
@@ -4400,6 +4985,46 @@ listener and subsequently, the listener will be deactivated and removed from the
         return NetworkReachabilityCallbackImpl;
     })(BaseCallbackImpl);
     Adaptive.NetworkReachabilityCallbackImpl = NetworkReachabilityCallbackImpl;
+    /**
+       SecurityResultCallback control dictionary.
+    */
+    var registeredSecurityResultCallback = new Dictionary([]);
+    /**
+       SecurityResultCallback global callback handlers.
+    */
+    function handleSecurityResultCallbackError(id, error) {
+        var callback = registeredSecurityResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredSecurityResultCallback dictionary.");
+        }
+        else {
+            registeredSecurityResultCallback.remove("" + id);
+            callback.onError(error);
+        }
+    }
+    Adaptive.handleSecurityResultCallbackError = handleSecurityResultCallbackError;
+    function handleSecurityResultCallbackResult(id, keyValues) {
+        var callback = registeredSecurityResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredSecurityResultCallback dictionary.");
+        }
+        else {
+            registeredSecurityResultCallback.remove("" + id);
+            callback.onResult(keyValues);
+        }
+    }
+    Adaptive.handleSecurityResultCallbackResult = handleSecurityResultCallbackResult;
+    function handleSecurityResultCallbackWarning(id, keyValues, warning) {
+        var callback = registeredSecurityResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredSecurityResultCallback dictionary.");
+        }
+        else {
+            registeredSecurityResultCallback.remove("" + id);
+            callback.onWarning(keyValues, warning);
+        }
+    }
+    Adaptive.handleSecurityResultCallbackWarning = handleSecurityResultCallbackWarning;
     var SecurityResultCallbackImpl = (function (_super) {
         __extends(SecurityResultCallbackImpl, _super);
         /**
@@ -4476,6 +5101,46 @@ listener and subsequently, the listener will be deactivated and removed from the
         return SecurityResultCallbackImpl;
     })(BaseCallbackImpl);
     Adaptive.SecurityResultCallbackImpl = SecurityResultCallbackImpl;
+    /**
+       ServiceResultCallback control dictionary.
+    */
+    var registeredServiceResultCallback = new Dictionary([]);
+    /**
+       ServiceResultCallback global callback handlers.
+    */
+    function handleServiceResultCallbackError(id, error) {
+        var callback = registeredServiceResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredServiceResultCallback dictionary.");
+        }
+        else {
+            registeredServiceResultCallback.remove("" + id);
+            callback.onError(error);
+        }
+    }
+    Adaptive.handleServiceResultCallbackError = handleServiceResultCallbackError;
+    function handleServiceResultCallbackResult(id, response) {
+        var callback = registeredServiceResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredServiceResultCallback dictionary.");
+        }
+        else {
+            registeredServiceResultCallback.remove("" + id);
+            callback.onResult(response);
+        }
+    }
+    Adaptive.handleServiceResultCallbackResult = handleServiceResultCallbackResult;
+    function handleServiceResultCallbackWarning(id, response, warning) {
+        var callback = registeredServiceResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredServiceResultCallback dictionary.");
+        }
+        else {
+            registeredServiceResultCallback.remove("" + id);
+            callback.onWarning(response, warning);
+        }
+    }
+    Adaptive.handleServiceResultCallbackWarning = handleServiceResultCallbackWarning;
     var ServiceResultCallbackImpl = (function (_super) {
         __extends(ServiceResultCallbackImpl, _super);
         /**

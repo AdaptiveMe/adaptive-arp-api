@@ -39,9 +39,11 @@ Release:
 */
 declare module Adaptive {
     /**
-       Interface for Managing the Services operations
-       Auto-generated implementation of IServiceResultCallback specification.
+       ServiceResultCallback global callback handlers.
     */
+    function handleServiceResultCallbackError(id: number, error: IServiceResultCallbackError): void;
+    function handleServiceResultCallbackResult(id: number, response: ServiceResponse): void;
+    function handleServiceResultCallbackWarning(id: number, response: ServiceResponse, warning: IServiceResultCallbackWarning): void;
     class ServiceResultCallbackImpl extends BaseCallbackImpl implements IServiceResultCallback {
         onErrorFunction: (error: IServiceResultCallbackError) => Function;
         onResultFunction: (response: ServiceResponse) => Function;

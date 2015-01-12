@@ -231,7 +231,7 @@ public class TypeScriptGenerator extends GeneratorBase {
 
 
         println("module Adaptive {");
-        println();
+        println(); //TODO: handler implementation.
         println("}");
     }
 
@@ -329,9 +329,6 @@ public class TypeScriptGenerator extends GeneratorBase {
             printlnGlobal(10, "}");
 
         } else {
-            printlnGlobal(5, "export class " + simpleName + " extends BaseCallbackImpl implements " + clazz.getSimpleName() + " {");
-            printlnGlobal();
-
             List<Method> methodList = new ArrayList<>();
             for (Method m : clazz.getDeclaredMethods()) {
                 methodList.add(m);
@@ -342,6 +339,51 @@ public class TypeScriptGenerator extends GeneratorBase {
                     return (o1.getName() + o1.getParameterCount()).compareTo((o2.getName() + o2.getParameterCount()));
                 }
             });
+
+            printlnGlobal();
+            startCommentGlobal(5);
+            printlnGlobal(8, clazz.getSimpleName().substring(1) + " control dictionary.");
+            endCommentGlobal(5);
+            printlnGlobal(5, "var registered" + clazz.getSimpleName().substring(1) + " = new Dictionary<" + clazz.getSimpleName() + ">([]);");
+            printlnGlobal();
+            startCommentGlobal(5);
+            printlnGlobal(8, clazz.getSimpleName().substring(1) + " global callback handlers.");
+            endCommentGlobal(5);
+            for (Method m : methodList) {
+                printGlobal(5, "export function handle" + clazz.getSimpleName().substring(1) + m.getName().substring(2) + "(id : number, ");
+                for (int i = 0; i < m.getParameterCount(); i++) {
+                    Parameter p = m.getParameters()[i];
+                    printGlobal(p.getName() + " : " + convertJavaToNativeType(p.getType()));
+                    if (i < m.getParameterCount() - 1) {
+                        printGlobal(", ");
+                    }
+                }
+                printlnGlobal(") : void {");
+
+                printlnGlobal(10, "var callback : " + clazz.getSimpleName() + " = registered" + clazz.getSimpleName().substring(1) + "[\"\"+id];");
+                printlnGlobal(10, "if (typeof callback === 'undefined' || callback == null) {");
+                printlnGlobal(15, "console.error(\"ERROR: No callback with id \"+id+\" registered in registered" + clazz.getSimpleName().substring(1) + " dictionary.\");");
+                printlnGlobal(10, "} else {");
+                printlnGlobal(15, "registered"+clazz.getSimpleName().substring(1)+".remove(\"\"+id);");
+                printGlobal(15, "callback." + m.getName() + "(");
+                for (int i = 0; i < m.getParameterCount(); i++) {
+                    Parameter p = m.getParameters()[i];
+                    printGlobal(p.getName());
+                    if (i < m.getParameterCount() - 1) {
+                        printGlobal(", ");
+                    }
+                }
+                printlnGlobal(");");
+                printlnGlobal(10, "}");
+
+                printlnGlobal(5, "}");
+            }
+
+            printlnGlobal();
+            printlnGlobal(5, "export class " + simpleName + " extends BaseCallbackImpl implements " + clazz.getSimpleName() + " {");
+            printlnGlobal();
+
+
 
             for (Method m : methodList) {
                 printGlobal(10, m.getName() + "Function : (");
@@ -561,8 +603,6 @@ public class TypeScriptGenerator extends GeneratorBase {
             printlnGlobal(10, "}");
 
         } else {
-            printlnGlobal(5, "export class " + simpleName + " extends BaseListenerImpl implements " + clazz.getSimpleName() + " {");
-            printlnGlobal();
 
             List<Method> methodList = new ArrayList<>();
             for (Method m : clazz.getDeclaredMethods()) {
@@ -574,6 +614,49 @@ public class TypeScriptGenerator extends GeneratorBase {
                     return (o1.getName() + o1.getParameterCount()).compareTo((o2.getName() + o2.getParameterCount()));
                 }
             });
+
+            printlnGlobal();
+            startCommentGlobal(5);
+            printlnGlobal(8, clazz.getSimpleName().substring(1) + " control dictionary.");
+            endCommentGlobal(5);
+            printlnGlobal(5, "var registered" + clazz.getSimpleName().substring(1) + " = new Dictionary<" + clazz.getSimpleName() + ">([]);");
+            printlnGlobal();
+            startCommentGlobal(5);
+            printlnGlobal(8, clazz.getSimpleName().substring(1) + " global listener handlers.");
+            endCommentGlobal(5);
+            for (Method m : methodList) {
+                printGlobal(5, "export function handle" + clazz.getSimpleName().substring(1) + m.getName().substring(2) + "(id : number, ");
+                for (int i = 0; i < m.getParameterCount(); i++) {
+                    Parameter p = m.getParameters()[i];
+                    printGlobal(p.getName() + " : " + convertJavaToNativeType(p.getType()));
+                    if (i < m.getParameterCount() - 1) {
+                        printGlobal(", ");
+                    }
+                }
+                printlnGlobal(") : void {");
+
+                printlnGlobal(10, "var listener : " + clazz.getSimpleName() + " = registered" + clazz.getSimpleName().substring(1) + "[\"\"+id];");
+                printlnGlobal(10, "if (typeof listener === 'undefined' || listener == null) {");
+                printlnGlobal(15, "console.error(\"ERROR: No listener with id \"+id+\" registered in registered" + clazz.getSimpleName().substring(1) + " dictionary.\");");
+                printlnGlobal(10, "} else {");
+                printGlobal(15, "listener." + m.getName() + "(");
+                for (int i = 0; i < m.getParameterCount(); i++) {
+                    Parameter p = m.getParameters()[i];
+                    printGlobal(p.getName());
+                    if (i < m.getParameterCount() - 1) {
+                        printGlobal(", ");
+                    }
+                }
+                printlnGlobal(");");
+                printlnGlobal(10, "}");
+
+                printlnGlobal(5, "}");
+            }
+
+            printlnGlobal();
+            printlnGlobal(5, "export class " + simpleName + " extends BaseListenerImpl implements " + clazz.getSimpleName() + " {");
+            printlnGlobal();
+
 
             for (Method m : methodList) {
                 printGlobal(10, m.getName() + "Function : (");
@@ -1224,11 +1307,6 @@ public class TypeScriptGenerator extends GeneratorBase {
             generateUtilClass(className, utilClass);
         }
 
-        /*
-            Generate utility classes.
-        */
-        generateUtilClass("CommonUtil", Object.class);
-
         indentPrintStreamSF.println();
         indentPrintStreamSF.println("}");
         indentPrintStreamSF.println("/**");
@@ -1240,7 +1318,10 @@ public class TypeScriptGenerator extends GeneratorBase {
 
     @Override
     protected void startGeneration() {
-
+        /*
+            Generate utility classes.
+        */
+        generateUtilClass("CommonUtil", Object.class);
     }
 
     @Override
@@ -1417,7 +1498,7 @@ public class TypeScriptGenerator extends GeneratorBase {
 
     private void printlnGlobal(String value) {
         println(value);
-        printlnSF(0,value);
+        printlnSF(0, value);
     }
 
     private void printlnGlobal(int indent, String value) {

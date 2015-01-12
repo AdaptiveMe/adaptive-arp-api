@@ -49,6 +49,46 @@ var Adaptive;
        Interface for Managing the Security result callback
        Auto-generated implementation of ISecurityResultCallback specification.
     */
+    /**
+       SecurityResultCallback control dictionary.
+    */
+    var registeredSecurityResultCallback = new Adaptive.Dictionary([]);
+    /**
+       SecurityResultCallback global callback handlers.
+    */
+    function handleSecurityResultCallbackError(id, error) {
+        var callback = registeredSecurityResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredSecurityResultCallback dictionary.");
+        }
+        else {
+            registeredSecurityResultCallback.remove("" + id);
+            callback.onError(error);
+        }
+    }
+    Adaptive.handleSecurityResultCallbackError = handleSecurityResultCallbackError;
+    function handleSecurityResultCallbackResult(id, keyValues) {
+        var callback = registeredSecurityResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredSecurityResultCallback dictionary.");
+        }
+        else {
+            registeredSecurityResultCallback.remove("" + id);
+            callback.onResult(keyValues);
+        }
+    }
+    Adaptive.handleSecurityResultCallbackResult = handleSecurityResultCallbackResult;
+    function handleSecurityResultCallbackWarning(id, keyValues, warning) {
+        var callback = registeredSecurityResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredSecurityResultCallback dictionary.");
+        }
+        else {
+            registeredSecurityResultCallback.remove("" + id);
+            callback.onWarning(keyValues, warning);
+        }
+    }
+    Adaptive.handleSecurityResultCallbackWarning = handleSecurityResultCallbackWarning;
     var SecurityResultCallbackImpl = (function (_super) {
         __extends(SecurityResultCallbackImpl, _super);
         /**

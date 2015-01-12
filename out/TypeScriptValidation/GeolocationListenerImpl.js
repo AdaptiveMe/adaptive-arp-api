@@ -49,6 +49,43 @@ var Adaptive;
        Interface for Managing the Geolocation results
        Auto-generated implementation of IGeolocationListener specification.
     */
+    /**
+       GeolocationListener control dictionary.
+    */
+    var registeredGeolocationListener = new Adaptive.Dictionary([]);
+    /**
+       GeolocationListener global listener handlers.
+    */
+    function handleGeolocationListenerError(id, error) {
+        var listener = registeredGeolocationListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredGeolocationListener dictionary.");
+        }
+        else {
+            listener.onError(error);
+        }
+    }
+    Adaptive.handleGeolocationListenerError = handleGeolocationListenerError;
+    function handleGeolocationListenerResult(id, geolocation) {
+        var listener = registeredGeolocationListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredGeolocationListener dictionary.");
+        }
+        else {
+            listener.onResult(geolocation);
+        }
+    }
+    Adaptive.handleGeolocationListenerResult = handleGeolocationListenerResult;
+    function handleGeolocationListenerWarning(id, geolocation, warning) {
+        var listener = registeredGeolocationListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredGeolocationListener dictionary.");
+        }
+        else {
+            listener.onWarning(geolocation, warning);
+        }
+    }
+    Adaptive.handleGeolocationListenerWarning = handleGeolocationListenerWarning;
     var GeolocationListenerImpl = (function (_super) {
         __extends(GeolocationListenerImpl, _super);
         /**

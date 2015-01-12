@@ -45,6 +45,43 @@ module Adaptive {
         Interface for Managing the Cloud operations
         Auto-generated implementation of IDatabaseTableResultCallback specification.
      */
+
+     /**
+        DatabaseTableResultCallback control dictionary.
+     */
+     var registeredDatabaseTableResultCallback = new Dictionary<IDatabaseTableResultCallback>([]);
+
+     /**
+        DatabaseTableResultCallback global callback handlers.
+     */
+     export function handleDatabaseTableResultCallbackError(id : number, error : IDatabaseTableResultCallbackError) : void {
+          var callback : IDatabaseTableResultCallback = registeredDatabaseTableResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredDatabaseTableResultCallback dictionary.");
+          } else {
+               registeredDatabaseTableResultCallback.remove(""+id);
+               callback.onError(error);
+          }
+     }
+     export function handleDatabaseTableResultCallbackResult(id : number, databaseTable : DatabaseTable) : void {
+          var callback : IDatabaseTableResultCallback = registeredDatabaseTableResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredDatabaseTableResultCallback dictionary.");
+          } else {
+               registeredDatabaseTableResultCallback.remove(""+id);
+               callback.onResult(databaseTable);
+          }
+     }
+     export function handleDatabaseTableResultCallbackWarning(id : number, databaseTable : DatabaseTable, warning : IDatabaseTableResultCallbackWarning) : void {
+          var callback : IDatabaseTableResultCallback = registeredDatabaseTableResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredDatabaseTableResultCallback dictionary.");
+          } else {
+               registeredDatabaseTableResultCallback.remove(""+id);
+               callback.onWarning(databaseTable, warning);
+          }
+     }
+
      export class DatabaseTableResultCallbackImpl extends BaseCallbackImpl implements IDatabaseTableResultCallback {
 
           onErrorFunction : (error : IDatabaseTableResultCallbackError) => Function;

@@ -48,6 +48,46 @@ var Adaptive;
        Interface for Managing the Messaging responses
        Auto-generated implementation of IMessagingCallback specification.
     */
+    /**
+       MessagingCallback control dictionary.
+    */
+    var registeredMessagingCallback = new Adaptive.Dictionary([]);
+    /**
+       MessagingCallback global callback handlers.
+    */
+    function handleMessagingCallbackError(id, error) {
+        var callback = registeredMessagingCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredMessagingCallback dictionary.");
+        }
+        else {
+            registeredMessagingCallback.remove("" + id);
+            callback.onError(error);
+        }
+    }
+    Adaptive.handleMessagingCallbackError = handleMessagingCallbackError;
+    function handleMessagingCallbackResult(id, success) {
+        var callback = registeredMessagingCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredMessagingCallback dictionary.");
+        }
+        else {
+            registeredMessagingCallback.remove("" + id);
+            callback.onResult(success);
+        }
+    }
+    Adaptive.handleMessagingCallbackResult = handleMessagingCallbackResult;
+    function handleMessagingCallbackWarning(id, success, warning) {
+        var callback = registeredMessagingCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredMessagingCallback dictionary.");
+        }
+        else {
+            registeredMessagingCallback.remove("" + id);
+            callback.onWarning(success, warning);
+        }
+    }
+    Adaptive.handleMessagingCallbackWarning = handleMessagingCallbackWarning;
     var MessagingCallbackImpl = (function (_super) {
         __extends(MessagingCallbackImpl, _super);
         /**

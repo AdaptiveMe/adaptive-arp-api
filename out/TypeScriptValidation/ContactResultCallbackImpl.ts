@@ -45,6 +45,43 @@ module Adaptive {
         Interface for Managing the Contact operations
         Auto-generated implementation of IContactResultCallback specification.
      */
+
+     /**
+        ContactResultCallback control dictionary.
+     */
+     var registeredContactResultCallback = new Dictionary<IContactResultCallback>([]);
+
+     /**
+        ContactResultCallback global callback handlers.
+     */
+     export function handleContactResultCallbackError(id : number, error : IContactResultCallbackError) : void {
+          var callback : IContactResultCallback = registeredContactResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredContactResultCallback dictionary.");
+          } else {
+               registeredContactResultCallback.remove(""+id);
+               callback.onError(error);
+          }
+     }
+     export function handleContactResultCallbackResult(id : number, contacts : Array<Contact>) : void {
+          var callback : IContactResultCallback = registeredContactResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredContactResultCallback dictionary.");
+          } else {
+               registeredContactResultCallback.remove(""+id);
+               callback.onResult(contacts);
+          }
+     }
+     export function handleContactResultCallbackWarning(id : number, contacts : Array<Contact>, warning : IContactResultCallbackWarning) : void {
+          var callback : IContactResultCallback = registeredContactResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredContactResultCallback dictionary.");
+          } else {
+               registeredContactResultCallback.remove(""+id);
+               callback.onWarning(contacts, warning);
+          }
+     }
+
      export class ContactResultCallbackImpl extends BaseCallbackImpl implements IContactResultCallback {
 
           onErrorFunction : (error : IContactResultCallbackError) => Function;

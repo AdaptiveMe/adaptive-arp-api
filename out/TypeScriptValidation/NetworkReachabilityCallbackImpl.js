@@ -48,6 +48,46 @@ var Adaptive;
        Interface for Managing the Network reachability callback result
        Auto-generated implementation of INetworkReachabilityCallback specification.
     */
+    /**
+       NetworkReachabilityCallback control dictionary.
+    */
+    var registeredNetworkReachabilityCallback = new Adaptive.Dictionary([]);
+    /**
+       NetworkReachabilityCallback global callback handlers.
+    */
+    function handleNetworkReachabilityCallbackError(id, error) {
+        var callback = registeredNetworkReachabilityCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredNetworkReachabilityCallback dictionary.");
+        }
+        else {
+            registeredNetworkReachabilityCallback.remove("" + id);
+            callback.onError(error);
+        }
+    }
+    Adaptive.handleNetworkReachabilityCallbackError = handleNetworkReachabilityCallbackError;
+    function handleNetworkReachabilityCallbackResult(id, reachable) {
+        var callback = registeredNetworkReachabilityCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredNetworkReachabilityCallback dictionary.");
+        }
+        else {
+            registeredNetworkReachabilityCallback.remove("" + id);
+            callback.onResult(reachable);
+        }
+    }
+    Adaptive.handleNetworkReachabilityCallbackResult = handleNetworkReachabilityCallbackResult;
+    function handleNetworkReachabilityCallbackWarning(id, reachable, warning) {
+        var callback = registeredNetworkReachabilityCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredNetworkReachabilityCallback dictionary.");
+        }
+        else {
+            registeredNetworkReachabilityCallback.remove("" + id);
+            callback.onWarning(reachable, warning);
+        }
+    }
+    Adaptive.handleNetworkReachabilityCallbackWarning = handleNetworkReachabilityCallbackWarning;
     var NetworkReachabilityCallbackImpl = (function (_super) {
         __extends(NetworkReachabilityCallbackImpl, _super);
         /**

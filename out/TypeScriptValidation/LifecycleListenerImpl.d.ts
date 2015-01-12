@@ -39,9 +39,11 @@ Release:
 */
 declare module Adaptive {
     /**
-       Interface for Managing the Lifecycle listeners
-       Auto-generated implementation of ILifecycleListener specification.
+       LifecycleListener global listener handlers.
     */
+    function handleLifecycleListenerError(id: number, error: ILifecycleListenerError): void;
+    function handleLifecycleListenerResult(id: number, lifecycle: Lifecycle): void;
+    function handleLifecycleListenerWarning(id: number, lifecycle: Lifecycle, warning: ILifecycleListenerWarning): void;
     class LifecycleListenerImpl extends BaseListenerImpl implements ILifecycleListener {
         onErrorFunction: (error: ILifecycleListenerError) => Function;
         onResultFunction: (lifecycle: Lifecycle) => Function;

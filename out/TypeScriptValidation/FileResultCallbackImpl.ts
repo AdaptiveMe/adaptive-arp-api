@@ -45,6 +45,43 @@ module Adaptive {
         Interface for Managing the File operations callback
         Auto-generated implementation of IFileResultCallback specification.
      */
+
+     /**
+        FileResultCallback control dictionary.
+     */
+     var registeredFileResultCallback = new Dictionary<IFileResultCallback>([]);
+
+     /**
+        FileResultCallback global callback handlers.
+     */
+     export function handleFileResultCallbackError(id : number, error : IFileResultCallbackError) : void {
+          var callback : IFileResultCallback = registeredFileResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredFileResultCallback dictionary.");
+          } else {
+               registeredFileResultCallback.remove(""+id);
+               callback.onError(error);
+          }
+     }
+     export function handleFileResultCallbackResult(id : number, storageFile : FileDescriptor) : void {
+          var callback : IFileResultCallback = registeredFileResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredFileResultCallback dictionary.");
+          } else {
+               registeredFileResultCallback.remove(""+id);
+               callback.onResult(storageFile);
+          }
+     }
+     export function handleFileResultCallbackWarning(id : number, file : FileDescriptor, warning : IFileResultCallbackWarning) : void {
+          var callback : IFileResultCallback = registeredFileResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredFileResultCallback dictionary.");
+          } else {
+               registeredFileResultCallback.remove(""+id);
+               callback.onWarning(file, warning);
+          }
+     }
+
      export class FileResultCallbackImpl extends BaseCallbackImpl implements IFileResultCallback {
 
           onErrorFunction : (error : IFileResultCallbackError) => Function;

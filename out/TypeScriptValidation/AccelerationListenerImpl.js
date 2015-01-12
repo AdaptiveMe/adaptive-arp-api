@@ -49,6 +49,43 @@ var Adaptive;
        Interface defines the response methods of the acceleration operations
        Auto-generated implementation of IAccelerationListener specification.
     */
+    /**
+       AccelerationListener control dictionary.
+    */
+    var registeredAccelerationListener = new Adaptive.Dictionary([]);
+    /**
+       AccelerationListener global listener handlers.
+    */
+    function handleAccelerationListenerError(id, error) {
+        var listener = registeredAccelerationListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredAccelerationListener dictionary.");
+        }
+        else {
+            listener.onError(error);
+        }
+    }
+    Adaptive.handleAccelerationListenerError = handleAccelerationListenerError;
+    function handleAccelerationListenerResult(id, acceleration) {
+        var listener = registeredAccelerationListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredAccelerationListener dictionary.");
+        }
+        else {
+            listener.onResult(acceleration);
+        }
+    }
+    Adaptive.handleAccelerationListenerResult = handleAccelerationListenerResult;
+    function handleAccelerationListenerWarning(id, acceleration, warning) {
+        var listener = registeredAccelerationListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredAccelerationListener dictionary.");
+        }
+        else {
+            listener.onWarning(acceleration, warning);
+        }
+    }
+    Adaptive.handleAccelerationListenerWarning = handleAccelerationListenerWarning;
     var AccelerationListenerImpl = (function (_super) {
         __extends(AccelerationListenerImpl, _super);
         /**

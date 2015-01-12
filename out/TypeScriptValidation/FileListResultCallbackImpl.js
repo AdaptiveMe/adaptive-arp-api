@@ -49,6 +49,46 @@ var Adaptive;
        Interface for Managing the File result operations
        Auto-generated implementation of IFileListResultCallback specification.
     */
+    /**
+       FileListResultCallback control dictionary.
+    */
+    var registeredFileListResultCallback = new Adaptive.Dictionary([]);
+    /**
+       FileListResultCallback global callback handlers.
+    */
+    function handleFileListResultCallbackError(id, error) {
+        var callback = registeredFileListResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredFileListResultCallback dictionary.");
+        }
+        else {
+            registeredFileListResultCallback.remove("" + id);
+            callback.onError(error);
+        }
+    }
+    Adaptive.handleFileListResultCallbackError = handleFileListResultCallbackError;
+    function handleFileListResultCallbackResult(id, files) {
+        var callback = registeredFileListResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredFileListResultCallback dictionary.");
+        }
+        else {
+            registeredFileListResultCallback.remove("" + id);
+            callback.onResult(files);
+        }
+    }
+    Adaptive.handleFileListResultCallbackResult = handleFileListResultCallbackResult;
+    function handleFileListResultCallbackWarning(id, files, warning) {
+        var callback = registeredFileListResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredFileListResultCallback dictionary.");
+        }
+        else {
+            registeredFileListResultCallback.remove("" + id);
+            callback.onWarning(files, warning);
+        }
+    }
+    Adaptive.handleFileListResultCallbackWarning = handleFileListResultCallbackWarning;
     var FileListResultCallbackImpl = (function (_super) {
         __extends(FileListResultCallbackImpl, _super);
         /**

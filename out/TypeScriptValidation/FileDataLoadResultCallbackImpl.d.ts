@@ -38,9 +38,11 @@ Release:
 */
 declare module Adaptive {
     /**
-       Interface for Managing the File loading callback responses
-       Auto-generated implementation of IFileDataLoadResultCallback specification.
+       FileDataLoadResultCallback global callback handlers.
     */
+    function handleFileDataLoadResultCallbackError(id: number, error: IFileDataLoadResultCallbackError): void;
+    function handleFileDataLoadResultCallbackResult(id: number, data: number[]): void;
+    function handleFileDataLoadResultCallbackWarning(id: number, data: number[], warning: IFileDataLoadResultCallbackWarning): void;
     class FileDataLoadResultCallbackImpl extends BaseCallbackImpl implements IFileDataLoadResultCallback {
         onErrorFunction: (error: IFileDataLoadResultCallbackError) => Function;
         onResultFunction: (data: number[]) => Function;

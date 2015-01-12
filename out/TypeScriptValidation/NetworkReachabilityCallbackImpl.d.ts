@@ -38,9 +38,11 @@ Release:
 */
 declare module Adaptive {
     /**
-       Interface for Managing the Network reachability callback result
-       Auto-generated implementation of INetworkReachabilityCallback specification.
+       NetworkReachabilityCallback global callback handlers.
     */
+    function handleNetworkReachabilityCallbackError(id: number, error: INetworkReachabilityCallbackError): void;
+    function handleNetworkReachabilityCallbackResult(id: number, reachable: boolean): void;
+    function handleNetworkReachabilityCallbackWarning(id: number, reachable: boolean, warning: INetworkReachabilityCallbackWarning): void;
     class NetworkReachabilityCallbackImpl extends BaseCallbackImpl implements INetworkReachabilityCallback {
         onErrorFunction: (error: INetworkReachabilityCallbackError) => Function;
         onResultFunction: (reachable: boolean) => Function;

@@ -6374,6 +6374,40 @@ Possible lifecycle States:
           }
 
      }
+
+     /**
+        AccelerationListener control dictionary.
+     */
+     var registeredAccelerationListener = new Dictionary<IAccelerationListener>([]);
+
+     /**
+        AccelerationListener global listener handlers.
+     */
+     export function handleAccelerationListenerError(id : number, error : IAccelerationListenerError) : void {
+          var listener : IAccelerationListener = registeredAccelerationListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredAccelerationListener dictionary.");
+          } else {
+               listener.onError(error);
+          }
+     }
+     export function handleAccelerationListenerResult(id : number, acceleration : Acceleration) : void {
+          var listener : IAccelerationListener = registeredAccelerationListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredAccelerationListener dictionary.");
+          } else {
+               listener.onResult(acceleration);
+          }
+     }
+     export function handleAccelerationListenerWarning(id : number, acceleration : Acceleration, warning : IAccelerationListenerWarning) : void {
+          var listener : IAccelerationListener = registeredAccelerationListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredAccelerationListener dictionary.");
+          } else {
+               listener.onWarning(acceleration, warning);
+          }
+     }
+
      export class AccelerationListenerImpl extends BaseListenerImpl implements IAccelerationListener {
 
           onErrorFunction : (error : IAccelerationListenerError) => Function;
@@ -6451,6 +6485,40 @@ listener and subsequently, the listener will be deactivated and removed from the
           }
 
      }
+
+     /**
+        ButtonListener control dictionary.
+     */
+     var registeredButtonListener = new Dictionary<IButtonListener>([]);
+
+     /**
+        ButtonListener global listener handlers.
+     */
+     export function handleButtonListenerError(id : number, error : IButtonListenerError) : void {
+          var listener : IButtonListener = registeredButtonListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredButtonListener dictionary.");
+          } else {
+               listener.onError(error);
+          }
+     }
+     export function handleButtonListenerResult(id : number, button : Button) : void {
+          var listener : IButtonListener = registeredButtonListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredButtonListener dictionary.");
+          } else {
+               listener.onResult(button);
+          }
+     }
+     export function handleButtonListenerWarning(id : number, button : Button, warning : IButtonListenerWarning) : void {
+          var listener : IButtonListener = registeredButtonListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredButtonListener dictionary.");
+          } else {
+               listener.onWarning(button, warning);
+          }
+     }
+
      export class ButtonListenerImpl extends BaseListenerImpl implements IButtonListener {
 
           onErrorFunction : (error : IButtonListenerError) => Function;
@@ -6527,6 +6595,40 @@ listener and subsequently, the listener will be deactivated and removed from the
           }
 
      }
+
+     /**
+        GeolocationListener control dictionary.
+     */
+     var registeredGeolocationListener = new Dictionary<IGeolocationListener>([]);
+
+     /**
+        GeolocationListener global listener handlers.
+     */
+     export function handleGeolocationListenerError(id : number, error : IGeolocationListenerError) : void {
+          var listener : IGeolocationListener = registeredGeolocationListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredGeolocationListener dictionary.");
+          } else {
+               listener.onError(error);
+          }
+     }
+     export function handleGeolocationListenerResult(id : number, geolocation : Geolocation) : void {
+          var listener : IGeolocationListener = registeredGeolocationListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredGeolocationListener dictionary.");
+          } else {
+               listener.onResult(geolocation);
+          }
+     }
+     export function handleGeolocationListenerWarning(id : number, geolocation : Geolocation, warning : IGeolocationListenerWarning) : void {
+          var listener : IGeolocationListener = registeredGeolocationListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredGeolocationListener dictionary.");
+          } else {
+               listener.onWarning(geolocation, warning);
+          }
+     }
+
      export class GeolocationListenerImpl extends BaseListenerImpl implements IGeolocationListener {
 
           onErrorFunction : (error : IGeolocationListenerError) => Function;
@@ -6603,6 +6705,40 @@ listener and subsequently, the listener will be deactivated and removed from the
           }
 
      }
+
+     /**
+        LifecycleListener control dictionary.
+     */
+     var registeredLifecycleListener = new Dictionary<ILifecycleListener>([]);
+
+     /**
+        LifecycleListener global listener handlers.
+     */
+     export function handleLifecycleListenerError(id : number, error : ILifecycleListenerError) : void {
+          var listener : ILifecycleListener = registeredLifecycleListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredLifecycleListener dictionary.");
+          } else {
+               listener.onError(error);
+          }
+     }
+     export function handleLifecycleListenerResult(id : number, lifecycle : Lifecycle) : void {
+          var listener : ILifecycleListener = registeredLifecycleListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredLifecycleListener dictionary.");
+          } else {
+               listener.onResult(lifecycle);
+          }
+     }
+     export function handleLifecycleListenerWarning(id : number, lifecycle : Lifecycle, warning : ILifecycleListenerWarning) : void {
+          var listener : ILifecycleListener = registeredLifecycleListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredLifecycleListener dictionary.");
+          } else {
+               listener.onWarning(lifecycle, warning);
+          }
+     }
+
      export class LifecycleListenerImpl extends BaseListenerImpl implements ILifecycleListener {
 
           onErrorFunction : (error : ILifecycleListenerError) => Function;
@@ -6679,6 +6815,40 @@ listener and subsequently, the listener will be deactivated and removed from the
           }
 
      }
+
+     /**
+        NetworkStatusListener control dictionary.
+     */
+     var registeredNetworkStatusListener = new Dictionary<INetworkStatusListener>([]);
+
+     /**
+        NetworkStatusListener global listener handlers.
+     */
+     export function handleNetworkStatusListenerError(id : number, error : INetworkStatusListenerError) : void {
+          var listener : INetworkStatusListener = registeredNetworkStatusListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredNetworkStatusListener dictionary.");
+          } else {
+               listener.onError(error);
+          }
+     }
+     export function handleNetworkStatusListenerResult(id : number, network : ICapabilitiesNet) : void {
+          var listener : INetworkStatusListener = registeredNetworkStatusListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredNetworkStatusListener dictionary.");
+          } else {
+               listener.onResult(network);
+          }
+     }
+     export function handleNetworkStatusListenerWarning(id : number, network : ICapabilitiesNet, warning : INetworkStatusListenerWarning) : void {
+          var listener : INetworkStatusListener = registeredNetworkStatusListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredNetworkStatusListener dictionary.");
+          } else {
+               listener.onWarning(network, warning);
+          }
+     }
+
      export class NetworkStatusListenerImpl extends BaseListenerImpl implements INetworkStatusListener {
 
           onErrorFunction : (error : INetworkStatusListenerError) => Function;
@@ -6795,6 +6965,43 @@ listener and subsequently, the listener will be deactivated and removed from the
 
      }
 
+
+     /**
+        ContactPhotoResultCallback control dictionary.
+     */
+     var registeredContactPhotoResultCallback = new Dictionary<IContactPhotoResultCallback>([]);
+
+     /**
+        ContactPhotoResultCallback global callback handlers.
+     */
+     export function handleContactPhotoResultCallbackError(id : number, error : IContactPhotoResultCallbackError) : void {
+          var callback : IContactPhotoResultCallback = registeredContactPhotoResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredContactPhotoResultCallback dictionary.");
+          } else {
+               registeredContactPhotoResultCallback.remove(""+id);
+               callback.onError(error);
+          }
+     }
+     export function handleContactPhotoResultCallbackResult(id : number, contactPhoto : Array<number>) : void {
+          var callback : IContactPhotoResultCallback = registeredContactPhotoResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredContactPhotoResultCallback dictionary.");
+          } else {
+               registeredContactPhotoResultCallback.remove(""+id);
+               callback.onResult(contactPhoto);
+          }
+     }
+     export function handleContactPhotoResultCallbackWarning(id : number, contactPhoto : Array<number>, warning : IContactPhotoResultCallbackWarning) : void {
+          var callback : IContactPhotoResultCallback = registeredContactPhotoResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredContactPhotoResultCallback dictionary.");
+          } else {
+               registeredContactPhotoResultCallback.remove(""+id);
+               callback.onWarning(contactPhoto, warning);
+          }
+     }
+
      export class ContactPhotoResultCallbackImpl extends BaseCallbackImpl implements IContactPhotoResultCallback {
 
           onErrorFunction : (error : IContactPhotoResultCallbackError) => Function;
@@ -6870,6 +7077,43 @@ listener and subsequently, the listener will be deactivated and removed from the
                }
           }
 
+     }
+
+
+     /**
+        ContactResultCallback control dictionary.
+     */
+     var registeredContactResultCallback = new Dictionary<IContactResultCallback>([]);
+
+     /**
+        ContactResultCallback global callback handlers.
+     */
+     export function handleContactResultCallbackError(id : number, error : IContactResultCallbackError) : void {
+          var callback : IContactResultCallback = registeredContactResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredContactResultCallback dictionary.");
+          } else {
+               registeredContactResultCallback.remove(""+id);
+               callback.onError(error);
+          }
+     }
+     export function handleContactResultCallbackResult(id : number, contacts : Array<Contact>) : void {
+          var callback : IContactResultCallback = registeredContactResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredContactResultCallback dictionary.");
+          } else {
+               registeredContactResultCallback.remove(""+id);
+               callback.onResult(contacts);
+          }
+     }
+     export function handleContactResultCallbackWarning(id : number, contacts : Array<Contact>, warning : IContactResultCallbackWarning) : void {
+          var callback : IContactResultCallback = registeredContactResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredContactResultCallback dictionary.");
+          } else {
+               registeredContactResultCallback.remove(""+id);
+               callback.onWarning(contacts, warning);
+          }
      }
 
      export class ContactResultCallbackImpl extends BaseCallbackImpl implements IContactResultCallback {
@@ -6949,6 +7193,43 @@ listener and subsequently, the listener will be deactivated and removed from the
 
      }
 
+
+     /**
+        DatabaseResultCallback control dictionary.
+     */
+     var registeredDatabaseResultCallback = new Dictionary<IDatabaseResultCallback>([]);
+
+     /**
+        DatabaseResultCallback global callback handlers.
+     */
+     export function handleDatabaseResultCallbackError(id : number, error : IDatabaseResultCallbackError) : void {
+          var callback : IDatabaseResultCallback = registeredDatabaseResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredDatabaseResultCallback dictionary.");
+          } else {
+               registeredDatabaseResultCallback.remove(""+id);
+               callback.onError(error);
+          }
+     }
+     export function handleDatabaseResultCallbackResult(id : number, database : Database) : void {
+          var callback : IDatabaseResultCallback = registeredDatabaseResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredDatabaseResultCallback dictionary.");
+          } else {
+               registeredDatabaseResultCallback.remove(""+id);
+               callback.onResult(database);
+          }
+     }
+     export function handleDatabaseResultCallbackWarning(id : number, database : Database, warning : IDatabaseResultCallbackWarning) : void {
+          var callback : IDatabaseResultCallback = registeredDatabaseResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredDatabaseResultCallback dictionary.");
+          } else {
+               registeredDatabaseResultCallback.remove(""+id);
+               callback.onWarning(database, warning);
+          }
+     }
+
      export class DatabaseResultCallbackImpl extends BaseCallbackImpl implements IDatabaseResultCallback {
 
           onErrorFunction : (error : IDatabaseResultCallbackError) => Function;
@@ -7024,6 +7305,43 @@ listener and subsequently, the listener will be deactivated and removed from the
                }
           }
 
+     }
+
+
+     /**
+        DatabaseTableResultCallback control dictionary.
+     */
+     var registeredDatabaseTableResultCallback = new Dictionary<IDatabaseTableResultCallback>([]);
+
+     /**
+        DatabaseTableResultCallback global callback handlers.
+     */
+     export function handleDatabaseTableResultCallbackError(id : number, error : IDatabaseTableResultCallbackError) : void {
+          var callback : IDatabaseTableResultCallback = registeredDatabaseTableResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredDatabaseTableResultCallback dictionary.");
+          } else {
+               registeredDatabaseTableResultCallback.remove(""+id);
+               callback.onError(error);
+          }
+     }
+     export function handleDatabaseTableResultCallbackResult(id : number, databaseTable : DatabaseTable) : void {
+          var callback : IDatabaseTableResultCallback = registeredDatabaseTableResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredDatabaseTableResultCallback dictionary.");
+          } else {
+               registeredDatabaseTableResultCallback.remove(""+id);
+               callback.onResult(databaseTable);
+          }
+     }
+     export function handleDatabaseTableResultCallbackWarning(id : number, databaseTable : DatabaseTable, warning : IDatabaseTableResultCallbackWarning) : void {
+          var callback : IDatabaseTableResultCallback = registeredDatabaseTableResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredDatabaseTableResultCallback dictionary.");
+          } else {
+               registeredDatabaseTableResultCallback.remove(""+id);
+               callback.onWarning(databaseTable, warning);
+          }
      }
 
      export class DatabaseTableResultCallbackImpl extends BaseCallbackImpl implements IDatabaseTableResultCallback {
@@ -7103,6 +7421,43 @@ listener and subsequently, the listener will be deactivated and removed from the
 
      }
 
+
+     /**
+        FileDataLoadResultCallback control dictionary.
+     */
+     var registeredFileDataLoadResultCallback = new Dictionary<IFileDataLoadResultCallback>([]);
+
+     /**
+        FileDataLoadResultCallback global callback handlers.
+     */
+     export function handleFileDataLoadResultCallbackError(id : number, error : IFileDataLoadResultCallbackError) : void {
+          var callback : IFileDataLoadResultCallback = registeredFileDataLoadResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredFileDataLoadResultCallback dictionary.");
+          } else {
+               registeredFileDataLoadResultCallback.remove(""+id);
+               callback.onError(error);
+          }
+     }
+     export function handleFileDataLoadResultCallbackResult(id : number, data : Array<number>) : void {
+          var callback : IFileDataLoadResultCallback = registeredFileDataLoadResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredFileDataLoadResultCallback dictionary.");
+          } else {
+               registeredFileDataLoadResultCallback.remove(""+id);
+               callback.onResult(data);
+          }
+     }
+     export function handleFileDataLoadResultCallbackWarning(id : number, data : Array<number>, warning : IFileDataLoadResultCallbackWarning) : void {
+          var callback : IFileDataLoadResultCallback = registeredFileDataLoadResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredFileDataLoadResultCallback dictionary.");
+          } else {
+               registeredFileDataLoadResultCallback.remove(""+id);
+               callback.onWarning(data, warning);
+          }
+     }
+
      export class FileDataLoadResultCallbackImpl extends BaseCallbackImpl implements IFileDataLoadResultCallback {
 
           onErrorFunction : (error : IFileDataLoadResultCallbackError) => Function;
@@ -7178,6 +7533,43 @@ listener and subsequently, the listener will be deactivated and removed from the
                }
           }
 
+     }
+
+
+     /**
+        FileDataStoreResultCallback control dictionary.
+     */
+     var registeredFileDataStoreResultCallback = new Dictionary<IFileDataStoreResultCallback>([]);
+
+     /**
+        FileDataStoreResultCallback global callback handlers.
+     */
+     export function handleFileDataStoreResultCallbackError(id : number, error : IFileDataStoreResultCallbackError) : void {
+          var callback : IFileDataStoreResultCallback = registeredFileDataStoreResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredFileDataStoreResultCallback dictionary.");
+          } else {
+               registeredFileDataStoreResultCallback.remove(""+id);
+               callback.onError(error);
+          }
+     }
+     export function handleFileDataStoreResultCallbackResult(id : number, file : FileDescriptor) : void {
+          var callback : IFileDataStoreResultCallback = registeredFileDataStoreResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredFileDataStoreResultCallback dictionary.");
+          } else {
+               registeredFileDataStoreResultCallback.remove(""+id);
+               callback.onResult(file);
+          }
+     }
+     export function handleFileDataStoreResultCallbackWarning(id : number, file : FileDescriptor, warning : IFileDataStoreResultCallbackWarning) : void {
+          var callback : IFileDataStoreResultCallback = registeredFileDataStoreResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredFileDataStoreResultCallback dictionary.");
+          } else {
+               registeredFileDataStoreResultCallback.remove(""+id);
+               callback.onWarning(file, warning);
+          }
      }
 
      export class FileDataStoreResultCallbackImpl extends BaseCallbackImpl implements IFileDataStoreResultCallback {
@@ -7257,6 +7649,43 @@ listener and subsequently, the listener will be deactivated and removed from the
 
      }
 
+
+     /**
+        FileListResultCallback control dictionary.
+     */
+     var registeredFileListResultCallback = new Dictionary<IFileListResultCallback>([]);
+
+     /**
+        FileListResultCallback global callback handlers.
+     */
+     export function handleFileListResultCallbackError(id : number, error : IFileListResultCallbackError) : void {
+          var callback : IFileListResultCallback = registeredFileListResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredFileListResultCallback dictionary.");
+          } else {
+               registeredFileListResultCallback.remove(""+id);
+               callback.onError(error);
+          }
+     }
+     export function handleFileListResultCallbackResult(id : number, files : Array<FileDescriptor>) : void {
+          var callback : IFileListResultCallback = registeredFileListResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredFileListResultCallback dictionary.");
+          } else {
+               registeredFileListResultCallback.remove(""+id);
+               callback.onResult(files);
+          }
+     }
+     export function handleFileListResultCallbackWarning(id : number, files : Array<FileDescriptor>, warning : IFileListResultCallbackWarning) : void {
+          var callback : IFileListResultCallback = registeredFileListResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredFileListResultCallback dictionary.");
+          } else {
+               registeredFileListResultCallback.remove(""+id);
+               callback.onWarning(files, warning);
+          }
+     }
+
      export class FileListResultCallbackImpl extends BaseCallbackImpl implements IFileListResultCallback {
 
           onErrorFunction : (error : IFileListResultCallbackError) => Function;
@@ -7332,6 +7761,43 @@ listener and subsequently, the listener will be deactivated and removed from the
                }
           }
 
+     }
+
+
+     /**
+        FileResultCallback control dictionary.
+     */
+     var registeredFileResultCallback = new Dictionary<IFileResultCallback>([]);
+
+     /**
+        FileResultCallback global callback handlers.
+     */
+     export function handleFileResultCallbackError(id : number, error : IFileResultCallbackError) : void {
+          var callback : IFileResultCallback = registeredFileResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredFileResultCallback dictionary.");
+          } else {
+               registeredFileResultCallback.remove(""+id);
+               callback.onError(error);
+          }
+     }
+     export function handleFileResultCallbackResult(id : number, storageFile : FileDescriptor) : void {
+          var callback : IFileResultCallback = registeredFileResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredFileResultCallback dictionary.");
+          } else {
+               registeredFileResultCallback.remove(""+id);
+               callback.onResult(storageFile);
+          }
+     }
+     export function handleFileResultCallbackWarning(id : number, file : FileDescriptor, warning : IFileResultCallbackWarning) : void {
+          var callback : IFileResultCallback = registeredFileResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredFileResultCallback dictionary.");
+          } else {
+               registeredFileResultCallback.remove(""+id);
+               callback.onWarning(file, warning);
+          }
      }
 
      export class FileResultCallbackImpl extends BaseCallbackImpl implements IFileResultCallback {
@@ -7411,6 +7877,43 @@ listener and subsequently, the listener will be deactivated and removed from the
 
      }
 
+
+     /**
+        MessagingCallback control dictionary.
+     */
+     var registeredMessagingCallback = new Dictionary<IMessagingCallback>([]);
+
+     /**
+        MessagingCallback global callback handlers.
+     */
+     export function handleMessagingCallbackError(id : number, error : IMessagingCallbackError) : void {
+          var callback : IMessagingCallback = registeredMessagingCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredMessagingCallback dictionary.");
+          } else {
+               registeredMessagingCallback.remove(""+id);
+               callback.onError(error);
+          }
+     }
+     export function handleMessagingCallbackResult(id : number, success : boolean) : void {
+          var callback : IMessagingCallback = registeredMessagingCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredMessagingCallback dictionary.");
+          } else {
+               registeredMessagingCallback.remove(""+id);
+               callback.onResult(success);
+          }
+     }
+     export function handleMessagingCallbackWarning(id : number, success : boolean, warning : IMessagingCallbackWarning) : void {
+          var callback : IMessagingCallback = registeredMessagingCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredMessagingCallback dictionary.");
+          } else {
+               registeredMessagingCallback.remove(""+id);
+               callback.onWarning(success, warning);
+          }
+     }
+
      export class MessagingCallbackImpl extends BaseCallbackImpl implements IMessagingCallback {
 
           onErrorFunction : (error : IMessagingCallbackError) => Function;
@@ -7486,6 +7989,43 @@ listener and subsequently, the listener will be deactivated and removed from the
                }
           }
 
+     }
+
+
+     /**
+        NetworkReachabilityCallback control dictionary.
+     */
+     var registeredNetworkReachabilityCallback = new Dictionary<INetworkReachabilityCallback>([]);
+
+     /**
+        NetworkReachabilityCallback global callback handlers.
+     */
+     export function handleNetworkReachabilityCallbackError(id : number, error : INetworkReachabilityCallbackError) : void {
+          var callback : INetworkReachabilityCallback = registeredNetworkReachabilityCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredNetworkReachabilityCallback dictionary.");
+          } else {
+               registeredNetworkReachabilityCallback.remove(""+id);
+               callback.onError(error);
+          }
+     }
+     export function handleNetworkReachabilityCallbackResult(id : number, reachable : boolean) : void {
+          var callback : INetworkReachabilityCallback = registeredNetworkReachabilityCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredNetworkReachabilityCallback dictionary.");
+          } else {
+               registeredNetworkReachabilityCallback.remove(""+id);
+               callback.onResult(reachable);
+          }
+     }
+     export function handleNetworkReachabilityCallbackWarning(id : number, reachable : boolean, warning : INetworkReachabilityCallbackWarning) : void {
+          var callback : INetworkReachabilityCallback = registeredNetworkReachabilityCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredNetworkReachabilityCallback dictionary.");
+          } else {
+               registeredNetworkReachabilityCallback.remove(""+id);
+               callback.onWarning(reachable, warning);
+          }
      }
 
      export class NetworkReachabilityCallbackImpl extends BaseCallbackImpl implements INetworkReachabilityCallback {
@@ -7565,6 +8105,43 @@ listener and subsequently, the listener will be deactivated and removed from the
 
      }
 
+
+     /**
+        SecurityResultCallback control dictionary.
+     */
+     var registeredSecurityResultCallback = new Dictionary<ISecurityResultCallback>([]);
+
+     /**
+        SecurityResultCallback global callback handlers.
+     */
+     export function handleSecurityResultCallbackError(id : number, error : ISecurityResultCallbackError) : void {
+          var callback : ISecurityResultCallback = registeredSecurityResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredSecurityResultCallback dictionary.");
+          } else {
+               registeredSecurityResultCallback.remove(""+id);
+               callback.onError(error);
+          }
+     }
+     export function handleSecurityResultCallbackResult(id : number, keyValues : Array<SecureKeyPair>) : void {
+          var callback : ISecurityResultCallback = registeredSecurityResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredSecurityResultCallback dictionary.");
+          } else {
+               registeredSecurityResultCallback.remove(""+id);
+               callback.onResult(keyValues);
+          }
+     }
+     export function handleSecurityResultCallbackWarning(id : number, keyValues : Array<SecureKeyPair>, warning : ISecurityResultCallbackWarning) : void {
+          var callback : ISecurityResultCallback = registeredSecurityResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredSecurityResultCallback dictionary.");
+          } else {
+               registeredSecurityResultCallback.remove(""+id);
+               callback.onWarning(keyValues, warning);
+          }
+     }
+
      export class SecurityResultCallbackImpl extends BaseCallbackImpl implements ISecurityResultCallback {
 
           onErrorFunction : (error : ISecurityResultCallbackError) => Function;
@@ -7640,6 +8217,43 @@ listener and subsequently, the listener will be deactivated and removed from the
                }
           }
 
+     }
+
+
+     /**
+        ServiceResultCallback control dictionary.
+     */
+     var registeredServiceResultCallback = new Dictionary<IServiceResultCallback>([]);
+
+     /**
+        ServiceResultCallback global callback handlers.
+     */
+     export function handleServiceResultCallbackError(id : number, error : IServiceResultCallbackError) : void {
+          var callback : IServiceResultCallback = registeredServiceResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredServiceResultCallback dictionary.");
+          } else {
+               registeredServiceResultCallback.remove(""+id);
+               callback.onError(error);
+          }
+     }
+     export function handleServiceResultCallbackResult(id : number, response : ServiceResponse) : void {
+          var callback : IServiceResultCallback = registeredServiceResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredServiceResultCallback dictionary.");
+          } else {
+               registeredServiceResultCallback.remove(""+id);
+               callback.onResult(response);
+          }
+     }
+     export function handleServiceResultCallbackWarning(id : number, response : ServiceResponse, warning : IServiceResultCallbackWarning) : void {
+          var callback : IServiceResultCallback = registeredServiceResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredServiceResultCallback dictionary.");
+          } else {
+               registeredServiceResultCallback.remove(""+id);
+               callback.onWarning(response, warning);
+          }
      }
 
      export class ServiceResultCallbackImpl extends BaseCallbackImpl implements IServiceResultCallback {

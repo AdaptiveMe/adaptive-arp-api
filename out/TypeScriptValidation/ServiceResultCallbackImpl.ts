@@ -45,6 +45,43 @@ module Adaptive {
         Interface for Managing the Services operations
         Auto-generated implementation of IServiceResultCallback specification.
      */
+
+     /**
+        ServiceResultCallback control dictionary.
+     */
+     var registeredServiceResultCallback = new Dictionary<IServiceResultCallback>([]);
+
+     /**
+        ServiceResultCallback global callback handlers.
+     */
+     export function handleServiceResultCallbackError(id : number, error : IServiceResultCallbackError) : void {
+          var callback : IServiceResultCallback = registeredServiceResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredServiceResultCallback dictionary.");
+          } else {
+               registeredServiceResultCallback.remove(""+id);
+               callback.onError(error);
+          }
+     }
+     export function handleServiceResultCallbackResult(id : number, response : ServiceResponse) : void {
+          var callback : IServiceResultCallback = registeredServiceResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredServiceResultCallback dictionary.");
+          } else {
+               registeredServiceResultCallback.remove(""+id);
+               callback.onResult(response);
+          }
+     }
+     export function handleServiceResultCallbackWarning(id : number, response : ServiceResponse, warning : IServiceResultCallbackWarning) : void {
+          var callback : IServiceResultCallback = registeredServiceResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredServiceResultCallback dictionary.");
+          } else {
+               registeredServiceResultCallback.remove(""+id);
+               callback.onWarning(response, warning);
+          }
+     }
+
      export class ServiceResultCallbackImpl extends BaseCallbackImpl implements IServiceResultCallback {
 
           onErrorFunction : (error : IServiceResultCallbackError) => Function;

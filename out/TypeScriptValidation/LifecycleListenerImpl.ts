@@ -45,6 +45,40 @@ module Adaptive {
         Interface for Managing the Lifecycle listeners
         Auto-generated implementation of ILifecycleListener specification.
      */
+
+     /**
+        LifecycleListener control dictionary.
+     */
+     var registeredLifecycleListener = new Dictionary<ILifecycleListener>([]);
+
+     /**
+        LifecycleListener global listener handlers.
+     */
+     export function handleLifecycleListenerError(id : number, error : ILifecycleListenerError) : void {
+          var listener : ILifecycleListener = registeredLifecycleListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredLifecycleListener dictionary.");
+          } else {
+               listener.onError(error);
+          }
+     }
+     export function handleLifecycleListenerResult(id : number, lifecycle : Lifecycle) : void {
+          var listener : ILifecycleListener = registeredLifecycleListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredLifecycleListener dictionary.");
+          } else {
+               listener.onResult(lifecycle);
+          }
+     }
+     export function handleLifecycleListenerWarning(id : number, lifecycle : Lifecycle, warning : ILifecycleListenerWarning) : void {
+          var listener : ILifecycleListener = registeredLifecycleListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredLifecycleListener dictionary.");
+          } else {
+               listener.onWarning(lifecycle, warning);
+          }
+     }
+
      export class LifecycleListenerImpl extends BaseListenerImpl implements ILifecycleListener {
 
           onErrorFunction : (error : ILifecycleListenerError) => Function;

@@ -49,6 +49,43 @@ var Adaptive;
        Interface for Managing the Lifecycle listeners
        Auto-generated implementation of ILifecycleListener specification.
     */
+    /**
+       LifecycleListener control dictionary.
+    */
+    var registeredLifecycleListener = new Adaptive.Dictionary([]);
+    /**
+       LifecycleListener global listener handlers.
+    */
+    function handleLifecycleListenerError(id, error) {
+        var listener = registeredLifecycleListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredLifecycleListener dictionary.");
+        }
+        else {
+            listener.onError(error);
+        }
+    }
+    Adaptive.handleLifecycleListenerError = handleLifecycleListenerError;
+    function handleLifecycleListenerResult(id, lifecycle) {
+        var listener = registeredLifecycleListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredLifecycleListener dictionary.");
+        }
+        else {
+            listener.onResult(lifecycle);
+        }
+    }
+    Adaptive.handleLifecycleListenerResult = handleLifecycleListenerResult;
+    function handleLifecycleListenerWarning(id, lifecycle, warning) {
+        var listener = registeredLifecycleListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredLifecycleListener dictionary.");
+        }
+        else {
+            listener.onWarning(lifecycle, warning);
+        }
+    }
+    Adaptive.handleLifecycleListenerWarning = handleLifecycleListenerWarning;
     var LifecycleListenerImpl = (function (_super) {
         __extends(LifecycleListenerImpl, _super);
         /**

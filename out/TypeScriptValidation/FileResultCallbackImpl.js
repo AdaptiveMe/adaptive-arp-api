@@ -49,6 +49,46 @@ var Adaptive;
        Interface for Managing the File operations callback
        Auto-generated implementation of IFileResultCallback specification.
     */
+    /**
+       FileResultCallback control dictionary.
+    */
+    var registeredFileResultCallback = new Adaptive.Dictionary([]);
+    /**
+       FileResultCallback global callback handlers.
+    */
+    function handleFileResultCallbackError(id, error) {
+        var callback = registeredFileResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredFileResultCallback dictionary.");
+        }
+        else {
+            registeredFileResultCallback.remove("" + id);
+            callback.onError(error);
+        }
+    }
+    Adaptive.handleFileResultCallbackError = handleFileResultCallbackError;
+    function handleFileResultCallbackResult(id, storageFile) {
+        var callback = registeredFileResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredFileResultCallback dictionary.");
+        }
+        else {
+            registeredFileResultCallback.remove("" + id);
+            callback.onResult(storageFile);
+        }
+    }
+    Adaptive.handleFileResultCallbackResult = handleFileResultCallbackResult;
+    function handleFileResultCallbackWarning(id, file, warning) {
+        var callback = registeredFileResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredFileResultCallback dictionary.");
+        }
+        else {
+            registeredFileResultCallback.remove("" + id);
+            callback.onWarning(file, warning);
+        }
+    }
+    Adaptive.handleFileResultCallbackWarning = handleFileResultCallbackWarning;
     var FileResultCallbackImpl = (function (_super) {
         __extends(FileResultCallbackImpl, _super);
         /**

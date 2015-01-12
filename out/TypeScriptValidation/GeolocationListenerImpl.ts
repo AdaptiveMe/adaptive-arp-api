@@ -45,6 +45,40 @@ module Adaptive {
         Interface for Managing the Geolocation results
         Auto-generated implementation of IGeolocationListener specification.
      */
+
+     /**
+        GeolocationListener control dictionary.
+     */
+     var registeredGeolocationListener = new Dictionary<IGeolocationListener>([]);
+
+     /**
+        GeolocationListener global listener handlers.
+     */
+     export function handleGeolocationListenerError(id : number, error : IGeolocationListenerError) : void {
+          var listener : IGeolocationListener = registeredGeolocationListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredGeolocationListener dictionary.");
+          } else {
+               listener.onError(error);
+          }
+     }
+     export function handleGeolocationListenerResult(id : number, geolocation : Geolocation) : void {
+          var listener : IGeolocationListener = registeredGeolocationListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredGeolocationListener dictionary.");
+          } else {
+               listener.onResult(geolocation);
+          }
+     }
+     export function handleGeolocationListenerWarning(id : number, geolocation : Geolocation, warning : IGeolocationListenerWarning) : void {
+          var listener : IGeolocationListener = registeredGeolocationListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredGeolocationListener dictionary.");
+          } else {
+               listener.onWarning(geolocation, warning);
+          }
+     }
+
      export class GeolocationListenerImpl extends BaseListenerImpl implements IGeolocationListener {
 
           onErrorFunction : (error : IGeolocationListenerError) => Function;

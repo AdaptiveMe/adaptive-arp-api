@@ -49,6 +49,46 @@ var Adaptive;
        Interface for Managing the Contact operations
        Auto-generated implementation of IContactResultCallback specification.
     */
+    /**
+       ContactResultCallback control dictionary.
+    */
+    var registeredContactResultCallback = new Adaptive.Dictionary([]);
+    /**
+       ContactResultCallback global callback handlers.
+    */
+    function handleContactResultCallbackError(id, error) {
+        var callback = registeredContactResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredContactResultCallback dictionary.");
+        }
+        else {
+            registeredContactResultCallback.remove("" + id);
+            callback.onError(error);
+        }
+    }
+    Adaptive.handleContactResultCallbackError = handleContactResultCallbackError;
+    function handleContactResultCallbackResult(id, contacts) {
+        var callback = registeredContactResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredContactResultCallback dictionary.");
+        }
+        else {
+            registeredContactResultCallback.remove("" + id);
+            callback.onResult(contacts);
+        }
+    }
+    Adaptive.handleContactResultCallbackResult = handleContactResultCallbackResult;
+    function handleContactResultCallbackWarning(id, contacts, warning) {
+        var callback = registeredContactResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredContactResultCallback dictionary.");
+        }
+        else {
+            registeredContactResultCallback.remove("" + id);
+            callback.onWarning(contacts, warning);
+        }
+    }
+    Adaptive.handleContactResultCallbackWarning = handleContactResultCallbackWarning;
     var ContactResultCallbackImpl = (function (_super) {
         __extends(ContactResultCallbackImpl, _super);
         /**

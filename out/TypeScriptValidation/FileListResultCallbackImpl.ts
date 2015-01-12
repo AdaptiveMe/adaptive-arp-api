@@ -45,6 +45,43 @@ module Adaptive {
         Interface for Managing the File result operations
         Auto-generated implementation of IFileListResultCallback specification.
      */
+
+     /**
+        FileListResultCallback control dictionary.
+     */
+     var registeredFileListResultCallback = new Dictionary<IFileListResultCallback>([]);
+
+     /**
+        FileListResultCallback global callback handlers.
+     */
+     export function handleFileListResultCallbackError(id : number, error : IFileListResultCallbackError) : void {
+          var callback : IFileListResultCallback = registeredFileListResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredFileListResultCallback dictionary.");
+          } else {
+               registeredFileListResultCallback.remove(""+id);
+               callback.onError(error);
+          }
+     }
+     export function handleFileListResultCallbackResult(id : number, files : Array<FileDescriptor>) : void {
+          var callback : IFileListResultCallback = registeredFileListResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredFileListResultCallback dictionary.");
+          } else {
+               registeredFileListResultCallback.remove(""+id);
+               callback.onResult(files);
+          }
+     }
+     export function handleFileListResultCallbackWarning(id : number, files : Array<FileDescriptor>, warning : IFileListResultCallbackWarning) : void {
+          var callback : IFileListResultCallback = registeredFileListResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredFileListResultCallback dictionary.");
+          } else {
+               registeredFileListResultCallback.remove(""+id);
+               callback.onWarning(files, warning);
+          }
+     }
+
      export class FileListResultCallbackImpl extends BaseCallbackImpl implements IFileListResultCallback {
 
           onErrorFunction : (error : IFileListResultCallbackError) => Function;

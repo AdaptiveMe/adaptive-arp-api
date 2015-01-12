@@ -38,9 +38,11 @@ Release:
 */
 declare module Adaptive {
     /**
-       Interface for Managing the Messaging responses
-       Auto-generated implementation of IMessagingCallback specification.
+       MessagingCallback global callback handlers.
     */
+    function handleMessagingCallbackError(id: number, error: IMessagingCallbackError): void;
+    function handleMessagingCallbackResult(id: number, success: boolean): void;
+    function handleMessagingCallbackWarning(id: number, success: boolean, warning: IMessagingCallbackWarning): void;
     class MessagingCallbackImpl extends BaseCallbackImpl implements IMessagingCallback {
         onErrorFunction: (error: IMessagingCallbackError) => Function;
         onResultFunction: (success: boolean) => Function;

@@ -45,6 +45,43 @@ module Adaptive {
         Interface for Managing the Cloud operations
         Auto-generated implementation of IDatabaseResultCallback specification.
      */
+
+     /**
+        DatabaseResultCallback control dictionary.
+     */
+     var registeredDatabaseResultCallback = new Dictionary<IDatabaseResultCallback>([]);
+
+     /**
+        DatabaseResultCallback global callback handlers.
+     */
+     export function handleDatabaseResultCallbackError(id : number, error : IDatabaseResultCallbackError) : void {
+          var callback : IDatabaseResultCallback = registeredDatabaseResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredDatabaseResultCallback dictionary.");
+          } else {
+               registeredDatabaseResultCallback.remove(""+id);
+               callback.onError(error);
+          }
+     }
+     export function handleDatabaseResultCallbackResult(id : number, database : Database) : void {
+          var callback : IDatabaseResultCallback = registeredDatabaseResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredDatabaseResultCallback dictionary.");
+          } else {
+               registeredDatabaseResultCallback.remove(""+id);
+               callback.onResult(database);
+          }
+     }
+     export function handleDatabaseResultCallbackWarning(id : number, database : Database, warning : IDatabaseResultCallbackWarning) : void {
+          var callback : IDatabaseResultCallback = registeredDatabaseResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredDatabaseResultCallback dictionary.");
+          } else {
+               registeredDatabaseResultCallback.remove(""+id);
+               callback.onWarning(database, warning);
+          }
+     }
+
      export class DatabaseResultCallbackImpl extends BaseCallbackImpl implements IDatabaseResultCallback {
 
           onErrorFunction : (error : IDatabaseResultCallbackError) => Function;

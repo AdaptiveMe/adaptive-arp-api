@@ -2,10 +2,78 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2b62424-c85f-4dbf-8462-3858f1398c98" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AccelerationListenerImpl.d.ts" afterPath="$PROJECT_DIR$/AccelerationListenerImpl.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AccelerationListenerImpl.js.map" afterPath="$PROJECT_DIR$/AccelerationListenerImpl.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AccelerationListenerImpl.js" afterPath="$PROJECT_DIR$/AccelerationListenerImpl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AccelerationListenerImpl.ts" afterPath="$PROJECT_DIR$/AccelerationListenerImpl.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.d.ts" afterPath="$PROJECT_DIR$/Adaptive.d.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.js.map" afterPath="$PROJECT_DIR$/Adaptive.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.js" afterPath="$PROJECT_DIR$/Adaptive.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.ts" afterPath="$PROJECT_DIR$/Adaptive.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ButtonListenerImpl.d.ts" afterPath="$PROJECT_DIR$/ButtonListenerImpl.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ButtonListenerImpl.js.map" afterPath="$PROJECT_DIR$/ButtonListenerImpl.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ButtonListenerImpl.js" afterPath="$PROJECT_DIR$/ButtonListenerImpl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ButtonListenerImpl.ts" afterPath="$PROJECT_DIR$/ButtonListenerImpl.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactPhotoResultCallbackImpl.d.ts" afterPath="$PROJECT_DIR$/ContactPhotoResultCallbackImpl.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactPhotoResultCallbackImpl.js.map" afterPath="$PROJECT_DIR$/ContactPhotoResultCallbackImpl.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactPhotoResultCallbackImpl.js" afterPath="$PROJECT_DIR$/ContactPhotoResultCallbackImpl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactPhotoResultCallbackImpl.ts" afterPath="$PROJECT_DIR$/ContactPhotoResultCallbackImpl.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactResultCallbackImpl.d.ts" afterPath="$PROJECT_DIR$/ContactResultCallbackImpl.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactResultCallbackImpl.js.map" afterPath="$PROJECT_DIR$/ContactResultCallbackImpl.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactResultCallbackImpl.js" afterPath="$PROJECT_DIR$/ContactResultCallbackImpl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactResultCallbackImpl.ts" afterPath="$PROJECT_DIR$/ContactResultCallbackImpl.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseResultCallbackImpl.d.ts" afterPath="$PROJECT_DIR$/DatabaseResultCallbackImpl.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseResultCallbackImpl.js.map" afterPath="$PROJECT_DIR$/DatabaseResultCallbackImpl.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseResultCallbackImpl.js" afterPath="$PROJECT_DIR$/DatabaseResultCallbackImpl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseResultCallbackImpl.ts" afterPath="$PROJECT_DIR$/DatabaseResultCallbackImpl.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseTableResultCallbackImpl.d.ts" afterPath="$PROJECT_DIR$/DatabaseTableResultCallbackImpl.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseTableResultCallbackImpl.js.map" afterPath="$PROJECT_DIR$/DatabaseTableResultCallbackImpl.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseTableResultCallbackImpl.js" afterPath="$PROJECT_DIR$/DatabaseTableResultCallbackImpl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseTableResultCallbackImpl.ts" afterPath="$PROJECT_DIR$/DatabaseTableResultCallbackImpl.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileDataLoadResultCallbackImpl.d.ts" afterPath="$PROJECT_DIR$/FileDataLoadResultCallbackImpl.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileDataLoadResultCallbackImpl.js.map" afterPath="$PROJECT_DIR$/FileDataLoadResultCallbackImpl.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileDataLoadResultCallbackImpl.js" afterPath="$PROJECT_DIR$/FileDataLoadResultCallbackImpl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileDataLoadResultCallbackImpl.ts" afterPath="$PROJECT_DIR$/FileDataLoadResultCallbackImpl.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileDataStoreResultCallbackImpl.d.ts" afterPath="$PROJECT_DIR$/FileDataStoreResultCallbackImpl.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileDataStoreResultCallbackImpl.js.map" afterPath="$PROJECT_DIR$/FileDataStoreResultCallbackImpl.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileDataStoreResultCallbackImpl.js" afterPath="$PROJECT_DIR$/FileDataStoreResultCallbackImpl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileDataStoreResultCallbackImpl.ts" afterPath="$PROJECT_DIR$/FileDataStoreResultCallbackImpl.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileListResultCallbackImpl.d.ts" afterPath="$PROJECT_DIR$/FileListResultCallbackImpl.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileListResultCallbackImpl.js.map" afterPath="$PROJECT_DIR$/FileListResultCallbackImpl.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileListResultCallbackImpl.js" afterPath="$PROJECT_DIR$/FileListResultCallbackImpl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileListResultCallbackImpl.ts" afterPath="$PROJECT_DIR$/FileListResultCallbackImpl.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileResultCallbackImpl.d.ts" afterPath="$PROJECT_DIR$/FileResultCallbackImpl.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileResultCallbackImpl.js.map" afterPath="$PROJECT_DIR$/FileResultCallbackImpl.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileResultCallbackImpl.js" afterPath="$PROJECT_DIR$/FileResultCallbackImpl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileResultCallbackImpl.ts" afterPath="$PROJECT_DIR$/FileResultCallbackImpl.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GeolocationListenerImpl.d.ts" afterPath="$PROJECT_DIR$/GeolocationListenerImpl.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GeolocationListenerImpl.js.map" afterPath="$PROJECT_DIR$/GeolocationListenerImpl.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GeolocationListenerImpl.js" afterPath="$PROJECT_DIR$/GeolocationListenerImpl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GeolocationListenerImpl.ts" afterPath="$PROJECT_DIR$/GeolocationListenerImpl.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LifecycleListenerImpl.d.ts" afterPath="$PROJECT_DIR$/LifecycleListenerImpl.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LifecycleListenerImpl.js.map" afterPath="$PROJECT_DIR$/LifecycleListenerImpl.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LifecycleListenerImpl.js" afterPath="$PROJECT_DIR$/LifecycleListenerImpl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LifecycleListenerImpl.ts" afterPath="$PROJECT_DIR$/LifecycleListenerImpl.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MessagingCallbackImpl.d.ts" afterPath="$PROJECT_DIR$/MessagingCallbackImpl.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MessagingCallbackImpl.js.map" afterPath="$PROJECT_DIR$/MessagingCallbackImpl.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MessagingCallbackImpl.js" afterPath="$PROJECT_DIR$/MessagingCallbackImpl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MessagingCallbackImpl.ts" afterPath="$PROJECT_DIR$/MessagingCallbackImpl.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkReachabilityCallbackImpl.d.ts" afterPath="$PROJECT_DIR$/NetworkReachabilityCallbackImpl.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkReachabilityCallbackImpl.js.map" afterPath="$PROJECT_DIR$/NetworkReachabilityCallbackImpl.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkReachabilityCallbackImpl.js" afterPath="$PROJECT_DIR$/NetworkReachabilityCallbackImpl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkReachabilityCallbackImpl.ts" afterPath="$PROJECT_DIR$/NetworkReachabilityCallbackImpl.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkStatusListenerImpl.d.ts" afterPath="$PROJECT_DIR$/NetworkStatusListenerImpl.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkStatusListenerImpl.js.map" afterPath="$PROJECT_DIR$/NetworkStatusListenerImpl.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkStatusListenerImpl.js" afterPath="$PROJECT_DIR$/NetworkStatusListenerImpl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NetworkStatusListenerImpl.ts" afterPath="$PROJECT_DIR$/NetworkStatusListenerImpl.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SecurityResultCallbackImpl.d.ts" afterPath="$PROJECT_DIR$/SecurityResultCallbackImpl.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SecurityResultCallbackImpl.js.map" afterPath="$PROJECT_DIR$/SecurityResultCallbackImpl.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SecurityResultCallbackImpl.js" afterPath="$PROJECT_DIR$/SecurityResultCallbackImpl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SecurityResultCallbackImpl.ts" afterPath="$PROJECT_DIR$/SecurityResultCallbackImpl.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceResultCallbackImpl.d.ts" afterPath="$PROJECT_DIR$/ServiceResultCallbackImpl.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceResultCallbackImpl.js.map" afterPath="$PROJECT_DIR$/ServiceResultCallbackImpl.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceResultCallbackImpl.js" afterPath="$PROJECT_DIR$/ServiceResultCallbackImpl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceResultCallbackImpl.ts" afterPath="$PROJECT_DIR$/ServiceResultCallbackImpl.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/typescript/TypeScriptGenerator.java" afterPath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/typescript/TypeScriptGenerator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -34,8 +102,28 @@
       <file leaf-file-name="Adaptive.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Adaptive.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.2062102" vertical-offset="122719" max-vertical-offset="123975">
-              <caret line="8164" column="6" selection-start-line="8164" selection-start-column="6" selection-end-line="8164" selection-end-column="6" />
+            <state vertical-scroll-proportion="0.2079096" vertical-offset="51956" max-vertical-offset="139470">
+              <caret line="3476" column="35" selection-start-line="3476" selection-start-column="35" selection-end-line="3476" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ButtonListenerImpl.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ButtonListenerImpl.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="2505">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AccelerationListenerImpl.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AccelerationListenerImpl.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="2520">
+              <caret line="73" column="87" selection-start-line="73" selection-start-column="87" selection-end-line="73" selection-end-column="87" />
               <folding />
             </state>
           </provider>
@@ -69,8 +157,6 @@
         <option value="$PROJECT_DIR$/Contact.ts" />
         <option value="$PROJECT_DIR$/IServiceResultCallback.ts" />
         <option value="$PROJECT_DIR$/DatabaseRow.ts" />
-        <option value="$PROJECT_DIR$/Adaptive.ts" />
-        <option value="$PROJECT_DIR$/Adaptive.js" />
         <option value="$PROJECT_DIR$/join.sh" />
         <option value="$PROJECT_DIR$/IBaseSecurity.ts" />
         <option value="$PROJECT_DIR$/BaseCallbackImpl.ts" />
@@ -90,6 +176,8 @@
         <option value="$PROJECT_DIR$/IAdaptiveRP.ts" />
         <option value="$PROJECT_DIR$/IAppRegistry.ts" />
         <option value="$PROJECT_DIR$/AppRegistryBridge.ts" />
+        <option value="$PROJECT_DIR$/Adaptive.js" />
+        <option value="$PROJECT_DIR$/Adaptive.ts" />
       </list>
     </option>
   </component>
@@ -234,7 +322,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1243397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26791278" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26791278" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -268,14 +356,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/AccelerationListenerImpl.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="333" max-vertical-offset="2010">
-          <caret line="47" column="88" selection-start-line="47" selection-start-column="88" selection-end-line="47" selection-end-column="88" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AccelerationListenerImpl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="64" max-vertical-offset="2025">
@@ -531,6 +611,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1256">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -555,13 +636,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ButtonListenerImpl.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1995">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/IAdaptiveRP.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1910828" vertical-offset="0" max-vertical-offset="1256">
@@ -573,6 +647,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5732484" vertical-offset="0" max-vertical-offset="1256">
           <caret line="48" column="23" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -587,14 +662,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.08678344" vertical-offset="109" max-vertical-offset="1365">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AccelerationListenerImpl.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="333" max-vertical-offset="2010">
-          <caret line="47" column="88" selection-start-line="47" selection-start-column="88" selection-end-line="47" selection-end-column="88" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -631,10 +698,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ButtonListenerImpl.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="2505">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AccelerationListenerImpl.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="2520">
+          <caret line="73" column="87" selection-start-line="73" selection-start-column="87" selection-end-line="73" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Adaptive.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.30811402" vertical-offset="48851" max-vertical-offset="87795">
+          <caret line="3238" column="0" selection-start-line="3238" selection-start-column="0" selection-end-line="3238" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Adaptive.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.2062102" vertical-offset="122719" max-vertical-offset="123975">
-          <caret line="8164" column="6" selection-start-line="8164" selection-start-column="6" selection-end-line="8164" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.2079096" vertical-offset="51956" max-vertical-offset="139470">
+          <caret line="3476" column="35" selection-start-line="3476" selection-start-column="35" selection-end-line="3476" selection-end-column="35" />
           <folding />
         </state>
       </provider>

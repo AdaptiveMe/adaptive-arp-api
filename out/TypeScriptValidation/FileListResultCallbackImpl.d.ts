@@ -39,9 +39,11 @@ Release:
 */
 declare module Adaptive {
     /**
-       Interface for Managing the File result operations
-       Auto-generated implementation of IFileListResultCallback specification.
+       FileListResultCallback global callback handlers.
     */
+    function handleFileListResultCallbackError(id: number, error: IFileListResultCallbackError): void;
+    function handleFileListResultCallbackResult(id: number, files: FileDescriptor[]): void;
+    function handleFileListResultCallbackWarning(id: number, files: FileDescriptor[], warning: IFileListResultCallbackWarning): void;
     class FileListResultCallbackImpl extends BaseCallbackImpl implements IFileListResultCallback {
         onErrorFunction: (error: IFileListResultCallbackError) => Function;
         onResultFunction: (files: FileDescriptor[]) => Function;

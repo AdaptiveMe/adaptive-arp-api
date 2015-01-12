@@ -44,6 +44,43 @@ module Adaptive {
         Interface for Managing the File loading callback responses
         Auto-generated implementation of IFileDataLoadResultCallback specification.
      */
+
+     /**
+        FileDataLoadResultCallback control dictionary.
+     */
+     var registeredFileDataLoadResultCallback = new Dictionary<IFileDataLoadResultCallback>([]);
+
+     /**
+        FileDataLoadResultCallback global callback handlers.
+     */
+     export function handleFileDataLoadResultCallbackError(id : number, error : IFileDataLoadResultCallbackError) : void {
+          var callback : IFileDataLoadResultCallback = registeredFileDataLoadResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredFileDataLoadResultCallback dictionary.");
+          } else {
+               registeredFileDataLoadResultCallback.remove(""+id);
+               callback.onError(error);
+          }
+     }
+     export function handleFileDataLoadResultCallbackResult(id : number, data : Array<number>) : void {
+          var callback : IFileDataLoadResultCallback = registeredFileDataLoadResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredFileDataLoadResultCallback dictionary.");
+          } else {
+               registeredFileDataLoadResultCallback.remove(""+id);
+               callback.onResult(data);
+          }
+     }
+     export function handleFileDataLoadResultCallbackWarning(id : number, data : Array<number>, warning : IFileDataLoadResultCallbackWarning) : void {
+          var callback : IFileDataLoadResultCallback = registeredFileDataLoadResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredFileDataLoadResultCallback dictionary.");
+          } else {
+               registeredFileDataLoadResultCallback.remove(""+id);
+               callback.onWarning(data, warning);
+          }
+     }
+
      export class FileDataLoadResultCallbackImpl extends BaseCallbackImpl implements IFileDataLoadResultCallback {
 
           onErrorFunction : (error : IFileDataLoadResultCallbackError) => Function;

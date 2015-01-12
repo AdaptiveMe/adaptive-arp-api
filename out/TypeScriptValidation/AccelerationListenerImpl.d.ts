@@ -39,9 +39,11 @@ Release:
 */
 declare module Adaptive {
     /**
-       Interface defines the response methods of the acceleration operations
-       Auto-generated implementation of IAccelerationListener specification.
+       AccelerationListener global listener handlers.
     */
+    function handleAccelerationListenerError(id: number, error: IAccelerationListenerError): void;
+    function handleAccelerationListenerResult(id: number, acceleration: Acceleration): void;
+    function handleAccelerationListenerWarning(id: number, acceleration: Acceleration, warning: IAccelerationListenerWarning): void;
     class AccelerationListenerImpl extends BaseListenerImpl implements IAccelerationListener {
         onErrorFunction: (error: IAccelerationListenerError) => Function;
         onResultFunction: (acceleration: Acceleration) => Function;

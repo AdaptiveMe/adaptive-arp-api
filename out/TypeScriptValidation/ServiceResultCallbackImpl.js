@@ -49,6 +49,46 @@ var Adaptive;
        Interface for Managing the Services operations
        Auto-generated implementation of IServiceResultCallback specification.
     */
+    /**
+       ServiceResultCallback control dictionary.
+    */
+    var registeredServiceResultCallback = new Adaptive.Dictionary([]);
+    /**
+       ServiceResultCallback global callback handlers.
+    */
+    function handleServiceResultCallbackError(id, error) {
+        var callback = registeredServiceResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredServiceResultCallback dictionary.");
+        }
+        else {
+            registeredServiceResultCallback.remove("" + id);
+            callback.onError(error);
+        }
+    }
+    Adaptive.handleServiceResultCallbackError = handleServiceResultCallbackError;
+    function handleServiceResultCallbackResult(id, response) {
+        var callback = registeredServiceResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredServiceResultCallback dictionary.");
+        }
+        else {
+            registeredServiceResultCallback.remove("" + id);
+            callback.onResult(response);
+        }
+    }
+    Adaptive.handleServiceResultCallbackResult = handleServiceResultCallbackResult;
+    function handleServiceResultCallbackWarning(id, response, warning) {
+        var callback = registeredServiceResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredServiceResultCallback dictionary.");
+        }
+        else {
+            registeredServiceResultCallback.remove("" + id);
+            callback.onWarning(response, warning);
+        }
+    }
+    Adaptive.handleServiceResultCallbackWarning = handleServiceResultCallbackWarning;
     var ServiceResultCallbackImpl = (function (_super) {
         __extends(ServiceResultCallbackImpl, _super);
         /**

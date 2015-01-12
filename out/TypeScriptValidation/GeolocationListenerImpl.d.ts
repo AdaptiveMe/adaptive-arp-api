@@ -39,9 +39,11 @@ Release:
 */
 declare module Adaptive {
     /**
-       Interface for Managing the Geolocation results
-       Auto-generated implementation of IGeolocationListener specification.
+       GeolocationListener global listener handlers.
     */
+    function handleGeolocationListenerError(id: number, error: IGeolocationListenerError): void;
+    function handleGeolocationListenerResult(id: number, geolocation: Geolocation): void;
+    function handleGeolocationListenerWarning(id: number, geolocation: Geolocation, warning: IGeolocationListenerWarning): void;
     class GeolocationListenerImpl extends BaseListenerImpl implements IGeolocationListener {
         onErrorFunction: (error: IGeolocationListenerError) => Function;
         onResultFunction: (geolocation: Geolocation) => Function;

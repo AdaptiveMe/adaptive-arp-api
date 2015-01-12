@@ -45,6 +45,40 @@ module Adaptive {
         Interface for Managing the Network status listener events
         Auto-generated implementation of INetworkStatusListener specification.
      */
+
+     /**
+        NetworkStatusListener control dictionary.
+     */
+     var registeredNetworkStatusListener = new Dictionary<INetworkStatusListener>([]);
+
+     /**
+        NetworkStatusListener global listener handlers.
+     */
+     export function handleNetworkStatusListenerError(id : number, error : INetworkStatusListenerError) : void {
+          var listener : INetworkStatusListener = registeredNetworkStatusListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredNetworkStatusListener dictionary.");
+          } else {
+               listener.onError(error);
+          }
+     }
+     export function handleNetworkStatusListenerResult(id : number, network : ICapabilitiesNet) : void {
+          var listener : INetworkStatusListener = registeredNetworkStatusListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredNetworkStatusListener dictionary.");
+          } else {
+               listener.onResult(network);
+          }
+     }
+     export function handleNetworkStatusListenerWarning(id : number, network : ICapabilitiesNet, warning : INetworkStatusListenerWarning) : void {
+          var listener : INetworkStatusListener = registeredNetworkStatusListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredNetworkStatusListener dictionary.");
+          } else {
+               listener.onWarning(network, warning);
+          }
+     }
+
      export class NetworkStatusListenerImpl extends BaseListenerImpl implements INetworkStatusListener {
 
           onErrorFunction : (error : INetworkStatusListenerError) => Function;

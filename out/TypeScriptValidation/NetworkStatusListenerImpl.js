@@ -49,6 +49,43 @@ var Adaptive;
        Interface for Managing the Network status listener events
        Auto-generated implementation of INetworkStatusListener specification.
     */
+    /**
+       NetworkStatusListener control dictionary.
+    */
+    var registeredNetworkStatusListener = new Adaptive.Dictionary([]);
+    /**
+       NetworkStatusListener global listener handlers.
+    */
+    function handleNetworkStatusListenerError(id, error) {
+        var listener = registeredNetworkStatusListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredNetworkStatusListener dictionary.");
+        }
+        else {
+            listener.onError(error);
+        }
+    }
+    Adaptive.handleNetworkStatusListenerError = handleNetworkStatusListenerError;
+    function handleNetworkStatusListenerResult(id, network) {
+        var listener = registeredNetworkStatusListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredNetworkStatusListener dictionary.");
+        }
+        else {
+            listener.onResult(network);
+        }
+    }
+    Adaptive.handleNetworkStatusListenerResult = handleNetworkStatusListenerResult;
+    function handleNetworkStatusListenerWarning(id, network, warning) {
+        var listener = registeredNetworkStatusListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredNetworkStatusListener dictionary.");
+        }
+        else {
+            listener.onWarning(network, warning);
+        }
+    }
+    Adaptive.handleNetworkStatusListenerWarning = handleNetworkStatusListenerWarning;
     var NetworkStatusListenerImpl = (function (_super) {
         __extends(NetworkStatusListenerImpl, _super);
         /**

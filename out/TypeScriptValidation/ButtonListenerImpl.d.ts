@@ -39,9 +39,11 @@ Release:
 */
 declare module Adaptive {
     /**
-       Interface for Managing the button  operations
-       Auto-generated implementation of IButtonListener specification.
+       ButtonListener global listener handlers.
     */
+    function handleButtonListenerError(id: number, error: IButtonListenerError): void;
+    function handleButtonListenerResult(id: number, button: Button): void;
+    function handleButtonListenerWarning(id: number, button: Button, warning: IButtonListenerWarning): void;
     class ButtonListenerImpl extends BaseListenerImpl implements IButtonListener {
         onErrorFunction: (error: IButtonListenerError) => Function;
         onResultFunction: (button: Button) => Function;

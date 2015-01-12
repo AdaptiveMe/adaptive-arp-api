@@ -45,6 +45,43 @@ module Adaptive {
         Interface for Managing the File store operations callback
         Auto-generated implementation of IFileDataStoreResultCallback specification.
      */
+
+     /**
+        FileDataStoreResultCallback control dictionary.
+     */
+     var registeredFileDataStoreResultCallback = new Dictionary<IFileDataStoreResultCallback>([]);
+
+     /**
+        FileDataStoreResultCallback global callback handlers.
+     */
+     export function handleFileDataStoreResultCallbackError(id : number, error : IFileDataStoreResultCallbackError) : void {
+          var callback : IFileDataStoreResultCallback = registeredFileDataStoreResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredFileDataStoreResultCallback dictionary.");
+          } else {
+               registeredFileDataStoreResultCallback.remove(""+id);
+               callback.onError(error);
+          }
+     }
+     export function handleFileDataStoreResultCallbackResult(id : number, file : FileDescriptor) : void {
+          var callback : IFileDataStoreResultCallback = registeredFileDataStoreResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredFileDataStoreResultCallback dictionary.");
+          } else {
+               registeredFileDataStoreResultCallback.remove(""+id);
+               callback.onResult(file);
+          }
+     }
+     export function handleFileDataStoreResultCallbackWarning(id : number, file : FileDescriptor, warning : IFileDataStoreResultCallbackWarning) : void {
+          var callback : IFileDataStoreResultCallback = registeredFileDataStoreResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredFileDataStoreResultCallback dictionary.");
+          } else {
+               registeredFileDataStoreResultCallback.remove(""+id);
+               callback.onWarning(file, warning);
+          }
+     }
+
      export class FileDataStoreResultCallbackImpl extends BaseCallbackImpl implements IFileDataStoreResultCallback {
 
           onErrorFunction : (error : IFileDataStoreResultCallbackError) => Function;

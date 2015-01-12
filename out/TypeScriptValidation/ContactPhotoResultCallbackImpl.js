@@ -48,6 +48,46 @@ var Adaptive;
        Interface for Managing the Contact operations
        Auto-generated implementation of IContactPhotoResultCallback specification.
     */
+    /**
+       ContactPhotoResultCallback control dictionary.
+    */
+    var registeredContactPhotoResultCallback = new Adaptive.Dictionary([]);
+    /**
+       ContactPhotoResultCallback global callback handlers.
+    */
+    function handleContactPhotoResultCallbackError(id, error) {
+        var callback = registeredContactPhotoResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredContactPhotoResultCallback dictionary.");
+        }
+        else {
+            registeredContactPhotoResultCallback.remove("" + id);
+            callback.onError(error);
+        }
+    }
+    Adaptive.handleContactPhotoResultCallbackError = handleContactPhotoResultCallbackError;
+    function handleContactPhotoResultCallbackResult(id, contactPhoto) {
+        var callback = registeredContactPhotoResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredContactPhotoResultCallback dictionary.");
+        }
+        else {
+            registeredContactPhotoResultCallback.remove("" + id);
+            callback.onResult(contactPhoto);
+        }
+    }
+    Adaptive.handleContactPhotoResultCallbackResult = handleContactPhotoResultCallbackResult;
+    function handleContactPhotoResultCallbackWarning(id, contactPhoto, warning) {
+        var callback = registeredContactPhotoResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredContactPhotoResultCallback dictionary.");
+        }
+        else {
+            registeredContactPhotoResultCallback.remove("" + id);
+            callback.onWarning(contactPhoto, warning);
+        }
+    }
+    Adaptive.handleContactPhotoResultCallbackWarning = handleContactPhotoResultCallbackWarning;
     var ContactPhotoResultCallbackImpl = (function (_super) {
         __extends(ContactPhotoResultCallbackImpl, _super);
         /**

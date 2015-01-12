@@ -45,6 +45,40 @@ module Adaptive {
         Interface defines the response methods of the acceleration operations
         Auto-generated implementation of IAccelerationListener specification.
      */
+
+     /**
+        AccelerationListener control dictionary.
+     */
+     var registeredAccelerationListener = new Dictionary<IAccelerationListener>([]);
+
+     /**
+        AccelerationListener global listener handlers.
+     */
+     export function handleAccelerationListenerError(id : number, error : IAccelerationListenerError) : void {
+          var listener : IAccelerationListener = registeredAccelerationListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredAccelerationListener dictionary.");
+          } else {
+               listener.onError(error);
+          }
+     }
+     export function handleAccelerationListenerResult(id : number, acceleration : Acceleration) : void {
+          var listener : IAccelerationListener = registeredAccelerationListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredAccelerationListener dictionary.");
+          } else {
+               listener.onResult(acceleration);
+          }
+     }
+     export function handleAccelerationListenerWarning(id : number, acceleration : Acceleration, warning : IAccelerationListenerWarning) : void {
+          var listener : IAccelerationListener = registeredAccelerationListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredAccelerationListener dictionary.");
+          } else {
+               listener.onWarning(acceleration, warning);
+          }
+     }
+
      export class AccelerationListenerImpl extends BaseListenerImpl implements IAccelerationListener {
 
           onErrorFunction : (error : IAccelerationListenerError) => Function;

@@ -44,6 +44,43 @@ module Adaptive {
         Interface for Managing the Contact operations
         Auto-generated implementation of IContactPhotoResultCallback specification.
      */
+
+     /**
+        ContactPhotoResultCallback control dictionary.
+     */
+     var registeredContactPhotoResultCallback = new Dictionary<IContactPhotoResultCallback>([]);
+
+     /**
+        ContactPhotoResultCallback global callback handlers.
+     */
+     export function handleContactPhotoResultCallbackError(id : number, error : IContactPhotoResultCallbackError) : void {
+          var callback : IContactPhotoResultCallback = registeredContactPhotoResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredContactPhotoResultCallback dictionary.");
+          } else {
+               registeredContactPhotoResultCallback.remove(""+id);
+               callback.onError(error);
+          }
+     }
+     export function handleContactPhotoResultCallbackResult(id : number, contactPhoto : Array<number>) : void {
+          var callback : IContactPhotoResultCallback = registeredContactPhotoResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredContactPhotoResultCallback dictionary.");
+          } else {
+               registeredContactPhotoResultCallback.remove(""+id);
+               callback.onResult(contactPhoto);
+          }
+     }
+     export function handleContactPhotoResultCallbackWarning(id : number, contactPhoto : Array<number>, warning : IContactPhotoResultCallbackWarning) : void {
+          var callback : IContactPhotoResultCallback = registeredContactPhotoResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredContactPhotoResultCallback dictionary.");
+          } else {
+               registeredContactPhotoResultCallback.remove(""+id);
+               callback.onWarning(contactPhoto, warning);
+          }
+     }
+
      export class ContactPhotoResultCallbackImpl extends BaseCallbackImpl implements IContactPhotoResultCallback {
 
           onErrorFunction : (error : IContactPhotoResultCallbackError) => Function;

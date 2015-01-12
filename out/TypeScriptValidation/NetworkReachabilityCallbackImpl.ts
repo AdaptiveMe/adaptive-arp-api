@@ -44,6 +44,43 @@ module Adaptive {
         Interface for Managing the Network reachability callback result
         Auto-generated implementation of INetworkReachabilityCallback specification.
      */
+
+     /**
+        NetworkReachabilityCallback control dictionary.
+     */
+     var registeredNetworkReachabilityCallback = new Dictionary<INetworkReachabilityCallback>([]);
+
+     /**
+        NetworkReachabilityCallback global callback handlers.
+     */
+     export function handleNetworkReachabilityCallbackError(id : number, error : INetworkReachabilityCallbackError) : void {
+          var callback : INetworkReachabilityCallback = registeredNetworkReachabilityCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredNetworkReachabilityCallback dictionary.");
+          } else {
+               registeredNetworkReachabilityCallback.remove(""+id);
+               callback.onError(error);
+          }
+     }
+     export function handleNetworkReachabilityCallbackResult(id : number, reachable : boolean) : void {
+          var callback : INetworkReachabilityCallback = registeredNetworkReachabilityCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredNetworkReachabilityCallback dictionary.");
+          } else {
+               registeredNetworkReachabilityCallback.remove(""+id);
+               callback.onResult(reachable);
+          }
+     }
+     export function handleNetworkReachabilityCallbackWarning(id : number, reachable : boolean, warning : INetworkReachabilityCallbackWarning) : void {
+          var callback : INetworkReachabilityCallback = registeredNetworkReachabilityCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredNetworkReachabilityCallback dictionary.");
+          } else {
+               registeredNetworkReachabilityCallback.remove(""+id);
+               callback.onWarning(reachable, warning);
+          }
+     }
+
      export class NetworkReachabilityCallbackImpl extends BaseCallbackImpl implements INetworkReachabilityCallback {
 
           onErrorFunction : (error : INetworkReachabilityCallbackError) => Function;

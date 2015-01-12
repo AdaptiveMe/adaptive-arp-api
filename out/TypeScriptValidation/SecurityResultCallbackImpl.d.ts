@@ -39,9 +39,11 @@ Release:
 */
 declare module Adaptive {
     /**
-       Interface for Managing the Security result callback
-       Auto-generated implementation of ISecurityResultCallback specification.
+       SecurityResultCallback global callback handlers.
     */
+    function handleSecurityResultCallbackError(id: number, error: ISecurityResultCallbackError): void;
+    function handleSecurityResultCallbackResult(id: number, keyValues: SecureKeyPair[]): void;
+    function handleSecurityResultCallbackWarning(id: number, keyValues: SecureKeyPair[], warning: ISecurityResultCallbackWarning): void;
     class SecurityResultCallbackImpl extends BaseCallbackImpl implements ISecurityResultCallback {
         onErrorFunction: (error: ISecurityResultCallbackError) => Function;
         onResultFunction: (keyValues: SecureKeyPair[]) => Function;

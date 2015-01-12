@@ -39,9 +39,11 @@ Release:
 */
 declare module Adaptive {
     /**
-       Interface for Managing the Network status listener events
-       Auto-generated implementation of INetworkStatusListener specification.
+       NetworkStatusListener global listener handlers.
     */
+    function handleNetworkStatusListenerError(id: number, error: INetworkStatusListenerError): void;
+    function handleNetworkStatusListenerResult(id: number, network: ICapabilitiesNet): void;
+    function handleNetworkStatusListenerWarning(id: number, network: ICapabilitiesNet, warning: INetworkStatusListenerWarning): void;
     class NetworkStatusListenerImpl extends BaseListenerImpl implements INetworkStatusListener {
         onErrorFunction: (error: INetworkStatusListenerError) => Function;
         onResultFunction: (network: ICapabilitiesNet) => Function;

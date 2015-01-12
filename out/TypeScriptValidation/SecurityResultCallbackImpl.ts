@@ -45,6 +45,43 @@ module Adaptive {
         Interface for Managing the Security result callback
         Auto-generated implementation of ISecurityResultCallback specification.
      */
+
+     /**
+        SecurityResultCallback control dictionary.
+     */
+     var registeredSecurityResultCallback = new Dictionary<ISecurityResultCallback>([]);
+
+     /**
+        SecurityResultCallback global callback handlers.
+     */
+     export function handleSecurityResultCallbackError(id : number, error : ISecurityResultCallbackError) : void {
+          var callback : ISecurityResultCallback = registeredSecurityResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredSecurityResultCallback dictionary.");
+          } else {
+               registeredSecurityResultCallback.remove(""+id);
+               callback.onError(error);
+          }
+     }
+     export function handleSecurityResultCallbackResult(id : number, keyValues : Array<SecureKeyPair>) : void {
+          var callback : ISecurityResultCallback = registeredSecurityResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredSecurityResultCallback dictionary.");
+          } else {
+               registeredSecurityResultCallback.remove(""+id);
+               callback.onResult(keyValues);
+          }
+     }
+     export function handleSecurityResultCallbackWarning(id : number, keyValues : Array<SecureKeyPair>, warning : ISecurityResultCallbackWarning) : void {
+          var callback : ISecurityResultCallback = registeredSecurityResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredSecurityResultCallback dictionary.");
+          } else {
+               registeredSecurityResultCallback.remove(""+id);
+               callback.onWarning(keyValues, warning);
+          }
+     }
+
      export class SecurityResultCallbackImpl extends BaseCallbackImpl implements ISecurityResultCallback {
 
           onErrorFunction : (error : ISecurityResultCallbackError) => Function;

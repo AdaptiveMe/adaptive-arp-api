@@ -39,9 +39,11 @@ Release:
 */
 declare module Adaptive {
     /**
-       Interface for Managing the Contact operations
-       Auto-generated implementation of IContactResultCallback specification.
+       ContactResultCallback global callback handlers.
     */
+    function handleContactResultCallbackError(id: number, error: IContactResultCallbackError): void;
+    function handleContactResultCallbackResult(id: number, contacts: Contact[]): void;
+    function handleContactResultCallbackWarning(id: number, contacts: Contact[], warning: IContactResultCallbackWarning): void;
     class ContactResultCallbackImpl extends BaseCallbackImpl implements IContactResultCallback {
         onErrorFunction: (error: IContactResultCallbackError) => Function;
         onResultFunction: (contacts: Contact[]) => Function;

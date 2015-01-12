@@ -49,6 +49,43 @@ var Adaptive;
        Interface for Managing the button  operations
        Auto-generated implementation of IButtonListener specification.
     */
+    /**
+       ButtonListener control dictionary.
+    */
+    var registeredButtonListener = new Adaptive.Dictionary([]);
+    /**
+       ButtonListener global listener handlers.
+    */
+    function handleButtonListenerError(id, error) {
+        var listener = registeredButtonListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredButtonListener dictionary.");
+        }
+        else {
+            listener.onError(error);
+        }
+    }
+    Adaptive.handleButtonListenerError = handleButtonListenerError;
+    function handleButtonListenerResult(id, button) {
+        var listener = registeredButtonListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredButtonListener dictionary.");
+        }
+        else {
+            listener.onResult(button);
+        }
+    }
+    Adaptive.handleButtonListenerResult = handleButtonListenerResult;
+    function handleButtonListenerWarning(id, button, warning) {
+        var listener = registeredButtonListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredButtonListener dictionary.");
+        }
+        else {
+            listener.onWarning(button, warning);
+        }
+    }
+    Adaptive.handleButtonListenerWarning = handleButtonListenerWarning;
     var ButtonListenerImpl = (function (_super) {
         __extends(ButtonListenerImpl, _super);
         /**
