@@ -98,6 +98,15 @@ public class JavaGenerator extends GeneratorBase {
             println(5, "public final IAdaptiveRPGroup getAPIGroup() {");
             println(10, "return this.apiGroup;");
             println(5, "}");
+            println();
+
+            startComment(5);
+            println(8, "Return the API version for the given interface.");
+            endComment(5);
+            println(5, "@Override");
+            println(5, "public String getAPIVersion() {");
+            println(10, "return \""+getGenerationTagVersion()+"\";");
+            println(5, "}");
         } else {
             if (clazz.getInterfaces().length > 0) {
                 println("public class " + simpleName + " extends " + clazz.getInterfaces()[0].getSimpleName().substring(1) + "Delegate implements " + clazz.getSimpleName() + " {");
@@ -232,27 +241,36 @@ public class JavaGenerator extends GeneratorBase {
                 println();
             } else if (javaMethods.get(m) != null) {
                 if (simpleName.startsWith("AppRegistry")) {
-                    startComment(5);
-                    println(8, javaMethods.get(m).getComment());
-                    endComment(5);
-                    println(5, "private " + m.getReturnType().getSimpleName().substring(1) + "Bridge __" + m.getReturnType().getSimpleName().substring(1).toLowerCase() + "Bridge = null;");
-                    println();
-                    startComment(5);
-                    println(8, javaMethods.get(m).getComment());
-                    println();
-                    for (DocletTag tag : javaMethods.get(m).getTags()) {
-                        println(8, "@" + tag.getName() + " " + tag.getValue());
+                    if (!m.getName().equals("getAPIVersion")) {
+                        startComment(5);
+                        println(8, javaMethods.get(m).getComment());
+                        endComment(5);
+                        println(5, "private " + m.getReturnType().getSimpleName().substring(1) + "Bridge __" + m.getReturnType().getSimpleName().substring(1).toLowerCase() + "Bridge = null;");
+                        println();
+                        startComment(5);
+                        println(8, javaMethods.get(m).getComment());
+                        println();
+                        for (DocletTag tag : javaMethods.get(m).getTags()) {
+                            println(8, "@" + tag.getName() + " " + tag.getValue());
+                        }
+                        endComment(5);
+                        print(5, "public ");
+                        print(m.getReturnType().getSimpleName().substring(1) + "Bridge ");
+                        print(m.getName() + "(");
+                        println(") {");
+                        println(10, " if(__" + m.getReturnType().getSimpleName().substring(1).toLowerCase() + "Bridge == null) {");
+                        println(15, "__" + m.getReturnType().getSimpleName().substring(1).toLowerCase() + "Bridge = new " + m.getReturnType().getSimpleName().substring(1) + "Bridge(null);");
+                        println(10, "}");
+                        println(10, "return __" + m.getReturnType().getSimpleName().substring(1).toLowerCase() + "Bridge;");
+                        println(5, "}");
+                    } else {
+                        startComment(5);
+                        println(8, javaMethods.get(m).getComment());
+                        endComment(5);
+                        println(5, "public String getAPIVersion() {");
+                        println(10, "return \""+getGenerationTagVersion()+"\";");
+                        println(5, "}");
                     }
-                    endComment(5);
-                    print(5, "public ");
-                    print(m.getReturnType().getSimpleName().substring(1) + "Bridge ");
-                    print(m.getName() + "(");
-                    println(") {");
-                    println(10, " if(__" + m.getReturnType().getSimpleName().substring(1).toLowerCase() + "Bridge == null) {");
-                    println(15, "__" + m.getReturnType().getSimpleName().substring(1).toLowerCase() + "Bridge = new " + m.getReturnType().getSimpleName().substring(1) + "Bridge(null);");
-                    println(10, "}");
-                    println(10, "return __" + m.getReturnType().getSimpleName().substring(1).toLowerCase() + "Bridge;");
-                    println(5, "}");
                     println();
                 } else {
                     startComment(5);
@@ -308,6 +326,9 @@ public class JavaGenerator extends GeneratorBase {
     protected void startCustomClass(String className, Class clazz, JavaClass javaClass, boolean implementation) {
         if (implementation) {
             currentFile = new File(getOutputRootDirectory(), (clazz.getPackage().getName().substring(0, clazz.getPackage().getName().lastIndexOf('.')) + ".impl").replace('.', File.separatorChar) + File.separatorChar + className + ".java");
+            if (currentFile.exists() && !className.startsWith("Base")) {
+                currentFile = new File(currentFile.getAbsolutePath() + ".new");
+            }
 
         } else {
             currentFile = new File(getOutputRootDirectory(), clazz.getPackage().getName().replace('.', File.separatorChar) + File.separatorChar + className + ".java");
@@ -373,6 +394,16 @@ public class JavaGenerator extends GeneratorBase {
             println(5, "public final IAdaptiveRPGroup getAPIGroup() {");
             println(10, "return this.apiGroup;");
             println(5, "}");
+            println();
+
+            startComment(5);
+            println(8, "Return the API version for the given interface.");
+            endComment(5);
+            println(5, "@Override");
+            println(5, "public String getAPIVersion() {");
+            println(10, "return \""+getGenerationTagVersion()+"\";");
+            println(5, "}");
+            println();
 
             startComment(5);
             println(8, "Return the JSON serializer.");
@@ -581,7 +612,7 @@ public class JavaGenerator extends GeneratorBase {
                 if (m.getReturnType().equals(Void.TYPE)) {
                     print("void ");
                 } else {
-                    if (simpleName.startsWith("AppRegistry")) {
+                    if (simpleName.startsWith("AppRegistry") && !m.getName().equals("getAPIVersion")) {
                         print(m.getReturnType().getSimpleName().substring(1) + "Bridge ");
                     } else {
                         print(convertJavaToNativeType(m.getReturnType()) + " ");
@@ -627,7 +658,7 @@ public class JavaGenerator extends GeneratorBase {
                             println(10, convertJavaToNativeType(m.getReturnType()) + " result = " + m.getReturnType() + ";");
                         }
                     } else {
-                        if (simpleName.startsWith("AppRegistry")) {
+                        if (simpleName.startsWith("AppRegistry") && !m.getName().equals("getAPIVersion")) {
                             println(10, m.getReturnType().getSimpleName().substring(1) + "Bridge result = null;");
                         } else {
                             println(10, convertJavaToNativeType(m.getReturnType()) + " result = null;");
@@ -884,6 +915,16 @@ public class JavaGenerator extends GeneratorBase {
             println(5, "public IAdaptiveRPGroup getAPIGroup() {");
             println(10, "return this.apiGroup;");
             println(5, "}");
+            println();
+
+            startComment(5);
+            println(8, "Return the API version for the given interface.");
+            endComment(5);
+            println(5, "@Override");
+            println(5, "public String getAPIVersion() {");
+            println(10, "return \""+getGenerationTagVersion()+"\";");
+            println(5, "}");
+            println();
 
             startComment(5);
             println(8, "Return the JSON serializer.");
@@ -1027,6 +1068,16 @@ public class JavaGenerator extends GeneratorBase {
             println(5, "public final IAdaptiveRPGroup getAPIGroup() {");
             println(10, "return this.apiGroup;");
             println(5, "}");
+            println();
+
+            startComment(5);
+            println(8, "Return the API version for the given interface.");
+            endComment(5);
+            println(5, "@Override");
+            println(5, "public String getAPIVersion() {");
+            println(10, "return \""+getGenerationTagVersion()+"\";");
+            println(5, "}");
+            println();
 
             startComment(5);
             println(8, "Return the JSON serializer.");
@@ -1183,7 +1234,7 @@ public class JavaGenerator extends GeneratorBase {
                 if (method.getReturnType().equals(Void.TYPE)) {
                     print(5, "void ");
                 } else {
-                    if (simpleName.startsWith("IAppRegistry")) {
+                    if (simpleName.startsWith("IAppRegistry") && !method.getName().equals("getAPIVersion")) {
                         print(5, method.getReturnType().getSimpleName().substring(1) + "Bridge ");
                     } else {
                         print(5, convertJavaToNativeType(method.getReturnType()) + " ");
