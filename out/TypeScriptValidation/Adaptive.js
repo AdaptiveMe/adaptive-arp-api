@@ -5870,7 +5870,7 @@ listener and subsequently, the listener will be deactivated and removed from the
             // Check response.
             if (xhr.status == 200) {
                 // Remove all listeners references from local dictionary.
-                var keys = registeredLifecycleListenerListener.keys();
+                var keys = Adaptive.registeredLifecycleListener.keys();
                 for (var key in keys) {
                     Adaptive.registeredLifecycleListener.remove(key);
                 }
@@ -6183,7 +6183,7 @@ listener and subsequently, the listener will be deactivated and removed from the
             // Check response.
             if (xhr.status == 200) {
                 // Remove all listeners references from local dictionary.
-                var keys = registeredNetworkStatusListenerListener.keys();
+                var keys = Adaptive.registeredNetworkStatusListener.keys();
                 for (var key in keys) {
                     Adaptive.registeredNetworkStatusListener.remove(key);
                 }
@@ -8063,7 +8063,7 @@ This path may or may not be writable by the current application.
             // Check response.
             if (xhr.status == 200) {
                 // Remove all listeners references from local dictionary.
-                var keys = registeredAccelerationListenerListener.keys();
+                var keys = Adaptive.registeredAccelerationListener.keys();
                 for (var key in keys) {
                     Adaptive.registeredAccelerationListener.remove(key);
                 }
@@ -8182,7 +8182,7 @@ This path may or may not be writable by the current application.
             // Check response.
             if (xhr.status == 200) {
                 // Remove all listeners references from local dictionary.
-                var keys = registeredGeolocationListenerListener.keys();
+                var keys = Adaptive.registeredGeolocationListener.keys();
                 for (var key in keys) {
                     Adaptive.registeredGeolocationListener.remove(key);
                 }
@@ -8629,7 +8629,7 @@ device.
             // Check response.
             if (xhr.status == 200) {
                 // Remove all listeners references from local dictionary.
-                var keys = registeredButtonListenerListener.keys();
+                var keys = Adaptive.registeredButtonListener.keys();
                 for (var key in keys) {
                     Adaptive.registeredButtonListener.remove(key);
                 }
