@@ -774,7 +774,7 @@ public class SwiftGenerator extends GeneratorBase {
                                 print("UNSUPPORTED. Donate generously.");
                             }
                         } else if (p.getType().equals(String.class)) {
-                            print("request.getParameters()![" + pIndex + "]");
+                            print("JSONUtil.unescapeString(request.getParameters()![" + pIndex + "])");
                         } else if (p.getType().isEnum()) {
                             print(convertJavaToNativeType(p.getType()) + ".toEnum(JSONUtil.dictionifyJSON(request.getParameters()![" + pIndex + "])[\"value\"] as String!)");
                         } else if (p.getType().isArray()) {
@@ -931,7 +931,7 @@ public class SwiftGenerator extends GeneratorBase {
                                 print("UNSUPPORTED. Donate generously.");
                             }
                         } else if (p.getType().equals(String.class)) {
-                            print("request.getParameters()![" + pIndex + "]");
+                            print("JSONUtil.unescapeString(request.getParameters()![" + pIndex + "])");
                         } else if (p.getType().isEnum()) {
                             print(convertJavaToNativeType(p.getType()) + ".toEnum(JSONUtil.dictionifyJSON(request.getParameters()![" + pIndex + "])[\"value\"] as String!)");
                         } else if (p.getType().isArray()) {
