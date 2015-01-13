@@ -66,7 +66,7 @@ namespace Adaptive.Arp.Api
           /**
              Constructor using fields
 
-             @param KeyName   Key of the element
+             @param KeyName  Key of the element
              @param KeyValue Value of the element
              @since ARP1.0
           */

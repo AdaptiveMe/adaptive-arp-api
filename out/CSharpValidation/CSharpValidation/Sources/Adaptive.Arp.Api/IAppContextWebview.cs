@@ -58,15 +58,15 @@ not be added using this method.
      /**
         Evaluate the specified javascript on the main webview of the application.
 
-        @param javaScriptText    The javascript expression to execute on the webview.
+        @param javaScriptText The javascript expression to execute on the webview.
      */
      void executeJavaScript(string javaScriptText);
 
      /**
         Evaluate the specified javascript on the specified webview of the application.
 
-        @param javaScriptText    The javascript expression to execute on the webview.
-        @param webViewReference  The target webview on which to execute the expression.
+        @param javaScriptText   The javascript expression to execute on the webview.
+        @param webViewReference The target webview on which to execute the expression.
      */
      void executeJavaScript(string javaScriptText, Object webViewReference);
 

@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
 public class APIResponse {
 
      /**
-        String representing the response
+        String representing the JavaScript value or JSON object representation of the response.
      */
      private String response;
      /**
@@ -65,10 +65,10 @@ public class APIResponse {
      }
 
      /**
-        Constructor with parameters
+        Constructor with parameters.
 
-        @param response   String representing the response
-        @param statusCode Status code of the response
+        @param response   String representing the JavaScript value or JSON object representation of the response.
+        @param statusCode Status code of the response (200 = OK, others are warning or error conditions).
         @since ARP1.0
      */
      public APIResponse(String response, int statusCode) {
@@ -78,11 +78,11 @@ public class APIResponse {
      }
 
      /**
-        Constructor with parameters
+        Constructor with parameters.
 
-        @param response      String representing the response
-        @param statusCode    Status code of the response
-        @param statusMessage Status message of the response
+        @param response      String representing the JavaScript value or JSON object representation of the response.
+        @param statusCode    Status code of the response (200 = OK, others are warning or error conditions).
+        @param statusMessage Status message of the response.
      */
      public APIResponse(String response, int statusCode, String statusMessage) {
           this();
@@ -94,7 +94,7 @@ public class APIResponse {
      /**
         Response getter
 
-        @return String representing the response
+        @return String representing the JavaScript value or JSON object representation of the response.
         @since ARP1.0
      */
      public String getResponse() {
@@ -104,7 +104,7 @@ public class APIResponse {
      /**
         Response setter
 
-        @param response String representing the response
+        @param response String representing the JavaScript value or JSON object representation of the response.
      */
      public void setResponse(String response) {
           this.response = response;
@@ -113,7 +113,7 @@ public class APIResponse {
      /**
         Status code getter
 
-        @return Status code of the response
+        @return Status code of the response (200 = OK, others are warning or error conditions).
      */
      public int getStatusCode() {
           return this.statusCode;
@@ -122,7 +122,7 @@ public class APIResponse {
      /**
         Status code setter
 
-        @param statusCode Status code of the response
+        @param statusCode Status code of the response  (200 = OK, others are warning or error conditions).
      */
      public void setStatusCode(int statusCode) {
           this.statusCode = statusCode;
@@ -131,14 +131,14 @@ public class APIResponse {
      /**
         Status message getter
 
-        @return Status message of the response
+        @return Status message of the response.
      */
      public String getStatusMessage() {
           return this.statusMessage;
      }
 
      /**
-        Status message setter
+        Status message setter.
 
         @param statusMessage Status message of the response
      */

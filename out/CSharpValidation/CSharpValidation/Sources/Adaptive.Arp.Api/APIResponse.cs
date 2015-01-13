@@ -47,7 +47,7 @@ namespace Adaptive.Arp.Api
      {
 
           /**
-             String representing the response
+             String representing the JavaScript value or JSON object representation of the response.
           */
           public string Response { get; set; }
           /**
@@ -68,10 +68,10 @@ namespace Adaptive.Arp.Api
           }
 
           /**
-             Constructor with parameters
+             Constructor with parameters.
 
-             @param Response   String representing the response
-             @param StatusCode Status code of the response
+             @param Response   String representing the JavaScript value or JSON object representation of the response.
+             @param StatusCode Status code of the response (200 = OK, others are warning or error conditions).
              @since ARP1.0
           */
           public APIResponse(string Response, int StatusCode) : base () {
@@ -80,11 +80,11 @@ namespace Adaptive.Arp.Api
           }
 
           /**
-             Constructor with parameters
+             Constructor with parameters.
 
-             @param Response      String representing the response
-             @param StatusCode    Status code of the response
-             @param StatusMessage Status message of the response
+             @param Response      String representing the JavaScript value or JSON object representation of the response.
+             @param StatusCode    Status code of the response (200 = OK, others are warning or error conditions).
+             @param StatusMessage Status message of the response.
           */
           public APIResponse(string Response, int StatusCode, string StatusMessage) : base () {
                this.Response = Response;
@@ -95,7 +95,7 @@ namespace Adaptive.Arp.Api
           /**
              Response getter
 
-             @return String representing the response
+             @return String representing the JavaScript value or JSON object representation of the response.
              @since ARP1.0
           */
           public string GetResponse() {
@@ -105,7 +105,7 @@ namespace Adaptive.Arp.Api
           /**
              Response setter
 
-             @param Response String representing the response
+             @param Response String representing the JavaScript value or JSON object representation of the response.
           */
           public void SetResponse(string Response) {
                this.Response = Response;
@@ -114,7 +114,7 @@ namespace Adaptive.Arp.Api
           /**
              Status code getter
 
-             @return Status code of the response
+             @return Status code of the response (200 = OK, others are warning or error conditions).
           */
           public int GetStatusCode() {
                return this.StatusCode;
@@ -123,7 +123,7 @@ namespace Adaptive.Arp.Api
           /**
              Status code setter
 
-             @param StatusCode Status code of the response
+             @param StatusCode Status code of the response  (200 = OK, others are warning or error conditions).
           */
           public void SetStatusCode(int StatusCode) {
                this.StatusCode = StatusCode;
@@ -132,14 +132,14 @@ namespace Adaptive.Arp.Api
           /**
              Status message getter
 
-             @return Status message of the response
+             @return Status message of the response.
           */
           public string GetStatusMessage() {
                return this.StatusMessage;
           }
 
           /**
-             Status message setter
+             Status message setter.
 
              @param StatusMessage Status message of the response
           */

@@ -102,14 +102,14 @@ namespace Adaptive.Arp.Api
           /**
              Contructor with fields
 
-             @param CookieName     Name of the cookie
-             @param CookieValue    Value of the cookie
-             @param Domain   Domain of the cookie
-             @param Path     Path of the cookie
-             @param Scheme   Scheme of the cookie
-             @param Secure   Privacy of the cookie
-             @param Expiry   Expiration date of the cookie
-             @param Creation Creation date of the cookie
+             @param CookieName  Name of the cookie
+             @param CookieValue Value of the cookie
+             @param Domain      Domain of the cookie
+             @param Path        Path of the cookie
+             @param Scheme      Scheme of the cookie
+             @param Secure      Privacy of the cookie
+             @param Expiry      Expiration date of the cookie
+             @param Creation    Creation date of the cookie
              @since ARP1.0
           */
           public ServiceCookie(string CookieName, string CookieValue, string Domain, string Path, string Scheme, bool Secure, long Expiry, long Creation) : base () {

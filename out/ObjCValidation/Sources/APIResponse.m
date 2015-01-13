@@ -54,10 +54,10 @@ Release:
      }
 
      /**
-        Constructor with parameters
+        Constructor with parameters.
 
-        @param response   String representing the response
-        @param statusCode Status code of the response
+        @param response   String representing the JavaScript value or JSON object representation of the response.
+        @param statusCode Status code of the response (200 = OK, others are warning or error conditions).
         @since ARP1.0
      */
      - (id) initWithResponseStatusCode:(NSString*)response statusCode:(int*)statusCode {
@@ -70,11 +70,11 @@ Release:
      }
 
      /**
-        Constructor with parameters
+        Constructor with parameters.
 
-        @param response      String representing the response
-        @param statusCode    Status code of the response
-        @param statusMessage Status message of the response
+        @param response      String representing the JavaScript value or JSON object representation of the response.
+        @param statusCode    Status code of the response (200 = OK, others are warning or error conditions).
+        @param statusMessage Status message of the response.
      */
      - (id) initWithResponseStatusCodeStatusMessage:(NSString*)response statusCode:(int*)statusCode statusMessage:(NSString*)statusMessage {
           self = [self init];

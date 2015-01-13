@@ -64,7 +64,7 @@ public interface IFile extends IBaseData {
         Creates a file with the specified name.
 
         @param descriptor File descriptor of file or folder used for operation.
-        @param callback Result of the operation.
+        @param callback   Result of the operation.
         @since ARP1.0
      */
      void create(FileDescriptor descriptor, IFileResultCallback callback);
@@ -74,7 +74,7 @@ public interface IFile extends IBaseData {
 deleted if the cascade parameter is set to true.
 
         @param descriptor File descriptor of file or folder used for operation.
-        @param cascade Whether to delete sub-files and sub-folders.
+        @param cascade    Whether to delete sub-files and sub-folders.
         @return True if files (and sub-files and folders) whether deleted.
         @since ARP1.0
      */
@@ -93,7 +93,7 @@ deleted if the cascade parameter is set to true.
         Loads the content of the file.
 
         @param descriptor File descriptor of file or folder used for operation.
-        @param callback Result of the operation.
+        @param callback   Result of the operation.
         @since ARP1.0
      */
      void getContent(FileDescriptor descriptor, IFileDataLoadResultCallback callback);
@@ -139,8 +139,8 @@ deleted if the cascade parameter is set to true.
 is a file, it will not yield any results.
 
         @param descriptor File descriptor of file or folder used for operation.
-        @param regex    Filter (eg. *.jpg, *.png, Fil*) name string.
-        @param callback Result of operation.
+        @param regex      Filter (eg. *.jpg, *.png, Fil*) name string.
+        @param callback   Result of operation.
         @since ARP1.0
      */
      void listFilesForRegex(FileDescriptor descriptor, String regex, IFileListResultCallback callback);
@@ -150,7 +150,7 @@ is a file, it will not yield any results.
 any results.
 
         @param descriptor File descriptor of file or folder used for operation.
-        @param callback Result of operation.
+        @param callback   Result of operation.
         @since ARP1.0
      */
      void listFiles(FileDescriptor descriptor, IFileListResultCallback callback);
@@ -159,7 +159,7 @@ any results.
         Creates the parent path (or paths, if recursive) to the given file/path if it doesn't already exist.
 
         @param descriptor File descriptor of file or folder used for operation.
-        @param recursive Whether to create all parent path elements.
+        @param recursive  Whether to create all parent path elements.
         @return True if the path was created, false otherwise (or it exists already).
         @since ARP1.0
      */
@@ -169,11 +169,11 @@ any results.
         Moves the current file to the given file destination, optionally overwriting and creating the path to the
 new destination file.
 
-        @param source File descriptor of file or folder used for operation as source.
+        @param source      File descriptor of file or folder used for operation as source.
         @param destination File descriptor of file or folder used for operation as destination.
-        @param createPath True to create the path if it does not already exist.
-        @param callback   Result of the operation.
-        @param overwrite  True to create the path if it does not already exist.
+        @param createPath  True to create the path if it does not already exist.
+        @param callback    Result of the operation.
+        @param overwrite   True to create the path if it does not already exist.
         @since ARP1.0
      */
      void move(FileDescriptor source, FileDescriptor destination, boolean createPath, boolean overwrite, IFileResultCallback callback);
@@ -182,8 +182,8 @@ new destination file.
         Sets the content of the file.
 
         @param descriptor File descriptor of file or folder used for operation.
-        @param content  Binary content to store in the file.
-        @param callback Result of the operation.
+        @param content    Binary content to store in the file.
+        @param callback   Result of the operation.
         @since ARP1.0
      */
      void setContent(FileDescriptor descriptor, byte[] content, IFileDataStoreResultCallback callback);
