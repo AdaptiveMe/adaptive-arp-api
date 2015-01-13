@@ -68,7 +68,21 @@ var Adaptive;
            @since ARP1.0
         */
         LoggingBridge.prototype.log_level_message = function (level, message) {
-            // TODO: Implement overloaded methods.
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(level));
+            arParams.push(JSON.stringify(message));
+            var ar = new Adaptive.APIRequest("ILogging", "log_level_message", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'LoggingBridge.log_level_message' request.");
+            }
         };
         /**
            Logs the given message, with the given log level if specified, to the standard platform/environment.
@@ -79,7 +93,22 @@ var Adaptive;
            @since ARP1.0
         */
         LoggingBridge.prototype.log_level_category_message = function (level, category, message) {
-            // TODO: Implement overloaded methods.
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(level));
+            arParams.push(JSON.stringify(category));
+            arParams.push(JSON.stringify(message));
+            var ar = new Adaptive.APIRequest("ILogging", "log_level_category_message", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'LoggingBridge.log_level_category_message' request.");
+            }
         };
         return LoggingBridge;
     })(Adaptive.BaseUtilBridge);

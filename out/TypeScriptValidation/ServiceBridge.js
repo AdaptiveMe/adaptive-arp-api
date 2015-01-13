@@ -195,8 +195,30 @@ var Adaptive;
            @since ARP1.0
         */
         ServiceBridge.prototype.isRegistered_service = function (service) {
-            // TODO: Implement overloaded methods.
-            return null;
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(service));
+            var ar = new Adaptive.APIRequest("IService", "isRegistered_service", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
+            // Check response.
+            if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'ServiceBridge.isRegistered_service' incorrect response received.");
+                }
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'ServiceBridge.isRegistered_service' request.");
+            }
+            return response;
         };
         /**
            Check whether a service by the given name is registered.
@@ -206,8 +228,30 @@ var Adaptive;
            @since ARP1.0
         */
         ServiceBridge.prototype.isRegistered_serviceName = function (serviceName) {
-            // TODO: Implement overloaded methods.
-            return null;
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(serviceName));
+            var ar = new Adaptive.APIRequest("IService", "isRegistered_serviceName", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
+            // Check response.
+            if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'ServiceBridge.isRegistered_serviceName' incorrect response received.");
+                }
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'ServiceBridge.isRegistered_serviceName' request.");
+            }
+            return response;
         };
         return ServiceBridge;
     })(Adaptive.BaseCommunicationBridge);

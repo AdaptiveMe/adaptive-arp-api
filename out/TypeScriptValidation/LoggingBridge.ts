@@ -64,7 +64,20 @@ module Adaptive {
              @since ARP1.0
           */
           log_level_message(level : ILoggingLogLevel, message : string) : void {
-               // TODO: Implement overloaded methods.
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(level));
+               arParams.push(JSON.stringify(message));
+               var ar : APIRequest = new APIRequest("ILogging","log_level_message",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'LoggingBridge.log_level_message' request.");
+               }
           }
 
           /**
@@ -76,7 +89,21 @@ module Adaptive {
              @since ARP1.0
           */
           log_level_category_message(level : ILoggingLogLevel, category : string, message : string) : void {
-               // TODO: Implement overloaded methods.
+               // Create and populate API request.
+               var arParams : string[] = [];
+               arParams.push(JSON.stringify(level));
+               arParams.push(JSON.stringify(category));
+               arParams.push(JSON.stringify(message));
+               var ar : APIRequest = new APIRequest("ILogging","log_level_category_message",arParams, null);
+               // Create and send JSON request.
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath, false);
+               xhr.send(JSON.stringify(ar));
+               // Check response.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" sending 'LoggingBridge.log_level_category_message' request.");
+               }
           }
      }
 }

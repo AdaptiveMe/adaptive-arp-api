@@ -47,11 +47,11 @@ import java.util.*;
  */
 public abstract class GeneratorBase {
 
+    private static String versionString = null;
     private List<Class> classList;
     private List<JavaClass> sourceList;
     private File outRootPath;
     private Map<Class, JavaClass> mapClassSource;
-    private static String versionString = null;
 
     public GeneratorBase(File outRootPath, List<Class> classList, List<JavaClass> sourceList) {
         this.outRootPath = outRootPath;
@@ -287,6 +287,27 @@ public abstract class GeneratorBase {
             word.append(name);
         }
         return word.toString();
+    }
+
+    protected static final String getGenerationTagVersion() {
+        if (versionString == null) {
+            try {
+                Process p = Runtime.getRuntime().exec("git describe --tags");
+                p.waitFor();
+                byte[] buffer = new byte[p.getInputStream().available()];
+                p.getInputStream().read(buffer);
+                versionString = new String(buffer);
+                if (versionString.indexOf('-') > 0) {
+                    versionString = versionString.substring(0, versionString.indexOf('-'));
+                }
+                versionString = versionString.trim();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        return versionString;
     }
 
     public void generateSourceCode(GeneratorCallback callback) throws Exception {
@@ -862,27 +883,6 @@ public abstract class GeneratorBase {
             e.printStackTrace();
         }
         return result;
-    }
-
-    protected static final String getGenerationTagVersion() {
-        if (versionString == null) {
-            try {
-                Process p = Runtime.getRuntime().exec("git describe --tags");
-                p.waitFor();
-                byte[] buffer = new byte[p.getInputStream().available()];
-                p.getInputStream().read(buffer);
-                versionString = new String(buffer);
-                if (versionString.indexOf('-') > 0) {
-                    versionString = versionString.substring(0, versionString.indexOf('-'));
-                }
-                versionString = versionString.trim();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-        return versionString;
     }
 
     protected final String getSourceFooter() {

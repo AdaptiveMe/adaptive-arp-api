@@ -266,7 +266,7 @@ public class SwiftGenerator extends GeneratorBase {
                         println(7, javaMethods.get(m).getComment());
                         endComment(4);
                         println(4, "public func getAPIVersion() -> String? {");
-                        println(8, "return \""+getGenerationTagVersion()+"\"");
+                        println(8, "return \"" + getGenerationTagVersion() + "\"");
                         println(4, "}");
                     }
                     println();

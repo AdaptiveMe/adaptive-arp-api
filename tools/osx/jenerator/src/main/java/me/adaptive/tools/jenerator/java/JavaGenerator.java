@@ -105,7 +105,7 @@ public class JavaGenerator extends GeneratorBase {
             endComment(5);
             println(5, "@Override");
             println(5, "public String getAPIVersion() {");
-            println(10, "return \""+getGenerationTagVersion()+"\";");
+            println(10, "return \"" + getGenerationTagVersion() + "\";");
             println(5, "}");
         } else {
             if (clazz.getInterfaces().length > 0) {
@@ -268,7 +268,7 @@ public class JavaGenerator extends GeneratorBase {
                         println(8, javaMethods.get(m).getComment());
                         endComment(5);
                         println(5, "public String getAPIVersion() {");
-                        println(10, "return \""+getGenerationTagVersion()+"\";");
+                        println(10, "return \"" + getGenerationTagVersion() + "\";");
                         println(5, "}");
                     }
                     println();
@@ -401,7 +401,7 @@ public class JavaGenerator extends GeneratorBase {
             endComment(5);
             println(5, "@Override");
             println(5, "public String getAPIVersion() {");
-            println(10, "return \""+getGenerationTagVersion()+"\";");
+            println(10, "return \"" + getGenerationTagVersion() + "\";");
             println(5, "}");
             println();
 
@@ -922,7 +922,7 @@ public class JavaGenerator extends GeneratorBase {
             endComment(5);
             println(5, "@Override");
             println(5, "public String getAPIVersion() {");
-            println(10, "return \""+getGenerationTagVersion()+"\";");
+            println(10, "return \"" + getGenerationTagVersion() + "\";");
             println(5, "}");
             println();
 
@@ -1075,7 +1075,7 @@ public class JavaGenerator extends GeneratorBase {
             endComment(5);
             println(5, "@Override");
             println(5, "public String getAPIVersion() {");
-            println(10, "return \""+getGenerationTagVersion()+"\";");
+            println(10, "return \"" + getGenerationTagVersion() + "\";");
             println(5, "}");
             println();
 

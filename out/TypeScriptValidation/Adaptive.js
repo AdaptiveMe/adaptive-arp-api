@@ -6376,8 +6376,30 @@ listener and subsequently, the listener will be deactivated and removed from the
            @since ARP1.0
         */
         ServiceBridge.prototype.isRegistered_service = function (service) {
-            // TODO: Implement overloaded methods.
-            return null;
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(service));
+            var ar = new APIRequest("IService", "isRegistered_service", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
+            // Check response.
+            if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'ServiceBridge.isRegistered_service' incorrect response received.");
+                }
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'ServiceBridge.isRegistered_service' request.");
+            }
+            return response;
         };
         /**
            Check whether a service by the given name is registered.
@@ -6387,8 +6409,30 @@ listener and subsequently, the listener will be deactivated and removed from the
            @since ARP1.0
         */
         ServiceBridge.prototype.isRegistered_serviceName = function (serviceName) {
-            // TODO: Implement overloaded methods.
-            return null;
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(serviceName));
+            var ar = new APIRequest("IService", "isRegistered_serviceName", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
+            // Check response.
+            if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'ServiceBridge.isRegistered_serviceName' incorrect response received.");
+                }
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'ServiceBridge.isRegistered_serviceName' request.");
+            }
+            return response;
         };
         return ServiceBridge;
     })(BaseCommunicationBridge);
@@ -9335,7 +9379,21 @@ device.
            @since ARP1.0
         */
         LoggingBridge.prototype.log_level_message = function (level, message) {
-            // TODO: Implement overloaded methods.
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(level));
+            arParams.push(JSON.stringify(message));
+            var ar = new APIRequest("ILogging", "log_level_message", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'LoggingBridge.log_level_message' request.");
+            }
         };
         /**
            Logs the given message, with the given log level if specified, to the standard platform/environment.
@@ -9346,7 +9404,22 @@ device.
            @since ARP1.0
         */
         LoggingBridge.prototype.log_level_category_message = function (level, category, message) {
-            // TODO: Implement overloaded methods.
+            // Create and populate API request.
+            var arParams = [];
+            arParams.push(JSON.stringify(level));
+            arParams.push(JSON.stringify(category));
+            arParams.push(JSON.stringify(message));
+            var ar = new APIRequest("ILogging", "log_level_category_message", arParams, null);
+            // Create and send JSON request.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", Adaptive.bridgePath, false);
+            xhr.send(JSON.stringify(ar));
+            // Check response.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " sending 'LoggingBridge.log_level_category_message' request.");
+            }
         };
         return LoggingBridge;
     })(BaseUtilBridge);
