@@ -8906,12 +8906,20 @@ listener and subsequently, the listener will be deactivated and removed from the
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : Array<Locale> = null;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'GlobalizationBridge.getLocaleSupportedDescriptors' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'GlobalizationBridge.getLocaleSupportedDescriptors' request.");
                }
-               return null;
+               return response;
           }
 
           /**
@@ -8932,12 +8940,20 @@ listener and subsequently, the listener will be deactivated and removed from the
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : string = null;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'GlobalizationBridge.getResourceLiteral' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'GlobalizationBridge.getResourceLiteral' request.");
                }
-               return null;
+               return response;
           }
 
           /**
@@ -8956,12 +8972,20 @@ listener and subsequently, the listener will be deactivated and removed from the
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : Array<KeyPair> = null;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'GlobalizationBridge.getResourceLiterals' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'GlobalizationBridge.getResourceLiterals' request.");
                }
-               return null;
+               return response;
           }
      }
 
@@ -9017,12 +9041,20 @@ listener and subsequently, the listener will be deactivated and removed from the
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : boolean = false;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'LifecycleBridge.isBackground' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'LifecycleBridge.isBackground' request.");
                }
-               return null;
+               return response;
           }
 
           /**
@@ -9418,12 +9450,20 @@ listener and subsequently, the listener will be deactivated and removed from the
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : Service = null;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'ServiceBridge.getService' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'ServiceBridge.getService' request.");
                }
-               return null;
+               return response;
           }
 
           /**
@@ -9589,12 +9629,20 @@ listener and subsequently, the listener will be deactivated and removed from the
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : ITelephonyStatus = null;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'TelephonyBridge.call' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'TelephonyBridge.call' request.");
                }
-               return null;
+               return response;
           }
      }
 
@@ -9825,12 +9873,20 @@ should be passed as a parameter
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : boolean = false;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'DatabaseBridge.existsDatabase' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'DatabaseBridge.existsDatabase' request.");
                }
-               return null;
+               return response;
           }
 
           /**
@@ -9851,12 +9907,20 @@ should be passed as a parameter
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : boolean = false;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'DatabaseBridge.existsTable' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'DatabaseBridge.existsTable' request.");
                }
-               return null;
+               return response;
           }
      }
 
@@ -9891,12 +9955,20 @@ should be passed as a parameter
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : boolean = false;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'FileBridge.canRead' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'FileBridge.canRead' request.");
                }
-               return null;
+               return response;
           }
 
           /**
@@ -9915,12 +9987,20 @@ should be passed as a parameter
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : boolean = false;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'FileBridge.canWrite' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'FileBridge.canWrite' request.");
                }
-               return null;
+               return response;
           }
 
           /**
@@ -9967,12 +10047,20 @@ deleted if the cascade parameter is set to true.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : boolean = false;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'FileBridge.delete' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'FileBridge.delete' request.");
                }
-               return null;
+               return response;
           }
 
           /**
@@ -9991,12 +10079,20 @@ deleted if the cascade parameter is set to true.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : boolean = false;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'FileBridge.exists' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'FileBridge.exists' request.");
                }
-               return null;
+               return response;
           }
 
           /**
@@ -10040,12 +10136,20 @@ deleted if the cascade parameter is set to true.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : IFileSystemStorageType = null;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'FileBridge.getFileStorageType' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'FileBridge.getFileStorageType' request.");
                }
-               return null;
+               return response;
           }
 
           /**
@@ -10064,12 +10168,20 @@ deleted if the cascade parameter is set to true.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : IFileSystemType = null;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'FileBridge.getFileType' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'FileBridge.getFileType' request.");
                }
-               return null;
+               return response;
           }
 
           /**
@@ -10088,12 +10200,20 @@ deleted if the cascade parameter is set to true.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : IFileSystemSecurity = null;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'FileBridge.getSecurityType' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'FileBridge.getSecurityType' request.");
                }
-               return null;
+               return response;
           }
 
           /**
@@ -10112,12 +10232,20 @@ deleted if the cascade parameter is set to true.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : boolean = false;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'FileBridge.isDirectory' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'FileBridge.isDirectory' request.");
                }
-               return null;
+               return response;
           }
 
           /**
@@ -10192,12 +10320,20 @@ is a file, it will not yield any results.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : boolean = false;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'FileBridge.mkDir' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'FileBridge.mkDir' request.");
                }
-               return null;
+               return response;
           }
 
           /**
@@ -10294,12 +10430,20 @@ This method does not create the actual file in the specified folder.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : FileDescriptor = null;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'FileSystemBridge.createFileDescriptor' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'FileSystemBridge.createFileDescriptor' request.");
                }
-               return null;
+               return response;
           }
 
           /**
@@ -10318,12 +10462,20 @@ This path is volatile and may be cleaned by the OS periodically.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : FileDescriptor = null;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'FileSystemBridge.getApplicationCacheFolder' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'FileSystemBridge.getApplicationCacheFolder' request.");
                }
-               return null;
+               return response;
           }
 
           /**
@@ -10341,12 +10493,20 @@ This path must always be writable by the current application.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : FileDescriptor = null;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'FileSystemBridge.getApplicationCloudFolder' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'FileSystemBridge.getApplicationCloudFolder' request.");
                }
-               return null;
+               return response;
           }
 
           /**
@@ -10364,12 +10524,20 @@ This path must always be writable by the current application.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : FileDescriptor = null;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'FileSystemBridge.getApplicationDocumentsFolder' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'FileSystemBridge.getApplicationDocumentsFolder' request.");
                }
-               return null;
+               return response;
           }
 
           /**
@@ -10387,12 +10555,20 @@ This path may or may not be directly readable or writable - it usually contains 
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : FileDescriptor = null;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'FileSystemBridge.getApplicationFolder' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'FileSystemBridge.getApplicationFolder' request.");
                }
-               return null;
+               return response;
           }
 
           /**
@@ -10410,12 +10586,20 @@ This path must always be writable by the current application.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : FileDescriptor = null;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'FileSystemBridge.getApplicationProtectedFolder' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'FileSystemBridge.getApplicationProtectedFolder' request.");
                }
-               return null;
+               return response;
           }
 
           /**
@@ -10432,12 +10616,20 @@ This path must always be writable by the current application.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : string = null;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'FileSystemBridge.getSeparator' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'FileSystemBridge.getSeparator' request.");
                }
-               return null;
+               return response;
           }
 
           /**
@@ -10457,12 +10649,20 @@ This path may or may not be writable by the current application.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : FileDescriptor = null;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'FileSystemBridge.getSystemExternalFolder' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'FileSystemBridge.getSystemExternalFolder' request.");
                }
-               return null;
+               return response;
           }
      }
 
@@ -10874,12 +11074,20 @@ This path may or may not be writable by the current application.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : boolean = false;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'ContactBridge.setContactPhoto' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'ContactBridge.setContactPhoto' request.");
                }
-               return null;
+               return response;
           }
      }
 
@@ -11146,12 +11354,20 @@ This path may or may not be writable by the current application.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : boolean = false;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'SecurityBridge.isDeviceModified' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'SecurityBridge.isDeviceModified' request.");
                }
-               return null;
+               return response;
           }
 
           /**
@@ -11547,12 +11763,20 @@ This path may or may not be writable by the current application.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : boolean = false;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'CapabilitiesBridge.hasButtonSupport' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'CapabilitiesBridge.hasButtonSupport' request.");
                }
-               return null;
+               return response;
           }
 
           /**
@@ -11572,12 +11796,20 @@ the device.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : boolean = false;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'CapabilitiesBridge.hasCommunicationSupport' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'CapabilitiesBridge.hasCommunicationSupport' request.");
                }
-               return null;
+               return response;
           }
 
           /**
@@ -11596,12 +11828,20 @@ the device.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : boolean = false;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'CapabilitiesBridge.hasDataSupport' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'CapabilitiesBridge.hasDataSupport' request.");
                }
-               return null;
+               return response;
           }
 
           /**
@@ -11621,12 +11861,20 @@ device.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : boolean = false;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'CapabilitiesBridge.hasMediaSupport' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'CapabilitiesBridge.hasMediaSupport' request.");
                }
-               return null;
+               return response;
           }
 
           /**
@@ -11645,12 +11893,20 @@ device.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : boolean = false;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'CapabilitiesBridge.hasNetSupport' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'CapabilitiesBridge.hasNetSupport' request.");
                }
-               return null;
+               return response;
           }
 
           /**
@@ -11670,12 +11926,20 @@ device.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : boolean = false;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'CapabilitiesBridge.hasNotificationSupport' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'CapabilitiesBridge.hasNotificationSupport' request.");
                }
-               return null;
+               return response;
           }
 
           /**
@@ -11695,12 +11959,20 @@ device.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : boolean = false;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'CapabilitiesBridge.hasSensorSupport' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'CapabilitiesBridge.hasSensorSupport' request.");
                }
-               return null;
+               return response;
           }
      }
 
@@ -11756,12 +12028,20 @@ device.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : DeviceInfo = null;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'DeviceBridge.getDeviceInfo' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'DeviceBridge.getDeviceInfo' request.");
                }
-               return null;
+               return response;
           }
 
           /**
@@ -11778,12 +12058,20 @@ device.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : Locale = null;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'DeviceBridge.getLocaleCurrent' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'DeviceBridge.getLocaleCurrent' request.");
                }
-               return null;
+               return response;
           }
 
           /**
@@ -11880,12 +12168,20 @@ device.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : OSInfo = null;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'OSBridge.getOSInfo' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'OSBridge.getOSInfo' request.");
                }
-               return null;
+               return response;
           }
      }
 
@@ -11938,12 +12234,20 @@ device.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : boolean = false;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'RuntimeBridge.dismissSplashScreen' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'RuntimeBridge.dismissSplashScreen' request.");
                }
-               return null;
+               return response;
           }
      }
 
@@ -11978,12 +12282,20 @@ device.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : boolean = false;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'BrowserBridge.openExtenalBrowser' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'BrowserBridge.openExtenalBrowser' request.");
                }
-               return null;
+               return response;
           }
 
           /**
@@ -12006,12 +12318,20 @@ device.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : boolean = false;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'BrowserBridge.openInternalBrowser' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'BrowserBridge.openInternalBrowser' request.");
                }
-               return null;
+               return response;
           }
 
           /**
@@ -12034,12 +12354,20 @@ device.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : boolean = false;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'BrowserBridge.openInternalBrowserModal' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'BrowserBridge.openInternalBrowserModal' request.");
                }
-               return null;
+               return response;
           }
      }
 

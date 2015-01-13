@@ -5712,13 +5712,22 @@ listener and subsequently, the listener will be deactivated and removed from the
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = null;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'GlobalizationBridge.getLocaleSupportedDescriptors' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'GlobalizationBridge.getLocaleSupportedDescriptors' request.");
             }
-            return null;
+            return response;
         };
         /**
            Gets the text/message corresponding to the given key and locale.
@@ -5738,13 +5747,22 @@ listener and subsequently, the listener will be deactivated and removed from the
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = null;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'GlobalizationBridge.getResourceLiteral' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'GlobalizationBridge.getResourceLiteral' request.");
             }
-            return null;
+            return response;
         };
         /**
            Gets the full application configured literals (key/message pairs) corresponding to the given locale.
@@ -5762,13 +5780,22 @@ listener and subsequently, the listener will be deactivated and removed from the
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = null;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'GlobalizationBridge.getResourceLiterals' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'GlobalizationBridge.getResourceLiterals' request.");
             }
-            return null;
+            return response;
         };
         return GlobalizationBridge;
     })(BaseApplicationBridge);
@@ -5823,13 +5850,22 @@ listener and subsequently, the listener will be deactivated and removed from the
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'LifecycleBridge.isBackground' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'LifecycleBridge.isBackground' request.");
             }
-            return null;
+            return response;
         };
         /**
            Un-registers an existing listener from receiving lifecycle events.
@@ -6224,13 +6260,22 @@ listener and subsequently, the listener will be deactivated and removed from the
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = null;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'ServiceBridge.getService' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'ServiceBridge.getService' request.");
             }
-            return null;
+            return response;
         };
         /**
            Request async a service for an Url
@@ -6393,13 +6438,22 @@ listener and subsequently, the listener will be deactivated and removed from the
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = null;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'TelephonyBridge.call' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'TelephonyBridge.call' request.");
             }
-            return null;
+            return response;
         };
         return TelephonyBridge;
     })(BaseCommunicationBridge);
@@ -6629,13 +6683,22 @@ should be passed as a parameter
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'DatabaseBridge.existsDatabase' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'DatabaseBridge.existsDatabase' request.");
             }
-            return null;
+            return response;
         };
         /**
            Checks if databaseTable exists by given database name.
@@ -6655,13 +6718,22 @@ should be passed as a parameter
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'DatabaseBridge.existsTable' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'DatabaseBridge.existsTable' request.");
             }
-            return null;
+            return response;
         };
         return DatabaseBridge;
     })(BaseDataBridge);
@@ -6695,13 +6767,22 @@ should be passed as a parameter
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'FileBridge.canRead' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'FileBridge.canRead' request.");
             }
-            return null;
+            return response;
         };
         /**
            Determine whether the current file/folder can be written to.
@@ -6719,13 +6800,22 @@ should be passed as a parameter
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'FileBridge.canWrite' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'FileBridge.canWrite' request.");
             }
-            return null;
+            return response;
         };
         /**
            Creates a file with the specified name.
@@ -6771,13 +6861,22 @@ deleted if the cascade parameter is set to true.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'FileBridge.delete' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'FileBridge.delete' request.");
             }
-            return null;
+            return response;
         };
         /**
            Check whether the file/path exists.
@@ -6795,13 +6894,22 @@ deleted if the cascade parameter is set to true.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'FileBridge.exists' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'FileBridge.exists' request.");
             }
-            return null;
+            return response;
         };
         /**
            Loads the content of the file.
@@ -6844,13 +6952,22 @@ deleted if the cascade parameter is set to true.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = null;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'FileBridge.getFileStorageType' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'FileBridge.getFileStorageType' request.");
             }
-            return null;
+            return response;
         };
         /**
            Returns the file type
@@ -6868,13 +6985,22 @@ deleted if the cascade parameter is set to true.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = null;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'FileBridge.getFileType' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'FileBridge.getFileType' request.");
             }
-            return null;
+            return response;
         };
         /**
            Returns the security type of the file
@@ -6892,13 +7018,22 @@ deleted if the cascade parameter is set to true.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = null;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'FileBridge.getSecurityType' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'FileBridge.getSecurityType' request.");
             }
-            return null;
+            return response;
         };
         /**
            Check whether this is a path of a file.
@@ -6916,13 +7051,22 @@ deleted if the cascade parameter is set to true.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'FileBridge.isDirectory' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'FileBridge.isDirectory' request.");
             }
-            return null;
+            return response;
         };
         /**
            List all the files contained within this file/path reference. If the reference is a file, it will not yield
@@ -6996,13 +7140,22 @@ is a file, it will not yield any results.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'FileBridge.mkDir' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'FileBridge.mkDir' request.");
             }
-            return null;
+            return response;
         };
         /**
            Moves the current file to the given file destination, optionally overwriting and creating the path to the
@@ -7098,13 +7251,22 @@ This method does not create the actual file in the specified folder.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = null;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'FileSystemBridge.createFileDescriptor' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'FileSystemBridge.createFileDescriptor' request.");
             }
-            return null;
+            return response;
         };
         /**
            Returns a reference to the cache folder for the current application.
@@ -7122,13 +7284,22 @@ This path is volatile and may be cleaned by the OS periodically.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = null;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'FileSystemBridge.getApplicationCacheFolder' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'FileSystemBridge.getApplicationCacheFolder' request.");
             }
-            return null;
+            return response;
         };
         /**
            Returns a reference to the cloud synchronizable folder for the current application.
@@ -7145,13 +7316,22 @@ This path must always be writable by the current application.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = null;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'FileSystemBridge.getApplicationCloudFolder' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'FileSystemBridge.getApplicationCloudFolder' request.");
             }
-            return null;
+            return response;
         };
         /**
            Returns a reference to the documents folder for the current application.
@@ -7168,13 +7348,22 @@ This path must always be writable by the current application.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = null;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'FileSystemBridge.getApplicationDocumentsFolder' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'FileSystemBridge.getApplicationDocumentsFolder' request.");
             }
-            return null;
+            return response;
         };
         /**
            Returns a reference to the application installation folder.
@@ -7191,13 +7380,22 @@ This path may or may not be directly readable or writable - it usually contains 
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = null;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'FileSystemBridge.getApplicationFolder' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'FileSystemBridge.getApplicationFolder' request.");
             }
-            return null;
+            return response;
         };
         /**
            Returns a reference to the protected storage folder for the current application.
@@ -7214,13 +7412,22 @@ This path must always be writable by the current application.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = null;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'FileSystemBridge.getApplicationProtectedFolder' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'FileSystemBridge.getApplicationProtectedFolder' request.");
             }
-            return null;
+            return response;
         };
         /**
            Returns the file system dependent file separator.
@@ -7236,13 +7443,22 @@ This path must always be writable by the current application.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = null;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'FileSystemBridge.getSeparator' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'FileSystemBridge.getSeparator' request.");
             }
-            return null;
+            return response;
         };
         /**
            Returns a reference to the external storage folder provided by the OS. This may
@@ -7261,13 +7477,22 @@ This path may or may not be writable by the current application.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = null;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'FileSystemBridge.getSystemExternalFolder' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'FileSystemBridge.getSystemExternalFolder' request.");
             }
-            return null;
+            return response;
         };
         return FileSystemBridge;
     })(BaseDataBridge);
@@ -7678,13 +7903,22 @@ This path may or may not be writable by the current application.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'ContactBridge.setContactPhoto' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'ContactBridge.setContactPhoto' request.");
             }
-            return null;
+            return response;
         };
         return ContactBridge;
     })(BasePIMBridge);
@@ -7950,13 +8184,22 @@ This path may or may not be writable by the current application.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'SecurityBridge.isDeviceModified' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'SecurityBridge.isDeviceModified' request.");
             }
-            return null;
+            return response;
         };
         /**
            Stores in the device internal storage the specified item/s.
@@ -8351,13 +8594,22 @@ This path may or may not be writable by the current application.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'CapabilitiesBridge.hasButtonSupport' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'CapabilitiesBridge.hasButtonSupport' request.");
             }
-            return null;
+            return response;
         };
         /**
            Determines whether a specific Communication capability is supported by
@@ -8376,13 +8628,22 @@ the device.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'CapabilitiesBridge.hasCommunicationSupport' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'CapabilitiesBridge.hasCommunicationSupport' request.");
             }
-            return null;
+            return response;
         };
         /**
            Determines whether a specific Data capability is supported by the device.
@@ -8400,13 +8661,22 @@ the device.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'CapabilitiesBridge.hasDataSupport' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'CapabilitiesBridge.hasDataSupport' request.");
             }
-            return null;
+            return response;
         };
         /**
            Determines whether a specific Media capability is supported by the
@@ -8425,13 +8695,22 @@ device.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'CapabilitiesBridge.hasMediaSupport' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'CapabilitiesBridge.hasMediaSupport' request.");
             }
-            return null;
+            return response;
         };
         /**
            Determines whether a specific Net capability is supported by the device.
@@ -8449,13 +8728,22 @@ device.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'CapabilitiesBridge.hasNetSupport' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'CapabilitiesBridge.hasNetSupport' request.");
             }
-            return null;
+            return response;
         };
         /**
            Determines whether a specific Notification capability is supported by the
@@ -8474,13 +8762,22 @@ device.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'CapabilitiesBridge.hasNotificationSupport' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'CapabilitiesBridge.hasNotificationSupport' request.");
             }
-            return null;
+            return response;
         };
         /**
            Determines whether a specific Sensor capability is supported by the
@@ -8499,13 +8796,22 @@ device.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'CapabilitiesBridge.hasSensorSupport' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'CapabilitiesBridge.hasSensorSupport' request.");
             }
-            return null;
+            return response;
         };
         return CapabilitiesBridge;
     })(BaseSystemBridge);
@@ -8560,13 +8866,22 @@ device.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = null;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'DeviceBridge.getDeviceInfo' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'DeviceBridge.getDeviceInfo' request.");
             }
-            return null;
+            return response;
         };
         /**
            Gets the current Locale for the device.
@@ -8582,13 +8897,22 @@ device.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = null;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'DeviceBridge.getLocaleCurrent' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'DeviceBridge.getLocaleCurrent' request.");
             }
-            return null;
+            return response;
         };
         /**
            De-registers an existing listener from receiving button events.
@@ -8684,13 +9008,22 @@ device.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = null;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'OSBridge.getOSInfo' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'OSBridge.getOSInfo' request.");
             }
-            return null;
+            return response;
         };
         return OSBridge;
     })(BaseSystemBridge);
@@ -8742,13 +9075,22 @@ device.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'RuntimeBridge.dismissSplashScreen' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'RuntimeBridge.dismissSplashScreen' request.");
             }
-            return null;
+            return response;
         };
         return RuntimeBridge;
     })(BaseSystemBridge);
@@ -8782,13 +9124,22 @@ device.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'BrowserBridge.openExtenalBrowser' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'BrowserBridge.openExtenalBrowser' request.");
             }
-            return null;
+            return response;
         };
         /**
            Method for opening a browser embedded into the application
@@ -8810,13 +9161,22 @@ device.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'BrowserBridge.openInternalBrowser' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'BrowserBridge.openInternalBrowser' request.");
             }
-            return null;
+            return response;
         };
         /**
            Method for opening a browser embedded into the application in a modal window
@@ -8838,13 +9198,22 @@ device.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'BrowserBridge.openInternalBrowserModal' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'BrowserBridge.openInternalBrowserModal' request.");
             }
-            return null;
+            return response;
         };
         return BrowserBridge;
     })(BaseUIBridge);

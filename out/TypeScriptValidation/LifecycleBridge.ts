@@ -94,12 +94,20 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : boolean = false;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'LifecycleBridge.isBackground' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'LifecycleBridge.isBackground' request.");
                }
-               return null;
+               return response;
           }
 
           /**

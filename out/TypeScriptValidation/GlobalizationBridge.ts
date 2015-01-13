@@ -71,12 +71,20 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : Array<Locale> = null;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'GlobalizationBridge.getLocaleSupportedDescriptors' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'GlobalizationBridge.getLocaleSupportedDescriptors' request.");
                }
-               return null;
+               return response;
           }
 
           /**
@@ -97,12 +105,20 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : string = null;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'GlobalizationBridge.getResourceLiteral' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'GlobalizationBridge.getResourceLiteral' request.");
                }
-               return null;
+               return response;
           }
 
           /**
@@ -121,12 +137,20 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : Array<KeyPair> = null;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'GlobalizationBridge.getResourceLiterals' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'GlobalizationBridge.getResourceLiterals' request.");
                }
-               return null;
+               return response;
           }
      }
 }

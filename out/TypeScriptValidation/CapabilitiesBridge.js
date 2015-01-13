@@ -82,13 +82,22 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'CapabilitiesBridge.hasButtonSupport' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'CapabilitiesBridge.hasButtonSupport' request.");
             }
-            return null;
+            return response;
         };
         /**
            Determines whether a specific Communication capability is supported by
@@ -107,13 +116,22 @@ the device.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'CapabilitiesBridge.hasCommunicationSupport' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'CapabilitiesBridge.hasCommunicationSupport' request.");
             }
-            return null;
+            return response;
         };
         /**
            Determines whether a specific Data capability is supported by the device.
@@ -131,13 +149,22 @@ the device.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'CapabilitiesBridge.hasDataSupport' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'CapabilitiesBridge.hasDataSupport' request.");
             }
-            return null;
+            return response;
         };
         /**
            Determines whether a specific Media capability is supported by the
@@ -156,13 +183,22 @@ device.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'CapabilitiesBridge.hasMediaSupport' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'CapabilitiesBridge.hasMediaSupport' request.");
             }
-            return null;
+            return response;
         };
         /**
            Determines whether a specific Net capability is supported by the device.
@@ -180,13 +216,22 @@ device.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'CapabilitiesBridge.hasNetSupport' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'CapabilitiesBridge.hasNetSupport' request.");
             }
-            return null;
+            return response;
         };
         /**
            Determines whether a specific Notification capability is supported by the
@@ -205,13 +250,22 @@ device.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'CapabilitiesBridge.hasNotificationSupport' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'CapabilitiesBridge.hasNotificationSupport' request.");
             }
-            return null;
+            return response;
         };
         /**
            Determines whether a specific Sensor capability is supported by the
@@ -230,13 +284,22 @@ device.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'CapabilitiesBridge.hasSensorSupport' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'CapabilitiesBridge.hasSensorSupport' request.");
             }
-            return null;
+            return response;
         };
         return CapabilitiesBridge;
     })(Adaptive.BaseSystemBridge);

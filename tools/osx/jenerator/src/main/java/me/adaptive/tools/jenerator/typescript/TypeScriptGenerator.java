@@ -464,38 +464,64 @@ public class TypeScriptGenerator extends GeneratorBase {
                         printlnGlobal(15, "var xhr = new XMLHttpRequest();");
                         printlnGlobal(15, "xhr.open(\"POST\", bridgePath, false);");
                         printlnGlobal(15, "xhr.send(JSON.stringify(ar));");
+                        if (!m.getReturnType().equals(Void.TYPE)) {
+                            printlnGlobal(15, "// Prepare response.");
+                            if (m.getReturnType().isPrimitive()) {
+                                printGlobal(15, "var response : " + convertJavaToNativeType(m.getReturnType()) + " = ");
+                                if (m.getReturnType().equals(Boolean.TYPE)) {
+                                    printGlobal("false");
+                                } else if (m.getReturnType().equals(Integer.TYPE) || m.getReturnType().equals(Byte.TYPE) || m.getReturnType().equals(Long.TYPE) || m.getReturnType().equals(Double.TYPE) || m.getReturnType().equals(Float.TYPE)) {
+                                    printGlobal("-1");
+                                } else if (m.getReturnType().equals(Character.TYPE)) {
+                                    printGlobal("null");
+                                } else {
+                                    printGlobal("PLEASE DONATE. Unsupported.");
+                                }
+                                printlnGlobal(";");
+                            } else {
+                                printlnGlobal(15, "var response : " + convertJavaToNativeType(m.getReturnType()) + " = null;");
+                            }
+                        }
                         printlnGlobal(15, "// Check response.");
                         printlnGlobal(15, "if (xhr.status == 200) {");
                         // Manage listeners
                         if (m.getName().endsWith("Listener") || m.getName().endsWith("Listeners")) {
                             if (m.getName().startsWith("add")) {
                                 printlnGlobal(20, "// Add listener reference to local dictionary.");
-                                printlnGlobal(20, "registered"+cblsType.substring(1)+".add(\"\"+"+cblsName+".getId(), "+cblsName+");");
+                                printlnGlobal(20, "registered" + cblsType.substring(1) + ".add(\"\"+" + cblsName + ".getId(), " + cblsName + ");");
                             }
                             if (m.getName().startsWith("remove")) {
                                 if (m.getParameterCount() == 0) {
                                     printlnGlobal(20, "// Remove all listeners references from local dictionary.");
-                                    printlnGlobal(20, "var keys = registered"+m.getName().substring(6, m.getName().length()-1)+".keys();");
+                                    printlnGlobal(20, "var keys = registered" + m.getName().substring(6, m.getName().length() - 1) + ".keys();");
                                     printlnGlobal(20, "for (var key in keys) {");
-                                    printlnGlobal(25, "registered"+m.getName().substring(6, m.getName().length()-1)+".remove(key);");
+                                    printlnGlobal(25, "registered" + m.getName().substring(6, m.getName().length() - 1) + ".remove(key);");
                                     printlnGlobal(20, "}");
                                 } else {
                                     printlnGlobal(20, "// Remove listener reference from local dictionary.");
-                                    printlnGlobal(20, "registered"+cblsType.substring(1)+".remove(\"\"+"+cblsName+".getId());");
+                                    printlnGlobal(20, "registered" + cblsType.substring(1) + ".remove(\"\"+" + cblsName + ".getId());");
                                 }
                             }
                         }
                         // Manage callbacks
-                        if (cblsType!=null && cblsType.endsWith("Callback")) {
+                        if (cblsType != null && cblsType.endsWith("Callback")) {
                             printlnGlobal(20, "// Add callback reference to local dictionary.");
-                            printlnGlobal(20, "registered"+cblsType.substring(1)+".add(\"\"+"+cblsName+".getId(), "+cblsName+");");
+                            printlnGlobal(20, "registered" + cblsType.substring(1) + ".add(\"\"+" + cblsName + ".getId(), " + cblsName + ");");
                         }
                         // Manage returns
+                        if (!m.getReturnType().equals(Void.TYPE)) {
+                            printlnGlobal(20, "// Process response.");
+                            printlnGlobal(20, "if (xhr.responseText != null && xhr.responseText != '') {");
+                            printlnGlobal(25, "response = JSON.parse(xhr.responseText);");
+                            printlnGlobal(20, "} else {");
+                            printlnGlobal(25, "console.error(\"ERROR: '" + simpleName + "." + m.getName() + "' incorrect response received.\");");
+                            printlnGlobal(20, "}");
+                        }
                         printlnGlobal(15, "} else {");
-                        printlnGlobal(20, "console.error(\"ERROR: \"+xhr.status+\" sending '"+simpleName+"."+m.getName()+"' request.\");");
+                        printlnGlobal(20, "console.error(\"ERROR: \"+xhr.status+\" sending '" + simpleName + "." + m.getName() + "' request.\");");
                         printlnGlobal(15, "}");
                         if (!m.getReturnType().equals(Void.TYPE)) {
-                            printlnGlobal(15, "return null;");
+                            printlnGlobal(15, "return response;");
                         }
                         printlnGlobal(10, "}");
                     }

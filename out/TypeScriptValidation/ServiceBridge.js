@@ -79,13 +79,22 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = null;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'ServiceBridge.getService' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'ServiceBridge.getService' request.");
             }
-            return null;
+            return response;
         };
         /**
            Request async a service for an Url

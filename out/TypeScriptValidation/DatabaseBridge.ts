@@ -241,12 +241,20 @@ should be passed as a parameter
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : boolean = false;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'DatabaseBridge.existsDatabase' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'DatabaseBridge.existsDatabase' request.");
                }
-               return null;
+               return response;
           }
 
           /**
@@ -267,12 +275,20 @@ should be passed as a parameter
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
                xhr.send(JSON.stringify(ar));
+               // Prepare response.
+               var response : boolean = false;
                // Check response.
                if (xhr.status == 200) {
+                    // Process response.
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         response = JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: 'DatabaseBridge.existsTable' incorrect response received.");
+                    }
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'DatabaseBridge.existsTable' request.");
                }
-               return null;
+               return response;
           }
      }
 }

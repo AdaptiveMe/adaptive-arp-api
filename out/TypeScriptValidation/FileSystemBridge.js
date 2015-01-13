@@ -79,13 +79,22 @@ This method does not create the actual file in the specified folder.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = null;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'FileSystemBridge.createFileDescriptor' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'FileSystemBridge.createFileDescriptor' request.");
             }
-            return null;
+            return response;
         };
         /**
            Returns a reference to the cache folder for the current application.
@@ -103,13 +112,22 @@ This path is volatile and may be cleaned by the OS periodically.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = null;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'FileSystemBridge.getApplicationCacheFolder' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'FileSystemBridge.getApplicationCacheFolder' request.");
             }
-            return null;
+            return response;
         };
         /**
            Returns a reference to the cloud synchronizable folder for the current application.
@@ -126,13 +144,22 @@ This path must always be writable by the current application.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = null;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'FileSystemBridge.getApplicationCloudFolder' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'FileSystemBridge.getApplicationCloudFolder' request.");
             }
-            return null;
+            return response;
         };
         /**
            Returns a reference to the documents folder for the current application.
@@ -149,13 +176,22 @@ This path must always be writable by the current application.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = null;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'FileSystemBridge.getApplicationDocumentsFolder' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'FileSystemBridge.getApplicationDocumentsFolder' request.");
             }
-            return null;
+            return response;
         };
         /**
            Returns a reference to the application installation folder.
@@ -172,13 +208,22 @@ This path may or may not be directly readable or writable - it usually contains 
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = null;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'FileSystemBridge.getApplicationFolder' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'FileSystemBridge.getApplicationFolder' request.");
             }
-            return null;
+            return response;
         };
         /**
            Returns a reference to the protected storage folder for the current application.
@@ -195,13 +240,22 @@ This path must always be writable by the current application.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = null;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'FileSystemBridge.getApplicationProtectedFolder' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'FileSystemBridge.getApplicationProtectedFolder' request.");
             }
-            return null;
+            return response;
         };
         /**
            Returns the file system dependent file separator.
@@ -217,13 +271,22 @@ This path must always be writable by the current application.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = null;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'FileSystemBridge.getSeparator' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'FileSystemBridge.getSeparator' request.");
             }
-            return null;
+            return response;
         };
         /**
            Returns a reference to the external storage folder provided by the OS. This may
@@ -242,13 +305,22 @@ This path may or may not be writable by the current application.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = null;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'FileSystemBridge.getSystemExternalFolder' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'FileSystemBridge.getSystemExternalFolder' request.");
             }
-            return null;
+            return response;
         };
         return FileSystemBridge;
     })(Adaptive.BaseDataBridge);

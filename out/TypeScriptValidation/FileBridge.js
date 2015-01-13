@@ -87,13 +87,22 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'FileBridge.canRead' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'FileBridge.canRead' request.");
             }
-            return null;
+            return response;
         };
         /**
            Determine whether the current file/folder can be written to.
@@ -111,13 +120,22 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'FileBridge.canWrite' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'FileBridge.canWrite' request.");
             }
-            return null;
+            return response;
         };
         /**
            Creates a file with the specified name.
@@ -163,13 +181,22 @@ deleted if the cascade parameter is set to true.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'FileBridge.delete' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'FileBridge.delete' request.");
             }
-            return null;
+            return response;
         };
         /**
            Check whether the file/path exists.
@@ -187,13 +214,22 @@ deleted if the cascade parameter is set to true.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'FileBridge.exists' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'FileBridge.exists' request.");
             }
-            return null;
+            return response;
         };
         /**
            Loads the content of the file.
@@ -236,13 +272,22 @@ deleted if the cascade parameter is set to true.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = null;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'FileBridge.getFileStorageType' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'FileBridge.getFileStorageType' request.");
             }
-            return null;
+            return response;
         };
         /**
            Returns the file type
@@ -260,13 +305,22 @@ deleted if the cascade parameter is set to true.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = null;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'FileBridge.getFileType' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'FileBridge.getFileType' request.");
             }
-            return null;
+            return response;
         };
         /**
            Returns the security type of the file
@@ -284,13 +338,22 @@ deleted if the cascade parameter is set to true.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = null;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'FileBridge.getSecurityType' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'FileBridge.getSecurityType' request.");
             }
-            return null;
+            return response;
         };
         /**
            Check whether this is a path of a file.
@@ -308,13 +371,22 @@ deleted if the cascade parameter is set to true.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'FileBridge.isDirectory' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'FileBridge.isDirectory' request.");
             }
-            return null;
+            return response;
         };
         /**
            List all the files contained within this file/path reference. If the reference is a file, it will not yield
@@ -388,13 +460,22 @@ is a file, it will not yield any results.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
             xhr.send(JSON.stringify(ar));
+            // Prepare response.
+            var response = false;
             // Check response.
             if (xhr.status == 200) {
+                // Process response.
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    response = JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: 'FileBridge.mkDir' incorrect response received.");
+                }
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'FileBridge.mkDir' request.");
             }
-            return null;
+            return response;
         };
         /**
            Moves the current file to the given file destination, optionally overwriting and creating the path to the
