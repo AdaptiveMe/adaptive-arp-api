@@ -57,7 +57,20 @@ public class GlobalizationDelegate extends BaseApplicationDelegate implements IG
      }
 
      /**
-        List of supported locales for the application
+        Returns the default locale of the application defined in the configuration file
+
+        @return Default Locale of the application
+        @since ARP1.0
+     */
+     public Locale getDefaultLocale() {
+          Locale response;
+          // TODO: Not implemented.
+          throw new UnsupportedOperationException(this.getClass().getName()+":getDefaultLocale");
+          // return response;
+     }
+
+     /**
+        List of supported locales for the application defined in the configuration file
 
         @return List of locales
         @since ARP1.0

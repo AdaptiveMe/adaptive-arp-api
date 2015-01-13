@@ -43,7 +43,15 @@ package me.adaptive.arp.api;
 */
 public interface IGlobalization extends IBaseApplication {
      /**
-        List of supported locales for the application
+        Returns the default locale of the application defined in the configuration file
+
+        @return Default Locale of the application
+        @since ARP1.0
+     */
+     Locale getDefaultLocale();
+
+     /**
+        List of supported locales for the application defined in the configuration file
 
         @return List of locales
         @since ARP1.0
