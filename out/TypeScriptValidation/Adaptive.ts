@@ -9022,6 +9022,7 @@ listener and subsequently, the listener will be deactivated and removed from the
                if (xhr.status == 200) {
                     // Add listener reference to local dictionary.
                     registeredLifecycleListener.add(""+listener.getId(), listener);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'LifecycleBridge.addLifecycleListener' request.");
                }
@@ -9075,6 +9076,7 @@ listener and subsequently, the listener will be deactivated and removed from the
                if (xhr.status == 200) {
                     // Remove listener reference from local dictionary.
                     registeredLifecycleListener.remove(""+listener.getId());
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'LifecycleBridge.removeLifecycleListener' request.");
                }
@@ -9100,6 +9102,7 @@ listener and subsequently, the listener will be deactivated and removed from the
                     for (var key in keys) {
                          registeredLifecycleListener.remove(key);
                     }
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'LifecycleBridge.removeLifecycleListeners' request.");
                }
@@ -9296,13 +9299,17 @@ listener and subsequently, the listener will be deactivated and removed from the
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredNetworkReachabilityCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredNetworkReachabilityCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'NetworkReachabilityBridge.isNetworkReachable' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredNetworkReachabilityCallback.remove(""+callback.getId());
+                    callback.onError(INetworkReachabilityCallbackError.Unknown)
                }
           }
 
@@ -9321,13 +9328,17 @@ listener and subsequently, the listener will be deactivated and removed from the
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredNetworkReachabilityCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredNetworkReachabilityCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'NetworkReachabilityBridge.isNetworkServiceReachable' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredNetworkReachabilityCallback.remove(""+callback.getId());
+                    callback.onError(INetworkReachabilityCallbackError.Unknown)
                }
           }
      }
@@ -9365,6 +9376,7 @@ listener and subsequently, the listener will be deactivated and removed from the
                if (xhr.status == 200) {
                     // Add listener reference to local dictionary.
                     registeredNetworkStatusListener.add(""+listener.getId(), listener);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'NetworkStatusBridge.addNetworkStatusListener' request.");
                }
@@ -9388,6 +9400,7 @@ listener and subsequently, the listener will be deactivated and removed from the
                if (xhr.status == 200) {
                     // Remove listener reference from local dictionary.
                     registeredNetworkStatusListener.remove(""+listener.getId());
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'NetworkStatusBridge.removeNetworkStatusListener' request.");
                }
@@ -9413,6 +9426,7 @@ listener and subsequently, the listener will be deactivated and removed from the
                     for (var key in keys) {
                          registeredNetworkStatusListener.remove(key);
                     }
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'NetworkStatusBridge.removeNetworkStatusListeners' request.");
                }
@@ -9483,13 +9497,17 @@ listener and subsequently, the listener will be deactivated and removed from the
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredServiceResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredServiceResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'ServiceBridge.invokeService' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredServiceResultCallback.remove(""+callback.getId());
+                    callback.onError(IServiceResultCallbackError.Unknown)
                }
           }
 
@@ -9510,6 +9528,7 @@ listener and subsequently, the listener will be deactivated and removed from the
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'ServiceBridge.registerService' request.");
                }
@@ -9532,6 +9551,7 @@ listener and subsequently, the listener will be deactivated and removed from the
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'ServiceBridge.unregisterService' request.");
                }
@@ -9552,6 +9572,7 @@ listener and subsequently, the listener will be deactivated and removed from the
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'ServiceBridge.unregisterServices' request.");
                }
@@ -9748,13 +9769,17 @@ listener and subsequently, the listener will be deactivated and removed from the
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredDatabaseResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredDatabaseResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'DatabaseBridge.createDatabase' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredDatabaseResultCallback.remove(""+callback.getId());
+                    callback.onError(IDatabaseResultCallbackError.Unknown)
                }
           }
 
@@ -9775,13 +9800,17 @@ listener and subsequently, the listener will be deactivated and removed from the
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredDatabaseTableResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredDatabaseTableResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'DatabaseBridge.createTable' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredDatabaseTableResultCallback.remove(""+callback.getId());
+                    callback.onError(IDatabaseTableResultCallbackError.Unknown)
                }
           }
 
@@ -9800,13 +9829,17 @@ listener and subsequently, the listener will be deactivated and removed from the
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredDatabaseResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredDatabaseResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'DatabaseBridge.deleteDatabase' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredDatabaseResultCallback.remove(""+callback.getId());
+                    callback.onError(IDatabaseResultCallbackError.Unknown)
                }
           }
 
@@ -9827,13 +9860,17 @@ listener and subsequently, the listener will be deactivated and removed from the
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredDatabaseTableResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredDatabaseTableResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'DatabaseBridge.deleteTable' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredDatabaseTableResultCallback.remove(""+callback.getId());
+                    callback.onError(IDatabaseTableResultCallbackError.Unknown)
                }
           }
 
@@ -9857,13 +9894,17 @@ should be passed as a parameter
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredDatabaseTableResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredDatabaseTableResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'DatabaseBridge.executeSqlStatement' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredDatabaseTableResultCallback.remove(""+callback.getId());
+                    callback.onError(IDatabaseTableResultCallbackError.Unknown)
                }
           }
 
@@ -9887,13 +9928,17 @@ should be passed as a parameter
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredDatabaseTableResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredDatabaseTableResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'DatabaseBridge.executeSqlTransactions' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredDatabaseTableResultCallback.remove(""+callback.getId());
+                    callback.onError(IDatabaseTableResultCallbackError.Unknown)
                }
           }
 
@@ -10058,13 +10103,17 @@ should be passed as a parameter
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredFileResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredFileResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'FileBridge.create' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredFileResultCallback.remove(""+callback.getId());
+                    callback.onError(IFileResultCallbackError.Unknown)
                }
           }
 
@@ -10150,13 +10199,17 @@ deleted if the cascade parameter is set to true.
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredFileDataLoadResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredFileDataLoadResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'FileBridge.getContent' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredFileDataLoadResultCallback.remove(""+callback.getId());
+                    callback.onError(IFileDataLoadResultCallbackError.Unknown)
                }
           }
 
@@ -10304,13 +10357,17 @@ any results.
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredFileListResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredFileListResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'FileBridge.listFiles' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredFileListResultCallback.remove(""+callback.getId());
+                    callback.onError(IFileListResultCallbackError.Unknown)
                }
           }
 
@@ -10332,13 +10389,17 @@ is a file, it will not yield any results.
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredFileListResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredFileListResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'FileBridge.listFilesForRegex' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredFileListResultCallback.remove(""+callback.getId());
+                    callback.onError(IFileListResultCallbackError.Unknown)
                }
           }
 
@@ -10398,13 +10459,17 @@ new destination file.
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredFileResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredFileResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'FileBridge.move' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredFileResultCallback.remove(""+callback.getId());
+                    callback.onError(IFileResultCallbackError.Unknown)
                }
           }
 
@@ -10425,13 +10490,17 @@ new destination file.
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredFileDataStoreResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredFileDataStoreResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'FileBridge.setContent' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredFileDataStoreResultCallback.remove(""+callback.getId());
+                    callback.onError(IFileDataStoreResultCallbackError.Unknown)
                }
           }
      }
@@ -10818,6 +10887,7 @@ This path may or may not be writable by the current application.
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'VideoBridge.playStream' request.");
                }
@@ -10934,13 +11004,17 @@ This path may or may not be writable by the current application.
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredContactResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredContactResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'ContactBridge.getContact' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredContactResultCallback.remove(""+callback.getId());
+                    callback.onError(IContactResultCallbackError.Unknown)
                }
           }
 
@@ -10959,13 +11033,17 @@ This path may or may not be writable by the current application.
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredContactPhotoResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredContactPhotoResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'ContactBridge.getContactPhoto' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredContactPhotoResultCallback.remove(""+callback.getId());
+                    callback.onError(IContactPhotoResultCallbackError.Unknown)
                }
           }
 
@@ -10982,13 +11060,17 @@ This path may or may not be writable by the current application.
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredContactResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredContactResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'ContactBridge.getContacts' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredContactResultCallback.remove(""+callback.getId());
+                    callback.onError(IContactResultCallbackError.Unknown)
                }
           }
 
@@ -11007,13 +11089,17 @@ This path may or may not be writable by the current application.
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredContactResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredContactResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'ContactBridge.getContactsForFields' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredContactResultCallback.remove(""+callback.getId());
+                    callback.onError(IContactResultCallbackError.Unknown)
                }
           }
 
@@ -11034,13 +11120,17 @@ This path may or may not be writable by the current application.
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredContactResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredContactResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'ContactBridge.getContactsWithFilter' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredContactResultCallback.remove(""+callback.getId());
+                    callback.onError(IContactResultCallbackError.Unknown)
                }
           }
 
@@ -11059,13 +11149,17 @@ This path may or may not be writable by the current application.
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredContactResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredContactResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'ContactBridge.searchContacts' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredContactResultCallback.remove(""+callback.getId());
+                    callback.onError(IContactResultCallbackError.Unknown)
                }
           }
 
@@ -11086,13 +11180,17 @@ This path may or may not be writable by the current application.
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredContactResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredContactResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'ContactBridge.searchContactsWithFilter' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredContactResultCallback.remove(""+callback.getId());
+                    callback.onError(IContactResultCallbackError.Unknown)
                }
           }
 
@@ -11161,13 +11259,17 @@ This path may or may not be writable by the current application.
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredMessagingCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredMessagingCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'MailBridge.sendEmail' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredMessagingCallback.remove(""+callback.getId());
+                    callback.onError(IMessagingCallbackError.Unknown)
                }
           }
      }
@@ -11204,13 +11306,17 @@ This path may or may not be writable by the current application.
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredMessagingCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredMessagingCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'MessagingBridge.sendSMS' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredMessagingCallback.remove(""+callback.getId());
+                    callback.onError(IMessagingCallbackError.Unknown)
                }
           }
      }
@@ -11343,13 +11449,17 @@ This path may or may not be writable by the current application.
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredSecurityResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredSecurityResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'SecurityBridge.deleteSecureKeyValuePairs' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredSecurityResultCallback.remove(""+callback.getId());
+                    callback.onError(ISecurityResultCallbackError.Unknown)
                }
           }
 
@@ -11370,13 +11480,17 @@ This path may or may not be writable by the current application.
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredSecurityResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredSecurityResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'SecurityBridge.getSecureKeyValuePairs' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredSecurityResultCallback.remove(""+callback.getId());
+                    callback.onError(ISecurityResultCallbackError.Unknown)
                }
           }
 
@@ -11427,13 +11541,17 @@ This path may or may not be writable by the current application.
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredSecurityResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredSecurityResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'SecurityBridge.setSecureKeyValuePairs' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredSecurityResultCallback.remove(""+callback.getId());
+                    callback.onError(ISecurityResultCallbackError.Unknown)
                }
           }
      }
@@ -11471,6 +11589,7 @@ This path may or may not be writable by the current application.
                if (xhr.status == 200) {
                     // Add listener reference to local dictionary.
                     registeredAccelerationListener.add(""+listener.getId(), listener);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'AccelerationBridge.addAccelerationListener' request.");
                }
@@ -11494,6 +11613,7 @@ This path may or may not be writable by the current application.
                if (xhr.status == 200) {
                     // Remove listener reference from local dictionary.
                     registeredAccelerationListener.remove(""+listener.getId());
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'AccelerationBridge.removeAccelerationListener' request.");
                }
@@ -11519,6 +11639,7 @@ This path may or may not be writable by the current application.
                     for (var key in keys) {
                          registeredAccelerationListener.remove(key);
                     }
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'AccelerationBridge.removeAccelerationListeners' request.");
                }
@@ -11590,6 +11711,7 @@ This path may or may not be writable by the current application.
                if (xhr.status == 200) {
                     // Add listener reference to local dictionary.
                     registeredGeolocationListener.add(""+listener.getId(), listener);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'GeolocationBridge.addGeolocationListener' request.");
                }
@@ -11613,6 +11735,7 @@ This path may or may not be writable by the current application.
                if (xhr.status == 200) {
                     // Remove listener reference from local dictionary.
                     registeredGeolocationListener.remove(""+listener.getId());
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'GeolocationBridge.removeGeolocationListener' request.");
                }
@@ -11638,6 +11761,7 @@ This path may or may not be writable by the current application.
                     for (var key in keys) {
                          registeredGeolocationListener.remove(key);
                     }
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'GeolocationBridge.removeGeolocationListeners' request.");
                }
@@ -12049,6 +12173,7 @@ device.
                if (xhr.status == 200) {
                     // Add listener reference to local dictionary.
                     registeredButtonListener.add(""+listener.getId(), listener);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'DeviceBridge.addButtonListener' request.");
                }
@@ -12132,6 +12257,7 @@ device.
                if (xhr.status == 200) {
                     // Remove listener reference from local dictionary.
                     registeredButtonListener.remove(""+listener.getId());
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'DeviceBridge.removeButtonListener' request.");
                }
@@ -12157,6 +12283,7 @@ device.
                     for (var key in keys) {
                          registeredButtonListener.remove(key);
                     }
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'DeviceBridge.removeButtonListeners' request.");
                }
@@ -12255,6 +12382,7 @@ device.
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'RuntimeBridge.dismissApplication' request.");
                }
@@ -12541,6 +12669,7 @@ device.
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'LoggingBridge.log_level_message' request.");
                }
@@ -12567,6 +12696,7 @@ device.
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'LoggingBridge.log_level_category_message' request.");
                }

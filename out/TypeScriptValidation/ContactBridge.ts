@@ -77,13 +77,17 @@ module Adaptive {
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredContactResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredContactResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'ContactBridge.getContact' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredContactResultCallback.remove(""+callback.getId());
+                    callback.onError(IContactResultCallbackError.Unknown)
                }
           }
 
@@ -102,13 +106,17 @@ module Adaptive {
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredContactPhotoResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredContactPhotoResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'ContactBridge.getContactPhoto' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredContactPhotoResultCallback.remove(""+callback.getId());
+                    callback.onError(IContactPhotoResultCallbackError.Unknown)
                }
           }
 
@@ -125,13 +133,17 @@ module Adaptive {
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredContactResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredContactResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'ContactBridge.getContacts' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredContactResultCallback.remove(""+callback.getId());
+                    callback.onError(IContactResultCallbackError.Unknown)
                }
           }
 
@@ -150,13 +162,17 @@ module Adaptive {
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredContactResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredContactResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'ContactBridge.getContactsForFields' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredContactResultCallback.remove(""+callback.getId());
+                    callback.onError(IContactResultCallbackError.Unknown)
                }
           }
 
@@ -177,13 +193,17 @@ module Adaptive {
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredContactResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredContactResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'ContactBridge.getContactsWithFilter' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredContactResultCallback.remove(""+callback.getId());
+                    callback.onError(IContactResultCallbackError.Unknown)
                }
           }
 
@@ -202,13 +222,17 @@ module Adaptive {
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredContactResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredContactResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'ContactBridge.searchContacts' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredContactResultCallback.remove(""+callback.getId());
+                    callback.onError(IContactResultCallbackError.Unknown)
                }
           }
 
@@ -229,13 +253,17 @@ module Adaptive {
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredContactResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredContactResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'ContactBridge.searchContactsWithFilter' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredContactResultCallback.remove(""+callback.getId());
+                    callback.onError(IContactResultCallbackError.Unknown)
                }
           }
 

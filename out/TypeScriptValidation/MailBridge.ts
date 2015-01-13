@@ -73,13 +73,17 @@ module Adaptive {
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredMessagingCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredMessagingCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'MailBridge.sendEmail' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredMessagingCallback.remove(""+callback.getId());
+                    callback.onError(IMessagingCallbackError.Unknown)
                }
           }
      }

@@ -146,13 +146,17 @@ module Adaptive {
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredFileResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredFileResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'FileBridge.create' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredFileResultCallback.remove(""+callback.getId());
+                    callback.onError(IFileResultCallbackError.Unknown)
                }
           }
 
@@ -238,13 +242,17 @@ deleted if the cascade parameter is set to true.
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredFileDataLoadResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredFileDataLoadResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'FileBridge.getContent' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredFileDataLoadResultCallback.remove(""+callback.getId());
+                    callback.onError(IFileDataLoadResultCallbackError.Unknown)
                }
           }
 
@@ -392,13 +400,17 @@ any results.
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredFileListResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredFileListResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'FileBridge.listFiles' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredFileListResultCallback.remove(""+callback.getId());
+                    callback.onError(IFileListResultCallbackError.Unknown)
                }
           }
 
@@ -420,13 +432,17 @@ is a file, it will not yield any results.
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredFileListResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredFileListResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'FileBridge.listFilesForRegex' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredFileListResultCallback.remove(""+callback.getId());
+                    callback.onError(IFileListResultCallbackError.Unknown)
                }
           }
 
@@ -486,13 +502,17 @@ new destination file.
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredFileResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredFileResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'FileBridge.move' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredFileResultCallback.remove(""+callback.getId());
+                    callback.onError(IFileResultCallbackError.Unknown)
                }
           }
 
@@ -513,13 +533,17 @@ new destination file.
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredFileDataStoreResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredFileDataStoreResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'FileBridge.setContent' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredFileDataStoreResultCallback.remove(""+callback.getId());
+                    callback.onError(IFileDataStoreResultCallbackError.Unknown)
                }
           }
      }

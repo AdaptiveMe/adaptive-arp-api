@@ -72,13 +72,17 @@ module Adaptive {
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredNetworkReachabilityCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredNetworkReachabilityCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'NetworkReachabilityBridge.isNetworkReachable' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredNetworkReachabilityCallback.remove(""+callback.getId());
+                    callback.onError(INetworkReachabilityCallbackError.Unknown)
                }
           }
 
@@ -97,13 +101,17 @@ module Adaptive {
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredNetworkReachabilityCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredNetworkReachabilityCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'NetworkReachabilityBridge.isNetworkServiceReachable' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredNetworkReachabilityCallback.remove(""+callback.getId());
+                    callback.onError(INetworkReachabilityCallbackError.Unknown)
                }
           }
      }

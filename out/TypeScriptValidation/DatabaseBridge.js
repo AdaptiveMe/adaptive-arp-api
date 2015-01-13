@@ -80,14 +80,17 @@ var Adaptive;
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
+            // Add callback reference to local dictionary.
+            Adaptive.registeredDatabaseResultCallback.add("" + callback.getId(), callback);
             xhr.send(JSON.stringify(ar));
             // Check response.
             if (xhr.status == 200) {
-                // Add callback reference to local dictionary.
-                Adaptive.registeredDatabaseResultCallback.add("" + callback.getId(), callback);
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'DatabaseBridge.createDatabase' request.");
+                // Unknown error - remove from dictionary and notify callback.
+                Adaptive.registeredDatabaseResultCallback.remove("" + callback.getId());
+                callback.onError(Adaptive.IDatabaseResultCallbackError.Unknown);
             }
         };
         /**
@@ -107,14 +110,17 @@ var Adaptive;
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
+            // Add callback reference to local dictionary.
+            Adaptive.registeredDatabaseTableResultCallback.add("" + callback.getId(), callback);
             xhr.send(JSON.stringify(ar));
             // Check response.
             if (xhr.status == 200) {
-                // Add callback reference to local dictionary.
-                Adaptive.registeredDatabaseTableResultCallback.add("" + callback.getId(), callback);
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'DatabaseBridge.createTable' request.");
+                // Unknown error - remove from dictionary and notify callback.
+                Adaptive.registeredDatabaseTableResultCallback.remove("" + callback.getId());
+                callback.onError(Adaptive.IDatabaseTableResultCallbackError.Unknown);
             }
         };
         /**
@@ -132,14 +138,17 @@ var Adaptive;
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
+            // Add callback reference to local dictionary.
+            Adaptive.registeredDatabaseResultCallback.add("" + callback.getId(), callback);
             xhr.send(JSON.stringify(ar));
             // Check response.
             if (xhr.status == 200) {
-                // Add callback reference to local dictionary.
-                Adaptive.registeredDatabaseResultCallback.add("" + callback.getId(), callback);
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'DatabaseBridge.deleteDatabase' request.");
+                // Unknown error - remove from dictionary and notify callback.
+                Adaptive.registeredDatabaseResultCallback.remove("" + callback.getId());
+                callback.onError(Adaptive.IDatabaseResultCallbackError.Unknown);
             }
         };
         /**
@@ -159,14 +168,17 @@ var Adaptive;
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
+            // Add callback reference to local dictionary.
+            Adaptive.registeredDatabaseTableResultCallback.add("" + callback.getId(), callback);
             xhr.send(JSON.stringify(ar));
             // Check response.
             if (xhr.status == 200) {
-                // Add callback reference to local dictionary.
-                Adaptive.registeredDatabaseTableResultCallback.add("" + callback.getId(), callback);
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'DatabaseBridge.deleteTable' request.");
+                // Unknown error - remove from dictionary and notify callback.
+                Adaptive.registeredDatabaseTableResultCallback.remove("" + callback.getId());
+                callback.onError(Adaptive.IDatabaseTableResultCallbackError.Unknown);
             }
         };
         /**
@@ -189,14 +201,17 @@ should be passed as a parameter
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
+            // Add callback reference to local dictionary.
+            Adaptive.registeredDatabaseTableResultCallback.add("" + callback.getId(), callback);
             xhr.send(JSON.stringify(ar));
             // Check response.
             if (xhr.status == 200) {
-                // Add callback reference to local dictionary.
-                Adaptive.registeredDatabaseTableResultCallback.add("" + callback.getId(), callback);
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'DatabaseBridge.executeSqlStatement' request.");
+                // Unknown error - remove from dictionary and notify callback.
+                Adaptive.registeredDatabaseTableResultCallback.remove("" + callback.getId());
+                callback.onError(Adaptive.IDatabaseTableResultCallbackError.Unknown);
             }
         };
         /**
@@ -219,14 +234,17 @@ should be passed as a parameter
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
+            // Add callback reference to local dictionary.
+            Adaptive.registeredDatabaseTableResultCallback.add("" + callback.getId(), callback);
             xhr.send(JSON.stringify(ar));
             // Check response.
             if (xhr.status == 200) {
-                // Add callback reference to local dictionary.
-                Adaptive.registeredDatabaseTableResultCallback.add("" + callback.getId(), callback);
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'DatabaseBridge.executeSqlTransactions' request.");
+                // Unknown error - remove from dictionary and notify callback.
+                Adaptive.registeredDatabaseTableResultCallback.remove("" + callback.getId());
+                callback.onError(Adaptive.IDatabaseTableResultCallbackError.Unknown);
             }
         };
         /**

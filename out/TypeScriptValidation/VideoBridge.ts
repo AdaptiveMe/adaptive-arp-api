@@ -72,6 +72,7 @@ module Adaptive {
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'VideoBridge.playStream' request.");
                }

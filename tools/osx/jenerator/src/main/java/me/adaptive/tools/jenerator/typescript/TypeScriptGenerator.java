@@ -499,7 +499,7 @@ public class TypeScriptGenerator extends GeneratorBase {
                             printlnGlobal(convertJavaToNativeType(m.getReturnType()) + " {");
                         }
 
-                        implementHandler(m,simpleName,clazz,currentMethodName);
+                        implementHandler(m, simpleName, clazz, currentMethodName);
 
                         printlnGlobal(10, "}");
                     }
@@ -528,6 +528,11 @@ public class TypeScriptGenerator extends GeneratorBase {
         printlnGlobal(15, "// Create and send JSON request.");
         printlnGlobal(15, "var xhr = new XMLHttpRequest();");
         printlnGlobal(15, "xhr.open(\"POST\", bridgePath, false);");
+        // Manage callbacks
+        if (cblsType != null && cblsType.endsWith("Callback")) {
+            printlnGlobal(15, "// Add callback reference to local dictionary.");
+            printlnGlobal(15, "registered" + cblsType.substring(1) + ".add(\"\"+" + cblsName + ".getId(), " + cblsName + ");");
+        }
         printlnGlobal(15, "xhr.send(JSON.stringify(ar));");
         if (!m.getReturnType().equals(Void.TYPE)) {
             printlnGlobal(15, "// Prepare response.");
@@ -568,11 +573,7 @@ public class TypeScriptGenerator extends GeneratorBase {
                 }
             }
         }
-        // Manage callbacks
-        if (cblsType != null && cblsType.endsWith("Callback")) {
-            printlnGlobal(20, "// Add callback reference to local dictionary.");
-            printlnGlobal(20, "registered" + cblsType.substring(1) + ".add(\"\"+" + cblsName + ".getId(), " + cblsName + ");");
-        }
+
         // Manage returns
         if (!m.getReturnType().equals(Void.TYPE)) {
             printlnGlobal(20, "// Process response.");
@@ -580,10 +581,23 @@ public class TypeScriptGenerator extends GeneratorBase {
             printlnGlobal(25, "response = JSON.parse(xhr.responseText);");
             printlnGlobal(20, "} else {");
             printlnGlobal(25, "console.error(\"ERROR: '" + simpleName + "." + currentMethodName + "' incorrect response received.\");");
+            // Manage callbacks
+            if (cblsType != null && cblsType.endsWith("Callback")) {
+                printlnGlobal(25, "// Unknown error - remove from dictionary and notify callback.");
+                printlnGlobal(25, "registered" + cblsType.substring(1) + ".remove(\"\"+" + cblsName + ".getId());");
+                printlnGlobal(25, cblsName+".onError("+cblsType+"Error.Unknown)");
+            }
             printlnGlobal(20, "}");
+        } else {
+            printlnGlobal(20, "// Result void - All OK, nothing else todo.");
         }
         printlnGlobal(15, "} else {");
         printlnGlobal(20, "console.error(\"ERROR: \"+xhr.status+\" sending '" + simpleName + "." + currentMethodName + "' request.\");");
+        if (cblsType != null && cblsType.endsWith("Callback")) {
+            printlnGlobal(20, "// Unknown error - remove from dictionary and notify callback.");
+            printlnGlobal(20, "registered" + cblsType.substring(1) + ".remove(\"\"+" + cblsName + ".getId());");
+            printlnGlobal(20, cblsName+".onError("+cblsType+"Error.Unknown)");
+        }
         printlnGlobal(15, "}");
         if (!m.getReturnType().equals(Void.TYPE)) {
             printlnGlobal(15, "return response;");

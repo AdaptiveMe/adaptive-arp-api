@@ -76,13 +76,17 @@ module Adaptive {
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredDatabaseResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredDatabaseResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'DatabaseBridge.createDatabase' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredDatabaseResultCallback.remove(""+callback.getId());
+                    callback.onError(IDatabaseResultCallbackError.Unknown)
                }
           }
 
@@ -103,13 +107,17 @@ module Adaptive {
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredDatabaseTableResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredDatabaseTableResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'DatabaseBridge.createTable' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredDatabaseTableResultCallback.remove(""+callback.getId());
+                    callback.onError(IDatabaseTableResultCallbackError.Unknown)
                }
           }
 
@@ -128,13 +136,17 @@ module Adaptive {
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredDatabaseResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredDatabaseResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'DatabaseBridge.deleteDatabase' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredDatabaseResultCallback.remove(""+callback.getId());
+                    callback.onError(IDatabaseResultCallbackError.Unknown)
                }
           }
 
@@ -155,13 +167,17 @@ module Adaptive {
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredDatabaseTableResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredDatabaseTableResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'DatabaseBridge.deleteTable' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredDatabaseTableResultCallback.remove(""+callback.getId());
+                    callback.onError(IDatabaseTableResultCallbackError.Unknown)
                }
           }
 
@@ -185,13 +201,17 @@ should be passed as a parameter
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredDatabaseTableResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredDatabaseTableResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'DatabaseBridge.executeSqlStatement' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredDatabaseTableResultCallback.remove(""+callback.getId());
+                    callback.onError(IDatabaseTableResultCallbackError.Unknown)
                }
           }
 
@@ -215,13 +235,17 @@ should be passed as a parameter
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
+               // Add callback reference to local dictionary.
+               registeredDatabaseTableResultCallback.add(""+callback.getId(), callback);
                xhr.send(JSON.stringify(ar));
                // Check response.
                if (xhr.status == 200) {
-                    // Add callback reference to local dictionary.
-                    registeredDatabaseTableResultCallback.add(""+callback.getId(), callback);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'DatabaseBridge.executeSqlTransactions' request.");
+                    // Unknown error - remove from dictionary and notify callback.
+                    registeredDatabaseTableResultCallback.remove(""+callback.getId());
+                    callback.onError(IDatabaseTableResultCallbackError.Unknown)
                }
           }
 

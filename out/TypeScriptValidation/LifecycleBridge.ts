@@ -75,6 +75,7 @@ module Adaptive {
                if (xhr.status == 200) {
                     // Add listener reference to local dictionary.
                     registeredLifecycleListener.add(""+listener.getId(), listener);
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'LifecycleBridge.addLifecycleListener' request.");
                }
@@ -128,6 +129,7 @@ module Adaptive {
                if (xhr.status == 200) {
                     // Remove listener reference from local dictionary.
                     registeredLifecycleListener.remove(""+listener.getId());
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'LifecycleBridge.removeLifecycleListener' request.");
                }
@@ -153,6 +155,7 @@ module Adaptive {
                     for (var key in keys) {
                          registeredLifecycleListener.remove(key);
                     }
+                    // Result void - All OK, nothing else todo.
                } else {
                     console.error("ERROR: "+xhr.status+" sending 'LifecycleBridge.removeLifecycleListeners' request.");
                }

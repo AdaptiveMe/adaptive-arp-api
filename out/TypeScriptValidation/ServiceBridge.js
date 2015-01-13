@@ -113,14 +113,17 @@ var Adaptive;
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
+            // Add callback reference to local dictionary.
+            Adaptive.registeredServiceResultCallback.add("" + callback.getId(), callback);
             xhr.send(JSON.stringify(ar));
             // Check response.
             if (xhr.status == 200) {
-                // Add callback reference to local dictionary.
-                Adaptive.registeredServiceResultCallback.add("" + callback.getId(), callback);
             }
             else {
                 console.error("ERROR: " + xhr.status + " sending 'ServiceBridge.invokeService' request.");
+                // Unknown error - remove from dictionary and notify callback.
+                Adaptive.registeredServiceResultCallback.remove("" + callback.getId());
+                callback.onError(Adaptive.IServiceResultCallbackError.Unknown);
             }
         };
         /**
