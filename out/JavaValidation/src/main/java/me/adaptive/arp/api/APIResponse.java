@@ -32,54 +32,85 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-using System;
+package me.adaptive.arp.api;
 
-namespace Adaptive.Arp.Api
-{
-     /**
-        Interface for Managing the Globalization results
+/**
+   Structure representing a JSON response to the HTML5 layer.
 
-        @author Francisco Javier Martin Bueno
-        @since ARP1.0
-        @version 1.0
-     */
-     public interface IGlobalization : IBaseApplication {
-     /**
-        Returns the default locale of the application defined in the configuration file
-
-        @return Default Locale of the application
-        @since ARP1.0
-     */
-     Locale getDefaultLocale();
+   @author Carlos Lozano Diez
+   @since ARP1.0
+   @version 1.0
+*/
+public class APIResponse {
 
      /**
-        List of supported locales for the application defined in the configuration file
-
-        @return List of locales
-        @since ARP1.0
+        String representing the response
      */
-     Locale[] getLocaleSupportedDescriptors();
+     private String response;
+     /**
+        Status code of the response
+     */
+     private int statusCode;
 
      /**
-        Gets the text/message corresponding to the given key and locale.
+        Default constructor
 
-        @param key    to match text
-        @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
-        @return Localized text.
         @since ARP1.0
      */
-     string getResourceLiteral(string key, Locale locale);
-
-     /**
-        Gets the full application configured literals (key/message pairs) corresponding to the given locale.
-
-        @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
-        @return Localized texts in the form of an object.
-        @since ARP1.0
-     */
-     KeyPair[] getResourceLiterals(Locale locale);
-
+     public APIResponse() {
      }
+
+     /**
+        Constructor with parameters
+
+        @param response   String representing the response
+        @param statusCode Status code of the response
+        @since ARP1.0
+     */
+     public APIResponse(String response, int statusCode) {
+          this();
+          this.response = response;
+          this.statusCode = statusCode;
+     }
+
+     /**
+        Response getter
+
+        @return String representing the response
+        @since ARP1.0
+     */
+     public String getResponse() {
+          return this.response;
+     }
+
+     /**
+        Response setter
+
+        @param response String representing the response
+     */
+     public void setResponse(String response) {
+          this.response = response;
+     }
+
+     /**
+        Status code getter
+
+        @return Status code of the response
+     */
+     public int getStatusCode() {
+          return this.statusCode;
+     }
+
+     /**
+        Status code setter
+
+        @param statusCode Status code of the response
+     */
+     public void setStatusCode(int statusCode) {
+          this.statusCode = statusCode;
+     }
+
+
 }
 
 /**

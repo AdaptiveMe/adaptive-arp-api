@@ -32,55 +32,46 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-using System;
+#import <APIResponse.h>
 
-namespace Adaptive.Arp.Api
-{
-     /**
-        Interface for Managing the Globalization results
+/**
 
-        @author Francisco Javier Martin Bueno
-        @since ARP1.0
-        @version 1.0
-     */
-     public interface IGlobalization : IBaseApplication {
-     /**
-        Returns the default locale of the application defined in the configuration file
+@author Carlos Lozano Diez
+@since ARP1.0
+@version 1.0
+*/
+@implementation APIResponse
 
-        @return Default Locale of the application
-        @since ARP1.0
-     */
-     Locale getDefaultLocale();
 
      /**
-        List of supported locales for the application defined in the configuration file
+        Default constructor
 
-        @return List of locales
         @since ARP1.0
      */
-     Locale[] getLocaleSupportedDescriptors();
-
-     /**
-        Gets the text/message corresponding to the given key and locale.
-
-        @param key    to match text
-        @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
-        @return Localized text.
-        @since ARP1.0
-     */
-     string getResourceLiteral(string key, Locale locale);
-
-     /**
-        Gets the full application configured literals (key/message pairs) corresponding to the given locale.
-
-        @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
-        @return Localized texts in the form of an object.
-        @since ARP1.0
-     */
-     KeyPair[] getResourceLiterals(Locale locale);
-
+     - (id) init {
+          self = [self init];
+          return self;
      }
-}
+
+     /**
+        Constructor with parameters
+
+        @param response   String representing the response
+        @param statusCode Status code of the response
+        @since ARP1.0
+     */
+     - (id) initWithResponseStatusCode:(NSString*)response statusCode:(int*)statusCode {
+          self = [self init];
+          if (self) {
+               [self setResponse:response];
+               [self setStatusCode:statusCode];
+          }
+          return self;
+     }
+
+
+
+@end
 
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

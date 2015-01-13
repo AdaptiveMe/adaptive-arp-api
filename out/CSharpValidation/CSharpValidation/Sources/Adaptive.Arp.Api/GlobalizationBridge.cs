@@ -73,7 +73,30 @@ public class GlobalizationBridge extends BaseApplicationBridge implements IGloba
      }
 
      /**
-        List of supported locales for the application
+        Returns the default locale of the application defined in the configuration file
+
+        @return Default Locale of the application
+        @since ARP1.0
+     */
+     public Locale getDefaultLocale() {
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getDefaultLocale.");
+
+          Locale result = null;
+          if (this.delegate != null) {
+               result = this.delegate.getDefaultLocale();
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getDefaultLocale' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getDefaultLocale'.");
+          }
+          return result;          
+     }
+
+     /**
+        List of supported locales for the application defined in the configuration file
 
         @return List of locales
         @since ARP1.0
@@ -153,29 +176,37 @@ public class GlobalizationBridge extends BaseApplicationBridge implements IGloba
      public String invoke(APIRequest request) {
           String responseJSON = "";
           switch (request.getMethodName()) {
-               case "getLocaleSupportedDescriptors":
-                    Locale[] response0 = this.getLocaleSupportedDescriptors();
+               case "getDefaultLocale":
+                    Locale response0 = this.getDefaultLocale();
                     if (response0 != null) {
                          responseJSON = this.gson.toJson(response0);
                     } else {
                          responseJSON = null;
                     }
                     break;
-               case "getResourceLiteral":
-                    string key1 = this.gson.fromJson(request.getParameters()[0], string.class);
-                    Locale locale1 = this.gson.fromJson(request.getParameters()[1], Locale.class);
-                    string response1 = this.getResourceLiteral(key1, locale1);
+               case "getLocaleSupportedDescriptors":
+                    Locale[] response1 = this.getLocaleSupportedDescriptors();
                     if (response1 != null) {
                          responseJSON = this.gson.toJson(response1);
                     } else {
                          responseJSON = null;
                     }
                     break;
-               case "getResourceLiterals":
-                    Locale locale2 = this.gson.fromJson(request.getParameters()[0], Locale.class);
-                    KeyPair[] response2 = this.getResourceLiterals(locale2);
+               case "getResourceLiteral":
+                    string key2 = this.gson.fromJson(request.getParameters()[0], string.class);
+                    Locale locale2 = this.gson.fromJson(request.getParameters()[1], Locale.class);
+                    string response2 = this.getResourceLiteral(key2, locale2);
                     if (response2 != null) {
                          responseJSON = this.gson.toJson(response2);
+                    } else {
+                         responseJSON = null;
+                    }
+                    break;
+               case "getResourceLiterals":
+                    Locale locale3 = this.gson.fromJson(request.getParameters()[0], Locale.class);
+                    KeyPair[] response3 = this.getResourceLiterals(locale3);
+                    if (response3 != null) {
+                         responseJSON = this.gson.toJson(response3);
                     } else {
                          responseJSON = null;
                     }

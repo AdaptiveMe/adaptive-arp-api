@@ -578,7 +578,28 @@ public class TypeScriptGenerator extends GeneratorBase {
         if (!m.getReturnType().equals(Void.TYPE)) {
             printlnGlobal(20, "// Process response.");
             printlnGlobal(20, "if (xhr.responseText != null && xhr.responseText != '') {");
-            printlnGlobal(25, "response = JSON.parse(xhr.responseText);");
+            if (m.getReturnType().isArray()) {
+                Class componentType = m.getReturnType().getComponentType();
+                printlnGlobal(25, "response = new " + convertJavaToNativeType(m.getReturnType()) + "();");
+                printlnGlobal(25, "for(var __value__ in JSON.parse(xhr.responseText)) {");
+                if (componentType.isEnum()) {
+                    printlnGlobal(30, "response.push("+generateEnumClassName(componentType)+".toObject(__value__));");
+                } else if(componentType.isPrimitive() || componentType.equals(String.class)) {
+                    printlnGlobal(30, "response.push(__value__);");
+                } else {
+                    printlnGlobal(30, "response.push("+convertJavaToNativeType(componentType)+".toObject(__value__));");
+                }
+                printlnGlobal(25, "}");
+            } else {
+                if (m.getReturnType().isEnum()) {
+                    printlnGlobal(25, "response = "+generateEnumClassName(m.getReturnType())+".toObject(JSON.parse(xhr.responseText));");
+                } else if(m.getReturnType().isPrimitive() || m.getReturnType().equals(String.class)) {
+                    printlnGlobal(25, "response = JSON.parse(xhr.responseText);");
+                } else {
+                    printlnGlobal(25, "response = "+convertJavaToNativeType(m.getReturnType())+".toObject(JSON.parse(xhr.responseText));");
+                }
+            }
+
             printlnGlobal(20, "} else {");
             printlnGlobal(25, "console.error(\"ERROR: '" + simpleName + "." + currentMethodName + "' incorrect response received.\");");
             // Manage callbacks
@@ -589,7 +610,7 @@ public class TypeScriptGenerator extends GeneratorBase {
             }
             printlnGlobal(20, "}");
         } else {
-            printlnGlobal(20, "// Result void - All OK, nothing else todo.");
+            printlnGlobal(20, "// Result void - All OK, nothing else to do.");
         }
         printlnGlobal(15, "} else {");
         printlnGlobal(20, "console.error(\"ERROR: \"+xhr.status+\" sending '" + simpleName + "." + currentMethodName + "' request.\");");
@@ -1600,7 +1621,74 @@ public class TypeScriptGenerator extends GeneratorBase {
 
     @Override
     protected void endGetterSetters(String simpleName, Class clazz) {
+        startCommentGlobal(10);
+        printlnGlobal(13, "Convert JSON parsed object to typed equivalent.");
+        endCommentGlobal(10);
+        printlnGlobal(10, "static toObject(object : any) : "+simpleName+" {");
+        printGlobal(15, "var result : " + simpleName + " = new "+simpleName+"(");
+        Constructor maxConstructor = null;
+        for (Constructor c : clazz.getDeclaredConstructors()) {
+            if (maxConstructor == null) {
+                maxConstructor = c;
+            } else {
+                if (c.getParameterCount() > maxConstructor.getParameterCount()) {
+                    maxConstructor = c;
+                }
+            }
+        }
+        for (int i = 0;i<maxConstructor.getParameterCount();i++) {
+            printGlobal(null);
+            if (i<maxConstructor.getParameterCount()-1) {
+                printGlobal(", ");
+            }
+        }
+        printlnGlobal(");");
+        printlnGlobal();
 
+        if (!clazz.getSuperclass().equals(Object.class)) {
+            if (clazz.getSuperclass().getDeclaredFields().length>0) {
+                printlnGlobal(15, "// Assign values to parent bean fields.");
+                for (Field f : clazz.getSuperclass().getDeclaredFields()) {
+                    fieldJSONAssign(simpleName, clazz, f);
+                }
+                printlnGlobal();
+            }
+        }
+
+        if (clazz.getDeclaredFields().length>0) {
+            printlnGlobal(15, "// Assign values to bean fields.");
+            for (Field f : clazz.getDeclaredFields()) {
+                fieldJSONAssign(simpleName, clazz, f);
+            }
+            printlnGlobal();
+        }
+
+        printlnGlobal(15, "return result;");
+        printlnGlobal(10, "}");
+    }
+
+    private void fieldJSONAssign(String simpleName, Class clazz, Field f) {
+        if (f.getType().isArray()) {
+            printlnGlobal(15, "result." + f.getName() + " = new "+convertJavaToNativeType(f.getType())+"();");
+            printlnGlobal(15, "for(var __value__ in object."+f.getName()+") {");
+            Class componentType = f.getType().getComponentType();
+            if (componentType.isEnum()) {
+                printlnGlobal(20, "result." + f.getName() + ".push(" + generateEnumClassName(f.getType().getComponentType()) + ".toObject(__value__));");
+            } else if (componentType.isPrimitive() || componentType.equals(String.class)) {
+                printlnGlobal(20, "result." + f.getName() + ".push(__value__);");
+            } else {
+                printlnGlobal(20, "result." + f.getName() + ".push("+convertJavaToNativeType(componentType)+".toObject(__value__));");
+            }
+            printlnGlobal(15, "}");
+        } else {
+            if (f.getType().isEnum()) {
+                printlnGlobal(15, "result." + f.getName() + " = " + generateEnumClassName(f.getType()) + ".toObject(object." + f.getName() + ");");
+            } else if(f.getType().isPrimitive() || f.getType().equals(String.class)) {
+                printlnGlobal(15, "result." + f.getName() + " = object." + f.getName() + ";");
+            } else {
+                printlnGlobal(15, "result." + f.getName() + " = "+convertJavaToNativeType(f.getType())+".toObject(object." + f.getName() + ");");
+            }
+        }
     }
 
     @Override
@@ -2185,8 +2273,23 @@ public class TypeScriptGenerator extends GeneratorBase {
         }
         println();
         printlnSF();
-        endBean(generateEnumClassName(clazz), clazz);
 
+        startCommentGlobal(10);
+        printlnGlobal(13, "Convert JSON parsed object to enumeration.");
+        endCommentGlobal(10);
+        printlnGlobal(10, "static toObject(object : any) : "+generateEnumClassName(clazz)+" {");
+        printlnGlobal(15, "switch(object.value) {");
+        for (int i = 0; i < clazz.getDeclaredFields().length - 1; i++) {
+            Field field = clazz.getDeclaredFields()[i];
+            printlnGlobal(20, "case \""+field.getName()+"\":");
+            printlnGlobal(25, "return "+generateEnumClassName(clazz)+"."+field.getName()+";");
+        }
+        printlnGlobal(20, "default:");
+        printlnGlobal(25, "return "+generateEnumClassName(clazz)+".Unknown;");
+        printlnGlobal(15, "}");
+        printlnGlobal(10, "}");
+        printlnGlobal();
+        endBean(generateEnumClassName(clazz), clazz);
 
         indentPrintStream.flush();
         indentPrintStream.close();

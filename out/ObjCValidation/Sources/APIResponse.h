@@ -32,55 +32,44 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-using System;
+#import <Foundation/Foundation.h>
 
-namespace Adaptive.Arp.Api
-{
-     /**
-        Interface for Managing the Globalization results
+/**
+Structure representing a JSON response to the HTML5 layer.
 
-        @author Francisco Javier Martin Bueno
-        @since ARP1.0
-        @version 1.0
-     */
-     public interface IGlobalization : IBaseApplication {
-     /**
-        Returns the default locale of the application defined in the configuration file
-
-        @return Default Locale of the application
-        @since ARP1.0
-     */
-     Locale getDefaultLocale();
+@author Carlos Lozano Diez
+@since ARP1.0
+@version 1.0
+*/
+@interface APIResponse : NSObject
 
      /**
-        List of supported locales for the application defined in the configuration file
-
-        @return List of locales
-        @since ARP1.0
+        String representing the response
      */
-     Locale[] getLocaleSupportedDescriptors();
+     @property NSString *response;
+     /**
+        Status code of the response
+     */
+     @property int *statusCode;
 
      /**
-        Gets the text/message corresponding to the given key and locale.
+        Default constructor
 
-        @param key    to match text
-        @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
-        @return Localized text.
         @since ARP1.0
      */
-     string getResourceLiteral(string key, Locale locale);
+     - (id) init;
 
      /**
-        Gets the full application configured literals (key/message pairs) corresponding to the given locale.
+        Constructor with parameters
 
-        @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
-        @return Localized texts in the form of an object.
+        @param response   String representing the response
+        @param statusCode Status code of the response
         @since ARP1.0
      */
-     KeyPair[] getResourceLiterals(Locale locale);
+     - (id) initWithResponseStatusCode:(NSString*)response statusCode:(int*)statusCode;
 
-     }
-}
+
+@end
 
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
