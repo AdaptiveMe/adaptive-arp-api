@@ -61,7 +61,7 @@ public interface ILifecycleListener extends IBaseListener {
      * Data received with warning
      *
      * @param lifecycle Lifecycle element
-     * @param warning Type of warning encountered during reading.
+     * @param warning   Type of warning encountered during reading.
      * @since ARP1.0
      */
     public void onWarning(Lifecycle lifecycle, Warning warning);

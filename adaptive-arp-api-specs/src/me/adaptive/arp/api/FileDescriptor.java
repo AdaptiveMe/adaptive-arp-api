@@ -65,6 +65,15 @@ public class FileDescriptor extends APIBean {
     }
 
     /**
+     * Sets the name of the file. Used internally.
+     *
+     * @param name Name of the file or last folder path element.
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
      * Returns the path element of the file or folder (excluding the last path element if it's a directory).
      *
      * @return The path to the file.
@@ -72,6 +81,15 @@ public class FileDescriptor extends APIBean {
      */
     public String getPath() {
         return this.path;
+    }
+
+    /**
+     * Sets the path of the file or folder. Used internally.
+     *
+     * @param path The path element of the file or folder.
+     */
+    public void setPath(String path) {
+        this.path = path;
     }
 
     /**
@@ -85,6 +103,15 @@ public class FileDescriptor extends APIBean {
     }
 
     /**
+     * Sets the absolute path of the file or folder. Used internally.
+     *
+     * @param pathAbsolute String with the absolute path of file or folder.
+     */
+    public void setPathAbsolute(String pathAbsolute) {
+        this.pathAbsolute = pathAbsolute;
+    }
+
+    /**
      * Returns the milliseconds passed since 1/1/1970 since the file was created.
      *
      * @return Timestamp in milliseconds.
@@ -92,6 +119,15 @@ public class FileDescriptor extends APIBean {
      */
     public long getDateCreated() {
         return this.dateCreated;
+    }
+
+    /**
+     * Sets the creation timestamp in milliseconds. Used internally.
+     *
+     * @param dateCreated Timestamp of file creation or -1 if the file or folder doesn't exist.
+     */
+    public void setDateCreated(long dateCreated) {
+        this.dateCreated = dateCreated;
     }
 
     /**
@@ -105,6 +141,15 @@ public class FileDescriptor extends APIBean {
     }
 
     /**
+     * Sets the file or folder modification timestamp in milliseconds. Used internally.
+     *
+     * @param dateModified Timestamp of file modification or -1 if the file or folder doesn't exist.
+     */
+    public void setDateModified(long dateModified) {
+        this.dateModified = dateModified;
+    }
+
+    /**
      * Returns the size in bytes of the file or -1 if the reference is a folder.
      *
      * @return Size in bytes of file.
@@ -112,50 +157,6 @@ public class FileDescriptor extends APIBean {
      */
     public long getSize() {
         return this.size;
-    }
-
-    /**
-     * Sets the name of the file. Used internally.
-     *
-     * @param name Name of the file or last folder path element.
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * Sets the path of the file or folder. Used internally.
-     *
-     * @param path The path element of the file or folder.
-     */
-    public void setPath(String path) {
-        this.path = path;
-    }
-
-    /**
-     * Sets the absolute path of the file or folder. Used internally.
-     *
-     * @param pathAbsolute String with the absolute path of file or folder.
-     */
-    public void setPathAbsolute(String pathAbsolute) {
-        this.pathAbsolute = pathAbsolute;
-    }
-
-    /**
-     * Sets the creation timestamp in milliseconds. Used internally.
-     * @param dateCreated Timestamp of file creation or -1 if the file or folder doesn't exist.
-     */
-    public void setDateCreated(long dateCreated) {
-        this.dateCreated = dateCreated;
-    }
-
-    /**
-     * Sets the file or folder modification timestamp in milliseconds. Used internally.
-     *
-     * @param dateModified Timestamp of file modification or -1 if the file or folder doesn't exist.
-     */
-    public void setDateModified(long dateModified) {
-        this.dateModified = dateModified;
     }
 
     /**
