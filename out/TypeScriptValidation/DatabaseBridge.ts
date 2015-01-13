@@ -260,7 +260,7 @@ should be passed as a parameter
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(database));
-               var ar : APIRequest = new APIRequest("IDatabase","existsDatabase",arParams, null);
+               var ar : APIRequest = new APIRequest("IDatabase","existsDatabase",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -294,7 +294,7 @@ should be passed as a parameter
                var arParams : string[] = [];
                arParams.push(JSON.stringify(database));
                arParams.push(JSON.stringify(databaseTable));
-               var ar : APIRequest = new APIRequest("IDatabase","existsTable",arParams, null);
+               var ar : APIRequest = new APIRequest("IDatabase","existsTable",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);

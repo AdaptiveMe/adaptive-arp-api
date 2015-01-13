@@ -65,7 +65,7 @@ module Adaptive {
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(url));
-               var ar : APIRequest = new APIRequest("IVideo","playStream",arParams, null);
+               var ar : APIRequest = new APIRequest("IVideo","playStream",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);

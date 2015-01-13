@@ -74,7 +74,7 @@ This method does not create the actual file in the specified folder.
             var arParams = [];
             arParams.push(JSON.stringify(parent));
             arParams.push(JSON.stringify(name));
-            var ar = new Adaptive.APIRequest("IFileSystem", "createFileDescriptor", arParams, null);
+            var ar = new Adaptive.APIRequest("IFileSystem", "createFileDescriptor", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
@@ -107,7 +107,7 @@ This path is volatile and may be cleaned by the OS periodically.
         FileSystemBridge.prototype.getApplicationCacheFolder = function () {
             // Create and populate API request.
             var arParams = [];
-            var ar = new Adaptive.APIRequest("IFileSystem", "getApplicationCacheFolder", arParams, null);
+            var ar = new Adaptive.APIRequest("IFileSystem", "getApplicationCacheFolder", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
@@ -139,7 +139,7 @@ This path must always be writable by the current application.
         FileSystemBridge.prototype.getApplicationCloudFolder = function () {
             // Create and populate API request.
             var arParams = [];
-            var ar = new Adaptive.APIRequest("IFileSystem", "getApplicationCloudFolder", arParams, null);
+            var ar = new Adaptive.APIRequest("IFileSystem", "getApplicationCloudFolder", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
@@ -171,7 +171,7 @@ This path must always be writable by the current application.
         FileSystemBridge.prototype.getApplicationDocumentsFolder = function () {
             // Create and populate API request.
             var arParams = [];
-            var ar = new Adaptive.APIRequest("IFileSystem", "getApplicationDocumentsFolder", arParams, null);
+            var ar = new Adaptive.APIRequest("IFileSystem", "getApplicationDocumentsFolder", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
@@ -203,7 +203,7 @@ This path may or may not be directly readable or writable - it usually contains 
         FileSystemBridge.prototype.getApplicationFolder = function () {
             // Create and populate API request.
             var arParams = [];
-            var ar = new Adaptive.APIRequest("IFileSystem", "getApplicationFolder", arParams, null);
+            var ar = new Adaptive.APIRequest("IFileSystem", "getApplicationFolder", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
@@ -235,7 +235,7 @@ This path must always be writable by the current application.
         FileSystemBridge.prototype.getApplicationProtectedFolder = function () {
             // Create and populate API request.
             var arParams = [];
-            var ar = new Adaptive.APIRequest("IFileSystem", "getApplicationProtectedFolder", arParams, null);
+            var ar = new Adaptive.APIRequest("IFileSystem", "getApplicationProtectedFolder", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
@@ -266,7 +266,7 @@ This path must always be writable by the current application.
         FileSystemBridge.prototype.getSeparator = function () {
             // Create and populate API request.
             var arParams = [];
-            var ar = new Adaptive.APIRequest("IFileSystem", "getSeparator", arParams, null);
+            var ar = new Adaptive.APIRequest("IFileSystem", "getSeparator", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
@@ -300,7 +300,7 @@ This path may or may not be writable by the current application.
         FileSystemBridge.prototype.getSystemExternalFolder = function () {
             // Create and populate API request.
             var arParams = [];
-            var ar = new Adaptive.APIRequest("IFileSystem", "getSystemExternalFolder", arParams, null);
+            var ar = new Adaptive.APIRequest("IFileSystem", "getSystemExternalFolder", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);

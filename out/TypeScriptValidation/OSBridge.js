@@ -69,7 +69,7 @@ var Adaptive;
         OSBridge.prototype.getOSInfo = function () {
             // Create and populate API request.
             var arParams = [];
-            var ar = new Adaptive.APIRequest("IOS", "getOSInfo", arParams, null);
+            var ar = new Adaptive.APIRequest("IOS", "getOSInfo", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);

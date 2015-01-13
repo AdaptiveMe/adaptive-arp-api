@@ -129,7 +129,7 @@ module Adaptive {
           isDeviceModified() : boolean {
                // Create and populate API request.
                var arParams : string[] = [];
-               var ar : APIRequest = new APIRequest("ISecurity","isDeviceModified",arParams, null);
+               var ar : APIRequest = new APIRequest("ISecurity","isDeviceModified",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);

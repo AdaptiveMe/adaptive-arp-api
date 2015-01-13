@@ -524,7 +524,7 @@ public class TypeScriptGenerator extends GeneratorBase {
                 cblsType = p.getType().getSimpleName();
             }
         }
-        printlnGlobal(15, "var ar : APIRequest = new APIRequest(\"" + clazz.getSimpleName() + "\",\"" + currentMethodName + "\",arParams, " + (cblsName != null ? cblsName + ".getId()" : cblsName) + ");");
+        printlnGlobal(15, "var ar : APIRequest = new APIRequest(\"" + clazz.getSimpleName() + "\",\"" + currentMethodName + "\",arParams, " + (cblsName != null ? cblsName + ".getId()" : "-1 /* = synchronous call */") + ");");
         printlnGlobal(15, "// Create and send JSON request.");
         printlnGlobal(15, "var xhr = new XMLHttpRequest();");
         printlnGlobal(15, "xhr.open(\"POST\", bridgePath, false);");

@@ -70,7 +70,7 @@ This method does not create the actual file in the specified folder.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(parent));
                arParams.push(JSON.stringify(name));
-               var ar : APIRequest = new APIRequest("IFileSystem","createFileDescriptor",arParams, null);
+               var ar : APIRequest = new APIRequest("IFileSystem","createFileDescriptor",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -102,7 +102,7 @@ This path is volatile and may be cleaned by the OS periodically.
           getApplicationCacheFolder() : FileDescriptor {
                // Create and populate API request.
                var arParams : string[] = [];
-               var ar : APIRequest = new APIRequest("IFileSystem","getApplicationCacheFolder",arParams, null);
+               var ar : APIRequest = new APIRequest("IFileSystem","getApplicationCacheFolder",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -133,7 +133,7 @@ This path must always be writable by the current application.
           getApplicationCloudFolder() : FileDescriptor {
                // Create and populate API request.
                var arParams : string[] = [];
-               var ar : APIRequest = new APIRequest("IFileSystem","getApplicationCloudFolder",arParams, null);
+               var ar : APIRequest = new APIRequest("IFileSystem","getApplicationCloudFolder",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -164,7 +164,7 @@ This path must always be writable by the current application.
           getApplicationDocumentsFolder() : FileDescriptor {
                // Create and populate API request.
                var arParams : string[] = [];
-               var ar : APIRequest = new APIRequest("IFileSystem","getApplicationDocumentsFolder",arParams, null);
+               var ar : APIRequest = new APIRequest("IFileSystem","getApplicationDocumentsFolder",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -195,7 +195,7 @@ This path may or may not be directly readable or writable - it usually contains 
           getApplicationFolder() : FileDescriptor {
                // Create and populate API request.
                var arParams : string[] = [];
-               var ar : APIRequest = new APIRequest("IFileSystem","getApplicationFolder",arParams, null);
+               var ar : APIRequest = new APIRequest("IFileSystem","getApplicationFolder",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -226,7 +226,7 @@ This path must always be writable by the current application.
           getApplicationProtectedFolder() : FileDescriptor {
                // Create and populate API request.
                var arParams : string[] = [];
-               var ar : APIRequest = new APIRequest("IFileSystem","getApplicationProtectedFolder",arParams, null);
+               var ar : APIRequest = new APIRequest("IFileSystem","getApplicationProtectedFolder",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -256,7 +256,7 @@ This path must always be writable by the current application.
           getSeparator() : string {
                // Create and populate API request.
                var arParams : string[] = [];
-               var ar : APIRequest = new APIRequest("IFileSystem","getSeparator",arParams, null);
+               var ar : APIRequest = new APIRequest("IFileSystem","getSeparator",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -289,7 +289,7 @@ This path may or may not be writable by the current application.
           getSystemExternalFolder() : FileDescriptor {
                // Create and populate API request.
                var arParams : string[] = [];
-               var ar : APIRequest = new APIRequest("IFileSystem","getSystemExternalFolder",arParams, null);
+               var ar : APIRequest = new APIRequest("IFileSystem","getSystemExternalFolder",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);

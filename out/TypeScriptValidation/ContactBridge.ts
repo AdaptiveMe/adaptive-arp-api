@@ -280,7 +280,7 @@ module Adaptive {
                var arParams : string[] = [];
                arParams.push(JSON.stringify(contact));
                arParams.push(JSON.stringify(pngImage));
-               var ar : APIRequest = new APIRequest("IContact","setContactPhoto",arParams, null);
+               var ar : APIRequest = new APIRequest("IContact","setContactPhoto",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);

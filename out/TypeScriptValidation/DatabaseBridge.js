@@ -258,7 +258,7 @@ should be passed as a parameter
             // Create and populate API request.
             var arParams = [];
             arParams.push(JSON.stringify(database));
-            var ar = new Adaptive.APIRequest("IDatabase", "existsDatabase", arParams, null);
+            var ar = new Adaptive.APIRequest("IDatabase", "existsDatabase", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
@@ -293,7 +293,7 @@ should be passed as a parameter
             var arParams = [];
             arParams.push(JSON.stringify(database));
             arParams.push(JSON.stringify(databaseTable));
-            var ar = new Adaptive.APIRequest("IDatabase", "existsTable", arParams, null);
+            var ar = new Adaptive.APIRequest("IDatabase", "existsTable", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);

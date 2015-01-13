@@ -70,7 +70,7 @@ var Adaptive;
         GlobalizationBridge.prototype.getLocaleSupportedDescriptors = function () {
             // Create and populate API request.
             var arParams = [];
-            var ar = new Adaptive.APIRequest("IGlobalization", "getLocaleSupportedDescriptors", arParams, null);
+            var ar = new Adaptive.APIRequest("IGlobalization", "getLocaleSupportedDescriptors", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
@@ -105,7 +105,7 @@ var Adaptive;
             var arParams = [];
             arParams.push(JSON.stringify(key));
             arParams.push(JSON.stringify(locale));
-            var ar = new Adaptive.APIRequest("IGlobalization", "getResourceLiteral", arParams, null);
+            var ar = new Adaptive.APIRequest("IGlobalization", "getResourceLiteral", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
@@ -138,7 +138,7 @@ var Adaptive;
             // Create and populate API request.
             var arParams = [];
             arParams.push(JSON.stringify(locale));
-            var ar = new Adaptive.APIRequest("IGlobalization", "getResourceLiterals", arParams, null);
+            var ar = new Adaptive.APIRequest("IGlobalization", "getResourceLiterals", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);

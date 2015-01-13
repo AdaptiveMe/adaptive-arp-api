@@ -115,7 +115,7 @@ var Adaptive;
         NetworkStatusBridge.prototype.removeNetworkStatusListeners = function () {
             // Create and populate API request.
             var arParams = [];
-            var ar = new Adaptive.APIRequest("INetworkStatus", "removeNetworkStatusListeners", arParams, null);
+            var ar = new Adaptive.APIRequest("INetworkStatus", "removeNetworkStatusListeners", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);

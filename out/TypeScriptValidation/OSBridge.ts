@@ -65,7 +65,7 @@ module Adaptive {
           getOSInfo() : OSInfo {
                // Create and populate API request.
                var arParams : string[] = [];
-               var ar : APIRequest = new APIRequest("IOS","getOSInfo",arParams, null);
+               var ar : APIRequest = new APIRequest("IOS","getOSInfo",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);

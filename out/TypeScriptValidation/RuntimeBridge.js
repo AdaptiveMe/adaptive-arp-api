@@ -67,7 +67,7 @@ var Adaptive;
         RuntimeBridge.prototype.dismissApplication = function () {
             // Create and populate API request.
             var arParams = [];
-            var ar = new Adaptive.APIRequest("IRuntime", "dismissApplication", arParams, null);
+            var ar = new Adaptive.APIRequest("IRuntime", "dismissApplication", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
@@ -88,7 +88,7 @@ var Adaptive;
         RuntimeBridge.prototype.dismissSplashScreen = function () {
             // Create and populate API request.
             var arParams = [];
-            var ar = new Adaptive.APIRequest("IRuntime", "dismissSplashScreen", arParams, null);
+            var ar = new Adaptive.APIRequest("IRuntime", "dismissSplashScreen", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);

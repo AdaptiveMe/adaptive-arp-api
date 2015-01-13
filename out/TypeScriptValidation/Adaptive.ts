@@ -8901,7 +8901,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           getLocaleSupportedDescriptors() : Array<Locale> {
                // Create and populate API request.
                var arParams : string[] = [];
-               var ar : APIRequest = new APIRequest("IGlobalization","getLocaleSupportedDescriptors",arParams, null);
+               var ar : APIRequest = new APIRequest("IGlobalization","getLocaleSupportedDescriptors",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -8935,7 +8935,7 @@ listener and subsequently, the listener will be deactivated and removed from the
                var arParams : string[] = [];
                arParams.push(JSON.stringify(key));
                arParams.push(JSON.stringify(locale));
-               var ar : APIRequest = new APIRequest("IGlobalization","getResourceLiteral",arParams, null);
+               var ar : APIRequest = new APIRequest("IGlobalization","getResourceLiteral",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -8967,7 +8967,7 @@ listener and subsequently, the listener will be deactivated and removed from the
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(locale));
-               var ar : APIRequest = new APIRequest("IGlobalization","getResourceLiterals",arParams, null);
+               var ar : APIRequest = new APIRequest("IGlobalization","getResourceLiterals",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -9037,7 +9037,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           isBackground() : boolean {
                // Create and populate API request.
                var arParams : string[] = [];
-               var ar : APIRequest = new APIRequest("ILifecycle","isBackground",arParams, null);
+               var ar : APIRequest = new APIRequest("ILifecycle","isBackground",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -9090,7 +9090,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           removeLifecycleListeners() : void {
                // Create and populate API request.
                var arParams : string[] = [];
-               var ar : APIRequest = new APIRequest("ILifecycle","removeLifecycleListeners",arParams, null);
+               var ar : APIRequest = new APIRequest("ILifecycle","removeLifecycleListeners",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -9414,7 +9414,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           removeNetworkStatusListeners() : void {
                // Create and populate API request.
                var arParams : string[] = [];
-               var ar : APIRequest = new APIRequest("INetworkStatus","removeNetworkStatusListeners",arParams, null);
+               var ar : APIRequest = new APIRequest("INetworkStatus","removeNetworkStatusListeners",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -9459,7 +9459,7 @@ listener and subsequently, the listener will be deactivated and removed from the
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(serviceName));
-               var ar : APIRequest = new APIRequest("IService","getService",arParams, null);
+               var ar : APIRequest = new APIRequest("IService","getService",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -9521,7 +9521,7 @@ listener and subsequently, the listener will be deactivated and removed from the
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(service));
-               var ar : APIRequest = new APIRequest("IService","registerService",arParams, null);
+               var ar : APIRequest = new APIRequest("IService","registerService",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -9544,7 +9544,7 @@ listener and subsequently, the listener will be deactivated and removed from the
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(service));
-               var ar : APIRequest = new APIRequest("IService","unregisterService",arParams, null);
+               var ar : APIRequest = new APIRequest("IService","unregisterService",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -9565,7 +9565,7 @@ listener and subsequently, the listener will be deactivated and removed from the
           unregisterServices() : void {
                // Create and populate API request.
                var arParams : string[] = [];
-               var ar : APIRequest = new APIRequest("IService","unregisterServices",arParams, null);
+               var ar : APIRequest = new APIRequest("IService","unregisterServices",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -9589,7 +9589,7 @@ listener and subsequently, the listener will be deactivated and removed from the
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(service));
-               var ar : APIRequest = new APIRequest("IService","isRegistered_service",arParams, null);
+               var ar : APIRequest = new APIRequest("IService","isRegistered_service",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -9621,7 +9621,7 @@ listener and subsequently, the listener will be deactivated and removed from the
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(serviceName));
-               var ar : APIRequest = new APIRequest("IService","isRegistered_serviceName",arParams, null);
+               var ar : APIRequest = new APIRequest("IService","isRegistered_serviceName",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -9685,7 +9685,7 @@ listener and subsequently, the listener will be deactivated and removed from the
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(number));
-               var ar : APIRequest = new APIRequest("ITelephony","call",arParams, null);
+               var ar : APIRequest = new APIRequest("ITelephony","call",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -9953,7 +9953,7 @@ should be passed as a parameter
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(database));
-               var ar : APIRequest = new APIRequest("IDatabase","existsDatabase",arParams, null);
+               var ar : APIRequest = new APIRequest("IDatabase","existsDatabase",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -9987,7 +9987,7 @@ should be passed as a parameter
                var arParams : string[] = [];
                arParams.push(JSON.stringify(database));
                arParams.push(JSON.stringify(databaseTable));
-               var ar : APIRequest = new APIRequest("IDatabase","existsTable",arParams, null);
+               var ar : APIRequest = new APIRequest("IDatabase","existsTable",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -10035,7 +10035,7 @@ should be passed as a parameter
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(descriptor));
-               var ar : APIRequest = new APIRequest("IFile","canRead",arParams, null);
+               var ar : APIRequest = new APIRequest("IFile","canRead",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -10067,7 +10067,7 @@ should be passed as a parameter
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(descriptor));
-               var ar : APIRequest = new APIRequest("IFile","canWrite",arParams, null);
+               var ar : APIRequest = new APIRequest("IFile","canWrite",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -10131,7 +10131,7 @@ deleted if the cascade parameter is set to true.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(descriptor));
                arParams.push(JSON.stringify(cascade));
-               var ar : APIRequest = new APIRequest("IFile","delete",arParams, null);
+               var ar : APIRequest = new APIRequest("IFile","delete",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -10163,7 +10163,7 @@ deleted if the cascade parameter is set to true.
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(descriptor));
-               var ar : APIRequest = new APIRequest("IFile","exists",arParams, null);
+               var ar : APIRequest = new APIRequest("IFile","exists",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -10224,7 +10224,7 @@ deleted if the cascade parameter is set to true.
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(descriptor));
-               var ar : APIRequest = new APIRequest("IFile","getFileStorageType",arParams, null);
+               var ar : APIRequest = new APIRequest("IFile","getFileStorageType",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -10256,7 +10256,7 @@ deleted if the cascade parameter is set to true.
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(descriptor));
-               var ar : APIRequest = new APIRequest("IFile","getFileType",arParams, null);
+               var ar : APIRequest = new APIRequest("IFile","getFileType",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -10288,7 +10288,7 @@ deleted if the cascade parameter is set to true.
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(descriptor));
-               var ar : APIRequest = new APIRequest("IFile","getSecurityType",arParams, null);
+               var ar : APIRequest = new APIRequest("IFile","getSecurityType",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -10320,7 +10320,7 @@ deleted if the cascade parameter is set to true.
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(descriptor));
-               var ar : APIRequest = new APIRequest("IFile","isDirectory",arParams, null);
+               var ar : APIRequest = new APIRequest("IFile","isDirectory",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -10416,7 +10416,7 @@ is a file, it will not yield any results.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(descriptor));
                arParams.push(JSON.stringify(recursive));
-               var ar : APIRequest = new APIRequest("IFile","mkDir",arParams, null);
+               var ar : APIRequest = new APIRequest("IFile","mkDir",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -10534,7 +10534,7 @@ This method does not create the actual file in the specified folder.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(parent));
                arParams.push(JSON.stringify(name));
-               var ar : APIRequest = new APIRequest("IFileSystem","createFileDescriptor",arParams, null);
+               var ar : APIRequest = new APIRequest("IFileSystem","createFileDescriptor",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -10566,7 +10566,7 @@ This path is volatile and may be cleaned by the OS periodically.
           getApplicationCacheFolder() : FileDescriptor {
                // Create and populate API request.
                var arParams : string[] = [];
-               var ar : APIRequest = new APIRequest("IFileSystem","getApplicationCacheFolder",arParams, null);
+               var ar : APIRequest = new APIRequest("IFileSystem","getApplicationCacheFolder",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -10597,7 +10597,7 @@ This path must always be writable by the current application.
           getApplicationCloudFolder() : FileDescriptor {
                // Create and populate API request.
                var arParams : string[] = [];
-               var ar : APIRequest = new APIRequest("IFileSystem","getApplicationCloudFolder",arParams, null);
+               var ar : APIRequest = new APIRequest("IFileSystem","getApplicationCloudFolder",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -10628,7 +10628,7 @@ This path must always be writable by the current application.
           getApplicationDocumentsFolder() : FileDescriptor {
                // Create and populate API request.
                var arParams : string[] = [];
-               var ar : APIRequest = new APIRequest("IFileSystem","getApplicationDocumentsFolder",arParams, null);
+               var ar : APIRequest = new APIRequest("IFileSystem","getApplicationDocumentsFolder",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -10659,7 +10659,7 @@ This path may or may not be directly readable or writable - it usually contains 
           getApplicationFolder() : FileDescriptor {
                // Create and populate API request.
                var arParams : string[] = [];
-               var ar : APIRequest = new APIRequest("IFileSystem","getApplicationFolder",arParams, null);
+               var ar : APIRequest = new APIRequest("IFileSystem","getApplicationFolder",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -10690,7 +10690,7 @@ This path must always be writable by the current application.
           getApplicationProtectedFolder() : FileDescriptor {
                // Create and populate API request.
                var arParams : string[] = [];
-               var ar : APIRequest = new APIRequest("IFileSystem","getApplicationProtectedFolder",arParams, null);
+               var ar : APIRequest = new APIRequest("IFileSystem","getApplicationProtectedFolder",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -10720,7 +10720,7 @@ This path must always be writable by the current application.
           getSeparator() : string {
                // Create and populate API request.
                var arParams : string[] = [];
-               var ar : APIRequest = new APIRequest("IFileSystem","getSeparator",arParams, null);
+               var ar : APIRequest = new APIRequest("IFileSystem","getSeparator",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -10753,7 +10753,7 @@ This path may or may not be writable by the current application.
           getSystemExternalFolder() : FileDescriptor {
                // Create and populate API request.
                var arParams : string[] = [];
-               var ar : APIRequest = new APIRequest("IFileSystem","getSystemExternalFolder",arParams, null);
+               var ar : APIRequest = new APIRequest("IFileSystem","getSystemExternalFolder",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -10880,7 +10880,7 @@ This path may or may not be writable by the current application.
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(url));
-               var ar : APIRequest = new APIRequest("IVideo","playStream",arParams, null);
+               var ar : APIRequest = new APIRequest("IVideo","playStream",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -11207,7 +11207,7 @@ This path may or may not be writable by the current application.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(contact));
                arParams.push(JSON.stringify(pngImage));
-               var ar : APIRequest = new APIRequest("IContact","setContactPhoto",arParams, null);
+               var ar : APIRequest = new APIRequest("IContact","setContactPhoto",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -11503,7 +11503,7 @@ This path may or may not be writable by the current application.
           isDeviceModified() : boolean {
                // Create and populate API request.
                var arParams : string[] = [];
-               var ar : APIRequest = new APIRequest("ISecurity","isDeviceModified",arParams, null);
+               var ar : APIRequest = new APIRequest("ISecurity","isDeviceModified",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -11627,7 +11627,7 @@ This path may or may not be writable by the current application.
           removeAccelerationListeners() : void {
                // Create and populate API request.
                var arParams : string[] = [];
-               var ar : APIRequest = new APIRequest("IAcceleration","removeAccelerationListeners",arParams, null);
+               var ar : APIRequest = new APIRequest("IAcceleration","removeAccelerationListeners",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -11749,7 +11749,7 @@ This path may or may not be writable by the current application.
           removeGeolocationListeners() : void {
                // Create and populate API request.
                var arParams : string[] = [];
-               var ar : APIRequest = new APIRequest("IGeolocation","removeGeolocationListeners",arParams, null);
+               var ar : APIRequest = new APIRequest("IGeolocation","removeGeolocationListeners",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -11922,7 +11922,7 @@ This path may or may not be writable by the current application.
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(type));
-               var ar : APIRequest = new APIRequest("ICapabilities","hasButtonSupport",arParams, null);
+               var ar : APIRequest = new APIRequest("ICapabilities","hasButtonSupport",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -11955,7 +11955,7 @@ the device.
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(type));
-               var ar : APIRequest = new APIRequest("ICapabilities","hasCommunicationSupport",arParams, null);
+               var ar : APIRequest = new APIRequest("ICapabilities","hasCommunicationSupport",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -11987,7 +11987,7 @@ the device.
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(type));
-               var ar : APIRequest = new APIRequest("ICapabilities","hasDataSupport",arParams, null);
+               var ar : APIRequest = new APIRequest("ICapabilities","hasDataSupport",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -12020,7 +12020,7 @@ device.
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(type));
-               var ar : APIRequest = new APIRequest("ICapabilities","hasMediaSupport",arParams, null);
+               var ar : APIRequest = new APIRequest("ICapabilities","hasMediaSupport",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -12052,7 +12052,7 @@ device.
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(type));
-               var ar : APIRequest = new APIRequest("ICapabilities","hasNetSupport",arParams, null);
+               var ar : APIRequest = new APIRequest("ICapabilities","hasNetSupport",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -12085,7 +12085,7 @@ device.
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(type));
-               var ar : APIRequest = new APIRequest("ICapabilities","hasNotificationSupport",arParams, null);
+               var ar : APIRequest = new APIRequest("ICapabilities","hasNotificationSupport",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -12118,7 +12118,7 @@ device.
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(type));
-               var ar : APIRequest = new APIRequest("ICapabilities","hasSensorSupport",arParams, null);
+               var ar : APIRequest = new APIRequest("ICapabilities","hasSensorSupport",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -12188,7 +12188,7 @@ device.
           getDeviceInfo() : DeviceInfo {
                // Create and populate API request.
                var arParams : string[] = [];
-               var ar : APIRequest = new APIRequest("IDevice","getDeviceInfo",arParams, null);
+               var ar : APIRequest = new APIRequest("IDevice","getDeviceInfo",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -12218,7 +12218,7 @@ device.
           getLocaleCurrent() : Locale {
                // Create and populate API request.
                var arParams : string[] = [];
-               var ar : APIRequest = new APIRequest("IDevice","getLocaleCurrent",arParams, null);
+               var ar : APIRequest = new APIRequest("IDevice","getLocaleCurrent",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -12271,7 +12271,7 @@ device.
           removeButtonListeners() : void {
                // Create and populate API request.
                var arParams : string[] = [];
-               var ar : APIRequest = new APIRequest("IDevice","removeButtonListeners",arParams, null);
+               var ar : APIRequest = new APIRequest("IDevice","removeButtonListeners",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -12330,7 +12330,7 @@ device.
           getOSInfo() : OSInfo {
                // Create and populate API request.
                var arParams : string[] = [];
-               var ar : APIRequest = new APIRequest("IOS","getOSInfo",arParams, null);
+               var ar : APIRequest = new APIRequest("IOS","getOSInfo",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -12375,7 +12375,7 @@ device.
           dismissApplication() : void {
                // Create and populate API request.
                var arParams : string[] = [];
-               var ar : APIRequest = new APIRequest("IRuntime","dismissApplication",arParams, null);
+               var ar : APIRequest = new APIRequest("IRuntime","dismissApplication",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -12397,7 +12397,7 @@ device.
           dismissSplashScreen() : boolean {
                // Create and populate API request.
                var arParams : string[] = [];
-               var ar : APIRequest = new APIRequest("IRuntime","dismissSplashScreen",arParams, null);
+               var ar : APIRequest = new APIRequest("IRuntime","dismissSplashScreen",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -12445,7 +12445,7 @@ device.
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(url));
-               var ar : APIRequest = new APIRequest("IBrowser","openExtenalBrowser",arParams, null);
+               var ar : APIRequest = new APIRequest("IBrowser","openExtenalBrowser",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -12481,7 +12481,7 @@ device.
                arParams.push(JSON.stringify(url));
                arParams.push(JSON.stringify(title));
                arParams.push(JSON.stringify(backButtonText));
-               var ar : APIRequest = new APIRequest("IBrowser","openInternalBrowser",arParams, null);
+               var ar : APIRequest = new APIRequest("IBrowser","openInternalBrowser",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -12517,7 +12517,7 @@ device.
                arParams.push(JSON.stringify(url));
                arParams.push(JSON.stringify(title));
                arParams.push(JSON.stringify(backButtonText));
-               var ar : APIRequest = new APIRequest("IBrowser","openInternalBrowserModal",arParams, null);
+               var ar : APIRequest = new APIRequest("IBrowser","openInternalBrowserModal",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -12662,7 +12662,7 @@ device.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(level));
                arParams.push(JSON.stringify(message));
-               var ar : APIRequest = new APIRequest("ILogging","log_level_message",arParams, null);
+               var ar : APIRequest = new APIRequest("ILogging","log_level_message",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -12689,7 +12689,7 @@ device.
                arParams.push(JSON.stringify(level));
                arParams.push(JSON.stringify(category));
                arParams.push(JSON.stringify(message));
-               var ar : APIRequest = new APIRequest("ILogging","log_level_category_message",arParams, null);
+               var ar : APIRequest = new APIRequest("ILogging","log_level_category_message",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);

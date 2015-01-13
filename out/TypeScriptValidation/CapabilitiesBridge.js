@@ -77,7 +77,7 @@ var Adaptive;
             // Create and populate API request.
             var arParams = [];
             arParams.push(JSON.stringify(type));
-            var ar = new Adaptive.APIRequest("ICapabilities", "hasButtonSupport", arParams, null);
+            var ar = new Adaptive.APIRequest("ICapabilities", "hasButtonSupport", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
@@ -111,7 +111,7 @@ the device.
             // Create and populate API request.
             var arParams = [];
             arParams.push(JSON.stringify(type));
-            var ar = new Adaptive.APIRequest("ICapabilities", "hasCommunicationSupport", arParams, null);
+            var ar = new Adaptive.APIRequest("ICapabilities", "hasCommunicationSupport", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
@@ -144,7 +144,7 @@ the device.
             // Create and populate API request.
             var arParams = [];
             arParams.push(JSON.stringify(type));
-            var ar = new Adaptive.APIRequest("ICapabilities", "hasDataSupport", arParams, null);
+            var ar = new Adaptive.APIRequest("ICapabilities", "hasDataSupport", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
@@ -178,7 +178,7 @@ device.
             // Create and populate API request.
             var arParams = [];
             arParams.push(JSON.stringify(type));
-            var ar = new Adaptive.APIRequest("ICapabilities", "hasMediaSupport", arParams, null);
+            var ar = new Adaptive.APIRequest("ICapabilities", "hasMediaSupport", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
@@ -211,7 +211,7 @@ device.
             // Create and populate API request.
             var arParams = [];
             arParams.push(JSON.stringify(type));
-            var ar = new Adaptive.APIRequest("ICapabilities", "hasNetSupport", arParams, null);
+            var ar = new Adaptive.APIRequest("ICapabilities", "hasNetSupport", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
@@ -245,7 +245,7 @@ device.
             // Create and populate API request.
             var arParams = [];
             arParams.push(JSON.stringify(type));
-            var ar = new Adaptive.APIRequest("ICapabilities", "hasNotificationSupport", arParams, null);
+            var ar = new Adaptive.APIRequest("ICapabilities", "hasNotificationSupport", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
@@ -279,7 +279,7 @@ device.
             // Create and populate API request.
             var arParams = [];
             arParams.push(JSON.stringify(type));
-            var ar = new Adaptive.APIRequest("ICapabilities", "hasSensorSupport", arParams, null);
+            var ar = new Adaptive.APIRequest("ICapabilities", "hasSensorSupport", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);

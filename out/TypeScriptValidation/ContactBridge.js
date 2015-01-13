@@ -277,7 +277,7 @@ var Adaptive;
             var arParams = [];
             arParams.push(JSON.stringify(contact));
             arParams.push(JSON.stringify(pngImage));
-            var ar = new Adaptive.APIRequest("IContact", "setContactPhoto", arParams, null);
+            var ar = new Adaptive.APIRequest("IContact", "setContactPhoto", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);

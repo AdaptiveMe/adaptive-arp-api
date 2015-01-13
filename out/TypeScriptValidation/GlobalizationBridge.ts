@@ -66,7 +66,7 @@ module Adaptive {
           getLocaleSupportedDescriptors() : Array<Locale> {
                // Create and populate API request.
                var arParams : string[] = [];
-               var ar : APIRequest = new APIRequest("IGlobalization","getLocaleSupportedDescriptors",arParams, null);
+               var ar : APIRequest = new APIRequest("IGlobalization","getLocaleSupportedDescriptors",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -100,7 +100,7 @@ module Adaptive {
                var arParams : string[] = [];
                arParams.push(JSON.stringify(key));
                arParams.push(JSON.stringify(locale));
-               var ar : APIRequest = new APIRequest("IGlobalization","getResourceLiteral",arParams, null);
+               var ar : APIRequest = new APIRequest("IGlobalization","getResourceLiteral",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -132,7 +132,7 @@ module Adaptive {
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(locale));
-               var ar : APIRequest = new APIRequest("IGlobalization","getResourceLiterals",arParams, null);
+               var ar : APIRequest = new APIRequest("IGlobalization","getResourceLiterals",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);

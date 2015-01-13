@@ -95,7 +95,7 @@ var Adaptive;
         DeviceBridge.prototype.getDeviceInfo = function () {
             // Create and populate API request.
             var arParams = [];
-            var ar = new Adaptive.APIRequest("IDevice", "getDeviceInfo", arParams, null);
+            var ar = new Adaptive.APIRequest("IDevice", "getDeviceInfo", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
@@ -126,7 +126,7 @@ var Adaptive;
         DeviceBridge.prototype.getLocaleCurrent = function () {
             // Create and populate API request.
             var arParams = [];
-            var ar = new Adaptive.APIRequest("IDevice", "getLocaleCurrent", arParams, null);
+            var ar = new Adaptive.APIRequest("IDevice", "getLocaleCurrent", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
@@ -179,7 +179,7 @@ var Adaptive;
         DeviceBridge.prototype.removeButtonListeners = function () {
             // Create and populate API request.
             var arParams = [];
-            var ar = new Adaptive.APIRequest("IDevice", "removeButtonListeners", arParams, null);
+            var ar = new Adaptive.APIRequest("IDevice", "removeButtonListeners", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);

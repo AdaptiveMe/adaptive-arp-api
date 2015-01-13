@@ -74,7 +74,7 @@ var Adaptive;
             // Create and populate API request.
             var arParams = [];
             arParams.push(JSON.stringify(serviceName));
-            var ar = new Adaptive.APIRequest("IService", "getService", arParams, null);
+            var ar = new Adaptive.APIRequest("IService", "getService", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
@@ -136,7 +136,7 @@ var Adaptive;
             // Create and populate API request.
             var arParams = [];
             arParams.push(JSON.stringify(service));
-            var ar = new Adaptive.APIRequest("IService", "registerService", arParams, null);
+            var ar = new Adaptive.APIRequest("IService", "registerService", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
@@ -158,7 +158,7 @@ var Adaptive;
             // Create and populate API request.
             var arParams = [];
             arParams.push(JSON.stringify(service));
-            var ar = new Adaptive.APIRequest("IService", "unregisterService", arParams, null);
+            var ar = new Adaptive.APIRequest("IService", "unregisterService", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
@@ -178,7 +178,7 @@ var Adaptive;
         ServiceBridge.prototype.unregisterServices = function () {
             // Create and populate API request.
             var arParams = [];
-            var ar = new Adaptive.APIRequest("IService", "unregisterServices", arParams, null);
+            var ar = new Adaptive.APIRequest("IService", "unregisterServices", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
@@ -201,7 +201,7 @@ var Adaptive;
             // Create and populate API request.
             var arParams = [];
             arParams.push(JSON.stringify(service));
-            var ar = new Adaptive.APIRequest("IService", "isRegistered_service", arParams, null);
+            var ar = new Adaptive.APIRequest("IService", "isRegistered_service", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
@@ -234,7 +234,7 @@ var Adaptive;
             // Create and populate API request.
             var arParams = [];
             arParams.push(JSON.stringify(serviceName));
-            var ar = new Adaptive.APIRequest("IService", "isRegistered_serviceName", arParams, null);
+            var ar = new Adaptive.APIRequest("IService", "isRegistered_serviceName", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);

@@ -70,7 +70,7 @@ module Adaptive {
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(serviceName));
-               var ar : APIRequest = new APIRequest("IService","getService",arParams, null);
+               var ar : APIRequest = new APIRequest("IService","getService",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -132,7 +132,7 @@ module Adaptive {
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(service));
-               var ar : APIRequest = new APIRequest("IService","registerService",arParams, null);
+               var ar : APIRequest = new APIRequest("IService","registerService",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -155,7 +155,7 @@ module Adaptive {
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(service));
-               var ar : APIRequest = new APIRequest("IService","unregisterService",arParams, null);
+               var ar : APIRequest = new APIRequest("IService","unregisterService",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -176,7 +176,7 @@ module Adaptive {
           unregisterServices() : void {
                // Create and populate API request.
                var arParams : string[] = [];
-               var ar : APIRequest = new APIRequest("IService","unregisterServices",arParams, null);
+               var ar : APIRequest = new APIRequest("IService","unregisterServices",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -200,7 +200,7 @@ module Adaptive {
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(service));
-               var ar : APIRequest = new APIRequest("IService","isRegistered_service",arParams, null);
+               var ar : APIRequest = new APIRequest("IService","isRegistered_service",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -232,7 +232,7 @@ module Adaptive {
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(serviceName));
-               var ar : APIRequest = new APIRequest("IService","isRegistered_serviceName",arParams, null);
+               var ar : APIRequest = new APIRequest("IService","isRegistered_serviceName",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);

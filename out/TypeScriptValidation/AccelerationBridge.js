@@ -115,7 +115,7 @@ var Adaptive;
         AccelerationBridge.prototype.removeAccelerationListeners = function () {
             // Create and populate API request.
             var arParams = [];
-            var ar = new Adaptive.APIRequest("IAcceleration", "removeAccelerationListeners", arParams, null);
+            var ar = new Adaptive.APIRequest("IAcceleration", "removeAccelerationListeners", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);

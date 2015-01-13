@@ -69,7 +69,7 @@ var Adaptive;
             // Create and populate API request.
             var arParams = [];
             arParams.push(JSON.stringify(url));
-            var ar = new Adaptive.APIRequest("IVideo", "playStream", arParams, null);
+            var ar = new Adaptive.APIRequest("IVideo", "playStream", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);

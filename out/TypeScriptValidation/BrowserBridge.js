@@ -70,7 +70,7 @@ var Adaptive;
             // Create and populate API request.
             var arParams = [];
             arParams.push(JSON.stringify(url));
-            var ar = new Adaptive.APIRequest("IBrowser", "openExtenalBrowser", arParams, null);
+            var ar = new Adaptive.APIRequest("IBrowser", "openExtenalBrowser", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
@@ -107,7 +107,7 @@ var Adaptive;
             arParams.push(JSON.stringify(url));
             arParams.push(JSON.stringify(title));
             arParams.push(JSON.stringify(backButtonText));
-            var ar = new Adaptive.APIRequest("IBrowser", "openInternalBrowser", arParams, null);
+            var ar = new Adaptive.APIRequest("IBrowser", "openInternalBrowser", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
@@ -144,7 +144,7 @@ var Adaptive;
             arParams.push(JSON.stringify(url));
             arParams.push(JSON.stringify(title));
             arParams.push(JSON.stringify(backButtonText));
-            var ar = new Adaptive.APIRequest("IBrowser", "openInternalBrowserModal", arParams, null);
+            var ar = new Adaptive.APIRequest("IBrowser", "openInternalBrowserModal", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);

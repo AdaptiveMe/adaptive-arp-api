@@ -82,7 +82,7 @@ var Adaptive;
             // Create and populate API request.
             var arParams = [];
             arParams.push(JSON.stringify(descriptor));
-            var ar = new Adaptive.APIRequest("IFile", "canRead", arParams, null);
+            var ar = new Adaptive.APIRequest("IFile", "canRead", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
@@ -115,7 +115,7 @@ var Adaptive;
             // Create and populate API request.
             var arParams = [];
             arParams.push(JSON.stringify(descriptor));
-            var ar = new Adaptive.APIRequest("IFile", "canWrite", arParams, null);
+            var ar = new Adaptive.APIRequest("IFile", "canWrite", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
@@ -179,7 +179,7 @@ deleted if the cascade parameter is set to true.
             var arParams = [];
             arParams.push(JSON.stringify(descriptor));
             arParams.push(JSON.stringify(cascade));
-            var ar = new Adaptive.APIRequest("IFile", "delete", arParams, null);
+            var ar = new Adaptive.APIRequest("IFile", "delete", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
@@ -212,7 +212,7 @@ deleted if the cascade parameter is set to true.
             // Create and populate API request.
             var arParams = [];
             arParams.push(JSON.stringify(descriptor));
-            var ar = new Adaptive.APIRequest("IFile", "exists", arParams, null);
+            var ar = new Adaptive.APIRequest("IFile", "exists", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
@@ -273,7 +273,7 @@ deleted if the cascade parameter is set to true.
             // Create and populate API request.
             var arParams = [];
             arParams.push(JSON.stringify(descriptor));
-            var ar = new Adaptive.APIRequest("IFile", "getFileStorageType", arParams, null);
+            var ar = new Adaptive.APIRequest("IFile", "getFileStorageType", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
@@ -306,7 +306,7 @@ deleted if the cascade parameter is set to true.
             // Create and populate API request.
             var arParams = [];
             arParams.push(JSON.stringify(descriptor));
-            var ar = new Adaptive.APIRequest("IFile", "getFileType", arParams, null);
+            var ar = new Adaptive.APIRequest("IFile", "getFileType", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
@@ -339,7 +339,7 @@ deleted if the cascade parameter is set to true.
             // Create and populate API request.
             var arParams = [];
             arParams.push(JSON.stringify(descriptor));
-            var ar = new Adaptive.APIRequest("IFile", "getSecurityType", arParams, null);
+            var ar = new Adaptive.APIRequest("IFile", "getSecurityType", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
@@ -372,7 +372,7 @@ deleted if the cascade parameter is set to true.
             // Create and populate API request.
             var arParams = [];
             arParams.push(JSON.stringify(descriptor));
-            var ar = new Adaptive.APIRequest("IFile", "isDirectory", arParams, null);
+            var ar = new Adaptive.APIRequest("IFile", "isDirectory", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
@@ -467,7 +467,7 @@ is a file, it will not yield any results.
             var arParams = [];
             arParams.push(JSON.stringify(descriptor));
             arParams.push(JSON.stringify(recursive));
-            var ar = new Adaptive.APIRequest("IFile", "mkDir", arParams, null);
+            var ar = new Adaptive.APIRequest("IFile", "mkDir", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);

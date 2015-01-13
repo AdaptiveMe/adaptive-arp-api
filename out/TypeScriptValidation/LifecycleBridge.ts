@@ -90,7 +90,7 @@ module Adaptive {
           isBackground() : boolean {
                // Create and populate API request.
                var arParams : string[] = [];
-               var ar : APIRequest = new APIRequest("ILifecycle","isBackground",arParams, null);
+               var ar : APIRequest = new APIRequest("ILifecycle","isBackground",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -143,7 +143,7 @@ module Adaptive {
           removeLifecycleListeners() : void {
                // Create and populate API request.
                var arParams : string[] = [];
-               var ar : APIRequest = new APIRequest("ILifecycle","removeLifecycleListeners",arParams, null);
+               var ar : APIRequest = new APIRequest("ILifecycle","removeLifecycleListeners",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);

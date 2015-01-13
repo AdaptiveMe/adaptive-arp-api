@@ -78,7 +78,7 @@ module Adaptive {
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(descriptor));
-               var ar : APIRequest = new APIRequest("IFile","canRead",arParams, null);
+               var ar : APIRequest = new APIRequest("IFile","canRead",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -110,7 +110,7 @@ module Adaptive {
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(descriptor));
-               var ar : APIRequest = new APIRequest("IFile","canWrite",arParams, null);
+               var ar : APIRequest = new APIRequest("IFile","canWrite",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -174,7 +174,7 @@ deleted if the cascade parameter is set to true.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(descriptor));
                arParams.push(JSON.stringify(cascade));
-               var ar : APIRequest = new APIRequest("IFile","delete",arParams, null);
+               var ar : APIRequest = new APIRequest("IFile","delete",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -206,7 +206,7 @@ deleted if the cascade parameter is set to true.
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(descriptor));
-               var ar : APIRequest = new APIRequest("IFile","exists",arParams, null);
+               var ar : APIRequest = new APIRequest("IFile","exists",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -267,7 +267,7 @@ deleted if the cascade parameter is set to true.
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(descriptor));
-               var ar : APIRequest = new APIRequest("IFile","getFileStorageType",arParams, null);
+               var ar : APIRequest = new APIRequest("IFile","getFileStorageType",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -299,7 +299,7 @@ deleted if the cascade parameter is set to true.
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(descriptor));
-               var ar : APIRequest = new APIRequest("IFile","getFileType",arParams, null);
+               var ar : APIRequest = new APIRequest("IFile","getFileType",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -331,7 +331,7 @@ deleted if the cascade parameter is set to true.
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(descriptor));
-               var ar : APIRequest = new APIRequest("IFile","getSecurityType",arParams, null);
+               var ar : APIRequest = new APIRequest("IFile","getSecurityType",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -363,7 +363,7 @@ deleted if the cascade parameter is set to true.
                // Create and populate API request.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(descriptor));
-               var ar : APIRequest = new APIRequest("IFile","isDirectory",arParams, null);
+               var ar : APIRequest = new APIRequest("IFile","isDirectory",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);
@@ -459,7 +459,7 @@ is a file, it will not yield any results.
                var arParams : string[] = [];
                arParams.push(JSON.stringify(descriptor));
                arParams.push(JSON.stringify(recursive));
-               var ar : APIRequest = new APIRequest("IFile","mkDir",arParams, null);
+               var ar : APIRequest = new APIRequest("IFile","mkDir",arParams, -1 /* = synchronous call */);
                // Create and send JSON request.
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath, false);

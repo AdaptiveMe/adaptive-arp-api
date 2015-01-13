@@ -93,7 +93,7 @@ var Adaptive;
         LifecycleBridge.prototype.isBackground = function () {
             // Create and populate API request.
             var arParams = [];
-            var ar = new Adaptive.APIRequest("ILifecycle", "isBackground", arParams, null);
+            var ar = new Adaptive.APIRequest("ILifecycle", "isBackground", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
@@ -146,7 +146,7 @@ var Adaptive;
         LifecycleBridge.prototype.removeLifecycleListeners = function () {
             // Create and populate API request.
             var arParams = [];
-            var ar = new Adaptive.APIRequest("ILifecycle", "removeLifecycleListeners", arParams, null);
+            var ar = new Adaptive.APIRequest("ILifecycle", "removeLifecycleListeners", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);

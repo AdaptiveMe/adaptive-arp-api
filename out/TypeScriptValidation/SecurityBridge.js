@@ -131,7 +131,7 @@ var Adaptive;
         SecurityBridge.prototype.isDeviceModified = function () {
             // Create and populate API request.
             var arParams = [];
-            var ar = new Adaptive.APIRequest("ISecurity", "isDeviceModified", arParams, null);
+            var ar = new Adaptive.APIRequest("ISecurity", "isDeviceModified", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);

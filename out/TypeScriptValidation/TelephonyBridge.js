@@ -71,7 +71,7 @@ var Adaptive;
             // Create and populate API request.
             var arParams = [];
             arParams.push(JSON.stringify(number));
-            var ar = new Adaptive.APIRequest("ITelephony", "call", arParams, null);
+            var ar = new Adaptive.APIRequest("ITelephony", "call", arParams, -1);
             // Create and send JSON request.
             var xhr = new XMLHttpRequest();
             xhr.open("POST", Adaptive.bridgePath, false);
