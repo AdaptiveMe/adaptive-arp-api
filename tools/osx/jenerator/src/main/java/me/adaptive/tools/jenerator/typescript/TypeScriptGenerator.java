@@ -528,6 +528,8 @@ public class TypeScriptGenerator extends GeneratorBase {
         printlnGlobal(15, "// Create and send JSON request.");
         printlnGlobal(15, "var xhr = new XMLHttpRequest();");
         printlnGlobal(15, "xhr.open(\"POST\", bridgePath, false);");
+        printlnGlobal(15, "xhr.setRequestHeader(\"Content-Type\", \"application/json;charset=UTF-8\");");
+        printlnGlobal(15, "xhr.setRequestHeader(\"X-AdaptiveVersion\", \""+getGenerationTagVersion()+"\");");
         // Manage callbacks
         if (cblsType != null && cblsType.endsWith("Callback")) {
             printlnGlobal(15, "// Add callback reference to local dictionary.");

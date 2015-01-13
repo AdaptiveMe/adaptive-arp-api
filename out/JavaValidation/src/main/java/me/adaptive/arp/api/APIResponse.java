@@ -51,6 +51,10 @@ public class APIResponse {
         Status code of the response
      */
      private int statusCode;
+     /**
+        Status message of the response
+     */
+     private String statusMessage;
 
      /**
         Default constructor
@@ -71,6 +75,20 @@ public class APIResponse {
           this();
           this.response = response;
           this.statusCode = statusCode;
+     }
+
+     /**
+        Constructor with parameters
+
+        @param response      String representing the response
+        @param statusCode    Status code of the response
+        @param statusMessage Status message of the response
+     */
+     public APIResponse(String response, int statusCode, String statusMessage) {
+          this();
+          this.response = response;
+          this.statusCode = statusCode;
+          this.statusMessage = statusMessage;
      }
 
      /**
@@ -108,6 +126,24 @@ public class APIResponse {
      */
      public void setStatusCode(int statusCode) {
           this.statusCode = statusCode;
+     }
+
+     /**
+        Status message getter
+
+        @return Status message of the response
+     */
+     public String getStatusMessage() {
+          return this.statusMessage;
+     }
+
+     /**
+        Status message setter
+
+        @param statusMessage Status message of the response
+     */
+     public void setStatusMessage(String statusMessage) {
+          this.statusMessage = statusMessage;
      }
 
 

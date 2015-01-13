@@ -69,6 +69,23 @@ Release:
           return self;
      }
 
+     /**
+        Constructor with parameters
+
+        @param response      String representing the response
+        @param statusCode    Status code of the response
+        @param statusMessage Status message of the response
+     */
+     - (id) initWithResponseStatusCodeStatusMessage:(NSString*)response statusCode:(int*)statusCode statusMessage:(NSString*)statusMessage {
+          self = [self init];
+          if (self) {
+               [self setResponse:response];
+               [self setStatusCode:statusCode];
+               [self setStatusMessage:statusMessage];
+          }
+          return self;
+     }
+
 
 
 @end

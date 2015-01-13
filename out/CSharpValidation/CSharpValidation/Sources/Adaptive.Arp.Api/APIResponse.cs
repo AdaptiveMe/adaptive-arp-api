@@ -54,6 +54,10 @@ namespace Adaptive.Arp.Api
              Status code of the response
           */
           public int StatusCode { get; set; }
+          /**
+             Status message of the response
+          */
+          public string StatusMessage { get; set; }
 
           /**
              Default constructor
@@ -73,6 +77,19 @@ namespace Adaptive.Arp.Api
           public APIResponse(string Response, int StatusCode) : base () {
                this.Response = Response;
                this.StatusCode = StatusCode;
+          }
+
+          /**
+             Constructor with parameters
+
+             @param Response      String representing the response
+             @param StatusCode    Status code of the response
+             @param StatusMessage Status message of the response
+          */
+          public APIResponse(string Response, int StatusCode, string StatusMessage) : base () {
+               this.Response = Response;
+               this.StatusCode = StatusCode;
+               this.StatusMessage = StatusMessage;
           }
 
           /**
@@ -110,6 +127,24 @@ namespace Adaptive.Arp.Api
           */
           public void SetStatusCode(int StatusCode) {
                this.StatusCode = StatusCode;
+          }
+
+          /**
+             Status message getter
+
+             @return Status message of the response
+          */
+          public string GetStatusMessage() {
+               return this.StatusMessage;
+          }
+
+          /**
+             Status message setter
+
+             @param StatusMessage Status message of the response
+          */
+          public void SetStatusMessage(string StatusMessage) {
+               this.StatusMessage = StatusMessage;
           }
 
 

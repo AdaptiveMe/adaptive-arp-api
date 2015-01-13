@@ -51,6 +51,10 @@ Structure representing a JSON response to the HTML5 layer.
         Status code of the response
      */
      @property int *statusCode;
+     /**
+        Status message of the response
+     */
+     @property NSString *statusMessage;
 
      /**
         Default constructor
@@ -67,6 +71,15 @@ Structure representing a JSON response to the HTML5 layer.
         @since ARP1.0
      */
      - (id) initWithResponseStatusCode:(NSString*)response statusCode:(int*)statusCode;
+
+     /**
+        Constructor with parameters
+
+        @param response      String representing the response
+        @param statusCode    Status code of the response
+        @param statusMessage Status message of the response
+     */
+     - (id) initWithResponseStatusCodeStatusMessage:(NSString*)response statusCode:(int*)statusCode statusMessage:(NSString*)statusMessage;
 
 
 @end
