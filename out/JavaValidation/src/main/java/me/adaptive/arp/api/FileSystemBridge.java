@@ -272,59 +272,50 @@ This path may or may not be writable by the current application.
         Invokes the given method specified in the API request object.
 
         @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+        @return APIResponse with status code, message and JSON response or a JSON null string for void functions. Status code 200 is OK, all others are HTTP standard error conditions.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public APIResponse invoke(APIRequest request) {
+          APIResponse response = new APIResponse();
+          int responseCode = 200;
+          String responseMessage = "OK";
+          String responseJSON = "null";
           switch (request.getMethodName()) {
                case "createFileDescriptor":
-                    FileDescriptor parent0 = this.gson.fromJson(request.getParameters()[0], FileDescriptor.class);
-                    String name0 = this.gson.fromJson(request.getParameters()[1], String.class);
+                    FileDescriptor parent0 = getJSONAPI().fromJson(request.getParameters()[0], FileDescriptor.class);
+                    String name0 = getJSONAPI().fromJson(request.getParameters()[1], String.class);
                     FileDescriptor response0 = this.createFileDescriptor(parent0, name0);
                     if (response0 != null) {
                          responseJSON = this.gson.toJson(response0);
-                    } else {
-                         responseJSON = null;
                     }
                     break;
                case "getApplicationCacheFolder":
                     FileDescriptor response1 = this.getApplicationCacheFolder();
                     if (response1 != null) {
                          responseJSON = this.gson.toJson(response1);
-                    } else {
-                         responseJSON = null;
                     }
                     break;
                case "getApplicationCloudFolder":
                     FileDescriptor response2 = this.getApplicationCloudFolder();
                     if (response2 != null) {
                          responseJSON = this.gson.toJson(response2);
-                    } else {
-                         responseJSON = null;
                     }
                     break;
                case "getApplicationDocumentsFolder":
                     FileDescriptor response3 = this.getApplicationDocumentsFolder();
                     if (response3 != null) {
                          responseJSON = this.gson.toJson(response3);
-                    } else {
-                         responseJSON = null;
                     }
                     break;
                case "getApplicationFolder":
                     FileDescriptor response4 = this.getApplicationFolder();
                     if (response4 != null) {
                          responseJSON = this.gson.toJson(response4);
-                    } else {
-                         responseJSON = null;
                     }
                     break;
                case "getApplicationProtectedFolder":
                     FileDescriptor response5 = this.getApplicationProtectedFolder();
                     if (response5 != null) {
                          responseJSON = this.gson.toJson(response5);
-                    } else {
-                         responseJSON = null;
                     }
                     break;
                case "getSeparator":
@@ -335,15 +326,17 @@ This path may or may not be writable by the current application.
                     FileDescriptor response7 = this.getSystemExternalFolder();
                     if (response7 != null) {
                          responseJSON = this.gson.toJson(response7);
-                    } else {
-                         responseJSON = null;
                     }
                     break;
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseCode = 404;
+                    responseMessage = "FileSystemBridge does not provide the function '"+request.getMethodName()+"' Please check your client-side API version; should be API version >= v2.0.3.";
           }
-          return responseJSON;
+          response.setResponse(responseJSON);
+          response.setStatusCode(responseCode);
+          response.setStatusMessage(responseMessage);
+          return response;
      }
 }
 /**

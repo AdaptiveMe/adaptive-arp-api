@@ -248,51 +248,58 @@ device.
         Invokes the given method specified in the API request object.
 
         @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+        @return APIResponse with status code, message and JSON response or a JSON null string for void functions. Status code 200 is OK, all others are HTTP standard error conditions.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public APIResponse invoke(APIRequest request) {
+          APIResponse response = new APIResponse();
+          int responseCode = 200;
+          String responseMessage = "OK";
+          String responseJSON = "null";
           switch (request.getMethodName()) {
                case "hasButtonSupport":
-                    ICapabilitiesButton type0 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesButton.class);
+                    ICapabilitiesButton type0 = getJSONAPI().fromJson(request.getParameters()[0], ICapabilitiesButton.class);
                     boolean response0 = this.hasButtonSupport(type0);
                     responseJSON = this.gson.toJson(response0);
                     break;
                case "hasCommunicationSupport":
-                    ICapabilitiesCommunication type1 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesCommunication.class);
+                    ICapabilitiesCommunication type1 = getJSONAPI().fromJson(request.getParameters()[0], ICapabilitiesCommunication.class);
                     boolean response1 = this.hasCommunicationSupport(type1);
                     responseJSON = this.gson.toJson(response1);
                     break;
                case "hasDataSupport":
-                    ICapabilitiesData type2 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesData.class);
+                    ICapabilitiesData type2 = getJSONAPI().fromJson(request.getParameters()[0], ICapabilitiesData.class);
                     boolean response2 = this.hasDataSupport(type2);
                     responseJSON = this.gson.toJson(response2);
                     break;
                case "hasMediaSupport":
-                    ICapabilitiesMedia type3 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesMedia.class);
+                    ICapabilitiesMedia type3 = getJSONAPI().fromJson(request.getParameters()[0], ICapabilitiesMedia.class);
                     boolean response3 = this.hasMediaSupport(type3);
                     responseJSON = this.gson.toJson(response3);
                     break;
                case "hasNetSupport":
-                    ICapabilitiesNet type4 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesNet.class);
+                    ICapabilitiesNet type4 = getJSONAPI().fromJson(request.getParameters()[0], ICapabilitiesNet.class);
                     boolean response4 = this.hasNetSupport(type4);
                     responseJSON = this.gson.toJson(response4);
                     break;
                case "hasNotificationSupport":
-                    ICapabilitiesNotification type5 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesNotification.class);
+                    ICapabilitiesNotification type5 = getJSONAPI().fromJson(request.getParameters()[0], ICapabilitiesNotification.class);
                     boolean response5 = this.hasNotificationSupport(type5);
                     responseJSON = this.gson.toJson(response5);
                     break;
                case "hasSensorSupport":
-                    ICapabilitiesSensor type6 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesSensor.class);
+                    ICapabilitiesSensor type6 = getJSONAPI().fromJson(request.getParameters()[0], ICapabilitiesSensor.class);
                     boolean response6 = this.hasSensorSupport(type6);
                     responseJSON = this.gson.toJson(response6);
                     break;
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseCode = 404;
+                    responseMessage = "CapabilitiesBridge does not provide the function '"+request.getMethodName()+"' Please check your client-side API version; should be API version >= v2.0.3.";
           }
-          return responseJSON;
+          response.setResponse(responseJSON);
+          response.setStatusCode(responseCode);
+          response.setStatusMessage(responseMessage);
+          return response;
      }
 }
 /**

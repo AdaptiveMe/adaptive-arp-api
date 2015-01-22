@@ -171,51 +171,50 @@ public class GlobalizationBridge extends BaseApplicationBridge implements IGloba
         Invokes the given method specified in the API request object.
 
         @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+        @return APIResponse with status code, message and JSON response or a JSON null string for void functions. Status code 200 is OK, all others are HTTP standard error conditions.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public APIResponse invoke(APIRequest request) {
+          APIResponse response = new APIResponse();
+          int responseCode = 200;
+          String responseMessage = "OK";
+          String responseJSON = "null";
           switch (request.getMethodName()) {
                case "getDefaultLocale":
                     Locale response0 = this.getDefaultLocale();
                     if (response0 != null) {
                          responseJSON = this.gson.toJson(response0);
-                    } else {
-                         responseJSON = null;
                     }
                     break;
                case "getLocaleSupportedDescriptors":
                     Locale[] response1 = this.getLocaleSupportedDescriptors();
                     if (response1 != null) {
                          responseJSON = this.gson.toJson(response1);
-                    } else {
-                         responseJSON = null;
                     }
                     break;
                case "getResourceLiteral":
-                    String key2 = this.gson.fromJson(request.getParameters()[0], String.class);
-                    Locale locale2 = this.gson.fromJson(request.getParameters()[1], Locale.class);
+                    String key2 = getJSONAPI().fromJson(request.getParameters()[0], String.class);
+                    Locale locale2 = getJSONAPI().fromJson(request.getParameters()[1], Locale.class);
                     String response2 = this.getResourceLiteral(key2, locale2);
                     if (response2 != null) {
                          responseJSON = this.gson.toJson(response2);
-                    } else {
-                         responseJSON = null;
                     }
                     break;
                case "getResourceLiterals":
-                    Locale locale3 = this.gson.fromJson(request.getParameters()[0], Locale.class);
+                    Locale locale3 = getJSONAPI().fromJson(request.getParameters()[0], Locale.class);
                     KeyPair[] response3 = this.getResourceLiterals(locale3);
                     if (response3 != null) {
                          responseJSON = this.gson.toJson(response3);
-                    } else {
-                         responseJSON = null;
                     }
                     break;
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseCode = 404;
+                    responseMessage = "GlobalizationBridge does not provide the function '"+request.getMethodName()+"' Please check your client-side API version; should be API version >= v2.0.3.";
           }
-          return responseJSON;
+          response.setResponse(responseJSON);
+          response.setStatusCode(responseCode);
+          response.setStatusMessage(responseMessage);
+          return response;
      }
 }
 /**

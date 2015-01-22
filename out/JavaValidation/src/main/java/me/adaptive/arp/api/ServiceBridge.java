@@ -237,52 +237,57 @@ public class ServiceBridge extends BaseCommunicationBridge implements IService, 
         Invokes the given method specified in the API request object.
 
         @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+        @return APIResponse with status code, message and JSON response or a JSON null string for void functions. Status code 200 is OK, all others are HTTP standard error conditions.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public APIResponse invoke(APIRequest request) {
+          APIResponse response = new APIResponse();
+          int responseCode = 200;
+          String responseMessage = "OK";
+          String responseJSON = "null";
           switch (request.getMethodName()) {
                case "getService":
-                    String serviceName0 = this.gson.fromJson(request.getParameters()[0], String.class);
+                    String serviceName0 = getJSONAPI().fromJson(request.getParameters()[0], String.class);
                     Service response0 = this.getService(serviceName0);
                     if (response0 != null) {
                          responseJSON = this.gson.toJson(response0);
-                    } else {
-                         responseJSON = null;
                     }
                     break;
                case "invokeService":
-                    ServiceRequest serviceRequest1 = this.gson.fromJson(request.getParameters()[0], ServiceRequest.class);
-                    Service service1 = this.gson.fromJson(request.getParameters()[1], Service.class);
+                    ServiceRequest serviceRequest1 = getJSONAPI().fromJson(request.getParameters()[0], ServiceRequest.class);
+                    Service service1 = getJSONAPI().fromJson(request.getParameters()[1], Service.class);
                     IServiceResultCallback callback1 = new ServiceResultCallbackImpl(request.getAsyncId());
                     this.invokeService(serviceRequest1, service1, callback1);
                     break;
                case "registerService":
-                    Service service2 = this.gson.fromJson(request.getParameters()[0], Service.class);
+                    Service service2 = getJSONAPI().fromJson(request.getParameters()[0], Service.class);
                     this.registerService(service2);
                     break;
                case "unregisterService":
-                    Service service3 = this.gson.fromJson(request.getParameters()[0], Service.class);
+                    Service service3 = getJSONAPI().fromJson(request.getParameters()[0], Service.class);
                     this.unregisterService(service3);
                     break;
                case "unregisterServices":
                     this.unregisterServices();
                     break;
                case "isRegistered_service":
-                    Service service5 = this.gson.fromJson(request.getParameters()[0], Service.class);
+                    Service service5 = getJSONAPI().fromJson(request.getParameters()[0], Service.class);
                     boolean response5 = this.isRegistered(service5);
                     responseJSON = this.gson.toJson(response5);
                     break;
                case "isRegistered_serviceName":
-                    String serviceName6 = this.gson.fromJson(request.getParameters()[0], String.class);
+                    String serviceName6 = getJSONAPI().fromJson(request.getParameters()[0], String.class);
                     boolean response6 = this.isRegistered(serviceName6);
                     responseJSON = this.gson.toJson(response6);
                     break;
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseCode = 404;
+                    responseMessage = "ServiceBridge does not provide the function '"+request.getMethodName()+"' Please check your client-side API version; should be API version >= v2.0.3.";
           }
-          return responseJSON;
+          response.setResponse(responseJSON);
+          response.setStatusCode(responseCode);
+          response.setStatusMessage(responseMessage);
+          return response;
      }
 }
 /**

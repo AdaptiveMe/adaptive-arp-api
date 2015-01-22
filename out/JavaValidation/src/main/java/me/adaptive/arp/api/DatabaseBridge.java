@@ -271,63 +271,70 @@ should be passed as a parameter
         Invokes the given method specified in the API request object.
 
         @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+        @return APIResponse with status code, message and JSON response or a JSON null string for void functions. Status code 200 is OK, all others are HTTP standard error conditions.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public APIResponse invoke(APIRequest request) {
+          APIResponse response = new APIResponse();
+          int responseCode = 200;
+          String responseMessage = "OK";
+          String responseJSON = "null";
           switch (request.getMethodName()) {
                case "createDatabase":
-                    Database database0 = this.gson.fromJson(request.getParameters()[0], Database.class);
+                    Database database0 = getJSONAPI().fromJson(request.getParameters()[0], Database.class);
                     IDatabaseResultCallback callback0 = new DatabaseResultCallbackImpl(request.getAsyncId());
                     this.createDatabase(database0, callback0);
                     break;
                case "createTable":
-                    Database database1 = this.gson.fromJson(request.getParameters()[0], Database.class);
-                    DatabaseTable databaseTable1 = this.gson.fromJson(request.getParameters()[1], DatabaseTable.class);
+                    Database database1 = getJSONAPI().fromJson(request.getParameters()[0], Database.class);
+                    DatabaseTable databaseTable1 = getJSONAPI().fromJson(request.getParameters()[1], DatabaseTable.class);
                     IDatabaseTableResultCallback callback1 = new DatabaseTableResultCallbackImpl(request.getAsyncId());
                     this.createTable(database1, databaseTable1, callback1);
                     break;
                case "deleteDatabase":
-                    Database database2 = this.gson.fromJson(request.getParameters()[0], Database.class);
+                    Database database2 = getJSONAPI().fromJson(request.getParameters()[0], Database.class);
                     IDatabaseResultCallback callback2 = new DatabaseResultCallbackImpl(request.getAsyncId());
                     this.deleteDatabase(database2, callback2);
                     break;
                case "deleteTable":
-                    Database database3 = this.gson.fromJson(request.getParameters()[0], Database.class);
-                    DatabaseTable databaseTable3 = this.gson.fromJson(request.getParameters()[1], DatabaseTable.class);
+                    Database database3 = getJSONAPI().fromJson(request.getParameters()[0], Database.class);
+                    DatabaseTable databaseTable3 = getJSONAPI().fromJson(request.getParameters()[1], DatabaseTable.class);
                     IDatabaseTableResultCallback callback3 = new DatabaseTableResultCallbackImpl(request.getAsyncId());
                     this.deleteTable(database3, databaseTable3, callback3);
                     break;
                case "executeSqlStatement":
-                    Database database4 = this.gson.fromJson(request.getParameters()[0], Database.class);
-                    String statement4 = this.gson.fromJson(request.getParameters()[1], String.class);
-                    String[] replacements4 = this.gson.fromJson(request.getParameters()[2], String[].class);
+                    Database database4 = getJSONAPI().fromJson(request.getParameters()[0], Database.class);
+                    String statement4 = getJSONAPI().fromJson(request.getParameters()[1], String.class);
+                    String[] replacements4 = getJSONAPI().fromJson(request.getParameters()[2], String[].class);
                     IDatabaseTableResultCallback callback4 = new DatabaseTableResultCallbackImpl(request.getAsyncId());
                     this.executeSqlStatement(database4, statement4, replacements4, callback4);
                     break;
                case "executeSqlTransactions":
-                    Database database5 = this.gson.fromJson(request.getParameters()[0], Database.class);
-                    String[] statements5 = this.gson.fromJson(request.getParameters()[1], String[].class);
-                    boolean rollbackFlag5 = this.gson.fromJson(request.getParameters()[2], boolean.class);
+                    Database database5 = getJSONAPI().fromJson(request.getParameters()[0], Database.class);
+                    String[] statements5 = getJSONAPI().fromJson(request.getParameters()[1], String[].class);
+                    boolean rollbackFlag5 = getJSONAPI().fromJson(request.getParameters()[2], boolean.class);
                     IDatabaseTableResultCallback callback5 = new DatabaseTableResultCallbackImpl(request.getAsyncId());
                     this.executeSqlTransactions(database5, statements5, rollbackFlag5, callback5);
                     break;
                case "existsDatabase":
-                    Database database6 = this.gson.fromJson(request.getParameters()[0], Database.class);
+                    Database database6 = getJSONAPI().fromJson(request.getParameters()[0], Database.class);
                     boolean response6 = this.existsDatabase(database6);
                     responseJSON = this.gson.toJson(response6);
                     break;
                case "existsTable":
-                    Database database7 = this.gson.fromJson(request.getParameters()[0], Database.class);
-                    DatabaseTable databaseTable7 = this.gson.fromJson(request.getParameters()[1], DatabaseTable.class);
+                    Database database7 = getJSONAPI().fromJson(request.getParameters()[0], Database.class);
+                    DatabaseTable databaseTable7 = getJSONAPI().fromJson(request.getParameters()[1], DatabaseTable.class);
                     boolean response7 = this.existsTable(database7, databaseTable7);
                     responseJSON = this.gson.toJson(response7);
                     break;
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseCode = 404;
+                    responseMessage = "DatabaseBridge does not provide the function '"+request.getMethodName()+"' Please check your client-side API version; should be API version >= v2.0.3.";
           }
-          return responseJSON;
+          response.setResponse(responseJSON);
+          response.setStatusCode(responseCode);
+          response.setStatusMessage(responseMessage);
+          return response;
      }
 }
 /**
