@@ -847,18 +847,10 @@ public class AppRegistryBridge implements IAppRegistry {
         @return LoggingBridge reference or null if a bridge of this type is not registered.
      */
      public final LoggingBridge getLoggingBridge() {
-          // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
           LoggingBridge result = null;
-
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getLoggingBridge().");
 
           if (this.delegate != null) {
                result = this.delegate.getLoggingBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getLoggingBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getLoggingBridge'.");
           }
           return result;          
      }
