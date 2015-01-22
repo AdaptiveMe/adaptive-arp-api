@@ -40,7 +40,14 @@ package me.adaptive.arp.api;
 public enum IButtonListenerError {
 
      Not_Present,
-     Unknown
+     Unknown;
+
+     /**
+        Register deserializer/serializer in common JSON Builder.
+     */
+     static {
+          AppRegistryBridge.getJSONInstance().registerTypeAdapter(IButtonListenerError.class, new IButtonListenerErrorAdapter());
+     }
 
 }
 /**

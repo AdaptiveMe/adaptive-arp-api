@@ -58,7 +58,7 @@ public class SecurityResultCallbackImpl extends BaseCallbackImpl implements ISec
         @since ARP1.0
      */
      public void onError(ISecurityResultCallbackError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleSecurityResultCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleSecurityResultCallbackError( '"+getId()+"', JSON.parse(" + getJSONAPI().toJson(error) +") )");
      }
 
      /**
@@ -68,7 +68,7 @@ public class SecurityResultCallbackImpl extends BaseCallbackImpl implements ISec
         @since ARP1.0
      */
      public void onResult(SecureKeyPair[] keyValues) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleSecurityResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(keyValues) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleSecurityResultCallbackResult( '"+getId()+"', JSON.parse(" + getJSONAPI().toJson(keyValues) +") )");
      }
 
      /**
@@ -79,7 +79,7 @@ public class SecurityResultCallbackImpl extends BaseCallbackImpl implements ISec
         @since ARP1.0
      */
      public void onWarning(SecureKeyPair[] keyValues, ISecurityResultCallbackWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleSecurityResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(keyValues) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleSecurityResultCallbackWarning( '"+getId()+"', JSON.parse(" + getJSONAPI().toJson(keyValues) +"), JSON.parse(" + getJSONAPI().toJson(warning) +") )");
      }
 
 }

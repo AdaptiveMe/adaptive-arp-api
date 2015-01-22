@@ -318,13 +318,13 @@ should be passed as a parameter
                case "existsDatabase":
                     Database database6 = getJSONAPI().fromJson(request.getParameters()[0], Database.class);
                     boolean response6 = this.existsDatabase(database6);
-                    responseJSON = this.gson.toJson(response6);
+                    responseJSON = getJSONAPI().toJson(response6);
                     break;
                case "existsTable":
                     Database database7 = getJSONAPI().fromJson(request.getParameters()[0], Database.class);
                     DatabaseTable databaseTable7 = getJSONAPI().fromJson(request.getParameters()[1], DatabaseTable.class);
                     boolean response7 = this.existsTable(database7, databaseTable7);
-                    responseJSON = this.gson.toJson(response7);
+                    responseJSON = getJSONAPI().toJson(response7);
                     break;
                default:
                     // 404 - response null.

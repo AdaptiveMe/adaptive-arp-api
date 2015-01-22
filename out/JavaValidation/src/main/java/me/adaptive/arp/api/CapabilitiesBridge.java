@@ -259,37 +259,37 @@ device.
                case "hasButtonSupport":
                     ICapabilitiesButton type0 = getJSONAPI().fromJson(request.getParameters()[0], ICapabilitiesButton.class);
                     boolean response0 = this.hasButtonSupport(type0);
-                    responseJSON = this.gson.toJson(response0);
+                    responseJSON = getJSONAPI().toJson(response0);
                     break;
                case "hasCommunicationSupport":
                     ICapabilitiesCommunication type1 = getJSONAPI().fromJson(request.getParameters()[0], ICapabilitiesCommunication.class);
                     boolean response1 = this.hasCommunicationSupport(type1);
-                    responseJSON = this.gson.toJson(response1);
+                    responseJSON = getJSONAPI().toJson(response1);
                     break;
                case "hasDataSupport":
                     ICapabilitiesData type2 = getJSONAPI().fromJson(request.getParameters()[0], ICapabilitiesData.class);
                     boolean response2 = this.hasDataSupport(type2);
-                    responseJSON = this.gson.toJson(response2);
+                    responseJSON = getJSONAPI().toJson(response2);
                     break;
                case "hasMediaSupport":
                     ICapabilitiesMedia type3 = getJSONAPI().fromJson(request.getParameters()[0], ICapabilitiesMedia.class);
                     boolean response3 = this.hasMediaSupport(type3);
-                    responseJSON = this.gson.toJson(response3);
+                    responseJSON = getJSONAPI().toJson(response3);
                     break;
                case "hasNetSupport":
                     ICapabilitiesNet type4 = getJSONAPI().fromJson(request.getParameters()[0], ICapabilitiesNet.class);
                     boolean response4 = this.hasNetSupport(type4);
-                    responseJSON = this.gson.toJson(response4);
+                    responseJSON = getJSONAPI().toJson(response4);
                     break;
                case "hasNotificationSupport":
                     ICapabilitiesNotification type5 = getJSONAPI().fromJson(request.getParameters()[0], ICapabilitiesNotification.class);
                     boolean response5 = this.hasNotificationSupport(type5);
-                    responseJSON = this.gson.toJson(response5);
+                    responseJSON = getJSONAPI().toJson(response5);
                     break;
                case "hasSensorSupport":
                     ICapabilitiesSensor type6 = getJSONAPI().fromJson(request.getParameters()[0], ICapabilitiesSensor.class);
                     boolean response6 = this.hasSensorSupport(type6);
-                    responseJSON = this.gson.toJson(response6);
+                    responseJSON = getJSONAPI().toJson(response6);
                     break;
                default:
                     // 404 - response null.

@@ -40,7 +40,14 @@ package me.adaptive.arp.api;
 public enum IFileListResultCallbackWarning {
 
      PartialResult,
-     Unknown
+     Unknown;
+
+     /**
+        Register deserializer/serializer in common JSON Builder.
+     */
+     static {
+          AppRegistryBridge.getJSONInstance().registerTypeAdapter(IFileListResultCallbackWarning.class, new IFileListResultCallbackWarningAdapter());
+     }
 
 }
 /**

@@ -285,47 +285,47 @@ This path may or may not be writable by the current application.
                     String name0 = getJSONAPI().fromJson(request.getParameters()[1], String.class);
                     FileDescriptor response0 = this.createFileDescriptor(parent0, name0);
                     if (response0 != null) {
-                         responseJSON = this.gson.toJson(response0);
+                         responseJSON = getJSONAPI().toJson(response0);
                     }
                     break;
                case "getApplicationCacheFolder":
                     FileDescriptor response1 = this.getApplicationCacheFolder();
                     if (response1 != null) {
-                         responseJSON = this.gson.toJson(response1);
+                         responseJSON = getJSONAPI().toJson(response1);
                     }
                     break;
                case "getApplicationCloudFolder":
                     FileDescriptor response2 = this.getApplicationCloudFolder();
                     if (response2 != null) {
-                         responseJSON = this.gson.toJson(response2);
+                         responseJSON = getJSONAPI().toJson(response2);
                     }
                     break;
                case "getApplicationDocumentsFolder":
                     FileDescriptor response3 = this.getApplicationDocumentsFolder();
                     if (response3 != null) {
-                         responseJSON = this.gson.toJson(response3);
+                         responseJSON = getJSONAPI().toJson(response3);
                     }
                     break;
                case "getApplicationFolder":
                     FileDescriptor response4 = this.getApplicationFolder();
                     if (response4 != null) {
-                         responseJSON = this.gson.toJson(response4);
+                         responseJSON = getJSONAPI().toJson(response4);
                     }
                     break;
                case "getApplicationProtectedFolder":
                     FileDescriptor response5 = this.getApplicationProtectedFolder();
                     if (response5 != null) {
-                         responseJSON = this.gson.toJson(response5);
+                         responseJSON = getJSONAPI().toJson(response5);
                     }
                     break;
                case "getSeparator":
                     char response6 = this.getSeparator();
-                    responseJSON = this.gson.toJson(response6);
+                    responseJSON = getJSONAPI().toJson(response6);
                     break;
                case "getSystemExternalFolder":
                     FileDescriptor response7 = this.getSystemExternalFolder();
                     if (response7 != null) {
-                         responseJSON = this.gson.toJson(response7);
+                         responseJSON = getJSONAPI().toJson(response7);
                     }
                     break;
                default:

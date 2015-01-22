@@ -48,16 +48,10 @@ public class BaseSocialBridge implements IBaseSocial {
      protected IAdaptiveRPGroup apiGroup;
 
      /**
-        JSON API.
-     */
-     protected Gson gson;
-
-     /**
         Default constructor.
      */
      public BaseSocialBridge() {
           this.apiGroup = IAdaptiveRPGroup.Social;
-          this.gson = new Gson();
      }
 
      /**
@@ -81,7 +75,7 @@ public class BaseSocialBridge implements IBaseSocial {
         @return Current JSON serializer.
      */
      public final Gson getJSONAPI() {
-          return this.gson;
+          return AppRegistryBridge.getJSONInstance().create();
      }
 
      /**

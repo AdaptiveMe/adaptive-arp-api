@@ -48,16 +48,10 @@ public class BaseApplicationBridge implements IBaseApplication {
      protected IAdaptiveRPGroup apiGroup;
 
      /**
-        JSON API.
-     */
-     protected Gson gson;
-
-     /**
         Default constructor.
      */
      public BaseApplicationBridge() {
           this.apiGroup = IAdaptiveRPGroup.Application;
-          this.gson = new Gson();
      }
 
      /**
@@ -81,7 +75,7 @@ public class BaseApplicationBridge implements IBaseApplication {
         @return Current JSON serializer.
      */
      public final Gson getJSONAPI() {
-          return this.gson;
+          return AppRegistryBridge.getJSONInstance().create();
      }
 
      /**

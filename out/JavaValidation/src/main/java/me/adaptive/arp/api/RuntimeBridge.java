@@ -133,7 +133,7 @@ public class RuntimeBridge extends BaseSystemBridge implements IRuntime, APIBrid
                     break;
                case "dismissSplashScreen":
                     boolean response1 = this.dismissSplashScreen();
-                    responseJSON = this.gson.toJson(response1);
+                    responseJSON = getJSONAPI().toJson(response1);
                     break;
                default:
                     // 404 - response null.

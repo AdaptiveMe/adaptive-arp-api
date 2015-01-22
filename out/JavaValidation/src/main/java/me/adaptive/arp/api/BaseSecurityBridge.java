@@ -48,16 +48,10 @@ public class BaseSecurityBridge implements IBaseSecurity {
      protected IAdaptiveRPGroup apiGroup;
 
      /**
-        JSON API.
-     */
-     protected Gson gson;
-
-     /**
         Default constructor.
      */
      public BaseSecurityBridge() {
           this.apiGroup = IAdaptiveRPGroup.Security;
-          this.gson = new Gson();
      }
 
      /**
@@ -81,7 +75,7 @@ public class BaseSecurityBridge implements IBaseSecurity {
         @return Current JSON serializer.
      */
      public final Gson getJSONAPI() {
-          return this.gson;
+          return AppRegistryBridge.getJSONInstance().create();
      }
 
      /**

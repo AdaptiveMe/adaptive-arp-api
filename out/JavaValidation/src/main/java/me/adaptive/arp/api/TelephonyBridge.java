@@ -112,7 +112,7 @@ public class TelephonyBridge extends BaseCommunicationBridge implements ITelepho
                     String number0 = getJSONAPI().fromJson(request.getParameters()[0], String.class);
                     ITelephonyStatus response0 = this.call(number0);
                     if (response0 != null) {
-                         responseJSON = this.gson.toJson(response0);
+                         responseJSON = getJSONAPI().toJson(response0);
                     }
                     break;
                default:

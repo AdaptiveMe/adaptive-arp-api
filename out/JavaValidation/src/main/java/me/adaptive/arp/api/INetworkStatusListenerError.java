@@ -41,7 +41,14 @@ public enum INetworkStatusListenerError {
 
      NoPermission,
      Unreachable,
-     Unknown
+     Unknown;
+
+     /**
+        Register deserializer/serializer in common JSON Builder.
+     */
+     static {
+          AppRegistryBridge.getJSONInstance().registerTypeAdapter(INetworkStatusListenerError.class, new INetworkStatusListenerErrorAdapter());
+     }
 
 }
 /**

@@ -47,7 +47,14 @@ public enum LifecycleState {
      PausedRun,
      Resuming,
      Stopping,
-     Unknown
+     Unknown;
+
+     /**
+        Register deserializer/serializer in common JSON Builder.
+     */
+     static {
+          AppRegistryBridge.getJSONInstance().registerTypeAdapter(LifecycleState.class, new LifecycleStateAdapter());
+     }
 
 }
 /**

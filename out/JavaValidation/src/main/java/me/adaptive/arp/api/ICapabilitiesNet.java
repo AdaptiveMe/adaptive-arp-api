@@ -46,7 +46,14 @@ public enum ICapabilitiesNet {
      WIFI,
      Ethernet,
      Unavailable,
-     Unknown
+     Unknown;
+
+     /**
+        Register deserializer/serializer in common JSON Builder.
+     */
+     static {
+          AppRegistryBridge.getJSONInstance().registerTypeAdapter(ICapabilitiesNet.class, new ICapabilitiesNetAdapter());
+     }
 
 }
 /**

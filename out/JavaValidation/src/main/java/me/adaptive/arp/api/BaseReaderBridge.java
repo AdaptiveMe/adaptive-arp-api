@@ -48,16 +48,10 @@ public class BaseReaderBridge implements IBaseReader {
      protected IAdaptiveRPGroup apiGroup;
 
      /**
-        JSON API.
-     */
-     protected Gson gson;
-
-     /**
         Default constructor.
      */
      public BaseReaderBridge() {
           this.apiGroup = IAdaptiveRPGroup.Reader;
-          this.gson = new Gson();
      }
 
      /**
@@ -81,7 +75,7 @@ public class BaseReaderBridge implements IBaseReader {
         @return Current JSON serializer.
      */
      public final Gson getJSONAPI() {
-          return this.gson;
+          return AppRegistryBridge.getJSONInstance().create();
      }
 
      /**

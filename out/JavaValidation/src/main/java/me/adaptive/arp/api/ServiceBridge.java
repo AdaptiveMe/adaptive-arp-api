@@ -249,7 +249,7 @@ public class ServiceBridge extends BaseCommunicationBridge implements IService, 
                     String serviceName0 = getJSONAPI().fromJson(request.getParameters()[0], String.class);
                     Service response0 = this.getService(serviceName0);
                     if (response0 != null) {
-                         responseJSON = this.gson.toJson(response0);
+                         responseJSON = getJSONAPI().toJson(response0);
                     }
                     break;
                case "invokeService":
@@ -272,12 +272,12 @@ public class ServiceBridge extends BaseCommunicationBridge implements IService, 
                case "isRegistered_service":
                     Service service5 = getJSONAPI().fromJson(request.getParameters()[0], Service.class);
                     boolean response5 = this.isRegistered(service5);
-                    responseJSON = this.gson.toJson(response5);
+                    responseJSON = getJSONAPI().toJson(response5);
                     break;
                case "isRegistered_serviceName":
                     String serviceName6 = getJSONAPI().fromJson(request.getParameters()[0], String.class);
                     boolean response6 = this.isRegistered(serviceName6);
-                    responseJSON = this.gson.toJson(response6);
+                    responseJSON = getJSONAPI().toJson(response6);
                     break;
                default:
                     // 404 - response null.

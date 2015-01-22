@@ -42,7 +42,14 @@ public enum IDatabaseTableResultCallbackWarning {
      TableExists,
      TableLocked,
      NoResults,
-     Unknown
+     Unknown;
+
+     /**
+        Register deserializer/serializer in common JSON Builder.
+     */
+     static {
+          AppRegistryBridge.getJSONInstance().registerTypeAdapter(IDatabaseTableResultCallbackWarning.class, new IDatabaseTableResultCallbackWarningAdapter());
+     }
 
 }
 /**

@@ -41,7 +41,14 @@ public enum IFileListResultCallbackError {
 
      InexistentFile,
      Unauthorized,
-     Unknown
+     Unknown;
+
+     /**
+        Register deserializer/serializer in common JSON Builder.
+     */
+     static {
+          AppRegistryBridge.getJSONInstance().registerTypeAdapter(IFileListResultCallbackError.class, new IFileListResultCallbackErrorAdapter());
+     }
 
 }
 /**

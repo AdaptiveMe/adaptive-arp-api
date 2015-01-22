@@ -182,13 +182,13 @@ public class GlobalizationBridge extends BaseApplicationBridge implements IGloba
                case "getDefaultLocale":
                     Locale response0 = this.getDefaultLocale();
                     if (response0 != null) {
-                         responseJSON = this.gson.toJson(response0);
+                         responseJSON = getJSONAPI().toJson(response0);
                     }
                     break;
                case "getLocaleSupportedDescriptors":
                     Locale[] response1 = this.getLocaleSupportedDescriptors();
                     if (response1 != null) {
-                         responseJSON = this.gson.toJson(response1);
+                         responseJSON = getJSONAPI().toJson(response1);
                     }
                     break;
                case "getResourceLiteral":
@@ -196,14 +196,14 @@ public class GlobalizationBridge extends BaseApplicationBridge implements IGloba
                     Locale locale2 = getJSONAPI().fromJson(request.getParameters()[1], Locale.class);
                     String response2 = this.getResourceLiteral(key2, locale2);
                     if (response2 != null) {
-                         responseJSON = this.gson.toJson(response2);
+                         responseJSON = getJSONAPI().toJson(response2);
                     }
                     break;
                case "getResourceLiterals":
                     Locale locale3 = getJSONAPI().fromJson(request.getParameters()[0], Locale.class);
                     KeyPair[] response3 = this.getResourceLiterals(locale3);
                     if (response3 != null) {
-                         responseJSON = this.gson.toJson(response3);
+                         responseJSON = getJSONAPI().toJson(response3);
                     }
                     break;
                default:

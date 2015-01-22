@@ -42,7 +42,14 @@ public enum IContactFilter {
      HAS_PHONE,
      HAS_EMAIL,
      HAS_ADDRESS,
-     Unknown
+     Unknown;
+
+     /**
+        Register deserializer/serializer in common JSON Builder.
+     */
+     static {
+          AppRegistryBridge.getJSONInstance().registerTypeAdapter(IContactFilter.class, new IContactFilterAdapter());
+     }
 
 }
 /**

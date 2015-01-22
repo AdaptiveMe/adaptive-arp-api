@@ -48,16 +48,10 @@ public class BaseUIBridge implements IBaseUI {
      protected IAdaptiveRPGroup apiGroup;
 
      /**
-        JSON API.
-     */
-     protected Gson gson;
-
-     /**
         Default constructor.
      */
      public BaseUIBridge() {
           this.apiGroup = IAdaptiveRPGroup.UI;
-          this.gson = new Gson();
      }
 
      /**
@@ -81,7 +75,7 @@ public class BaseUIBridge implements IBaseUI {
         @return Current JSON serializer.
      */
      public final Gson getJSONAPI() {
-          return this.gson;
+          return AppRegistryBridge.getJSONInstance().create();
      }
 
      /**

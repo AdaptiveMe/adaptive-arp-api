@@ -452,12 +452,12 @@ new destination file.
                case "canRead":
                     FileDescriptor descriptor0 = getJSONAPI().fromJson(request.getParameters()[0], FileDescriptor.class);
                     boolean response0 = this.canRead(descriptor0);
-                    responseJSON = this.gson.toJson(response0);
+                    responseJSON = getJSONAPI().toJson(response0);
                     break;
                case "canWrite":
                     FileDescriptor descriptor1 = getJSONAPI().fromJson(request.getParameters()[0], FileDescriptor.class);
                     boolean response1 = this.canWrite(descriptor1);
-                    responseJSON = this.gson.toJson(response1);
+                    responseJSON = getJSONAPI().toJson(response1);
                     break;
                case "create":
                     FileDescriptor descriptor2 = getJSONAPI().fromJson(request.getParameters()[0], FileDescriptor.class);
@@ -468,12 +468,12 @@ new destination file.
                     FileDescriptor descriptor3 = getJSONAPI().fromJson(request.getParameters()[0], FileDescriptor.class);
                     boolean cascade3 = getJSONAPI().fromJson(request.getParameters()[1], boolean.class);
                     boolean response3 = this.delete(descriptor3, cascade3);
-                    responseJSON = this.gson.toJson(response3);
+                    responseJSON = getJSONAPI().toJson(response3);
                     break;
                case "exists":
                     FileDescriptor descriptor4 = getJSONAPI().fromJson(request.getParameters()[0], FileDescriptor.class);
                     boolean response4 = this.exists(descriptor4);
-                    responseJSON = this.gson.toJson(response4);
+                    responseJSON = getJSONAPI().toJson(response4);
                     break;
                case "getContent":
                     FileDescriptor descriptor5 = getJSONAPI().fromJson(request.getParameters()[0], FileDescriptor.class);
@@ -484,27 +484,27 @@ new destination file.
                     FileDescriptor descriptor6 = getJSONAPI().fromJson(request.getParameters()[0], FileDescriptor.class);
                     IFileSystemStorageType response6 = this.getFileStorageType(descriptor6);
                     if (response6 != null) {
-                         responseJSON = this.gson.toJson(response6);
+                         responseJSON = getJSONAPI().toJson(response6);
                     }
                     break;
                case "getFileType":
                     FileDescriptor descriptor7 = getJSONAPI().fromJson(request.getParameters()[0], FileDescriptor.class);
                     IFileSystemType response7 = this.getFileType(descriptor7);
                     if (response7 != null) {
-                         responseJSON = this.gson.toJson(response7);
+                         responseJSON = getJSONAPI().toJson(response7);
                     }
                     break;
                case "getSecurityType":
                     FileDescriptor descriptor8 = getJSONAPI().fromJson(request.getParameters()[0], FileDescriptor.class);
                     IFileSystemSecurity response8 = this.getSecurityType(descriptor8);
                     if (response8 != null) {
-                         responseJSON = this.gson.toJson(response8);
+                         responseJSON = getJSONAPI().toJson(response8);
                     }
                     break;
                case "isDirectory":
                     FileDescriptor descriptor9 = getJSONAPI().fromJson(request.getParameters()[0], FileDescriptor.class);
                     boolean response9 = this.isDirectory(descriptor9);
-                    responseJSON = this.gson.toJson(response9);
+                    responseJSON = getJSONAPI().toJson(response9);
                     break;
                case "listFiles":
                     FileDescriptor descriptor10 = getJSONAPI().fromJson(request.getParameters()[0], FileDescriptor.class);
@@ -521,7 +521,7 @@ new destination file.
                     FileDescriptor descriptor12 = getJSONAPI().fromJson(request.getParameters()[0], FileDescriptor.class);
                     boolean recursive12 = getJSONAPI().fromJson(request.getParameters()[1], boolean.class);
                     boolean response12 = this.mkDir(descriptor12, recursive12);
-                    responseJSON = this.gson.toJson(response12);
+                    responseJSON = getJSONAPI().toJson(response12);
                     break;
                case "move":
                     FileDescriptor source13 = getJSONAPI().fromJson(request.getParameters()[0], FileDescriptor.class);

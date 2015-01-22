@@ -41,7 +41,14 @@ public enum INetworkStatusListenerWarning {
 
      IpAddressNotAssigned,
      IpAddressChanged,
-     Unknown
+     Unknown;
+
+     /**
+        Register deserializer/serializer in common JSON Builder.
+     */
+     static {
+          AppRegistryBridge.getJSONInstance().registerTypeAdapter(INetworkStatusListenerWarning.class, new INetworkStatusListenerWarningAdapter());
+     }
 
 }
 /**

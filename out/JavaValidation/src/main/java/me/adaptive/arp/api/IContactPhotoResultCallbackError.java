@@ -42,7 +42,14 @@ public enum IContactPhotoResultCallbackError {
      NoPermission,
      Wrong_Params,
      No_Photo,
-     Unknown
+     Unknown;
+
+     /**
+        Register deserializer/serializer in common JSON Builder.
+     */
+     static {
+          AppRegistryBridge.getJSONInstance().registerTypeAdapter(IContactPhotoResultCallbackError.class, new IContactPhotoResultCallbackErrorAdapter());
+     }
 
 }
 /**

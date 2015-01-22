@@ -42,7 +42,14 @@ public enum IFileDataStoreResultCallbackError {
      InexistentFile,
      InsufficientSpace,
      Unauthorized,
-     Unknown
+     Unknown;
+
+     /**
+        Register deserializer/serializer in common JSON Builder.
+     */
+     static {
+          AppRegistryBridge.getJSONInstance().registerTypeAdapter(IFileDataStoreResultCallbackError.class, new IFileDataStoreResultCallbackErrorAdapter());
+     }
 
 }
 /**

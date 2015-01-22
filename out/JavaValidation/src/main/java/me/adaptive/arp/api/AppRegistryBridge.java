@@ -35,6 +35,7 @@ Release:
 package me.adaptive.arp.api;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 /**
    Interface to retrieve auto-registered service implementation references.
@@ -78,6 +79,11 @@ public class AppRegistryBridge implements IAppRegistry {
      }
 
      /**
+        Common GsonBuilder.
+     */
+     private static GsonBuilder singletonGsonBuilder;
+
+     /**
         Singleton instance.
      */
      private static AppRegistryBridge singleton;
@@ -91,6 +97,17 @@ public class AppRegistryBridge implements IAppRegistry {
                singleton = new AppRegistryBridge(new AppRegistryDelegate());
           }
           return singleton;
+     }
+
+     /**
+        Get singleton GsonBuilder instance.
+        @return GsonBuilder singleton instance.
+     */
+     public static final GsonBuilder getJSONInstance() {
+          if (singletonGsonBuilder == null) {
+               singletonGsonBuilder = new GsonBuilder();
+          }
+          return singletonGsonBuilder;
      }
 
      /**

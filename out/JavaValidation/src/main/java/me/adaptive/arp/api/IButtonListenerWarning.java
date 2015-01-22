@@ -40,7 +40,14 @@ package me.adaptive.arp.api;
 public enum IButtonListenerWarning {
 
      Not_Implemented,
-     Unknown
+     Unknown;
+
+     /**
+        Register deserializer/serializer in common JSON Builder.
+     */
+     static {
+          AppRegistryBridge.getJSONInstance().registerTypeAdapter(IButtonListenerWarning.class, new IButtonListenerWarningAdapter());
+     }
 
 }
 /**

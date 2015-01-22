@@ -311,7 +311,7 @@ public class ContactBridge extends BasePIMBridge implements IContact, APIBridge 
                     ContactUid contact7 = getJSONAPI().fromJson(request.getParameters()[0], ContactUid.class);
                     byte[] pngImage7 = getJSONAPI().fromJson(request.getParameters()[1], byte[].class);
                     boolean response7 = this.setContactPhoto(contact7, pngImage7);
-                    responseJSON = this.gson.toJson(response7);
+                    responseJSON = getJSONAPI().toJson(response7);
                     break;
                default:
                     // 404 - response null.

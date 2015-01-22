@@ -48,16 +48,10 @@ public class BaseNotificationBridge implements IBaseNotification {
      protected IAdaptiveRPGroup apiGroup;
 
      /**
-        JSON API.
-     */
-     protected Gson gson;
-
-     /**
         Default constructor.
      */
      public BaseNotificationBridge() {
           this.apiGroup = IAdaptiveRPGroup.Notification;
-          this.gson = new Gson();
      }
 
      /**
@@ -81,7 +75,7 @@ public class BaseNotificationBridge implements IBaseNotification {
         @return Current JSON serializer.
      */
      public final Gson getJSONAPI() {
-          return this.gson;
+          return AppRegistryBridge.getJSONInstance().create();
      }
 
      /**

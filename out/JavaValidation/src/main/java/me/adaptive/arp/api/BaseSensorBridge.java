@@ -48,16 +48,10 @@ public class BaseSensorBridge implements IBaseSensor {
      protected IAdaptiveRPGroup apiGroup;
 
      /**
-        JSON API.
-     */
-     protected Gson gson;
-
-     /**
         Default constructor.
      */
      public BaseSensorBridge() {
           this.apiGroup = IAdaptiveRPGroup.Sensor;
-          this.gson = new Gson();
      }
 
      /**
@@ -81,7 +75,7 @@ public class BaseSensorBridge implements IBaseSensor {
         @return Current JSON serializer.
      */
      public final Gson getJSONAPI() {
-          return this.gson;
+          return AppRegistryBridge.getJSONInstance().create();
      }
 
      /**

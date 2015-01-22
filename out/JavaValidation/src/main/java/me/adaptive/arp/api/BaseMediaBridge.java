@@ -48,16 +48,10 @@ public class BaseMediaBridge implements IBaseMedia {
      protected IAdaptiveRPGroup apiGroup;
 
      /**
-        JSON API.
-     */
-     protected Gson gson;
-
-     /**
         Default constructor.
      */
      public BaseMediaBridge() {
           this.apiGroup = IAdaptiveRPGroup.Media;
-          this.gson = new Gson();
      }
 
      /**
@@ -81,7 +75,7 @@ public class BaseMediaBridge implements IBaseMedia {
         @return Current JSON serializer.
      */
      public final Gson getJSONAPI() {
-          return this.gson;
+          return AppRegistryBridge.getJSONInstance().create();
      }
 
      /**

@@ -42,7 +42,14 @@ public enum ContactEmailType {
      Personal,
      Work,
      Other,
-     Unknown
+     Unknown;
+
+     /**
+        Register deserializer/serializer in common JSON Builder.
+     */
+     static {
+          AppRegistryBridge.getJSONInstance().registerTypeAdapter(ContactEmailType.class, new ContactEmailTypeAdapter());
+     }
 
 }
 /**

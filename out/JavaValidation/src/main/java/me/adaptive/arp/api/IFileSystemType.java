@@ -41,7 +41,14 @@ public enum IFileSystemType {
 
      Directory,
      File,
-     Unknown
+     Unknown;
+
+     /**
+        Register deserializer/serializer in common JSON Builder.
+     */
+     static {
+          AppRegistryBridge.getJSONInstance().registerTypeAdapter(IFileSystemType.class, new IFileSystemTypeAdapter());
+     }
 
 }
 /**

@@ -110,7 +110,7 @@ public class OSBridge extends BaseSystemBridge implements IOS, APIBridge {
                case "getOSInfo":
                     OSInfo response0 = this.getOSInfo();
                     if (response0 != null) {
-                         responseJSON = this.gson.toJson(response0);
+                         responseJSON = getJSONAPI().toJson(response0);
                     }
                     break;
                default:

@@ -58,7 +58,7 @@ public class ServiceResultCallbackImpl extends BaseCallbackImpl implements IServ
         @since ARP1.0
      */
      public void onError(IServiceResultCallbackError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleServiceResultCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleServiceResultCallbackError( '"+getId()+"', JSON.parse(" + getJSONAPI().toJson(error) +") )");
      }
 
      /**
@@ -68,7 +68,7 @@ public class ServiceResultCallbackImpl extends BaseCallbackImpl implements IServ
         @since ARP1.0
      */
      public void onResult(ServiceResponse response) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleServiceResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(response) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleServiceResultCallbackResult( '"+getId()+"', JSON.parse(" + getJSONAPI().toJson(response) +") )");
      }
 
      /**
@@ -79,7 +79,7 @@ public class ServiceResultCallbackImpl extends BaseCallbackImpl implements IServ
         @since ARP1.0
      */
      public void onWarning(ServiceResponse response, IServiceResultCallbackWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleServiceResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(response) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleServiceResultCallbackWarning( '"+getId()+"', JSON.parse(" + getJSONAPI().toJson(response) +"), JSON.parse(" + getJSONAPI().toJson(warning) +") )");
      }
 
 }
