@@ -27,21 +27,52 @@ Contributors:
 
 Release:
 
-    * @version v2.0.2
+    * @version v2.0.3
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
 package me.adaptive.arp.api;
 
-/**
-   Enumeration IAppResourceCallbackError
-*/
-public enum IAppResourceCallbackError {
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.JsonPrimitive;
+import com.google.gson.JsonSerializationContext;
+import com.google.gson.JsonSerializer;
+import java.lang.reflect.Type;
 
-     NotFound,
-     NoPermission,
-     Unknown
+/**
+   IOSType custom serializer/deserializer.
+*/
+public class IOSTypeAdapter implements JsonDeserializer<IOSType>, JsonSerializer<IOSType> {
+
+     @Override
+     public IOSType deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+          String value = null;
+          try {
+               value = json.getAsJsonObject().get("value").getAsString();
+          } catch(Exception ex) {
+               ex.printStackTrace();
+          }
+          if (value==null) {
+               value = "Unknown";
+          }
+          return IOSType.valueOf(IOSType.class, value);
+     }
+
+     @Override
+     public JsonElement serialize(IOSType src, Type typeOfSrc, JsonSerializationContext context) {
+          JsonObject jsonObject = new JsonObject();
+          if (src != null) {
+               jsonObject.add("value", new JsonPrimitive(src.name()));
+          } else {
+               jsonObject.add("value", new JsonPrimitive("Unknown"));
+          }
+          return jsonObject;
+     }
 
 }
 /**
