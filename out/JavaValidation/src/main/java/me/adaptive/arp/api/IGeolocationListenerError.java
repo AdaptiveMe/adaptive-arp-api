@@ -43,7 +43,14 @@ public enum IGeolocationListenerError {
      RestrictedAccess,
      DeniedAccess,
      StatusNotDetermined,
-     Unknown
+     Unknown;
+
+     /**
+        Register deserializer/serializer in common JSON Builder.
+     */
+     static {
+          AppRegistryBridge.getJSONInstance().registerTypeAdapter(IGeolocationListenerError.class, new IGeolocationListenerErrorAdapter());
+     }
 
 }
 /**

@@ -41,7 +41,14 @@ public enum IContactResultCallbackError {
 
      NoPermission,
      Wrong_Params,
-     Unknown
+     Unknown;
+
+     /**
+        Register deserializer/serializer in common JSON Builder.
+     */
+     static {
+          AppRegistryBridge.getJSONInstance().registerTypeAdapter(IContactResultCallbackError.class, new IContactResultCallbackErrorAdapter());
+     }
 
 }
 /**

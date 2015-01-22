@@ -41,7 +41,14 @@ public enum ISecurityResultCallbackError {
 
      NoPermission,
      NoMatchesFound,
-     Unknown
+     Unknown;
+
+     /**
+        Register deserializer/serializer in common JSON Builder.
+     */
+     static {
+          AppRegistryBridge.getJSONInstance().registerTypeAdapter(ISecurityResultCallbackError.class, new ISecurityResultCallbackErrorAdapter());
+     }
 
 }
 /**

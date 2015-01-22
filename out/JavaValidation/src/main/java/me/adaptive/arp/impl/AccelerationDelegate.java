@@ -43,13 +43,6 @@ import me.adaptive.arp.api.*;
 public class AccelerationDelegate extends BaseSensorDelegate implements IAcceleration {
 
      /**
-        Register delegate with the Application Registry.
-     */
-     static {
-          AppRegistryBridge.getInstance().getAccelerationBridge().setDelegate(new AccelerationDelegate());
-     }
-
-     /**
         Default Constructor.
      */
      public AccelerationDelegate() {

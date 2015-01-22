@@ -58,7 +58,7 @@ public class DatabaseTableResultCallbackImpl extends BaseCallbackImpl implements
         @since ARP1.0
      */
      public void onError(IDatabaseTableResultCallbackError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseTableResultCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseTableResultCallbackError( '"+getId()+"', JSON.parse(" + getJSONParser().toJson(error) +") )");
      }
 
      /**
@@ -68,7 +68,7 @@ public class DatabaseTableResultCallbackImpl extends BaseCallbackImpl implements
         @since ARP1.0
      */
      public void onResult(DatabaseTable databaseTable) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseTableResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(databaseTable) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseTableResultCallbackResult( '"+getId()+"', JSON.parse(" + getJSONParser().toJson(databaseTable) +") )");
      }
 
      /**
@@ -79,7 +79,7 @@ public class DatabaseTableResultCallbackImpl extends BaseCallbackImpl implements
         @since ARP1.0
      */
      public void onWarning(DatabaseTable databaseTable, IDatabaseTableResultCallbackWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseTableResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(databaseTable) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseTableResultCallbackWarning( '"+getId()+"', JSON.parse(" + getJSONParser().toJson(databaseTable) +"), JSON.parse(" + getJSONParser().toJson(warning) +") )");
      }
 
 }

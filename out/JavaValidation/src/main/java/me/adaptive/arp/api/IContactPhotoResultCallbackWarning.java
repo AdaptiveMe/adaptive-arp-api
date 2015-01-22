@@ -41,7 +41,14 @@ public enum IContactPhotoResultCallbackWarning {
 
      LimitExceeded,
      No_Matches,
-     Unknown
+     Unknown;
+
+     /**
+        Register deserializer/serializer in common JSON Builder.
+     */
+     static {
+          AppRegistryBridge.getJSONInstance().registerTypeAdapter(IContactPhotoResultCallbackWarning.class, new IContactPhotoResultCallbackWarningAdapter());
+     }
 
 }
 /**

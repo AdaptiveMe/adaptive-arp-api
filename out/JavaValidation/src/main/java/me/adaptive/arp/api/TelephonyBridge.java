@@ -100,25 +100,30 @@ public class TelephonyBridge extends BaseCommunicationBridge implements ITelepho
         Invokes the given method specified in the API request object.
 
         @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+        @return APIResponse with status code, message and JSON response or a JSON null string for void functions. Status code 200 is OK, all others are HTTP standard error conditions.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public APIResponse invoke(APIRequest request) {
+          APIResponse response = new APIResponse();
+          int responseCode = 200;
+          String responseMessage = "OK";
+          String responseJSON = "null";
           switch (request.getMethodName()) {
                case "call":
-                    String number0 = this.gson.fromJson(request.getParameters()[0], String.class);
+                    String number0 = getJSONParser().fromJson(request.getParameters()[0], String.class);
                     ITelephonyStatus response0 = this.call(number0);
                     if (response0 != null) {
-                         responseJSON = this.gson.toJson(response0);
-                    } else {
-                         responseJSON = null;
+                         responseJSON = getJSONParser().toJson(response0);
                     }
                     break;
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseCode = 404;
+                    responseMessage = "TelephonyBridge does not provide the function '"+request.getMethodName()+"' Please check your client-side API version; should be API version >= v2.0.3.";
           }
-          return responseJSON;
+          response.setResponse(responseJSON);
+          response.setStatusCode(responseCode);
+          response.setStatusMessage(responseMessage);
+          return response;
      }
 }
 /**

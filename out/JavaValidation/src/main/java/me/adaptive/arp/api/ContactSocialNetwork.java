@@ -44,7 +44,14 @@ public enum ContactSocialNetwork {
      GooglePlus,
      LinkedIn,
      Flickr,
-     Unknown
+     Unknown;
+
+     /**
+        Register deserializer/serializer in common JSON Builder.
+     */
+     static {
+          AppRegistryBridge.getJSONInstance().registerTypeAdapter(ContactSocialNetwork.class, new ContactSocialNetworkAdapter());
+     }
 
 }
 /**

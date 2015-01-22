@@ -35,6 +35,7 @@ Release:
 package me.adaptive.arp.api;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 /**
    Interface to retrieve auto-registered service implementation references.
@@ -78,6 +79,11 @@ public class AppRegistryBridge implements IAppRegistry {
      }
 
      /**
+        Common GsonBuilder.
+     */
+     private static GsonBuilder singletonGsonBuilder;
+
+     /**
         Singleton instance.
      */
      private static AppRegistryBridge singleton;
@@ -91,6 +97,17 @@ public class AppRegistryBridge implements IAppRegistry {
                singleton = new AppRegistryBridge(new AppRegistryDelegate());
           }
           return singleton;
+     }
+
+     /**
+        Get singleton GsonBuilder instance.
+        @return GsonBuilder singleton instance.
+     */
+     public static final GsonBuilder getJSONInstance() {
+          if (singletonGsonBuilder == null) {
+               singletonGsonBuilder = new GsonBuilder();
+          }
+          return singletonGsonBuilder;
      }
 
      /**
@@ -847,18 +864,10 @@ public class AppRegistryBridge implements IAppRegistry {
         @return LoggingBridge reference or null if a bridge of this type is not registered.
      */
      public final LoggingBridge getLoggingBridge() {
-          // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
           LoggingBridge result = null;
-
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getLoggingBridge().");
 
           if (this.delegate != null) {
                result = this.delegate.getLoggingBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getLoggingBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getLoggingBridge'.");
           }
           return result;          
      }

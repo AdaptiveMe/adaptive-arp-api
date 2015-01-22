@@ -50,7 +50,14 @@ public enum INetworkReachabilityCallbackError {
      Wrong_Params,
      MalformedUrl,
      DomainUnresolvable,
-     Unknown
+     Unknown;
+
+     /**
+        Register deserializer/serializer in common JSON Builder.
+     */
+     static {
+          AppRegistryBridge.getJSONInstance().registerTypeAdapter(INetworkReachabilityCallbackError.class, new INetworkReachabilityCallbackErrorAdapter());
+     }
 
 }
 /**

@@ -41,7 +41,14 @@ public enum IContactResultCallbackWarning {
 
      LimitExceeded,
      No_Matches,
-     Unknown
+     Unknown;
+
+     /**
+        Register deserializer/serializer in common JSON Builder.
+     */
+     static {
+          AppRegistryBridge.getJSONInstance().registerTypeAdapter(IContactResultCallbackWarning.class, new IContactResultCallbackWarningAdapter());
+     }
 
 }
 /**

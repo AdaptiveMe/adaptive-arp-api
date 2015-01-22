@@ -41,7 +41,14 @@ public enum IServiceProtocolVersion {
 
      HttpProtocolVersion10,
      HttpProtocolVersion11,
-     Unknown
+     Unknown;
+
+     /**
+        Register deserializer/serializer in common JSON Builder.
+     */
+     static {
+          AppRegistryBridge.getJSONInstance().registerTypeAdapter(IServiceProtocolVersion.class, new IServiceProtocolVersionAdapter());
+     }
 
 }
 /**

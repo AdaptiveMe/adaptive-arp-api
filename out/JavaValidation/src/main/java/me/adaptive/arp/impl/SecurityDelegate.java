@@ -43,13 +43,6 @@ import me.adaptive.arp.api.*;
 public class SecurityDelegate extends BaseSecurityDelegate implements ISecurity {
 
      /**
-        Register delegate with the Application Registry.
-     */
-     static {
-          AppRegistryBridge.getInstance().getSecurityBridge().setDelegate(new SecurityDelegate());
-     }
-
-     /**
         Default Constructor.
      */
      public SecurityDelegate() {

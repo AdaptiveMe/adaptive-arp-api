@@ -44,7 +44,14 @@ public enum IFileResultCallbackError {
      DestionationExists,
      InsufficientSpace,
      Unauthorized,
-     Unknown
+     Unknown;
+
+     /**
+        Register deserializer/serializer in common JSON Builder.
+     */
+     static {
+          AppRegistryBridge.getJSONInstance().registerTypeAdapter(IFileResultCallbackError.class, new IFileResultCallbackErrorAdapter());
+     }
 
 }
 /**

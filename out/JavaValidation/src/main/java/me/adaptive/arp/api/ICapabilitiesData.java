@@ -42,7 +42,14 @@ public enum ICapabilitiesData {
      Database,
      File,
      Cloud,
-     Unknown
+     Unknown;
+
+     /**
+        Register deserializer/serializer in common JSON Builder.
+     */
+     static {
+          AppRegistryBridge.getJSONInstance().registerTypeAdapter(ICapabilitiesData.class, new ICapabilitiesDataAdapter());
+     }
 
 }
 /**

@@ -40,7 +40,14 @@ package me.adaptive.arp.api;
 public enum ISecurityResultCallbackWarning {
 
      EntryOverride,
-     Unknown
+     Unknown;
+
+     /**
+        Register deserializer/serializer in common JSON Builder.
+     */
+     static {
+          AppRegistryBridge.getJSONInstance().registerTypeAdapter(ISecurityResultCallbackWarning.class, new ISecurityResultCallbackWarningAdapter());
+     }
 
 }
 /**

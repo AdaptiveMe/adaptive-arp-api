@@ -43,13 +43,6 @@ import me.adaptive.arp.api.*;
 public class DatabaseDelegate extends BaseDataDelegate implements IDatabase {
 
      /**
-        Register delegate with the Application Registry.
-     */
-     static {
-          AppRegistryBridge.getInstance().getDatabaseBridge().setDelegate(new DatabaseDelegate());
-     }
-
-     /**
         Default Constructor.
      */
      public DatabaseDelegate() {

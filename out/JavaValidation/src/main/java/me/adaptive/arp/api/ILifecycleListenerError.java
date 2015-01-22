@@ -42,7 +42,14 @@ public enum ILifecycleListenerError {
      Runtime,
      Implementation,
      Killed,
-     Unknown
+     Unknown;
+
+     /**
+        Register deserializer/serializer in common JSON Builder.
+     */
+     static {
+          AppRegistryBridge.getJSONInstance().registerTypeAdapter(ILifecycleListenerError.class, new ILifecycleListenerErrorAdapter());
+     }
 
 }
 /**

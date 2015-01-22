@@ -46,7 +46,14 @@ public enum ContactPhoneType {
      HomeFax,
      WorkFax,
      Other,
-     Unknown
+     Unknown;
+
+     /**
+        Register deserializer/serializer in common JSON Builder.
+     */
+     static {
+          AppRegistryBridge.getJSONInstance().registerTypeAdapter(ContactPhoneType.class, new ContactPhoneTypeAdapter());
+     }
 
 }
 /**

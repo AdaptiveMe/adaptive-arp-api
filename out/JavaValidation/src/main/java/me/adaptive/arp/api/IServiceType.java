@@ -49,7 +49,14 @@ public enum IServiceType {
      ServiceTypeSoapXml,
      ServiceTypeXmlRpcJson,
      ServiceTypeXmlRpcXml,
-     Unknown
+     Unknown;
+
+     /**
+        Register deserializer/serializer in common JSON Builder.
+     */
+     static {
+          AppRegistryBridge.getJSONInstance().registerTypeAdapter(IServiceType.class, new IServiceTypeAdapter());
+     }
 
 }
 /**

@@ -41,7 +41,14 @@ public enum ITelephonyStatus {
 
      Dialing,
      Failed,
-     Unknown
+     Unknown;
+
+     /**
+        Register deserializer/serializer in common JSON Builder.
+     */
+     static {
+          AppRegistryBridge.getJSONInstance().registerTypeAdapter(ITelephonyStatus.class, new ITelephonyStatusAdapter());
+     }
 
 }
 /**

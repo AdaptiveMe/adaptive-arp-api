@@ -41,7 +41,14 @@ public enum IFileResultCallbackWarning {
 
      SourceNotDeleted,
      RootDirectory,
-     Unknown
+     Unknown;
+
+     /**
+        Register deserializer/serializer in common JSON Builder.
+     */
+     static {
+          AppRegistryBridge.getJSONInstance().registerTypeAdapter(IFileResultCallbackWarning.class, new IFileResultCallbackWarningAdapter());
+     }
 
 }
 /**

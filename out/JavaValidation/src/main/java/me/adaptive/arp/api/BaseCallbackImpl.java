@@ -53,11 +53,6 @@ public class BaseCallbackImpl implements IBaseCallback {
      private IAdaptiveRPGroup apiGroup;
 
      /**
-        JSON Serializer.
-     */
-     protected Gson gson;
-
-     /**
         Constructor with callback id.
 
         @param id  The id of the callback.
@@ -65,7 +60,6 @@ public class BaseCallbackImpl implements IBaseCallback {
      public BaseCallbackImpl(long id) {
           this.id = id;
           this.apiGroup = IAdaptiveRPGroup.Application;
-          this.gson = new Gson();
      }
 
      /**
@@ -93,11 +87,11 @@ public class BaseCallbackImpl implements IBaseCallback {
      }
 
      /**
-        Return the JSON serializer.
-        @return Current JSON serializer.
+        Return the JSON deserializer/serializer sourced from the static GsonBuilder.
+        @return Gson new JSON deserializer/serializer instance from factory.
      */
-     public final Gson getJSONAPI() {
-          return this.gson;
+     public final Gson getJSONParser() {
+          return AppRegistryBridge.getJSONInstance().create();
      }
 
 }

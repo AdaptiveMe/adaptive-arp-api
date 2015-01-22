@@ -164,10 +164,13 @@ public class LifecycleBridge extends BaseApplicationBridge implements ILifecycle
         Invokes the given method specified in the API request object.
 
         @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+        @return APIResponse with status code, message and JSON response or a JSON null string for void functions. Status code 200 is OK, all others are HTTP standard error conditions.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public APIResponse invoke(APIRequest request) {
+          APIResponse response = new APIResponse();
+          int responseCode = 200;
+          String responseMessage = "OK";
+          String responseJSON = "null";
           switch (request.getMethodName()) {
                case "addLifecycleListener":
                     ILifecycleListener listener0 = new LifecycleListenerImpl(request.getAsyncId());
@@ -175,7 +178,7 @@ public class LifecycleBridge extends BaseApplicationBridge implements ILifecycle
                     break;
                case "isBackground":
                     boolean response1 = this.isBackground();
-                    responseJSON = this.gson.toJson(response1);
+                    responseJSON = getJSONParser().toJson(response1);
                     break;
                case "removeLifecycleListener":
                     ILifecycleListener listener2 = new LifecycleListenerImpl(request.getAsyncId());
@@ -186,9 +189,13 @@ public class LifecycleBridge extends BaseApplicationBridge implements ILifecycle
                     break;
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseCode = 404;
+                    responseMessage = "LifecycleBridge does not provide the function '"+request.getMethodName()+"' Please check your client-side API version; should be API version >= v2.0.3.";
           }
-          return responseJSON;
+          response.setResponse(responseJSON);
+          response.setStatusCode(responseCode);
+          response.setStatusMessage(responseMessage);
+          return response;
      }
 }
 /**

@@ -42,7 +42,14 @@ public enum ICapabilitiesButton {
      HomeButton,
      BackButton,
      OptionButton,
-     Unknown
+     Unknown;
+
+     /**
+        Register deserializer/serializer in common JSON Builder.
+     */
+     static {
+          AppRegistryBridge.getJSONInstance().registerTypeAdapter(ICapabilitiesButton.class, new ICapabilitiesButtonAdapter());
+     }
 
 }
 /**

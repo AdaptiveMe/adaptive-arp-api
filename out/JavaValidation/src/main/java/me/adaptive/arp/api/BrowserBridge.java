@@ -152,35 +152,42 @@ public class BrowserBridge extends BaseUIBridge implements IBrowser, APIBridge {
         Invokes the given method specified in the API request object.
 
         @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+        @return APIResponse with status code, message and JSON response or a JSON null string for void functions. Status code 200 is OK, all others are HTTP standard error conditions.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public APIResponse invoke(APIRequest request) {
+          APIResponse response = new APIResponse();
+          int responseCode = 200;
+          String responseMessage = "OK";
+          String responseJSON = "null";
           switch (request.getMethodName()) {
                case "openExtenalBrowser":
-                    String url0 = this.gson.fromJson(request.getParameters()[0], String.class);
+                    String url0 = getJSONParser().fromJson(request.getParameters()[0], String.class);
                     boolean response0 = this.openExtenalBrowser(url0);
-                    responseJSON = this.gson.toJson(response0);
+                    responseJSON = getJSONParser().toJson(response0);
                     break;
                case "openInternalBrowser":
-                    String url1 = this.gson.fromJson(request.getParameters()[0], String.class);
-                    String title1 = this.gson.fromJson(request.getParameters()[1], String.class);
-                    String backButtonText1 = this.gson.fromJson(request.getParameters()[2], String.class);
+                    String url1 = getJSONParser().fromJson(request.getParameters()[0], String.class);
+                    String title1 = getJSONParser().fromJson(request.getParameters()[1], String.class);
+                    String backButtonText1 = getJSONParser().fromJson(request.getParameters()[2], String.class);
                     boolean response1 = this.openInternalBrowser(url1, title1, backButtonText1);
-                    responseJSON = this.gson.toJson(response1);
+                    responseJSON = getJSONParser().toJson(response1);
                     break;
                case "openInternalBrowserModal":
-                    String url2 = this.gson.fromJson(request.getParameters()[0], String.class);
-                    String title2 = this.gson.fromJson(request.getParameters()[1], String.class);
-                    String backButtonText2 = this.gson.fromJson(request.getParameters()[2], String.class);
+                    String url2 = getJSONParser().fromJson(request.getParameters()[0], String.class);
+                    String title2 = getJSONParser().fromJson(request.getParameters()[1], String.class);
+                    String backButtonText2 = getJSONParser().fromJson(request.getParameters()[2], String.class);
                     boolean response2 = this.openInternalBrowserModal(url2, title2, backButtonText2);
-                    responseJSON = this.gson.toJson(response2);
+                    responseJSON = getJSONParser().toJson(response2);
                     break;
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseCode = 404;
+                    responseMessage = "BrowserBridge does not provide the function '"+request.getMethodName()+"' Please check your client-side API version; should be API version >= v2.0.3.";
           }
-          return responseJSON;
+          response.setResponse(responseJSON);
+          response.setStatusCode(responseCode);
+          response.setStatusMessage(responseMessage);
+          return response;
      }
 }
 /**

@@ -44,7 +44,14 @@ public enum ICapabilitiesCommunication {
      Mail,
      Messaging,
      Telephony,
-     Unknown
+     Unknown;
+
+     /**
+        Register deserializer/serializer in common JSON Builder.
+     */
+     static {
+          AppRegistryBridge.getJSONInstance().registerTypeAdapter(ICapabilitiesCommunication.class, new ICapabilitiesCommunicationAdapter());
+     }
 
 }
 /**

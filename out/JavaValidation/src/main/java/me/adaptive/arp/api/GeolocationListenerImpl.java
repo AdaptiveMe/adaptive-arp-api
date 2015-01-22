@@ -58,7 +58,7 @@ public class GeolocationListenerImpl extends BaseListenerImpl implements IGeoloc
         @since ARP1.0
      */
      public void onError(IGeolocationListenerError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleGeolocationListenerError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleGeolocationListenerError( '"+getId()+"', JSON.parse(" + getJSONParser().toJson(error) +") )");
      }
 
      /**
@@ -68,7 +68,7 @@ public class GeolocationListenerImpl extends BaseListenerImpl implements IGeoloc
         @since ARP1.0
      */
      public void onResult(Geolocation geolocation) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleGeolocationListenerResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(geolocation) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleGeolocationListenerResult( '"+getId()+"', JSON.parse(" + getJSONParser().toJson(geolocation) +") )");
      }
 
      /**
@@ -79,7 +79,7 @@ public class GeolocationListenerImpl extends BaseListenerImpl implements IGeoloc
         @since ARP1.0
      */
      public void onWarning(Geolocation geolocation, IGeolocationListenerWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleGeolocationListenerWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(geolocation) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleGeolocationListenerWarning( '"+getId()+"', JSON.parse(" + getJSONParser().toJson(geolocation) +"), JSON.parse(" + getJSONParser().toJson(warning) +") )");
      }
 
 }

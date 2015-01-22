@@ -43,13 +43,6 @@ import me.adaptive.arp.api.*;
 public class ContactDelegate extends BasePIMDelegate implements IContact {
 
      /**
-        Register delegate with the Application Registry.
-     */
-     static {
-          AppRegistryBridge.getInstance().getContactBridge().setDelegate(new ContactDelegate());
-     }
-
-     /**
         Default Constructor.
      */
      public ContactDelegate() {

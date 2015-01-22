@@ -44,7 +44,14 @@ public enum IDatabaseTableResultCallbackError {
      SqlException,
      DatabaseNotFound,
      NoTableFound,
-     Unknown
+     Unknown;
+
+     /**
+        Register deserializer/serializer in common JSON Builder.
+     */
+     static {
+          AppRegistryBridge.getJSONInstance().registerTypeAdapter(IDatabaseTableResultCallbackError.class, new IDatabaseTableResultCallbackErrorAdapter());
+     }
 
 }
 /**
