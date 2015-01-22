@@ -43,13 +43,6 @@ import me.adaptive.arp.api.*;
 public class FileDelegate extends BaseDataDelegate implements IFile {
 
      /**
-        Register delegate with the Application Registry.
-     */
-     static {
-          AppRegistryBridge.getInstance().getFileBridge().setDelegate(new FileDelegate());
-     }
-
-     /**
         Default Constructor.
      */
      public FileDelegate() {

@@ -43,13 +43,6 @@ import me.adaptive.arp.api.*;
 public class GeolocationDelegate extends BaseSensorDelegate implements IGeolocation {
 
      /**
-        Register delegate with the Application Registry.
-     */
-     static {
-          AppRegistryBridge.getInstance().getGeolocationBridge().setDelegate(new GeolocationDelegate());
-     }
-
-     /**
         Default Constructor.
      */
      public GeolocationDelegate() {

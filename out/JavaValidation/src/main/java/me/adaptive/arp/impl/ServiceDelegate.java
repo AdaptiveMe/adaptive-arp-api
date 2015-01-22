@@ -43,13 +43,6 @@ import me.adaptive.arp.api.*;
 public class ServiceDelegate extends BaseCommunicationDelegate implements IService {
 
      /**
-        Register delegate with the Application Registry.
-     */
-     static {
-          AppRegistryBridge.getInstance().getServiceBridge().setDelegate(new ServiceDelegate());
-     }
-
-     /**
         Default Constructor.
      */
      public ServiceDelegate() {

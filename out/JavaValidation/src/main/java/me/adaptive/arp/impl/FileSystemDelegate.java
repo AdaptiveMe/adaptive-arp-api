@@ -43,13 +43,6 @@ import me.adaptive.arp.api.*;
 public class FileSystemDelegate extends BaseDataDelegate implements IFileSystem {
 
      /**
-        Register delegate with the Application Registry.
-     */
-     static {
-          AppRegistryBridge.getInstance().getFileSystemBridge().setDelegate(new FileSystemDelegate());
-     }
-
-     /**
         Default Constructor.
      */
      public FileSystemDelegate() {

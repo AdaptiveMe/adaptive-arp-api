@@ -43,13 +43,6 @@ import me.adaptive.arp.api.*;
 public class CapabilitiesDelegate extends BaseSystemDelegate implements ICapabilities {
 
      /**
-        Register delegate with the Application Registry.
-     */
-     static {
-          AppRegistryBridge.getInstance().getCapabilitiesBridge().setDelegate(new CapabilitiesDelegate());
-     }
-
-     /**
         Default Constructor.
      */
      public CapabilitiesDelegate() {

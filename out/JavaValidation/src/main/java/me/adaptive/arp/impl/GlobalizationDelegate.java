@@ -43,13 +43,6 @@ import me.adaptive.arp.api.*;
 public class GlobalizationDelegate extends BaseApplicationDelegate implements IGlobalization {
 
      /**
-        Register delegate with the Application Registry.
-     */
-     static {
-          AppRegistryBridge.getInstance().getGlobalizationBridge().setDelegate(new GlobalizationDelegate());
-     }
-
-     /**
         Default Constructor.
      */
      public GlobalizationDelegate() {

@@ -43,13 +43,6 @@ import me.adaptive.arp.api.*;
 public class TelephonyDelegate extends BaseCommunicationDelegate implements ITelephony {
 
      /**
-        Register delegate with the Application Registry.
-     */
-     static {
-          AppRegistryBridge.getInstance().getTelephonyBridge().setDelegate(new TelephonyDelegate());
-     }
-
-     /**
         Default Constructor.
      */
      public TelephonyDelegate() {
