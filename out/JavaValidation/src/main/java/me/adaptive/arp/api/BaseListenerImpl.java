@@ -87,10 +87,10 @@ public class BaseListenerImpl implements IBaseListener {
      }
 
      /**
-        Return the JSON serializer.
-        @return Current JSON serializer.
+        Return the JSON deserializer/serializer sourced from the static GsonBuilder.
+        @return Gson new JSON deserializer/serializer instance from factory.
      */
-     public final Gson getJSONAPI() {
+     public final Gson getJSONParser() {
           return AppRegistryBridge.getJSONInstance().create();
      }
 

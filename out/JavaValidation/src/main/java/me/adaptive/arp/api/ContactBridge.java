@@ -272,12 +272,12 @@ public class ContactBridge extends BasePIMBridge implements IContact, APIBridge 
           String responseJSON = "null";
           switch (request.getMethodName()) {
                case "getContact":
-                    ContactUid contact0 = getJSONAPI().fromJson(request.getParameters()[0], ContactUid.class);
+                    ContactUid contact0 = getJSONParser().fromJson(request.getParameters()[0], ContactUid.class);
                     IContactResultCallback callback0 = new ContactResultCallbackImpl(request.getAsyncId());
                     this.getContact(contact0, callback0);
                     break;
                case "getContactPhoto":
-                    ContactUid contact1 = getJSONAPI().fromJson(request.getParameters()[0], ContactUid.class);
+                    ContactUid contact1 = getJSONParser().fromJson(request.getParameters()[0], ContactUid.class);
                     IContactPhotoResultCallback callback1 = new ContactPhotoResultCallbackImpl(request.getAsyncId());
                     this.getContactPhoto(contact1, callback1);
                     break;
@@ -287,31 +287,31 @@ public class ContactBridge extends BasePIMBridge implements IContact, APIBridge 
                     break;
                case "getContactsForFields":
                     IContactResultCallback callback3 = new ContactResultCallbackImpl(request.getAsyncId());
-                    IContactFieldGroup[] fields3 = getJSONAPI().fromJson(request.getParameters()[1], IContactFieldGroup[].class);
+                    IContactFieldGroup[] fields3 = getJSONParser().fromJson(request.getParameters()[1], IContactFieldGroup[].class);
                     this.getContactsForFields(callback3, fields3);
                     break;
                case "getContactsWithFilter":
                     IContactResultCallback callback4 = new ContactResultCallbackImpl(request.getAsyncId());
-                    IContactFieldGroup[] fields4 = getJSONAPI().fromJson(request.getParameters()[1], IContactFieldGroup[].class);
-                    IContactFilter[] filter4 = getJSONAPI().fromJson(request.getParameters()[2], IContactFilter[].class);
+                    IContactFieldGroup[] fields4 = getJSONParser().fromJson(request.getParameters()[1], IContactFieldGroup[].class);
+                    IContactFilter[] filter4 = getJSONParser().fromJson(request.getParameters()[2], IContactFilter[].class);
                     this.getContactsWithFilter(callback4, fields4, filter4);
                     break;
                case "searchContacts":
-                    String term5 = getJSONAPI().fromJson(request.getParameters()[0], String.class);
+                    String term5 = getJSONParser().fromJson(request.getParameters()[0], String.class);
                     IContactResultCallback callback5 = new ContactResultCallbackImpl(request.getAsyncId());
                     this.searchContacts(term5, callback5);
                     break;
                case "searchContactsWithFilter":
-                    String term6 = getJSONAPI().fromJson(request.getParameters()[0], String.class);
+                    String term6 = getJSONParser().fromJson(request.getParameters()[0], String.class);
                     IContactResultCallback callback6 = new ContactResultCallbackImpl(request.getAsyncId());
-                    IContactFilter[] filter6 = getJSONAPI().fromJson(request.getParameters()[2], IContactFilter[].class);
+                    IContactFilter[] filter6 = getJSONParser().fromJson(request.getParameters()[2], IContactFilter[].class);
                     this.searchContactsWithFilter(term6, callback6, filter6);
                     break;
                case "setContactPhoto":
-                    ContactUid contact7 = getJSONAPI().fromJson(request.getParameters()[0], ContactUid.class);
-                    byte[] pngImage7 = getJSONAPI().fromJson(request.getParameters()[1], byte[].class);
+                    ContactUid contact7 = getJSONParser().fromJson(request.getParameters()[0], ContactUid.class);
+                    byte[] pngImage7 = getJSONParser().fromJson(request.getParameters()[1], byte[].class);
                     boolean response7 = this.setContactPhoto(contact7, pngImage7);
-                    responseJSON = getJSONAPI().toJson(response7);
+                    responseJSON = getJSONParser().toJson(response7);
                     break;
                default:
                     // 404 - response null.

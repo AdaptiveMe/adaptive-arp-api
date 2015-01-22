@@ -180,24 +180,24 @@ public class SecurityBridge extends BaseSecurityBridge implements ISecurity, API
           String responseJSON = "null";
           switch (request.getMethodName()) {
                case "deleteSecureKeyValuePairs":
-                    String[] keys0 = getJSONAPI().fromJson(request.getParameters()[0], String[].class);
-                    String publicAccessName0 = getJSONAPI().fromJson(request.getParameters()[1], String.class);
+                    String[] keys0 = getJSONParser().fromJson(request.getParameters()[0], String[].class);
+                    String publicAccessName0 = getJSONParser().fromJson(request.getParameters()[1], String.class);
                     ISecurityResultCallback callback0 = new SecurityResultCallbackImpl(request.getAsyncId());
                     this.deleteSecureKeyValuePairs(keys0, publicAccessName0, callback0);
                     break;
                case "getSecureKeyValuePairs":
-                    String[] keys1 = getJSONAPI().fromJson(request.getParameters()[0], String[].class);
-                    String publicAccessName1 = getJSONAPI().fromJson(request.getParameters()[1], String.class);
+                    String[] keys1 = getJSONParser().fromJson(request.getParameters()[0], String[].class);
+                    String publicAccessName1 = getJSONParser().fromJson(request.getParameters()[1], String.class);
                     ISecurityResultCallback callback1 = new SecurityResultCallbackImpl(request.getAsyncId());
                     this.getSecureKeyValuePairs(keys1, publicAccessName1, callback1);
                     break;
                case "isDeviceModified":
                     boolean response2 = this.isDeviceModified();
-                    responseJSON = getJSONAPI().toJson(response2);
+                    responseJSON = getJSONParser().toJson(response2);
                     break;
                case "setSecureKeyValuePairs":
-                    SecureKeyPair[] keyValues3 = getJSONAPI().fromJson(request.getParameters()[0], SecureKeyPair[].class);
-                    String publicAccessName3 = getJSONAPI().fromJson(request.getParameters()[1], String.class);
+                    SecureKeyPair[] keyValues3 = getJSONParser().fromJson(request.getParameters()[0], SecureKeyPair[].class);
+                    String publicAccessName3 = getJSONParser().fromJson(request.getParameters()[1], String.class);
                     ISecurityResultCallback callback3 = new SecurityResultCallbackImpl(request.getAsyncId());
                     this.setSecureKeyValuePairs(keyValues3, publicAccessName3, callback3);
                     break;

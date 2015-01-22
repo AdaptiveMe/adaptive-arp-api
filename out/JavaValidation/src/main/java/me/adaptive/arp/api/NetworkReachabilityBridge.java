@@ -131,12 +131,12 @@ public class NetworkReachabilityBridge extends BaseCommunicationBridge implement
           String responseJSON = "null";
           switch (request.getMethodName()) {
                case "isNetworkReachable":
-                    String host0 = getJSONAPI().fromJson(request.getParameters()[0], String.class);
+                    String host0 = getJSONParser().fromJson(request.getParameters()[0], String.class);
                     INetworkReachabilityCallback callback0 = new NetworkReachabilityCallbackImpl(request.getAsyncId());
                     this.isNetworkReachable(host0, callback0);
                     break;
                case "isNetworkServiceReachable":
-                    String url1 = getJSONAPI().fromJson(request.getParameters()[0], String.class);
+                    String url1 = getJSONParser().fromJson(request.getParameters()[0], String.class);
                     INetworkReachabilityCallback callback1 = new NetworkReachabilityCallbackImpl(request.getAsyncId());
                     this.isNetworkServiceReachable(url1, callback1);
                     break;

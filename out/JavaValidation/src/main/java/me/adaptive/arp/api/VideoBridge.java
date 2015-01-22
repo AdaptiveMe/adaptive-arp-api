@@ -107,7 +107,7 @@ public class VideoBridge extends BaseMediaBridge implements IVideo, APIBridge {
           String responseJSON = "null";
           switch (request.getMethodName()) {
                case "playStream":
-                    String url0 = getJSONAPI().fromJson(request.getParameters()[0], String.class);
+                    String url0 = getJSONParser().fromJson(request.getParameters()[0], String.class);
                     this.playStream(url0);
                     break;
                default:

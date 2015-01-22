@@ -114,14 +114,14 @@ public class LoggingBridge extends BaseUtilBridge implements ILogging, APIBridge
           String responseJSON = "null";
           switch (request.getMethodName()) {
                case "log_level_message":
-                    ILoggingLogLevel level0 = getJSONAPI().fromJson(request.getParameters()[0], ILoggingLogLevel.class);
-                    String message0 = getJSONAPI().fromJson(request.getParameters()[1], String.class);
+                    ILoggingLogLevel level0 = getJSONParser().fromJson(request.getParameters()[0], ILoggingLogLevel.class);
+                    String message0 = getJSONParser().fromJson(request.getParameters()[1], String.class);
                     this.log(level0, message0);
                     break;
                case "log_level_category_message":
-                    ILoggingLogLevel level1 = getJSONAPI().fromJson(request.getParameters()[0], ILoggingLogLevel.class);
-                    String category1 = getJSONAPI().fromJson(request.getParameters()[1], String.class);
-                    String message1 = getJSONAPI().fromJson(request.getParameters()[2], String.class);
+                    ILoggingLogLevel level1 = getJSONParser().fromJson(request.getParameters()[0], ILoggingLogLevel.class);
+                    String category1 = getJSONParser().fromJson(request.getParameters()[1], String.class);
+                    String message1 = getJSONParser().fromJson(request.getParameters()[2], String.class);
                     this.log(level1, category1, message1);
                     break;
                default:

@@ -58,7 +58,7 @@ public class NetworkStatusListenerImpl extends BaseListenerImpl implements INetw
         @since ARP1.0
      */
      public void onError(INetworkStatusListenerError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkStatusListenerError( '"+getId()+"', JSON.parse(" + getJSONAPI().toJson(error) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkStatusListenerError( '"+getId()+"', JSON.parse(" + getJSONParser().toJson(error) +") )");
      }
 
      /**
@@ -68,7 +68,7 @@ public class NetworkStatusListenerImpl extends BaseListenerImpl implements INetw
         @since ARP1.0
      */
      public void onResult(ICapabilitiesNet network) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkStatusListenerResult( '"+getId()+"', JSON.parse(" + getJSONAPI().toJson(network) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkStatusListenerResult( '"+getId()+"', JSON.parse(" + getJSONParser().toJson(network) +") )");
      }
 
      /**
@@ -79,7 +79,7 @@ public class NetworkStatusListenerImpl extends BaseListenerImpl implements INetw
         @since ARP1.0
      */
      public void onWarning(ICapabilitiesNet network, INetworkStatusListenerWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkStatusListenerWarning( '"+getId()+"', JSON.parse(" + getJSONAPI().toJson(network) +"), JSON.parse(" + getJSONAPI().toJson(warning) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkStatusListenerWarning( '"+getId()+"', JSON.parse(" + getJSONParser().toJson(network) +"), JSON.parse(" + getJSONParser().toJson(warning) +") )");
      }
 
 }

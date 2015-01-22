@@ -58,7 +58,7 @@ public class DatabaseResultCallbackImpl extends BaseCallbackImpl implements IDat
         @since ARP1.0
      */
      public void onError(IDatabaseResultCallbackError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseResultCallbackError( '"+getId()+"', JSON.parse(" + getJSONAPI().toJson(error) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseResultCallbackError( '"+getId()+"', JSON.parse(" + getJSONParser().toJson(error) +") )");
      }
 
      /**
@@ -68,7 +68,7 @@ public class DatabaseResultCallbackImpl extends BaseCallbackImpl implements IDat
         @since ARP1.0
      */
      public void onResult(Database database) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseResultCallbackResult( '"+getId()+"', JSON.parse(" + getJSONAPI().toJson(database) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseResultCallbackResult( '"+getId()+"', JSON.parse(" + getJSONParser().toJson(database) +") )");
      }
 
      /**
@@ -79,7 +79,7 @@ public class DatabaseResultCallbackImpl extends BaseCallbackImpl implements IDat
         @since ARP1.0
      */
      public void onWarning(Database database, IDatabaseResultCallbackWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseResultCallbackWarning( '"+getId()+"', JSON.parse(" + getJSONAPI().toJson(database) +"), JSON.parse(" + getJSONAPI().toJson(warning) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseResultCallbackWarning( '"+getId()+"', JSON.parse(" + getJSONParser().toJson(database) +"), JSON.parse(" + getJSONParser().toJson(warning) +") )");
      }
 
 }

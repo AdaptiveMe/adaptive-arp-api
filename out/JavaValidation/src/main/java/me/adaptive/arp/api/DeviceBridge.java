@@ -202,13 +202,13 @@ public class DeviceBridge extends BaseSystemBridge implements IDevice, APIBridge
                case "getDeviceInfo":
                     DeviceInfo response1 = this.getDeviceInfo();
                     if (response1 != null) {
-                         responseJSON = getJSONAPI().toJson(response1);
+                         responseJSON = getJSONParser().toJson(response1);
                     }
                     break;
                case "getLocaleCurrent":
                     Locale response2 = this.getLocaleCurrent();
                     if (response2 != null) {
-                         responseJSON = getJSONAPI().toJson(response2);
+                         responseJSON = getJSONParser().toJson(response2);
                     }
                     break;
                case "removeButtonListener":

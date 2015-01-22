@@ -246,38 +246,38 @@ public class ServiceBridge extends BaseCommunicationBridge implements IService, 
           String responseJSON = "null";
           switch (request.getMethodName()) {
                case "getService":
-                    String serviceName0 = getJSONAPI().fromJson(request.getParameters()[0], String.class);
+                    String serviceName0 = getJSONParser().fromJson(request.getParameters()[0], String.class);
                     Service response0 = this.getService(serviceName0);
                     if (response0 != null) {
-                         responseJSON = getJSONAPI().toJson(response0);
+                         responseJSON = getJSONParser().toJson(response0);
                     }
                     break;
                case "invokeService":
-                    ServiceRequest serviceRequest1 = getJSONAPI().fromJson(request.getParameters()[0], ServiceRequest.class);
-                    Service service1 = getJSONAPI().fromJson(request.getParameters()[1], Service.class);
+                    ServiceRequest serviceRequest1 = getJSONParser().fromJson(request.getParameters()[0], ServiceRequest.class);
+                    Service service1 = getJSONParser().fromJson(request.getParameters()[1], Service.class);
                     IServiceResultCallback callback1 = new ServiceResultCallbackImpl(request.getAsyncId());
                     this.invokeService(serviceRequest1, service1, callback1);
                     break;
                case "registerService":
-                    Service service2 = getJSONAPI().fromJson(request.getParameters()[0], Service.class);
+                    Service service2 = getJSONParser().fromJson(request.getParameters()[0], Service.class);
                     this.registerService(service2);
                     break;
                case "unregisterService":
-                    Service service3 = getJSONAPI().fromJson(request.getParameters()[0], Service.class);
+                    Service service3 = getJSONParser().fromJson(request.getParameters()[0], Service.class);
                     this.unregisterService(service3);
                     break;
                case "unregisterServices":
                     this.unregisterServices();
                     break;
                case "isRegistered_service":
-                    Service service5 = getJSONAPI().fromJson(request.getParameters()[0], Service.class);
+                    Service service5 = getJSONParser().fromJson(request.getParameters()[0], Service.class);
                     boolean response5 = this.isRegistered(service5);
-                    responseJSON = getJSONAPI().toJson(response5);
+                    responseJSON = getJSONParser().toJson(response5);
                     break;
                case "isRegistered_serviceName":
-                    String serviceName6 = getJSONAPI().fromJson(request.getParameters()[0], String.class);
+                    String serviceName6 = getJSONParser().fromJson(request.getParameters()[0], String.class);
                     boolean response6 = this.isRegistered(serviceName6);
-                    responseJSON = getJSONAPI().toJson(response6);
+                    responseJSON = getJSONParser().toJson(response6);
                     break;
                default:
                     // 404 - response null.

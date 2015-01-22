@@ -161,23 +161,23 @@ public class BrowserBridge extends BaseUIBridge implements IBrowser, APIBridge {
           String responseJSON = "null";
           switch (request.getMethodName()) {
                case "openExtenalBrowser":
-                    String url0 = getJSONAPI().fromJson(request.getParameters()[0], String.class);
+                    String url0 = getJSONParser().fromJson(request.getParameters()[0], String.class);
                     boolean response0 = this.openExtenalBrowser(url0);
-                    responseJSON = getJSONAPI().toJson(response0);
+                    responseJSON = getJSONParser().toJson(response0);
                     break;
                case "openInternalBrowser":
-                    String url1 = getJSONAPI().fromJson(request.getParameters()[0], String.class);
-                    String title1 = getJSONAPI().fromJson(request.getParameters()[1], String.class);
-                    String backButtonText1 = getJSONAPI().fromJson(request.getParameters()[2], String.class);
+                    String url1 = getJSONParser().fromJson(request.getParameters()[0], String.class);
+                    String title1 = getJSONParser().fromJson(request.getParameters()[1], String.class);
+                    String backButtonText1 = getJSONParser().fromJson(request.getParameters()[2], String.class);
                     boolean response1 = this.openInternalBrowser(url1, title1, backButtonText1);
-                    responseJSON = getJSONAPI().toJson(response1);
+                    responseJSON = getJSONParser().toJson(response1);
                     break;
                case "openInternalBrowserModal":
-                    String url2 = getJSONAPI().fromJson(request.getParameters()[0], String.class);
-                    String title2 = getJSONAPI().fromJson(request.getParameters()[1], String.class);
-                    String backButtonText2 = getJSONAPI().fromJson(request.getParameters()[2], String.class);
+                    String url2 = getJSONParser().fromJson(request.getParameters()[0], String.class);
+                    String title2 = getJSONParser().fromJson(request.getParameters()[1], String.class);
+                    String backButtonText2 = getJSONParser().fromJson(request.getParameters()[2], String.class);
                     boolean response2 = this.openInternalBrowserModal(url2, title2, backButtonText2);
-                    responseJSON = getJSONAPI().toJson(response2);
+                    responseJSON = getJSONParser().toJson(response2);
                     break;
                default:
                     // 404 - response null.

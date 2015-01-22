@@ -109,8 +109,8 @@ public class MessagingBridge extends BasePIMBridge implements IMessaging, APIBri
           String responseJSON = "null";
           switch (request.getMethodName()) {
                case "sendSMS":
-                    String number0 = getJSONAPI().fromJson(request.getParameters()[0], String.class);
-                    String text0 = getJSONAPI().fromJson(request.getParameters()[1], String.class);
+                    String number0 = getJSONParser().fromJson(request.getParameters()[0], String.class);
+                    String text0 = getJSONParser().fromJson(request.getParameters()[1], String.class);
                     IMessagingCallback callback0 = new MessagingCallbackImpl(request.getAsyncId());
                     this.sendSMS(number0, text0, callback0);
                     break;

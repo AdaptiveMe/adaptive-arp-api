@@ -108,7 +108,7 @@ public class MailBridge extends BasePIMBridge implements IMail, APIBridge {
           String responseJSON = "null";
           switch (request.getMethodName()) {
                case "sendEmail":
-                    Email data0 = getJSONAPI().fromJson(request.getParameters()[0], Email.class);
+                    Email data0 = getJSONParser().fromJson(request.getParameters()[0], Email.class);
                     IMessagingCallback callback0 = new MessagingCallbackImpl(request.getAsyncId());
                     this.sendEmail(data0, callback0);
                     break;
