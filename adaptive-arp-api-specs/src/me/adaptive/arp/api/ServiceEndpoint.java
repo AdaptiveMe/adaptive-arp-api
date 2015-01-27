@@ -54,9 +54,9 @@ public class ServiceEndpoint extends APIBean {
     private String host;
 
     /**
-     * The remote service path (to be added to the host and port url).
+     * The remote service paths (to be added to the host and port url).
      */
-    private String path;
+    private ServicePath[] paths;
 
     /**
      * The remote service accessible port.
@@ -85,15 +85,15 @@ public class ServiceEndpoint extends APIBean {
      * Constructor with parameters
      *
      * @param host   Remote service host
-     * @param path   Remote service Path
+     * @param paths  Remote service Paths
      * @param port   Remote service Port
      * @param proxy  Proxy url "http://IP_ADDRESS:PORT_NUMBER"
      * @param scheme Remote service scheme
      * @since ARP1.0
      */
-    public ServiceEndpoint(String host, String path, int port, String proxy, String scheme) {
+    public ServiceEndpoint(String host, ServicePath[] paths, int port, String proxy, String scheme) {
         this.host = host;
-        this.path = path;
+        this.paths = paths;
         this.port = port;
         this.proxy = proxy;
         this.scheme = scheme;
@@ -120,23 +120,23 @@ public class ServiceEndpoint extends APIBean {
     }
 
     /**
-     * Returns the Remote service Path
+     * Returns the Remote service Paths
      *
-     * @return Remote service Path
+     * @return Remote service Paths
      * @since ARP1.0
      */
-    public String getPath() {
-        return path;
+    public ServicePath[] getPaths() {
+        return paths;
     }
 
     /**
-     * Set the Remote service Path
+     * Set the Remote service Paths
      *
-     * @param path Remote service Path
+     * @param paths Remote service Paths
      * @since ARP1.0
      */
-    public void setPath(String path) {
-        this.path = path;
+    public void setPaths(ServicePath[] paths) {
+        this.paths = paths;
     }
 
     /**

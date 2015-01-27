@@ -41,107 +41,75 @@
 package me.adaptive.arp.api;
 
 /**
- * Represents an instance of a service.
+ * Structure representing a service path for one endpoint
  *
- * @author Aryslan
+ * @author fnva
  * @since ARP1.0
  */
-public class Service extends APIBean {
+public class ServicePath {
 
     /**
-     * Endpoint of the service
+     * The path for the endpoint
      */
-    private ServiceEndpoint[] serviceEndpoints;
+    private String path;
 
     /**
-     * The service name
+     * The methods for calling a path
      */
-    private String name;
+    private IService.ServiceMethod[] methods;
 
     /**
-     * The type of the service
-     */
-    private IService.ServiceType type;
-
-    /**
-     * Default constructor
+     * Default Constructor
      *
      * @since ARP1.0
      */
-    public Service() {
+    public ServicePath() {
     }
 
     /**
-     * Constructor used by the implementation
+     * Constructor with parameters
      *
-     * @param serviceEndpoints Endpoints of the service
-     * @param name             Name of the service
-     * @param type             Type of the service
-     * @since ARP1.0
+     * @param path    The path for the endpoint
+     * @param methods The methods for calling a path
      */
-    public Service(ServiceEndpoint[] serviceEndpoints, String name, IService.ServiceType type) {
-        this.serviceEndpoints = serviceEndpoints;
-        this.name = name;
-        this.type = type;
+    public ServicePath(String path, IService.ServiceMethod[] methods) {
+        this.path = path;
+        this.methods = methods;
     }
 
     /**
-     * Returns the serviceEndpoints
+     * Endpoint's Path Getter
      *
-     * @return serviceEndpoints
-     * @since ARP1.0
+     * @return Endpoint's Path
      */
-    public ServiceEndpoint[] getServiceEndpoints() {
-        return serviceEndpoints;
+    public String getPath() {
+        return path;
     }
 
     /**
-     * Set the serviceEndpoints
+     * Endpoint's path setter
      *
-     * @param serviceEndpoints Endpoint of the service
-     * @since ARP1.0
+     * @param path Endpoint's path
      */
-    public void setServiceEndpoints(ServiceEndpoint[] serviceEndpoints) {
-        this.serviceEndpoints = serviceEndpoints;
+    public void setPath(String path) {
+        this.path = path;
     }
 
     /**
-     * Returns the name
+     * Endpoint's path methods setter
      *
-     * @return name
-     * @since ARP1.0
+     * @return Endpoint's path methods
      */
-    public String getName() {
-        return name;
+    public IService.ServiceMethod[] getMethods() {
+        return methods;
     }
 
     /**
-     * Set the name
+     * Endpoint's path methods setter
      *
-     * @param name Name of the service
-     * @since ARP1.0
+     * @param methods Endpoint's path methods
      */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * Returns the type
-     *
-     * @return type
-     * @since ARP1.0
-     */
-    public IService.ServiceType getType() {
-        return type;
-    }
-
-    /**
-     * Set the type
-     *
-     * @param type Type of the service
-     * @since ARP1.0
-     */
-    public void setType(IService.ServiceType type) {
-        this.type = type;
+    public void setMethods(IService.ServiceMethod[] methods) {
+        this.methods = methods;
     }
 }
