@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.3
+    * @version v2.0.4
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -45,16 +45,6 @@ Represents an instance of a service.
 */
 @interface Service : APIBean
 
-     /**
-        The method used
-     */
-     typedef NS_OPTIONS(NSUInteger, IServiceMethod) {
-          IServiceMethod_Post = 0,
-          IServiceMethod_Get = 1,
-          IServiceMethod_Unknown = 2
-     };
-
-     @property IServiceMethod *method;
      /**
         The type of the service
      */
@@ -79,8 +69,9 @@ Represents an instance of a service.
      @property NSString *name;
      /**
         Endpoint of the service
+        Array objects must be of ServiceEndpoint type.
      */
-     @property ServiceEndpoint *serviceEndpoint;
+     @property NSArray *serviceEndpoints;
 
      /**
         Default constructor
@@ -92,13 +83,12 @@ Represents an instance of a service.
      /**
         Constructor used by the implementation
 
-        @param serviceEndpoint Endpoint of the service
-        @param name            Name of the service
-        @param method          Method of the service
-        @param type            Type of the service
+        @param serviceEndpoints Endpoints of the service
+        @param name             Name of the service
+        @param type             Type of the service
         @since ARP1.0
      */
-     - (id) initWithServiceEndpointNameMethodType:(ServiceEndpoint*)serviceEndpoint name:(NSString*)name method:(IServiceMethod*)method type:(IServiceType*)type;
+     - (id) initWithServiceEndpointsNameType:(NSArray*)serviceEndpoints name:(NSString*)name type:(IServiceType*)type;
 
 
 @end

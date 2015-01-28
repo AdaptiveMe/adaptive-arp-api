@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.3
+    * @version v2.0.4
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -47,10 +47,6 @@ namespace Adaptive.Arp.Api
      {
 
           /**
-             The method used
-          */
-          public IServiceMethod Method { get; set; }
-          /**
              The type of the service
           */
           public IServiceType Type { get; set; }
@@ -61,7 +57,7 @@ namespace Adaptive.Arp.Api
           /**
              Endpoint of the service
           */
-          public ServiceEndpoint ServiceEndpoint { get; set; }
+          public ServiceEndpoint[] ServiceEndpoints { get; set; }
 
           /**
              Default constructor
@@ -74,37 +70,15 @@ namespace Adaptive.Arp.Api
           /**
              Constructor used by the implementation
 
-             @param ServiceEndpoint Endpoint of the service
-             @param Name            Name of the service
-             @param Method          Method of the service
-             @param Type            Type of the service
+             @param ServiceEndpoints Endpoints of the service
+             @param Name             Name of the service
+             @param Type             Type of the service
              @since ARP1.0
           */
-          public Service(ServiceEndpoint ServiceEndpoint, string Name, IServiceMethod Method, IServiceType Type) : base () {
-               this.ServiceEndpoint = ServiceEndpoint;
+          public Service(ServiceEndpoint[] ServiceEndpoints, string Name, IServiceType Type) : base () {
+               this.ServiceEndpoints = ServiceEndpoints;
                this.Name = Name;
-               this.Method = Method;
                this.Type = Type;
-          }
-
-          /**
-             Returns the method
-
-             @return Method
-             @since ARP1.0
-          */
-          public IServiceMethod GetMethod() {
-               return this.Method;
-          }
-
-          /**
-             Set the method
-
-             @param Method Method of the service
-             @since ARP1.0
-          */
-          public void SetMethod(IServiceMethod Method) {
-               this.Method = Method;
           }
 
           /**
@@ -148,23 +122,23 @@ namespace Adaptive.Arp.Api
           }
 
           /**
-             Returns the serviceEndpoint
+             Returns the serviceEndpoints
 
-             @return ServiceEndpoint
+             @return ServiceEndpoints
              @since ARP1.0
           */
-          public ServiceEndpoint GetServiceEndpoint() {
-               return this.ServiceEndpoint;
+          public ServiceEndpoint[] GetServiceEndpoints() {
+               return this.ServiceEndpoints;
           }
 
           /**
-             Set the serviceEndpoint
+             Set the serviceEndpoints
 
-             @param ServiceEndpoint Endpoint of the service
+             @param ServiceEndpoints Endpoint of the service
              @since ARP1.0
           */
-          public void SetServiceEndpoint(ServiceEndpoint ServiceEndpoint) {
-               this.ServiceEndpoint = ServiceEndpoint;
+          public void SetServiceEndpoints(ServiceEndpoint[] ServiceEndpoints) {
+               this.ServiceEndpoints = ServiceEndpoints;
           }
 
 

@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.3
+    * @version v2.0.4
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -56,18 +56,16 @@ Release:
      /**
         Constructor used by the implementation
 
-        @param serviceEndpoint Endpoint of the service
-        @param name            Name of the service
-        @param method          Method of the service
-        @param type            Type of the service
+        @param serviceEndpoints Endpoints of the service
+        @param name             Name of the service
+        @param type             Type of the service
         @since ARP1.0
      */
-     - (id) initWithServiceEndpointNameMethodType:(ServiceEndpoint*)serviceEndpoint name:(NSString*)name method:(IServiceMethod*)method type:(IServiceType*)type {
+     - (id) initWithServiceEndpointsNameType:(NSArray*)serviceEndpoints name:(NSString*)name type:(IServiceType*)type {
           self = [self init];
           if (self) {
-               [self setServiceEndpoint:serviceEndpoint];
+               [self setServiceEndpoints:serviceEndpoints];
                [self setName:name];
-               [self setMethod:method];
                [self setType:type];
           }
           return self;

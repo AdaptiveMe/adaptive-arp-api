@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.3
+    * @version v2.0.4
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -51,9 +51,9 @@ namespace Adaptive.Arp.Api
           */
           public string Host { get; set; }
           /**
-             The remote service path (to be added to the host and port url).
+             The remote service paths (to be added to the host and port url).
           */
-          public string Path { get; set; }
+          public ServicePath[] Paths { get; set; }
           /**
              The remote service accessible port.
           */
@@ -79,15 +79,15 @@ namespace Adaptive.Arp.Api
              Constructor with parameters
 
              @param Host   Remote service host
-             @param Path   Remote service Path
+             @param Paths  Remote service Paths
              @param Port   Remote service Port
              @param Proxy  Proxy url "http://IP_ADDRESS:PORT_NUMBER"
              @param Scheme Remote service scheme
              @since ARP1.0
           */
-          public ServiceEndpoint(string Host, string Path, int Port, string Proxy, string Scheme) : base () {
+          public ServiceEndpoint(string Host, ServicePath[] Paths, int Port, string Proxy, string Scheme) : base () {
                this.Host = Host;
-               this.Path = Path;
+               this.Paths = Paths;
                this.Port = Port;
                this.Proxy = Proxy;
                this.Scheme = Scheme;
@@ -114,23 +114,23 @@ namespace Adaptive.Arp.Api
           }
 
           /**
-             Returns the Remote service Path
+             Returns the Remote service Paths
 
-             @return Remote service Path
+             @return Remote service Paths
              @since ARP1.0
           */
-          public string GetPath() {
-               return this.Path;
+          public ServicePath[] GetPaths() {
+               return this.Paths;
           }
 
           /**
-             Set the Remote service Path
+             Set the Remote service Paths
 
-             @param Path Remote service Path
+             @param Paths Remote service Paths
              @since ARP1.0
           */
-          public void SetPath(string Path) {
-               this.Path = Path;
+          public void SetPaths(ServicePath[] Paths) {
+               this.Paths = Paths;
           }
 
           /**

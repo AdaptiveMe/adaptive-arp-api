@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.3
+    * @version v2.0.4
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -57,17 +57,17 @@ Release:
         Constructor with parameters
 
         @param host   Remote service host
-        @param path   Remote service Path
+        @param paths  Remote service Paths
         @param port   Remote service Port
         @param proxy  Proxy url "http://IP_ADDRESS:PORT_NUMBER"
         @param scheme Remote service scheme
         @since ARP1.0
      */
-     - (id) initWithHostPathPortProxyScheme:(NSString*)host path:(NSString*)path port:(int*)port proxy:(NSString*)proxy scheme:(NSString*)scheme {
+     - (id) initWithHostPathsPortProxyScheme:(NSString*)host paths:(NSArray*)paths port:(int*)port proxy:(NSString*)proxy scheme:(NSString*)scheme {
           self = [self init];
           if (self) {
                [self setHost:host];
-               [self setPath:path];
+               [self setPaths:paths];
                [self setPort:port];
                [self setProxy:proxy];
                [self setScheme:scheme];

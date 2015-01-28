@@ -27,13 +27,14 @@ Contributors:
 
 Release:
 
-    * @version v2.0.3
+    * @version v2.0.4
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
 #import <APIBean.h>
 #import <Foundation/Foundation.h>
+#import <ServicePath.h>
 
 /**
 Structure representing a remote or local service access end-point.
@@ -49,9 +50,10 @@ Structure representing a remote or local service access end-point.
      */
      @property NSString *host;
      /**
-        The remote service path (to be added to the host and port url).
+        The remote service paths (to be added to the host and port url).
+        Array objects must be of ServicePath type.
      */
-     @property NSString *path;
+     @property NSArray *paths;
      /**
         The remote service accessible port.
      */
@@ -76,13 +78,13 @@ Structure representing a remote or local service access end-point.
         Constructor with parameters
 
         @param host   Remote service host
-        @param path   Remote service Path
+        @param paths  Remote service Paths
         @param port   Remote service Port
         @param proxy  Proxy url "http://IP_ADDRESS:PORT_NUMBER"
         @param scheme Remote service scheme
         @since ARP1.0
      */
-     - (id) initWithHostPathPortProxyScheme:(NSString*)host path:(NSString*)path port:(int*)port proxy:(NSString*)proxy scheme:(NSString*)scheme;
+     - (id) initWithHostPathsPortProxyScheme:(NSString*)host paths:(NSArray*)paths port:(int*)port proxy:(NSString*)proxy scheme:(NSString*)scheme;
 
 
 @end
