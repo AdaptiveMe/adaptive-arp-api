@@ -20,3 +20,4 @@ git add --all
 git commit -m 'API '$API_VERSION_NEW' Specification'
 git tag -a $API_VERSION_NEW -m 'API '$API_VERSION_NEW' Specification'
 git push origin $API_VERSION_NEW
+git push
