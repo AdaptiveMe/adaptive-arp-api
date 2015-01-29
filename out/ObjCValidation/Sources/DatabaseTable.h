@@ -41,7 +41,7 @@ Release:
 Represents a data table composed of databaseColumns and databaseRows.
 
 @author Ferran Vila Conesa
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @interface DatabaseTable : APIBean
@@ -72,7 +72,7 @@ Represents a data table composed of databaseColumns and databaseRows.
      /**
         Default constructor
 
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) init;
 
@@ -80,7 +80,7 @@ Represents a data table composed of databaseColumns and databaseRows.
         Constructor by default
 
         @param name The name of the table
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) initWithName:(NSString*)name;
 
@@ -92,7 +92,7 @@ Represents a data table composed of databaseColumns and databaseRows.
         @param rowCount        The number of databaseRows
         @param databaseColumns The databaseColumns of the table
         @param databaseRows    The databaseRows of the table
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) initWithNameColumnCountRowCountDatabaseColumnsDatabaseRows:(NSString*)name columnCount:(int*)columnCount rowCount:(int*)rowCount databaseColumns:(NSArray*)databaseColumns databaseRows:(NSArray*)databaseRows;
 

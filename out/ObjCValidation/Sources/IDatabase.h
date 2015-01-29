@@ -39,7 +39,7 @@ Release:
 Interface for Managing the Cloud operations
 
 @author Ferran Vila Conesa
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @protocol IDatabase <IBaseData>

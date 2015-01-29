@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Interface for Managing the File operations callback
  *
  * @author Carlos Lozano Diez
- * @since ARP1.0
+ * @since ARP 2.0
  */
 public interface IFileResultCallback extends IBaseCallback {
 
@@ -52,7 +52,7 @@ public interface IFileResultCallback extends IBaseCallback {
      * On correct result of a file operation.
      *
      * @param storageFile Reference to the resulting file.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     void onResult(FileDescriptor storageFile);
 
@@ -61,7 +61,7 @@ public interface IFileResultCallback extends IBaseCallback {
      *
      * @param file    Reference to the offending file.
      * @param warning Warning processing the request.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     void onWarning(FileDescriptor file, Warning warning);
 
@@ -69,14 +69,14 @@ public interface IFileResultCallback extends IBaseCallback {
      * On error result of a file operation.
      *
      * @param error Error processing the request.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     void onError(Error error);
 
     /**
      * List of warnings.
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public enum Warning {
         SourceNotDeleted, RootDirectory, Unknown
@@ -85,7 +85,7 @@ public interface IFileResultCallback extends IBaseCallback {
     /**
      * List of errors.
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public enum Error {
         FileExists, SourceInexistent, DestionationExists, InsufficientSpace, Unauthorized, Unknown

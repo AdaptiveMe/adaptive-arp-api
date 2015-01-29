@@ -55,7 +55,7 @@ public class ButtonListenerImpl extends BaseListenerImpl implements IButtonListe
         No data received
 
         @param error occurred
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void onError(IButtonListenerError error) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleButtonListenerError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
@@ -65,7 +65,7 @@ public class ButtonListenerImpl extends BaseListenerImpl implements IButtonListe
         Called on button pressed
 
         @param button pressed
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void onResult(Button button) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleButtonListenerResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(button) +") )");
@@ -76,7 +76,7 @@ public class ButtonListenerImpl extends BaseListenerImpl implements IButtonListe
 
         @param button  pressed
         @param warning happened
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void onWarning(Button button, IButtonListenerWarning warning) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleButtonListenerWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(button) +"), JSON.parse(" + this.gson.toJson(warning) +") )");

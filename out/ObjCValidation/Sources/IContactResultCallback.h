@@ -39,7 +39,7 @@ Release:
 Interface for Managing the Contact operations
 
 @author Francisco Javier Martin Bueno
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @protocol IContactResultCallback <IBaseCallback>

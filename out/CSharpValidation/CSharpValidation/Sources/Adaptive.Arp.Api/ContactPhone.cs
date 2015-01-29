@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Structure representing the phone data elements of a contact.
 
         @author Francisco Javier Martin Bueno
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public class ContactPhone : APIBean
@@ -58,7 +58,7 @@ namespace Adaptive.Arp.Api
           /**
              Default constructor
 
-             @since ARP1.0
+             @since ARP 2.0
           */
           public ContactPhone()  {
           }
@@ -68,7 +68,7 @@ namespace Adaptive.Arp.Api
 
              @param Phone     Phone number
              @param PhoneType Type of Phone number
-             @since ARP1.0
+             @since ARP 2.0
           */
           public ContactPhone(string Phone, ContactPhoneType PhoneType) : base () {
                this.Phone = Phone;
@@ -79,7 +79,7 @@ namespace Adaptive.Arp.Api
              Returns the phone phoneType
 
              @return PhoneType
-             @since ARP1.0
+             @since ARP 2.0
           */
           public ContactPhoneType GetPhoneType() {
                return this.PhoneType;
@@ -89,7 +89,7 @@ namespace Adaptive.Arp.Api
              Set the phoneType of the phone number
 
              @param PhoneType Type of Phone number
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetPhoneType(ContactPhoneType PhoneType) {
                this.PhoneType = PhoneType;
@@ -99,7 +99,7 @@ namespace Adaptive.Arp.Api
              Returns the phone number
 
              @return Phone number
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string GetPhone() {
                return this.Phone;
@@ -109,7 +109,7 @@ namespace Adaptive.Arp.Api
              Set the phone number
 
              @param Phone number
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetPhone(string Phone) {
                this.Phone = Phone;

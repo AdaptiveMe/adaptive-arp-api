@@ -63,7 +63,7 @@ namespace Adaptive.Arp.Api
              Returns the milliseconds passed since 1/1/1970 since the file was created.
 
              @return Timestamp in milliseconds.
-             @since ARP1.0
+             @since ARP 2.0
           */
           public long GetDateCreated() {
                return this.DateCreated;
@@ -82,7 +82,7 @@ namespace Adaptive.Arp.Api
              Returns the milliseconds passed since 1/1/1970 since the file was modified.
 
              @return Timestamp in milliseconds.
-             @since ARP1.0
+             @since ARP 2.0
           */
           public long GetDateModified() {
                return this.DateModified;
@@ -101,7 +101,7 @@ namespace Adaptive.Arp.Api
              Returns the name of the file if the reference is a file or the last path element of the folder.
 
              @return The name of the file.
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string GetName() {
                return this.Name;
@@ -120,7 +120,7 @@ namespace Adaptive.Arp.Api
              Returns the path element of the file or folder (excluding the last path element if it's a directory).
 
              @return The path to the file.
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string GetPath() {
                return this.Path;
@@ -139,7 +139,7 @@ namespace Adaptive.Arp.Api
              Returns the resolved absolute path elements of the file and/or folders (including the last path element).
 
              @return The absolute path to the file.
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string GetPathAbsolute() {
                return this.PathAbsolute;
@@ -158,7 +158,7 @@ namespace Adaptive.Arp.Api
              Returns the size in bytes of the file or -1 if the reference is a folder.
 
              @return Size in bytes of file.
-             @since ARP1.0
+             @since ARP 2.0
           */
           public long GetSize() {
                return this.Size;

@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Structure representing the data a single geolocation reading.
 
         @author Francisco Javier Martin Bueno
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public class Geolocation : APIBean
@@ -74,7 +74,7 @@ namespace Adaptive.Arp.Api
           /**
              Default constructor
 
-             @since ARP1.0
+             @since ARP 2.0
           */
           public Geolocation()  {
           }
@@ -88,7 +88,7 @@ namespace Adaptive.Arp.Api
              @param XDoP      Dilution of precision on the X measurement
              @param YDoP      Dilution of precision on the Y measurement
              @param Timestamp Timestamp of the measurement
-             @since ARP1.0
+             @since ARP 2.0
           */
           public Geolocation(double Latitude, double Longitude, double Altitude, float XDoP, float YDoP, long Timestamp) : base () {
                this.Latitude = Latitude;
@@ -105,7 +105,7 @@ namespace Adaptive.Arp.Api
              @param Latitude  Latitude of the measurement
              @param Longitude Longitude of the measurement
              @param Timestamp Timestamp of the measurement
-             @since ARP1.0
+             @since ARP 2.0
           */
           public Geolocation(double Latitude, double Longitude, long Timestamp) : base () {
                this.Latitude = Latitude;
@@ -117,7 +117,7 @@ namespace Adaptive.Arp.Api
              Returns altitude in meters
 
              @return Altitude of the measurement
-             @since ARP1.0
+             @since ARP 2.0
           */
           public double GetAltitude() {
                return this.Altitude;
@@ -127,7 +127,7 @@ namespace Adaptive.Arp.Api
              Set altitude in meters
 
              @param Altitude Altitude of the measurement
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetAltitude(double Altitude) {
                this.Altitude = Altitude;
@@ -137,7 +137,7 @@ namespace Adaptive.Arp.Api
              Returns the latitude in degrees
 
              @return Latitude of the measurement
-             @since ARP1.0
+             @since ARP 2.0
           */
           public double GetLatitude() {
                return this.Latitude;
@@ -147,7 +147,7 @@ namespace Adaptive.Arp.Api
              Set the latitude in degrees
 
              @param Latitude Latitude of the measurement
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetLatitude(double Latitude) {
                this.Latitude = Latitude;
@@ -157,7 +157,7 @@ namespace Adaptive.Arp.Api
              Returns the longitude in degrees
 
              @return Longitude of the measurement
-             @since ARP1.0
+             @since ARP 2.0
           */
           public double GetLongitude() {
                return this.Longitude;
@@ -167,7 +167,7 @@ namespace Adaptive.Arp.Api
              Returns the latitude in degrees
 
              @param Longitude Longitude of the measurement
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetLongitude(double Longitude) {
                this.Longitude = Longitude;
@@ -177,7 +177,7 @@ namespace Adaptive.Arp.Api
              Timestamp Getter
 
              @return Timestamp
-             @since ARP1.0
+             @since ARP 2.0
           */
           public long GetTimestamp() {
                return this.Timestamp;
@@ -187,7 +187,7 @@ namespace Adaptive.Arp.Api
              Timestamp Setter
 
              @param Timestamp Timestamp
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetTimestamp(long Timestamp) {
                this.Timestamp = Timestamp;

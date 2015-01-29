@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Interface for Managing the File operations callback
 
         @author Carlos Lozano Diez
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public interface IFileResultCallback : IBaseCallback {
@@ -48,7 +48,7 @@ namespace Adaptive.Arp.Api
         On error result of a file operation.
 
         @param error Error processing the request.
-        @since ARP1.0
+        @since ARP 2.0
      */
      void onError(IFileResultCallbackError error);
 
@@ -56,7 +56,7 @@ namespace Adaptive.Arp.Api
         On correct result of a file operation.
 
         @param storageFile Reference to the resulting file.
-        @since ARP1.0
+        @since ARP 2.0
      */
      void onResult(FileDescriptor storageFile);
 
@@ -65,7 +65,7 @@ namespace Adaptive.Arp.Api
 
         @param file    Reference to the offending file.
         @param warning Warning processing the request.
-        @since ARP1.0
+        @since ARP 2.0
      */
      void onWarning(FileDescriptor file, IFileResultCallbackWarning warning);
 

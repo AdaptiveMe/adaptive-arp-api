@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Interface for Managing the Logging operations
  *
  * @author Ferran Vila Conesa
- * @since ARP1.0
+ * @since ARP 2.0
  */
 public interface ILogging extends IBaseUtil {
 
@@ -53,7 +53,7 @@ public interface ILogging extends IBaseUtil {
      *
      * @param level   Log level
      * @param message Message to be logged
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     void log(LogLevel level, String message);
 
@@ -63,7 +63,7 @@ public interface ILogging extends IBaseUtil {
      * @param level    Log level
      * @param category Category/tag name to identify/filter the log.
      * @param message  Message to be logged
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     void log(LogLevel level, String category, String message);
 
@@ -71,7 +71,7 @@ public interface ILogging extends IBaseUtil {
      * Enumeration for log level platform normalization. Every platform has
      * to match their log levels into these ones.
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public enum LogLevel {
         DEBUG, WARN, ERROR, INFO, Unknown

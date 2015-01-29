@@ -39,7 +39,7 @@ Release:
 Interface for Managing the Network information operations
 
 @author Carlos Lozano Diez
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @protocol INetworkInfo <IBaseCommunication>

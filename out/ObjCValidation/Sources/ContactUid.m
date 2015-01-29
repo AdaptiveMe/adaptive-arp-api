@@ -37,7 +37,7 @@ Release:
 /**
 
 @author Francisco Javier Martin Bueno
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @implementation ContactUid
@@ -46,7 +46,7 @@ Release:
      /**
         Default constructor
 
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) init {
           self = [self init];
@@ -57,7 +57,7 @@ Release:
         Constructor used by implementation to set the Contact id.
 
         @param contactId Internal unique contact id.
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) initWithContactId:(NSString*)contactId {
           self = [self init];

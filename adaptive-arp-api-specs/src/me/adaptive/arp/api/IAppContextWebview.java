@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Interface for webview context management purposes
  *
  * @author Carlos Lozano Diez
- * @since ARP1.0
+ * @since ARP 2.0
  */
 public interface IAppContextWebview {
 
@@ -55,7 +55,7 @@ public interface IAppContextWebview {
      * not be added using this method.
      *
      * @param webView Platform specific webview reference (WebView, UIWebView, WKWebView,etc.)
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     void addWebview(Object webView);
 
@@ -64,7 +64,7 @@ public interface IAppContextWebview {
      * ARP functions and release resources. The primary webview can not be removed.
      *
      * @param webView The instance of the webview to be removed from the binding.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     void removeWebview(Object webView);
 
@@ -73,7 +73,7 @@ public interface IAppContextWebview {
      * This method will always return at least one element; the primary webview.
      *
      * @return Array with all the Webview instances being managed by ARP.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     Object[] getWebviews();
 
@@ -83,7 +83,7 @@ public interface IAppContextWebview {
      * WebView, WKWebView, etc.
      *
      * @return Object representing the specific and primary webview instance of the application.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     Object getWebviewPrimary();
 

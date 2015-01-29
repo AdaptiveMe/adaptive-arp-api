@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Interface for Managing the Geolocation results
  *
  * @author Francisco Javier Martin Bueno
- * @since ARP1.0
+ * @since ARP 2.0
  */
 public interface IGeolocationListener extends IBaseListener {
 
@@ -52,7 +52,7 @@ public interface IGeolocationListener extends IBaseListener {
      * Correct data received.
      *
      * @param geolocation Geolocation Bean
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     void onResult(Geolocation geolocation);
 
@@ -61,7 +61,7 @@ public interface IGeolocationListener extends IBaseListener {
      *
      * @param geolocation Geolocation Bean
      * @param warning     Type of warning encountered during reading.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     void onWarning(Geolocation geolocation, Warning warning);
 
@@ -69,14 +69,14 @@ public interface IGeolocationListener extends IBaseListener {
      * No data received - error condition, not authorized or hardware not available.
      *
      * @param error Type of error encountered during reading.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     void onError(Error error);
 
     /**
      * Possible error values
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public enum Error {
         Disabled, RestrictedAccess, DeniedAccess, StatusNotDetermined, Unknown
@@ -85,7 +85,7 @@ public interface IGeolocationListener extends IBaseListener {
     /**
      * Possible warning values
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public enum Warning {
         HighDoP, StaleData, Unknown

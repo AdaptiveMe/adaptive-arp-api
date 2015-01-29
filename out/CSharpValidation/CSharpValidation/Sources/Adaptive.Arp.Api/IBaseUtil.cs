@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Base application for Utility purposes
 
         @author Carlos Lozano Diez
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public interface IBaseUtil : IAdaptiveRP {

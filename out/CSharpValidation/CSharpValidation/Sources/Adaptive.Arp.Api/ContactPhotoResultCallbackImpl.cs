@@ -55,7 +55,7 @@ public class ContactPhotoResultCallbackImpl extends BaseCallbackImpl implements 
         This method is called on Error
 
         @param error returned by the platform
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void onError(IContactPhotoResultCallbackError error) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleContactPhotoResultCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
@@ -65,7 +65,7 @@ public class ContactPhotoResultCallbackImpl extends BaseCallbackImpl implements 
         This method is called on Result
 
         @param contactPhoto returned by the platform
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void onResult(byte[] contactPhoto) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleContactPhotoResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(contactPhoto) +") )");
@@ -76,7 +76,7 @@ public class ContactPhotoResultCallbackImpl extends BaseCallbackImpl implements 
 
         @param contactPhoto returned by the platform
         @param warning      returned by the platform
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void onWarning(byte[] contactPhoto, IContactPhotoResultCallbackWarning warning) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleContactPhotoResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(contactPhoto) +"), JSON.parse(" + this.gson.toJson(warning) +") )");

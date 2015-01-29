@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Interface for Managing the Globalization results
 
         @author Francisco Javier Martin Bueno
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public interface IGlobalization : IBaseApplication {
@@ -48,7 +48,7 @@ namespace Adaptive.Arp.Api
         Returns the default locale of the application defined in the configuration file
 
         @return Default Locale of the application
-        @since ARP1.0
+        @since ARP 2.0
      */
      Locale getDefaultLocale();
 
@@ -56,7 +56,7 @@ namespace Adaptive.Arp.Api
         List of supported locales for the application defined in the configuration file
 
         @return List of locales
-        @since ARP1.0
+        @since ARP 2.0
      */
      Locale[] getLocaleSupportedDescriptors();
 
@@ -66,7 +66,7 @@ namespace Adaptive.Arp.Api
         @param key    to match text
         @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
         @return Localized text.
-        @since ARP1.0
+        @since ARP 2.0
      */
      string getResourceLiteral(string key, Locale locale);
 
@@ -75,7 +75,7 @@ namespace Adaptive.Arp.Api
 
         @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
         @return Localized texts in the form of an object.
-        @since ARP1.0
+        @since ARP 2.0
      */
      KeyPair[] getResourceLiterals(Locale locale);
 

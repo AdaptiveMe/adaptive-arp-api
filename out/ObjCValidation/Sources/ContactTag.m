@@ -37,7 +37,7 @@ Release:
 /**
 
 @author Francisco Javier Martin Bueno
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @implementation ContactTag
@@ -46,7 +46,7 @@ Release:
      /**
         Default constructor
 
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) init {
           self = [self init];
@@ -58,7 +58,7 @@ Release:
 
         @param tagValue Value of the tag
         @param tagName  Name of the tag
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) initWithTagNameTagValue:(NSString*)tagName tagValue:(NSString*)tagValue {
           self = [self init];

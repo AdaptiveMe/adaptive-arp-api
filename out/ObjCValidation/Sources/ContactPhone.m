@@ -37,7 +37,7 @@ Release:
 /**
 
 @author Francisco Javier Martin Bueno
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @implementation ContactPhone
@@ -46,7 +46,7 @@ Release:
      /**
         Default constructor
 
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) init {
           self = [self init];
@@ -58,7 +58,7 @@ Release:
 
         @param phone     Phone number
         @param phoneType Type of Phone number
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) initWithPhonePhoneType:(NSString*)phone phoneType:(ContactPhoneType*)phoneType {
           self = [self init];

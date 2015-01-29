@@ -55,7 +55,7 @@ public class MessagingCallbackImpl extends BaseCallbackImpl implements IMessagin
         This method is called on Error
 
         @param error returned by the platform
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void onError(IMessagingCallbackError error) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleMessagingCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
@@ -65,7 +65,7 @@ public class MessagingCallbackImpl extends BaseCallbackImpl implements IMessagin
         This method is called on Result
 
         @param success true if sent;false otherwise
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void onResult(bool success) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleMessagingCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(success) +") )");
@@ -76,7 +76,7 @@ public class MessagingCallbackImpl extends BaseCallbackImpl implements IMessagin
 
         @param success true if sent;false otherwise
         @param warning returned by the platform
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void onWarning(bool success, IMessagingCallbackWarning warning) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleMessagingCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(success) +"), JSON.parse(" + this.gson.toJson(warning) +") )");

@@ -55,7 +55,7 @@ public class FileListResultCallbackImpl extends BaseCallbackImpl implements IFil
         On error result of a file operation.
 
         @param error Error processing the request.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void onError(IFileListResultCallbackError error) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileListResultCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
@@ -65,7 +65,7 @@ public class FileListResultCallbackImpl extends BaseCallbackImpl implements IFil
         On correct result of a file operation.
 
         @param files Array of resulting files/folders.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void onResult(FileDescriptor[] files) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileListResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(files) +") )");
@@ -76,7 +76,7 @@ public class FileListResultCallbackImpl extends BaseCallbackImpl implements IFil
 
         @param files   Array of resulting files/folders.
         @param warning Warning condition encountered.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void onWarning(FileDescriptor[] files, IFileListResultCallbackWarning warning) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileListResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(files) +"), JSON.parse(" + this.gson.toJson(warning) +") )");

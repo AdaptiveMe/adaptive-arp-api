@@ -37,7 +37,7 @@ Release:
 /**
 
 @author Aryslan
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @implementation SecureKeyPair
@@ -46,7 +46,7 @@ Release:
      /**
         Default constructor
 
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) init {
           self = [self init];
@@ -58,7 +58,7 @@ Release:
 
         @param secureKey  name of the keypair
         @param secureData value of the keypair
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) initWithSecureKeySecureData:(NSString*)secureKey secureData:(NSString*)secureData {
           self = [self init];

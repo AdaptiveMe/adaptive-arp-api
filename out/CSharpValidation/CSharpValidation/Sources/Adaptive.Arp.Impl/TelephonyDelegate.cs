@@ -61,7 +61,7 @@ public class TelephonyDelegate extends BaseCommunicationDelegate implements ITel
 
         @param number to call
         @return Status of the call
-        @since ARP1.0
+        @since ARP 2.0
      */
      public ITelephonyStatus call(string number) {
           ITelephonyStatus response;

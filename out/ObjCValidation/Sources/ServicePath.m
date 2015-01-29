@@ -37,7 +37,7 @@ Release:
 /**
 
 @author fnva
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @implementation ServicePath
@@ -46,7 +46,7 @@ Release:
      /**
         Default Constructor
 
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) init {
           self = [self init];

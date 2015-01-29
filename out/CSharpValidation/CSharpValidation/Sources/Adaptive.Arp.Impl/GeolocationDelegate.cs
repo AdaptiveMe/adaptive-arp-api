@@ -60,7 +60,7 @@ public class GeolocationDelegate extends BaseSensorDelegate implements IGeolocat
         Register a new listener that will receive geolocation events.
 
         @param listener to be registered.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void addGeolocationListener(IGeolocationListener listener) {
           // TODO: Not implemented.
@@ -71,7 +71,7 @@ public class GeolocationDelegate extends BaseSensorDelegate implements IGeolocat
         De-registers an existing listener from receiving geolocation events.
 
         @param listener to be registered.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void removeGeolocationListener(IGeolocationListener listener) {
           // TODO: Not implemented.
@@ -81,7 +81,7 @@ public class GeolocationDelegate extends BaseSensorDelegate implements IGeolocat
      /**
         Removed all existing listeners from receiving geolocation events.
 
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void removeGeolocationListeners() {
           // TODO: Not implemented.

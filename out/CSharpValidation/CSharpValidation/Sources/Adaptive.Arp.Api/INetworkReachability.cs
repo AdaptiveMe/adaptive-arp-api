@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Interface for Managing the Network reachability operations
 
         @author Carlos Lozano Diez
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public interface INetworkReachability : IBaseCommunication {
@@ -49,7 +49,7 @@ namespace Adaptive.Arp.Api
 
         @param host     domain name or ip address of host.
         @param callback Callback called at the end.
-        @since ARP1.0
+        @since ARP 2.0
      */
      void isNetworkReachable(string host, INetworkReachabilityCallback callback);
 
@@ -58,7 +58,7 @@ namespace Adaptive.Arp.Api
 
         @param url      to look for
         @param callback Callback called at the end
-        @since ARP1.0
+        @since ARP 2.0
      */
      void isNetworkServiceReachable(string url, INetworkReachabilityCallback callback);
 

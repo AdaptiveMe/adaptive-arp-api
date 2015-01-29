@@ -77,7 +77,7 @@ public class LoggingBridge extends BaseUtilBridge implements ILogging, APIBridge
 
         @param level   Log level
         @param message Message to be logged
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void log(ILoggingLogLevel level, string message) {
           // Start logging elapsed time.
@@ -101,7 +101,7 @@ public class LoggingBridge extends BaseUtilBridge implements ILogging, APIBridge
         @param level    Log level
         @param category Category/tag name to identify/filter the log.
         @param message  Message to be logged
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void log(ILoggingLogLevel level, string category, string message) {
           // Start logging elapsed time.

@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Interface for Managing the Services operations
  *
  * @author Francisco Javier Martin Bueno
- * @since ARP1.0
+ * @since ARP 2.0
  */
 public interface IService extends IBaseCommunication {
 
@@ -52,7 +52,7 @@ public interface IService extends IBaseCommunication {
      * Register a new service
      *
      * @param service to register
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     void registerService(Service service);
 
@@ -60,14 +60,14 @@ public interface IService extends IBaseCommunication {
      * Unregister a service
      *
      * @param service to unregister
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     void unregisterService(Service service);
 
     /**
      * Unregister all services.
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     void unregisterServices();
 
@@ -76,7 +76,7 @@ public interface IService extends IBaseCommunication {
      *
      * @param service Service to check
      * @return True if the service is registered, false otherwise.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     boolean isRegistered(Service service);
 
@@ -85,7 +85,7 @@ public interface IService extends IBaseCommunication {
      *
      * @param serviceName Name of service.
      * @return True if the service is registered, false otherwise.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     boolean isRegistered(String serviceName);
 
@@ -94,7 +94,7 @@ public interface IService extends IBaseCommunication {
      *
      * @param serviceName Name of service.
      * @return A service, if registered, or null of the service does not exist.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     Service getService(String serviceName);
 
@@ -104,14 +104,14 @@ public interface IService extends IBaseCommunication {
      * @param serviceRequest Service Request to invoke
      * @param service        Service to call
      * @param callback       Callback to execute with the result
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     void invokeService(ServiceRequest serviceRequest, Service service, IServiceResultCallback callback);
 
     /**
      * Type of available services
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public enum ServiceType {
         ServiceTypeAmfSerialization, ServiceTypeGwtRpc, ServiceTypeOctetBinary, ServiceTypeRemotingSerialization, ServiceTypeRestJson, ServiceTypeRestXml, ServiceTypeSoapJson, ServiceTypeSoapXml, ServiceTypeXmlRpcJson, ServiceTypeXmlRpcXml, Unknown
@@ -120,7 +120,7 @@ public interface IService extends IBaseCommunication {
     /**
      * Protocol version supported
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public enum ProtocolVersion {
         HttpProtocolVersion10, HttpProtocolVersion11, Unknown
@@ -129,7 +129,7 @@ public interface IService extends IBaseCommunication {
     /**
      * Available methods
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public enum ServiceMethod {
         Post, Get, Unknown

@@ -40,7 +40,7 @@ Release:
 Represents a session object for HTTP request and responses
 
 @author Ferran Vila Conesa
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @interface ServiceSession : APIBean
@@ -59,7 +59,7 @@ Represents a session object for HTTP request and responses
      /**
         Default constructor
 
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) init;
 
@@ -68,7 +68,7 @@ Represents a session object for HTTP request and responses
 
         @param cookies    The cookies of the response
         @param attributes Attributes of the response
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) initWithCookiesAttributes:(NSArray*)cookies attributes:(NSArray*)attributes;
 

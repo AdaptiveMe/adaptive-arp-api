@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Interface for Managing the Services operations
  *
  * @author Francisco Javier Martin Bueno
- * @since ARP1.0
+ * @since ARP 2.0
  */
 public interface IServiceResultCallback extends IBaseCallback {
 
@@ -52,7 +52,7 @@ public interface IServiceResultCallback extends IBaseCallback {
      * This method is called on Result
      *
      * @param response data
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     void onResult(ServiceResponse response);
 
@@ -61,7 +61,7 @@ public interface IServiceResultCallback extends IBaseCallback {
      *
      * @param response data
      * @param warning  returned by the platform
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     void onWarning(ServiceResponse response, Warning warning);
 
@@ -69,14 +69,14 @@ public interface IServiceResultCallback extends IBaseCallback {
      * This method is called on Error
      *
      * @param error returned by the platform
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     void onError(Error error);
 
     /**
      * Warnings that can be used
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public enum Warning {
         NotSecure, NotTrusted, Redirected, Wrong_Params, Unknown
@@ -85,7 +85,7 @@ public interface IServiceResultCallback extends IBaseCallback {
     /**
      * Errors that can be used
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public enum Error {
         Forbidden, NotFound, MethodNotAllowed, NotAllowed, NotAuthenticated, TimeOut, NoResponse, ServerError, Unreachable, MalformedUrl, NotRegisteredService, Unknown

@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Interface for Managing the Logging operations
 
         @author Ferran Vila Conesa
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public interface ILogging : IBaseUtil {
@@ -50,7 +50,7 @@ namespace Adaptive.Arp.Api
         @param level    Log level
         @param category Category/tag name to identify/filter the log.
         @param message  Message to be logged
-        @since ARP1.0
+        @since ARP 2.0
      */
      void log(ILoggingLogLevel level, string category, string message);
 
@@ -59,7 +59,7 @@ namespace Adaptive.Arp.Api
 
         @param level   Log level
         @param message Message to be logged
-        @since ARP1.0
+        @since ARP 2.0
      */
      void log(ILoggingLogLevel level, string message);
 

@@ -77,7 +77,7 @@ public class BrowserBridge extends BaseUIBridge implements IBrowser, APIBridge {
 
         @param url Url to open
         @return The result of the operation
-        @since ARP1.0
+        @since ARP 2.0
      */
      public bool openExtenalBrowser(string url) {
           // Start logging elapsed time.
@@ -103,7 +103,7 @@ public class BrowserBridge extends BaseUIBridge implements IBrowser, APIBridge {
         @param title          Title of the Navigation bar
         @param backButtonText Title of the Back button bar
         @return The result of the operation
-        @since ARP1.0
+        @since ARP 2.0
      */
      public bool openInternalBrowser(string url, string title, string backButtonText) {
           // Start logging elapsed time.
@@ -129,7 +129,7 @@ public class BrowserBridge extends BaseUIBridge implements IBrowser, APIBridge {
         @param title          Title of the Navigation bar
         @param backButtonText Title of the Back button bar
         @return The result of the operation
-        @since ARP1.0
+        @since ARP 2.0
      */
      public bool openInternalBrowserModal(string url, string title, string backButtonText) {
           // Start logging elapsed time.

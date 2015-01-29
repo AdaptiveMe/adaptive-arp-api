@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Represents a local or remote service response.
 
         @author Aryslan
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public class ServiceResponse : APIBean
@@ -96,7 +96,7 @@ namespace Adaptive.Arp.Api
              @param ContentBinaryLength The length in bytes for the binary Content.
              @param ServiceHeaders      The serviceHeaders array (name,value pairs) to be included on the I/O service request.
              @param ServiceSession      Information about the session
-             @since ARP1.0
+             @since ARP 2.0
           */
           public ServiceResponse(string Content, string ContentType, string ContentEncoding, int ContentLength, byte[] ContentBinary, int ContentBinaryLength, ServiceHeader[] ServiceHeaders, ServiceSession ServiceSession) : base () {
                this.Content = Content;
@@ -113,7 +113,7 @@ namespace Adaptive.Arp.Api
              Returns the content
 
              @return Content
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string GetContent() {
                return this.Content;
@@ -123,7 +123,7 @@ namespace Adaptive.Arp.Api
              Set the content
 
              @param Content Request/Response data content (plain text).
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetContent(string Content) {
                this.Content = Content;
@@ -133,7 +133,7 @@ namespace Adaptive.Arp.Api
              Returns the binary content
 
              @return ContentBinary
-             @since ARP1.0
+             @since ARP 2.0
           */
           public byte[] GetContentBinary() {
                return this.ContentBinary;
@@ -143,7 +143,7 @@ namespace Adaptive.Arp.Api
              Set the binary content
 
              @param ContentBinary The byte[] representing the binary Content.
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetContentBinary(byte[] ContentBinary) {
                this.ContentBinary = ContentBinary;
@@ -153,7 +153,7 @@ namespace Adaptive.Arp.Api
              Returns the binary content length
 
              @return ContentBinaryLength
-             @since ARP1.0
+             @since ARP 2.0
           */
           public int GetContentBinaryLength() {
                return this.ContentBinaryLength;
@@ -163,7 +163,7 @@ namespace Adaptive.Arp.Api
              Set the binary content length
 
              @param ContentBinaryLength The length in bytes for the binary Content.
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetContentBinaryLength(int ContentBinaryLength) {
                this.ContentBinaryLength = ContentBinaryLength;
@@ -173,7 +173,7 @@ namespace Adaptive.Arp.Api
              Returns the content encoding
 
              @return ContentEncoding
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string GetContentEncoding() {
                return this.ContentEncoding;
@@ -183,7 +183,7 @@ namespace Adaptive.Arp.Api
              Set the content encoding
 
              @param ContentEncoding Encoding of the binary payload - by default assumed to be UTF8.
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetContentEncoding(string ContentEncoding) {
                this.ContentEncoding = ContentEncoding;
@@ -193,7 +193,7 @@ namespace Adaptive.Arp.Api
              Returns the content length
 
              @return ContentLength
-             @since ARP1.0
+             @since ARP 2.0
           */
           public int GetContentLength() {
                return this.ContentLength;
@@ -203,7 +203,7 @@ namespace Adaptive.Arp.Api
              Set the content length
 
              @param ContentLength The length in bytes for the Content field.
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetContentLength(int ContentLength) {
                this.ContentLength = ContentLength;
@@ -213,7 +213,7 @@ namespace Adaptive.Arp.Api
              Returns the content type
 
              @return ContentType
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string GetContentType() {
                return this.ContentType;
@@ -223,7 +223,7 @@ namespace Adaptive.Arp.Api
              Set the content type
 
              @param ContentType The request/response content type (MIME TYPE).
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetContentType(string ContentType) {
                this.ContentType = ContentType;
@@ -233,7 +233,7 @@ namespace Adaptive.Arp.Api
              Returns the array of ServiceHeader
 
              @return ServiceHeaders
-             @since ARP1.0
+             @since ARP 2.0
           */
           public ServiceHeader[] GetServiceHeaders() {
                return this.ServiceHeaders;
@@ -243,7 +243,7 @@ namespace Adaptive.Arp.Api
              Set the array of ServiceHeader
 
              @param ServiceHeaders The serviceHeaders array (name,value pairs) to be included on the I/O service request.
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetServiceHeaders(ServiceHeader[] ServiceHeaders) {
                this.ServiceHeaders = ServiceHeaders;
@@ -253,7 +253,7 @@ namespace Adaptive.Arp.Api
              Getter for service session
 
              @return The element service session
-             @since ARP1.0
+             @since ARP 2.0
           */
           public ServiceSession GetServiceSession() {
                return this.ServiceSession;
@@ -263,7 +263,7 @@ namespace Adaptive.Arp.Api
              Setter for service session
 
              @param ServiceSession The element service session
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetServiceSession(ServiceSession ServiceSession) {
                this.ServiceSession = ServiceSession;

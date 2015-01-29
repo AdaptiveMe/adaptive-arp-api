@@ -39,7 +39,7 @@ Release:
 Structure representing the internal unique identifier data elements of a contact.
 
 @author Francisco Javier Martin Bueno
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @interface ContactUid : APIBean
@@ -52,7 +52,7 @@ Structure representing the internal unique identifier data elements of a contact
      /**
         Default constructor
 
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) init;
 
@@ -60,7 +60,7 @@ Structure representing the internal unique identifier data elements of a contact
         Constructor used by implementation to set the Contact id.
 
         @param contactId Internal unique contact id.
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) initWithContactId:(NSString*)contactId;
 

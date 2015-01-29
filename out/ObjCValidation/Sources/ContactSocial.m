@@ -37,7 +37,7 @@ Release:
 /**
 
 @author Francisco Javier Martin Bueno
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @implementation ContactSocial
@@ -46,7 +46,7 @@ Release:
      /**
         Default constructor
 
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) init {
           self = [self init];
@@ -58,7 +58,7 @@ Release:
 
         @param socialNetwork of the profile
         @param profileUrl    of the user
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) initWithSocialNetworkProfileUrl:(ContactSocialNetwork*)socialNetwork profileUrl:(NSString*)profileUrl {
           self = [self init];

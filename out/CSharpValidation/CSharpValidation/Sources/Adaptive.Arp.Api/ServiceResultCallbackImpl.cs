@@ -55,7 +55,7 @@ public class ServiceResultCallbackImpl extends BaseCallbackImpl implements IServ
         This method is called on Error
 
         @param error returned by the platform
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void onError(IServiceResultCallbackError error) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleServiceResultCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
@@ -65,7 +65,7 @@ public class ServiceResultCallbackImpl extends BaseCallbackImpl implements IServ
         This method is called on Result
 
         @param response data
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void onResult(ServiceResponse response) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleServiceResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(response) +") )");
@@ -76,7 +76,7 @@ public class ServiceResultCallbackImpl extends BaseCallbackImpl implements IServ
 
         @param response data
         @param warning  returned by the platform
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void onWarning(ServiceResponse response, IServiceResultCallbackWarning warning) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleServiceResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(response) +"), JSON.parse(" + this.gson.toJson(warning) +") )");

@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Structure representing the data of a http request or response header.
  *
  * @author Aryslan
- * @since ARP1.0
+ * @since ARP 2.0
  */
 public class ServiceHeader extends APIBean {
 
@@ -61,7 +61,7 @@ public class ServiceHeader extends APIBean {
     /**
      * Default constructor
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public ServiceHeader() {
     }
@@ -71,7 +71,7 @@ public class ServiceHeader extends APIBean {
      *
      * @param name Name of the header
      * @param data Value of the header
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public ServiceHeader(String name, String data) {
         this.name = name;
@@ -82,7 +82,7 @@ public class ServiceHeader extends APIBean {
      * Returns the header name
      *
      * @return ServiceHeader name
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public String getName() {
         return name;
@@ -92,7 +92,7 @@ public class ServiceHeader extends APIBean {
      * Set the header name
      *
      * @param name Name of the header
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setName(String name) {
         this.name = name;
@@ -102,7 +102,7 @@ public class ServiceHeader extends APIBean {
      * Returns the header value
      *
      * @return ServiceHeader value
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public String getData() {
         return data;
@@ -112,7 +112,7 @@ public class ServiceHeader extends APIBean {
      * Set the header value
      *
      * @param data ServiceHeader value
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setData(String data) {
         this.data = data;

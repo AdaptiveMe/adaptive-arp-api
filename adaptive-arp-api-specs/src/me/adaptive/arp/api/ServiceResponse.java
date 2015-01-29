@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Represents a local or remote service response.
  *
  * @author Aryslan
- * @since ARP1.0
+ * @since ARP 2.0
  */
 public class ServiceResponse extends APIBean {
 
@@ -105,7 +105,7 @@ public class ServiceResponse extends APIBean {
      * @param contentBinaryLength The length in bytes for the binary Content.
      * @param serviceHeaders      The serviceHeaders array (name,value pairs) to be included on the I/O service request.
      * @param serviceSession      Information about the session
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public ServiceResponse(String content, String contentType, String contentEncoding, int contentLength, byte[] contentBinary, int contentBinaryLength, ServiceHeader[] serviceHeaders, ServiceSession serviceSession) {
         this.content = content;
@@ -122,7 +122,7 @@ public class ServiceResponse extends APIBean {
      * Returns the content
      *
      * @return content
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public String getContent() {
         return content;
@@ -132,7 +132,7 @@ public class ServiceResponse extends APIBean {
      * Set the content
      *
      * @param content Request/Response data content (plain text).
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setContent(String content) {
         this.content = content;
@@ -142,7 +142,7 @@ public class ServiceResponse extends APIBean {
      * Returns the content type
      *
      * @return contentType
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public String getContentType() {
         return contentType;
@@ -152,7 +152,7 @@ public class ServiceResponse extends APIBean {
      * Set the content type
      *
      * @param contentType The request/response content type (MIME TYPE).
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setContentType(String contentType) {
         this.contentType = contentType;
@@ -162,7 +162,7 @@ public class ServiceResponse extends APIBean {
      * Returns the binary content
      *
      * @return contentBinary
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public byte[] getContentBinary() {
         return contentBinary;
@@ -172,7 +172,7 @@ public class ServiceResponse extends APIBean {
      * Set the binary content
      *
      * @param contentBinary The byte[] representing the binary Content.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setContentBinary(byte[] contentBinary) {
         this.contentBinary = contentBinary;
@@ -182,7 +182,7 @@ public class ServiceResponse extends APIBean {
      * Returns the binary content length
      *
      * @return contentBinaryLength
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public int getContentBinaryLength() {
         return contentBinaryLength;
@@ -192,7 +192,7 @@ public class ServiceResponse extends APIBean {
      * Set the binary content length
      *
      * @param contentBinaryLength The length in bytes for the binary Content.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setContentBinaryLength(int contentBinaryLength) {
         this.contentBinaryLength = contentBinaryLength;
@@ -202,7 +202,7 @@ public class ServiceResponse extends APIBean {
      * Returns the array of ServiceHeader
      *
      * @return serviceHeaders
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public ServiceHeader[] getServiceHeaders() {
         return serviceHeaders;
@@ -212,7 +212,7 @@ public class ServiceResponse extends APIBean {
      * Set the array of ServiceHeader
      *
      * @param serviceHeaders The serviceHeaders array (name,value pairs) to be included on the I/O service request.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setServiceHeaders(ServiceHeader[] serviceHeaders) {
         this.serviceHeaders = serviceHeaders;
@@ -222,7 +222,7 @@ public class ServiceResponse extends APIBean {
      * Returns the content encoding
      *
      * @return contentEncoding
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public String getContentEncoding() {
         return contentEncoding;
@@ -232,7 +232,7 @@ public class ServiceResponse extends APIBean {
      * Set the content encoding
      *
      * @param contentEncoding Encoding of the binary payload - by default assumed to be UTF8.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setContentEncoding(String contentEncoding) {
         this.contentEncoding = contentEncoding;
@@ -242,7 +242,7 @@ public class ServiceResponse extends APIBean {
      * Getter for service session
      *
      * @return The element service session
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public ServiceSession getServiceSession() {
         return serviceSession;
@@ -252,7 +252,7 @@ public class ServiceResponse extends APIBean {
      * Setter for service session
      *
      * @param serviceSession The element service session
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setServiceSession(ServiceSession serviceSession) {
         this.serviceSession = serviceSession;
@@ -263,7 +263,7 @@ public class ServiceResponse extends APIBean {
      * Returns the content length
      *
      * @return contentLength
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public int getContentLength() {
         return contentLength;
@@ -273,7 +273,7 @@ public class ServiceResponse extends APIBean {
      * Set the content length
      *
      * @param contentLength The length in bytes for the Content field.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setContentLength(int contentLength) {
         this.contentLength = contentLength;

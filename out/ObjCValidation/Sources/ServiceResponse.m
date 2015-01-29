@@ -37,7 +37,7 @@ Release:
 /**
 
 @author Aryslan
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @implementation ServiceResponse
@@ -62,7 +62,7 @@ Release:
         @param contentBinaryLength The length in bytes for the binary Content.
         @param serviceHeaders      The serviceHeaders array (name,value pairs) to be included on the I/O service request.
         @param serviceSession      Information about the session
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) initWithContentContentTypeContentEncodingContentLengthContentBinaryContentBinaryLengthServiceHeadersServiceSession:(NSString*)content contentType:(NSString*)contentType contentEncoding:(NSString*)contentEncoding contentLength:(int*)contentLength contentBinary:(NSArray*)contentBinary contentBinaryLength:(int*)contentBinaryLength serviceHeaders:(NSArray*)serviceHeaders serviceSession:(ServiceSession*)serviceSession {
           self = [self init];

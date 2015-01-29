@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Interface for Managing the Geolocation results
 
         @author Francisco Javier Martin Bueno
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public interface IGeolocationListener : IBaseListener {
@@ -48,7 +48,7 @@ namespace Adaptive.Arp.Api
         No data received - error condition, not authorized or hardware not available.
 
         @param error Type of error encountered during reading.
-        @since ARP1.0
+        @since ARP 2.0
      */
      void onError(IGeolocationListenerError error);
 
@@ -56,7 +56,7 @@ namespace Adaptive.Arp.Api
         Correct data received.
 
         @param geolocation Geolocation Bean
-        @since ARP1.0
+        @since ARP 2.0
      */
      void onResult(Geolocation geolocation);
 
@@ -65,7 +65,7 @@ namespace Adaptive.Arp.Api
 
         @param geolocation Geolocation Bean
         @param warning     Type of warning encountered during reading.
-        @since ARP1.0
+        @since ARP 2.0
      */
      void onWarning(Geolocation geolocation, IGeolocationListenerWarning warning);
 

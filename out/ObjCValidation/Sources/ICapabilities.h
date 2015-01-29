@@ -39,7 +39,7 @@ Release:
 Interface for testing the Capabilities operations
 
 @author Carlos Lozano Diez
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @protocol ICapabilities <IBaseSystem>
@@ -93,6 +93,14 @@ Interface for testing the Capabilities operations
           ICapabilitiesNotification_RemoteNotification = 2,
           ICapabilitiesNotification_Vibration = 3,
           ICapabilitiesNotification_Unknown = 4
+     };
+
+     typedef NS_OPTIONS(NSUInteger, ICapabilitiesOrientation) {
+          ICapabilitiesOrientation_Portrait_Up = 0,
+          ICapabilitiesOrientation_Portrait_Down = 1,
+          ICapabilitiesOrientation_Landscape_Left = 2,
+          ICapabilitiesOrientation_Landscape_Right = 3,
+          ICapabilitiesOrientation_Unknown = 4
      };
 
      typedef NS_OPTIONS(NSUInteger, ICapabilitiesSensor) {

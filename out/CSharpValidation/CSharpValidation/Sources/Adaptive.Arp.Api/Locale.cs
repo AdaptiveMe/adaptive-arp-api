@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Represents a specific user or system locate.
 
         @author Aryslan
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public class Locale : APIBean
@@ -58,7 +58,7 @@ namespace Adaptive.Arp.Api
           /**
              Default constructor
 
-             @since ARP1.0
+             @since ARP 2.0
           */
           public Locale()  {
           }
@@ -68,7 +68,7 @@ namespace Adaptive.Arp.Api
 
              @param Country  Country of the Locale
              @param Language Language of the Locale
-             @since ARP1.0
+             @since ARP 2.0
           */
           public Locale(string Language, string Country) : base () {
                this.Language = Language;
@@ -79,7 +79,7 @@ namespace Adaptive.Arp.Api
              Returns the country code
 
              @return Country code
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string GetCountry() {
                return this.Country;
@@ -89,7 +89,7 @@ namespace Adaptive.Arp.Api
              Set the country code
 
              @param Country code
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetCountry(string Country) {
                this.Country = Country;
@@ -99,7 +99,7 @@ namespace Adaptive.Arp.Api
              Returns the language code
 
              @return Language code
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string GetLanguage() {
                return this.Language;
@@ -109,7 +109,7 @@ namespace Adaptive.Arp.Api
              Set the language code
 
              @param Language code
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetLanguage(string Language) {
                this.Language = Language;

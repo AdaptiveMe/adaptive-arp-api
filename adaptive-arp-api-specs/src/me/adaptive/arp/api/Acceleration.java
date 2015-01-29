@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Structure representing the data of a single acceleration reading.
  *
  * @author Carlos Lozano Diez
- * @since ARP1.0
+ * @since ARP 2.0
  */
 public class Acceleration extends APIBean {
 
@@ -71,7 +71,7 @@ public class Acceleration extends APIBean {
     /**
      * Default constructor
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public Acceleration() {
     }
@@ -83,7 +83,7 @@ public class Acceleration extends APIBean {
      * @param y         Y Coordinate
      * @param z         Z Coordinate
      * @param timestamp Timestamp
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public Acceleration(double x, double y, double z, long timestamp) {
         this.x = x;
@@ -96,7 +96,7 @@ public class Acceleration extends APIBean {
      * X Coordinate Getter
      *
      * @return X-axis component of the acceleration.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public double getX() {
         return x;
@@ -106,7 +106,7 @@ public class Acceleration extends APIBean {
      * X Coordinate Setter
      *
      * @param x X-axis component of the acceleration.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setX(double x) {
         this.x = x;
@@ -116,7 +116,7 @@ public class Acceleration extends APIBean {
      * Y Coordinate Getter
      *
      * @return Y-axis component of the acceleration.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public double getY() {
         return y;
@@ -126,7 +126,7 @@ public class Acceleration extends APIBean {
      * Y Coordinate Setter
      *
      * @param y Y-axis component of the acceleration.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setY(double y) {
         this.y = y;
@@ -136,7 +136,7 @@ public class Acceleration extends APIBean {
      * Z Coordinate Getter
      *
      * @return Z-axis component of the acceleration.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public double getZ() {
         return z;
@@ -146,7 +146,7 @@ public class Acceleration extends APIBean {
      * Z Coordinate Setter
      *
      * @param z Z Coordinate
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setZ(double z) {
         this.z = z;
@@ -156,7 +156,7 @@ public class Acceleration extends APIBean {
      * Timestamp Getter
      *
      * @return Timestamp
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public long getTimestamp() {
         return timestamp;
@@ -166,7 +166,7 @@ public class Acceleration extends APIBean {
      * Timestamp Setter
      *
      * @param timestamp Timestamp
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setTimestamp(long timestamp) {
         this.timestamp = timestamp;

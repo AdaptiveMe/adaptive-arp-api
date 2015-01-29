@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Interface for Managing the Messaging responses
  *
  * @author Francisco Javier Martin Bueno
- * @since ARP1.0
+ * @since ARP 2.0
  */
 public interface IMessagingCallback extends IBaseCallback {
 
@@ -53,7 +53,7 @@ public interface IMessagingCallback extends IBaseCallback {
      * This method is called on Result
      *
      * @param success true if sent;false otherwise
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     void onResult(boolean success);
 
@@ -62,7 +62,7 @@ public interface IMessagingCallback extends IBaseCallback {
      *
      * @param success true if sent;false otherwise
      * @param warning returned by the platform
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     void onWarning(boolean success, Warning warning);
 
@@ -70,14 +70,14 @@ public interface IMessagingCallback extends IBaseCallback {
      * This method is called on Error
      *
      * @param error returned by the platform
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     void onError(Error error);
 
     /**
      * Warnings that can be used
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public enum Warning {
         UnableToSentAll, UnableToFetchAttachment, Unknown
@@ -86,7 +86,7 @@ public interface IMessagingCallback extends IBaseCallback {
     /**
      * Errors that can be used
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public enum Error {
         SIMNotPresent, EmailAccountNotFound, NotSent, WrongParams, NotSupported, Unknown

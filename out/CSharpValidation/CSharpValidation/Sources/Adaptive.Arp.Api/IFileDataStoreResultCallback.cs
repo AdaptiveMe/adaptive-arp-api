@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Interface for Managing the File store operations callback
 
         @author Carlos Lozano Diez
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public interface IFileDataStoreResultCallback : IBaseCallback {
@@ -48,7 +48,7 @@ namespace Adaptive.Arp.Api
         Error processing data retrieval/storage operation.
 
         @param error Error condition encountered.
-        @since ARP1.0
+        @since ARP 2.0
      */
      void onError(IFileDataStoreResultCallbackError error);
 
@@ -56,7 +56,7 @@ namespace Adaptive.Arp.Api
         Result of data storage operation.
 
         @param file File reference to stored data.
-        @since ARP1.0
+        @since ARP 2.0
      */
      void onResult(FileDescriptor file);
 
@@ -65,7 +65,7 @@ namespace Adaptive.Arp.Api
 
         @param file    File being loaded/stored.
         @param warning Warning condition encountered.
-        @since ARP1.0
+        @since ARP 2.0
      */
      void onWarning(FileDescriptor file, IFileDataStoreResultCallbackWarning warning);
 

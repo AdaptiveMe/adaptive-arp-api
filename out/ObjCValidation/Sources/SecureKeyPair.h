@@ -39,7 +39,7 @@ Release:
 Represents a single secureKey-value pair.
 
 @author Aryslan
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @interface SecureKeyPair : APIBean
@@ -56,7 +56,7 @@ Represents a single secureKey-value pair.
      /**
         Default constructor
 
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) init;
 
@@ -65,7 +65,7 @@ Represents a single secureKey-value pair.
 
         @param secureKey  name of the keypair
         @param secureData value of the keypair
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) initWithSecureKeySecureData:(NSString*)secureKey secureData:(NSString*)secureData;
 

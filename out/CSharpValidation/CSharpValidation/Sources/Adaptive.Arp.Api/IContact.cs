@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Interface for Managing the Contact operations
 
         @author Francisco Javier Martin Bueno
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public interface IContact : IBasePIM {
@@ -49,7 +49,7 @@ namespace Adaptive.Arp.Api
 
         @param contact  id to search for
         @param callback called for return
-        @since ARP1.0
+        @since ARP 2.0
      */
      void getContactPhoto(ContactUid contact, IContactPhotoResultCallback callback);
 
@@ -58,7 +58,7 @@ namespace Adaptive.Arp.Api
 
         @param contact  id to search for
         @param callback called for return
-        @since ARP1.0
+        @since ARP 2.0
      */
      void getContact(ContactUid contact, IContactResultCallback callback);
 
@@ -67,7 +67,7 @@ namespace Adaptive.Arp.Api
 
         @param callback called for return
         @param fields   to get for each Contact
-        @since ARP1.0
+        @since ARP 2.0
      */
      void getContactsForFields(IContactResultCallback callback, IContactFieldGroup[] fields);
 
@@ -77,7 +77,7 @@ namespace Adaptive.Arp.Api
         @param callback called for return
         @param fields   to get for each Contact
         @param filter   to search for
-        @since ARP1.0
+        @since ARP 2.0
      */
      void getContactsWithFilter(IContactResultCallback callback, IContactFieldGroup[] fields, IContactFilter[] filter);
 
@@ -85,7 +85,7 @@ namespace Adaptive.Arp.Api
         Get all contacts
 
         @param callback called for return
-        @since ARP1.0
+        @since ARP 2.0
      */
      void getContacts(IContactResultCallback callback);
 
@@ -95,7 +95,7 @@ namespace Adaptive.Arp.Api
         @param term     string to search
         @param callback called for return
         @param filter   to search for
-        @since ARP1.0
+        @since ARP 2.0
      */
      void searchContactsWithFilter(string term, IContactResultCallback callback, IContactFilter[] filter);
 
@@ -104,7 +104,7 @@ namespace Adaptive.Arp.Api
 
         @param term     string to search
         @param callback called for return
-        @since ARP1.0
+        @since ARP 2.0
      */
      void searchContacts(string term, IContactResultCallback callback);
 
@@ -114,7 +114,7 @@ namespace Adaptive.Arp.Api
         @param contact  id to assign the photo
         @param pngImage photo as byte array
         @return true if set is successful;false otherwise
-        @since ARP1.0
+        @since ARP 2.0
      */
      bool setContactPhoto(ContactUid contact, byte[] pngImage);
 

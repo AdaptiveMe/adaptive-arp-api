@@ -45,7 +45,7 @@ package me.adaptive.arp.api;
  * Structure representing the social data elements of a contact.
  *
  * @author Francisco Javier Martin Bueno
- * @since ARP1.0
+ * @since ARP 2.0
  */
 public class ContactSocial extends APIBean {
 
@@ -62,7 +62,7 @@ public class ContactSocial extends APIBean {
     /**
      * Default constructor
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public ContactSocial() {
     }
@@ -72,7 +72,7 @@ public class ContactSocial extends APIBean {
      *
      * @param socialNetwork of the profile
      * @param profileUrl    of the user
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public ContactSocial(SocialNetwork socialNetwork, String profileUrl) {
         this.socialNetwork = socialNetwork;
@@ -83,7 +83,7 @@ public class ContactSocial extends APIBean {
      * Returns the social network
      *
      * @return socialNetwork
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public SocialNetwork getSocialNetwork() {
         return socialNetwork;
@@ -93,7 +93,7 @@ public class ContactSocial extends APIBean {
      * Set the social network
      *
      * @param socialNetwork of the profile
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setSocialNetwork(SocialNetwork socialNetwork) {
         this.socialNetwork = socialNetwork;
@@ -103,7 +103,7 @@ public class ContactSocial extends APIBean {
      * Returns the profile url of the user
      *
      * @return profileUrl
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public String getProfileUrl() {
         return profileUrl;
@@ -113,7 +113,7 @@ public class ContactSocial extends APIBean {
      * Set the profile url of the iser
      *
      * @param profileUrl of the user
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setProfileUrl(String profileUrl) {
         this.profileUrl = profileUrl;
@@ -122,7 +122,7 @@ public class ContactSocial extends APIBean {
     /**
      * Social Networks
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public enum SocialNetwork {
         Twitter, Facebook, GooglePlus, LinkedIn, Flickr, Unknown

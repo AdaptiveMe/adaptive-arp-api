@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Structure representing the cookieValue of a http cookie.
 
         @author Aryslan
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public class ServiceCookie : APIBean
@@ -82,7 +82,7 @@ namespace Adaptive.Arp.Api
           /**
              Default constructor
 
-             @since ARP1.0
+             @since ARP 2.0
           */
           public ServiceCookie()  {
           }
@@ -92,7 +92,7 @@ namespace Adaptive.Arp.Api
 
              @param CookieName  Name of the cookie
              @param CookieValue Value of the cookie
-             @since ARP1.0
+             @since ARP 2.0
           */
           public ServiceCookie(string CookieName, string CookieValue) : base () {
                this.CookieName = CookieName;
@@ -110,7 +110,7 @@ namespace Adaptive.Arp.Api
              @param Secure      Privacy of the cookie
              @param Expiry      Expiration date of the cookie
              @param Creation    Creation date of the cookie
-             @since ARP1.0
+             @since ARP 2.0
           */
           public ServiceCookie(string CookieName, string CookieValue, string Domain, string Path, string Scheme, bool Secure, long Expiry, long Creation) : base () {
                this.CookieName = CookieName;
@@ -127,7 +127,7 @@ namespace Adaptive.Arp.Api
              Returns the cookie cookieName
 
              @return CookieName Name of the cookie
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string GetCookieName() {
                return this.CookieName;
@@ -137,7 +137,7 @@ namespace Adaptive.Arp.Api
              Set the cookie cookieName
 
              @param CookieName Name of the cookie
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetCookieName(string CookieName) {
                this.CookieName = CookieName;
@@ -147,7 +147,7 @@ namespace Adaptive.Arp.Api
              Returns the cookie cookieValue
 
              @return Value of the cookie
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string GetCookieValue() {
                return this.CookieValue;
@@ -157,7 +157,7 @@ namespace Adaptive.Arp.Api
              Set the cookie cookieValue
 
              @param CookieValue Value of the cookie
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetCookieValue(string CookieValue) {
                this.CookieValue = CookieValue;
@@ -167,7 +167,7 @@ namespace Adaptive.Arp.Api
              Returns the creation date
 
              @return Creation date of the cookie
-             @since ARP1.0
+             @since ARP 2.0
           */
           public long GetCreation() {
                return this.Creation;
@@ -177,7 +177,7 @@ namespace Adaptive.Arp.Api
              Sets the creation date
 
              @param Creation Creation date of the cookie
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetCreation(long Creation) {
                this.Creation = Creation;
@@ -187,7 +187,7 @@ namespace Adaptive.Arp.Api
              Returns the domain
 
              @return Domain
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string GetDomain() {
                return this.Domain;
@@ -197,7 +197,7 @@ namespace Adaptive.Arp.Api
              Set the domain
 
              @param Domain Domain of the cookie
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetDomain(string Domain) {
                this.Domain = Domain;
@@ -207,7 +207,7 @@ namespace Adaptive.Arp.Api
              Returns the expiration date in milis
 
              @return Expiry
-             @since ARP1.0
+             @since ARP 2.0
           */
           public long GetExpiry() {
                return this.Expiry;
@@ -217,7 +217,7 @@ namespace Adaptive.Arp.Api
              Set the expiration date in milis
 
              @param Expiry Expiration date of the cookie
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetExpiry(long Expiry) {
                this.Expiry = Expiry;
@@ -227,7 +227,7 @@ namespace Adaptive.Arp.Api
              Returns the path
 
              @return Path
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string GetPath() {
                return this.Path;
@@ -237,7 +237,7 @@ namespace Adaptive.Arp.Api
              Set the path
 
              @param Path Path of the cookie
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetPath(string Path) {
                this.Path = Path;
@@ -247,7 +247,7 @@ namespace Adaptive.Arp.Api
              Returns the scheme
 
              @return Scheme
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string GetScheme() {
                return this.Scheme;
@@ -257,7 +257,7 @@ namespace Adaptive.Arp.Api
              Set the scheme
 
              @param Scheme Scheme of the cookie
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetScheme(string Scheme) {
                this.Scheme = Scheme;
@@ -267,7 +267,7 @@ namespace Adaptive.Arp.Api
              Returns whether the cookie is secure or not
 
              @return True if the cookie is secure; false otherwise
-             @since ARP1.0
+             @since ARP 2.0
           */
           public bool GetSecure() {
                return this.Secure;
@@ -277,7 +277,7 @@ namespace Adaptive.Arp.Api
              Set whether the cookie is secure or not
 
              @param Secure Privacy of the cookie
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetSecure(bool Secure) {
                this.Secure = Secure;

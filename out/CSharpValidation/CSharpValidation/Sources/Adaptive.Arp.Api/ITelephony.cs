@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Interface for Managing the Telephony operations
 
         @author Francisco Javier Martin Bueno
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public interface ITelephony : IBaseCommunication {
@@ -49,7 +49,7 @@ namespace Adaptive.Arp.Api
 
         @param number to call
         @return Status of the call
-        @since ARP1.0
+        @since ARP 2.0
      */
      ITelephonyStatus call(string number);
 

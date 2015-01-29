@@ -1194,7 +1194,7 @@ public class AppRegistryDelegate implements IAppRegistry {
         Method that returns the API version of the implementation.
 
         @return API Version string.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public tringBridge getAPIVersion() {
            if(__tringBridge == null) {
@@ -1212,7 +1212,7 @@ public class AppRegistryDelegate implements IAppRegistry {
         Returns a reference to the Platform Context
 
         @return Reference to the platform context
-        @since ARP1.0
+        @since ARP 2.0
      */
      public AppContextBridge getPlatformContext() {
            if(__appcontextBridge == null) {
@@ -1230,7 +1230,7 @@ public class AppRegistryDelegate implements IAppRegistry {
         Returns a reference to the Webview platform context
 
         @return Reference to the Webview Context
-        @since ARP1.0
+        @since ARP 2.0
      */
      public AppContextWebviewBridge getPlatformContextWeb() {
            if(__appcontextwebviewBridge == null) {

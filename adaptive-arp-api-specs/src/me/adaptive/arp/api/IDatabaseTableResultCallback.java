@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Interface for Managing the Cloud operations
  *
  * @author Ferran Vila Conesa
- * @since ARP1.0
+ * @since ARP 2.0
  */
 public interface IDatabaseTableResultCallback extends IBaseCallback {
 
@@ -52,7 +52,7 @@ public interface IDatabaseTableResultCallback extends IBaseCallback {
      * Result callback for correct responses
      *
      * @param databaseTable Returns the databaseTable
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void onResult(DatabaseTable databaseTable);
 
@@ -61,7 +61,7 @@ public interface IDatabaseTableResultCallback extends IBaseCallback {
      *
      * @param databaseTable Returns the databaseTable
      * @param warning       Returned Warning
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void onWarning(DatabaseTable databaseTable, Warning warning);
 
@@ -69,14 +69,14 @@ public interface IDatabaseTableResultCallback extends IBaseCallback {
      * Result callback for error responses
      *
      * @param error Returned error
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void onError(Error error);
 
     /**
      * Enumeration for warnings related to database manipulation.
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public enum Warning {
         TableExists, TableLocked, NoResults, Unknown
@@ -85,7 +85,7 @@ public interface IDatabaseTableResultCallback extends IBaseCallback {
     /**
      * Enumeration for errors related to database manipulation.
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public enum Error {
         NoSpace, ReadOnlyTable, SqlException, DatabaseNotFound, NoTableFound, Unknown

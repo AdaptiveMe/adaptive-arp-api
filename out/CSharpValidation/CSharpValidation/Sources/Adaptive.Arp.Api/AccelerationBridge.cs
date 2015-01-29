@@ -76,7 +76,7 @@ public class AccelerationBridge extends BaseSensorBridge implements IAcceleratio
         Register a new listener that will receive acceleration events.
 
         @param listener to be registered.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void addAccelerationListener(IAccelerationListener listener) {
           // Start logging elapsed time.
@@ -98,7 +98,7 @@ public class AccelerationBridge extends BaseSensorBridge implements IAcceleratio
         De-registers an existing listener from receiving acceleration events.
 
         @param listener to be registered.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void removeAccelerationListener(IAccelerationListener listener) {
           // Start logging elapsed time.
@@ -119,7 +119,7 @@ public class AccelerationBridge extends BaseSensorBridge implements IAcceleratio
      /**
         Removed all existing listeners from receiving acceleration events.
 
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void removeAccelerationListeners() {
           // Start logging elapsed time.

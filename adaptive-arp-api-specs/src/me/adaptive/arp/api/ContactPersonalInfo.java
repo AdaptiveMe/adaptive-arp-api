@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Structure representing the personal info data elements of a contact.
  *
  * @author Francisco Javier Martin Bueno
- * @since ARP1.0
+ * @since ARP 2.0
  */
 public class ContactPersonalInfo extends APIBean {
 
@@ -71,7 +71,7 @@ public class ContactPersonalInfo extends APIBean {
     /**
      * Default constructor
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public ContactPersonalInfo() {
     }
@@ -83,7 +83,7 @@ public class ContactPersonalInfo extends APIBean {
      * @param middleName of the Contact
      * @param lastName   of the Contact
      * @param title      of the Contact
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public ContactPersonalInfo(String name, String middleName, String lastName, Title title) {
         this.name = name;
@@ -96,7 +96,7 @@ public class ContactPersonalInfo extends APIBean {
      * Returns the name of the Contact
      *
      * @return name
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public String getName() {
         return name;
@@ -106,7 +106,7 @@ public class ContactPersonalInfo extends APIBean {
      * Set the name of the Contact
      *
      * @param name of the Contact
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setName(String name) {
         this.name = name;
@@ -116,7 +116,7 @@ public class ContactPersonalInfo extends APIBean {
      * Returns the middle name of the Contact
      *
      * @return middelName
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public String getMiddleName() {
         return middleName;
@@ -126,7 +126,7 @@ public class ContactPersonalInfo extends APIBean {
      * Set the middle name of the Contact
      *
      * @param middleName of the Contact
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setMiddleName(String middleName) {
         this.middleName = middleName;
@@ -136,7 +136,7 @@ public class ContactPersonalInfo extends APIBean {
      * Returns the last name of the Contact
      *
      * @return lastName
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public String getLastName() {
         return lastName;
@@ -146,7 +146,7 @@ public class ContactPersonalInfo extends APIBean {
      * Set the last name of the Contact
      *
      * @param lastName of the Contact
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setLastName(String lastName) {
         this.lastName = lastName;
@@ -156,7 +156,7 @@ public class ContactPersonalInfo extends APIBean {
      * Returns the title of the Contact
      *
      * @return Title
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public Title getTitle() {
         return title;
@@ -166,7 +166,7 @@ public class ContactPersonalInfo extends APIBean {
      * Set the Title of the Contact
      *
      * @param title of the Contact
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setTitle(Title title) {
         this.title = title;
@@ -175,7 +175,7 @@ public class ContactPersonalInfo extends APIBean {
     /**
      * Titles that can be used
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public enum Title {
         Mr, Mrs, Ms, Dr, Unknown

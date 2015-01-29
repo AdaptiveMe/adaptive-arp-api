@@ -77,7 +77,7 @@ public class ServiceBridge extends BaseCommunicationBridge implements IService, 
 
         @param serviceName Name of service.
         @return A service, if registered, or null of the service does not exist.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public Service getService(string serviceName) {
           // Start logging elapsed time.
@@ -102,7 +102,7 @@ public class ServiceBridge extends BaseCommunicationBridge implements IService, 
         @param serviceRequest Service Request to invoke
         @param service        Service to call
         @param callback       Callback to execute with the result
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void invokeService(ServiceRequest serviceRequest, Service service, IServiceResultCallback callback) {
           // Start logging elapsed time.
@@ -125,7 +125,7 @@ public class ServiceBridge extends BaseCommunicationBridge implements IService, 
 
         @param service Service to check
         @return True if the service is registered, false otherwise.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public bool isRegistered(Service service) {
           // Start logging elapsed time.
@@ -149,7 +149,7 @@ public class ServiceBridge extends BaseCommunicationBridge implements IService, 
 
         @param serviceName Name of service.
         @return True if the service is registered, false otherwise.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public bool isRegistered(string serviceName) {
           // Start logging elapsed time.
@@ -172,7 +172,7 @@ public class ServiceBridge extends BaseCommunicationBridge implements IService, 
         Register a new service
 
         @param service to register
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void registerService(Service service) {
           // Start logging elapsed time.
@@ -194,7 +194,7 @@ public class ServiceBridge extends BaseCommunicationBridge implements IService, 
         Unregister a service
 
         @param service to unregister
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void unregisterService(Service service) {
           // Start logging elapsed time.
@@ -215,7 +215,7 @@ public class ServiceBridge extends BaseCommunicationBridge implements IService, 
      /**
         Unregister all services.
 
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void unregisterServices() {
           // Start logging elapsed time.

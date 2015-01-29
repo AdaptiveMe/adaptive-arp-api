@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Interface to retrieve auto-registered service implementation references.
  *
  * @author Carlos Lozano Diez
- * @since ARP1.0
+ * @since ARP 2.0
  */
 public interface IAppRegistry {
 
@@ -52,7 +52,7 @@ public interface IAppRegistry {
      * Returns a reference to the Platform Context
      *
      * @return Reference to the platform context
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     IAppContext getPlatformContext();
 
@@ -60,7 +60,7 @@ public interface IAppRegistry {
      * Returns a reference to the Webview platform context
      *
      * @return Reference to the Webview Context
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     IAppContextWebview getPlatformContextWeb();
 
@@ -68,7 +68,7 @@ public interface IAppRegistry {
      * Method that returns the API version of the implementation.
      *
      * @return API Version string.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     String getAPIVersion();
 

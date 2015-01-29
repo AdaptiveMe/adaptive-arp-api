@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Structure representing the data elements of an email.
 
         @author Francisco Javier Martin Bueno
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public class Email : APIBean
@@ -78,7 +78,7 @@ namespace Adaptive.Arp.Api
           /**
              Default constructor
 
-             @since ARP1.0
+             @since ARP 2.0
           */
           public Email()  {
           }
@@ -93,7 +93,7 @@ namespace Adaptive.Arp.Api
              @param MessageBody         body of the email
              @param MessageBodyMimeType mime type of the body
              @param Subject             of the email
-             @since ARP1.0
+             @since ARP 2.0
           */
           public Email(EmailAddress[] ToRecipients, EmailAddress[] CcRecipients, EmailAddress[] BccRecipients, EmailAttachmentData[] EmailAttachmentData, string MessageBody, string MessageBodyMimeType, string Subject) : base () {
                this.ToRecipients = ToRecipients;
@@ -111,7 +111,7 @@ namespace Adaptive.Arp.Api
              @param ToRecipients array of recipients
              @param Subject      of the email
              @param MessageBody  body of the email
-             @since ARP1.0
+             @since ARP 2.0
           */
           public Email(EmailAddress[] ToRecipients, string Subject, string MessageBody) : base () {
                this.ToRecipients = ToRecipients;
@@ -123,7 +123,7 @@ namespace Adaptive.Arp.Api
              Returns the array of recipients
 
              @return BccRecipients array of bcc recipients
-             @since ARP1.0
+             @since ARP 2.0
           */
           public EmailAddress[] GetBccRecipients() {
                return this.BccRecipients;
@@ -133,7 +133,7 @@ namespace Adaptive.Arp.Api
              Set the array of recipients
 
              @param BccRecipients array of bcc recipients
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetBccRecipients(EmailAddress[] BccRecipients) {
                this.BccRecipients = BccRecipients;
@@ -143,7 +143,7 @@ namespace Adaptive.Arp.Api
              Returns the array of recipients
 
              @return CcRecipients array of cc recipients
-             @since ARP1.0
+             @since ARP 2.0
           */
           public EmailAddress[] GetCcRecipients() {
                return this.CcRecipients;
@@ -153,7 +153,7 @@ namespace Adaptive.Arp.Api
              Set the array of recipients
 
              @param CcRecipients array of cc recipients
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetCcRecipients(EmailAddress[] CcRecipients) {
                this.CcRecipients = CcRecipients;
@@ -163,7 +163,7 @@ namespace Adaptive.Arp.Api
              Returns an array of attachments
 
              @return EmailAttachmentData array with the email attachments
-             @since ARP1.0
+             @since ARP 2.0
           */
           public EmailAttachmentData[] GetEmailAttachmentData() {
                return this.EmailAttachmentData;
@@ -173,7 +173,7 @@ namespace Adaptive.Arp.Api
              Set the email attachment data array
 
              @param EmailAttachmentData array of email attatchments
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetEmailAttachmentData(EmailAttachmentData[] EmailAttachmentData) {
                this.EmailAttachmentData = EmailAttachmentData;
@@ -183,7 +183,7 @@ namespace Adaptive.Arp.Api
              Returns the message body of the email
 
              @return Message Body string of the email
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string GetMessageBody() {
                return this.MessageBody;
@@ -193,7 +193,7 @@ namespace Adaptive.Arp.Api
              Set the message body of the email
 
              @param MessageBody message body of the email
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetMessageBody(string MessageBody) {
                this.MessageBody = MessageBody;
@@ -203,7 +203,7 @@ namespace Adaptive.Arp.Api
              Returns the myme type of the message body
 
              @return Mime type string of the message boddy
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string GetMessageBodyMimeType() {
                return this.MessageBodyMimeType;
@@ -213,7 +213,7 @@ namespace Adaptive.Arp.Api
              Set the mime type for the message body
 
              @param MessageBodyMimeType type of the body message
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetMessageBodyMimeType(string MessageBodyMimeType) {
                this.MessageBodyMimeType = MessageBodyMimeType;
@@ -223,7 +223,7 @@ namespace Adaptive.Arp.Api
              Returns the subject of the email
 
              @return Subject string of the email
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string GetSubject() {
                return this.Subject;
@@ -233,7 +233,7 @@ namespace Adaptive.Arp.Api
              Set the subject of the email
 
              @param Subject of the email
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetSubject(string Subject) {
                this.Subject = Subject;
@@ -243,7 +243,7 @@ namespace Adaptive.Arp.Api
              Returns the array of recipients
 
              @return ToRecipients array of recipients
-             @since ARP1.0
+             @since ARP 2.0
           */
           public EmailAddress[] GetToRecipients() {
                return this.ToRecipients;
@@ -253,7 +253,7 @@ namespace Adaptive.Arp.Api
              Set the array of recipients
 
              @param ToRecipients array of recipients
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetToRecipients(EmailAddress[] ToRecipients) {
                this.ToRecipients = ToRecipients;

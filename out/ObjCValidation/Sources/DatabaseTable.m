@@ -37,7 +37,7 @@ Release:
 /**
 
 @author Ferran Vila Conesa
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @implementation DatabaseTable
@@ -46,7 +46,7 @@ Release:
      /**
         Default constructor
 
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) init {
           self = [self init];
@@ -57,7 +57,7 @@ Release:
         Constructor by default
 
         @param name The name of the table
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) initWithName:(NSString*)name {
           self = [self init];
@@ -75,7 +75,7 @@ Release:
         @param rowCount        The number of databaseRows
         @param databaseColumns The databaseColumns of the table
         @param databaseRows    The databaseRows of the table
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) initWithNameColumnCountRowCountDatabaseColumnsDatabaseRows:(NSString*)name columnCount:(int*)columnCount rowCount:(int*)rowCount databaseColumns:(NSArray*)databaseColumns databaseRows:(NSArray*)databaseRows {
           self = [self init];

@@ -39,7 +39,7 @@ Release:
 Structure representing a database reference.
 
 @author Ferran Vila Conesa
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @interface Database : APIBean
@@ -56,7 +56,7 @@ Structure representing a database reference.
      /**
         Default constructor
 
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) init;
 
@@ -64,7 +64,7 @@ Structure representing a database reference.
         Default constructor. The compress param is setted to false.
 
         @param name Name of the table.
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) initWithName:(NSString*)name;
 
@@ -73,7 +73,7 @@ Structure representing a database reference.
 
         @param name     Name of the DatabaseTable.
         @param compress Compression enabled.
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) initWithNameCompress:(NSString*)name compress:(bool*)compress;
 

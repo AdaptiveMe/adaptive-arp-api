@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Structure representing the column specification of a data column.
 
         @author Ferran Vila Conesa
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public class DatabaseColumn : APIBean
@@ -54,7 +54,7 @@ namespace Adaptive.Arp.Api
           /**
              Default constructor
 
-             @since ARP1.0
+             @since ARP 2.0
           */
           public DatabaseColumn()  {
           }
@@ -63,7 +63,7 @@ namespace Adaptive.Arp.Api
              Constructor with fields
 
              @param Name Name of the column
-             @since ARP1.0
+             @since ARP 2.0
           */
           public DatabaseColumn(string Name) : base () {
                this.Name = Name;
@@ -73,7 +73,7 @@ namespace Adaptive.Arp.Api
              Returns the name of the column.
 
              @return The name of the column.
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string GetName() {
                return this.Name;
@@ -83,7 +83,7 @@ namespace Adaptive.Arp.Api
              Sets the name of the column.
 
              @param Name The name of the column.
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetName(string Name) {
                this.Name = Name;

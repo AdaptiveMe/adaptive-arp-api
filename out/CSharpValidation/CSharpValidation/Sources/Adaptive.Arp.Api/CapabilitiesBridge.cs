@@ -73,11 +73,60 @@ public class CapabilitiesBridge extends BaseSystemBridge implements ICapabilitie
      }
 
      /**
+        Obtains the default orientation of the device/display. If no default orientation is available on
+the platform, this method will return the current orientation. To capture device or display orientation
+changes please use the IDevice and IDisplay functions and listeners API respectively.
+
+        @return The default orientation for the device/display.
+        @since ARP 2.0.5
+     */
+     public ICapabilitiesOrientation getOrientationDefault() {
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getOrientationDefault.");
+
+          ICapabilitiesOrientation result = null;
+          if (this.delegate != null) {
+               result = this.delegate.getOrientationDefault();
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getOrientationDefault' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getOrientationDefault'.");
+          }
+          return result;          
+     }
+
+     /**
+        Provides the device/display orientations supported by the platform. A platform will usually
+support at least one orientation. This is usually PortaitUp.
+
+        @return The orientations supported by the device/display of the platform.
+        @since ARP 2.0.5
+     */
+     public ICapabilitiesOrientation[] getOrientationsSupported() {
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getOrientationsSupported.");
+
+          ICapabilitiesOrientation[] result = null;
+          if (this.delegate != null) {
+               result = this.delegate.getOrientationsSupported();
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getOrientationsSupported' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getOrientationsSupported'.");
+          }
+          return result;          
+     }
+
+     /**
         Determines whether a specific hardware button is supported for interaction.
 
         @param type Type of feature to check.
         @return true is supported, false otherwise.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public bool hasButtonSupport(ICapabilitiesButton type) {
           // Start logging elapsed time.
@@ -102,7 +151,7 @@ the device.
 
         @param type Type of feature to check.
         @return true if supported, false otherwise.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public bool hasCommunicationSupport(ICapabilitiesCommunication type) {
           // Start logging elapsed time.
@@ -126,7 +175,7 @@ the device.
 
         @param type Type of feature to check.
         @return true if supported, false otherwise.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public bool hasDataSupport(ICapabilitiesData type) {
           // Start logging elapsed time.
@@ -151,7 +200,7 @@ device.
 
         @param type Type of feature to check.
         @return true if supported, false otherwise.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public bool hasMediaSupport(ICapabilitiesMedia type) {
           // Start logging elapsed time.
@@ -175,7 +224,7 @@ device.
 
         @param type Type of feature to check.
         @return true if supported, false otherwise.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public bool hasNetSupport(ICapabilitiesNet type) {
           // Start logging elapsed time.
@@ -200,7 +249,7 @@ device.
 
         @param type Type of feature to check.
         @return true if supported, false otherwise.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public bool hasNotificationSupport(ICapabilitiesNotification type) {
           // Start logging elapsed time.
@@ -220,12 +269,36 @@ device.
      }
 
      /**
+        Determines whether the device/display supports a given orientation.
+
+        @param orientation Orientation type.
+        @return True if the given orientation is supported, false otherwise.
+        @since ARP 2.0.5
+     */
+     public bool hasOrientationSupport(ICapabilitiesOrientation orientation) {
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing hasOrientationSupport({"+orientation+"}).");
+
+          bool result = false;
+          if (this.delegate != null) {
+               result = this.delegate.hasOrientationSupport(orientation);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'hasOrientationSupport' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'hasOrientationSupport'.");
+          }
+          return result;          
+     }
+
+     /**
         Determines whether a specific Sensor capability is supported by the
 device.
 
         @param type Type of feature to check.
         @return true if supported, false otherwise.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public bool hasSensorSupport(ICapabilitiesSensor type) {
           // Start logging elapsed time.
@@ -253,40 +326,61 @@ device.
      public String invoke(APIRequest request) {
           String responseJSON = "";
           switch (request.getMethodName()) {
+               case "getOrientationDefault":
+                    ICapabilitiesOrientation response0 = this.getOrientationDefault();
+                    if (response0 != null) {
+                         responseJSON = this.gson.toJson(response0);
+                    } else {
+                         responseJSON = null;
+                    }
+                    break;
+               case "getOrientationsSupported":
+                    ICapabilitiesOrientation[] response1 = this.getOrientationsSupported();
+                    if (response1 != null) {
+                         responseJSON = this.gson.toJson(response1);
+                    } else {
+                         responseJSON = null;
+                    }
+                    break;
                case "hasButtonSupport":
-                    ICapabilitiesButton type0 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesButton.class);
-                    bool response0 = this.hasButtonSupport(type0);
-                    responseJSON = this.gson.toJson(response0);
-                    break;
-               case "hasCommunicationSupport":
-                    ICapabilitiesCommunication type1 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesCommunication.class);
-                    bool response1 = this.hasCommunicationSupport(type1);
-                    responseJSON = this.gson.toJson(response1);
-                    break;
-               case "hasDataSupport":
-                    ICapabilitiesData type2 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesData.class);
-                    bool response2 = this.hasDataSupport(type2);
+                    ICapabilitiesButton type2 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesButton.class);
+                    bool response2 = this.hasButtonSupport(type2);
                     responseJSON = this.gson.toJson(response2);
                     break;
-               case "hasMediaSupport":
-                    ICapabilitiesMedia type3 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesMedia.class);
-                    bool response3 = this.hasMediaSupport(type3);
+               case "hasCommunicationSupport":
+                    ICapabilitiesCommunication type3 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesCommunication.class);
+                    bool response3 = this.hasCommunicationSupport(type3);
                     responseJSON = this.gson.toJson(response3);
                     break;
-               case "hasNetSupport":
-                    ICapabilitiesNet type4 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesNet.class);
-                    bool response4 = this.hasNetSupport(type4);
+               case "hasDataSupport":
+                    ICapabilitiesData type4 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesData.class);
+                    bool response4 = this.hasDataSupport(type4);
                     responseJSON = this.gson.toJson(response4);
                     break;
-               case "hasNotificationSupport":
-                    ICapabilitiesNotification type5 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesNotification.class);
-                    bool response5 = this.hasNotificationSupport(type5);
+               case "hasMediaSupport":
+                    ICapabilitiesMedia type5 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesMedia.class);
+                    bool response5 = this.hasMediaSupport(type5);
                     responseJSON = this.gson.toJson(response5);
                     break;
-               case "hasSensorSupport":
-                    ICapabilitiesSensor type6 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesSensor.class);
-                    bool response6 = this.hasSensorSupport(type6);
+               case "hasNetSupport":
+                    ICapabilitiesNet type6 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesNet.class);
+                    bool response6 = this.hasNetSupport(type6);
                     responseJSON = this.gson.toJson(response6);
+                    break;
+               case "hasNotificationSupport":
+                    ICapabilitiesNotification type7 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesNotification.class);
+                    bool response7 = this.hasNotificationSupport(type7);
+                    responseJSON = this.gson.toJson(response7);
+                    break;
+               case "hasOrientationSupport":
+                    ICapabilitiesOrientation orientation8 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesOrientation.class);
+                    bool response8 = this.hasOrientationSupport(orientation8);
+                    responseJSON = this.gson.toJson(response8);
+                    break;
+               case "hasSensorSupport":
+                    ICapabilitiesSensor type9 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesSensor.class);
+                    bool response9 = this.hasSensorSupport(type9);
+                    responseJSON = this.gson.toJson(response9);
                     break;
                default:
                     // 404 - response null.

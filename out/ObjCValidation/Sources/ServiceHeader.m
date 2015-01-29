@@ -37,7 +37,7 @@ Release:
 /**
 
 @author Aryslan
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @implementation ServiceHeader
@@ -46,7 +46,7 @@ Release:
      /**
         Default constructor
 
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) init {
           self = [self init];
@@ -58,7 +58,7 @@ Release:
 
         @param name Name of the header
         @param data Value of the header
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) initWithNameData:(NSString*)name data:(NSString*)data {
           self = [self init];

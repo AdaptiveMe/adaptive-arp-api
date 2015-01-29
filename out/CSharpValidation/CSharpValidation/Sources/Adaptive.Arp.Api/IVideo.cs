@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Interface for Managing the Video operations
 
         @author Carlos Lozano Diez
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public interface IVideo : IBaseMedia {
@@ -48,7 +48,7 @@ namespace Adaptive.Arp.Api
         Play url video stream
 
         @param url of the video
-        @since ARP1.0
+        @since ARP 2.0
      */
      void playStream(string url);
 

@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Structure representing a JSON response to the HTML5 layer.
 
         @author Carlos Lozano Diez
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public class APIResponse
@@ -62,7 +62,7 @@ namespace Adaptive.Arp.Api
           /**
              Default constructor
 
-             @since ARP1.0
+             @since ARP 2.0
           */
           public APIResponse()  {
           }
@@ -72,7 +72,7 @@ namespace Adaptive.Arp.Api
 
              @param Response   String representing the JavaScript value or JSON object representation of the response.
              @param StatusCode Status code of the response (200 = OK, others are warning or error conditions).
-             @since ARP1.0
+             @since ARP 2.0
           */
           public APIResponse(string Response, int StatusCode) : base () {
                this.Response = Response;
@@ -96,7 +96,7 @@ namespace Adaptive.Arp.Api
              Response getter
 
              @return String representing the JavaScript value or JSON object representation of the response.
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string GetResponse() {
                return this.Response;

@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Interface for testing the Capabilities operations
  *
  * @author Carlos Lozano Diez
- * @since ARP1.0
+ * @since ARP 2.0
  */
 public interface ICapabilities extends IBaseSystem {
 
@@ -54,7 +54,7 @@ public interface ICapabilities extends IBaseSystem {
      *
      * @param type Type of feature to check.
      * @return true if supported, false otherwise.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     boolean hasSensorSupport(Sensor type);
 
@@ -64,7 +64,7 @@ public interface ICapabilities extends IBaseSystem {
      *
      * @param type Type of feature to check.
      * @return true if supported, false otherwise.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     boolean hasCommunicationSupport(Communication type);
 
@@ -73,7 +73,7 @@ public interface ICapabilities extends IBaseSystem {
      *
      * @param type Type of feature to check.
      * @return true if supported, false otherwise.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     boolean hasDataSupport(Data type);
 
@@ -83,7 +83,7 @@ public interface ICapabilities extends IBaseSystem {
      *
      * @param type Type of feature to check.
      * @return true if supported, false otherwise.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     boolean hasMediaSupport(Media type);
 
@@ -92,7 +92,7 @@ public interface ICapabilities extends IBaseSystem {
      *
      * @param type Type of feature to check.
      * @return true if supported, false otherwise.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     boolean hasNetSupport(Net type);
 
@@ -102,7 +102,7 @@ public interface ICapabilities extends IBaseSystem {
      *
      * @param type Type of feature to check.
      * @return true if supported, false otherwise.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     boolean hasNotificationSupport(Notification type);
 
@@ -111,14 +111,42 @@ public interface ICapabilities extends IBaseSystem {
      *
      * @param type Type of feature to check.
      * @return true is supported, false otherwise.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     boolean hasButtonSupport(Button type);
 
     /**
+     * Determines whether the device/display supports a given orientation.
+     *
+     * @param orientation Orientation type.
+     * @return True if the given orientation is supported, false otherwise.
+     * @since ARP 2.0.5
+     */
+    boolean hasOrientationSupport(Orientation orientation);
+
+    /**
+     * Obtains the default orientation of the device/display. If no default orientation is available on
+     * the platform, this method will return the current orientation. To capture device or display orientation
+     * changes please use the IDevice and IDisplay functions and listeners API respectively.
+     *
+     * @return The default orientation for the device/display.
+     * @since ARP 2.0.5
+     */
+    Orientation getOrientationDefault();
+
+    /**
+     * Provides the device/display orientations supported by the platform. A platform will usually
+     * support at least one orientation. This is usually PortaitUp.
+     *
+     * @return The orientations supported by the device/display of the platform.
+     * @since ARP 2.0.5
+     */
+    Orientation[] getOrientationsSupported();
+
+    /**
      * Sensor type enumeration.
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public enum Sensor {
         Accelerometer, AmbientLight, Barometer, Geolocation, Gyroscope, Magnetometer, Proximity, Unknown
@@ -127,7 +155,7 @@ public interface ICapabilities extends IBaseSystem {
     /**
      * PIM functionality support enumeration.
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public enum Communication {
         Calendar, Contact, Mail, Messaging, Telephony, Unknown
@@ -136,7 +164,7 @@ public interface ICapabilities extends IBaseSystem {
     /**
      * Storage functionality support enumeration.
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public enum Data {
         Database, File, Cloud, Unknown
@@ -145,7 +173,7 @@ public interface ICapabilities extends IBaseSystem {
     /**
      * Media functionality support enumeration.
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public enum Media {
         Audio_Playback, Audio_Recording, Camera, Video_Playback, Video_Recording, Unknown
@@ -154,7 +182,7 @@ public interface ICapabilities extends IBaseSystem {
     /**
      * Connectivity support enumeration.
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public enum Net {
         GSM, GPRS, HSDPA, LTE, WIFI, Ethernet, Unavailable, Unknown
@@ -163,7 +191,7 @@ public interface ICapabilities extends IBaseSystem {
     /**
      * Notification support enumeration.
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public enum Notification {
         Alarm, LocalNotification, RemoteNotification, Vibration, Unknown
@@ -172,9 +200,20 @@ public interface ICapabilities extends IBaseSystem {
     /**
      * Hardware button support (only those that can interact with the application).
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public enum Button {
         HomeButton, BackButton, OptionButton, Unknown
     }
+
+    /**
+     * Orientations supported by the device and display.
+     *
+     * @since ARP 2.0.5
+     */
+    public enum Orientation {
+        Portrait_Up, Portrait_Down, Landscape_Left, Landscape_Right, Unknown
+    }
+
+    ;
 }

@@ -37,7 +37,7 @@ Release:
 /**
 
 @author Ferran Vila Conesa
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @implementation Database
@@ -46,7 +46,7 @@ Release:
      /**
         Default constructor
 
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) init {
           self = [self init];
@@ -57,7 +57,7 @@ Release:
         Default constructor. The compress param is setted to false.
 
         @param name Name of the table.
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) initWithName:(NSString*)name {
           self = [self init];
@@ -72,7 +72,7 @@ Release:
 
         @param name     Name of the DatabaseTable.
         @param compress Compression enabled.
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) initWithNameCompress:(NSString*)name compress:(bool*)compress {
           self = [self init];

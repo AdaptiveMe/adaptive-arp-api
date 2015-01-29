@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Interface for Managing the Geolocation operations
  *
  * @author Francisco Javier Martin Bueno
- * @since ARP1.0
+ * @since ARP 2.0
  */
 public interface IGeolocation extends IBaseSensor {
 
@@ -52,7 +52,7 @@ public interface IGeolocation extends IBaseSensor {
      * Register a new listener that will receive geolocation events.
      *
      * @param listener to be registered.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     void addGeolocationListener(IGeolocationListener listener);
 
@@ -60,14 +60,14 @@ public interface IGeolocation extends IBaseSensor {
      * De-registers an existing listener from receiving geolocation events.
      *
      * @param listener to be registered.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     void removeGeolocationListener(IGeolocationListener listener);
 
     /**
      * Removed all existing listeners from receiving geolocation events.
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     void removeGeolocationListeners();
 
@@ -76,7 +76,7 @@ public interface IGeolocation extends IBaseSensor {
      * authorized a reading. HighDoP = No reliable measure. Unavailable = No reading. Not supported or temporarily
      * disabled.
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public enum Status {
         Success, Unauthorized, HighDoP, Unavailable, GPS_Not_Enabled, Unknown

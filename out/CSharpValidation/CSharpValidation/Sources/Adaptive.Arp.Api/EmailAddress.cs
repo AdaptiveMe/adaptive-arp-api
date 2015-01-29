@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Structure representing the data elements of an email addressee.
 
         @author Francisco Javier Martin Bueno
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public class EmailAddress : APIBean
@@ -54,7 +54,7 @@ namespace Adaptive.Arp.Api
           /**
              Default constructor
 
-             @since ARP1.0
+             @since ARP 2.0
           */
           public EmailAddress()  {
           }
@@ -63,7 +63,7 @@ namespace Adaptive.Arp.Api
              Constructor used by implementation
 
              @param Address of the Email
-             @since ARP1.0
+             @since ARP 2.0
           */
           public EmailAddress(string Address) : base () {
                this.Address = Address;
@@ -73,7 +73,7 @@ namespace Adaptive.Arp.Api
              Returns the email address
 
              @return Address of the Email
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string GetAddress() {
                return this.Address;
@@ -83,7 +83,7 @@ namespace Adaptive.Arp.Api
              Set the Email address
 
              @param Address of the Email
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetAddress(string Address) {
                this.Address = Address;

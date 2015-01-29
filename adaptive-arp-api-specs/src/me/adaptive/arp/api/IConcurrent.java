@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Interface for Managing the Concurrent operations
  *
  * @author Carlos Lozano Diez
- * @since ARP1.0
+ * @since ARP 2.0
  */
 public interface IConcurrent extends IBaseUtil {
 }

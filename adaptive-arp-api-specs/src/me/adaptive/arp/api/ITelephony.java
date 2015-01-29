@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Interface for Managing the Telephony operations
  *
  * @author Francisco Javier Martin Bueno
- * @since ARP1.0
+ * @since ARP 2.0
  */
 public interface ITelephony extends IBaseCommunication {
 
@@ -53,14 +53,14 @@ public interface ITelephony extends IBaseCommunication {
      *
      * @param number to call
      * @return Status of the call
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     Status call(String number);
 
     /**
      * Statuses of the call
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public enum Status {
         Dialing, Failed, Unknown

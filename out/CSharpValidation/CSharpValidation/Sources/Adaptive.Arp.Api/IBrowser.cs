@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Interface for Managing the browser operations
 
         @author Francisco Javier Martin Bueno
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public interface IBrowser : IBaseUI {
@@ -49,7 +49,7 @@ namespace Adaptive.Arp.Api
 
         @param url Url to open
         @return The result of the operation
-        @since ARP1.0
+        @since ARP 2.0
      */
      bool openExtenalBrowser(string url);
 
@@ -60,7 +60,7 @@ namespace Adaptive.Arp.Api
         @param title          Title of the Navigation bar
         @param backButtonText Title of the Back button bar
         @return The result of the operation
-        @since ARP1.0
+        @since ARP 2.0
      */
      bool openInternalBrowserModal(string url, string title, string backButtonText);
 
@@ -71,7 +71,7 @@ namespace Adaptive.Arp.Api
         @param title          Title of the Navigation bar
         @param backButtonText Title of the Back button bar
         @return The result of the operation
-        @since ARP1.0
+        @since ARP 2.0
      */
      bool openInternalBrowser(string url, string title, string backButtonText);
 

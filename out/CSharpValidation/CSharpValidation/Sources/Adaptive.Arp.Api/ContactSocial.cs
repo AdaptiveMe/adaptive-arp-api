@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Structure representing the social data elements of a contact.
 
         @author Francisco Javier Martin Bueno
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public class ContactSocial : APIBean
@@ -58,7 +58,7 @@ namespace Adaptive.Arp.Api
           /**
              Default constructor
 
-             @since ARP1.0
+             @since ARP 2.0
           */
           public ContactSocial()  {
           }
@@ -68,7 +68,7 @@ namespace Adaptive.Arp.Api
 
              @param SocialNetwork of the profile
              @param ProfileUrl    of the user
-             @since ARP1.0
+             @since ARP 2.0
           */
           public ContactSocial(ContactSocialNetwork SocialNetwork, string ProfileUrl) : base () {
                this.SocialNetwork = SocialNetwork;
@@ -79,7 +79,7 @@ namespace Adaptive.Arp.Api
              Returns the social network
 
              @return SocialNetwork
-             @since ARP1.0
+             @since ARP 2.0
           */
           public ContactSocialNetwork GetSocialNetwork() {
                return this.SocialNetwork;
@@ -89,7 +89,7 @@ namespace Adaptive.Arp.Api
              Set the social network
 
              @param SocialNetwork of the profile
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetSocialNetwork(ContactSocialNetwork SocialNetwork) {
                this.SocialNetwork = SocialNetwork;
@@ -99,7 +99,7 @@ namespace Adaptive.Arp.Api
              Returns the profile url of the user
 
              @return ProfileUrl
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string GetProfileUrl() {
                return this.ProfileUrl;
@@ -109,7 +109,7 @@ namespace Adaptive.Arp.Api
              Set the profile url of the iser
 
              @param ProfileUrl of the user
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetProfileUrl(string ProfileUrl) {
                this.ProfileUrl = ProfileUrl;

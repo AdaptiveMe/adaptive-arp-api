@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Interface for Managing the Messaging responses
 
         @author Francisco Javier Martin Bueno
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public interface IMessagingCallback : IBaseCallback {
@@ -48,7 +48,7 @@ namespace Adaptive.Arp.Api
         This method is called on Error
 
         @param error returned by the platform
-        @since ARP1.0
+        @since ARP 2.0
      */
      void onError(IMessagingCallbackError error);
 
@@ -56,7 +56,7 @@ namespace Adaptive.Arp.Api
         This method is called on Result
 
         @param success true if sent;false otherwise
-        @since ARP1.0
+        @since ARP 2.0
      */
      void onResult(bool success);
 
@@ -65,7 +65,7 @@ namespace Adaptive.Arp.Api
 
         @param success true if sent;false otherwise
         @param warning returned by the platform
-        @since ARP1.0
+        @since ARP 2.0
      */
      void onWarning(bool success, IMessagingCallbackWarning warning);
 

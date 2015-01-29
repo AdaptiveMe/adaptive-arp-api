@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Interface for Managing the Lifecycle listeners
 
         @author Carlos Lozano Diez
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public interface ILifecycleListener : IBaseListener {
@@ -48,7 +48,7 @@ namespace Adaptive.Arp.Api
         No data received - error condition, not authorized or hardware not available.
 
         @param error Type of error encountered during reading.
-        @since ARP1.0
+        @since ARP 2.0
      */
      void onError(ILifecycleListenerError error);
 
@@ -56,7 +56,7 @@ namespace Adaptive.Arp.Api
         Called when lifecycle changes somehow.
 
         @param lifecycle Lifecycle element
-        @since ARP1.0
+        @since ARP 2.0
      */
      void onResult(Lifecycle lifecycle);
 
@@ -65,7 +65,7 @@ namespace Adaptive.Arp.Api
 
         @param lifecycle Lifecycle element
         @param warning   Type of warning encountered during reading.
-        @since ARP1.0
+        @since ARP 2.0
      */
      void onWarning(Lifecycle lifecycle, ILifecycleListenerWarning warning);
 

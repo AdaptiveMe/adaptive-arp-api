@@ -39,7 +39,7 @@ Release:
 Interface for Managing the File operations
 
 @author Carlos Lozano Diez
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @protocol IFile <IBaseData>

@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Interface for Managing the Services operations
 
         @author Francisco Javier Martin Bueno
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public interface IService : IBaseCommunication {
@@ -49,7 +49,7 @@ namespace Adaptive.Arp.Api
 
         @param serviceName Name of service.
         @return A service, if registered, or null of the service does not exist.
-        @since ARP1.0
+        @since ARP 2.0
      */
      Service getService(string serviceName);
 
@@ -59,7 +59,7 @@ namespace Adaptive.Arp.Api
         @param serviceRequest Service Request to invoke
         @param service        Service to call
         @param callback       Callback to execute with the result
-        @since ARP1.0
+        @since ARP 2.0
      */
      void invokeService(ServiceRequest serviceRequest, Service service, IServiceResultCallback callback);
 
@@ -68,7 +68,7 @@ namespace Adaptive.Arp.Api
 
         @param serviceName Name of service.
         @return True if the service is registered, false otherwise.
-        @since ARP1.0
+        @since ARP 2.0
      */
      bool isRegistered(string serviceName);
 
@@ -77,7 +77,7 @@ namespace Adaptive.Arp.Api
 
         @param service Service to check
         @return True if the service is registered, false otherwise.
-        @since ARP1.0
+        @since ARP 2.0
      */
      bool isRegistered(Service service);
 
@@ -85,14 +85,14 @@ namespace Adaptive.Arp.Api
         Register a new service
 
         @param service to register
-        @since ARP1.0
+        @since ARP 2.0
      */
      void registerService(Service service);
 
      /**
         Unregister all services.
 
-        @since ARP1.0
+        @since ARP 2.0
      */
      void unregisterServices();
 
@@ -100,7 +100,7 @@ namespace Adaptive.Arp.Api
         Unregister a service
 
         @param service to unregister
-        @since ARP1.0
+        @since ARP 2.0
      */
      void unregisterService(Service service);
 

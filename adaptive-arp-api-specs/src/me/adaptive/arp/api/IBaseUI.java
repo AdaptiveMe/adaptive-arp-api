@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Base application for UI purposes
  *
  * @author Carlos Lozano Diez
- * @since ARP1.0
+ * @since ARP 2.0
  */
 public interface IBaseUI extends IAdaptiveRP {
 }

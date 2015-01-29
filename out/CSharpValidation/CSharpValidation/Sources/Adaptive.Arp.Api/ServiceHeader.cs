@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Structure representing the data of a http request or response header.
 
         @author Aryslan
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public class ServiceHeader : APIBean
@@ -58,7 +58,7 @@ namespace Adaptive.Arp.Api
           /**
              Default constructor
 
-             @since ARP1.0
+             @since ARP 2.0
           */
           public ServiceHeader()  {
           }
@@ -68,7 +68,7 @@ namespace Adaptive.Arp.Api
 
              @param Name Name of the header
              @param Data Value of the header
-             @since ARP1.0
+             @since ARP 2.0
           */
           public ServiceHeader(string Name, string Data) : base () {
                this.Name = Name;
@@ -79,7 +79,7 @@ namespace Adaptive.Arp.Api
              Returns the header value
 
              @return ServiceHeader value
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string GetData() {
                return this.Data;
@@ -89,7 +89,7 @@ namespace Adaptive.Arp.Api
              Set the header value
 
              @param Data ServiceHeader value
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetData(string Data) {
                this.Data = Data;
@@ -99,7 +99,7 @@ namespace Adaptive.Arp.Api
              Returns the header name
 
              @return ServiceHeader name
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string GetName() {
                return this.Name;
@@ -109,7 +109,7 @@ namespace Adaptive.Arp.Api
              Set the header name
 
              @param Name Name of the header
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetName(string Name) {
                this.Name = Name;

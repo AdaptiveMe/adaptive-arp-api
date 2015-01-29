@@ -44,14 +44,14 @@ package me.adaptive.arp.api;
  * Interface for Managing the File store operations callback
  *
  * @author Carlos Lozano Diez
- * @since ARP1.0
+ * @since ARP 2.0
  */
 public interface IFileDataStoreResultCallback extends IBaseCallback {
     /**
      * Result of data storage operation.
      *
      * @param file File reference to stored data.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     void onResult(FileDescriptor file);
 
@@ -61,7 +61,7 @@ public interface IFileDataStoreResultCallback extends IBaseCallback {
      *
      * @param file    File being loaded/stored.
      * @param warning Warning condition encountered.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     void onWarning(FileDescriptor file, Warning warning);
 
@@ -69,14 +69,14 @@ public interface IFileDataStoreResultCallback extends IBaseCallback {
      * Error processing data retrieval/storage operation.
      *
      * @param error Error condition encountered.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     void onError(Error error);
 
     /**
      * Possible Warning values
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public enum Warning {
         ExceedMaximumSize, Unknown
@@ -85,7 +85,7 @@ public interface IFileDataStoreResultCallback extends IBaseCallback {
     /**
      * Possible Error values
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public enum Error {
         InexistentFile, InsufficientSpace, Unauthorized, Unknown

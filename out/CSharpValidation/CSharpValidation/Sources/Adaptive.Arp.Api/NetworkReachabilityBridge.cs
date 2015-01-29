@@ -77,7 +77,7 @@ public class NetworkReachabilityBridge extends BaseCommunicationBridge implement
 
         @param host     domain name or ip address of host.
         @param callback Callback called at the end.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void isNetworkReachable(string host, INetworkReachabilityCallback callback) {
           // Start logging elapsed time.
@@ -100,7 +100,7 @@ public class NetworkReachabilityBridge extends BaseCommunicationBridge implement
 
         @param url      to look for
         @param callback Callback called at the end
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void isNetworkServiceReachable(string url, INetworkReachabilityCallback callback) {
           // Start logging elapsed time.

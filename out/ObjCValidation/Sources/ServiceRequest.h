@@ -41,7 +41,7 @@ Release:
 Represents a local or remote service request.
 
 @author Aryslan
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @interface ServiceRequest : APIBean
@@ -98,7 +98,7 @@ Represents a local or remote service request.
      /**
         Default constructor
 
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) init;
 
@@ -115,7 +115,7 @@ Represents a local or remote service request.
         @param method              The request method
         @param protocolVersion     The HTTP procotol version to be used for this request.
         @param serviceSession      The element service session
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) initWithContentContentTypeContentEncodingContentLengthContentBinaryContentBinaryLengthServiceHeadersMethodProtocolVersionServiceSession:(NSString*)content contentType:(NSString*)contentType contentEncoding:(NSString*)contentEncoding contentLength:(int*)contentLength contentBinary:(NSArray*)contentBinary contentBinaryLength:(int*)contentBinaryLength serviceHeaders:(NSArray*)serviceHeaders method:(NSString*)method protocolVersion:(IServiceProtocolVersion*)protocolVersion serviceSession:(ServiceSession*)serviceSession;
 

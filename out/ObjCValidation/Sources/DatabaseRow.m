@@ -37,7 +37,7 @@ Release:
 /**
 
 @author Ferran Vila Conesa
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @implementation DatabaseRow
@@ -46,7 +46,7 @@ Release:
      /**
         Default constructor
 
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) init {
           self = [self init];
@@ -57,7 +57,7 @@ Release:
         Constructor for implementation using.
 
         @param values The values of the row
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) initWithValues:(NSArray*)values {
           self = [self init];

@@ -76,7 +76,7 @@ public class GeolocationBridge extends BaseSensorBridge implements IGeolocation,
         Register a new listener that will receive geolocation events.
 
         @param listener to be registered.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void addGeolocationListener(IGeolocationListener listener) {
           // Start logging elapsed time.
@@ -98,7 +98,7 @@ public class GeolocationBridge extends BaseSensorBridge implements IGeolocation,
         De-registers an existing listener from receiving geolocation events.
 
         @param listener to be registered.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void removeGeolocationListener(IGeolocationListener listener) {
           // Start logging elapsed time.
@@ -119,7 +119,7 @@ public class GeolocationBridge extends BaseSensorBridge implements IGeolocation,
      /**
         Removed all existing listeners from receiving geolocation events.
 
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void removeGeolocationListeners() {
           // Start logging elapsed time.

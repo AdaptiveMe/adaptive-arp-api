@@ -44,15 +44,15 @@ package me.adaptive.arp.api;
  * Represents a specific application life-cycle stage.
  *
  * @author Francisco Javier Martin Bueno
- * @since ARP1.0
+ * @since ARP 2.0
  */
 public class Lifecycle extends APIBean {
 
     /**
      * Represent the state of the app
-     * <p/>
+     * <p>
      * Possible lifecycle States:
-     * <p/>
+     * <p>
      * 1. Starting    - Before starting.
      * 2. Started     - Start concluded.
      * 3. Running     - Accepts user interaction - running in foreground.
@@ -62,14 +62,14 @@ public class Lifecycle extends APIBean {
      * 5. Resuming    - Before going to foreground, followed by Running state.
      * 6. Stopping    - Before stopping.
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     private State state;
 
     /**
      * Default constructor
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public Lifecycle() {
     }
@@ -78,7 +78,7 @@ public class Lifecycle extends APIBean {
      * Constructor used by the implementation
      *
      * @param state of the app
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public Lifecycle(State state) {
         this.state = state;
@@ -88,7 +88,7 @@ public class Lifecycle extends APIBean {
      * Returns the state of the application
      *
      * @return state of the app
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public State getState() {
         return state;
@@ -98,7 +98,7 @@ public class Lifecycle extends APIBean {
      * Set the State of the application
      *
      * @param state of the app
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setState(State state) {
         this.state = state;
@@ -107,7 +107,7 @@ public class Lifecycle extends APIBean {
     /**
      * Possible lifecycle States
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public enum State {
         Starting, Started, Running, Pausing, PausedIdle, PausedRun, Resuming, Stopping, Unknown

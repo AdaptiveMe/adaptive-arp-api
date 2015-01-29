@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Represents a specific user or system locate.
  *
  * @author Aryslan
- * @since ARP1.0
+ * @since ARP 2.0
  */
 public class Locale extends APIBean {
 
@@ -60,7 +60,7 @@ public class Locale extends APIBean {
     /**
      * Default constructor
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public Locale() {
     }
@@ -70,7 +70,7 @@ public class Locale extends APIBean {
      *
      * @param country  Country of the Locale
      * @param language Language of the Locale
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public Locale(String language, String country) {
         this.country = country;
@@ -81,7 +81,7 @@ public class Locale extends APIBean {
      * Returns the country code
      *
      * @return country code
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public String getCountry() {
         return country;
@@ -91,7 +91,7 @@ public class Locale extends APIBean {
      * Set the country code
      *
      * @param country code
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setCountry(String country) {
         this.country = country;
@@ -101,7 +101,7 @@ public class Locale extends APIBean {
      * Returns the language code
      *
      * @return language code
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public String getLanguage() {
         return language;
@@ -111,7 +111,7 @@ public class Locale extends APIBean {
      * Set the language code
      *
      * @param language code
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setLanguage(String language) {
         this.language = language;

@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Structure representing the website data elements of a contact.
 
         @author Francisco Javier Martin Bueno
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public class ContactWebsite : APIBean
@@ -54,7 +54,7 @@ namespace Adaptive.Arp.Api
           /**
              Default constructor
 
-             @since ARP1.0
+             @since ARP 2.0
           */
           public ContactWebsite()  {
           }
@@ -63,7 +63,7 @@ namespace Adaptive.Arp.Api
              Constructor used by the implementation
 
              @param Url Url of the website
-             @since ARP1.0
+             @since ARP 2.0
           */
           public ContactWebsite(string Url) : base () {
                this.Url = Url;
@@ -73,7 +73,7 @@ namespace Adaptive.Arp.Api
              Returns the url of the website
 
              @return Website url
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string GetUrl() {
                return this.Url;
@@ -83,7 +83,7 @@ namespace Adaptive.Arp.Api
              Set the url of the website
 
              @param Url Url of the website
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetUrl(string Url) {
                this.Url = Url;

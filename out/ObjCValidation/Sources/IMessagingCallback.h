@@ -39,7 +39,7 @@ Release:
 Interface for Managing the Messaging responses
 
 @author Francisco Javier Martin Bueno
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @protocol IMessagingCallback <IBaseCallback>

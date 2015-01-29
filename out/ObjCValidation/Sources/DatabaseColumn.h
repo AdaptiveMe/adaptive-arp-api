@@ -39,7 +39,7 @@ Release:
 Structure representing the column specification of a data column.
 
 @author Ferran Vila Conesa
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @interface DatabaseColumn : APIBean
@@ -52,7 +52,7 @@ Structure representing the column specification of a data column.
      /**
         Default constructor
 
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) init;
 
@@ -60,7 +60,7 @@ Structure representing the column specification of a data column.
         Constructor with fields
 
         @param name Name of the column
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) initWithName:(NSString*)name;
 

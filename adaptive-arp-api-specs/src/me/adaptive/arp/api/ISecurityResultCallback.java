@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Interface for Managing the Security result callback
  *
  * @author Aryslan
- * @since ARP1.0
+ * @since ARP 2.0
  */
 public interface ISecurityResultCallback extends IBaseCallback {
 
@@ -52,7 +52,7 @@ public interface ISecurityResultCallback extends IBaseCallback {
      * Correct data received.
      *
      * @param keyValues key and values
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     void onResult(SecureKeyPair[] keyValues);
 
@@ -61,7 +61,7 @@ public interface ISecurityResultCallback extends IBaseCallback {
      *
      * @param keyValues key and values
      * @param warning   Warning values
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     void onWarning(SecureKeyPair[] keyValues, Warning warning);
 
@@ -69,14 +69,14 @@ public interface ISecurityResultCallback extends IBaseCallback {
      * No data received - error condition, not authorized .
      *
      * @param error Error values
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     void onError(Error error);
 
     /**
      * Possible warning values
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     enum Warning {
         EntryOverride, Unknown
@@ -85,7 +85,7 @@ public interface ISecurityResultCallback extends IBaseCallback {
     /**
      * Possible error values
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     enum Error {
         NoPermission, NoMatchesFound, Unknown

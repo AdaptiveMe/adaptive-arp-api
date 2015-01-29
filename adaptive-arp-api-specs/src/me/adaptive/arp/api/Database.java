@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Structure representing a database reference.
  *
  * @author Ferran Vila Conesa
- * @since ARP1.0
+ * @since ARP 2.0
  */
 public class Database extends APIBean {
 
@@ -61,7 +61,7 @@ public class Database extends APIBean {
     /**
      * Default constructor
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public Database() {
     }
@@ -70,7 +70,7 @@ public class Database extends APIBean {
      * Default constructor. The compress param is setted to false.
      *
      * @param name Name of the table.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public Database(String name) {
         this.name = name;
@@ -82,7 +82,7 @@ public class Database extends APIBean {
      *
      * @param name     Name of the DatabaseTable.
      * @param compress Compression enabled.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public Database(String name, boolean compress) {
         this.name = name;
@@ -93,7 +93,7 @@ public class Database extends APIBean {
      * Returns the name.
      *
      * @return The name of the table.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public String getName() {
         return name;
@@ -103,7 +103,7 @@ public class Database extends APIBean {
      * Sets the name of the table.
      *
      * @param name The name of the table.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setName(String name) {
         this.name = name;
@@ -113,7 +113,7 @@ public class Database extends APIBean {
      * Returns if the table is compressed
      *
      * @return Compression enabled
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public boolean isCompress() {
         return compress;
@@ -123,7 +123,7 @@ public class Database extends APIBean {
      * Sets if the table is compressed or not.
      *
      * @param compress Compression enabled
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setCompress(boolean compress) {
         this.compress = compress;

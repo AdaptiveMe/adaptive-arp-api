@@ -39,7 +39,7 @@ Release:
 Interface for Managing the Security result callback
 
 @author Aryslan
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @protocol ISecurityResultCallback <IBaseCallback>

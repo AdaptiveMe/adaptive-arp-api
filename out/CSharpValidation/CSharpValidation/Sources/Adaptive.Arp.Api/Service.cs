@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Represents an instance of a service.
 
         @author Aryslan
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public class Service : APIBean
@@ -62,7 +62,7 @@ namespace Adaptive.Arp.Api
           /**
              Default constructor
 
-             @since ARP1.0
+             @since ARP 2.0
           */
           public Service()  {
           }
@@ -73,7 +73,7 @@ namespace Adaptive.Arp.Api
              @param ServiceEndpoints Endpoints of the service
              @param Name             Name of the service
              @param Type             Type of the service
-             @since ARP1.0
+             @since ARP 2.0
           */
           public Service(ServiceEndpoint[] ServiceEndpoints, string Name, IServiceType Type) : base () {
                this.ServiceEndpoints = ServiceEndpoints;
@@ -85,7 +85,7 @@ namespace Adaptive.Arp.Api
              Returns the type
 
              @return Type
-             @since ARP1.0
+             @since ARP 2.0
           */
           public IServiceType GetType() {
                return this.Type;
@@ -95,7 +95,7 @@ namespace Adaptive.Arp.Api
              Set the type
 
              @param Type Type of the service
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetType(IServiceType Type) {
                this.Type = Type;
@@ -105,7 +105,7 @@ namespace Adaptive.Arp.Api
              Returns the name
 
              @return Name
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string GetName() {
                return this.Name;
@@ -115,7 +115,7 @@ namespace Adaptive.Arp.Api
              Set the name
 
              @param Name Name of the service
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetName(string Name) {
                this.Name = Name;
@@ -125,7 +125,7 @@ namespace Adaptive.Arp.Api
              Returns the serviceEndpoints
 
              @return ServiceEndpoints
-             @since ARP1.0
+             @since ARP 2.0
           */
           public ServiceEndpoint[] GetServiceEndpoints() {
                return this.ServiceEndpoints;
@@ -135,7 +135,7 @@ namespace Adaptive.Arp.Api
              Set the serviceEndpoints
 
              @param ServiceEndpoints Endpoint of the service
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetServiceEndpoints(ServiceEndpoint[] ServiceEndpoints) {
                this.ServiceEndpoints = ServiceEndpoints;

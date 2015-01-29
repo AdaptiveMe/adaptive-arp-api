@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Structure representing a service path for one endpoint
  *
  * @author fnva
- * @since ARP1.0
+ * @since ARP 2.0
  */
 public class ServicePath {
 
@@ -61,7 +61,7 @@ public class ServicePath {
     /**
      * Default Constructor
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public ServicePath() {
     }

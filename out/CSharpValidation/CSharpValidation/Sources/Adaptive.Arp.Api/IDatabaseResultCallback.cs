@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Interface for Managing the Cloud operations
 
         @author Ferran Vila Conesa
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public interface IDatabaseResultCallback : IBaseCallback {
@@ -48,7 +48,7 @@ namespace Adaptive.Arp.Api
         Result callback for error responses
 
         @param error Returned error
-        @since ARP1.0
+        @since ARP 2.0
      */
      void onError(IDatabaseResultCallbackError error);
 
@@ -56,7 +56,7 @@ namespace Adaptive.Arp.Api
         Result callback for correct responses
 
         @param database Returns the database
-        @since ARP1.0
+        @since ARP 2.0
      */
      void onResult(Database database);
 
@@ -65,7 +65,7 @@ namespace Adaptive.Arp.Api
 
         @param database Returns the database
         @param warning  Returned Warning
-        @since ARP1.0
+        @since ARP 2.0
      */
      void onWarning(Database database, IDatabaseResultCallbackWarning warning);
 

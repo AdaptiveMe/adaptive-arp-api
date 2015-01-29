@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Structure representing the data elements of an email.
  *
  * @author Francisco Javier Martin Bueno
- * @since ARP1.0
+ * @since ARP 2.0
  */
 public class Email extends APIBean {
 
@@ -86,7 +86,7 @@ public class Email extends APIBean {
     /**
      * Default constructor
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public Email() {
     }
@@ -97,7 +97,7 @@ public class Email extends APIBean {
      * @param toRecipients array of recipients
      * @param subject      of the email
      * @param messageBody  body of the email
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public Email(EmailAddress[] toRecipients, String subject, String messageBody) {
         this.toRecipients = toRecipients;
@@ -115,7 +115,7 @@ public class Email extends APIBean {
      * @param messageBody         body of the email
      * @param messageBodyMimeType mime type of the body
      * @param subject             of the email
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public Email(EmailAddress[] toRecipients, EmailAddress[] ccRecipients, EmailAddress[] bccRecipients, EmailAttachmentData[] emailAttachmentData, String messageBody, String messageBodyMimeType, String subject) {
         this.toRecipients = toRecipients;
@@ -131,7 +131,7 @@ public class Email extends APIBean {
      * Returns the array of recipients
      *
      * @return toRecipients array of recipients
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public EmailAddress[] getToRecipients() {
         return toRecipients;
@@ -141,7 +141,7 @@ public class Email extends APIBean {
      * Set the array of recipients
      *
      * @param toRecipients array of recipients
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setToRecipients(EmailAddress[] toRecipients) {
         this.toRecipients = toRecipients;
@@ -151,7 +151,7 @@ public class Email extends APIBean {
      * Returns the array of recipients
      *
      * @return ccRecipients array of cc recipients
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public EmailAddress[] getCcRecipients() {
         return ccRecipients;
@@ -161,7 +161,7 @@ public class Email extends APIBean {
      * Set the array of recipients
      *
      * @param ccRecipients array of cc recipients
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setCcRecipients(EmailAddress[] ccRecipients) {
         this.ccRecipients = ccRecipients;
@@ -171,7 +171,7 @@ public class Email extends APIBean {
      * Returns the array of recipients
      *
      * @return bccRecipients array of bcc recipients
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public EmailAddress[] getBccRecipients() {
         return bccRecipients;
@@ -181,7 +181,7 @@ public class Email extends APIBean {
      * Set the array of recipients
      *
      * @param bccRecipients array of bcc recipients
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setBccRecipients(EmailAddress[] bccRecipients) {
         this.bccRecipients = bccRecipients;
@@ -191,7 +191,7 @@ public class Email extends APIBean {
      * Returns an array of attachments
      *
      * @return emailAttachmentData array with the email attachments
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public EmailAttachmentData[] getEmailAttachmentData() {
         return emailAttachmentData;
@@ -201,7 +201,7 @@ public class Email extends APIBean {
      * Set the email attachment data array
      *
      * @param emailAttachmentData array of email attatchments
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setEmailAttachmentData(EmailAttachmentData[] emailAttachmentData) {
         this.emailAttachmentData = emailAttachmentData;
@@ -211,7 +211,7 @@ public class Email extends APIBean {
      * Returns the message body of the email
      *
      * @return message Body string of the email
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public String getMessageBody() {
         return messageBody;
@@ -221,7 +221,7 @@ public class Email extends APIBean {
      * Set the message body of the email
      *
      * @param messageBody message body of the email
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setMessageBody(String messageBody) {
         this.messageBody = messageBody;
@@ -231,7 +231,7 @@ public class Email extends APIBean {
      * Returns the myme type of the message body
      *
      * @return mime type string of the message boddy
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public String getMessageBodyMimeType() {
         return messageBodyMimeType;
@@ -241,7 +241,7 @@ public class Email extends APIBean {
      * Set the mime type for the message body
      *
      * @param messageBodyMimeType type of the body message
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setMessageBodyMimeType(String messageBodyMimeType) {
         this.messageBodyMimeType = messageBodyMimeType;
@@ -251,7 +251,7 @@ public class Email extends APIBean {
      * Returns the subject of the email
      *
      * @return subject string of the email
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public String getSubject() {
         return subject;
@@ -261,7 +261,7 @@ public class Email extends APIBean {
      * Set the subject of the email
      *
      * @param subject of the email
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setSubject(String subject) {
         this.subject = subject;

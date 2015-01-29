@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Structure representing the internal unique identifier data elements of a contact.
 
         @author Francisco Javier Martin Bueno
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public class ContactUid : APIBean
@@ -54,7 +54,7 @@ namespace Adaptive.Arp.Api
           /**
              Default constructor
 
-             @since ARP1.0
+             @since ARP 2.0
           */
           public ContactUid()  {
           }
@@ -63,7 +63,7 @@ namespace Adaptive.Arp.Api
              Constructor used by implementation to set the Contact id.
 
              @param ContactId Internal unique contact id.
-             @since ARP1.0
+             @since ARP 2.0
           */
           public ContactUid(string ContactId) : base () {
                this.ContactId = ContactId;
@@ -73,7 +73,7 @@ namespace Adaptive.Arp.Api
              Returns the contact id
 
              @return Contactid Internal unique contact id.
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string GetContactId() {
                return this.ContactId;
@@ -83,7 +83,7 @@ namespace Adaptive.Arp.Api
              Set the id of the Contact
 
              @param ContactId Internal unique contact id.
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetContactId(string ContactId) {
                this.ContactId = ContactId;

@@ -55,7 +55,7 @@ public class SecurityResultCallbackImpl extends BaseCallbackImpl implements ISec
         No data received - error condition, not authorized .
 
         @param error Error values
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void onError(ISecurityResultCallbackError error) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleSecurityResultCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
@@ -65,7 +65,7 @@ public class SecurityResultCallbackImpl extends BaseCallbackImpl implements ISec
         Correct data received.
 
         @param keyValues key and values
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void onResult(SecureKeyPair[] keyValues) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleSecurityResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(keyValues) +") )");
@@ -76,7 +76,7 @@ public class SecurityResultCallbackImpl extends BaseCallbackImpl implements ISec
 
         @param keyValues key and values
         @param warning   Warning values
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void onWarning(SecureKeyPair[] keyValues, ISecurityResultCallbackWarning warning) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleSecurityResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(keyValues) +"), JSON.parse(" + this.gson.toJson(warning) +") )");

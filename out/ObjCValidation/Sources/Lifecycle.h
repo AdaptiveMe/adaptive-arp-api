@@ -39,16 +39,16 @@ Release:
 Represents a specific application life-cycle stage.
 
 @author Francisco Javier Martin Bueno
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @interface Lifecycle : APIBean
 
      /**
         Represent the state of the app
-<p/>
+<p>
 Possible lifecycle States:
-<p/>
+<p>
 1. Starting    - Before starting.
 2. Started     - Start concluded.
 3. Running     - Accepts user interaction - running in foreground.
@@ -75,7 +75,7 @@ Possible lifecycle States:
      /**
         Default constructor
 
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) init;
 
@@ -83,7 +83,7 @@ Possible lifecycle States:
         Constructor used by the implementation
 
         @param state of the app
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) initWithState:(LifecycleState*)state;
 

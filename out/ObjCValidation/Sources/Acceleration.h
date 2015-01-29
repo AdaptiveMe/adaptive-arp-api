@@ -39,7 +39,7 @@ Release:
 Structure representing the data of a single acceleration reading.
 
 @author Carlos Lozano Diez
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @interface Acceleration : APIBean
@@ -64,7 +64,7 @@ Structure representing the data of a single acceleration reading.
      /**
         Default constructor
 
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) init;
 
@@ -75,7 +75,7 @@ Structure representing the data of a single acceleration reading.
         @param y         Y Coordinate
         @param z         Z Coordinate
         @param timestamp Timestamp
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) initWithXYZTimestamp:(double*)x y:(double*)y z:(double*)z timestamp:(long*)timestamp;
 

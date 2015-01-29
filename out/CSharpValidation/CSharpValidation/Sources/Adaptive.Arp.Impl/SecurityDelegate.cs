@@ -62,7 +62,7 @@ public class SecurityDelegate extends BaseSecurityDelegate implements ISecurity 
         @param keys             Array with the key names to delete.
         @param publicAccessName The name of the shared internal storage object (if needed).
         @param callback         callback to be executed upon function result.
-        @since ARP 1.0
+        @since ARP 2.0
      */
      public void deleteSecureKeyValuePairs(string[] keys, string publicAccessName, ISecurityResultCallback callback) {
           // TODO: Not implemented.
@@ -75,7 +75,7 @@ public class SecurityDelegate extends BaseSecurityDelegate implements ISecurity 
         @param keys             Array with the key names to retrieve.
         @param publicAccessName The name of the shared internal storage object (if needed).
         @param callback         callback to be executed upon function result.
-        @since ARP 1.0
+        @since ARP 2.0
      */
      public void getSecureKeyValuePairs(string[] keys, string publicAccessName, ISecurityResultCallback callback) {
           // TODO: Not implemented.
@@ -86,7 +86,7 @@ public class SecurityDelegate extends BaseSecurityDelegate implements ISecurity 
         Returns if the device has been modified in anyhow
 
         @return true if the device has been modified; false otherwise
-        @since ARP1.0
+        @since ARP 2.0
      */
      public bool isDeviceModified() {
           bool response;
@@ -101,7 +101,7 @@ public class SecurityDelegate extends BaseSecurityDelegate implements ISecurity 
         @param keyValues        Array containing the items to store on the device internal memory.
         @param publicAccessName The name of the shared internal storage object (if needed).
         @param callback         callback to be executed upon function result.
-        @since ARP 1.0
+        @since ARP 2.0
      */
      public void setSecureKeyValuePairs(SecureKeyPair[] keyValues, string publicAccessName, ISecurityResultCallback callback) {
           // TODO: Not implemented.

@@ -39,7 +39,7 @@ Release:
 Structure representing a service path for one endpoint
 
 @author fnva
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @interface ServicePath : NSObject
@@ -60,7 +60,7 @@ Structure representing a service path for one endpoint
      /**
         Default Constructor
 
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) init;
 

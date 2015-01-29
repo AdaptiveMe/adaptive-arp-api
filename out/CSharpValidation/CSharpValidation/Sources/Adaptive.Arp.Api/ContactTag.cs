@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Structure representing the assigned tags data elements of a contact.
 
         @author Francisco Javier Martin Bueno
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public class ContactTag : APIBean
@@ -58,7 +58,7 @@ namespace Adaptive.Arp.Api
           /**
              Default constructor
 
-             @since ARP1.0
+             @since ARP 2.0
           */
           public ContactTag()  {
           }
@@ -68,7 +68,7 @@ namespace Adaptive.Arp.Api
 
              @param TagValue Value of the tag
              @param TagName  Name of the tag
-             @since ARP1.0
+             @since ARP 2.0
           */
           public ContactTag(string TagName, string TagValue) : base () {
                this.TagName = TagName;
@@ -79,7 +79,7 @@ namespace Adaptive.Arp.Api
              Returns the tagName of the Tag
 
              @return TagName
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string GetTagName() {
                return this.TagName;
@@ -89,7 +89,7 @@ namespace Adaptive.Arp.Api
              Set the tagName of the Tag
 
              @param TagName Name of the tag
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetTagName(string TagName) {
                this.TagName = TagName;
@@ -99,7 +99,7 @@ namespace Adaptive.Arp.Api
              Returns the tagValue of the Tag
 
              @return TagValue
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string GetTagValue() {
                return this.TagValue;
@@ -109,7 +109,7 @@ namespace Adaptive.Arp.Api
              Set the tagValue of the Tag
 
              @param TagValue Value of the tag
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetTagValue(string TagValue) {
                this.TagValue = TagValue;

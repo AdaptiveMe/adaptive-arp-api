@@ -77,7 +77,7 @@ public class MailBridge extends BasePIMBridge implements IMail, APIBridge {
 
         @param data     Payload of the email
         @param callback Result callback of the operation
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void sendEmail(Email data, IMessagingCallback callback) {
           // Start logging elapsed time.

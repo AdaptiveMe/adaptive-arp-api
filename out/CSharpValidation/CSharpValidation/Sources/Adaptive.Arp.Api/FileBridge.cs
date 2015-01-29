@@ -77,7 +77,7 @@ public class FileBridge extends BaseDataBridge implements IFile, APIBridge {
 
         @param descriptor File descriptor of file or folder used for operation.
         @return True if the folder/file is readable, false otherwise.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public bool canRead(FileDescriptor descriptor) {
           // Start logging elapsed time.
@@ -101,7 +101,7 @@ public class FileBridge extends BaseDataBridge implements IFile, APIBridge {
 
         @param descriptor File descriptor of file or folder used for operation.
         @return True if the folder/file is writable, false otherwise.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public bool canWrite(FileDescriptor descriptor) {
           // Start logging elapsed time.
@@ -125,7 +125,7 @@ public class FileBridge extends BaseDataBridge implements IFile, APIBridge {
 
         @param descriptor File descriptor of file or folder used for operation.
         @param callback   Result of the operation.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void create(FileDescriptor descriptor, IFileResultCallback callback) {
           // Start logging elapsed time.
@@ -150,7 +150,7 @@ deleted if the cascade parameter is set to true.
         @param descriptor File descriptor of file or folder used for operation.
         @param cascade    Whether to delete sub-files and sub-folders.
         @return True if files (and sub-files and folders) whether deleted.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public bool delete(FileDescriptor descriptor, bool cascade) {
           // Start logging elapsed time.
@@ -174,7 +174,7 @@ deleted if the cascade parameter is set to true.
 
         @param descriptor File descriptor of file or folder used for operation.
         @return True if the file exists in the filesystem, false otherwise.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public bool exists(FileDescriptor descriptor) {
           // Start logging elapsed time.
@@ -198,7 +198,7 @@ deleted if the cascade parameter is set to true.
 
         @param descriptor File descriptor of file or folder used for operation.
         @param callback   Result of the operation.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void getContent(FileDescriptor descriptor, IFileDataLoadResultCallback callback) {
           // Start logging elapsed time.
@@ -221,7 +221,7 @@ deleted if the cascade parameter is set to true.
 
         @param descriptor File descriptor of file or folder used for operation.
         @return Storage Type file
-        @since ARP1.0
+        @since ARP 2.0
      */
      public IFileSystemStorageType getFileStorageType(FileDescriptor descriptor) {
           // Start logging elapsed time.
@@ -245,7 +245,7 @@ deleted if the cascade parameter is set to true.
 
         @param descriptor File descriptor of file or folder used for operation.
         @return Returns the file type of the file
-        @since ARP1.0
+        @since ARP 2.0
      */
      public IFileSystemType getFileType(FileDescriptor descriptor) {
           // Start logging elapsed time.
@@ -269,7 +269,7 @@ deleted if the cascade parameter is set to true.
 
         @param descriptor File descriptor of file or folder used for operation.
         @return Security Level of the file
-        @since ARP1.0
+        @since ARP 2.0
      */
      public IFileSystemSecurity getSecurityType(FileDescriptor descriptor) {
           // Start logging elapsed time.
@@ -293,7 +293,7 @@ deleted if the cascade parameter is set to true.
 
         @param descriptor File descriptor of file or folder used for operation.
         @return true if this is a path to a folder/directory, false if this is a path to a file.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public bool isDirectory(FileDescriptor descriptor) {
           // Start logging elapsed time.
@@ -318,7 +318,7 @@ any results.
 
         @param descriptor File descriptor of file or folder used for operation.
         @param callback   Result of operation.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void listFiles(FileDescriptor descriptor, IFileListResultCallback callback) {
           // Start logging elapsed time.
@@ -343,7 +343,7 @@ is a file, it will not yield any results.
         @param descriptor File descriptor of file or folder used for operation.
         @param regex      Filter (eg. *.jpg, *.png, Fil*) name string.
         @param callback   Result of operation.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void listFilesForRegex(FileDescriptor descriptor, string regex, IFileListResultCallback callback) {
           // Start logging elapsed time.
@@ -367,7 +367,7 @@ is a file, it will not yield any results.
         @param descriptor File descriptor of file or folder used for operation.
         @param recursive  Whether to create all parent path elements.
         @return True if the path was created, false otherwise (or it exists already).
-        @since ARP1.0
+        @since ARP 2.0
      */
      public bool mkDir(FileDescriptor descriptor, bool recursive) {
           // Start logging elapsed time.
@@ -395,7 +395,7 @@ new destination file.
         @param createPath  True to create the path if it does not already exist.
         @param callback    Result of the operation.
         @param overwrite   True to create the path if it does not already exist.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void move(FileDescriptor source, FileDescriptor destination, bool createPath, bool overwrite, IFileResultCallback callback) {
           // Start logging elapsed time.
@@ -419,7 +419,7 @@ new destination file.
         @param descriptor File descriptor of file or folder used for operation.
         @param content    Binary content to store in the file.
         @param callback   Result of the operation.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void setContent(FileDescriptor descriptor, byte[] content, IFileDataStoreResultCallback callback) {
           // Start logging elapsed time.

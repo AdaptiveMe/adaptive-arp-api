@@ -39,7 +39,7 @@ Release:
 Structure representing the cookieValue of a http cookie.
 
 @author Aryslan
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @interface ServiceCookie : APIBean
@@ -80,7 +80,7 @@ Structure representing the cookieValue of a http cookie.
      /**
         Default constructor
 
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) init;
 
@@ -89,7 +89,7 @@ Structure representing the cookieValue of a http cookie.
 
         @param cookieName  Name of the cookie
         @param cookieValue Value of the cookie
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) initWithCookieNameCookieValue:(NSString*)cookieName cookieValue:(NSString*)cookieValue;
 
@@ -104,7 +104,7 @@ Structure representing the cookieValue of a http cookie.
         @param secure      Privacy of the cookie
         @param expiry      Expiration date of the cookie
         @param creation    Creation date of the cookie
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) initWithCookieNameCookieValueDomainPathSchemeSecureExpiryCreation:(NSString*)cookieName cookieValue:(NSString*)cookieValue domain:(NSString*)domain path:(NSString*)path scheme:(NSString*)scheme secure:(bool*)secure expiry:(long*)expiry creation:(long*)creation;
 

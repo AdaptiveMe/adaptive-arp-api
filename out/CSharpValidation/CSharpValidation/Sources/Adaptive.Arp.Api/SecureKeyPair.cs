@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Represents a single secureKey-value pair.
 
         @author Aryslan
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public class SecureKeyPair : APIBean
@@ -58,7 +58,7 @@ namespace Adaptive.Arp.Api
           /**
              Default constructor
 
-             @since ARP1.0
+             @since ARP 2.0
           */
           public SecureKeyPair()  {
           }
@@ -68,7 +68,7 @@ namespace Adaptive.Arp.Api
 
              @param SecureKey  name of the keypair
              @param SecureData value of the keypair
-             @since ARP1.0
+             @since ARP 2.0
           */
           public SecureKeyPair(string SecureKey, string SecureData) : base () {
                this.SecureKey = SecureKey;
@@ -79,7 +79,7 @@ namespace Adaptive.Arp.Api
              Returns the object value
 
              @return Value.
-             @since ARP 1.0
+             @since ARP 2.0
           */
           public string GetSecureData() {
                return this.SecureData;
@@ -89,7 +89,7 @@ namespace Adaptive.Arp.Api
              Sets the value for this object
 
              @param SecureData value to set.
-             @since ARP 1.0
+             @since ARP 2.0
           */
           public void SetSecureData(string SecureData) {
                this.SecureData = SecureData;
@@ -99,7 +99,7 @@ namespace Adaptive.Arp.Api
              Returns the object secureKey name.
 
              @return Key name.
-             @since ARP 1.0
+             @since ARP 2.0
           */
           public string GetSecureKey() {
                return this.SecureKey;
@@ -109,7 +109,7 @@ namespace Adaptive.Arp.Api
              Sets the secureKey name for this object.
 
              @param SecureKey Key name.
-             @since ARP 1.0
+             @since ARP 2.0
           */
           public void SetSecureKey(string SecureKey) {
                this.SecureKey = SecureKey;

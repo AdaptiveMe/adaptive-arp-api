@@ -37,7 +37,7 @@ Release:
 /**
 
 @author Francisco Javier Martin Bueno
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @implementation Button
@@ -46,7 +46,7 @@ Release:
      /**
         Default constructor
 
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) init {
           self = [self init];
@@ -57,7 +57,7 @@ Release:
         Constructor with fields
 
         @param type Button type.
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) initWithType:(ICapabilitiesButton*)type {
           self = [self init];

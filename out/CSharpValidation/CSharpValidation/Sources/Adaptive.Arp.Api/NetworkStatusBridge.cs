@@ -76,7 +76,7 @@ public class NetworkStatusBridge extends BaseCommunicationBridge implements INet
         Add the listener for network status changes of the app
 
         @param listener Listener with the result
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void addNetworkStatusListener(INetworkStatusListener listener) {
           // Start logging elapsed time.
@@ -98,7 +98,7 @@ public class NetworkStatusBridge extends BaseCommunicationBridge implements INet
         Un-registers an existing listener from receiving network status events.
 
         @param listener Listener with the result
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void removeNetworkStatusListener(INetworkStatusListener listener) {
           // Start logging elapsed time.
@@ -119,7 +119,7 @@ public class NetworkStatusBridge extends BaseCommunicationBridge implements INet
      /**
         Removes all existing listeners from receiving network status events.
 
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void removeNetworkStatusListeners() {
           // Start logging elapsed time.

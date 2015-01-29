@@ -38,7 +38,7 @@ Release:
 Structure representing a native response to the HTML5
 
 @author Carlos Lozano Diez
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @interface APIBean : NSObject
@@ -47,7 +47,7 @@ Structure representing a native response to the HTML5
      /**
         Default constructor
 
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) init;
 

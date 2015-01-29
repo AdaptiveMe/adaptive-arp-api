@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Represents a session object for HTTP request and responses
  *
  * @author Ferran Vila Conesa
- * @since ARP1.0
+ * @since ARP 2.0
  */
 public class ServiceSession extends APIBean {
 
@@ -61,7 +61,7 @@ public class ServiceSession extends APIBean {
     /**
      * Default constructor
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public ServiceSession() {
     }
@@ -71,7 +71,7 @@ public class ServiceSession extends APIBean {
      *
      * @param cookies    The cookies of the response
      * @param attributes Attributes of the response
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public ServiceSession(ServiceCookie[] cookies, String[] attributes) {
         this.cookies = cookies;
@@ -82,7 +82,7 @@ public class ServiceSession extends APIBean {
      * Returns the cookies of the response
      *
      * @return The cookies of the response
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public ServiceCookie[] getCookies() {
         return cookies;
@@ -92,7 +92,7 @@ public class ServiceSession extends APIBean {
      * Sets the cookies of the response
      *
      * @param cookies The cookies of the response
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setCookies(ServiceCookie[] cookies) {
         this.cookies = cookies;
@@ -102,7 +102,7 @@ public class ServiceSession extends APIBean {
      * Gets the attributes of the response
      *
      * @return Attributes of the response
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public String[] getAttributes() {
         return attributes;
@@ -112,7 +112,7 @@ public class ServiceSession extends APIBean {
      * Sets the attributes for the response
      *
      * @param attributes Attributes of the response
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setAttributes(String[] attributes) {
         this.attributes = attributes;

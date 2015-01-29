@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Structure representing a service path for one endpoint
 
         @author fnva
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public class ServicePath
@@ -58,7 +58,7 @@ namespace Adaptive.Arp.Api
           /**
              Default Constructor
 
-             @since ARP1.0
+             @since ARP 2.0
           */
           public ServicePath()  {
           }

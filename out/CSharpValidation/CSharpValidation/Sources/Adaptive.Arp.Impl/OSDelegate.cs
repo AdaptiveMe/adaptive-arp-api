@@ -60,7 +60,7 @@ public class OSDelegate extends BaseSystemDelegate implements IOS {
         Returns the OSInfo for the current operating system.
 
         @return OSInfo with name, version and vendor of the OS.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public OSInfo getOSInfo() {
           OSInfo response;

@@ -78,7 +78,7 @@ public class SecurityBridge extends BaseSecurityBridge implements ISecurity, API
         @param keys             Array with the key names to delete.
         @param publicAccessName The name of the shared internal storage object (if needed).
         @param callback         callback to be executed upon function result.
-        @since ARP 1.0
+        @since ARP 2.0
      */
      public void deleteSecureKeyValuePairs(string[] keys, string publicAccessName, ISecurityResultCallback callback) {
           // Start logging elapsed time.
@@ -102,7 +102,7 @@ public class SecurityBridge extends BaseSecurityBridge implements ISecurity, API
         @param keys             Array with the key names to retrieve.
         @param publicAccessName The name of the shared internal storage object (if needed).
         @param callback         callback to be executed upon function result.
-        @since ARP 1.0
+        @since ARP 2.0
      */
      public void getSecureKeyValuePairs(string[] keys, string publicAccessName, ISecurityResultCallback callback) {
           // Start logging elapsed time.
@@ -124,7 +124,7 @@ public class SecurityBridge extends BaseSecurityBridge implements ISecurity, API
         Returns if the device has been modified in anyhow
 
         @return true if the device has been modified; false otherwise
-        @since ARP1.0
+        @since ARP 2.0
      */
      public bool isDeviceModified() {
           // Start logging elapsed time.
@@ -149,7 +149,7 @@ public class SecurityBridge extends BaseSecurityBridge implements ISecurity, API
         @param keyValues        Array containing the items to store on the device internal memory.
         @param publicAccessName The name of the shared internal storage object (if needed).
         @param callback         callback to be executed upon function result.
-        @since ARP 1.0
+        @since ARP 2.0
      */
      public void setSecureKeyValuePairs(SecureKeyPair[] keyValues, string publicAccessName, ISecurityResultCallback callback) {
           // Start logging elapsed time.

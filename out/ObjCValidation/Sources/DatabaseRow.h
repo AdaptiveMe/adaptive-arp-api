@@ -39,7 +39,7 @@ Release:
 Structure representing a row for a data table.
 
 @author Ferran Vila Conesa
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @interface DatabaseRow : APIBean
@@ -53,7 +53,7 @@ Structure representing a row for a data table.
      /**
         Default constructor
 
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) init;
 
@@ -61,7 +61,7 @@ Structure representing a row for a data table.
         Constructor for implementation using.
 
         @param values The values of the row
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) initWithValues:(NSArray*)values;
 

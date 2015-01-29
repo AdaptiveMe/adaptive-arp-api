@@ -38,7 +38,7 @@ Release:
 Interface to retrieve auto-registered service implementation references.
 
 @author Carlos Lozano Diez
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @protocol IAppRegistry <NSObject>

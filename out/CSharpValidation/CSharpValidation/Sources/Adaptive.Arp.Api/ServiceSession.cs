@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Represents a session object for HTTP request and responses
 
         @author Ferran Vila Conesa
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public class ServiceSession : APIBean
@@ -58,7 +58,7 @@ namespace Adaptive.Arp.Api
           /**
              Default constructor
 
-             @since ARP1.0
+             @since ARP 2.0
           */
           public ServiceSession()  {
           }
@@ -68,7 +68,7 @@ namespace Adaptive.Arp.Api
 
              @param Cookies    The cookies of the response
              @param Attributes Attributes of the response
-             @since ARP1.0
+             @since ARP 2.0
           */
           public ServiceSession(ServiceCookie[] Cookies, string[] Attributes) : base () {
                this.Cookies = Cookies;
@@ -79,7 +79,7 @@ namespace Adaptive.Arp.Api
              Gets the attributes of the response
 
              @return Attributes of the response
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string[] GetAttributes() {
                return this.Attributes;
@@ -89,7 +89,7 @@ namespace Adaptive.Arp.Api
              Sets the attributes for the response
 
              @param Attributes Attributes of the response
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetAttributes(string[] Attributes) {
                this.Attributes = Attributes;
@@ -99,7 +99,7 @@ namespace Adaptive.Arp.Api
              Returns the cookies of the response
 
              @return The cookies of the response
-             @since ARP1.0
+             @since ARP 2.0
           */
           public ServiceCookie[] GetCookies() {
                return this.Cookies;
@@ -109,7 +109,7 @@ namespace Adaptive.Arp.Api
              Sets the cookies of the response
 
              @param Cookies The cookies of the response
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetCookies(ServiceCookie[] Cookies) {
                this.Cookies = Cookies;

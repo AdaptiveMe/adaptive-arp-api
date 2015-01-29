@@ -44,21 +44,21 @@ package me.adaptive.arp.api;
  * Structure representing the website data elements of a contact.
  *
  * @author Francisco Javier Martin Bueno
- * @since ARP1.0
+ * @since ARP 2.0
  */
 public class ContactWebsite extends APIBean {
 
     /**
      * The url of the website
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     private String url;
 
     /**
      * Default constructor
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public ContactWebsite() {
     }
@@ -67,7 +67,7 @@ public class ContactWebsite extends APIBean {
      * Constructor used by the implementation
      *
      * @param url Url of the website
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public ContactWebsite(String url) {
         this.url = url;
@@ -77,7 +77,7 @@ public class ContactWebsite extends APIBean {
      * Returns the url of the website
      *
      * @return website url
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public String getUrl() {
         return url;
@@ -87,7 +87,7 @@ public class ContactWebsite extends APIBean {
      * Set the url of the website
      *
      * @param url Url of the website
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setUrl(String url) {
         this.url = url;

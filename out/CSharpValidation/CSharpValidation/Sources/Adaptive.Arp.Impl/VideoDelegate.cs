@@ -60,7 +60,7 @@ public class VideoDelegate extends BaseMediaDelegate implements IVideo {
         Play url video stream
 
         @param url of the video
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void playStream(string url) {
           // TODO: Not implemented.

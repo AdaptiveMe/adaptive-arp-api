@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Structure representing a row for a data table.
 
         @author Ferran Vila Conesa
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public class DatabaseRow : APIBean
@@ -54,7 +54,7 @@ namespace Adaptive.Arp.Api
           /**
              Default constructor
 
-             @since ARP1.0
+             @since ARP 2.0
           */
           public DatabaseRow()  {
           }
@@ -63,7 +63,7 @@ namespace Adaptive.Arp.Api
              Constructor for implementation using.
 
              @param Values The values of the row
-             @since ARP1.0
+             @since ARP 2.0
           */
           public DatabaseRow(string[] Values) : base () {
                this.Values = Values;
@@ -73,7 +73,7 @@ namespace Adaptive.Arp.Api
              Returns the values of the row.
 
              @return The values of the row.
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string[] GetValues() {
                return this.Values;
@@ -83,7 +83,7 @@ namespace Adaptive.Arp.Api
              Sets the values of the row.
 
              @param Values The values of the row.
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetValues(string[] Values) {
                this.Values = Values;

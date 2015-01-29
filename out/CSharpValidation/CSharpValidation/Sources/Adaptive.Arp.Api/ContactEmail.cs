@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Structure representing the email data elements of a contact.
 
         @author Francisco Javier Martin Bueno
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public class ContactEmail : APIBean
@@ -62,7 +62,7 @@ namespace Adaptive.Arp.Api
           /**
              Default constructor
 
-             @since ARP1.0
+             @since ARP 2.0
           */
           public ContactEmail()  {
           }
@@ -73,7 +73,7 @@ namespace Adaptive.Arp.Api
              @param Type    Type of the email
              @param Primary Is email primary
              @param Email   Email of the contact
-             @since ARP1.0
+             @since ARP 2.0
           */
           public ContactEmail(ContactEmailType Type, bool Primary, string Email) : base () {
                this.Type = Type;
@@ -85,7 +85,7 @@ namespace Adaptive.Arp.Api
              Returns the type of the email
 
              @return EmailType
-             @since ARP1.0
+             @since ARP 2.0
           */
           public ContactEmailType GetType() {
                return this.Type;
@@ -95,7 +95,7 @@ namespace Adaptive.Arp.Api
              Set the type of the email
 
              @param Type Type of the email
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetType(ContactEmailType Type) {
                this.Type = Type;
@@ -105,7 +105,7 @@ namespace Adaptive.Arp.Api
              Returns the email of the Contact
 
              @return Email
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string GetEmail() {
                return this.Email;
@@ -115,7 +115,7 @@ namespace Adaptive.Arp.Api
              Set the email of the Contact
 
              @param Email Email of the contact
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetEmail(string Email) {
                this.Email = Email;
@@ -125,7 +125,7 @@ namespace Adaptive.Arp.Api
              Returns if the email is primary
 
              @return True if the email is primary; false otherwise
-             @since ARP1.0
+             @since ARP 2.0
           */
           public bool GetPrimary() {
                return this.Primary;
@@ -135,7 +135,7 @@ namespace Adaptive.Arp.Api
              Set if the email
 
              @param Primary true if the email is primary; false otherwise
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetPrimary(bool Primary) {
                this.Primary = Primary;

@@ -39,7 +39,7 @@ Release:
 Structure representing the personal info data elements of a contact.
 
 @author Francisco Javier Martin Bueno
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @interface ContactPersonalInfo : APIBean
@@ -72,7 +72,7 @@ Structure representing the personal info data elements of a contact.
      /**
         Default constructor
 
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) init;
 
@@ -83,7 +83,7 @@ Structure representing the personal info data elements of a contact.
         @param middleName of the Contact
         @param lastName   of the Contact
         @param title      of the Contact
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) initWithNameMiddleNameLastNameTitle:(NSString*)name middleName:(NSString*)middleName lastName:(NSString*)lastName title:(ContactPersonalInfoTitle*)title;
 

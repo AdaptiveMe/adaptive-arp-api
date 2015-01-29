@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Interface for webview context management purposes
 
         @author Carlos Lozano Diez
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public interface IAppContextWebview {
@@ -51,7 +51,7 @@ methods are bound to the webview so that they're callable from the HTML applicat
 not be added using this method.
 
         @param webView Platform specific webview reference (WebView, UIWebView, WKWebView,etc.)
-        @since ARP1.0
+        @since ARP 2.0
      */
      void addWebview(Object webView);
 
@@ -76,7 +76,7 @@ with the removeWebview method. The object returned should be cast to the platfor
 WebView, WKWebView, etc.
 
         @return Object representing the specific and primary webview instance of the application.
-        @since ARP1.0
+        @since ARP 2.0
      */
      Object getWebviewPrimary();
 
@@ -85,7 +85,7 @@ WebView, WKWebView, etc.
 This method will always return at least one element; the primary webview.
 
         @return Array with all the Webview instances being managed by ARP.
-        @since ARP1.0
+        @since ARP 2.0
      */
      Object[] getWebviews();
 
@@ -94,7 +94,7 @@ This method will always return at least one element; the primary webview.
 ARP functions and release resources. The primary webview can not be removed.
 
         @param webView The instance of the webview to be removed from the binding.
-        @since ARP1.0
+        @since ARP 2.0
      */
      void removeWebview(Object webView);
 

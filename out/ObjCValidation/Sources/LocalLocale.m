@@ -37,7 +37,7 @@ Release:
 /**
 
 @author Aryslan
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @implementation LocalLocale
@@ -46,7 +46,7 @@ Release:
      /**
         Default constructor
 
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) init {
           self = [self init];
@@ -58,7 +58,7 @@ Release:
 
         @param country  Country of the Locale
         @param language Language of the Locale
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) initWithLanguageCountry:(NSString*)language country:(NSString*)country {
           self = [self init];

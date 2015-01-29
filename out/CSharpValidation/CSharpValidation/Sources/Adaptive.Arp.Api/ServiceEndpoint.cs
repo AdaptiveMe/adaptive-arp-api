@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Structure representing a remote or local service access end-point.
 
         @author Aryslan
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public class ServiceEndpoint : APIBean
@@ -70,7 +70,7 @@ namespace Adaptive.Arp.Api
           /**
              Default Constructor
 
-             @since ARP1.0
+             @since ARP 2.0
           */
           public ServiceEndpoint()  {
           }
@@ -83,7 +83,7 @@ namespace Adaptive.Arp.Api
              @param Port   Remote service Port
              @param Proxy  Proxy url "http://IP_ADDRESS:PORT_NUMBER"
              @param Scheme Remote service scheme
-             @since ARP1.0
+             @since ARP 2.0
           */
           public ServiceEndpoint(string Host, ServicePath[] Paths, int Port, string Proxy, string Scheme) : base () {
                this.Host = Host;
@@ -97,7 +97,7 @@ namespace Adaptive.Arp.Api
              Returns the Remote service host
 
              @return Remote service host
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string GetHost() {
                return this.Host;
@@ -107,7 +107,7 @@ namespace Adaptive.Arp.Api
              Set the Remote service host
 
              @param Host Remote service host
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetHost(string Host) {
                this.Host = Host;
@@ -117,7 +117,7 @@ namespace Adaptive.Arp.Api
              Returns the Remote service Paths
 
              @return Remote service Paths
-             @since ARP1.0
+             @since ARP 2.0
           */
           public ServicePath[] GetPaths() {
                return this.Paths;
@@ -127,7 +127,7 @@ namespace Adaptive.Arp.Api
              Set the Remote service Paths
 
              @param Paths Remote service Paths
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetPaths(ServicePath[] Paths) {
                this.Paths = Paths;
@@ -137,7 +137,7 @@ namespace Adaptive.Arp.Api
              Returns the Remote service Port
 
              @return Remote service Port
-             @since ARP1.0
+             @since ARP 2.0
           */
           public int GetPort() {
                return this.Port;
@@ -147,7 +147,7 @@ namespace Adaptive.Arp.Api
              Set the Remote service Port
 
              @param Port Remote service Port
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetPort(int Port) {
                this.Port = Port;
@@ -157,7 +157,7 @@ namespace Adaptive.Arp.Api
              Return the Proxy url
 
              @return Proxy url
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string GetProxy() {
                return this.Proxy;
@@ -167,7 +167,7 @@ namespace Adaptive.Arp.Api
              Set the Proxy url
 
              @param Proxy Proxy url
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetProxy(string Proxy) {
                this.Proxy = Proxy;
@@ -177,7 +177,7 @@ namespace Adaptive.Arp.Api
              Returns the Remote service scheme
 
              @return Remote service scheme
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string GetScheme() {
                return this.Scheme;
@@ -187,7 +187,7 @@ namespace Adaptive.Arp.Api
              Set the Remote service scheme
 
              @param Scheme Remote service scheme
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetScheme(string Scheme) {
                this.Scheme = Scheme;

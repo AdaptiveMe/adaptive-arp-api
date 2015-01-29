@@ -55,7 +55,7 @@ public class NetworkReachabilityCallbackImpl extends BaseCallbackImpl implements
         No data received - error condition, not authorized .
 
         @param error Error value
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void onError(INetworkReachabilityCallbackError error) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleNetworkReachabilityCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
@@ -65,7 +65,7 @@ public class NetworkReachabilityCallbackImpl extends BaseCallbackImpl implements
         Correct data received.
 
         @param reachable Indicates if the host is reachable
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void onResult(bool reachable) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleNetworkReachabilityCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(reachable) +") )");
@@ -76,7 +76,7 @@ public class NetworkReachabilityCallbackImpl extends BaseCallbackImpl implements
 
         @param reachable Indicates if the host is reachable
         @param warning   Warning value
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void onWarning(bool reachable, INetworkReachabilityCallbackWarning warning) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleNetworkReachabilityCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(reachable) +"), JSON.parse(" + this.gson.toJson(warning) +") )");

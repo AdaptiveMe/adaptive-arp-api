@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Structure representing a remote or local service access end-point.
  *
  * @author Aryslan
- * @since ARP1.0
+ * @since ARP 2.0
  */
 public class ServiceEndpoint extends APIBean {
 
@@ -76,7 +76,7 @@ public class ServiceEndpoint extends APIBean {
     /**
      * Default Constructor
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public ServiceEndpoint() {
     }
@@ -89,7 +89,7 @@ public class ServiceEndpoint extends APIBean {
      * @param port   Remote service Port
      * @param proxy  Proxy url "http://IP_ADDRESS:PORT_NUMBER"
      * @param scheme Remote service scheme
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public ServiceEndpoint(String host, ServicePath[] paths, int port, String proxy, String scheme) {
         this.host = host;
@@ -103,7 +103,7 @@ public class ServiceEndpoint extends APIBean {
      * Returns the Remote service host
      *
      * @return Remote service host
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public String getHost() {
         return host;
@@ -113,7 +113,7 @@ public class ServiceEndpoint extends APIBean {
      * Set the Remote service host
      *
      * @param host Remote service host
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setHost(String host) {
         this.host = host;
@@ -123,7 +123,7 @@ public class ServiceEndpoint extends APIBean {
      * Returns the Remote service Paths
      *
      * @return Remote service Paths
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public ServicePath[] getPaths() {
         return paths;
@@ -133,7 +133,7 @@ public class ServiceEndpoint extends APIBean {
      * Set the Remote service Paths
      *
      * @param paths Remote service Paths
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setPaths(ServicePath[] paths) {
         this.paths = paths;
@@ -143,7 +143,7 @@ public class ServiceEndpoint extends APIBean {
      * Returns the Remote service Port
      *
      * @return Remote service Port
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public int getPort() {
         return port;
@@ -153,7 +153,7 @@ public class ServiceEndpoint extends APIBean {
      * Set the Remote service Port
      *
      * @param port Remote service Port
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setPort(int port) {
         this.port = port;
@@ -163,7 +163,7 @@ public class ServiceEndpoint extends APIBean {
      * Return the Proxy url
      *
      * @return Proxy url
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public String getProxy() {
         return proxy;
@@ -173,7 +173,7 @@ public class ServiceEndpoint extends APIBean {
      * Set the Proxy url
      *
      * @param proxy Proxy url
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setProxy(String proxy) {
         this.proxy = proxy;
@@ -183,7 +183,7 @@ public class ServiceEndpoint extends APIBean {
      * Returns the Remote service scheme
      *
      * @return Remote service scheme
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public String getScheme() {
         return scheme;
@@ -193,7 +193,7 @@ public class ServiceEndpoint extends APIBean {
      * Set the Remote service scheme
      *
      * @param scheme Remote service scheme
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void setScheme(String scheme) {
         this.scheme = scheme;

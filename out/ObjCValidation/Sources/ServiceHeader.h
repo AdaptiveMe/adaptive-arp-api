@@ -39,7 +39,7 @@ Release:
 Structure representing the data of a http request or response header.
 
 @author Aryslan
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @interface ServiceHeader : APIBean
@@ -56,7 +56,7 @@ Structure representing the data of a http request or response header.
      /**
         Default constructor
 
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) init;
 
@@ -65,7 +65,7 @@ Structure representing the data of a http request or response header.
 
         @param name Name of the header
         @param data Value of the header
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) initWithNameData:(NSString*)name data:(NSString*)data;
 

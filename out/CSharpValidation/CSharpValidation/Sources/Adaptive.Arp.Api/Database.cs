@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Structure representing a database reference.
 
         @author Ferran Vila Conesa
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public class Database : APIBean
@@ -58,7 +58,7 @@ namespace Adaptive.Arp.Api
           /**
              Default constructor
 
-             @since ARP1.0
+             @since ARP 2.0
           */
           public Database()  {
           }
@@ -67,7 +67,7 @@ namespace Adaptive.Arp.Api
              Default constructor. The compress param is setted to false.
 
              @param Name Name of the table.
-             @since ARP1.0
+             @since ARP 2.0
           */
           public Database(string Name) : base () {
                this.Name = Name;
@@ -78,7 +78,7 @@ namespace Adaptive.Arp.Api
 
              @param Name     Name of the DatabaseTable.
              @param Compress Compression enabled.
-             @since ARP1.0
+             @since ARP 2.0
           */
           public Database(string Name, bool Compress) : base () {
                this.Name = Name;
@@ -89,7 +89,7 @@ namespace Adaptive.Arp.Api
              Returns if the table is compressed
 
              @return Compression enabled
-             @since ARP1.0
+             @since ARP 2.0
           */
           public bool GetCompress() {
                return this.Compress;
@@ -99,7 +99,7 @@ namespace Adaptive.Arp.Api
              Sets if the table is compressed or not.
 
              @param Compress Compression enabled
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetCompress(bool Compress) {
                this.Compress = Compress;
@@ -109,7 +109,7 @@ namespace Adaptive.Arp.Api
              Returns the name.
 
              @return The name of the table.
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string GetName() {
                return this.Name;
@@ -119,7 +119,7 @@ namespace Adaptive.Arp.Api
              Sets the name of the table.
 
              @param Name The name of the table.
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetName(string Name) {
                this.Name = Name;

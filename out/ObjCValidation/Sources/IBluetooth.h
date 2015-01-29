@@ -39,7 +39,7 @@ Release:
 Interface for Bluetooth purposes
 
 @author Carlos Lozano Diez
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @protocol IBluetooth <IBaseCommunication>

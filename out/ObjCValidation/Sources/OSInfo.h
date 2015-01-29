@@ -39,7 +39,7 @@ Release:
 Represents the basic information about the operating system.
 
 @author Francisco Javier Martin Bueno
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @interface OSInfo : APIBean
@@ -75,7 +75,7 @@ Represents the basic information about the operating system.
      /**
         Default constructor
 
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) init;
 
@@ -85,7 +85,7 @@ Represents the basic information about the operating system.
         @param name    of the OS.
         @param version of the OS.
         @param vendor  of the OS.
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) initWithNameVersionVendor:(IOSType*)name version:(NSString*)version vendor:(NSString*)vendor;
 

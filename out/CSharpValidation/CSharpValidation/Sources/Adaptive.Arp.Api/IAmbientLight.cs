@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Interface for managinf the Ambient Light
 
         @author Carlos Lozano Diez
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public interface IAmbientLight : IBaseSensor {

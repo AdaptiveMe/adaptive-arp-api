@@ -61,7 +61,7 @@ public class BrowserDelegate extends BaseUIDelegate implements IBrowser {
 
         @param url Url to open
         @return The result of the operation
-        @since ARP1.0
+        @since ARP 2.0
      */
      public bool openExtenalBrowser(string url) {
           bool response;
@@ -77,7 +77,7 @@ public class BrowserDelegate extends BaseUIDelegate implements IBrowser {
         @param title          Title of the Navigation bar
         @param backButtonText Title of the Back button bar
         @return The result of the operation
-        @since ARP1.0
+        @since ARP 2.0
      */
      public bool openInternalBrowser(string url, string title, string backButtonText) {
           bool response;
@@ -93,7 +93,7 @@ public class BrowserDelegate extends BaseUIDelegate implements IBrowser {
         @param title          Title of the Navigation bar
         @param backButtonText Title of the Back button bar
         @return The result of the operation
-        @since ARP1.0
+        @since ARP 2.0
      */
      public bool openInternalBrowserModal(string url, string title, string backButtonText) {
           bool response;

@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Interface for Managing the File System operations
 
         @author Carlos Lozano Diez
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public interface IFileSystem : IBaseData {
@@ -51,7 +51,7 @@ This method does not create the actual file in the specified folder.
         @param parent Parent directory.
         @param name   Name of new file or directory.
         @return A reference to a new or existing location in the filesystem.
-        @since ARP1.0
+        @since ARP 2.0
      */
      FileDescriptor createFileDescriptor(FileDescriptor parent, string name);
 
@@ -61,7 +61,7 @@ This path must always be writable by the current application.
 This path is volatile and may be cleaned by the OS periodically.
 
         @return Path to the application's cache folder.
-        @since ARP1.0
+        @since ARP 2.0
      */
      FileDescriptor getApplicationCacheFolder();
 
@@ -70,7 +70,7 @@ This path is volatile and may be cleaned by the OS periodically.
 This path must always be writable by the current application.
 
         @return Path to the application's cloud storage folder.
-        @since ARP1.0
+        @since ARP 2.0
      */
      FileDescriptor getApplicationCloudFolder();
 
@@ -79,7 +79,7 @@ This path must always be writable by the current application.
 This path must always be writable by the current application.
 
         @return Path to the application's documents folder.
-        @since ARP1.0
+        @since ARP 2.0
      */
      FileDescriptor getApplicationDocumentsFolder();
 
@@ -88,7 +88,7 @@ This path must always be writable by the current application.
 This path may or may not be directly readable or writable - it usually contains the app binary and data.
 
         @return Path to the application folder.
-        @since ARP1.0
+        @since ARP 2.0
      */
      FileDescriptor getApplicationFolder();
 
@@ -97,7 +97,7 @@ This path may or may not be directly readable or writable - it usually contains 
 This path must always be writable by the current application.
 
         @return Path to the application's protected storage folder.
-        @since ARP1.0
+        @since ARP 2.0
      */
      FileDescriptor getApplicationProtectedFolder();
 
@@ -105,7 +105,7 @@ This path must always be writable by the current application.
         Returns the file system dependent file separator.
 
         @return char with the directory/file separator.
-        @since ARP1.0
+        @since ARP 2.0
      */
      char getSeparator();
 
@@ -116,7 +116,7 @@ definition, not secure.
 This path may or may not be writable by the current application.
 
         @return Path to the application's documents folder.
-        @since ARP1.0
+        @since ARP 2.0
      */
      FileDescriptor getSystemExternalFolder();
 

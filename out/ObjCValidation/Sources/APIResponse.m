@@ -37,7 +37,7 @@ Release:
 /**
 
 @author Carlos Lozano Diez
-@since ARP1.0
+@since ARP 2.0
 @version 1.0
 */
 @implementation APIResponse
@@ -46,7 +46,7 @@ Release:
      /**
         Default constructor
 
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) init {
           self = [self init];
@@ -58,7 +58,7 @@ Release:
 
         @param response   String representing the JavaScript value or JSON object representation of the response.
         @param statusCode Status code of the response (200 = OK, others are warning or error conditions).
-        @since ARP1.0
+        @since ARP 2.0
      */
      - (id) initWithResponseStatusCode:(NSString*)response statusCode:(int*)statusCode {
           self = [self init];

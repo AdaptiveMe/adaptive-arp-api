@@ -57,11 +57,40 @@ public class CapabilitiesDelegate extends BaseSystemDelegate implements ICapabil
      }
 
      /**
+        Obtains the default orientation of the device/display. If no default orientation is available on
+the platform, this method will return the current orientation. To capture device or display orientation
+changes please use the IDevice and IDisplay functions and listeners API respectively.
+
+        @return The default orientation for the device/display.
+        @since ARP 2.0.5
+     */
+     public ICapabilitiesOrientation getOrientationDefault() {
+          ICapabilitiesOrientation response;
+          // TODO: Not implemented.
+          throw new UnsupportedOperationException(this.getClass().getName()+":getOrientationDefault");
+          // return response;
+     }
+
+     /**
+        Provides the device/display orientations supported by the platform. A platform will usually
+support at least one orientation. This is usually PortaitUp.
+
+        @return The orientations supported by the device/display of the platform.
+        @since ARP 2.0.5
+     */
+     public ICapabilitiesOrientation[] getOrientationsSupported() {
+          ICapabilitiesOrientation[] response;
+          // TODO: Not implemented.
+          throw new UnsupportedOperationException(this.getClass().getName()+":getOrientationsSupported");
+          // return response;
+     }
+
+     /**
         Determines whether a specific hardware button is supported for interaction.
 
         @param type Type of feature to check.
         @return true is supported, false otherwise.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public bool hasButtonSupport(ICapabilitiesButton type) {
           bool response;
@@ -76,7 +105,7 @@ the device.
 
         @param type Type of feature to check.
         @return true if supported, false otherwise.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public bool hasCommunicationSupport(ICapabilitiesCommunication type) {
           bool response;
@@ -90,7 +119,7 @@ the device.
 
         @param type Type of feature to check.
         @return true if supported, false otherwise.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public bool hasDataSupport(ICapabilitiesData type) {
           bool response;
@@ -105,7 +134,7 @@ device.
 
         @param type Type of feature to check.
         @return true if supported, false otherwise.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public bool hasMediaSupport(ICapabilitiesMedia type) {
           bool response;
@@ -119,7 +148,7 @@ device.
 
         @param type Type of feature to check.
         @return true if supported, false otherwise.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public bool hasNetSupport(ICapabilitiesNet type) {
           bool response;
@@ -134,7 +163,7 @@ device.
 
         @param type Type of feature to check.
         @return true if supported, false otherwise.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public bool hasNotificationSupport(ICapabilitiesNotification type) {
           bool response;
@@ -144,12 +173,26 @@ device.
      }
 
      /**
+        Determines whether the device/display supports a given orientation.
+
+        @param orientation Orientation type.
+        @return True if the given orientation is supported, false otherwise.
+        @since ARP 2.0.5
+     */
+     public bool hasOrientationSupport(ICapabilitiesOrientation orientation) {
+          bool response;
+          // TODO: Not implemented.
+          throw new UnsupportedOperationException(this.getClass().getName()+":hasOrientationSupport");
+          // return response;
+     }
+
+     /**
         Determines whether a specific Sensor capability is supported by the
 device.
 
         @param type Type of feature to check.
         @return true if supported, false otherwise.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public bool hasSensorSupport(ICapabilitiesSensor type) {
           bool response;

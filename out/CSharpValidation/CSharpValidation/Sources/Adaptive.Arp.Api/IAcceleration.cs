@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Interface defining methods about the acceleration sensor
 
         @author Carlos Lozano Diez
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public interface IAcceleration : IBaseSensor {
@@ -48,7 +48,7 @@ namespace Adaptive.Arp.Api
         Register a new listener that will receive acceleration events.
 
         @param listener to be registered.
-        @since ARP1.0
+        @since ARP 2.0
      */
      void addAccelerationListener(IAccelerationListener listener);
 
@@ -56,14 +56,14 @@ namespace Adaptive.Arp.Api
         De-registers an existing listener from receiving acceleration events.
 
         @param listener to be registered.
-        @since ARP1.0
+        @since ARP 2.0
      */
      void removeAccelerationListener(IAccelerationListener listener);
 
      /**
         Removed all existing listeners from receiving acceleration events.
 
-        @since ARP1.0
+        @since ARP 2.0
      */
      void removeAccelerationListeners();
 

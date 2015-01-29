@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Interface defines the response methods of the acceleration operations
 
         @author Carlos Lozano Diez
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public interface IAccelerationListener : IBaseListener {
@@ -49,7 +49,7 @@ namespace Adaptive.Arp.Api
 listener and subsequently, the listener will be deactivated and removed from the internal list of listeners.
 
         @param error Error fired
-        @since ARP1.0
+        @since ARP 2.0
      */
      void onError(IAccelerationListenerError error);
 
@@ -57,7 +57,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         Correct data received.
 
         @param acceleration Acceleration received
-        @since ARP1.0
+        @since ARP 2.0
      */
      void onResult(Acceleration acceleration);
 
@@ -66,7 +66,7 @@ listener and subsequently, the listener will be deactivated and removed from the
 
         @param acceleration Acceleration received
         @param warning      Warning fired
-        @since ARP1.0
+        @since ARP 2.0
      */
      void onWarning(Acceleration acceleration, IAccelerationListenerWarning warning);
 

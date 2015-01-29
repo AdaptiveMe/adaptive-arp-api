@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Interface for Managing the button  operations
 
         @author Carlos Lozano Diez
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public interface IButtonListener : IBaseListener {
@@ -48,7 +48,7 @@ namespace Adaptive.Arp.Api
         No data received
 
         @param error occurred
-        @since ARP1.0
+        @since ARP 2.0
      */
      void onError(IButtonListenerError error);
 
@@ -56,7 +56,7 @@ namespace Adaptive.Arp.Api
         Called on button pressed
 
         @param button pressed
-        @since ARP1.0
+        @since ARP 2.0
      */
      void onResult(Button button);
 
@@ -65,7 +65,7 @@ namespace Adaptive.Arp.Api
 
         @param button  pressed
         @param warning happened
-        @since ARP1.0
+        @since ARP 2.0
      */
      void onWarning(Button button, IButtonListenerWarning warning);
 

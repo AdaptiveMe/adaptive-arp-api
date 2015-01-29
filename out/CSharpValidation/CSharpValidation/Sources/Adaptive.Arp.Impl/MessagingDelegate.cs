@@ -62,7 +62,7 @@ public class MessagingDelegate extends BasePIMDelegate implements IMessaging {
         @param number   to send
         @param text     to send
         @param callback with the result
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void sendSMS(string number, string text, IMessagingCallback callback) {
           // TODO: Not implemented.

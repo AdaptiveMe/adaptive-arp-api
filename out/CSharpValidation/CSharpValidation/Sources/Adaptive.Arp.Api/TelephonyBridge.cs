@@ -77,7 +77,7 @@ public class TelephonyBridge extends BaseCommunicationBridge implements ITelepho
 
         @param number to call
         @return Status of the call
-        @since ARP1.0
+        @since ARP 2.0
      */
      public ITelephonyStatus call(string number) {
           // Start logging elapsed time.

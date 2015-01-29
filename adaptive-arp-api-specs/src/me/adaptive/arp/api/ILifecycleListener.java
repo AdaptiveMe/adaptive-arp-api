@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Interface for Managing the Lifecycle listeners
  *
  * @author Carlos Lozano Diez
- * @since ARP1.0
+ * @since ARP 2.0
  */
 public interface ILifecycleListener extends IBaseListener {
 
@@ -53,7 +53,7 @@ public interface ILifecycleListener extends IBaseListener {
      * Called when lifecycle changes somehow.
      *
      * @param lifecycle Lifecycle element
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void onResult(Lifecycle lifecycle);
 
@@ -62,7 +62,7 @@ public interface ILifecycleListener extends IBaseListener {
      *
      * @param lifecycle Lifecycle element
      * @param warning   Type of warning encountered during reading.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void onWarning(Lifecycle lifecycle, Warning warning);
 
@@ -70,14 +70,14 @@ public interface ILifecycleListener extends IBaseListener {
      * No data received - error condition, not authorized or hardware not available.
      *
      * @param error Type of error encountered during reading.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public void onError(Error error);
 
     /**
      * Possible errors
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public enum Error {
         Runtime, Implementation, Killed, Unknown
@@ -86,7 +86,7 @@ public interface ILifecycleListener extends IBaseListener {
     /**
      * Possible Warnings
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public enum Warning {
         MemoryLow, BatteryLow, Unknown

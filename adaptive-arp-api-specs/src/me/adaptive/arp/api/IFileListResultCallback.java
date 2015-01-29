@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Interface for Managing the File result operations
  *
  * @author Carlos Lozano Diez
- * @since ARP1.0
+ * @since ARP 2.0
  */
 public interface IFileListResultCallback extends IBaseCallback {
 
@@ -52,7 +52,7 @@ public interface IFileListResultCallback extends IBaseCallback {
      * On correct result of a file operation.
      *
      * @param files Array of resulting files/folders.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     void onResult(FileDescriptor[] files);
 
@@ -61,7 +61,7 @@ public interface IFileListResultCallback extends IBaseCallback {
      *
      * @param files   Array of resulting files/folders.
      * @param warning Warning condition encountered.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     void onWarning(FileDescriptor[] files, Warning warning);
 
@@ -69,14 +69,14 @@ public interface IFileListResultCallback extends IBaseCallback {
      * On error result of a file operation.
      *
      * @param error Error processing the request.
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     void onError(Error error);
 
     /**
      * List of warnings.
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public enum Warning {
         PartialResult, Unknown
@@ -85,7 +85,7 @@ public interface IFileListResultCallback extends IBaseCallback {
     /**
      * List of errors.
      *
-     * @since ARP1.0
+     * @since ARP 2.0
      */
     public enum Error {
         InexistentFile, Unauthorized, Unknown

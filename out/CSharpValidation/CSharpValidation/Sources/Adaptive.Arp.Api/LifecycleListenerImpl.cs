@@ -55,7 +55,7 @@ public class LifecycleListenerImpl extends BaseListenerImpl implements ILifecycl
         No data received - error condition, not authorized or hardware not available.
 
         @param error Type of error encountered during reading.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void onError(ILifecycleListenerError error) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleLifecycleListenerError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
@@ -65,7 +65,7 @@ public class LifecycleListenerImpl extends BaseListenerImpl implements ILifecycl
         Called when lifecycle changes somehow.
 
         @param lifecycle Lifecycle element
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void onResult(Lifecycle lifecycle) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleLifecycleListenerResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(lifecycle) +") )");
@@ -76,7 +76,7 @@ public class LifecycleListenerImpl extends BaseListenerImpl implements ILifecycl
 
         @param lifecycle Lifecycle element
         @param warning   Type of warning encountered during reading.
-        @since ARP1.0
+        @since ARP 2.0
      */
      public void onWarning(Lifecycle lifecycle, ILifecycleListenerWarning warning) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleLifecycleListenerWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(lifecycle) +"), JSON.parse(" + this.gson.toJson(warning) +") )");

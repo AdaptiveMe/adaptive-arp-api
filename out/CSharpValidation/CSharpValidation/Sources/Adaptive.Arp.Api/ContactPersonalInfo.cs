@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Structure representing the personal info data elements of a contact.
 
         @author Francisco Javier Martin Bueno
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public class ContactPersonalInfo : APIBean
@@ -66,7 +66,7 @@ namespace Adaptive.Arp.Api
           /**
              Default constructor
 
-             @since ARP1.0
+             @since ARP 2.0
           */
           public ContactPersonalInfo()  {
           }
@@ -78,7 +78,7 @@ namespace Adaptive.Arp.Api
              @param MiddleName of the Contact
              @param LastName   of the Contact
              @param Title      of the Contact
-             @since ARP1.0
+             @since ARP 2.0
           */
           public ContactPersonalInfo(string Name, string MiddleName, string LastName, ContactPersonalInfoTitle Title) : base () {
                this.Name = Name;
@@ -91,7 +91,7 @@ namespace Adaptive.Arp.Api
              Returns the title of the Contact
 
              @return Title
-             @since ARP1.0
+             @since ARP 2.0
           */
           public ContactPersonalInfoTitle GetTitle() {
                return this.Title;
@@ -101,7 +101,7 @@ namespace Adaptive.Arp.Api
              Set the Title of the Contact
 
              @param Title of the Contact
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetTitle(ContactPersonalInfoTitle Title) {
                this.Title = Title;
@@ -111,7 +111,7 @@ namespace Adaptive.Arp.Api
              Returns the last name of the Contact
 
              @return LastName
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string GetLastName() {
                return this.LastName;
@@ -121,7 +121,7 @@ namespace Adaptive.Arp.Api
              Set the last name of the Contact
 
              @param LastName of the Contact
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetLastName(string LastName) {
                this.LastName = LastName;
@@ -131,7 +131,7 @@ namespace Adaptive.Arp.Api
              Returns the middle name of the Contact
 
              @return MiddelName
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string GetMiddleName() {
                return this.MiddleName;
@@ -141,7 +141,7 @@ namespace Adaptive.Arp.Api
              Set the middle name of the Contact
 
              @param MiddleName of the Contact
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetMiddleName(string MiddleName) {
                this.MiddleName = MiddleName;
@@ -151,7 +151,7 @@ namespace Adaptive.Arp.Api
              Returns the name of the Contact
 
              @return Name
-             @since ARP1.0
+             @since ARP 2.0
           */
           public string GetName() {
                return this.Name;
@@ -161,7 +161,7 @@ namespace Adaptive.Arp.Api
              Set the name of the Contact
 
              @param Name of the Contact
-             @since ARP1.0
+             @since ARP 2.0
           */
           public void SetName(string Name) {
                this.Name = Name;

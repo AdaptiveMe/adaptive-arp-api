@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Interface for Managing the Security result callback
 
         @author Aryslan
-        @since ARP1.0
+        @since ARP 2.0
         @version 1.0
      */
      public interface ISecurityResultCallback : IBaseCallback {
@@ -48,7 +48,7 @@ namespace Adaptive.Arp.Api
         No data received - error condition, not authorized .
 
         @param error Error values
-        @since ARP1.0
+        @since ARP 2.0
      */
      void onError(ISecurityResultCallbackError error);
 
@@ -56,7 +56,7 @@ namespace Adaptive.Arp.Api
         Correct data received.
 
         @param keyValues key and values
-        @since ARP1.0
+        @since ARP 2.0
      */
      void onResult(SecureKeyPair[] keyValues);
 
@@ -65,7 +65,7 @@ namespace Adaptive.Arp.Api
 
         @param keyValues key and values
         @param warning   Warning values
-        @since ARP1.0
+        @since ARP 2.0
      */
      void onWarning(SecureKeyPair[] keyValues, ISecurityResultCallbackWarning warning);
 
