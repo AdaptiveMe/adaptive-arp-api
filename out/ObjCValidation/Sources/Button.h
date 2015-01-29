@@ -39,7 +39,7 @@ Release:
 Structure representing the a physical or logical button on a device.
 
 @author Francisco Javier Martin Bueno
-@since ARP 2.0
+@since v2.0
 @version 1.0
 */
 @interface Button : APIBean
@@ -59,7 +59,7 @@ Structure representing the a physical or logical button on a device.
      /**
         Default constructor
 
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) init;
 
@@ -67,7 +67,7 @@ Structure representing the a physical or logical button on a device.
         Constructor with fields
 
         @param type Button type.
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) initWithType:(ICapabilitiesButton*)type;
 

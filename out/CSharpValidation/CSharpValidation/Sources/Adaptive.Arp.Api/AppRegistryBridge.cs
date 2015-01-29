@@ -1660,7 +1660,7 @@ public class AppRegistryBridge implements IAppRegistry {
         Method that returns the API version of the implementation.
 
         @return API Version string.
-        @since ARP 2.0
+        @since v2.0
      */
      public tringBridge getAPIVersion() {
           // Start logging elapsed time.
@@ -1683,7 +1683,7 @@ public class AppRegistryBridge implements IAppRegistry {
         Returns a reference to the Platform Context
 
         @return Reference to the platform context
-        @since ARP 2.0
+        @since v2.0
      */
      public AppContextBridge getPlatformContext() {
           // Start logging elapsed time.
@@ -1706,7 +1706,7 @@ public class AppRegistryBridge implements IAppRegistry {
         Returns a reference to the Webview platform context
 
         @return Reference to the Webview Context
-        @since ARP 2.0
+        @since v2.0
      */
      public AppContextWebviewBridge getPlatformContextWeb() {
           // Start logging elapsed time.

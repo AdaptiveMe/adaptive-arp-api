@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Structure representing a row for a data table.
  *
  * @author Ferran Vila Conesa
- * @since ARP 2.0
+ * @since v2.0
  */
 public class DatabaseRow extends APIBean {
 
@@ -56,7 +56,7 @@ public class DatabaseRow extends APIBean {
     /**
      * Default constructor
      *
-     * @since ARP 2.0
+     * @since v2.0
      */
     public DatabaseRow() {
     }
@@ -65,7 +65,7 @@ public class DatabaseRow extends APIBean {
      * Constructor for implementation using.
      *
      * @param values The values of the row
-     * @since ARP 2.0
+     * @since v2.0
      */
     public DatabaseRow(String[] values) {
         this.values = values;
@@ -75,7 +75,7 @@ public class DatabaseRow extends APIBean {
      * Returns the values of the row.
      *
      * @return The values of the row.
-     * @since ARP 2.0
+     * @since v2.0
      */
     public String[] getValues() {
         return values;
@@ -85,7 +85,7 @@ public class DatabaseRow extends APIBean {
      * Sets the values of the row.
      *
      * @param values The values of the row.
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setValues(String[] values) {
         this.values = values;

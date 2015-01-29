@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Represents a basic bean to store keyName pair values
 
         @author Ferran Vila Conesa
-        @since ARP 2.0
+        @since v2.0
         @version 1.0
      */
      public class KeyPair : APIBean
@@ -58,7 +58,7 @@ namespace Adaptive.Arp.Api
           /**
              Default Constructor
 
-             @since ARP 2.0
+             @since V2.0
           */
           public KeyPair()  {
           }
@@ -68,7 +68,7 @@ namespace Adaptive.Arp.Api
 
              @param KeyName  Key of the element
              @param KeyValue Value of the element
-             @since ARP 2.0
+             @since V2.0
           */
           public KeyPair(string KeyName, string KeyValue) : base () {
                this.KeyName = KeyName;
@@ -79,7 +79,7 @@ namespace Adaptive.Arp.Api
              Returns the keyName of the element
 
              @return Key of the element
-             @since ARP 2.0
+             @since V2.0
           */
           public string GetKeyName() {
                return this.KeyName;
@@ -89,7 +89,7 @@ namespace Adaptive.Arp.Api
              Sets the keyName of the element
 
              @param KeyName Key of the element
-             @since ARP 2.0
+             @since V2.0
           */
           public void SetKeyName(string KeyName) {
                this.KeyName = KeyName;
@@ -99,7 +99,7 @@ namespace Adaptive.Arp.Api
              Returns the keyValue of the element
 
              @return Value of the element
-             @since ARP 2.0
+             @since V2.0
           */
           public string GetKeyValue() {
                return this.KeyValue;
@@ -109,7 +109,7 @@ namespace Adaptive.Arp.Api
              Sets the keyValue of the element
 
              @param KeyValue Value of the element
-             @since ARP 2.0
+             @since V2.0
           */
           public void SetKeyValue(string KeyValue) {
                this.KeyValue = KeyValue;

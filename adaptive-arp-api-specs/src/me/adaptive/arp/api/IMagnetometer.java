@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Interface for Managing the Magnetometer operations
  *
  * @author Carlos Lozano Diez
- * @since ARP 2.0
+ * @since v2.0
  */
 public interface IMagnetometer extends IBaseSensor {
 }

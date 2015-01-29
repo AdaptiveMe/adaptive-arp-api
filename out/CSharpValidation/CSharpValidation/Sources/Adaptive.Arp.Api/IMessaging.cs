@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Interface for Managing the Messaging operations
 
         @author Francisco Javier Martin Bueno
-        @since ARP 2.0
+        @since v2.0
         @version 1.0
      */
      public interface IMessaging : IBasePIM {
@@ -50,7 +50,7 @@ namespace Adaptive.Arp.Api
         @param number   to send
         @param text     to send
         @param callback with the result
-        @since ARP 2.0
+        @since v2.0
      */
      void sendSMS(string number, string text, IMessagingCallback callback);
 

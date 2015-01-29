@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Interface for Barometer management purposes
  *
  * @author Carlos Lozano Diez
- * @since ARP 2.0
+ * @since v2.0
  */
 public interface IBarometer extends IBaseSensor {
 }

@@ -39,7 +39,7 @@ Release:
 Structure representing the basic device information.
 
 @author Francisco Javier Martin Bueno
-@since ARP 2.0
+@since v2.0
 @version 1.0
 */
 @interface DeviceInfo : APIBean
@@ -65,7 +65,7 @@ be unique for a specific instance of an application on a specific device.
      /**
         Default constructor
 
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) init;
 
@@ -76,7 +76,7 @@ be unique for a specific instance of an application on a specific device.
         @param model  of the device.
         @param vendor of the device.
         @param uuid   unique* identifier (* platform dependent).
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) initWithNameModelVendorUuid:(NSString*)name model:(NSString*)model vendor:(NSString*)vendor uuid:(NSString*)uuid;
 

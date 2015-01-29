@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Structure representing a HTML5 request to the native API.
 
         @author Carlos Lozano Diez
-        @since ARP 2.0
+        @since v2.0
         @version 1.0
      */
      public class APIRequest
@@ -66,7 +66,7 @@ namespace Adaptive.Arp.Api
           /**
              Default constructor
 
-             @since ARP 2.0
+             @since V2.0
           */
           public APIRequest()  {
           }
@@ -76,7 +76,7 @@ namespace Adaptive.Arp.Api
 
              @param BridgeType Name of the bridge to be invoked.
              @param MethodName Name of the method
-             @since ARP 2.0
+             @since V2.0
           */
           public APIRequest(string BridgeType, string MethodName) : base () {
                this.BridgeType = BridgeType;
@@ -90,7 +90,7 @@ namespace Adaptive.Arp.Api
              @param MethodName Name of the method
              @param Parameters Array of parameters as JSON formatted strings.
              @param AsyncId    Id of callback or listener or zero if none for synchronous calls.
-             @since ARP 2.0
+             @since V2.0
           */
           public APIRequest(string BridgeType, string MethodName, string[] Parameters, long AsyncId) : base () {
                this.BridgeType = BridgeType;
@@ -122,7 +122,7 @@ listener.
              Bridge Type Getter
 
              @return Bridge Type
-             @since ARP 2.0
+             @since V2.0
           */
           public string GetBridgeType() {
                return this.BridgeType;
@@ -132,7 +132,7 @@ listener.
              Bridge Type Setter
 
              @param BridgeType Bridge Type
-             @since ARP 2.0
+             @since V2.0
           */
           public void SetBridgeType(string BridgeType) {
                this.BridgeType = BridgeType;
@@ -142,7 +142,7 @@ listener.
              Method name Getter
 
              @return Method name
-             @since ARP 2.0
+             @since V2.0
           */
           public string GetMethodName() {
                return this.MethodName;
@@ -152,7 +152,7 @@ listener.
              Method name Setter
 
              @param MethodName Method name
-             @since ARP 2.0
+             @since V2.0
           */
           public void SetMethodName(string MethodName) {
                this.MethodName = MethodName;
@@ -162,7 +162,7 @@ listener.
              Parameters Getter
 
              @return Parameters
-             @since ARP 2.0
+             @since V2.0
           */
           public string[] GetParameters() {
                return this.Parameters;
@@ -172,7 +172,7 @@ listener.
              Parameters Setter
 
              @param Parameters Parameters, JSON formatted strings of objects.
-             @since ARP 2.0
+             @since V2.0
           */
           public void SetParameters(string[] Parameters) {
                this.Parameters = Parameters;

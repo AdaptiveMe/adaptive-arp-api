@@ -44,76 +44,78 @@ package me.adaptive.arp.api;
  * Represents a local or remote service response.
  *
  * @author Aryslan
- * @since ARP 2.0
+ * @since v2.0
  */
 public class ServiceResponse extends APIBean {
 
     /**
-     * Request/Response data content (plain text).
+     * Response data content. The content should be in some well-known web format - in specific, binaries returned
+     * should be encoded in base64.
+     *
+     * @since v2.0.6
      */
     private String content;
 
     /**
      * The request/response content type (MIME TYPE).
+     *
+     * @since v2.0
      */
     private String contentType;
 
     /**
      * Encoding of the binary payload - by default assumed to be UTF8.
+     *
+     * @since v2.0
      */
     private String contentEncoding;
 
     /**
      * The length in bytes for the Content field.
+     *
+     * @since v2.0
      */
     private int contentLength;
 
     /**
-     * The byte[] representing the binary Content.
-     */
-    private byte[] contentBinary;
-
-    /**
-     * The length in bytes for the binary Content.
-     */
-    private int contentBinaryLength;
-
-    /**
      * The serviceHeaders array (name,value pairs) to be included on the I/O service request.
+     *
+     * @since v2.0
      */
     private ServiceHeader[] serviceHeaders;
 
     /**
-     * Information about the session
+     * Information about the session.
+     *
+     * @since v2.0
      */
     private ServiceSession serviceSession;
 
     /**
-     * Default constructor
+     * Default constructor.
+     *
+     * @since v2.0
      */
     public ServiceResponse() {
+        super();
     }
 
     /**
      * Constructor with fields
      *
-     * @param content             Request/Response data content (plain text).
-     * @param contentType         The request/response content type (MIME TYPE).
-     * @param contentEncoding     Encoding of the binary payload - by default assumed to be UTF8.
-     * @param contentLength       The length in bytes for the Content field.
-     * @param contentBinary       The byte[] representing the binary Content.
-     * @param contentBinaryLength The length in bytes for the binary Content.
-     * @param serviceHeaders      The serviceHeaders array (name,value pairs) to be included on the I/O service request.
-     * @param serviceSession      Information about the session
-     * @since ARP 2.0
+     * @param content         Request/Response data content (plain text).
+     * @param contentType     The request/response content type (MIME TYPE).
+     * @param contentEncoding Encoding of the binary payload - by default assumed to be UTF8.
+     * @param contentLength   The length in bytes for the Content field.
+     * @param serviceHeaders  The serviceHeaders array (name,value pairs) to be included on the I/O service request.
+     * @param serviceSession  Information about the session
+     * @since v2.0
      */
-    public ServiceResponse(String content, String contentType, String contentEncoding, int contentLength, byte[] contentBinary, int contentBinaryLength, ServiceHeader[] serviceHeaders, ServiceSession serviceSession) {
+    public ServiceResponse(String content, String contentType, String contentEncoding, int contentLength, ServiceHeader[] serviceHeaders, ServiceSession serviceSession) {
         this.content = content;
         this.contentType = contentType;
         this.contentEncoding = contentEncoding;
         this.contentLength = contentLength;
-        this.contentBinary = contentBinary;
-        this.contentBinaryLength = contentBinaryLength;
         this.serviceHeaders = serviceHeaders;
         this.serviceSession = serviceSession;
     }
@@ -122,7 +124,7 @@ public class ServiceResponse extends APIBean {
      * Returns the content
      *
      * @return content
-     * @since ARP 2.0
+     * @since v2.0
      */
     public String getContent() {
         return content;
@@ -132,7 +134,7 @@ public class ServiceResponse extends APIBean {
      * Set the content
      *
      * @param content Request/Response data content (plain text).
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setContent(String content) {
         this.content = content;
@@ -142,7 +144,7 @@ public class ServiceResponse extends APIBean {
      * Returns the content type
      *
      * @return contentType
-     * @since ARP 2.0
+     * @since v2.0
      */
     public String getContentType() {
         return contentType;
@@ -152,57 +154,17 @@ public class ServiceResponse extends APIBean {
      * Set the content type
      *
      * @param contentType The request/response content type (MIME TYPE).
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setContentType(String contentType) {
         this.contentType = contentType;
     }
 
     /**
-     * Returns the binary content
-     *
-     * @return contentBinary
-     * @since ARP 2.0
-     */
-    public byte[] getContentBinary() {
-        return contentBinary;
-    }
-
-    /**
-     * Set the binary content
-     *
-     * @param contentBinary The byte[] representing the binary Content.
-     * @since ARP 2.0
-     */
-    public void setContentBinary(byte[] contentBinary) {
-        this.contentBinary = contentBinary;
-    }
-
-    /**
-     * Returns the binary content length
-     *
-     * @return contentBinaryLength
-     * @since ARP 2.0
-     */
-    public int getContentBinaryLength() {
-        return contentBinaryLength;
-    }
-
-    /**
-     * Set the binary content length
-     *
-     * @param contentBinaryLength The length in bytes for the binary Content.
-     * @since ARP 2.0
-     */
-    public void setContentBinaryLength(int contentBinaryLength) {
-        this.contentBinaryLength = contentBinaryLength;
-    }
-
-    /**
      * Returns the array of ServiceHeader
      *
      * @return serviceHeaders
-     * @since ARP 2.0
+     * @since v2.0
      */
     public ServiceHeader[] getServiceHeaders() {
         return serviceHeaders;
@@ -212,7 +174,7 @@ public class ServiceResponse extends APIBean {
      * Set the array of ServiceHeader
      *
      * @param serviceHeaders The serviceHeaders array (name,value pairs) to be included on the I/O service request.
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setServiceHeaders(ServiceHeader[] serviceHeaders) {
         this.serviceHeaders = serviceHeaders;
@@ -222,7 +184,7 @@ public class ServiceResponse extends APIBean {
      * Returns the content encoding
      *
      * @return contentEncoding
-     * @since ARP 2.0
+     * @since v2.0
      */
     public String getContentEncoding() {
         return contentEncoding;
@@ -232,7 +194,7 @@ public class ServiceResponse extends APIBean {
      * Set the content encoding
      *
      * @param contentEncoding Encoding of the binary payload - by default assumed to be UTF8.
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setContentEncoding(String contentEncoding) {
         this.contentEncoding = contentEncoding;
@@ -242,7 +204,7 @@ public class ServiceResponse extends APIBean {
      * Getter for service session
      *
      * @return The element service session
-     * @since ARP 2.0
+     * @since v2.0
      */
     public ServiceSession getServiceSession() {
         return serviceSession;
@@ -252,7 +214,7 @@ public class ServiceResponse extends APIBean {
      * Setter for service session
      *
      * @param serviceSession The element service session
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setServiceSession(ServiceSession serviceSession) {
         this.serviceSession = serviceSession;
@@ -263,7 +225,7 @@ public class ServiceResponse extends APIBean {
      * Returns the content length
      *
      * @return contentLength
-     * @since ARP 2.0
+     * @since v2.0
      */
     public int getContentLength() {
         return contentLength;
@@ -273,7 +235,7 @@ public class ServiceResponse extends APIBean {
      * Set the content length
      *
      * @param contentLength The length in bytes for the Content field.
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setContentLength(int contentLength) {
         this.contentLength = contentLength;

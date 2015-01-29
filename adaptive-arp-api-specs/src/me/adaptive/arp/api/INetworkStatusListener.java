@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Interface for Managing the Network status listener events
  *
  * @author Carlos Lozano Diez
- * @since ARP 2.0
+ * @since v2.0
  */
 public interface INetworkStatusListener extends IBaseListener {
 
@@ -52,7 +52,7 @@ public interface INetworkStatusListener extends IBaseListener {
      * Called when network connection changes somehow.
      *
      * @param network Change to this network.
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void onResult(ICapabilities.Net network);
 
@@ -61,7 +61,7 @@ public interface INetworkStatusListener extends IBaseListener {
      *
      * @param network Change to this network.
      * @param warning Type of warning encountered during reading.
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void onWarning(ICapabilities.Net network, Warning warning);
 
@@ -69,14 +69,14 @@ public interface INetworkStatusListener extends IBaseListener {
      * No data received - error condition, not authorized or hardware not available.
      *
      * @param error Type of error encountered during reading.
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void onError(Error error);
 
     /**
      * Possible Errors
      *
-     * @since ARP 2.0
+     * @since v2.0
      */
     public enum Error {
         NoPermission, Unreachable, Unknown
@@ -85,7 +85,7 @@ public interface INetworkStatusListener extends IBaseListener {
     /**
      * Possible Warnings
      *
-     * @since ARP 2.0
+     * @since v2.0
      */
     public enum Warning {
         IpAddressNotAssigned, IpAddressChanged, Unknown

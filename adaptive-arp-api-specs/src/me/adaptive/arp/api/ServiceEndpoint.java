@@ -44,86 +44,78 @@ package me.adaptive.arp.api;
  * Structure representing a remote or local service access end-point.
  *
  * @author Aryslan
- * @since ARP 2.0
+ * @since v2.0
  */
-public class ServiceEndpoint extends APIBean {
+public class ServiceEndpoint {
+
 
     /**
-     * The remote service host (alias or IP).
+     * Type of validation to be performed for SSL hosts.
+     *
+     * @since v2.0.6
      */
-    private String host;
+    IService.CertificateValidation validationType;
+    /**
+     * The remote service hostURI URI (alias or IP) composed of scheme://hostURI:port (http://hostURI:8080).
+     *
+     * @since v2.0.6
+     */
+    private String hostURI;
 
     /**
-     * The remote service paths (to be added to the host and port url).
+     * The remote service paths (to be added to the hostURI and port url).
+     *
+     * @since v2.0.4
      */
     private ServicePath[] paths;
 
-    /**
-     * The remote service accessible port.
-     */
-    private int port;
-
-    /**
-     * The proxy url - if needed - to access the remote service. If IP and port are used, use the following syntax: "http://<IP>:<Port>".
-     */
-    private String proxy;
-
-    /**
-     * The remote service scheme.
-     */
-    private String scheme;
 
     /**
      * Default Constructor
      *
-     * @since ARP 2.0
+     * @since v2.0
      */
     public ServiceEndpoint() {
+        super();
     }
 
     /**
      * Constructor with parameters
      *
-     * @param host   Remote service host
-     * @param paths  Remote service Paths
-     * @param port   Remote service Port
-     * @param proxy  Proxy url "http://IP_ADDRESS:PORT_NUMBER"
-     * @param scheme Remote service scheme
-     * @since ARP 2.0
+     * @param hostURI Remote service hostURI
+     * @param paths   Remote service Paths
+     * @since v2.0.6
      */
-    public ServiceEndpoint(String host, ServicePath[] paths, int port, String proxy, String scheme) {
-        this.host = host;
+    public ServiceEndpoint(String hostURI, ServicePath[] paths) {
+        this.hostURI = hostURI;
         this.paths = paths;
-        this.port = port;
-        this.proxy = proxy;
-        this.scheme = scheme;
     }
 
     /**
-     * Returns the Remote service host
+     * Returns the Remote service hostURI
      *
-     * @return Remote service host
-     * @since ARP 2.0
+     * @return Remote service hostURI
+     * @since v2.0
      */
-    public String getHost() {
-        return host;
+    public String getHostURI() {
+        return hostURI;
     }
 
     /**
-     * Set the Remote service host
+     * Set the Remote service hostURI
      *
-     * @param host Remote service host
-     * @since ARP 2.0
+     * @param hostURI Remote service hostURI
+     * @since v2.0
      */
-    public void setHost(String host) {
-        this.host = host;
+    public void setHostURI(String hostURI) {
+        this.hostURI = hostURI;
     }
 
     /**
      * Returns the Remote service Paths
      *
      * @return Remote service Paths
-     * @since ARP 2.0
+     * @since v2.0
      */
     public ServicePath[] getPaths() {
         return paths;
@@ -133,70 +125,30 @@ public class ServiceEndpoint extends APIBean {
      * Set the Remote service Paths
      *
      * @param paths Remote service Paths
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setPaths(ServicePath[] paths) {
         this.paths = paths;
     }
 
     /**
-     * Returns the Remote service Port
+     * Gets the validation type for the certificate of a SSL host.
      *
-     * @return Remote service Port
-     * @since ARP 2.0
+     * @return Type of validation.
+     * @since v2.0.6
      */
-    public int getPort() {
-        return port;
+    public IService.CertificateValidation getValidationType() {
+        return validationType;
     }
 
     /**
-     * Set the Remote service Port
+     * Sets the validation type for the certificate of a SSL host.
      *
-     * @param port Remote service Port
-     * @since ARP 2.0
+     * @param validationType Type of validation.
+     * @since v2.0.6
      */
-    public void setPort(int port) {
-        this.port = port;
-    }
-
-    /**
-     * Return the Proxy url
-     *
-     * @return Proxy url
-     * @since ARP 2.0
-     */
-    public String getProxy() {
-        return proxy;
-    }
-
-    /**
-     * Set the Proxy url
-     *
-     * @param proxy Proxy url
-     * @since ARP 2.0
-     */
-    public void setProxy(String proxy) {
-        this.proxy = proxy;
-    }
-
-    /**
-     * Returns the Remote service scheme
-     *
-     * @return Remote service scheme
-     * @since ARP 2.0
-     */
-    public String getScheme() {
-        return scheme;
-    }
-
-    /**
-     * Set the Remote service scheme
-     *
-     * @param scheme Remote service scheme
-     * @since ARP 2.0
-     */
-    public void setScheme(String scheme) {
-        this.scheme = scheme;
+    public void setValidationType(IService.CertificateValidation validationType) {
+        this.validationType = validationType;
     }
 }
 

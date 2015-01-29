@@ -55,7 +55,7 @@ public class DatabaseResultCallbackImpl extends BaseCallbackImpl implements IDat
         Result callback for error responses
 
         @param error Returned error
-        @since ARP 2.0
+        @since v2.0
      */
      public void onError(IDatabaseResultCallbackError error) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleDatabaseResultCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
@@ -65,7 +65,7 @@ public class DatabaseResultCallbackImpl extends BaseCallbackImpl implements IDat
         Result callback for correct responses
 
         @param database Returns the database
-        @since ARP 2.0
+        @since v2.0
      */
      public void onResult(Database database) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleDatabaseResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(database) +") )");
@@ -76,7 +76,7 @@ public class DatabaseResultCallbackImpl extends BaseCallbackImpl implements IDat
 
         @param database Returns the database
         @param warning  Returned Warning
-        @since ARP 2.0
+        @since v2.0
      */
      public void onWarning(Database database, IDatabaseResultCallbackWarning warning) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleDatabaseResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(database) +"), JSON.parse(" + this.gson.toJson(warning) +") )");

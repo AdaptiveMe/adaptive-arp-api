@@ -37,16 +37,16 @@ Release:
 /**
 
 @author Aryslan
-@since ARP 2.0
+@since v2.0
 @version 1.0
 */
 @implementation ServiceHeader
 
 
      /**
-        Default constructor
+        Default constructor.
 
-        @since ARP 2.0
+        @since v2.0.6
      */
      - (id) init {
           self = [self init];
@@ -54,17 +54,15 @@ Release:
      }
 
      /**
-        Constructor with fields
+        Convenience constructor.
 
-        @param name Name of the header
-        @param data Value of the header
-        @since ARP 2.0
+        @param keyName Name of the key.
+        @param keyData Value of the key.
+        @since v2.0.6
      */
-     - (id) initWithNameData:(NSString*)name data:(NSString*)data {
-          self = [self init];
+     - (id) initWithKeyNameKeyData:(NSString*)keyName keyData:(NSString*)keyData {
+          self = [super initWithKeyNameKeyData:keyName, keyData];
           if (self) {
-               [self setName:name];
-               [self setData:data];
           }
           return self;
      }

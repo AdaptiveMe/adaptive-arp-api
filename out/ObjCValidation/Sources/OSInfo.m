@@ -37,7 +37,7 @@ Release:
 /**
 
 @author Francisco Javier Martin Bueno
-@since ARP 2.0
+@since v2.0
 @version 1.0
 */
 @implementation OSInfo
@@ -46,7 +46,7 @@ Release:
      /**
         Default constructor
 
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) init {
           self = [self init];
@@ -59,7 +59,7 @@ Release:
         @param name    of the OS.
         @param version of the OS.
         @param vendor  of the OS.
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) initWithNameVersionVendor:(IOSType*)name version:(NSString*)version vendor:(NSString*)vendor {
           self = [self init];

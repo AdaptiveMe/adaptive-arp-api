@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Interface for Managing the Globalization results
  *
  * @author Francisco Javier Martin Bueno
- * @since ARP 2.0
+ * @since v2.0
  */
 public interface IGlobalization extends IBaseApplication {
 
@@ -52,7 +52,7 @@ public interface IGlobalization extends IBaseApplication {
      * Returns the default locale of the application defined in the configuration file
      *
      * @return Default Locale of the application
-     * @since ARP 2.0
+     * @since v2.0
      */
     Locale getDefaultLocale();
 
@@ -60,7 +60,7 @@ public interface IGlobalization extends IBaseApplication {
      * List of supported locales for the application defined in the configuration file
      *
      * @return List of locales
-     * @since ARP 2.0
+     * @since v2.0
      */
     Locale[] getLocaleSupportedDescriptors();
 
@@ -70,7 +70,7 @@ public interface IGlobalization extends IBaseApplication {
      * @param key    to match text
      * @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
      * @return Localized text.
-     * @since ARP 2.0
+     * @since v2.0
      */
     String getResourceLiteral(String key, Locale locale);
 
@@ -79,7 +79,7 @@ public interface IGlobalization extends IBaseApplication {
      *
      * @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
      * @return Localized texts in the form of an object.
-     * @since ARP 2.0
+     * @since v2.0
      */
     KeyPair[] getResourceLiterals(Locale locale);
 }

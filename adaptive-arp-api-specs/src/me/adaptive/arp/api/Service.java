@@ -44,9 +44,9 @@ package me.adaptive.arp.api;
  * Represents an instance of a service.
  *
  * @author Aryslan
- * @since ARP 2.0
+ * @since v2.0
  */
-public class Service extends APIBean {
+public class Service {
 
     /**
      * Endpoint of the service
@@ -59,14 +59,9 @@ public class Service extends APIBean {
     private String name;
 
     /**
-     * The type of the service
-     */
-    private IService.ServiceType type;
-
-    /**
      * Default constructor
      *
-     * @since ARP 2.0
+     * @since v2.0
      */
     public Service() {
     }
@@ -76,20 +71,18 @@ public class Service extends APIBean {
      *
      * @param serviceEndpoints Endpoints of the service
      * @param name             Name of the service
-     * @param type             Type of the service
-     * @since ARP 2.0
+     * @since v2.0.6
      */
-    public Service(ServiceEndpoint[] serviceEndpoints, String name, IService.ServiceType type) {
+    public Service(ServiceEndpoint[] serviceEndpoints, String name) {
         this.serviceEndpoints = serviceEndpoints;
         this.name = name;
-        this.type = type;
     }
 
     /**
      * Returns the serviceEndpoints
      *
      * @return serviceEndpoints
-     * @since ARP 2.0
+     * @since v2.0
      */
     public ServiceEndpoint[] getServiceEndpoints() {
         return serviceEndpoints;
@@ -99,7 +92,7 @@ public class Service extends APIBean {
      * Set the serviceEndpoints
      *
      * @param serviceEndpoints Endpoint of the service
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setServiceEndpoints(ServiceEndpoint[] serviceEndpoints) {
         this.serviceEndpoints = serviceEndpoints;
@@ -109,7 +102,7 @@ public class Service extends APIBean {
      * Returns the name
      *
      * @return name
-     * @since ARP 2.0
+     * @since v2.0
      */
     public String getName() {
         return name;
@@ -119,29 +112,11 @@ public class Service extends APIBean {
      * Set the name
      *
      * @param name Name of the service
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setName(String name) {
         this.name = name;
     }
 
-    /**
-     * Returns the type
-     *
-     * @return type
-     * @since ARP 2.0
-     */
-    public IService.ServiceType getType() {
-        return type;
-    }
 
-    /**
-     * Set the type
-     *
-     * @param type Type of the service
-     * @since ARP 2.0
-     */
-    public void setType(IService.ServiceType type) {
-        this.type = type;
-    }
 }

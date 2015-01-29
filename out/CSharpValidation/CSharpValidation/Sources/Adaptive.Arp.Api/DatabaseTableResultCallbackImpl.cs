@@ -55,7 +55,7 @@ public class DatabaseTableResultCallbackImpl extends BaseCallbackImpl implements
         Result callback for error responses
 
         @param error Returned error
-        @since ARP 2.0
+        @since v2.0
      */
      public void onError(IDatabaseTableResultCallbackError error) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleDatabaseTableResultCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
@@ -65,7 +65,7 @@ public class DatabaseTableResultCallbackImpl extends BaseCallbackImpl implements
         Result callback for correct responses
 
         @param databaseTable Returns the databaseTable
-        @since ARP 2.0
+        @since v2.0
      */
      public void onResult(DatabaseTable databaseTable) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleDatabaseTableResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(databaseTable) +") )");
@@ -76,7 +76,7 @@ public class DatabaseTableResultCallbackImpl extends BaseCallbackImpl implements
 
         @param databaseTable Returns the databaseTable
         @param warning       Returned Warning
-        @since ARP 2.0
+        @since v2.0
      */
      public void onWarning(DatabaseTable databaseTable, IDatabaseTableResultCallbackWarning warning) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleDatabaseTableResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(databaseTable) +"), JSON.parse(" + this.gson.toJson(warning) +") )");

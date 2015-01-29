@@ -57,90 +57,81 @@ public class ServiceDelegate extends BaseCommunicationDelegate implements IServi
      }
 
      /**
-        Get a reference to a registered service by name.
+        Create a service request for the given ServiceToken. This method creates the request, populating
+existing headers and cookies for the same service. The request is populated with all the defaults
+for the service being invoked and requires only the request body to be set. Headers and cookies may be
+manipulated as needed by the application before submitting the ServiceRequest via invokeService.
 
-        @param serviceName Name of service.
-        @return A service, if registered, or null of the service does not exist.
-        @since ARP 2.0
+        @param serviceToken ServiceToken to be used for the creation of the request.
+        @return ServiceRequest with pre-populated headers, cookies and defaults for the service.
+        @since v2.0.6
      */
-     public Service getService(string serviceName) {
-          Service response;
+     public ServiceRequest getServiceRequest(ServiceToken serviceToken) {
+          ServiceRequest response;
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":getService");
+          throw new UnsupportedOperationException(this.getClass().getName()+":getServiceRequest");
           // return response;
      }
 
      /**
-        Request async a service for an Url
+        Obtains a ServiceToken for the given parameters to be used for the creation of requests.
 
-        @param serviceRequest Service Request to invoke
-        @param service        Service to call
-        @param callback       Callback to execute with the result
-        @since ARP 2.0
+        @param serviceName  Service name.
+        @param endpointName Endpoint name.
+        @param functionName Function name.
+        @param method       Method type.
+        @return ServiceToken to create a service request or null if the given parameter combination is not
+configured in the platform's XML service definition file.
+        @since v2.0.6
      */
-     public void invokeService(ServiceRequest serviceRequest, Service service, IServiceResultCallback callback) {
+     public ServiceToken getServiceToken(string serviceName, string endpointName, string functionName, IServiceMethod method) {
+          ServiceToken response;
+          // TODO: Not implemented.
+          throw new UnsupportedOperationException(this.getClass().getName()+":getServiceToken");
+          // return response;
+     }
+
+     /**
+        Returns all the possible service tokens configured in the platform's XML service definition file.
+
+        @return Array of service tokens configured.
+        @since v2.0.6
+     */
+     public ServiceToken[] getServicesRegistered() {
+          ServiceToken[] response;
+          // TODO: Not implemented.
+          throw new UnsupportedOperationException(this.getClass().getName()+":getServicesRegistered");
+          // return response;
+     }
+
+     /**
+        Executes the given ServiceRequest and provides responses to the given callback handler.
+
+        @param serviceRequest ServiceRequest with the request body.
+        @param callback       IServiceResultCallback to handle the ServiceResponse.
+        @since v2.0.6
+     */
+     public void invokeService(ServiceRequest serviceRequest, IServiceResultCallback callback) {
           // TODO: Not implemented.
           throw new UnsupportedOperationException(this.getClass().getName()+":invokeService");
      }
 
      /**
-        Check whether a service by the given service is already registered.
+        Checks whether a specific service, endpoint, function and method type is configured in the platform's
+XML service definition file.
 
-        @param service Service to check
-        @return True if the service is registered, false otherwise.
-        @since ARP 2.0
+        @param serviceName  Service name.
+        @param endpointName Endpoint name.
+        @param functionName Function name.
+        @param method       Method type.
+        @return Returns true if the service is configured, false otherwise.
+        @since v2.0.6
      */
-     public bool isRegistered(Service service) {
+     public bool isServiceRegistered(string serviceName, string endpointName, string functionName, IServiceMethod method) {
           bool response;
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":isRegistered");
+          throw new UnsupportedOperationException(this.getClass().getName()+":isServiceRegistered");
           // return response;
-     }
-
-     /**
-        Check whether a service by the given name is registered.
-
-        @param serviceName Name of service.
-        @return True if the service is registered, false otherwise.
-        @since ARP 2.0
-     */
-     public bool isRegistered(string serviceName) {
-          bool response;
-          // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":isRegistered");
-          // return response;
-     }
-
-     /**
-        Register a new service
-
-        @param service to register
-        @since ARP 2.0
-     */
-     public void registerService(Service service) {
-          // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":registerService");
-     }
-
-     /**
-        Unregister a service
-
-        @param service to unregister
-        @since ARP 2.0
-     */
-     public void unregisterService(Service service) {
-          // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":unregisterService");
-     }
-
-     /**
-        Unregister all services.
-
-        @since ARP 2.0
-     */
-     public void unregisterServices() {
-          // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":unregisterServices");
      }
 
 }

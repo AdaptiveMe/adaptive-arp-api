@@ -55,7 +55,7 @@ public class GeolocationListenerImpl extends BaseListenerImpl implements IGeoloc
         No data received - error condition, not authorized or hardware not available.
 
         @param error Type of error encountered during reading.
-        @since ARP 2.0
+        @since v2.0
      */
      public void onError(IGeolocationListenerError error) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleGeolocationListenerError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
@@ -65,7 +65,7 @@ public class GeolocationListenerImpl extends BaseListenerImpl implements IGeoloc
         Correct data received.
 
         @param geolocation Geolocation Bean
-        @since ARP 2.0
+        @since v2.0
      */
      public void onResult(Geolocation geolocation) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleGeolocationListenerResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(geolocation) +") )");
@@ -76,7 +76,7 @@ public class GeolocationListenerImpl extends BaseListenerImpl implements IGeoloc
 
         @param geolocation Geolocation Bean
         @param warning     Type of warning encountered during reading.
-        @since ARP 2.0
+        @since v2.0
      */
      public void onWarning(Geolocation geolocation, IGeolocationListenerWarning warning) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleGeolocationListenerWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(geolocation) +"), JSON.parse(" + this.gson.toJson(warning) +") )");

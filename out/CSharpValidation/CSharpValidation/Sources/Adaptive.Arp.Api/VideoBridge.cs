@@ -76,7 +76,7 @@ public class VideoBridge extends BaseMediaBridge implements IVideo, APIBridge {
         Play url video stream
 
         @param url of the video
-        @since ARP 2.0
+        @since v2.0
      */
      public void playStream(string url) {
           // Start logging elapsed time.

@@ -40,79 +40,29 @@ namespace Adaptive.Arp.Api
         Structure representing the data of a http request or response header.
 
         @author Aryslan
-        @since ARP 2.0
+        @since v2.0
         @version 1.0
      */
-     public class ServiceHeader : APIBean
+     public class ServiceHeader : KeyValue
      {
 
-          /**
-             Value of the header
-          */
-          public string Data { get; set; }
-          /**
-             Name ot the header
-          */
-          public string Name { get; set; }
 
           /**
-             Default constructor
+             Default constructor.
 
-             @since ARP 2.0
+             @since V2.0.6
           */
           public ServiceHeader()  {
           }
 
           /**
-             Constructor with fields
+             Convenience constructor.
 
-             @param Name Name of the header
-             @param Data Value of the header
-             @since ARP 2.0
+             @param KeyName Name of the key.
+             @param KeyData Value of the key.
+             @since V2.0.6
           */
-          public ServiceHeader(string Name, string Data) : base () {
-               this.Name = Name;
-               this.Data = Data;
-          }
-
-          /**
-             Returns the header value
-
-             @return ServiceHeader value
-             @since ARP 2.0
-          */
-          public string GetData() {
-               return this.Data;
-          }
-
-          /**
-             Set the header value
-
-             @param Data ServiceHeader value
-             @since ARP 2.0
-          */
-          public void SetData(string Data) {
-               this.Data = Data;
-          }
-
-          /**
-             Returns the header name
-
-             @return ServiceHeader name
-             @since ARP 2.0
-          */
-          public string GetName() {
-               return this.Name;
-          }
-
-          /**
-             Set the header name
-
-             @param Name Name of the header
-             @since ARP 2.0
-          */
-          public void SetName(string Name) {
-               this.Name = Name;
+          public ServiceHeader(string KeyName, string KeyData) : base(KeyNameKeyData) {
           }
 
 

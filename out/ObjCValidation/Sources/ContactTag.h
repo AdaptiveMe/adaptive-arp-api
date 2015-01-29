@@ -39,7 +39,7 @@ Release:
 Structure representing the assigned tags data elements of a contact.
 
 @author Francisco Javier Martin Bueno
-@since ARP 2.0
+@since v2.0
 @version 1.0
 */
 @interface ContactTag : APIBean
@@ -56,7 +56,7 @@ Structure representing the assigned tags data elements of a contact.
      /**
         Default constructor
 
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) init;
 
@@ -65,7 +65,7 @@ Structure representing the assigned tags data elements of a contact.
 
         @param tagValue Value of the tag
         @param tagName  Name of the tag
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) initWithTagNameTagValue:(NSString*)tagName tagValue:(NSString*)tagValue;
 

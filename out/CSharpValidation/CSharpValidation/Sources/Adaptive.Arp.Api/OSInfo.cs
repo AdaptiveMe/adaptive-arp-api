@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Represents the basic information about the operating system.
 
         @author Francisco Javier Martin Bueno
-        @since ARP 2.0
+        @since v2.0
         @version 1.0
      */
      public class OSInfo : APIBean
@@ -62,7 +62,7 @@ namespace Adaptive.Arp.Api
           /**
              Default constructor
 
-             @since ARP 2.0
+             @since V2.0
           */
           public OSInfo()  {
           }
@@ -73,7 +73,7 @@ namespace Adaptive.Arp.Api
              @param Name    of the OS.
              @param Version of the OS.
              @param Vendor  of the OS.
-             @since ARP 2.0
+             @since V2.0
           */
           public OSInfo(IOSType Name, string Version, string Vendor) : base () {
                this.Name = Name;
@@ -85,7 +85,7 @@ namespace Adaptive.Arp.Api
              Returns the name of the operating system.
 
              @return OS name.
-             @since ARP 2.0
+             @since V2.0
           */
           public IOSType GetName() {
                return this.Name;
@@ -104,7 +104,7 @@ namespace Adaptive.Arp.Api
              Returns the vendor of the operating system.
 
              @return OS vendor.
-             @since ARP 2.0
+             @since V2.0
           */
           public string GetVendor() {
                return this.Vendor;
@@ -123,7 +123,7 @@ namespace Adaptive.Arp.Api
              Returns the version of the operating system.
 
              @return OS version.
-             @since ARP 2.0
+             @since V2.0
           */
           public string GetVersion() {
                return this.Version;

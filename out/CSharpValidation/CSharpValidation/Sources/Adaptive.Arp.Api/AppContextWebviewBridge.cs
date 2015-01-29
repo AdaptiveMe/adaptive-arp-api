@@ -84,7 +84,7 @@ methods are bound to the webview so that they're callable from the HTML applicat
 not be added using this method.
 
         @param webView Platform specific webview reference (WebView, UIWebView, WKWebView,etc.)
-        @since ARP 2.0
+        @since v2.0
      */
      public void addWebview(Object webView) {
           // Start logging elapsed time.
@@ -151,7 +151,7 @@ with the removeWebview method. The object returned should be cast to the platfor
 WebView, WKWebView, etc.
 
         @return Object representing the specific and primary webview instance of the application.
-        @since ARP 2.0
+        @since v2.0
      */
      public Object getWebviewPrimary() {
           // Start logging elapsed time.
@@ -175,7 +175,7 @@ WebView, WKWebView, etc.
 This method will always return at least one element; the primary webview.
 
         @return Array with all the Webview instances being managed by ARP.
-        @since ARP 2.0
+        @since v2.0
      */
      public Object[] getWebviews() {
           // Start logging elapsed time.
@@ -199,7 +199,7 @@ This method will always return at least one element; the primary webview.
 ARP functions and release resources. The primary webview can not be removed.
 
         @param webView The instance of the webview to be removed from the binding.
-        @since ARP 2.0
+        @since v2.0
      */
      public void removeWebview(Object webView) {
           // Start logging elapsed time.

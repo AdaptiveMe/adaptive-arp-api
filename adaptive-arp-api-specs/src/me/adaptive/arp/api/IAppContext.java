@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Interface for context management purposes
  *
  * @author Carlos Lozano Diez
- * @since ARP 2.0
+ * @since v2.0
  */
 public interface IAppContext {
 
@@ -52,7 +52,7 @@ public interface IAppContext {
      * The main application context. This should be cast to the platform specific implementation.
      *
      * @return Object representing the specific singleton application context provided by the OS.
-     * @since ARP 2.0
+     * @since v2.0
      */
     Object getContext();
 
@@ -60,7 +60,7 @@ public interface IAppContext {
      * The type of context provided by the getContext method.
      *
      * @return Type of platform context.
-     * @since ARP 2.0
+     * @since v2.0
      */
     IOS.Type getContextType();
 

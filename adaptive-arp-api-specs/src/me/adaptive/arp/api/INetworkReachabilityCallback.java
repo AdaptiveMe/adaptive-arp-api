@@ -44,14 +44,14 @@ package me.adaptive.arp.api;
  * Interface for Managing the Network reachability callback result
  *
  * @author Carlos Lozano Diez
- * @since ARP 2.0
+ * @since v2.0
  */
 public interface INetworkReachabilityCallback extends IBaseCallback {
     /**
      * Correct data received.
      *
      * @param reachable Indicates if the host is reachable
-     * @since ARP 2.0
+     * @since v2.0
      */
     void onResult(boolean reachable);
 
@@ -60,7 +60,7 @@ public interface INetworkReachabilityCallback extends IBaseCallback {
      *
      * @param reachable Indicates if the host is reachable
      * @param warning   Warning value
-     * @since ARP 2.0
+     * @since v2.0
      */
     void onWarning(boolean reachable, Warning warning);
 
@@ -68,14 +68,14 @@ public interface INetworkReachabilityCallback extends IBaseCallback {
      * No data received - error condition, not authorized .
      *
      * @param error Error value
-     * @since ARP 2.0
+     * @since v2.0
      */
     void onError(Error error);
 
     /**
      * Possible error values
      *
-     * @since ARP 2.0
+     * @since v2.0
      */
     public enum Error {
         Forbidden, NotFound, MethodNotAllowed, NotAllowed, NotAuthenticated, TimeOut, NoResponse, Unreachable, Wrong_Params, MalformedUrl, DomainUnresolvable, Unknown
@@ -84,7 +84,7 @@ public interface INetworkReachabilityCallback extends IBaseCallback {
     /**
      * Possible warning values
      *
-     * @since ARP 2.0
+     * @since v2.0
      */
     public enum Warning {
         IncorrectScheme, NotSecure, NotTrusted, Redirected, NotRegisteredService, Unknown

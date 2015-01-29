@@ -62,7 +62,7 @@ the platform, this method will return the current orientation. To capture device
 changes please use the IDevice and IDisplay functions and listeners API respectively.
 
         @return The default orientation for the device/display.
-        @since ARP 2.0.5
+        @since v2.0.5
      */
      public ICapabilitiesOrientation getOrientationDefault() {
           ICapabilitiesOrientation response;
@@ -76,7 +76,7 @@ changes please use the IDevice and IDisplay functions and listeners API respecti
 support at least one orientation. This is usually PortaitUp.
 
         @return The orientations supported by the device/display of the platform.
-        @since ARP 2.0.5
+        @since v2.0.5
      */
      public ICapabilitiesOrientation[] getOrientationsSupported() {
           ICapabilitiesOrientation[] response;
@@ -90,7 +90,7 @@ support at least one orientation. This is usually PortaitUp.
 
         @param type Type of feature to check.
         @return true is supported, false otherwise.
-        @since ARP 2.0
+        @since v2.0
      */
      public bool hasButtonSupport(ICapabilitiesButton type) {
           bool response;
@@ -105,7 +105,7 @@ the device.
 
         @param type Type of feature to check.
         @return true if supported, false otherwise.
-        @since ARP 2.0
+        @since v2.0
      */
      public bool hasCommunicationSupport(ICapabilitiesCommunication type) {
           bool response;
@@ -119,7 +119,7 @@ the device.
 
         @param type Type of feature to check.
         @return true if supported, false otherwise.
-        @since ARP 2.0
+        @since v2.0
      */
      public bool hasDataSupport(ICapabilitiesData type) {
           bool response;
@@ -134,7 +134,7 @@ device.
 
         @param type Type of feature to check.
         @return true if supported, false otherwise.
-        @since ARP 2.0
+        @since v2.0
      */
      public bool hasMediaSupport(ICapabilitiesMedia type) {
           bool response;
@@ -148,7 +148,7 @@ device.
 
         @param type Type of feature to check.
         @return true if supported, false otherwise.
-        @since ARP 2.0
+        @since v2.0
      */
      public bool hasNetSupport(ICapabilitiesNet type) {
           bool response;
@@ -163,7 +163,7 @@ device.
 
         @param type Type of feature to check.
         @return true if supported, false otherwise.
-        @since ARP 2.0
+        @since v2.0
      */
      public bool hasNotificationSupport(ICapabilitiesNotification type) {
           bool response;
@@ -177,7 +177,7 @@ device.
 
         @param orientation Orientation type.
         @return True if the given orientation is supported, false otherwise.
-        @since ARP 2.0.5
+        @since v2.0.5
      */
      public bool hasOrientationSupport(ICapabilitiesOrientation orientation) {
           bool response;
@@ -192,7 +192,7 @@ device.
 
         @param type Type of feature to check.
         @return true if supported, false otherwise.
-        @since ARP 2.0
+        @since v2.0
      */
      public bool hasSensorSupport(ICapabilitiesSensor type) {
           bool response;

@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Interface for Managing the Display operations
  *
  * @author Carlos Lozano Diez
- * @since ARP 2.0
+ * @since v2.0
  */
 public interface IDisplay extends IBaseSystem {
 
@@ -53,7 +53,7 @@ public interface IDisplay extends IBaseSystem {
      * of the device. For device orientation, use the IDevice APIs.
      *
      * @return The current orientation of the display.
-     * @since ARP 2.0.5
+     * @since v2.0.5
      */
     ICapabilities.Orientation getOrientationCurrent();
 
@@ -61,7 +61,7 @@ public interface IDisplay extends IBaseSystem {
      * Add a listener to start receiving display orientation change events.
      *
      * @param listener Listener to add to receive orientation change events.
-     * @since ARP 2.0.5
+     * @since v2.0.5
      */
     void addDisplayOrientationListener(IDisplayOrientationListener listener);
 
@@ -69,14 +69,14 @@ public interface IDisplay extends IBaseSystem {
      * Remove a listener to stop receiving display orientation change events.
      *
      * @param listener Listener to remove from receiving orientation change events.
-     * @since ARP 2.0.5
+     * @since v2.0.5
      */
     void removeDisplayOrientationListener(IDisplayOrientationListener listener);
 
     /**
      * Remove all listeners receiving display orientation events.
      *
-     * @since ARP 2.0.5
+     * @since v2.0.5
      */
     void removeDisplayOrientationListeners();
 }

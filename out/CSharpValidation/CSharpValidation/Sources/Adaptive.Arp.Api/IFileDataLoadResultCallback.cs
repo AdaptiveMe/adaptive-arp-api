@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Interface for Managing the File loading callback responses
 
         @author Carlos Lozano Diez
-        @since ARP 2.0
+        @since v2.0
         @version 1.0
      */
      public interface IFileDataLoadResultCallback : IBaseCallback {
@@ -48,7 +48,7 @@ namespace Adaptive.Arp.Api
         Error processing data retrieval/storage operation.
 
         @param error Error condition encountered.
-        @since ARP 2.0
+        @since v2.0
      */
      void onError(IFileDataLoadResultCallbackError error);
 
@@ -56,7 +56,7 @@ namespace Adaptive.Arp.Api
         Result of data retrieval operation.
 
         @param data Data loaded.
-        @since ARP 2.0
+        @since v2.0
      */
      void onResult(byte[] data);
 
@@ -65,7 +65,7 @@ namespace Adaptive.Arp.Api
 
         @param data    File being loaded.
         @param warning Warning condition encountered.
-        @since ARP 2.0
+        @since v2.0
      */
      void onWarning(byte[] data, IFileDataLoadResultCallbackWarning warning);
 

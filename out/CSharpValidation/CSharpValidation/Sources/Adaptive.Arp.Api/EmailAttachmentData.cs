@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Structure representing the binary attachment data.
 
         @author Francisco Javier Martin Bueno
-        @since ARP 2.0
+        @since v2.0
         @version 1.0
      */
      public class EmailAttachmentData : APIBean
@@ -70,7 +70,7 @@ namespace Adaptive.Arp.Api
           /**
              Default Constructor
 
-             @since ARP 2.0
+             @since V2.0
           */
           public EmailAttachmentData()  {
           }
@@ -83,7 +83,7 @@ namespace Adaptive.Arp.Api
              @param FileName     name of the file attachment
              @param MimeType     mime type of the file attachment
              @param ReferenceUrl relative url of the file attachment
-             @since ARP 2.0
+             @since V2.0
           */
           public EmailAttachmentData(byte[] Data, long Size, string FileName, string MimeType, string ReferenceUrl) : base () {
                this.Data = Data;
@@ -97,7 +97,7 @@ namespace Adaptive.Arp.Api
              Returns the raw data in byte[]
 
              @return Data Octet-binary content of the attachment payload.
-             @since ARP 2.0
+             @since V2.0
           */
           public byte[] GetData() {
                return this.Data;
@@ -107,7 +107,7 @@ namespace Adaptive.Arp.Api
              Set the data of the attachment as a byte[]
 
              @param Data Sets the octet-binary content of the attachment.
-             @since ARP 2.0
+             @since V2.0
           */
           public void SetData(byte[] Data) {
                this.Data = Data;
@@ -117,7 +117,7 @@ namespace Adaptive.Arp.Api
              Returns the filename of the attachment
 
              @return FileName Name of the attachment.
-             @since ARP 2.0
+             @since V2.0
           */
           public string GetFileName() {
                return this.FileName;
@@ -127,7 +127,7 @@ namespace Adaptive.Arp.Api
              Set the name of the file attachment
 
              @param FileName Name of the attachment.
-             @since ARP 2.0
+             @since V2.0
           */
           public void SetFileName(string FileName) {
                this.FileName = FileName;
@@ -137,7 +137,7 @@ namespace Adaptive.Arp.Api
              Returns the mime type of the attachment
 
              @return MimeType
-             @since ARP 2.0
+             @since V2.0
           */
           public string GetMimeType() {
                return this.MimeType;
@@ -147,7 +147,7 @@ namespace Adaptive.Arp.Api
              Set the mime type of the attachment
 
              @param MimeType Mime-type of the attachment.
-             @since ARP 2.0
+             @since V2.0
           */
           public void SetMimeType(string MimeType) {
                this.MimeType = MimeType;
@@ -157,7 +157,7 @@ namespace Adaptive.Arp.Api
              Returns the absolute url of the file attachment
 
              @return ReferenceUrl Absolute URL of the file attachment for either file:// or http:// access.
-             @since ARP 2.0
+             @since V2.0
           */
           public string GetReferenceUrl() {
                return this.ReferenceUrl;
@@ -167,7 +167,7 @@ namespace Adaptive.Arp.Api
              Set the absolute url of the attachment
 
              @param ReferenceUrl Absolute URL of the file attachment for either file:// or http:// access.
-             @since ARP 2.0
+             @since V2.0
           */
           public void SetReferenceUrl(string ReferenceUrl) {
                this.ReferenceUrl = ReferenceUrl;
@@ -177,7 +177,7 @@ namespace Adaptive.Arp.Api
              Returns the size of the attachment as a long
 
              @return Size Length in bytes of the octet-binary content.
-             @since ARP 2.0
+             @since V2.0
           */
           public long GetSize() {
                return this.Size;
@@ -187,7 +187,7 @@ namespace Adaptive.Arp.Api
              Set the size of the attachment as a long
 
              @param Size Length in bytes of the octet-binary content ( should be same as data array length.)
-             @since ARP 2.0
+             @since V2.0
           */
           public void SetSize(long Size) {
                this.Size = Size;

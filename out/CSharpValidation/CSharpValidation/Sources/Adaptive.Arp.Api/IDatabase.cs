@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Interface for Managing the Cloud operations
 
         @author Ferran Vila Conesa
-        @since ARP 2.0
+        @since v2.0
         @version 1.0
      */
      public interface IDatabase : IBaseData {
@@ -49,7 +49,7 @@ namespace Adaptive.Arp.Api
 
         @param callback Asynchronous callback
         @param database Database object to create
-        @since ARP 2.0
+        @since v2.0
      */
      void createDatabase(Database database, IDatabaseResultCallback callback);
 
@@ -59,7 +59,7 @@ namespace Adaptive.Arp.Api
         @param database      Database for databaseTable creating.
         @param databaseTable DatabaseTable object with the name of the databaseTable inside.
         @param callback      DatabaseTable callback with the response
-        @since ARP 2.0
+        @since v2.0
      */
      void createTable(Database database, DatabaseTable databaseTable, IDatabaseTableResultCallback callback);
 
@@ -68,7 +68,7 @@ namespace Adaptive.Arp.Api
 
         @param database Database object to delete
         @param callback Asynchronous callback
-        @since ARP 2.0
+        @since v2.0
      */
      void deleteDatabase(Database database, IDatabaseResultCallback callback);
 
@@ -78,7 +78,7 @@ namespace Adaptive.Arp.Api
         @param database      Database for databaseTable removal.
         @param databaseTable DatabaseTable object with the name of the databaseTable inside.
         @param callback      DatabaseTable callback with the response
-        @since ARP 2.0
+        @since v2.0
      */
      void deleteTable(Database database, DatabaseTable databaseTable, IDatabaseTableResultCallback callback);
 
@@ -90,7 +90,7 @@ should be passed as a parameter
         @param statement    SQL statement.
         @param replacements List of SQL statement replacements.
         @param callback     DatabaseTable callback with the response.
-        @since ARP 2.0
+        @since v2.0
      */
      void executeSqlStatement(Database database, string statement, string[] replacements, IDatabaseTableResultCallback callback);
 
@@ -102,7 +102,7 @@ should be passed as a parameter
         @param rollbackFlag Indicates if rollback should be performed when any
                     statement execution fails.
         @param callback     DatabaseTable callback with the response.
-        @since ARP 2.0
+        @since v2.0
      */
      void executeSqlTransactions(Database database, string[] statements, bool rollbackFlag, IDatabaseTableResultCallback callback);
 
@@ -111,7 +111,7 @@ should be passed as a parameter
 
         @param database Database Object to check if exists
         @return True if exists, false otherwise
-        @since ARP 2.0
+        @since v2.0
      */
      bool existsDatabase(Database database);
 
@@ -121,7 +121,7 @@ should be passed as a parameter
         @param database      Database for databaseTable consulting.
         @param databaseTable DatabaseTable object with the name of the databaseTable inside.
         @return True if exists, false otherwise
-        @since ARP 2.0
+        @since v2.0
      */
      bool existsTable(Database database, DatabaseTable databaseTable);
 

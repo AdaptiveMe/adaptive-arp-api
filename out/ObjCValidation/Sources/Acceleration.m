@@ -37,7 +37,7 @@ Release:
 /**
 
 @author Carlos Lozano Diez
-@since ARP 2.0
+@since v2.0
 @version 1.0
 */
 @implementation Acceleration
@@ -46,7 +46,7 @@ Release:
      /**
         Default constructor
 
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) init {
           self = [self init];
@@ -60,7 +60,7 @@ Release:
         @param y         Y Coordinate
         @param z         Z Coordinate
         @param timestamp Timestamp
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) initWithXYZTimestamp:(double*)x y:(double*)y z:(double*)z timestamp:(long*)timestamp {
           self = [self init];

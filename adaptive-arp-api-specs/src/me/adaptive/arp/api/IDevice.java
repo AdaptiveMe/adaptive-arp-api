@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Interface for Managing the Device operations
  *
  * @author Francisco Javier Martin Bueno
- * @since ARP 2.0
+ * @since v2.0
  */
 public interface IDevice extends IBaseSystem {
 
@@ -52,7 +52,7 @@ public interface IDevice extends IBaseSystem {
      * Returns the device information for the current device executing the runtime.
      *
      * @return DeviceInfo for the current device.
-     * @since ARP 2.0
+     * @since v2.0
      */
     DeviceInfo getDeviceInfo();
 
@@ -60,7 +60,7 @@ public interface IDevice extends IBaseSystem {
      * Gets the current Locale for the device.
      *
      * @return The current Locale information.
-     * @since ARP 2.0
+     * @since v2.0
      */
     Locale getLocaleCurrent();
 
@@ -68,7 +68,7 @@ public interface IDevice extends IBaseSystem {
      * Register a new listener that will receive button events.
      *
      * @param listener to be registered.
-     * @since ARP 2.0
+     * @since v2.0
      */
     void addButtonListener(IButtonListener listener);
 
@@ -76,14 +76,14 @@ public interface IDevice extends IBaseSystem {
      * De-registers an existing listener from receiving button events.
      *
      * @param listener to be removed.
-     * @since ARP 2.0
+     * @since v2.0
      */
     void removeButtonListener(IButtonListener listener);
 
     /**
      * Removed all existing listeners from receiving button events.
      *
-     * @since ARP 2.0
+     * @since v2.0
      */
     void removeButtonListeners();
 
@@ -92,7 +92,7 @@ public interface IDevice extends IBaseSystem {
      * of the display. For display orientation, use the IDisplay APIs.
      *
      * @return The current orientation of the device.
-     * @since ARP 2.0.5
+     * @since v2.0.5
      */
     ICapabilities.Orientation getOrientationCurrent();
 
@@ -100,7 +100,7 @@ public interface IDevice extends IBaseSystem {
      * Add a listener to start receiving device orientation change events.
      *
      * @param listener Listener to add to receive orientation change events.
-     * @since ARP 2.0.5
+     * @since v2.0.5
      */
     void addDeviceOrientationListener(IDeviceOrientationListener listener);
 
@@ -108,14 +108,14 @@ public interface IDevice extends IBaseSystem {
      * Remove a listener to stop receiving device orientation change events.
      *
      * @param listener Listener to remove from receiving orientation change events.
-     * @since ARP 2.0.5
+     * @since v2.0.5
      */
     void removeDeviceOrientationListener(IDeviceOrientationListener listener);
 
     /**
      * Remove all listeners receiving device orientation events.
      *
-     * @since ARP 2.0.5
+     * @since v2.0.5
      */
     void removeDeviceOrientationListeners();
 

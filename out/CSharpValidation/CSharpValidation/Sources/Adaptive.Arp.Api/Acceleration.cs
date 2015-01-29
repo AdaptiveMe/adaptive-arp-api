@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Structure representing the data of a single acceleration reading.
 
         @author Carlos Lozano Diez
-        @since ARP 2.0
+        @since v2.0
         @version 1.0
      */
      public class Acceleration : APIBean
@@ -66,7 +66,7 @@ namespace Adaptive.Arp.Api
           /**
              Default constructor
 
-             @since ARP 2.0
+             @since V2.0
           */
           public Acceleration()  {
           }
@@ -78,7 +78,7 @@ namespace Adaptive.Arp.Api
              @param Y         Y Coordinate
              @param Z         Z Coordinate
              @param Timestamp Timestamp
-             @since ARP 2.0
+             @since V2.0
           */
           public Acceleration(double X, double Y, double Z, long Timestamp) : base () {
                this.X = X;
@@ -91,7 +91,7 @@ namespace Adaptive.Arp.Api
              Timestamp Getter
 
              @return Timestamp
-             @since ARP 2.0
+             @since V2.0
           */
           public long GetTimestamp() {
                return this.Timestamp;
@@ -101,7 +101,7 @@ namespace Adaptive.Arp.Api
              Timestamp Setter
 
              @param Timestamp Timestamp
-             @since ARP 2.0
+             @since V2.0
           */
           public void SetTimestamp(long Timestamp) {
                this.Timestamp = Timestamp;
@@ -111,7 +111,7 @@ namespace Adaptive.Arp.Api
              X Coordinate Getter
 
              @return X-axis component of the acceleration.
-             @since ARP 2.0
+             @since V2.0
           */
           public double GetX() {
                return this.X;
@@ -121,7 +121,7 @@ namespace Adaptive.Arp.Api
              X Coordinate Setter
 
              @param X X-axis component of the acceleration.
-             @since ARP 2.0
+             @since V2.0
           */
           public void SetX(double X) {
                this.X = X;
@@ -131,7 +131,7 @@ namespace Adaptive.Arp.Api
              Y Coordinate Getter
 
              @return Y-axis component of the acceleration.
-             @since ARP 2.0
+             @since V2.0
           */
           public double GetY() {
                return this.Y;
@@ -141,7 +141,7 @@ namespace Adaptive.Arp.Api
              Y Coordinate Setter
 
              @param Y Y-axis component of the acceleration.
-             @since ARP 2.0
+             @since V2.0
           */
           public void SetY(double Y) {
                this.Y = Y;
@@ -151,7 +151,7 @@ namespace Adaptive.Arp.Api
              Z Coordinate Getter
 
              @return Z-axis component of the acceleration.
-             @since ARP 2.0
+             @since V2.0
           */
           public double GetZ() {
                return this.Z;
@@ -161,7 +161,7 @@ namespace Adaptive.Arp.Api
              Z Coordinate Setter
 
              @param Z Z Coordinate
-             @since ARP 2.0
+             @since V2.0
           */
           public void SetZ(double Z) {
                this.Z = Z;

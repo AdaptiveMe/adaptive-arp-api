@@ -37,7 +37,7 @@ Release:
 /**
 
 @author Ferran Vila Conesa
-@since ARP 2.0
+@since v2.0
 @version 1.0
 */
 @implementation DatabaseColumn
@@ -46,7 +46,7 @@ Release:
      /**
         Default constructor
 
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) init {
           self = [self init];
@@ -57,7 +57,7 @@ Release:
         Constructor with fields
 
         @param name Name of the column
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) initWithName:(NSString*)name {
           self = [self init];

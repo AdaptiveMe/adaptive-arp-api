@@ -41,8 +41,8 @@ namespace Adaptive.Arp.Api
      */
      public enum IServiceResultCallbackWarning {
 
+          CertificateUntrusted,
           NotSecure,
-          NotTrusted,
           Redirected,
           Wrong_Params,
           Unknown

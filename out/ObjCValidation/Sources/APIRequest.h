@@ -38,7 +38,7 @@ Release:
 Structure representing a HTML5 request to the native API.
 
 @author Carlos Lozano Diez
-@since ARP 2.0
+@since v2.0
 @version 1.0
 */
 @interface APIRequest : NSObject
@@ -64,7 +64,7 @@ Structure representing a HTML5 request to the native API.
      /**
         Default constructor
 
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) init;
 
@@ -73,7 +73,7 @@ Structure representing a HTML5 request to the native API.
 
         @param bridgeType Name of the bridge to be invoked.
         @param methodName Name of the method
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) initWithBridgeTypeMethodName:(NSString*)bridgeType methodName:(NSString*)methodName;
 
@@ -84,7 +84,7 @@ Structure representing a HTML5 request to the native API.
         @param methodName Name of the method
         @param parameters Array of parameters as JSON formatted strings.
         @param asyncId    Id of callback or listener or zero if none for synchronous calls.
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) initWithBridgeTypeMethodNameParametersAsyncId:(NSString*)bridgeType methodName:(NSString*)methodName parameters:(NSArray*)parameters asyncId:(long*)asyncId;
 

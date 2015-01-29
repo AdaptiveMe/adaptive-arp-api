@@ -37,7 +37,7 @@ Release:
 /**
 
 @author Francisco Javier Martin Bueno
-@since ARP 2.0
+@since v2.0
 @version 1.0
 */
 @implementation ContactEmail
@@ -46,7 +46,7 @@ Release:
      /**
         Default constructor
 
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) init {
           self = [self init];
@@ -59,7 +59,7 @@ Release:
         @param type    Type of the email
         @param primary Is email primary
         @param email   Email of the contact
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) initWithTypePrimaryEmail:(ContactEmailType*)type primary:(bool*)primary email:(NSString*)email {
           self = [self init];

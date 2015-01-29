@@ -44,77 +44,27 @@ package me.adaptive.arp.api;
  * Structure representing the data of a http request or response header.
  *
  * @author Aryslan
- * @since ARP 2.0
+ * @since v2.0
  */
-public class ServiceHeader extends APIBean {
+public class ServiceHeader extends KeyValue {
 
     /**
-     * Name ot the header
-     */
-    private String name;
-
-    /**
-     * Value of the header
-     */
-    private String data;
-
-    /**
-     * Default constructor
+     * Default constructor.
      *
-     * @since ARP 2.0
+     * @since v2.0.6
      */
     public ServiceHeader() {
+        super();
     }
 
     /**
-     * Constructor with fields
+     * Convenience constructor.
      *
-     * @param name Name of the header
-     * @param data Value of the header
-     * @since ARP 2.0
+     * @param keyName Name of the key.
+     * @param keyData Value of the key.
+     * @since v2.0.6
      */
-    public ServiceHeader(String name, String data) {
-        this.name = name;
-        this.data = data;
-    }
-
-    /**
-     * Returns the header name
-     *
-     * @return ServiceHeader name
-     * @since ARP 2.0
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * Set the header name
-     *
-     * @param name Name of the header
-     * @since ARP 2.0
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * Returns the header value
-     *
-     * @return ServiceHeader value
-     * @since ARP 2.0
-     */
-    public String getData() {
-        return data;
-    }
-
-    /**
-     * Set the header value
-     *
-     * @param data ServiceHeader value
-     * @since ARP 2.0
-     */
-    public void setData(String data) {
-        this.data = data;
+    public ServiceHeader(String keyName, String keyData) {
+        super(keyName, keyData);
     }
 }

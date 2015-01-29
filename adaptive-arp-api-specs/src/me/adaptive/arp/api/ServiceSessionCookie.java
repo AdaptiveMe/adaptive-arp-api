@@ -44,55 +44,71 @@ package me.adaptive.arp.api;
  * Structure representing the cookieValue of a http cookie.
  *
  * @author Aryslan
- * @since ARP 2.0
+ * @since v2.0
  */
-public class ServiceCookie extends APIBean {
+public class ServiceSessionCookie extends APIBean {
 
     /**
-     * Name ot the cookie
+     * Name ot the cookie.
+     *
+     * @since v2.0
      */
     private String cookieName;
 
     /**
-     * Value of the ServiceCookie
+     * Value of the ServiceCookie.
+     *
+     * @since v2.0
      */
     private String cookieValue;
 
     /**
      * Domain for which the cookie is valid.
+     *
+     * @since v2.0
      */
     private String domain;
 
     /**
      * URI path for which the cookie is valid.
+     *
+     * @since v2.0
      */
     private String path;
     /**
      * Scheme of the domain - http/https - for which the cookie is valid.
+     *
+     * @since v2.0
      */
     private String scheme;
 
     /**
-     * ServiceCookie is secure (https only)
+     * ServiceCookie is secure (https only).
+     *
+     * @since v2.0
      */
     private boolean secure;
 
     /**
      * ServiceCookie expiry in milliseconds or -1 for session only.
+     *
+     * @since v2.0
      */
     private long expiry;
 
     /**
      * ServiceCookie creation timestamp in milliseconds.
+     *
+     * @since v2.0
      */
     private long creation;
 
     /**
-     * Default constructor
+     * Default constructor.
      *
-     * @since ARP 2.0
+     * @since v2.0
      */
-    public ServiceCookie() {
+    public ServiceSessionCookie() {
     }
 
     /**
@@ -100,9 +116,9 @@ public class ServiceCookie extends APIBean {
      *
      * @param cookieName  Name of the cookie
      * @param cookieValue Value of the cookie
-     * @since ARP 2.0
+     * @since v2.0
      */
-    public ServiceCookie(String cookieName, String cookieValue) {
+    public ServiceSessionCookie(String cookieName, String cookieValue) {
         this.cookieName = cookieName;
         this.cookieValue = cookieValue;
     }
@@ -118,9 +134,9 @@ public class ServiceCookie extends APIBean {
      * @param secure      Privacy of the cookie
      * @param expiry      Expiration date of the cookie
      * @param creation    Creation date of the cookie
-     * @since ARP 2.0
+     * @since v2.0
      */
-    public ServiceCookie(String cookieName, String cookieValue, String domain, String path, String scheme, boolean secure, long expiry, long creation) {
+    public ServiceSessionCookie(String cookieName, String cookieValue, String domain, String path, String scheme, boolean secure, long expiry, long creation) {
         this.cookieName = cookieName;
         this.cookieValue = cookieValue;
         this.domain = domain;
@@ -135,7 +151,7 @@ public class ServiceCookie extends APIBean {
      * Returns the domain
      *
      * @return domain
-     * @since ARP 2.0
+     * @since v2.0
      */
     public String getDomain() {
         return domain;
@@ -145,7 +161,7 @@ public class ServiceCookie extends APIBean {
      * Set the domain
      *
      * @param domain Domain of the cookie
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setDomain(String domain) {
         this.domain = domain;
@@ -155,7 +171,7 @@ public class ServiceCookie extends APIBean {
      * Returns the path
      *
      * @return path
-     * @since ARP 2.0
+     * @since v2.0
      */
     public String getPath() {
         return path;
@@ -165,7 +181,7 @@ public class ServiceCookie extends APIBean {
      * Set the path
      *
      * @param path Path of the cookie
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setPath(String path) {
         this.path = path;
@@ -175,7 +191,7 @@ public class ServiceCookie extends APIBean {
      * Returns the scheme
      *
      * @return scheme
-     * @since ARP 2.0
+     * @since v2.0
      */
     public String getScheme() {
         return scheme;
@@ -185,7 +201,7 @@ public class ServiceCookie extends APIBean {
      * Set the scheme
      *
      * @param scheme Scheme of the cookie
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setScheme(String scheme) {
         this.scheme = scheme;
@@ -195,7 +211,7 @@ public class ServiceCookie extends APIBean {
      * Returns whether the cookie is secure or not
      *
      * @return true if the cookie is secure; false otherwise
-     * @since ARP 2.0
+     * @since v2.0
      */
     public boolean isSecure() {
         return secure;
@@ -205,7 +221,7 @@ public class ServiceCookie extends APIBean {
      * Set whether the cookie is secure or not
      *
      * @param secure Privacy of the cookie
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setSecure(boolean secure) {
         this.secure = secure;
@@ -215,7 +231,7 @@ public class ServiceCookie extends APIBean {
      * Returns the expiration date in milis
      *
      * @return expiry
-     * @since ARP 2.0
+     * @since v2.0
      */
     public long getExpiry() {
         return expiry;
@@ -225,7 +241,7 @@ public class ServiceCookie extends APIBean {
      * Set the expiration date in milis
      *
      * @param expiry Expiration date of the cookie
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setExpiry(long expiry) {
         this.expiry = expiry;
@@ -235,7 +251,7 @@ public class ServiceCookie extends APIBean {
      * Returns the cookie cookieName
      *
      * @return cookieName Name of the cookie
-     * @since ARP 2.0
+     * @since v2.0
      */
     public String getCookieName() {
         return cookieName;
@@ -245,7 +261,7 @@ public class ServiceCookie extends APIBean {
      * Set the cookie cookieName
      *
      * @param cookieName Name of the cookie
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setCookieName(String cookieName) {
         this.cookieName = cookieName;
@@ -255,7 +271,7 @@ public class ServiceCookie extends APIBean {
      * Returns the cookie cookieValue
      *
      * @return Value of the cookie
-     * @since ARP 2.0
+     * @since v2.0
      */
     public String getCookieValue() {
         return cookieValue;
@@ -265,7 +281,7 @@ public class ServiceCookie extends APIBean {
      * Set the cookie cookieValue
      *
      * @param cookieValue Value of the cookie
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setCookieValue(String cookieValue) {
         this.cookieValue = cookieValue;
@@ -275,7 +291,7 @@ public class ServiceCookie extends APIBean {
      * Returns the creation date
      *
      * @return Creation date of the cookie
-     * @since ARP 2.0
+     * @since v2.0
      */
     public long getCreation() {
         return creation;
@@ -285,7 +301,7 @@ public class ServiceCookie extends APIBean {
      * Sets the creation date
      *
      * @param creation Creation date of the cookie
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setCreation(long creation) {
         this.creation = creation;

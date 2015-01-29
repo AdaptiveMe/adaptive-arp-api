@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Interface for Managing the File loading callback responses
  *
  * @author Carlos Lozano Diez
- * @since ARP 2.0
+ * @since v2.0
  */
 public interface IFileDataLoadResultCallback extends IBaseCallback {
 
@@ -52,7 +52,7 @@ public interface IFileDataLoadResultCallback extends IBaseCallback {
      * Result of data retrieval operation.
      *
      * @param data Data loaded.
-     * @since ARP 2.0
+     * @since v2.0
      */
     void onResult(byte[] data);
 
@@ -61,7 +61,7 @@ public interface IFileDataLoadResultCallback extends IBaseCallback {
      *
      * @param data    File being loaded.
      * @param warning Warning condition encountered.
-     * @since ARP 2.0
+     * @since v2.0
      */
     void onWarning(byte[] data, Warning warning);
 
@@ -69,14 +69,14 @@ public interface IFileDataLoadResultCallback extends IBaseCallback {
      * Error processing data retrieval/storage operation.
      *
      * @param error Error condition encountered.
-     * @since ARP 2.0
+     * @since v2.0
      */
     void onError(Error error);
 
     /**
      * Possible Warning values
      *
-     * @since ARP 2.0
+     * @since v2.0
      */
     public enum Warning {
         ExceedMaximumSize, Unknown
@@ -85,7 +85,7 @@ public interface IFileDataLoadResultCallback extends IBaseCallback {
     /**
      * Possible Error values
      *
-     * @since ARP 2.0
+     * @since v2.0
      */
     public enum Error {
         InexistentFile, InsufficientSpace, Unauthorized, Unknown

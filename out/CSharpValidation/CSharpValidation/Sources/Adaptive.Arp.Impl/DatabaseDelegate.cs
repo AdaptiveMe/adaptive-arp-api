@@ -61,7 +61,7 @@ public class DatabaseDelegate extends BaseDataDelegate implements IDatabase {
 
         @param callback Asynchronous callback
         @param database Database object to create
-        @since ARP 2.0
+        @since v2.0
      */
      public void createDatabase(Database database, IDatabaseResultCallback callback) {
           // TODO: Not implemented.
@@ -74,7 +74,7 @@ public class DatabaseDelegate extends BaseDataDelegate implements IDatabase {
         @param database      Database for databaseTable creating.
         @param databaseTable DatabaseTable object with the name of the databaseTable inside.
         @param callback      DatabaseTable callback with the response
-        @since ARP 2.0
+        @since v2.0
      */
      public void createTable(Database database, DatabaseTable databaseTable, IDatabaseTableResultCallback callback) {
           // TODO: Not implemented.
@@ -86,7 +86,7 @@ public class DatabaseDelegate extends BaseDataDelegate implements IDatabase {
 
         @param database Database object to delete
         @param callback Asynchronous callback
-        @since ARP 2.0
+        @since v2.0
      */
      public void deleteDatabase(Database database, IDatabaseResultCallback callback) {
           // TODO: Not implemented.
@@ -99,7 +99,7 @@ public class DatabaseDelegate extends BaseDataDelegate implements IDatabase {
         @param database      Database for databaseTable removal.
         @param databaseTable DatabaseTable object with the name of the databaseTable inside.
         @param callback      DatabaseTable callback with the response
-        @since ARP 2.0
+        @since v2.0
      */
      public void deleteTable(Database database, DatabaseTable databaseTable, IDatabaseTableResultCallback callback) {
           // TODO: Not implemented.
@@ -114,7 +114,7 @@ should be passed as a parameter
         @param statement    SQL statement.
         @param replacements List of SQL statement replacements.
         @param callback     DatabaseTable callback with the response.
-        @since ARP 2.0
+        @since v2.0
      */
      public void executeSqlStatement(Database database, string statement, string[] replacements, IDatabaseTableResultCallback callback) {
           // TODO: Not implemented.
@@ -129,7 +129,7 @@ should be passed as a parameter
         @param rollbackFlag Indicates if rollback should be performed when any
                     statement execution fails.
         @param callback     DatabaseTable callback with the response.
-        @since ARP 2.0
+        @since v2.0
      */
      public void executeSqlTransactions(Database database, string[] statements, bool rollbackFlag, IDatabaseTableResultCallback callback) {
           // TODO: Not implemented.
@@ -141,7 +141,7 @@ should be passed as a parameter
 
         @param database Database Object to check if exists
         @return True if exists, false otherwise
-        @since ARP 2.0
+        @since v2.0
      */
      public bool existsDatabase(Database database) {
           bool response;
@@ -156,7 +156,7 @@ should be passed as a parameter
         @param database      Database for databaseTable consulting.
         @param databaseTable DatabaseTable object with the name of the databaseTable inside.
         @return True if exists, false otherwise
-        @since ARP 2.0
+        @since v2.0
      */
      public bool existsTable(Database database, DatabaseTable databaseTable) {
           bool response;

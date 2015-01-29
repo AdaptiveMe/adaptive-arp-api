@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Interface for Managing the File operations
 
         @author Carlos Lozano Diez
-        @since ARP 2.0
+        @since v2.0
         @version 1.0
      */
      public interface IFile : IBaseData {
@@ -49,7 +49,7 @@ namespace Adaptive.Arp.Api
 
         @param descriptor File descriptor of file or folder used for operation.
         @return True if the folder/file is readable, false otherwise.
-        @since ARP 2.0
+        @since v2.0
      */
      bool canRead(FileDescriptor descriptor);
 
@@ -58,7 +58,7 @@ namespace Adaptive.Arp.Api
 
         @param descriptor File descriptor of file or folder used for operation.
         @return True if the folder/file is writable, false otherwise.
-        @since ARP 2.0
+        @since v2.0
      */
      bool canWrite(FileDescriptor descriptor);
 
@@ -67,7 +67,7 @@ namespace Adaptive.Arp.Api
 
         @param descriptor File descriptor of file or folder used for operation.
         @param callback   Result of the operation.
-        @since ARP 2.0
+        @since v2.0
      */
      void create(FileDescriptor descriptor, IFileResultCallback callback);
 
@@ -78,7 +78,7 @@ deleted if the cascade parameter is set to true.
         @param descriptor File descriptor of file or folder used for operation.
         @param cascade    Whether to delete sub-files and sub-folders.
         @return True if files (and sub-files and folders) whether deleted.
-        @since ARP 2.0
+        @since v2.0
      */
      bool delete(FileDescriptor descriptor, bool cascade);
 
@@ -87,7 +87,7 @@ deleted if the cascade parameter is set to true.
 
         @param descriptor File descriptor of file or folder used for operation.
         @return True if the file exists in the filesystem, false otherwise.
-        @since ARP 2.0
+        @since v2.0
      */
      bool exists(FileDescriptor descriptor);
 
@@ -96,7 +96,7 @@ deleted if the cascade parameter is set to true.
 
         @param descriptor File descriptor of file or folder used for operation.
         @param callback   Result of the operation.
-        @since ARP 2.0
+        @since v2.0
      */
      void getContent(FileDescriptor descriptor, IFileDataLoadResultCallback callback);
 
@@ -105,7 +105,7 @@ deleted if the cascade parameter is set to true.
 
         @param descriptor File descriptor of file or folder used for operation.
         @return Storage Type file
-        @since ARP 2.0
+        @since v2.0
      */
      IFileSystemStorageType getFileStorageType(FileDescriptor descriptor);
 
@@ -114,7 +114,7 @@ deleted if the cascade parameter is set to true.
 
         @param descriptor File descriptor of file or folder used for operation.
         @return Returns the file type of the file
-        @since ARP 2.0
+        @since v2.0
      */
      IFileSystemType getFileType(FileDescriptor descriptor);
 
@@ -123,7 +123,7 @@ deleted if the cascade parameter is set to true.
 
         @param descriptor File descriptor of file or folder used for operation.
         @return Security Level of the file
-        @since ARP 2.0
+        @since v2.0
      */
      IFileSystemSecurity getSecurityType(FileDescriptor descriptor);
 
@@ -132,7 +132,7 @@ deleted if the cascade parameter is set to true.
 
         @param descriptor File descriptor of file or folder used for operation.
         @return true if this is a path to a folder/directory, false if this is a path to a file.
-        @since ARP 2.0
+        @since v2.0
      */
      bool isDirectory(FileDescriptor descriptor);
 
@@ -143,7 +143,7 @@ is a file, it will not yield any results.
         @param descriptor File descriptor of file or folder used for operation.
         @param regex      Filter (eg. *.jpg, *.png, Fil*) name string.
         @param callback   Result of operation.
-        @since ARP 2.0
+        @since v2.0
      */
      void listFilesForRegex(FileDescriptor descriptor, string regex, IFileListResultCallback callback);
 
@@ -153,7 +153,7 @@ any results.
 
         @param descriptor File descriptor of file or folder used for operation.
         @param callback   Result of operation.
-        @since ARP 2.0
+        @since v2.0
      */
      void listFiles(FileDescriptor descriptor, IFileListResultCallback callback);
 
@@ -163,7 +163,7 @@ any results.
         @param descriptor File descriptor of file or folder used for operation.
         @param recursive  Whether to create all parent path elements.
         @return True if the path was created, false otherwise (or it exists already).
-        @since ARP 2.0
+        @since v2.0
      */
      bool mkDir(FileDescriptor descriptor, bool recursive);
 
@@ -176,7 +176,7 @@ new destination file.
         @param createPath  True to create the path if it does not already exist.
         @param callback    Result of the operation.
         @param overwrite   True to create the path if it does not already exist.
-        @since ARP 2.0
+        @since v2.0
      */
      void move(FileDescriptor source, FileDescriptor destination, bool createPath, bool overwrite, IFileResultCallback callback);
 
@@ -186,7 +186,7 @@ new destination file.
         @param descriptor File descriptor of file or folder used for operation.
         @param content    Binary content to store in the file.
         @param callback   Result of the operation.
-        @since ARP 2.0
+        @since v2.0
      */
      void setContent(FileDescriptor descriptor, byte[] content, IFileDataStoreResultCallback callback);
 

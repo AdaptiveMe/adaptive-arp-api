@@ -40,14 +40,14 @@ namespace Adaptive.Arp.Api
         Interface for Managing the Runtime operations
 
         @author Carlos Lozano Diez
-        @since ARP 2.0
+        @since v2.0
         @version 1.0
      */
      public interface IRuntime : IBaseSystem {
      /**
         Dismiss the current Application
 
-        @since ARP 2.0
+        @since v2.0
      */
      void dismissApplication();
 
@@ -55,7 +55,7 @@ namespace Adaptive.Arp.Api
         Whether the application dismiss the splash screen successfully or not
 
         @return true if the application has dismissed the splash screen;false otherwise
-        @since ARP 2.0
+        @since v2.0
      */
      bool dismissSplashScreen();
 

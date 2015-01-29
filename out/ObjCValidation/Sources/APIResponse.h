@@ -38,7 +38,7 @@ Release:
 Structure representing a JSON response to the HTML5 layer.
 
 @author Carlos Lozano Diez
-@since ARP 2.0
+@since v2.0
 @version 1.0
 */
 @interface APIResponse : NSObject
@@ -59,7 +59,7 @@ Structure representing a JSON response to the HTML5 layer.
      /**
         Default constructor
 
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) init;
 
@@ -68,7 +68,7 @@ Structure representing a JSON response to the HTML5 layer.
 
         @param response   String representing the JavaScript value or JSON object representation of the response.
         @param statusCode Status code of the response (200 = OK, others are warning or error conditions).
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) initWithResponseStatusCode:(NSString*)response statusCode:(int*)statusCode;
 

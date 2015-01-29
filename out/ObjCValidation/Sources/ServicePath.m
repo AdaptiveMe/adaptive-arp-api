@@ -37,16 +37,16 @@ Release:
 /**
 
 @author fnva
-@since ARP 2.0
+@since v2.0.4
 @version 1.0
 */
 @implementation ServicePath
 
 
      /**
-        Default Constructor
+        Default Constructor.
 
-        @since ARP 2.0
+        @since v2.0.4
      */
      - (id) init {
           self = [self init];
@@ -54,16 +54,19 @@ Release:
      }
 
      /**
-        Constructor with parameters
+        Constructor with parameters.
 
         @param path    The path for the endpoint
         @param methods The methods for calling a path
+        @param type    Protocol type.
+        @since v2.0.6
      */
-     - (id) initWithPathMethods:(NSString*)path methods:(NSArray*)methods {
+     - (id) initWithPathMethodsType:(NSString*)path methods:(NSArray*)methods type:(IServiceType*)type {
           self = [self init];
           if (self) {
                [self setPath:path];
                [self setMethods:methods];
+               [self setType:type];
           }
           return self;
      }

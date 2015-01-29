@@ -37,16 +37,16 @@ Release:
 /**
 
 @author Ferran Vila Conesa
-@since ARP 2.0
+@since v2.0
 @version 1.0
 */
 @implementation ServiceSession
 
 
      /**
-        Default constructor
+        Default constructor.
 
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) init {
           self = [self init];
@@ -54,11 +54,11 @@ Release:
      }
 
      /**
-        Constructor with fields
+        Constructor with fields.
 
-        @param cookies    The cookies of the response
-        @param attributes Attributes of the response
-        @since ARP 2.0
+        @param cookies    The cookies of the request or response.
+        @param attributes Attributes of the request or response.
+        @since v2.0
      */
      - (id) initWithCookiesAttributes:(NSArray*)cookies attributes:(NSArray*)attributes {
           self = [self init];

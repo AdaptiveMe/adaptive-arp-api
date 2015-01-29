@@ -37,7 +37,7 @@ Release:
 /**
 
 @author Aryslan
-@since ARP 2.0
+@since v2.0
 @version 1.0
 */
 @implementation ServiceEndpoint
@@ -46,7 +46,7 @@ Release:
      /**
         Default Constructor
 
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) init {
           self = [self init];
@@ -56,21 +56,15 @@ Release:
      /**
         Constructor with parameters
 
-        @param host   Remote service host
-        @param paths  Remote service Paths
-        @param port   Remote service Port
-        @param proxy  Proxy url "http://IP_ADDRESS:PORT_NUMBER"
-        @param scheme Remote service scheme
-        @since ARP 2.0
+        @param hostURI Remote service hostURI
+        @param paths   Remote service Paths
+        @since v2.0.6
      */
-     - (id) initWithHostPathsPortProxyScheme:(NSString*)host paths:(NSArray*)paths port:(int*)port proxy:(NSString*)proxy scheme:(NSString*)scheme {
+     - (id) initWithHostURIPaths:(NSString*)hostURI paths:(NSArray*)paths {
           self = [self init];
           if (self) {
-               [self setHost:host];
+               [self setHostURI:hostURI];
                [self setPaths:paths];
-               [self setPort:port];
-               [self setProxy:proxy];
-               [self setScheme:scheme];
           }
           return self;
      }

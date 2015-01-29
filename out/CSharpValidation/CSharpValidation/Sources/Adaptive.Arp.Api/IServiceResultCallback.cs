@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Interface for Managing the Services operations
 
         @author Francisco Javier Martin Bueno
-        @since ARP 2.0
+        @since v2.0
         @version 1.0
      */
      public interface IServiceResultCallback : IBaseCallback {
@@ -48,7 +48,7 @@ namespace Adaptive.Arp.Api
         This method is called on Error
 
         @param error returned by the platform
-        @since ARP 2.0
+        @since v2.0
      */
      void onError(IServiceResultCallbackError error);
 
@@ -56,7 +56,7 @@ namespace Adaptive.Arp.Api
         This method is called on Result
 
         @param response data
-        @since ARP 2.0
+        @since v2.0
      */
      void onResult(ServiceResponse response);
 
@@ -65,7 +65,7 @@ namespace Adaptive.Arp.Api
 
         @param response data
         @param warning  returned by the platform
-        @since ARP 2.0
+        @since v2.0
      */
      void onWarning(ServiceResponse response, IServiceResultCallbackWarning warning);
 

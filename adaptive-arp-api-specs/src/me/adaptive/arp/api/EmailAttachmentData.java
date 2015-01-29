@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Structure representing the binary attachment data.
  *
  * @author Francisco Javier Martin Bueno
- * @since ARP 2.0
+ * @since v2.0
  */
 public class EmailAttachmentData extends APIBean {
 
@@ -76,7 +76,7 @@ public class EmailAttachmentData extends APIBean {
     /**
      * Default Constructor
      *
-     * @since ARP 2.0
+     * @since v2.0
      */
     public EmailAttachmentData() {
     }
@@ -89,7 +89,7 @@ public class EmailAttachmentData extends APIBean {
      * @param fileName     name of the file attachment
      * @param mimeType     mime type of the file attachment
      * @param referenceUrl relative url of the file attachment
-     * @since ARP 2.0
+     * @since v2.0
      */
     public EmailAttachmentData(byte[] data, long size, String fileName, String mimeType, String referenceUrl) {
         this.data = data;
@@ -103,7 +103,7 @@ public class EmailAttachmentData extends APIBean {
      * Returns the raw data in byte[]
      *
      * @return data Octet-binary content of the attachment payload.
-     * @since ARP 2.0
+     * @since v2.0
      */
     public byte[] getData() {
         return data;
@@ -113,7 +113,7 @@ public class EmailAttachmentData extends APIBean {
      * Set the data of the attachment as a byte[]
      *
      * @param data Sets the octet-binary content of the attachment.
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setData(byte[] data) {
         this.data = data;
@@ -123,7 +123,7 @@ public class EmailAttachmentData extends APIBean {
      * Returns the size of the attachment as a long
      *
      * @return size Length in bytes of the octet-binary content.
-     * @since ARP 2.0
+     * @since v2.0
      */
     public long getSize() {
         return size;
@@ -133,7 +133,7 @@ public class EmailAttachmentData extends APIBean {
      * Set the size of the attachment as a long
      *
      * @param size Length in bytes of the octet-binary content ( should be same as data array length.)
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setSize(long size) {
         this.size = size;
@@ -143,7 +143,7 @@ public class EmailAttachmentData extends APIBean {
      * Returns the filename of the attachment
      *
      * @return fileName Name of the attachment.
-     * @since ARP 2.0
+     * @since v2.0
      */
     public String getFileName() {
         return fileName;
@@ -153,7 +153,7 @@ public class EmailAttachmentData extends APIBean {
      * Set the name of the file attachment
      *
      * @param fileName Name of the attachment.
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setFileName(String fileName) {
         this.fileName = fileName;
@@ -163,7 +163,7 @@ public class EmailAttachmentData extends APIBean {
      * Returns the mime type of the attachment
      *
      * @return mimeType
-     * @since ARP 2.0
+     * @since v2.0
      */
     public String getMimeType() {
         return mimeType;
@@ -173,7 +173,7 @@ public class EmailAttachmentData extends APIBean {
      * Set the mime type of the attachment
      *
      * @param mimeType Mime-type of the attachment.
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setMimeType(String mimeType) {
         this.mimeType = mimeType;
@@ -183,7 +183,7 @@ public class EmailAttachmentData extends APIBean {
      * Returns the absolute url of the file attachment
      *
      * @return referenceUrl Absolute URL of the file attachment for either file:// or http:// access.
-     * @since ARP 2.0
+     * @since v2.0
      */
     public String getReferenceUrl() {
         return referenceUrl;
@@ -193,7 +193,7 @@ public class EmailAttachmentData extends APIBean {
      * Set the absolute url of the attachment
      *
      * @param referenceUrl Absolute URL of the file attachment for either file:// or http:// access.
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setReferenceUrl(String referenceUrl) {
         this.referenceUrl = referenceUrl;

@@ -34,41 +34,42 @@ Release:
 
 #import <APIBean.h>
 #import <Foundation/Foundation.h>
-#import <ServiceCookie.h>
+#import <ServiceSessionAttribute.h>
+#import <ServiceSessionCookie.h>
 
 /**
 Represents a session object for HTTP request and responses
 
 @author Ferran Vila Conesa
-@since ARP 2.0
+@since v2.0
 @version 1.0
 */
 @interface ServiceSession : APIBean
 
      /**
-        The attributes of the response
-        Array objects must be of String type.
+        The attributes of the request or response.
+        Array objects must be of ServiceSessionAttribute type.
      */
      @property NSArray *attributes;
      /**
-        The cookies of the response
-        Array objects must be of ServiceCookie type.
+        The cookies of the request or response.
+        Array objects must be of ServiceSessionCookie type.
      */
      @property NSArray *cookies;
 
      /**
-        Default constructor
+        Default constructor.
 
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) init;
 
      /**
-        Constructor with fields
+        Constructor with fields.
 
-        @param cookies    The cookies of the response
-        @param attributes Attributes of the response
-        @since ARP 2.0
+        @param cookies    The cookies of the request or response.
+        @param attributes Attributes of the request or response.
+        @since v2.0
      */
      - (id) initWithCookiesAttributes:(NSArray*)cookies attributes:(NSArray*)attributes;
 

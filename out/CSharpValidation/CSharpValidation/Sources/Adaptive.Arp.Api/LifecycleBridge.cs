@@ -76,7 +76,7 @@ public class LifecycleBridge extends BaseApplicationBridge implements ILifecycle
         Add the listener for the lifecycle of the app
 
         @param listener Lifecycle listener
-        @since ARP 2.0
+        @since v2.0
      */
      public void addLifecycleListener(ILifecycleListener listener) {
           // Start logging elapsed time.
@@ -98,7 +98,7 @@ public class LifecycleBridge extends BaseApplicationBridge implements ILifecycle
         Whether the application is in background or not
 
         @return true if the application is in background;false otherwise
-        @since ARP 2.0
+        @since v2.0
      */
      public bool isBackground() {
           // Start logging elapsed time.
@@ -121,7 +121,7 @@ public class LifecycleBridge extends BaseApplicationBridge implements ILifecycle
         Un-registers an existing listener from receiving lifecycle events.
 
         @param listener Lifecycle listener
-        @since ARP 2.0
+        @since v2.0
      */
      public void removeLifecycleListener(ILifecycleListener listener) {
           // Start logging elapsed time.
@@ -142,7 +142,7 @@ public class LifecycleBridge extends BaseApplicationBridge implements ILifecycle
      /**
         Removes all existing listeners from receiving lifecycle events.
 
-        @since ARP 2.0
+        @since v2.0
      */
      public void removeLifecycleListeners() {
           // Start logging elapsed time.

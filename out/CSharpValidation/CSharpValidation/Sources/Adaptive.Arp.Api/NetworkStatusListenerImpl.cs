@@ -55,7 +55,7 @@ public class NetworkStatusListenerImpl extends BaseListenerImpl implements INetw
         No data received - error condition, not authorized or hardware not available.
 
         @param error Type of error encountered during reading.
-        @since ARP 2.0
+        @since v2.0
      */
      public void onError(INetworkStatusListenerError error) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
@@ -65,7 +65,7 @@ public class NetworkStatusListenerImpl extends BaseListenerImpl implements INetw
         Called when network connection changes somehow.
 
         @param network Change to this network.
-        @since ARP 2.0
+        @since v2.0
      */
      public void onResult(ICapabilitiesNet network) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(network) +") )");
@@ -76,7 +76,7 @@ public class NetworkStatusListenerImpl extends BaseListenerImpl implements INetw
 
         @param network Change to this network.
         @param warning Type of warning encountered during reading.
-        @since ARP 2.0
+        @since v2.0
      */
      public void onWarning(ICapabilitiesNet network, INetworkStatusListenerWarning warning) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(network) +"), JSON.parse(" + this.gson.toJson(warning) +") )");

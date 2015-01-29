@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Interface for Managing the Contact operations
  *
  * @author Francisco Javier Martin Bueno
- * @since ARP 2.0
+ * @since v2.0
  */
 public interface IContact extends IBasePIM {
 
@@ -53,7 +53,7 @@ public interface IContact extends IBasePIM {
      *
      * @param term     string to search
      * @param callback called for return
-     * @since ARP 2.0
+     * @since v2.0
      */
     void searchContacts(String term, IContactResultCallback callback);
 
@@ -63,7 +63,7 @@ public interface IContact extends IBasePIM {
      * @param term     string to search
      * @param callback called for return
      * @param filter   to search for
-     * @since ARP 2.0
+     * @since v2.0
      */
     void searchContactsWithFilter(String term, IContactResultCallback callback, Filter... filter);
 
@@ -72,7 +72,7 @@ public interface IContact extends IBasePIM {
      *
      * @param contact  id to search for
      * @param callback called for return
-     * @since ARP 2.0
+     * @since v2.0
      */
     void getContact(ContactUid contact, IContactResultCallback callback);
 
@@ -81,7 +81,7 @@ public interface IContact extends IBasePIM {
      *
      * @param contact  id to search for
      * @param callback called for return
-     * @since ARP 2.0
+     * @since v2.0
      */
     void getContactPhoto(ContactUid contact, IContactPhotoResultCallback callback);
 
@@ -91,7 +91,7 @@ public interface IContact extends IBasePIM {
      * @param contact  id to assign the photo
      * @param pngImage photo as byte array
      * @return true if set is successful;false otherwise
-     * @since ARP 2.0
+     * @since v2.0
      */
     boolean setContactPhoto(ContactUid contact, byte[] pngImage);
 
@@ -99,7 +99,7 @@ public interface IContact extends IBasePIM {
      * Get all contacts
      *
      * @param callback called for return
-     * @since ARP 2.0
+     * @since v2.0
      */
     void getContacts(IContactResultCallback callback);
 
@@ -108,7 +108,7 @@ public interface IContact extends IBasePIM {
      *
      * @param callback called for return
      * @param fields   to get for each Contact
-     * @since ARP 2.0
+     * @since v2.0
      */
     void getContactsForFields(IContactResultCallback callback, FieldGroup... fields);
 
@@ -118,14 +118,14 @@ public interface IContact extends IBasePIM {
      * @param callback called for return
      * @param fields   to get for each Contact
      * @param filter   to search for
-     * @since ARP 2.0
+     * @since v2.0
      */
     void getContactsWithFilter(IContactResultCallback callback, FieldGroup[] fields, Filter... filter);
 
     /**
      * Filter that can be used
      *
-     * @since ARP 2.0
+     * @since v2.0
      */
     public enum Filter {
         HAS_PHONE, HAS_EMAIL, HAS_ADDRESS, Unknown
@@ -134,7 +134,7 @@ public interface IContact extends IBasePIM {
     /**
      * Group that can be retrieved
      *
-     * @since ARP 2.0
+     * @since v2.0
      */
     public enum FieldGroup {
         PERSONAL_INFO, PROFESSIONAL_INFO, ADDRESSES, PHONES, EMAILS, WEBSITES, SOCIALS, TAGS, Unknown

@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Structure representing the data a single geolocation reading.
  *
  * @author Francisco Javier Martin Bueno
- * @since ARP 2.0
+ * @since v2.0
  */
 public class Geolocation extends APIBean {
 
@@ -82,7 +82,7 @@ public class Geolocation extends APIBean {
     /**
      * Default constructor
      *
-     * @since ARP 2.0
+     * @since v2.0
      */
     public Geolocation() {
     }
@@ -93,7 +93,7 @@ public class Geolocation extends APIBean {
      * @param latitude  Latitude of the measurement
      * @param longitude Longitude of the measurement
      * @param timestamp Timestamp of the measurement
-     * @since ARP 2.0
+     * @since v2.0
      */
     public Geolocation(double latitude, double longitude, long timestamp) {
         this.latitude = latitude;
@@ -110,7 +110,7 @@ public class Geolocation extends APIBean {
      * @param xDoP      Dilution of precision on the X measurement
      * @param yDoP      Dilution of precision on the Y measurement
      * @param timestamp Timestamp of the measurement
-     * @since ARP 2.0
+     * @since v2.0
      */
     public Geolocation(double latitude, double longitude, double altitude, float xDoP, float yDoP, long timestamp) {
         this.latitude = latitude;
@@ -125,7 +125,7 @@ public class Geolocation extends APIBean {
      * Returns the latitude in degrees
      *
      * @return Latitude of the measurement
-     * @since ARP 2.0
+     * @since v2.0
      */
     public double getLatitude() {
         return latitude;
@@ -135,7 +135,7 @@ public class Geolocation extends APIBean {
      * Set the latitude in degrees
      *
      * @param latitude Latitude of the measurement
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setLatitude(double latitude) {
         this.latitude = latitude;
@@ -145,7 +145,7 @@ public class Geolocation extends APIBean {
      * Returns the longitude in degrees
      *
      * @return Longitude of the measurement
-     * @since ARP 2.0
+     * @since v2.0
      */
     public double getLongitude() {
         return longitude;
@@ -155,7 +155,7 @@ public class Geolocation extends APIBean {
      * Returns the latitude in degrees
      *
      * @param longitude Longitude of the measurement
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setLongitude(double longitude) {
         this.longitude = longitude;
@@ -165,7 +165,7 @@ public class Geolocation extends APIBean {
      * Returns altitude in meters
      *
      * @return Altitude of the measurement
-     * @since ARP 2.0
+     * @since v2.0
      */
     public double getAltitude() {
         return altitude;
@@ -175,7 +175,7 @@ public class Geolocation extends APIBean {
      * Set altitude in meters
      *
      * @param altitude Altitude of the measurement
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setAltitude(double altitude) {
         this.altitude = altitude;
@@ -185,7 +185,7 @@ public class Geolocation extends APIBean {
      * Getter for Dilution of precision on the X measurement
      *
      * @return Dilution of precision on the X measurement
-     * @since ARP 2.0
+     * @since v2.0
      */
     public float getxDoP() {
         return xDoP;
@@ -195,7 +195,7 @@ public class Geolocation extends APIBean {
      * Setter for Dilution of precision on the X measurement
      *
      * @param xDoP Dilution of precision on the X measurement
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setxDoP(float xDoP) {
         this.xDoP = xDoP;
@@ -205,7 +205,7 @@ public class Geolocation extends APIBean {
      * Getter for Dilution of precision on the Y measurement
      *
      * @return Dilution of precision on the Y measurement
-     * @since ARP 2.0
+     * @since v2.0
      */
     public float getyDoP() {
         return yDoP;
@@ -215,7 +215,7 @@ public class Geolocation extends APIBean {
      * Setter for Dilution of precision on the Y measurement
      *
      * @param yDoP Dilution of precision on the Y measurement
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setyDoP(float yDoP) {
         this.yDoP = yDoP;
@@ -225,7 +225,7 @@ public class Geolocation extends APIBean {
      * Timestamp Getter
      *
      * @return Timestamp
-     * @since ARP 2.0
+     * @since v2.0
      */
     public long getTimestamp() {
         return timestamp;
@@ -235,7 +235,7 @@ public class Geolocation extends APIBean {
      * Timestamp Setter
      *
      * @param timestamp Timestamp
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setTimestamp(long timestamp) {
         this.timestamp = timestamp;

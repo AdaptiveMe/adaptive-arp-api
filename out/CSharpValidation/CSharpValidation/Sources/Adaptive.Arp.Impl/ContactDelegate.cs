@@ -61,7 +61,7 @@ public class ContactDelegate extends BasePIMDelegate implements IContact {
 
         @param contact  id to search for
         @param callback called for return
-        @since ARP 2.0
+        @since v2.0
      */
      public void getContact(ContactUid contact, IContactResultCallback callback) {
           // TODO: Not implemented.
@@ -73,7 +73,7 @@ public class ContactDelegate extends BasePIMDelegate implements IContact {
 
         @param contact  id to search for
         @param callback called for return
-        @since ARP 2.0
+        @since v2.0
      */
      public void getContactPhoto(ContactUid contact, IContactPhotoResultCallback callback) {
           // TODO: Not implemented.
@@ -84,7 +84,7 @@ public class ContactDelegate extends BasePIMDelegate implements IContact {
         Get all contacts
 
         @param callback called for return
-        @since ARP 2.0
+        @since v2.0
      */
      public void getContacts(IContactResultCallback callback) {
           // TODO: Not implemented.
@@ -96,7 +96,7 @@ public class ContactDelegate extends BasePIMDelegate implements IContact {
 
         @param callback called for return
         @param fields   to get for each Contact
-        @since ARP 2.0
+        @since v2.0
      */
      public void getContactsForFields(IContactResultCallback callback, IContactFieldGroup[] fields) {
           // TODO: Not implemented.
@@ -109,7 +109,7 @@ public class ContactDelegate extends BasePIMDelegate implements IContact {
         @param callback called for return
         @param fields   to get for each Contact
         @param filter   to search for
-        @since ARP 2.0
+        @since v2.0
      */
      public void getContactsWithFilter(IContactResultCallback callback, IContactFieldGroup[] fields, IContactFilter[] filter) {
           // TODO: Not implemented.
@@ -121,7 +121,7 @@ public class ContactDelegate extends BasePIMDelegate implements IContact {
 
         @param term     string to search
         @param callback called for return
-        @since ARP 2.0
+        @since v2.0
      */
      public void searchContacts(string term, IContactResultCallback callback) {
           // TODO: Not implemented.
@@ -134,7 +134,7 @@ public class ContactDelegate extends BasePIMDelegate implements IContact {
         @param term     string to search
         @param callback called for return
         @param filter   to search for
-        @since ARP 2.0
+        @since v2.0
      */
      public void searchContactsWithFilter(string term, IContactResultCallback callback, IContactFilter[] filter) {
           // TODO: Not implemented.
@@ -147,7 +147,7 @@ public class ContactDelegate extends BasePIMDelegate implements IContact {
         @param contact  id to assign the photo
         @param pngImage photo as byte array
         @return true if set is successful;false otherwise
-        @since ARP 2.0
+        @since v2.0
      */
      public bool setContactPhoto(ContactUid contact, byte[] pngImage) {
           bool response;

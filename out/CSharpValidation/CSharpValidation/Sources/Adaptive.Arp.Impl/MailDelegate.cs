@@ -61,7 +61,7 @@ public class MailDelegate extends BasePIMDelegate implements IMail {
 
         @param data     Payload of the email
         @param callback Result callback of the operation
-        @since ARP 2.0
+        @since v2.0
      */
      public void sendEmail(Email data, IMessagingCallback callback) {
           // TODO: Not implemented.

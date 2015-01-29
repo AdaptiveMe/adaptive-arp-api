@@ -61,7 +61,7 @@ public class LoggingDelegate extends BaseUtilDelegate implements ILogging {
 
         @param level   Log level
         @param message Message to be logged
-        @since ARP 2.0
+        @since v2.0
      */
      public void log(ILoggingLogLevel level, string message) {
           // TODO: Not implemented.
@@ -74,7 +74,7 @@ public class LoggingDelegate extends BaseUtilDelegate implements ILogging {
         @param level    Log level
         @param category Category/tag name to identify/filter the log.
         @param message  Message to be logged
-        @since ARP 2.0
+        @since v2.0
      */
      public void log(ILoggingLogLevel level, string category, string message) {
           // TODO: Not implemented.

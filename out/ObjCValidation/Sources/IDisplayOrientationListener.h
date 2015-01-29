@@ -39,7 +39,7 @@ Release:
 Interface for handling display orientation change events.
 
 @author Carlos Lozano Diez
-@since ARP 2.0.5
+@since v2.0.5
 @version 1.0
 */
 @protocol IDisplayOrientationListener <IBaseListener>

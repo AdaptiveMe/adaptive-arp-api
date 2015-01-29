@@ -35,89 +35,86 @@ Release:
 #import <APIBean.h>
 #import <Foundation/Foundation.h>
 #import <ServiceHeader.h>
+#import <ServiceRequestParameter.h>
 #import <ServiceSession.h>
+#import <ServiceToken.h>
 
 /**
 Represents a local or remote service request.
 
 @author Aryslan
-@since ARP 2.0
+@since v2.0
 @version 1.0
 */
 @interface ServiceRequest : APIBean
 
      /**
-        The HTTP procotol version to be used for this request.
+        Body parameters to be included in the body of the request to a service. These may be applied
+during GET/POST operations. No body parameters are included if this array is null or length zero.
+        Array objects must be of ServiceRequestParameter type.
      */
-     typedef NS_OPTIONS(NSUInteger, IServiceProtocolVersion) {
-          IServiceProtocolVersion_HttpProtocolVersion10 = 0,
-          IServiceProtocolVersion_HttpProtocolVersion11 = 1,
-          IServiceProtocolVersion_Unknown = 2
-     };
-
-     @property IServiceProtocolVersion *protocolVersion;
+     @property NSArray *bodyParameters;
      /**
-        Request/Response data content (plain text).
+        Request data content (plain text). This should be populated by the application. The content should be
+in some well-known web format - in specific, binaries submitted should be encoded to base64 and the content
+type should be set respectively by the application.
      */
      @property NSString *content;
      /**
-        The byte[] representing the Content field.
-        Array objects must be of byte type.
-     */
-     @property NSArray *contentBinary;
-     /**
-        The length in bytes for the binary Content.
-     */
-     @property int *contentBinaryLength;
-     /**
-        Encoding of the binary payload - by default assumed to be UTF8.
+        Encoding of the content - by default assumed to be UTF8. This may be populated by the application, the platform
+populates this field with defaults for the service.
      */
      @property NSString *contentEncoding;
      /**
-        The length in bytes for the Content field.
+        The length in bytes of the content. This may be populated by the application, the platform
+calculates this length automatically if a specific contentLength is not specified.
      */
      @property int *contentLength;
      /**
-        The request/response content type (MIME TYPE).
+        The request content type (MIME TYPE). This may be populated by the application, the platform
+populates this field with defaults for the service.
      */
      @property NSString *contentType;
      /**
-        The request method
+        Query string parameters to be appended to the service URL when making the request. These may be applied
+during GET/POST operations. No query parameters are appended if this array is null or length zero.
+        Array objects must be of ServiceRequestParameter type.
      */
-     @property NSString *method;
+     @property NSArray *queryParameters;
      /**
-        The serviceHeaders array (name,value pairs) to be included on the I/O service request.
+        The serviceHeaders array (name,value pairs) to be included in the request. This may be populated by the
+application, the platform populates this field with defaults for the service and the previous headers.
+In specific, the platform maintains request and response state automatically.
         Array objects must be of ServiceHeader type.
      */
      @property NSArray *serviceHeaders;
      /**
-        Information about the session
+        Session attributes and cookies. This may be populated by the application, the platform populates
+this field with defaults for the service and the previous state information. In specific, the platform
+maintains request and response state automatically.
      */
      @property ServiceSession *serviceSession;
+     /**
+        Token used for the creation of the request with the destination service, endpoint, function and method
+identifiers. This should not be manipulated by the application directly.
+     */
+     @property ServiceToken *serviceToken;
 
      /**
-        Default constructor
+        Default constructor.
 
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) init;
 
      /**
-        Contructor used by the implementation
+        Convenience constructor.
 
-        @param content             Request/Response data content (plain text)
-        @param contentType         The request/response content type (MIME TYPE).
-        @param contentEncoding     Encoding of the binary payload - by default assumed to be UTF8.
-        @param contentLength       The length in bytes for the Content field.
-        @param contentBinary       The byte[] representing the Content field.
-        @param contentBinaryLength The length in bytes for the binary Content.
-        @param serviceHeaders      The serviceHeaders array (name,value pairs) to be included on the I/O service request.
-        @param method              The request method
-        @param protocolVersion     The HTTP procotol version to be used for this request.
-        @param serviceSession      The element service session
-        @since ARP 2.0
+        @param content      Content payload.
+        @param serviceToken ServiceToken for the request.
+        @since v2.0.6
      */
-     - (id) initWithContentContentTypeContentEncodingContentLengthContentBinaryContentBinaryLengthServiceHeadersMethodProtocolVersionServiceSession:(NSString*)content contentType:(NSString*)contentType contentEncoding:(NSString*)contentEncoding contentLength:(int*)contentLength contentBinary:(NSArray*)contentBinary contentBinaryLength:(int*)contentBinaryLength serviceHeaders:(NSArray*)serviceHeaders method:(NSString*)method protocolVersion:(IServiceProtocolVersion*)protocolVersion serviceSession:(ServiceSession*)serviceSession;
+     - (id) initWithContentServiceToken:(NSString*)content serviceToken:(ServiceToken*)serviceToken;
 
 
 @end

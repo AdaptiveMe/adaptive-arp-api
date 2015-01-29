@@ -32,42 +32,34 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-#import <APIBean.h>
 #import <Foundation/Foundation.h>
+#import <KeyValue.h>
 
 /**
 Structure representing the data of a http request or response header.
 
 @author Aryslan
-@since ARP 2.0
+@since v2.0
 @version 1.0
 */
-@interface ServiceHeader : APIBean
+@interface ServiceHeader : KeyValue
+
 
      /**
-        Value of the header
-     */
-     @property NSString *data;
-     /**
-        Name ot the header
-     */
-     @property NSString *name;
+        Default constructor.
 
-     /**
-        Default constructor
-
-        @since ARP 2.0
+        @since v2.0.6
      */
      - (id) init;
 
      /**
-        Constructor with fields
+        Convenience constructor.
 
-        @param name Name of the header
-        @param data Value of the header
-        @since ARP 2.0
+        @param keyName Name of the key.
+        @param keyData Value of the key.
+        @since v2.0.6
      */
-     - (id) initWithNameData:(NSString*)name data:(NSString*)data;
+     - (id) initWithKeyNameKeyData:(NSString*)keyName keyData:(NSString*)keyData;
 
 
 @end

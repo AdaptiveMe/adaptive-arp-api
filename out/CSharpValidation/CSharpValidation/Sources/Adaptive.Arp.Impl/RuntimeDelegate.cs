@@ -59,7 +59,7 @@ public class RuntimeDelegate extends BaseSystemDelegate implements IRuntime {
      /**
         Dismiss the current Application
 
-        @since ARP 2.0
+        @since v2.0
      */
      public void dismissApplication() {
           // TODO: Not implemented.
@@ -70,7 +70,7 @@ public class RuntimeDelegate extends BaseSystemDelegate implements IRuntime {
         Whether the application dismiss the splash screen successfully or not
 
         @return true if the application has dismissed the splash screen;false otherwise
-        @since ARP 2.0
+        @since v2.0
      */
      public bool dismissSplashScreen() {
           bool response;

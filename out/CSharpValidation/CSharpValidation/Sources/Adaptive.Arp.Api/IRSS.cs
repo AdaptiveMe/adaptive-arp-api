@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Interface for Managing the RSS operations
 
         @author Carlos Lozano Diez
-        @since ARP 2.0
+        @since v2.0
         @version 1.0
      */
      public interface IRSS : IBaseSocial {

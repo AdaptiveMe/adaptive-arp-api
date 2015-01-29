@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Interface for Managing the button  operations
  *
  * @author Carlos Lozano Diez
- * @since ARP 2.0
+ * @since v2.0
  */
 public interface IButtonListener extends IBaseListener {
 
@@ -52,7 +52,7 @@ public interface IButtonListener extends IBaseListener {
      * Called on button pressed
      *
      * @param button pressed
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void onResult(Button button);
 
@@ -61,7 +61,7 @@ public interface IButtonListener extends IBaseListener {
      *
      * @param button  pressed
      * @param warning happened
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void onWarning(Button button, Warning warning);
 
@@ -69,14 +69,14 @@ public interface IButtonListener extends IBaseListener {
      * No data received
      *
      * @param error occurred
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void onError(Error error);
 
     /**
      * Error possibilities
      *
-     * @since ARP 2.0
+     * @since v2.0
      */
     public enum Error {
         Not_Present, Unknown
@@ -85,7 +85,7 @@ public interface IButtonListener extends IBaseListener {
     /**
      * Warn possibilities
      *
-     * @since ARP 2.0
+     * @since v2.0
      */
     public enum Warning {
         Not_Implemented, Unknown

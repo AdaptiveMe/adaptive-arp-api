@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Structure representing the email data elements of a contact.
  *
  * @author Francisco Javier Martin Bueno
- * @since ARP 2.0
+ * @since v2.0
  */
 public class ContactEmail extends APIBean {
 
@@ -66,7 +66,7 @@ public class ContactEmail extends APIBean {
     /**
      * Default constructor
      *
-     * @since ARP 2.0
+     * @since v2.0
      */
     public ContactEmail() {
     }
@@ -77,7 +77,7 @@ public class ContactEmail extends APIBean {
      * @param type    Type of the email
      * @param primary Is email primary
      * @param email   Email of the contact
-     * @since ARP 2.0
+     * @since v2.0
      */
     public ContactEmail(EmailType type, boolean primary, String email) {
         this.type = type;
@@ -89,7 +89,7 @@ public class ContactEmail extends APIBean {
      * Returns the type of the email
      *
      * @return EmailType
-     * @since ARP 2.0
+     * @since v2.0
      */
     public EmailType getType() {
         return type;
@@ -99,7 +99,7 @@ public class ContactEmail extends APIBean {
      * Set the type of the email
      *
      * @param type Type of the email
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setType(EmailType type) {
         this.type = type;
@@ -109,7 +109,7 @@ public class ContactEmail extends APIBean {
      * Returns if the email is primary
      *
      * @return true if the email is primary; false otherwise
-     * @since ARP 2.0
+     * @since v2.0
      */
     public boolean isPrimary() {
         return primary;
@@ -119,7 +119,7 @@ public class ContactEmail extends APIBean {
      * Set if the email
      *
      * @param primary true if the email is primary; false otherwise
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setPrimary(boolean primary) {
         this.primary = primary;
@@ -129,7 +129,7 @@ public class ContactEmail extends APIBean {
      * Returns the email of the Contact
      *
      * @return email
-     * @since ARP 2.0
+     * @since v2.0
      */
     public String getEmail() {
         return email;
@@ -139,7 +139,7 @@ public class ContactEmail extends APIBean {
      * Set the email of the Contact
      *
      * @param email Email of the contact
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setEmail(String email) {
         this.email = email;
@@ -148,7 +148,7 @@ public class ContactEmail extends APIBean {
     /**
      * Types that can be used
      *
-     * @since ARP 2.0
+     * @since v2.0
      */
     public enum EmailType {
         Personal, Work, Other, Unknown

@@ -73,46 +73,99 @@ public class ServiceBridge extends BaseCommunicationBridge implements IService, 
      }
 
      /**
-        Get a reference to a registered service by name.
+        Create a service request for the given ServiceToken. This method creates the request, populating
+existing headers and cookies for the same service. The request is populated with all the defaults
+for the service being invoked and requires only the request body to be set. Headers and cookies may be
+manipulated as needed by the application before submitting the ServiceRequest via invokeService.
 
-        @param serviceName Name of service.
-        @return A service, if registered, or null of the service does not exist.
-        @since ARP 2.0
+        @param serviceToken ServiceToken to be used for the creation of the request.
+        @return ServiceRequest with pre-populated headers, cookies and defaults for the service.
+        @since v2.0.6
      */
-     public Service getService(string serviceName) {
+     public ServiceRequest getServiceRequest(ServiceToken serviceToken) {
           // Start logging elapsed time.
           long tIn = System.currentTimeMillis();
           ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getService({"+serviceName+"}).");
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getServiceRequest({"+serviceToken+"}).");
 
-          Service result = null;
+          ServiceRequest result = null;
           if (this.delegate != null) {
-               result = this.delegate.getService(serviceName);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getService' in "+(System.currentTimeMillis()-tIn)+"ms.");
+               result = this.delegate.getServiceRequest(serviceToken);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getServiceRequest' in "+(System.currentTimeMillis()-tIn)+"ms.");
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getService'.");
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getServiceRequest'.");
           }
           return result;          
      }
 
      /**
-        Request async a service for an Url
+        Obtains a ServiceToken for the given parameters to be used for the creation of requests.
 
-        @param serviceRequest Service Request to invoke
-        @param service        Service to call
-        @param callback       Callback to execute with the result
-        @since ARP 2.0
+        @param serviceName  Service name.
+        @param endpointName Endpoint name.
+        @param functionName Function name.
+        @param method       Method type.
+        @return ServiceToken to create a service request or null if the given parameter combination is not
+configured in the platform's XML service definition file.
+        @since v2.0.6
      */
-     public void invokeService(ServiceRequest serviceRequest, Service service, IServiceResultCallback callback) {
+     public ServiceToken getServiceToken(string serviceName, string endpointName, string functionName, IServiceMethod method) {
           // Start logging elapsed time.
           long tIn = System.currentTimeMillis();
           ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing invokeService({"+serviceRequest+"},{"+service+"},{"+callback+"}).");
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getServiceToken({"+serviceName+"},{"+endpointName+"},{"+functionName+"},{"+method+"}).");
+
+          ServiceToken result = null;
+          if (this.delegate != null) {
+               result = this.delegate.getServiceToken(serviceName, endpointName, functionName, method);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getServiceToken' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getServiceToken'.");
+          }
+          return result;          
+     }
+
+     /**
+        Returns all the possible service tokens configured in the platform's XML service definition file.
+
+        @return Array of service tokens configured.
+        @since v2.0.6
+     */
+     public ServiceToken[] getServicesRegistered() {
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getServicesRegistered.");
+
+          ServiceToken[] result = null;
+          if (this.delegate != null) {
+               result = this.delegate.getServicesRegistered();
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getServicesRegistered' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getServicesRegistered'.");
+          }
+          return result;          
+     }
+
+     /**
+        Executes the given ServiceRequest and provides responses to the given callback handler.
+
+        @param serviceRequest ServiceRequest with the request body.
+        @param callback       IServiceResultCallback to handle the ServiceResponse.
+        @since v2.0.6
+     */
+     public void invokeService(ServiceRequest serviceRequest, IServiceResultCallback callback) {
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing invokeService({"+serviceRequest+"},{"+callback+"}).");
 
           if (this.delegate != null) {
-               this.delegate.invokeService(serviceRequest, service, callback);
+               this.delegate.invokeService(serviceRequest, callback);
                if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'invokeService' in "+(System.currentTimeMillis()-tIn)+"ms.");
           } else {
                if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'invokeService'.");
@@ -121,116 +174,31 @@ public class ServiceBridge extends BaseCommunicationBridge implements IService, 
      }
 
      /**
-        Check whether a service by the given service is already registered.
+        Checks whether a specific service, endpoint, function and method type is configured in the platform's
+XML service definition file.
 
-        @param service Service to check
-        @return True if the service is registered, false otherwise.
-        @since ARP 2.0
+        @param serviceName  Service name.
+        @param endpointName Endpoint name.
+        @param functionName Function name.
+        @param method       Method type.
+        @return Returns true if the service is configured, false otherwise.
+        @since v2.0.6
      */
-     public bool isRegistered(Service service) {
+     public bool isServiceRegistered(string serviceName, string endpointName, string functionName, IServiceMethod method) {
           // Start logging elapsed time.
           long tIn = System.currentTimeMillis();
           ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing isRegistered({"+service+"}).");
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing isServiceRegistered({"+serviceName+"},{"+endpointName+"},{"+functionName+"},{"+method+"}).");
 
           bool result = false;
           if (this.delegate != null) {
-               result = this.delegate.isRegistered(service);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'isRegistered' in "+(System.currentTimeMillis()-tIn)+"ms.");
+               result = this.delegate.isServiceRegistered(serviceName, endpointName, functionName, method);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'isServiceRegistered' in "+(System.currentTimeMillis()-tIn)+"ms.");
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'isRegistered'.");
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'isServiceRegistered'.");
           }
           return result;          
-     }
-
-     /**
-        Check whether a service by the given name is registered.
-
-        @param serviceName Name of service.
-        @return True if the service is registered, false otherwise.
-        @since ARP 2.0
-     */
-     public bool isRegistered(string serviceName) {
-          // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing isRegistered({"+serviceName+"}).");
-
-          bool result = false;
-          if (this.delegate != null) {
-               result = this.delegate.isRegistered(serviceName);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'isRegistered' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'isRegistered'.");
-          }
-          return result;          
-     }
-
-     /**
-        Register a new service
-
-        @param service to register
-        @since ARP 2.0
-     */
-     public void registerService(Service service) {
-          // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing registerService({"+service+"}).");
-
-          if (this.delegate != null) {
-               this.delegate.registerService(service);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'registerService' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'registerService'.");
-          }
-          
-     }
-
-     /**
-        Unregister a service
-
-        @param service to unregister
-        @since ARP 2.0
-     */
-     public void unregisterService(Service service) {
-          // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing unregisterService({"+service+"}).");
-
-          if (this.delegate != null) {
-               this.delegate.unregisterService(service);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'unregisterService' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'unregisterService'.");
-          }
-          
-     }
-
-     /**
-        Unregister all services.
-
-        @since ARP 2.0
-     */
-     public void unregisterServices() {
-          // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing unregisterServices.");
-
-          if (this.delegate != null) {
-               this.delegate.unregisterServices();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'unregisterServices' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'unregisterServices'.");
-          }
-          
      }
 
      /**
@@ -242,41 +210,47 @@ public class ServiceBridge extends BaseCommunicationBridge implements IService, 
      public String invoke(APIRequest request) {
           String responseJSON = "";
           switch (request.getMethodName()) {
-               case "getService":
-                    string serviceName0 = this.gson.fromJson(request.getParameters()[0], string.class);
-                    Service response0 = this.getService(serviceName0);
+               case "getServiceRequest":
+                    ServiceToken serviceToken0 = this.gson.fromJson(request.getParameters()[0], ServiceToken.class);
+                    ServiceRequest response0 = this.getServiceRequest(serviceToken0);
                     if (response0 != null) {
                          responseJSON = this.gson.toJson(response0);
                     } else {
                          responseJSON = null;
                     }
                     break;
+               case "getServiceToken":
+                    string serviceName1 = this.gson.fromJson(request.getParameters()[0], string.class);
+                    string endpointName1 = this.gson.fromJson(request.getParameters()[1], string.class);
+                    string functionName1 = this.gson.fromJson(request.getParameters()[2], string.class);
+                    IServiceMethod method1 = this.gson.fromJson(request.getParameters()[3], IServiceMethod.class);
+                    ServiceToken response1 = this.getServiceToken(serviceName1, endpointName1, functionName1, method1);
+                    if (response1 != null) {
+                         responseJSON = this.gson.toJson(response1);
+                    } else {
+                         responseJSON = null;
+                    }
+                    break;
+               case "getServicesRegistered":
+                    ServiceToken[] response2 = this.getServicesRegistered();
+                    if (response2 != null) {
+                         responseJSON = this.gson.toJson(response2);
+                    } else {
+                         responseJSON = null;
+                    }
+                    break;
                case "invokeService":
-                    ServiceRequest serviceRequest1 = this.gson.fromJson(request.getParameters()[0], ServiceRequest.class);
-                    Service service1 = this.gson.fromJson(request.getParameters()[1], Service.class);
-                    IServiceResultCallback callback1 = new ServiceResultCallbackImpl(request.getAsyncId());
-                    this.invokeService(serviceRequest1, service1, callback1);
+                    ServiceRequest serviceRequest3 = this.gson.fromJson(request.getParameters()[0], ServiceRequest.class);
+                    IServiceResultCallback callback3 = new ServiceResultCallbackImpl(request.getAsyncId());
+                    this.invokeService(serviceRequest3, callback3);
                     break;
-               case "registerService":
-                    Service service2 = this.gson.fromJson(request.getParameters()[0], Service.class);
-                    this.registerService(service2);
-                    break;
-               case "unregisterService":
-                    Service service3 = this.gson.fromJson(request.getParameters()[0], Service.class);
-                    this.unregisterService(service3);
-                    break;
-               case "unregisterServices":
-                    this.unregisterServices();
-                    break;
-               case "isRegistered_service":
-                    Service service5 = this.gson.fromJson(request.getParameters()[0], Service.class);
-                    bool response5 = this.isRegistered(service5);
-                    responseJSON = this.gson.toJson(response5);
-                    break;
-               case "isRegistered_serviceName":
-                    string serviceName6 = this.gson.fromJson(request.getParameters()[0], string.class);
-                    bool response6 = this.isRegistered(serviceName6);
-                    responseJSON = this.gson.toJson(response6);
+               case "isServiceRegistered":
+                    string serviceName4 = this.gson.fromJson(request.getParameters()[0], string.class);
+                    string endpointName4 = this.gson.fromJson(request.getParameters()[1], string.class);
+                    string functionName4 = this.gson.fromJson(request.getParameters()[2], string.class);
+                    IServiceMethod method4 = this.gson.fromJson(request.getParameters()[3], IServiceMethod.class);
+                    bool response4 = this.isServiceRegistered(serviceName4, endpointName4, functionName4, method4);
+                    responseJSON = this.gson.toJson(response4);
                     break;
                default:
                     // 404 - response null.

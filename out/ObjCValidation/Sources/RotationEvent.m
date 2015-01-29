@@ -37,7 +37,7 @@ Release:
 /**
 
 @author Carlos Lozano Diez
-@since ARP 2.0.5
+@since v2.0.5
 @version 1.0
 */
 @implementation RotationEvent
@@ -46,7 +46,7 @@ Release:
      /**
         Default constructor.
 
-        @since ARP 2.0.5
+        @since v2.0.5
      */
      - (id) init {
           self = [self init];
@@ -60,7 +60,7 @@ Release:
         @param destination Destination orientation when the event was fired.
         @param state       State of the event (WillBegin, DidFinish).
         @param timestamp   Timestamp in milliseconds when the event was fired.
-        @since ARP 2.0.5
+        @since v2.0.5
      */
      - (id) initWithOriginDestinationStateTimestamp:(ICapabilitiesOrientation*)origin destination:(ICapabilitiesOrientation*)destination state:(RotationEventState*)state timestamp:(long*)timestamp {
           self = [self init];

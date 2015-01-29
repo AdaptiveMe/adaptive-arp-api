@@ -44,43 +44,58 @@ package me.adaptive.arp.api;
  * Structure representing a service path for one endpoint
  *
  * @author fnva
- * @since ARP 2.0
+ * @since v2.0.4
  */
 public class ServicePath {
 
     /**
-     * The path for the endpoint
+     * The path for the endpoint.
+     *
+     * @since v2.0.4
      */
     private String path;
 
     /**
-     * The methods for calling a path
+     * The methods for calling a path.
+     *
+     * @since v2.0.4
      */
-    private IService.ServiceMethod[] methods;
+    private IService.Method[] methods;
 
     /**
-     * Default Constructor
+     * Service endpoint type.
      *
-     * @since ARP 2.0
+     * @since v2.0.6
+     */
+    private IService.Type type;
+
+    /**
+     * Default Constructor.
+     *
+     * @since v2.0.4
      */
     public ServicePath() {
     }
 
     /**
-     * Constructor with parameters
+     * Constructor with parameters.
      *
      * @param path    The path for the endpoint
      * @param methods The methods for calling a path
+     * @param type    Protocol type.
+     * @since v2.0.6
      */
-    public ServicePath(String path, IService.ServiceMethod[] methods) {
+    public ServicePath(String path, IService.Method[] methods, IService.Type type) {
         this.path = path;
         this.methods = methods;
+        this.type = type;
     }
 
     /**
      * Endpoint's Path Getter
      *
      * @return Endpoint's Path
+     * @since v2.0.4
      */
     public String getPath() {
         return path;
@@ -90,6 +105,7 @@ public class ServicePath {
      * Endpoint's path setter
      *
      * @param path Endpoint's path
+     * @since v2.0.4
      */
     public void setPath(String path) {
         this.path = path;
@@ -99,8 +115,9 @@ public class ServicePath {
      * Endpoint's path methods setter
      *
      * @return Endpoint's path methods
+     * @since v2.0.4
      */
-    public IService.ServiceMethod[] getMethods() {
+    public IService.Method[] getMethods() {
         return methods;
     }
 
@@ -108,8 +125,29 @@ public class ServicePath {
      * Endpoint's path methods setter
      *
      * @param methods Endpoint's path methods
+     * @since v2.0.4
      */
-    public void setMethods(IService.ServiceMethod[] methods) {
+    public void setMethods(IService.Method[] methods) {
         this.methods = methods;
+    }
+
+    /**
+     * Gets the protocol for the path.
+     *
+     * @return Type of protocol.
+     * @since v2.0.6
+     */
+    public IService.Type getType() {
+        return type;
+    }
+
+    /**
+     * Sets the protocol for the path.
+     *
+     * @param type Type of protocol.
+     * @since v2.0.6
+     */
+    public void setType(IService.Type type) {
+        this.type = type;
     }
 }

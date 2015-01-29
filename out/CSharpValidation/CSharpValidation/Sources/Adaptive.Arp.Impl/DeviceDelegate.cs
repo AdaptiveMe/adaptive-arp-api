@@ -60,7 +60,7 @@ public class DeviceDelegate extends BaseSystemDelegate implements IDevice {
         Register a new listener that will receive button events.
 
         @param listener to be registered.
-        @since ARP 2.0
+        @since v2.0
      */
      public void addButtonListener(IButtonListener listener) {
           // TODO: Not implemented.
@@ -71,7 +71,7 @@ public class DeviceDelegate extends BaseSystemDelegate implements IDevice {
         Add a listener to start receiving device orientation change events.
 
         @param listener Listener to add to receive orientation change events.
-        @since ARP 2.0.5
+        @since v2.0.5
      */
      public void addDeviceOrientationListener(IDeviceOrientationListener listener) {
           // TODO: Not implemented.
@@ -82,7 +82,7 @@ public class DeviceDelegate extends BaseSystemDelegate implements IDevice {
         Returns the device information for the current device executing the runtime.
 
         @return DeviceInfo for the current device.
-        @since ARP 2.0
+        @since v2.0
      */
      public DeviceInfo getDeviceInfo() {
           DeviceInfo response;
@@ -95,7 +95,7 @@ public class DeviceDelegate extends BaseSystemDelegate implements IDevice {
         Gets the current Locale for the device.
 
         @return The current Locale information.
-        @since ARP 2.0
+        @since v2.0
      */
      public Locale getLocaleCurrent() {
           Locale response;
@@ -109,7 +109,7 @@ public class DeviceDelegate extends BaseSystemDelegate implements IDevice {
 of the display. For display orientation, use the IDisplay APIs.
 
         @return The current orientation of the device.
-        @since ARP 2.0.5
+        @since v2.0.5
      */
      public ICapabilitiesOrientation getOrientationCurrent() {
           ICapabilitiesOrientation response;
@@ -122,7 +122,7 @@ of the display. For display orientation, use the IDisplay APIs.
         De-registers an existing listener from receiving button events.
 
         @param listener to be removed.
-        @since ARP 2.0
+        @since v2.0
      */
      public void removeButtonListener(IButtonListener listener) {
           // TODO: Not implemented.
@@ -132,7 +132,7 @@ of the display. For display orientation, use the IDisplay APIs.
      /**
         Removed all existing listeners from receiving button events.
 
-        @since ARP 2.0
+        @since v2.0
      */
      public void removeButtonListeners() {
           // TODO: Not implemented.
@@ -143,7 +143,7 @@ of the display. For display orientation, use the IDisplay APIs.
         Remove a listener to stop receiving device orientation change events.
 
         @param listener Listener to remove from receiving orientation change events.
-        @since ARP 2.0.5
+        @since v2.0.5
      */
      public void removeDeviceOrientationListener(IDeviceOrientationListener listener) {
           // TODO: Not implemented.
@@ -153,7 +153,7 @@ of the display. For display orientation, use the IDisplay APIs.
      /**
         Remove all listeners receiving device orientation events.
 
-        @since ARP 2.0.5
+        @since v2.0.5
      */
      public void removeDeviceOrientationListeners() {
           // TODO: Not implemented.

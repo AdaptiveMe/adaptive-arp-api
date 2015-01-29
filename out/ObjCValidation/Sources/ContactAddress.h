@@ -39,7 +39,7 @@ Release:
 Structure representing the address data elements of a contact.
 
 @author Francisco Javier Martin Bueno
-@since ARP 2.0
+@since v2.0
 @version 1.0
 */
 @interface ContactAddress : APIBean
@@ -63,7 +63,7 @@ Structure representing the address data elements of a contact.
      /**
         Default constructor
 
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) init;
 
@@ -72,7 +72,7 @@ Structure representing the address data elements of a contact.
 
         @param address Address data.
         @param type    Address type.
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) initWithAddressType:(NSString*)address type:(ContactAddressType*)type;
 

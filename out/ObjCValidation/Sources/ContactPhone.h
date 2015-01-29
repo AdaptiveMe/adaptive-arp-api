@@ -39,7 +39,7 @@ Release:
 Structure representing the phone data elements of a contact.
 
 @author Francisco Javier Martin Bueno
-@since ARP 2.0
+@since v2.0
 @version 1.0
 */
 @interface ContactPhone : APIBean
@@ -67,7 +67,7 @@ Structure representing the phone data elements of a contact.
      /**
         Default constructor
 
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) init;
 
@@ -76,7 +76,7 @@ Structure representing the phone data elements of a contact.
 
         @param phone     Phone number
         @param phoneType Type of Phone number
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) initWithPhonePhoneType:(NSString*)phone phoneType:(ContactPhoneType*)phoneType;
 

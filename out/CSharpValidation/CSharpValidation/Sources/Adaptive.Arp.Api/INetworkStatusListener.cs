@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Interface for Managing the Network status listener events
 
         @author Carlos Lozano Diez
-        @since ARP 2.0
+        @since v2.0
         @version 1.0
      */
      public interface INetworkStatusListener : IBaseListener {
@@ -48,7 +48,7 @@ namespace Adaptive.Arp.Api
         No data received - error condition, not authorized or hardware not available.
 
         @param error Type of error encountered during reading.
-        @since ARP 2.0
+        @since v2.0
      */
      void onError(INetworkStatusListenerError error);
 
@@ -56,7 +56,7 @@ namespace Adaptive.Arp.Api
         Called when network connection changes somehow.
 
         @param network Change to this network.
-        @since ARP 2.0
+        @since v2.0
      */
      void onResult(ICapabilitiesNet network);
 
@@ -65,7 +65,7 @@ namespace Adaptive.Arp.Api
 
         @param network Change to this network.
         @param warning Type of warning encountered during reading.
-        @since ARP 2.0
+        @since v2.0
      */
      void onWarning(ICapabilitiesNet network, INetworkStatusListenerWarning warning);
 

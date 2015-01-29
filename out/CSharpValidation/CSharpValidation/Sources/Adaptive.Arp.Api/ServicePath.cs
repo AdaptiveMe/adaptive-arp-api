@@ -40,44 +40,72 @@ namespace Adaptive.Arp.Api
         Structure representing a service path for one endpoint
 
         @author fnva
-        @since ARP 2.0
+        @since v2.0.4
         @version 1.0
      */
      public class ServicePath
      {
 
           /**
-             The methods for calling a path
+             Service endpoint type.
+          */
+          public IServiceType Type { get; set; }
+          /**
+             The methods for calling a path.
           */
           public IServiceMethod[] Methods { get; set; }
           /**
-             The path for the endpoint
+             The path for the endpoint.
           */
           public string Path { get; set; }
 
           /**
-             Default Constructor
+             Default Constructor.
 
-             @since ARP 2.0
+             @since V2.0.4
           */
           public ServicePath()  {
           }
 
           /**
-             Constructor with parameters
+             Constructor with parameters.
 
              @param Path    The path for the endpoint
              @param Methods The methods for calling a path
+             @param Type    Protocol type.
+             @since V2.0.6
           */
-          public ServicePath(string Path, IServiceMethod[] Methods) : base () {
+          public ServicePath(string Path, IServiceMethod[] Methods, IServiceType Type) : base () {
                this.Path = Path;
                this.Methods = Methods;
+               this.Type = Type;
+          }
+
+          /**
+             Gets the protocol for the path.
+
+             @return Type of protocol.
+             @since V2.0.6
+          */
+          public IServiceType GetType() {
+               return this.Type;
+          }
+
+          /**
+             Sets the protocol for the path.
+
+             @param Type Type of protocol.
+             @since V2.0.6
+          */
+          public void SetType(IServiceType Type) {
+               this.Type = Type;
           }
 
           /**
              Endpoint's path methods setter
 
              @return Endpoint's path methods
+             @since V2.0.4
           */
           public IServiceMethod[] GetMethods() {
                return this.Methods;
@@ -87,6 +115,7 @@ namespace Adaptive.Arp.Api
              Endpoint's path methods setter
 
              @param Methods Endpoint's path methods
+             @since V2.0.4
           */
           public void SetMethods(IServiceMethod[] Methods) {
                this.Methods = Methods;
@@ -96,6 +125,7 @@ namespace Adaptive.Arp.Api
              Endpoint's Path Getter
 
              @return Endpoint's Path
+             @since V2.0.4
           */
           public string GetPath() {
                return this.Path;
@@ -105,6 +135,7 @@ namespace Adaptive.Arp.Api
              Endpoint's path setter
 
              @param Path Endpoint's path
+             @since V2.0.4
           */
           public void SetPath(string Path) {
                this.Path = Path;

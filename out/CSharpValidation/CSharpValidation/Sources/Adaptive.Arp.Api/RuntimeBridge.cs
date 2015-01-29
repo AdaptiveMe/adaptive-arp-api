@@ -75,7 +75,7 @@ public class RuntimeBridge extends BaseSystemBridge implements IRuntime, APIBrid
      /**
         Dismiss the current Application
 
-        @since ARP 2.0
+        @since v2.0
      */
      public void dismissApplication() {
           // Start logging elapsed time.
@@ -97,7 +97,7 @@ public class RuntimeBridge extends BaseSystemBridge implements IRuntime, APIBrid
         Whether the application dismiss the splash screen successfully or not
 
         @return true if the application has dismissed the splash screen;false otherwise
-        @since ARP 2.0
+        @since v2.0
      */
      public bool dismissSplashScreen() {
           // Start logging elapsed time.

@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Base application for Listener purposes
  *
  * @author Carlos Lozano Diez
- * @since ARP 2.0
+ * @since v2.0
  */
 public interface IBaseListener extends IAdaptiveRP {
 

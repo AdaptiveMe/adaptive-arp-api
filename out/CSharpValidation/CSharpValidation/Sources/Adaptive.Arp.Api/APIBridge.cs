@@ -49,7 +49,7 @@ namespace Adaptive.Arp.Api
 
         @param request APIRequest object containing method name and parameters.
         @return Object with JSON response or a zero length string is the response is asynchronous.
-        @since ARP 2.0
+        @since v2.0
      */
      APIResponse invoke(APIRequest request);
 

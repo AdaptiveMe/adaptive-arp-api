@@ -37,7 +37,7 @@ Release:
 /**
 
 @author Carlos Lozano Diez
-@since ARP 2.0
+@since v2.0
 @version 1.0
 */
 @implementation APIBean
@@ -46,7 +46,7 @@ Release:
      /**
         Default constructor
 
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) init {
           self = [self init];

@@ -55,7 +55,7 @@ public class FileResultCallbackImpl extends BaseCallbackImpl implements IFileRes
         On error result of a file operation.
 
         @param error Error processing the request.
-        @since ARP 2.0
+        @since v2.0
      */
      public void onError(IFileResultCallbackError error) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileResultCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
@@ -65,7 +65,7 @@ public class FileResultCallbackImpl extends BaseCallbackImpl implements IFileRes
         On correct result of a file operation.
 
         @param storageFile Reference to the resulting file.
-        @since ARP 2.0
+        @since v2.0
      */
      public void onResult(FileDescriptor storageFile) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(storageFile) +") )");
@@ -76,7 +76,7 @@ public class FileResultCallbackImpl extends BaseCallbackImpl implements IFileRes
 
         @param file    Reference to the offending file.
         @param warning Warning processing the request.
-        @since ARP 2.0
+        @since v2.0
      */
      public void onWarning(FileDescriptor file, IFileResultCallbackWarning warning) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(file) +"), JSON.parse(" + this.gson.toJson(warning) +") )");

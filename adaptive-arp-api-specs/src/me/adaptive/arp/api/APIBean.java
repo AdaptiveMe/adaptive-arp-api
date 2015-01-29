@@ -44,14 +44,14 @@ package me.adaptive.arp.api;
  * Structure representing a native response to the HTML5
  *
  * @author Carlos Lozano Diez
- * @since ARP 2.0
+ * @since v2.0
  */
 public class APIBean {
 
     /**
      * Default constructor
      *
-     * @since ARP 2.0
+     * @since v2.0
      */
     public APIBean() {
     }

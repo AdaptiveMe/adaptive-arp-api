@@ -39,7 +39,7 @@ Release:
 Object for reporting orientation change events for device and display.
 
 @author Carlos Lozano Diez
-@since ARP 2.0.5
+@since v2.0.5
 @version 1.0
 */
 @interface RotationEvent : APIBean
@@ -93,7 +93,7 @@ concluded.
      /**
         Default constructor.
 
-        @since ARP 2.0.5
+        @since v2.0.5
      */
      - (id) init;
 
@@ -104,7 +104,7 @@ concluded.
         @param destination Destination orientation when the event was fired.
         @param state       State of the event (WillBegin, DidFinish).
         @param timestamp   Timestamp in milliseconds when the event was fired.
-        @since ARP 2.0.5
+        @since v2.0.5
      */
      - (id) initWithOriginDestinationStateTimestamp:(ICapabilitiesOrientation*)origin destination:(ICapabilitiesOrientation*)destination state:(RotationEventState*)state timestamp:(long*)timestamp;
 

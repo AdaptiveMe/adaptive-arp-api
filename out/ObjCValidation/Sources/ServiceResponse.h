@@ -41,24 +41,16 @@ Release:
 Represents a local or remote service response.
 
 @author Aryslan
-@since ARP 2.0
+@since v2.0
 @version 1.0
 */
 @interface ServiceResponse : APIBean
 
      /**
-        Request/Response data content (plain text).
+        Response data content. The content should be in some well-known web format - in specific, binaries returned
+should be encoded in base64.
      */
      @property NSString *content;
-     /**
-        The byte[] representing the binary Content.
-        Array objects must be of byte type.
-     */
-     @property NSArray *contentBinary;
-     /**
-        The length in bytes for the binary Content.
-     */
-     @property int *contentBinaryLength;
      /**
         Encoding of the binary payload - by default assumed to be UTF8.
      */
@@ -77,29 +69,29 @@ Represents a local or remote service response.
      */
      @property NSArray *serviceHeaders;
      /**
-        Information about the session
+        Information about the session.
      */
      @property ServiceSession *serviceSession;
 
      /**
-        Default constructor
+        Default constructor.
+
+        @since v2.0
      */
      - (id) init;
 
      /**
         Constructor with fields
 
-        @param content             Request/Response data content (plain text).
-        @param contentType         The request/response content type (MIME TYPE).
-        @param contentEncoding     Encoding of the binary payload - by default assumed to be UTF8.
-        @param contentLength       The length in bytes for the Content field.
-        @param contentBinary       The byte[] representing the binary Content.
-        @param contentBinaryLength The length in bytes for the binary Content.
-        @param serviceHeaders      The serviceHeaders array (name,value pairs) to be included on the I/O service request.
-        @param serviceSession      Information about the session
-        @since ARP 2.0
+        @param content         Request/Response data content (plain text).
+        @param contentType     The request/response content type (MIME TYPE).
+        @param contentEncoding Encoding of the binary payload - by default assumed to be UTF8.
+        @param contentLength   The length in bytes for the Content field.
+        @param serviceHeaders  The serviceHeaders array (name,value pairs) to be included on the I/O service request.
+        @param serviceSession  Information about the session
+        @since v2.0
      */
-     - (id) initWithContentContentTypeContentEncodingContentLengthContentBinaryContentBinaryLengthServiceHeadersServiceSession:(NSString*)content contentType:(NSString*)contentType contentEncoding:(NSString*)contentEncoding contentLength:(int*)contentLength contentBinary:(NSArray*)contentBinary contentBinaryLength:(int*)contentBinaryLength serviceHeaders:(NSArray*)serviceHeaders serviceSession:(ServiceSession*)serviceSession;
+     - (id) initWithContentContentTypeContentEncodingContentLengthServiceHeadersServiceSession:(NSString*)content contentType:(NSString*)contentType contentEncoding:(NSString*)contentEncoding contentLength:(int*)contentLength serviceHeaders:(NSArray*)serviceHeaders serviceSession:(ServiceSession*)serviceSession;
 
 
 @end

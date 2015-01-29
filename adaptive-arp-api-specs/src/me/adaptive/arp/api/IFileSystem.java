@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Interface for Managing the File System operations
  *
  * @author Carlos Lozano Diez
- * @since ARP 2.0
+ * @since v2.0
  */
 public interface IFileSystem extends IBaseData {
 
@@ -52,7 +52,7 @@ public interface IFileSystem extends IBaseData {
      * Returns the file system dependent file separator.
      *
      * @return char with the directory/file separator.
-     * @since ARP 2.0
+     * @since v2.0
      */
     public char getSeparator();
 
@@ -61,7 +61,7 @@ public interface IFileSystem extends IBaseData {
      * This path may or may not be directly readable or writable - it usually contains the app binary and data.
      *
      * @return Path to the application folder.
-     * @since ARP 2.0
+     * @since v2.0
      */
     public FileDescriptor getApplicationFolder();
 
@@ -71,7 +71,7 @@ public interface IFileSystem extends IBaseData {
      * This path is volatile and may be cleaned by the OS periodically.
      *
      * @return Path to the application's cache folder.
-     * @since ARP 2.0
+     * @since v2.0
      */
     public FileDescriptor getApplicationCacheFolder();
 
@@ -80,7 +80,7 @@ public interface IFileSystem extends IBaseData {
      * This path must always be writable by the current application.
      *
      * @return Path to the application's documents folder.
-     * @since ARP 2.0
+     * @since v2.0
      */
     public FileDescriptor getApplicationDocumentsFolder();
 
@@ -89,7 +89,7 @@ public interface IFileSystem extends IBaseData {
      * This path must always be writable by the current application.
      *
      * @return Path to the application's cloud storage folder.
-     * @since ARP 2.0
+     * @since v2.0
      */
     public FileDescriptor getApplicationCloudFolder();
 
@@ -98,7 +98,7 @@ public interface IFileSystem extends IBaseData {
      * This path must always be writable by the current application.
      *
      * @return Path to the application's protected storage folder.
-     * @since ARP 2.0
+     * @since v2.0
      */
     public FileDescriptor getApplicationProtectedFolder();
 
@@ -109,7 +109,7 @@ public interface IFileSystem extends IBaseData {
      * This path may or may not be writable by the current application.
      *
      * @return Path to the application's documents folder.
-     * @since ARP 2.0
+     * @since v2.0
      */
     public FileDescriptor getSystemExternalFolder();
 
@@ -120,14 +120,14 @@ public interface IFileSystem extends IBaseData {
      * @param parent Parent directory.
      * @param name   Name of new file or directory.
      * @return A reference to a new or existing location in the filesystem.
-     * @since ARP 2.0
+     * @since v2.0
      */
     public FileDescriptor createFileDescriptor(FileDescriptor parent, String name);
 
     /**
      * Location of the file storage.
      *
-     * @since ARP 2.0
+     * @since v2.0
      */
     public enum FileStorageType {
         Application, Document, Cloud, Protected, Cache, External, Unknown
@@ -136,7 +136,7 @@ public interface IFileSystem extends IBaseData {
     /**
      * Type of file - directory/folder or file.
      *
-     * @since ARP 2.0
+     * @since v2.0
      */
     public enum FileType {
         Directory, File, Unknown
@@ -145,7 +145,7 @@ public interface IFileSystem extends IBaseData {
     /**
      * Security attributes of file, if any.
      *
-     * @since ARP 2.0
+     * @since v2.0
      */
     public enum FileSecurity {
         Default, Protected, Encrypted, Unknown

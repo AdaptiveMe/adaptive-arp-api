@@ -37,7 +37,7 @@ Release:
 /**
 
 @author Francisco Javier Martin Bueno
-@since ARP 2.0
+@since v2.0
 @version 1.0
 */
 @implementation Email
@@ -46,7 +46,7 @@ Release:
      /**
         Default constructor
 
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) init {
           self = [self init];
@@ -63,7 +63,7 @@ Release:
         @param messageBody         body of the email
         @param messageBodyMimeType mime type of the body
         @param subject             of the email
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) initWithToRecipientsCcRecipientsBccRecipientsEmailAttachmentDataMessageBodyMessageBodyMimeTypeSubject:(NSArray*)toRecipients ccRecipients:(NSArray*)ccRecipients bccRecipients:(NSArray*)bccRecipients emailAttachmentData:(NSArray*)emailAttachmentData messageBody:(NSString*)messageBody messageBodyMimeType:(NSString*)messageBodyMimeType subject:(NSString*)subject {
           self = [self init];
@@ -85,7 +85,7 @@ Release:
         @param toRecipients array of recipients
         @param subject      of the email
         @param messageBody  body of the email
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) initWithToRecipientsSubjectMessageBody:(NSArray*)toRecipients subject:(NSString*)subject messageBody:(NSString*)messageBody {
           self = [self init];

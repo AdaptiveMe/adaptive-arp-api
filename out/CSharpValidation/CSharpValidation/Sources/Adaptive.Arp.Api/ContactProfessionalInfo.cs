@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Structure representing the professional info data elements of a contact.
 
         @author Francisco Javier Martin Bueno
-        @since ARP 2.0
+        @since v2.0
         @version 1.0
      */
      public class ContactProfessionalInfo : APIBean
@@ -62,7 +62,7 @@ namespace Adaptive.Arp.Api
           /**
              Default constructor
 
-             @since ARP 2.0
+             @since V2.0
           */
           public ContactProfessionalInfo()  {
           }
@@ -73,7 +73,7 @@ namespace Adaptive.Arp.Api
              @param JobTitle       The job title
              @param JobDescription The job description
              @param Company        The company of the job
-             @since ARP 2.0
+             @since V2.0
           */
           public ContactProfessionalInfo(string JobTitle, string JobDescription, string Company) : base () {
                this.JobTitle = JobTitle;
@@ -85,7 +85,7 @@ namespace Adaptive.Arp.Api
              Returns the company of the job
 
              @return Company
-             @since ARP 2.0
+             @since V2.0
           */
           public string GetCompany() {
                return this.Company;
@@ -95,7 +95,7 @@ namespace Adaptive.Arp.Api
              Set the company of the job
 
              @param Company The company of the job
-             @since ARP 2.0
+             @since V2.0
           */
           public void SetCompany(string Company) {
                this.Company = Company;
@@ -105,7 +105,7 @@ namespace Adaptive.Arp.Api
              Returns the description of the job
 
              @return Description
-             @since ARP 2.0
+             @since V2.0
           */
           public string GetJobDescription() {
                return this.JobDescription;
@@ -115,7 +115,7 @@ namespace Adaptive.Arp.Api
              Set the description of the job
 
              @param JobDescription The job description
-             @since ARP 2.0
+             @since V2.0
           */
           public void SetJobDescription(string JobDescription) {
                this.JobDescription = JobDescription;
@@ -125,7 +125,7 @@ namespace Adaptive.Arp.Api
              Returns the title of the job
 
              @return Title
-             @since ARP 2.0
+             @since V2.0
           */
           public string GetJobTitle() {
                return this.JobTitle;
@@ -135,7 +135,7 @@ namespace Adaptive.Arp.Api
              Set the title of the job
 
              @param JobTitle The job title
-             @since ARP 2.0
+             @since V2.0
           */
           public void SetJobTitle(string JobTitle) {
                this.JobTitle = JobTitle;

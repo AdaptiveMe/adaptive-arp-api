@@ -39,7 +39,7 @@ Release:
 Represents a basic bean to store keyName pair values
 
 @author Ferran Vila Conesa
-@since ARP 2.0
+@since v2.0
 @version 1.0
 */
 @interface KeyPair : APIBean
@@ -56,7 +56,7 @@ Represents a basic bean to store keyName pair values
      /**
         Default Constructor
 
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) init;
 
@@ -65,7 +65,7 @@ Represents a basic bean to store keyName pair values
 
         @param keyName  Key of the element
         @param keyValue Value of the element
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) initWithKeyNameKeyValue:(NSString*)keyName keyValue:(NSString*)keyValue;
 

@@ -39,7 +39,7 @@ Release:
 Structure representing the social data elements of a contact.
 
 @author Francisco Javier Martin Bueno
-@since ARP 2.0
+@since v2.0
 @version 1.0
 */
 @interface ContactSocial : APIBean
@@ -65,7 +65,7 @@ Structure representing the social data elements of a contact.
      /**
         Default constructor
 
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) init;
 
@@ -74,7 +74,7 @@ Structure representing the social data elements of a contact.
 
         @param socialNetwork of the profile
         @param profileUrl    of the user
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) initWithSocialNetworkProfileUrl:(ContactSocialNetwork*)socialNetwork profileUrl:(NSString*)profileUrl;
 

@@ -32,7 +32,6 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-#import <APIBean.h>
 #import <Foundation/Foundation.h>
 #import <ServicePath.h>
 
@@ -40,51 +39,48 @@ Release:
 Structure representing a remote or local service access end-point.
 
 @author Aryslan
-@since ARP 2.0
+@since v2.0
 @version 1.0
 */
-@interface ServiceEndpoint : APIBean
+@interface ServiceEndpoint : NSObject
 
      /**
-        The remote service host (alias or IP).
+        Type of validation to be performed for SSL hosts.
      */
-     @property NSString *host;
+     typedef NS_OPTIONS(NSUInteger, IServiceCertificateValidation) {
+          IServiceCertificateValidation_None = 0,
+          IServiceCertificateValidation_Normal = 1,
+          IServiceCertificateValidation_Extended = 2,
+          IServiceCertificateValidation_Extreme = 3,
+          IServiceCertificateValidation_Unknown = 4
+     };
+
+     @property IServiceCertificateValidation *validationType;
      /**
-        The remote service paths (to be added to the host and port url).
+        The remote service hostURI URI (alias or IP) composed of scheme://hostURI:port (http://hostURI:8080).
+     */
+     @property NSString *hostURI;
+     /**
+        The remote service paths (to be added to the hostURI and port url).
         Array objects must be of ServicePath type.
      */
      @property NSArray *paths;
-     /**
-        The remote service accessible port.
-     */
-     @property int *port;
-     /**
-        The proxy url - if needed - to access the remote service. If IP and port are used, use the following syntax: "http://<IP>:<Port>".
-     */
-     @property NSString *proxy;
-     /**
-        The remote service scheme.
-     */
-     @property NSString *scheme;
 
      /**
         Default Constructor
 
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) init;
 
      /**
         Constructor with parameters
 
-        @param host   Remote service host
-        @param paths  Remote service Paths
-        @param port   Remote service Port
-        @param proxy  Proxy url "http://IP_ADDRESS:PORT_NUMBER"
-        @param scheme Remote service scheme
-        @since ARP 2.0
+        @param hostURI Remote service hostURI
+        @param paths   Remote service Paths
+        @since v2.0.6
      */
-     - (id) initWithHostPathsPortProxyScheme:(NSString*)host paths:(NSArray*)paths port:(int*)port proxy:(NSString*)proxy scheme:(NSString*)scheme;
+     - (id) initWithHostURIPaths:(NSString*)hostURI paths:(NSArray*)paths;
 
 
 @end

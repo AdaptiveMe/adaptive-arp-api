@@ -55,7 +55,7 @@ public class ContactResultCallbackImpl extends BaseCallbackImpl implements ICont
         This method is called on Error
 
         @param error returned by the platform
-        @since ARP 2.0
+        @since v2.0
      */
      public void onError(IContactResultCallbackError error) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleContactResultCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
@@ -65,7 +65,7 @@ public class ContactResultCallbackImpl extends BaseCallbackImpl implements ICont
         This method is called on Result
 
         @param contacts returned by the platform
-        @since ARP 2.0
+        @since v2.0
      */
      public void onResult(Contact[] contacts) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleContactResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(contacts) +") )");
@@ -76,7 +76,7 @@ public class ContactResultCallbackImpl extends BaseCallbackImpl implements ICont
 
         @param contacts returned by the platform
         @param warning  returned by the platform
-        @since ARP 2.0
+        @since v2.0
      */
      public void onWarning(Contact[] contacts, IContactResultCallbackWarning warning) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleContactResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(contacts) +"), JSON.parse(" + this.gson.toJson(warning) +") )");

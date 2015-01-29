@@ -37,7 +37,7 @@ Release:
 /**
 
 @author Francisco Javier Martin Bueno
-@since ARP 2.0
+@since v2.0
 @version 1.0
 */
 @implementation ContactPersonalInfo
@@ -46,7 +46,7 @@ Release:
      /**
         Default constructor
 
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) init {
           self = [self init];
@@ -60,7 +60,7 @@ Release:
         @param middleName of the Contact
         @param lastName   of the Contact
         @param title      of the Contact
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) initWithNameMiddleNameLastNameTitle:(NSString*)name middleName:(NSString*)middleName lastName:(NSString*)lastName title:(ContactPersonalInfoTitle*)title {
           self = [self init];

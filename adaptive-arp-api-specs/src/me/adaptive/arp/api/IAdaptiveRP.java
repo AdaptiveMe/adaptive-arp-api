@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Master interface for all the Groups and Types of Interfaces os the Project
  *
  * @author Carlos Lozano Diez
- * @since ARP 2.0
+ * @since v2.0
  */
 public interface IAdaptiveRP {
 
@@ -52,7 +52,7 @@ public interface IAdaptiveRP {
      * Method that returns the API group of the implementation
      *
      * @return API Group name.
-     * @since ARP 2.0
+     * @since v2.0
      */
     Group getAPIGroup();
 
@@ -60,7 +60,7 @@ public interface IAdaptiveRP {
      * Method that returns the API version of the implementation.
      *
      * @return API Version string.
-     * @since ARP 2.0
+     * @since v2.0
      */
     String getAPIVersion();
 

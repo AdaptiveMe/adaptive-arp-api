@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Represents a data table composed of databaseColumns and databaseRows.
 
         @author Ferran Vila Conesa
-        @since ARP 2.0
+        @since v2.0
         @version 1.0
      */
      public class DatabaseTable : APIBean
@@ -70,7 +70,7 @@ namespace Adaptive.Arp.Api
           /**
              Default constructor
 
-             @since ARP 2.0
+             @since V2.0
           */
           public DatabaseTable()  {
           }
@@ -79,7 +79,7 @@ namespace Adaptive.Arp.Api
              Constructor by default
 
              @param Name The name of the table
-             @since ARP 2.0
+             @since V2.0
           */
           public DatabaseTable(string Name) : base () {
                this.Name = Name;
@@ -93,7 +93,7 @@ namespace Adaptive.Arp.Api
              @param RowCount        The number of databaseRows
              @param DatabaseColumns The databaseColumns of the table
              @param DatabaseRows    The databaseRows of the table
-             @since ARP 2.0
+             @since V2.0
           */
           public DatabaseTable(string Name, int ColumnCount, int RowCount, DatabaseColumn[] DatabaseColumns, DatabaseRow[] DatabaseRows) : base () {
                this.Name = Name;
@@ -107,7 +107,7 @@ namespace Adaptive.Arp.Api
              Get the number of databaseColumns
 
              @return The number of databaseColumns
-             @since ARP 2.0
+             @since V2.0
           */
           public int GetColumnCount() {
                return this.ColumnCount;
@@ -117,7 +117,7 @@ namespace Adaptive.Arp.Api
              Sets the number of databaseColumns
 
              @param ColumnCount The number of databaseColumns
-             @since ARP 2.0
+             @since V2.0
           */
           public void SetColumnCount(int ColumnCount) {
                this.ColumnCount = ColumnCount;
@@ -127,7 +127,7 @@ namespace Adaptive.Arp.Api
              Get the databaseColumns
 
              @return The databaseColumns
-             @since ARP 2.0
+             @since V2.0
           */
           public DatabaseColumn[] GetDatabaseColumns() {
                return this.DatabaseColumns;
@@ -137,7 +137,7 @@ namespace Adaptive.Arp.Api
              Sets the databaseColumns of the table
 
              @param DatabaseColumns The databaseColumns of the table
-             @since ARP 2.0
+             @since V2.0
           */
           public void SetDatabaseColumns(DatabaseColumn[] DatabaseColumns) {
                this.DatabaseColumns = DatabaseColumns;
@@ -147,7 +147,7 @@ namespace Adaptive.Arp.Api
              Get the databaseRows of the table
 
              @return The databaseRows of the table
-             @since ARP 2.0
+             @since V2.0
           */
           public DatabaseRow[] GetDatabaseRows() {
                return this.DatabaseRows;
@@ -157,7 +157,7 @@ namespace Adaptive.Arp.Api
              Sets the databaseRows of the table
 
              @param DatabaseRows The databaseRows of the table
-             @since ARP 2.0
+             @since V2.0
           */
           public void SetDatabaseRows(DatabaseRow[] DatabaseRows) {
                this.DatabaseRows = DatabaseRows;
@@ -167,7 +167,7 @@ namespace Adaptive.Arp.Api
              Returns the name of the table
 
              @return The name of the table
-             @since ARP 2.0
+             @since V2.0
           */
           public string GetName() {
                return this.Name;
@@ -177,7 +177,7 @@ namespace Adaptive.Arp.Api
              Sets the name of the table
 
              @param Name The name of the table
-             @since ARP 2.0
+             @since V2.0
           */
           public void SetName(string Name) {
                this.Name = Name;
@@ -187,7 +187,7 @@ namespace Adaptive.Arp.Api
              Get the number of databaseRows
 
              @return The number of databaseRows
-             @since ARP 2.0
+             @since V2.0
           */
           public int GetRowCount() {
                return this.RowCount;
@@ -197,7 +197,7 @@ namespace Adaptive.Arp.Api
              Sets the number of databaseRows
 
              @param RowCount The number of databaseRows
-             @since ARP 2.0
+             @since V2.0
           */
           public void SetRowCount(int RowCount) {
                this.RowCount = RowCount;

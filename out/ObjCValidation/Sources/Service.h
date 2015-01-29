@@ -32,7 +32,6 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-#import <APIBean.h>
 #import <Foundation/Foundation.h>
 #import <ServiceEndpoint.h>
 
@@ -40,29 +39,11 @@ Release:
 Represents an instance of a service.
 
 @author Aryslan
-@since ARP 2.0
+@since v2.0
 @version 1.0
 */
-@interface Service : APIBean
+@interface Service : NSObject
 
-     /**
-        The type of the service
-     */
-     typedef NS_OPTIONS(NSUInteger, IServiceType) {
-          IServiceType_ServiceTypeAmfSerialization = 0,
-          IServiceType_ServiceTypeGwtRpc = 1,
-          IServiceType_ServiceTypeOctetBinary = 2,
-          IServiceType_ServiceTypeRemotingSerialization = 3,
-          IServiceType_ServiceTypeRestJson = 4,
-          IServiceType_ServiceTypeRestXml = 5,
-          IServiceType_ServiceTypeSoapJson = 6,
-          IServiceType_ServiceTypeSoapXml = 7,
-          IServiceType_ServiceTypeXmlRpcJson = 8,
-          IServiceType_ServiceTypeXmlRpcXml = 9,
-          IServiceType_Unknown = 10
-     };
-
-     @property IServiceType *type;
      /**
         The service name
      */
@@ -76,7 +57,7 @@ Represents an instance of a service.
      /**
         Default constructor
 
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) init;
 
@@ -85,10 +66,9 @@ Represents an instance of a service.
 
         @param serviceEndpoints Endpoints of the service
         @param name             Name of the service
-        @param type             Type of the service
-        @since ARP 2.0
+        @since v2.0.6
      */
-     - (id) initWithServiceEndpointsNameType:(NSArray*)serviceEndpoints name:(NSString*)name type:(IServiceType*)type;
+     - (id) initWithServiceEndpointsName:(NSArray*)serviceEndpoints name:(NSString*)name;
 
 
 @end

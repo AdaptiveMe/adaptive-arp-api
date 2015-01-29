@@ -39,7 +39,7 @@ Release:
 Interface for Managing the Telephony operations
 
 @author Francisco Javier Martin Bueno
-@since ARP 2.0
+@since v2.0
 @version 1.0
 */
 @protocol ITelephony <IBaseCommunication>

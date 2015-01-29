@@ -60,7 +60,7 @@ public class DisplayDelegate extends BaseSystemDelegate implements IDisplay {
         Add a listener to start receiving display orientation change events.
 
         @param listener Listener to add to receive orientation change events.
-        @since ARP 2.0.5
+        @since v2.0.5
      */
      public void addDisplayOrientationListener(IDisplayOrientationListener listener) {
           // TODO: Not implemented.
@@ -72,7 +72,7 @@ public class DisplayDelegate extends BaseSystemDelegate implements IDisplay {
 of the device. For device orientation, use the IDevice APIs.
 
         @return The current orientation of the display.
-        @since ARP 2.0.5
+        @since v2.0.5
      */
      public ICapabilitiesOrientation getOrientationCurrent() {
           ICapabilitiesOrientation response;
@@ -85,7 +85,7 @@ of the device. For device orientation, use the IDevice APIs.
         Remove a listener to stop receiving display orientation change events.
 
         @param listener Listener to remove from receiving orientation change events.
-        @since ARP 2.0.5
+        @since v2.0.5
      */
      public void removeDisplayOrientationListener(IDisplayOrientationListener listener) {
           // TODO: Not implemented.
@@ -95,7 +95,7 @@ of the device. For device orientation, use the IDevice APIs.
      /**
         Remove all listeners receiving display orientation events.
 
-        @since ARP 2.0.5
+        @since v2.0.5
      */
      public void removeDisplayOrientationListeners() {
           // TODO: Not implemented.

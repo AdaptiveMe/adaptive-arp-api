@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Structure representing a native response to the HTML5
 
         @author Carlos Lozano Diez
-        @since ARP 2.0
+        @since v2.0
         @version 1.0
      */
      public class APIBean
@@ -50,7 +50,7 @@ namespace Adaptive.Arp.Api
           /**
              Default constructor
 
-             @since ARP 2.0
+             @since V2.0
           */
           public APIBean()  {
           }

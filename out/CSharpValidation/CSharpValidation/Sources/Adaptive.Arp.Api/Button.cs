@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Structure representing the a physical or logical button on a device.
 
         @author Francisco Javier Martin Bueno
-        @since ARP 2.0
+        @since v2.0
         @version 1.0
      */
      public class Button : APIBean
@@ -54,7 +54,7 @@ namespace Adaptive.Arp.Api
           /**
              Default constructor
 
-             @since ARP 2.0
+             @since V2.0
           */
           public Button()  {
           }
@@ -63,7 +63,7 @@ namespace Adaptive.Arp.Api
              Constructor with fields
 
              @param Type Button type.
-             @since ARP 2.0
+             @since V2.0
           */
           public Button(ICapabilitiesButton Type) : base () {
                this.Type = Type;
@@ -73,7 +73,7 @@ namespace Adaptive.Arp.Api
              Returns the button type
 
              @return Type Button type.
-             @since ARP 2.0
+             @since V2.0
           */
           public ICapabilitiesButton GetType() {
                return this.Type;
@@ -83,7 +83,7 @@ namespace Adaptive.Arp.Api
              Setter for the button type
 
              @param Type Button Type
-             @since ARP 2.0
+             @since V2.0
           */
           public void SetType(ICapabilitiesButton Type) {
                this.Type = Type;

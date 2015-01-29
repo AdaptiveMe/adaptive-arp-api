@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Structure representing a HTML5 request to the native API.
  *
  * @author Carlos Lozano Diez
- * @since ARP 2.0
+ * @since v2.0
  */
 public class APIRequest {
 
@@ -71,7 +71,7 @@ public class APIRequest {
     /**
      * Default constructor
      *
-     * @since ARP 2.0
+     * @since v2.0
      */
     public APIRequest() {
 
@@ -82,7 +82,7 @@ public class APIRequest {
      *
      * @param bridgeType Name of the bridge to be invoked.
      * @param methodName Name of the method
-     * @since ARP 2.0
+     * @since v2.0
      */
     public APIRequest(String bridgeType, String methodName) {
         this.bridgeType = bridgeType;
@@ -96,7 +96,7 @@ public class APIRequest {
      * @param methodName Name of the method
      * @param parameters Array of parameters as JSON formatted strings.
      * @param asyncId    Id of callback or listener or zero if none for synchronous calls.
-     * @since ARP 2.0
+     * @since v2.0
      */
     public APIRequest(String bridgeType, String methodName, String[] parameters, long asyncId) {
         this.bridgeType = bridgeType;
@@ -109,7 +109,7 @@ public class APIRequest {
      * Bridge Type Getter
      *
      * @return Bridge Type
-     * @since ARP 2.0
+     * @since v2.0
      */
     public String getBridgeType() {
         return bridgeType;
@@ -119,7 +119,7 @@ public class APIRequest {
      * Bridge Type Setter
      *
      * @param bridgeType Bridge Type
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setBridgeType(String bridgeType) {
         this.bridgeType = bridgeType;
@@ -129,7 +129,7 @@ public class APIRequest {
      * Method name Getter
      *
      * @return Method name
-     * @since ARP 2.0
+     * @since v2.0
      */
     public String getMethodName() {
         return methodName;
@@ -139,7 +139,7 @@ public class APIRequest {
      * Method name Setter
      *
      * @param methodName Method name
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setMethodName(String methodName) {
         this.methodName = methodName;
@@ -149,7 +149,7 @@ public class APIRequest {
      * Parameters Getter
      *
      * @return Parameters
-     * @since ARP 2.0
+     * @since v2.0
      */
     public String[] getParameters() {
         return parameters;
@@ -159,7 +159,7 @@ public class APIRequest {
      * Parameters Setter
      *
      * @param parameters Parameters, JSON formatted strings of objects.
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setParameters(String[] parameters) {
         this.parameters = parameters;

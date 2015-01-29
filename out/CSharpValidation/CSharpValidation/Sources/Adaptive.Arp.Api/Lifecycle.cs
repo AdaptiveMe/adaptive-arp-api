@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Represents a specific application life-cycle stage.
 
         @author Francisco Javier Martin Bueno
-        @since ARP 2.0
+        @since v2.0
         @version 1.0
      */
      public class Lifecycle : APIBean
@@ -65,7 +65,7 @@ Possible lifecycle States:
           /**
              Default constructor
 
-             @since ARP 2.0
+             @since V2.0
           */
           public Lifecycle()  {
           }
@@ -74,7 +74,7 @@ Possible lifecycle States:
              Constructor used by the implementation
 
              @param State of the app
-             @since ARP 2.0
+             @since V2.0
           */
           public Lifecycle(LifecycleState State) : base () {
                this.State = State;
@@ -84,7 +84,7 @@ Possible lifecycle States:
              Returns the state of the application
 
              @return State of the app
-             @since ARP 2.0
+             @since V2.0
           */
           public LifecycleState GetState() {
                return this.State;
@@ -94,7 +94,7 @@ Possible lifecycle States:
              Set the State of the application
 
              @param State of the app
-             @since ARP 2.0
+             @since V2.0
           */
           public void SetState(LifecycleState State) {
                this.State = State;

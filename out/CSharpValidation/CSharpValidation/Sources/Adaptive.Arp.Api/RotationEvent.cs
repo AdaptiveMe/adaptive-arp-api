@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Object for reporting orientation change events for device and display.
 
         @author Carlos Lozano Diez
-        @since ARP 2.0.5
+        @since v2.0.5
         @version 1.0
      */
      public class RotationEvent : APIBean
@@ -72,7 +72,7 @@ concluded.
           /**
              Default constructor.
 
-             @since ARP 2.0.5
+             @since V2.0.5
           */
           public RotationEvent()  {
           }
@@ -84,7 +84,7 @@ concluded.
              @param Destination Destination orientation when the event was fired.
              @param State       State of the event (WillBegin, DidFinish).
              @param Timestamp   Timestamp in milliseconds when the event was fired.
-             @since ARP 2.0.5
+             @since V2.0.5
           */
           public RotationEvent(ICapabilitiesOrientation Origin, ICapabilitiesOrientation Destination, RotationEventState State, long Timestamp) : base () {
                this.Origin = Origin;
@@ -97,7 +97,7 @@ concluded.
              Gets the destination orientation of the event.
 
              @return Destination orientation.
-             @since ARP 2.0.5
+             @since V2.0.5
           */
           public ICapabilitiesOrientation GetDestination() {
                return this.Destination;
@@ -107,7 +107,7 @@ concluded.
              Sets the destination orientation of the event.
 
              @param Destination Destination orientation.
-             @since ARP 2.0.5
+             @since V2.0.5
           */
           public void SetDestination(ICapabilitiesOrientation Destination) {
                this.Destination = Destination;
@@ -117,7 +117,7 @@ concluded.
              Get the origin orientation of the event.
 
              @return Origin orientation.
-             @since ARP 2.0.5
+             @since V2.0.5
           */
           public ICapabilitiesOrientation GetOrigin() {
                return this.Origin;
@@ -127,7 +127,7 @@ concluded.
              Set the origin orientation of the event.
 
              @param Origin Origin orientation
-             @since ARP 2.0.5
+             @since V2.0.5
           */
           public void SetOrigin(ICapabilitiesOrientation Origin) {
                this.Origin = Origin;
@@ -137,7 +137,7 @@ concluded.
              Gets the current state of the event.
 
              @return State of the event.
-             @since ARP 2.0.5
+             @since V2.0.5
           */
           public RotationEventState GetState() {
                return this.State;
@@ -147,7 +147,7 @@ concluded.
              Sets the current state of the event.
 
              @param State The state of the event.
-             @since ARP 2.0.5
+             @since V2.0.5
           */
           public void SetState(RotationEventState State) {
                this.State = State;
@@ -157,7 +157,7 @@ concluded.
              Gets the timestamp in milliseconds of the event.
 
              @return Timestamp of the event.
-             @since ARP 2.0.5
+             @since V2.0.5
           */
           public long GetTimestamp() {
                return this.Timestamp;
@@ -167,7 +167,7 @@ concluded.
              Sets the timestamp in milliseconds of the event.
 
              @param Timestamp Timestamp of the event.
-             @since ARP 2.0.5
+             @since V2.0.5
           */
           public void SetTimestamp(long Timestamp) {
                this.Timestamp = Timestamp;

@@ -33,7 +33,7 @@ package me.adaptive.arp.api;
 /**
  * Interface for handling display orientation change events.
  *
- * @since ARP 2.0.5
+ * @since v2.0.5
  */
 public interface IDisplayOrientationListener extends IBaseListener {
 
@@ -41,7 +41,7 @@ public interface IDisplayOrientationListener extends IBaseListener {
      * Event fired with the successful start and finish of a rotation.
      *
      * @param event RotationEvent containing origin, destination and state of the event.
-     * @since ARP 2.0.5
+     * @since v2.0.5
      */
     public void onResult(RotationEvent event);
 
@@ -51,7 +51,7 @@ public interface IDisplayOrientationListener extends IBaseListener {
      *
      * @param event   RotationEvent containing origin, destination and state of the event.
      * @param warning Type of condition that aborted rotation execution.
-     * @since ARP 2.0.5
+     * @since v2.0.5
      */
     public void onWarning(RotationEvent event, Warning warning);
 
@@ -60,14 +60,14 @@ public interface IDisplayOrientationListener extends IBaseListener {
      * platform impedes the rotation of the display.
      *
      * @param error The error condition... generally unknown as it is unexpected!
-     * @since ARP 2.0.5
+     * @since v2.0.5
      */
     public void onError(Error error);
 
     /**
      * Error conditions rotating display.
      *
-     * @since ARP 2.0.5
+     * @since v2.0.5
      */
     public enum Error {
         Unknown
@@ -76,7 +76,7 @@ public interface IDisplayOrientationListener extends IBaseListener {
     /**
      * Warning conditions rotating display.
      *
-     * @since ARP 2.0.5
+     * @since v2.0.5
      */
     public enum Warning {
         Application_Vetoed, Unknown

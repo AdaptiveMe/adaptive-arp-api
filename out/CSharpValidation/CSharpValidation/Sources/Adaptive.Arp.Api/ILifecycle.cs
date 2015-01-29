@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Interface for Managing the Lifecycle listeners
 
         @author Carlos Lozano Diez
-        @since ARP 2.0
+        @since v2.0
         @version 1.0
      */
      public interface ILifecycle : IBaseApplication {
@@ -48,7 +48,7 @@ namespace Adaptive.Arp.Api
         Add the listener for the lifecycle of the app
 
         @param listener Lifecycle listener
-        @since ARP 2.0
+        @since v2.0
      */
      void addLifecycleListener(ILifecycleListener listener);
 
@@ -56,7 +56,7 @@ namespace Adaptive.Arp.Api
         Whether the application is in background or not
 
         @return true if the application is in background;false otherwise
-        @since ARP 2.0
+        @since v2.0
      */
      bool isBackground();
 
@@ -64,14 +64,14 @@ namespace Adaptive.Arp.Api
         Un-registers an existing listener from receiving lifecycle events.
 
         @param listener Lifecycle listener
-        @since ARP 2.0
+        @since v2.0
      */
      void removeLifecycleListener(ILifecycleListener listener);
 
      /**
         Removes all existing listeners from receiving lifecycle events.
 
-        @since ARP 2.0
+        @since v2.0
      */
      void removeLifecycleListeners();
 

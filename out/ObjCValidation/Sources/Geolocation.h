@@ -39,7 +39,7 @@ Release:
 Structure representing the data a single geolocation reading.
 
 @author Francisco Javier Martin Bueno
-@since ARP 2.0
+@since v2.0
 @version 1.0
 */
 @interface Geolocation : APIBean
@@ -72,7 +72,7 @@ Structure representing the data a single geolocation reading.
      /**
         Default constructor
 
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) init;
 
@@ -85,7 +85,7 @@ Structure representing the data a single geolocation reading.
         @param xDoP      Dilution of precision on the X measurement
         @param yDoP      Dilution of precision on the Y measurement
         @param timestamp Timestamp of the measurement
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) initWithLatitudeLongitudeAltitudeXDoPYDoPTimestamp:(double*)latitude longitude:(double*)longitude altitude:(double*)altitude xDoP:(float*)xDoP yDoP:(float*)yDoP timestamp:(long*)timestamp;
 
@@ -95,7 +95,7 @@ Structure representing the data a single geolocation reading.
         @param latitude  Latitude of the measurement
         @param longitude Longitude of the measurement
         @param timestamp Timestamp of the measurement
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) initWithLatitudeLongitudeTimestamp:(double*)latitude longitude:(double*)longitude timestamp:(long*)timestamp;
 

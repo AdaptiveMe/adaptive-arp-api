@@ -39,7 +39,7 @@ Release:
 Interface for Managing the Geolocation results
 
 @author Francisco Javier Martin Bueno
-@since ARP 2.0
+@since v2.0
 @version 1.0
 */
 @protocol IGeolocationListener <IBaseListener>

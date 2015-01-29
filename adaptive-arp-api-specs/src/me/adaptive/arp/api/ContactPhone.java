@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Structure representing the phone data elements of a contact.
  *
  * @author Francisco Javier Martin Bueno
- * @since ARP 2.0
+ * @since v2.0
  */
 public class ContactPhone extends APIBean {
 
@@ -61,7 +61,7 @@ public class ContactPhone extends APIBean {
     /**
      * Default constructor
      *
-     * @since ARP 2.0
+     * @since v2.0
      */
     public ContactPhone() {
     }
@@ -71,7 +71,7 @@ public class ContactPhone extends APIBean {
      *
      * @param phone     Phone number
      * @param phoneType Type of Phone number
-     * @since ARP 2.0
+     * @since v2.0
      */
     public ContactPhone(String phone, PhoneType phoneType) {
         this.phone = phone;
@@ -82,7 +82,7 @@ public class ContactPhone extends APIBean {
      * Returns the phone number
      *
      * @return phone number
-     * @since ARP 2.0
+     * @since v2.0
      */
     public String getPhone() {
         return phone;
@@ -92,7 +92,7 @@ public class ContactPhone extends APIBean {
      * Set the phone number
      *
      * @param phone number
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setPhone(String phone) {
         this.phone = phone;
@@ -102,7 +102,7 @@ public class ContactPhone extends APIBean {
      * Returns the phone phoneType
      *
      * @return phoneType
-     * @since ARP 2.0
+     * @since v2.0
      */
     public me.adaptive.arp.api.ContactPhone.PhoneType getPhoneType() {
         return phoneType;
@@ -112,7 +112,7 @@ public class ContactPhone extends APIBean {
      * Set the phoneType of the phone number
      *
      * @param phoneType Type of Phone number
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setPhoneType(me.adaptive.arp.api.ContactPhone.PhoneType phoneType) {
         this.phoneType = phoneType;
@@ -121,7 +121,7 @@ public class ContactPhone extends APIBean {
     /**
      * Types that can be used
      *
-     * @since ARP 2.0
+     * @since v2.0
      */
     public enum PhoneType {
         Mobile, Work, Home, Main, HomeFax, WorkFax, Other, Unknown

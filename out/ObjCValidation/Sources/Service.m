@@ -37,7 +37,7 @@ Release:
 /**
 
 @author Aryslan
-@since ARP 2.0
+@since v2.0
 @version 1.0
 */
 @implementation Service
@@ -46,7 +46,7 @@ Release:
      /**
         Default constructor
 
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) init {
           self = [self init];
@@ -58,15 +58,13 @@ Release:
 
         @param serviceEndpoints Endpoints of the service
         @param name             Name of the service
-        @param type             Type of the service
-        @since ARP 2.0
+        @since v2.0.6
      */
-     - (id) initWithServiceEndpointsNameType:(NSArray*)serviceEndpoints name:(NSString*)name type:(IServiceType*)type {
+     - (id) initWithServiceEndpointsName:(NSArray*)serviceEndpoints name:(NSString*)name {
           self = [self init];
           if (self) {
                [self setServiceEndpoints:serviceEndpoints];
                [self setName:name];
-               [self setType:type];
           }
           return self;
      }

@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Interface for Managing the Contact operations
  *
  * @author Francisco Javier Martin Bueno
- * @since ARP 2.0
+ * @since v2.0
  */
 public interface IContactPhotoResultCallback extends IBaseCallback {
 
@@ -52,7 +52,7 @@ public interface IContactPhotoResultCallback extends IBaseCallback {
      * This method is called on Result
      *
      * @param contactPhoto returned by the platform
-     * @since ARP 2.0
+     * @since v2.0
      */
     void onResult(byte[] contactPhoto);
 
@@ -61,7 +61,7 @@ public interface IContactPhotoResultCallback extends IBaseCallback {
      *
      * @param contactPhoto returned by the platform
      * @param warning      returned by the platform
-     * @since ARP 2.0
+     * @since v2.0
      */
     void onWarning(byte[] contactPhoto, Warning warning);
 
@@ -69,14 +69,14 @@ public interface IContactPhotoResultCallback extends IBaseCallback {
      * This method is called on Error
      *
      * @param error returned by the platform
-     * @since ARP 2.0
+     * @since v2.0
      */
     void onError(Error error);
 
     /**
      * Warnings that can be used
      *
-     * @since ARP 2.0
+     * @since v2.0
      */
     public enum Warning {
         LimitExceeded, No_Matches, Unknown
@@ -85,7 +85,7 @@ public interface IContactPhotoResultCallback extends IBaseCallback {
     /**
      * Errors that can be used
      *
-     * @since ARP 2.0
+     * @since v2.0
      */
     public enum Error {
         NoPermission, Wrong_Params, No_Photo, Unknown

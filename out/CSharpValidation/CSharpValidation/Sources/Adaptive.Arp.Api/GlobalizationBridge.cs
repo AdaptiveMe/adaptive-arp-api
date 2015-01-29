@@ -76,7 +76,7 @@ public class GlobalizationBridge extends BaseApplicationBridge implements IGloba
         Returns the default locale of the application defined in the configuration file
 
         @return Default Locale of the application
-        @since ARP 2.0
+        @since v2.0
      */
      public Locale getDefaultLocale() {
           // Start logging elapsed time.
@@ -99,7 +99,7 @@ public class GlobalizationBridge extends BaseApplicationBridge implements IGloba
         List of supported locales for the application defined in the configuration file
 
         @return List of locales
-        @since ARP 2.0
+        @since v2.0
      */
      public Locale[] getLocaleSupportedDescriptors() {
           // Start logging elapsed time.
@@ -124,7 +124,7 @@ public class GlobalizationBridge extends BaseApplicationBridge implements IGloba
         @param key    to match text
         @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
         @return Localized text.
-        @since ARP 2.0
+        @since v2.0
      */
      public string getResourceLiteral(string key, Locale locale) {
           // Start logging elapsed time.
@@ -148,7 +148,7 @@ public class GlobalizationBridge extends BaseApplicationBridge implements IGloba
 
         @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
         @return Localized texts in the form of an object.
-        @since ARP 2.0
+        @since v2.0
      */
      public KeyPair[] getResourceLiterals(Locale locale) {
           // Start logging elapsed time.

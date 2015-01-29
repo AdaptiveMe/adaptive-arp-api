@@ -37,7 +37,7 @@ Release:
 /**
 
 @author Francisco Javier Martin Bueno
-@since ARP 2.0
+@since v2.0
 @version 1.0
 */
 @implementation EmailAttachmentData
@@ -46,7 +46,7 @@ Release:
      /**
         Default Constructor
 
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) init {
           self = [self init];
@@ -61,7 +61,7 @@ Release:
         @param fileName     name of the file attachment
         @param mimeType     mime type of the file attachment
         @param referenceUrl relative url of the file attachment
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) initWithDataSizeFileNameMimeTypeReferenceUrl:(NSArray*)data size:(long*)size fileName:(NSString*)fileName mimeType:(NSString*)mimeType referenceUrl:(NSString*)referenceUrl {
           self = [self init];

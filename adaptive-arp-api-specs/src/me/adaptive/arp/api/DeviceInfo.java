@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Structure representing the basic device information.
  *
  * @author Francisco Javier Martin Bueno
- * @since ARP 2.0
+ * @since v2.0
  */
 public class DeviceInfo extends APIBean {
 
@@ -72,7 +72,7 @@ public class DeviceInfo extends APIBean {
     /**
      * Default constructor
      *
-     * @since ARP 2.0
+     * @since v2.0
      */
     public DeviceInfo() {
     }
@@ -84,7 +84,7 @@ public class DeviceInfo extends APIBean {
      * @param model  of the device.
      * @param vendor of the device.
      * @param uuid   unique* identifier (* platform dependent).
-     * @since ARP 2.0
+     * @since v2.0
      */
     public DeviceInfo(String name, String model, String vendor, String uuid) {
         this.name = name;
@@ -97,7 +97,7 @@ public class DeviceInfo extends APIBean {
      * Returns the name of the device.
      *
      * @return String with device name.
-     * @since ARP 2.0
+     * @since v2.0
      */
     public String getName() {
         return name;
@@ -107,7 +107,7 @@ public class DeviceInfo extends APIBean {
      * Returns the model of the device.
      *
      * @return String with the model of the device.
-     * @since ARP 2.0
+     * @since v2.0
      */
     public String getModel() {
         return model;
@@ -117,7 +117,7 @@ public class DeviceInfo extends APIBean {
      * Returns the vendor of the device.
      *
      * @return String with the vendor name.
-     * @since ARP 2.0
+     * @since v2.0
      */
     public String getVendor() {
         return vendor;
@@ -127,7 +127,7 @@ public class DeviceInfo extends APIBean {
      * Returns the platform dependent UUID of the device.
      *
      * @return String with the 128-bit device identifier.
-     * @since ARP 2.0
+     * @since v2.0
      */
     public String getUuid() {
         return uuid;

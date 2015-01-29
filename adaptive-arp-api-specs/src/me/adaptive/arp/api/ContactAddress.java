@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Structure representing the address data elements of a contact.
  *
  * @author Francisco Javier Martin Bueno
- * @since ARP 2.0
+ * @since v2.0
  */
 public class ContactAddress extends APIBean {
 
@@ -61,7 +61,7 @@ public class ContactAddress extends APIBean {
     /**
      * Default constructor
      *
-     * @since ARP 2.0
+     * @since v2.0
      */
     public ContactAddress() {
     }
@@ -71,7 +71,7 @@ public class ContactAddress extends APIBean {
      *
      * @param address Address data.
      * @param type    Address type.
-     * @since ARP 2.0
+     * @since v2.0
      */
     public ContactAddress(String address, AddressType type) {
         this.address = address;
@@ -82,7 +82,7 @@ public class ContactAddress extends APIBean {
      * Returns the Contact address
      *
      * @return address Address data.
-     * @since ARP 2.0
+     * @since v2.0
      */
     public String getAddress() {
         return address;
@@ -92,7 +92,7 @@ public class ContactAddress extends APIBean {
      * Set the address of the Contact
      *
      * @param address Address data.
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setAddress(String address) {
         this.address = address;
@@ -102,7 +102,7 @@ public class ContactAddress extends APIBean {
      * Returns the type of the address
      *
      * @return AddressType Address type.
-     * @since ARP 2.0
+     * @since v2.0
      */
     public AddressType getType() {
         return type;
@@ -112,7 +112,7 @@ public class ContactAddress extends APIBean {
      * Set the address type
      *
      * @param type Address type.
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void setType(AddressType type) {
         this.type = type;
@@ -121,7 +121,7 @@ public class ContactAddress extends APIBean {
     /**
      * Types that can be used
      *
-     * @since ARP 2.0
+     * @since v2.0
      */
     public enum AddressType {
         Home, Work, Other, Unknown

@@ -39,7 +39,7 @@ Release:
 Represents a specific user or system locate.
 
 @author Aryslan
-@since ARP 2.0
+@since v2.0
 @version 1.0
 */
 @interface LocalLocale : APIBean
@@ -56,7 +56,7 @@ Represents a specific user or system locate.
      /**
         Default constructor
 
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) init;
 
@@ -65,7 +65,7 @@ Represents a specific user or system locate.
 
         @param country  Country of the Locale
         @param language Language of the Locale
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) initWithLanguageCountry:(NSString*)language country:(NSString*)country;
 

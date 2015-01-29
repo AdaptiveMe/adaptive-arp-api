@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Interface for Managing the Settings operations
  *
  * @author Carlos Lozano Diez
- * @since ARP 2.0
+ * @since v2.0
  */
 public interface ISettings extends IBaseApplication {
 }

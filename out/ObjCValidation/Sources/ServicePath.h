@@ -33,44 +33,58 @@ Release:
 */
 
 #import <Foundation/Foundation.h>
-#import <ServiceMethod.h>
+#import <Method.h>
 
 /**
 Structure representing a service path for one endpoint
 
 @author fnva
-@since ARP 2.0
+@since v2.0.4
 @version 1.0
 */
 @interface ServicePath : NSObject
 
      /**
-        The methods for calling a path
-        Array objects must be of ServiceMethod type.
+        Service endpoint type.
+     */
+     typedef NS_OPTIONS(NSUInteger, IServiceType) {
+          IServiceType_OctetBinary = 0,
+          IServiceType_RestJson = 1,
+          IServiceType_RestXml = 2,
+          IServiceType_SoapXml = 3,
+          IServiceType_Unknown = 4
+     };
+
+     @property IServiceType *type;
+     /**
+        The methods for calling a path.
+        Array objects must be of Method type.
      */
      typedef NS_OPTIONS(NSUInteger, NSArray) {
      };
 
      @property NSArray *methods;
      /**
-        The path for the endpoint
+        The path for the endpoint.
      */
      @property NSString *path;
 
      /**
-        Default Constructor
+        Default Constructor.
 
-        @since ARP 2.0
+        @since v2.0.4
      */
      - (id) init;
 
      /**
-        Constructor with parameters
+        Constructor with parameters.
 
         @param path    The path for the endpoint
         @param methods The methods for calling a path
+        @param type    Protocol type.
+        @since v2.0.6
      */
-     - (id) initWithPathMethods:(NSString*)path methods:(NSArray*)methods;
+     - (id) initWithPathMethodsType:(NSString*)path methods:(NSArray*)methods type:(IServiceType*)type;
 
 
 @end

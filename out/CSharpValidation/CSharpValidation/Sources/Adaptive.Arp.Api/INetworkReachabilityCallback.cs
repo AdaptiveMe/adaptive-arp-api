@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Interface for Managing the Network reachability callback result
 
         @author Carlos Lozano Diez
-        @since ARP 2.0
+        @since v2.0
         @version 1.0
      */
      public interface INetworkReachabilityCallback : IBaseCallback {
@@ -48,7 +48,7 @@ namespace Adaptive.Arp.Api
         No data received - error condition, not authorized .
 
         @param error Error value
-        @since ARP 2.0
+        @since v2.0
      */
      void onError(INetworkReachabilityCallbackError error);
 
@@ -56,7 +56,7 @@ namespace Adaptive.Arp.Api
         Correct data received.
 
         @param reachable Indicates if the host is reachable
-        @since ARP 2.0
+        @since v2.0
      */
      void onResult(bool reachable);
 
@@ -65,7 +65,7 @@ namespace Adaptive.Arp.Api
 
         @param reachable Indicates if the host is reachable
         @param warning   Warning value
-        @since ARP 2.0
+        @since v2.0
      */
      void onWarning(bool reachable, INetworkReachabilityCallbackWarning warning);
 

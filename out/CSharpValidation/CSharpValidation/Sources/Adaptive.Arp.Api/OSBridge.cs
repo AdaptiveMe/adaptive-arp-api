@@ -76,7 +76,7 @@ public class OSBridge extends BaseSystemBridge implements IOS, APIBridge {
         Returns the OSInfo for the current operating system.
 
         @return OSInfo with name, version and vendor of the OS.
-        @since ARP 2.0
+        @since v2.0
      */
      public OSInfo getOSInfo() {
           // Start logging elapsed time.

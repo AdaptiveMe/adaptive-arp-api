@@ -37,7 +37,7 @@ Release:
 /**
 
 @author Carlos Lozano Diez
-@since ARP 2.0
+@since v2.0
 @version 1.0
 */
 @implementation APIRequest
@@ -46,7 +46,7 @@ Release:
      /**
         Default constructor
 
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) init {
           self = [self init];
@@ -58,7 +58,7 @@ Release:
 
         @param bridgeType Name of the bridge to be invoked.
         @param methodName Name of the method
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) initWithBridgeTypeMethodName:(NSString*)bridgeType methodName:(NSString*)methodName {
           self = [self init];
@@ -76,7 +76,7 @@ Release:
         @param methodName Name of the method
         @param parameters Array of parameters as JSON formatted strings.
         @param asyncId    Id of callback or listener or zero if none for synchronous calls.
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) initWithBridgeTypeMethodNameParametersAsyncId:(NSString*)bridgeType methodName:(NSString*)methodName parameters:(NSArray*)parameters asyncId:(long*)asyncId {
           self = [self init];

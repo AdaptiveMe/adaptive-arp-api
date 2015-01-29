@@ -37,7 +37,7 @@ Release:
 /**
 
 @author Francisco Javier Martin Bueno
-@since ARP 2.0
+@since v2.0
 @version 1.0
 */
 @implementation ContactProfessionalInfo
@@ -46,7 +46,7 @@ Release:
      /**
         Default constructor
 
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) init {
           self = [self init];
@@ -59,7 +59,7 @@ Release:
         @param jobTitle       The job title
         @param jobDescription The job description
         @param company        The company of the job
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) initWithJobTitleJobDescriptionCompany:(NSString*)jobTitle jobDescription:(NSString*)jobDescription company:(NSString*)company {
           self = [self init];

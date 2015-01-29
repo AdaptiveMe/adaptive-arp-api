@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  * Interface defines the response methods of the acceleration operations
  *
  * @author Carlos Lozano Diez
- * @since ARP 2.0
+ * @since v2.0
  */
 public interface IAccelerationListener extends IBaseListener {
 
@@ -52,7 +52,7 @@ public interface IAccelerationListener extends IBaseListener {
      * Correct data received.
      *
      * @param acceleration Acceleration received
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void onResult(Acceleration acceleration);
 
@@ -61,7 +61,7 @@ public interface IAccelerationListener extends IBaseListener {
      *
      * @param acceleration Acceleration received
      * @param warning      Warning fired
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void onWarning(Acceleration acceleration, Warning warning);
 
@@ -70,14 +70,14 @@ public interface IAccelerationListener extends IBaseListener {
      * listener and subsequently, the listener will be deactivated and removed from the internal list of listeners.
      *
      * @param error Error fired
-     * @since ARP 2.0
+     * @since v2.0
      */
     public void onError(Error error);
 
     /**
      * Warnings that can be used
      *
-     * @since ARP 2.0
+     * @since v2.0
      */
     public enum Warning {
         NeedsCalibration, Stale, Unknown
@@ -86,7 +86,7 @@ public interface IAccelerationListener extends IBaseListener {
     /**
      * Errors that can be used
      *
-     * @since ARP 2.0
+     * @since v2.0
      */
     public enum Error {
         Unauthorized, Unavailable, Unknown

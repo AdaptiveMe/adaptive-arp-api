@@ -46,6 +46,7 @@ namespace Adaptive.Arp.Api
           MethodNotAllowed,
           NotAllowed,
           NotAuthenticated,
+          PaymentRequired,
           TimeOut,
           NoResponse,
           ServerError,

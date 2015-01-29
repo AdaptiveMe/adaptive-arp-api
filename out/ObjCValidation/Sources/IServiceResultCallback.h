@@ -39,7 +39,7 @@ Release:
 Interface for Managing the Services operations
 
 @author Francisco Javier Martin Bueno
-@since ARP 2.0
+@since v2.0
 @version 1.0
 */
 @protocol IServiceResultCallback <IBaseCallback>
@@ -50,18 +50,19 @@ Interface for Managing the Services operations
           IServiceResultCallbackError_MethodNotAllowed = 2,
           IServiceResultCallbackError_NotAllowed = 3,
           IServiceResultCallbackError_NotAuthenticated = 4,
-          IServiceResultCallbackError_TimeOut = 5,
-          IServiceResultCallbackError_NoResponse = 6,
-          IServiceResultCallbackError_ServerError = 7,
-          IServiceResultCallbackError_Unreachable = 8,
-          IServiceResultCallbackError_MalformedUrl = 9,
-          IServiceResultCallbackError_NotRegisteredService = 10,
-          IServiceResultCallbackError_Unknown = 11
+          IServiceResultCallbackError_PaymentRequired = 5,
+          IServiceResultCallbackError_TimeOut = 6,
+          IServiceResultCallbackError_NoResponse = 7,
+          IServiceResultCallbackError_ServerError = 8,
+          IServiceResultCallbackError_Unreachable = 9,
+          IServiceResultCallbackError_MalformedUrl = 10,
+          IServiceResultCallbackError_NotRegisteredService = 11,
+          IServiceResultCallbackError_Unknown = 12
      };
 
      typedef NS_OPTIONS(NSUInteger, IServiceResultCallbackWarning) {
-          IServiceResultCallbackWarning_NotSecure = 0,
-          IServiceResultCallbackWarning_NotTrusted = 1,
+          IServiceResultCallbackWarning_CertificateUntrusted = 0,
+          IServiceResultCallbackWarning_NotSecure = 1,
           IServiceResultCallbackWarning_Redirected = 2,
           IServiceResultCallbackWarning_Wrong_Params = 3,
           IServiceResultCallbackWarning_Unknown = 4

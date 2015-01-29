@@ -37,7 +37,7 @@ Release:
 /**
 
 @author Francisco Javier Martin Bueno
-@since ARP 2.0
+@since v2.0
 @version 1.0
 */
 @implementation Lifecycle
@@ -46,7 +46,7 @@ Release:
      /**
         Default constructor
 
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) init {
           self = [self init];
@@ -57,7 +57,7 @@ Release:
         Constructor used by the implementation
 
         @param state of the app
-        @since ARP 2.0
+        @since v2.0
      */
      - (id) initWithState:(LifecycleState*)state {
           self = [self init];

@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
         Structure representing the address data elements of a contact.
 
         @author Francisco Javier Martin Bueno
-        @since ARP 2.0
+        @since v2.0
         @version 1.0
      */
      public class ContactAddress : APIBean
@@ -58,7 +58,7 @@ namespace Adaptive.Arp.Api
           /**
              Default constructor
 
-             @since ARP 2.0
+             @since V2.0
           */
           public ContactAddress()  {
           }
@@ -68,7 +68,7 @@ namespace Adaptive.Arp.Api
 
              @param Address Address data.
              @param Type    Address type.
-             @since ARP 2.0
+             @since V2.0
           */
           public ContactAddress(string Address, ContactAddressType Type) : base () {
                this.Address = Address;
@@ -79,7 +79,7 @@ namespace Adaptive.Arp.Api
              Returns the type of the address
 
              @return AddressType Address type.
-             @since ARP 2.0
+             @since V2.0
           */
           public ContactAddressType GetType() {
                return this.Type;
@@ -89,7 +89,7 @@ namespace Adaptive.Arp.Api
              Set the address type
 
              @param Type Address type.
-             @since ARP 2.0
+             @since V2.0
           */
           public void SetType(ContactAddressType Type) {
                this.Type = Type;
@@ -99,7 +99,7 @@ namespace Adaptive.Arp.Api
              Returns the Contact address
 
              @return Address Address data.
-             @since ARP 2.0
+             @since V2.0
           */
           public string GetAddress() {
                return this.Address;
@@ -109,7 +109,7 @@ namespace Adaptive.Arp.Api
              Set the address of the Contact
 
              @param Address Address data.
-             @since ARP 2.0
+             @since V2.0
           */
           public void SetAddress(string Address) {
                this.Address = Address;

@@ -55,7 +55,7 @@ public class FileDataStoreResultCallbackImpl extends BaseCallbackImpl implements
         Error processing data retrieval/storage operation.
 
         @param error Error condition encountered.
-        @since ARP 2.0
+        @since v2.0
      */
      public void onError(IFileDataStoreResultCallbackError error) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileDataStoreResultCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
@@ -65,7 +65,7 @@ public class FileDataStoreResultCallbackImpl extends BaseCallbackImpl implements
         Result of data storage operation.
 
         @param file File reference to stored data.
-        @since ARP 2.0
+        @since v2.0
      */
      public void onResult(FileDescriptor file) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileDataStoreResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(file) +") )");
@@ -76,7 +76,7 @@ public class FileDataStoreResultCallbackImpl extends BaseCallbackImpl implements
 
         @param file    File being loaded/stored.
         @param warning Warning condition encountered.
-        @since ARP 2.0
+        @since v2.0
      */
      public void onWarning(FileDescriptor file, IFileDataStoreResultCallbackWarning warning) {
           AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileDataStoreResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(file) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
