@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.6
+    * @version v2.0.8
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -93,7 +93,7 @@ namespace Adaptive.Arp.Api
              @param ContactId of the Contact
              @since V2.0
           */
-          public Contact(string ContactId) : base(ContactId) {
+          public Contact(string ContactId) : base(contactId) {
           }
 
           /**
@@ -110,7 +110,7 @@ namespace Adaptive.Arp.Api
              @param ContactTags      Tags of the contact
              @since V2.0
           */
-          public Contact(string ContactId, ContactPersonalInfo PersonalInfo, ContactProfessionalInfo ProfessionalInfo, ContactAddress[] ContactAddresses, ContactPhone[] ContactPhones, ContactEmail[] ContactEmails, ContactWebsite[] ContactWebsites, ContactSocial[] ContactSocials, ContactTag[] ContactTags) : base(ContactId) {
+          public Contact(string ContactId, ContactPersonalInfo PersonalInfo, ContactProfessionalInfo ProfessionalInfo, ContactAddress[] ContactAddresses, ContactPhone[] ContactPhones, ContactEmail[] ContactEmails, ContactWebsite[] ContactWebsites, ContactSocial[] ContactSocials, ContactTag[] ContactTags) : base(contactId) {
                this.PersonalInfo = PersonalInfo;
                this.ProfessionalInfo = ProfessionalInfo;
                this.ContactAddresses = ContactAddresses;

@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.6
+    * @version v2.0.8
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -62,7 +62,7 @@ namespace Adaptive.Arp.Api
              @param KeyData Value of the key.
              @since V2.0.6
           */
-          public ServiceRequestParameter(string KeyName, string KeyData) : base(KeyNameKeyData) {
+          public ServiceRequestParameter(string KeyName, string KeyData) : base(keyName, keyData) {
           }
 
 
