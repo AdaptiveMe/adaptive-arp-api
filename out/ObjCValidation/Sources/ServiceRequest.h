@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -99,6 +99,10 @@ maintains request and response state automatically.
 identifiers. This should not be manipulated by the application directly.
      */
      @property ServiceToken *serviceToken;
+     /**
+        This attribute allows for the default user-agent string to be overridden by the application.
+     */
+     @property NSString *userAgent;
 
      /**
         Default constructor.

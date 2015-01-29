@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -94,6 +94,10 @@ maintains request and response state automatically.
 identifiers. This should not be manipulated by the application directly.
           */
           public ServiceToken ServiceToken { get; set; }
+          /**
+             This attribute allows for the default user-agent string to be overridden by the application.
+          */
+          public string UserAgent { get; set; }
 
           /**
              Default constructor.
@@ -293,6 +297,26 @@ identifiers. This should not be manipulated by the application directly.
           */
           public void SetServiceToken(ServiceToken ServiceToken) {
                this.ServiceToken = ServiceToken;
+          }
+
+          /**
+             Gets the overridden user-agent string.
+
+             @return User-agent string.
+             @since V2.0.6
+          */
+          public string GetUserAgent() {
+               return this.UserAgent;
+          }
+
+          /**
+             Sets the user-agent to override the default user-agent string.
+
+             @param UserAgent User-agent string.
+             @since V2.0.6
+          */
+          public void SetUserAgent(string UserAgent) {
+               this.UserAgent = UserAgent;
           }
 
 
