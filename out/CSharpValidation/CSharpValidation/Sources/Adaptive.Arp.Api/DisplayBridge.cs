@@ -32,45 +32,49 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
+using System;
 
-import com.google.gson.Gson;
-
-/**
-   Interface for Managing the Display operations
-   Auto-generated implementation of IDisplay specification.
-*/
-public class DisplayBridge extends BaseSystemBridge implements IDisplay, APIBridge {
+namespace Adaptive.Arp.Api
+{
 
      /**
-        API Delegate.
+        Interface for Managing the Display operations
+        Auto-generated implementation of IDisplay specification.
      */
-     private IDisplay delegate;
+public class DisplayBridge : BaseSystemBridge, IDisplay, APIBridge
+{
 
-     /**
-        Constructor with delegate.
+          /**
+             API Delegate.
+          */
+          private IDisplay delegate;
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public DisplayBridge(IDisplay delegate) {
-          super();
-          this.delegate = delegate;
-     }
-     /**
-        Get the delegate implementation.
-        @return IDisplay delegate that manages platform specific functions..
-     */
-     public final IDisplay getDelegate() {
-          return this.delegate;
-     }
-     /**
-        Set the delegate implementation.
+          /**
+             Constructor with delegate.
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public final void setDelegate(IDisplay delegate) {
-          this.delegate = delegate;
-     }
+             @param delegate The delegate implementing platform specific functions.
+          */
+          public DisplayBridge(IDisplay delegate) : base()
+          {
+               this.delegate = delegate;
+          }
+          /**
+             Get the delegate implementation.
+             @return IDisplay delegate that manages platform specific functions..
+          */
+          public sealed IDisplay GetDelegate()
+          {
+               return this.delegate;
+          }
+          /**
+             Set the delegate implementation.
+
+             @param delegate The delegate implementing platform specific functions.
+          */
+          public sealed void SetDelegate(IDisplay delegate)
+          {
+               this.delegate = delegate;
+          }
 
      /**
         Add a listener to start receiving display orientation change events.
@@ -165,10 +169,13 @@ of the device. For device orientation, use the IDevice APIs.
         Invokes the given method specified in the API request object.
 
         @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+        @return APIResponse with status code, message and JSON response or a JSON null string for void functions. Status code 200 is OK, all others are HTTP standard error conditions.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public APIResponse invoke(APIRequest request) {
+          APIResponse response = new APIResponse();
+          int responseCode = 200;
+          String responseMessage = "OK";
+          String responseJSON = "null";
           switch (request.getMethodName()) {
                case "addDisplayOrientationListener":
                     IDisplayOrientationListener listener0 = new DisplayOrientationListenerImpl(request.getAsyncId());
@@ -177,9 +184,7 @@ of the device. For device orientation, use the IDevice APIs.
                case "getOrientationCurrent":
                     ICapabilitiesOrientation response1 = this.getOrientationCurrent();
                     if (response1 != null) {
-                         responseJSON = this.gson.toJson(response1);
-                    } else {
-                         responseJSON = null;
+                         responseJSON = getJSONParser().toJson(response1);
                     }
                     break;
                case "removeDisplayOrientationListener":
@@ -191,9 +196,14 @@ of the device. For device orientation, use the IDevice APIs.
                     break;
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseCode = 404;
+                    responseMessage = "DisplayBridge does not provide the function '"+request.getMethodName()+"' Please check your client-side API version; should be API version >= v2.1.1.";
           }
-          return responseJSON;
+          response.setResponse(responseJSON);
+          response.setStatusCode(responseCode);
+          response.setStatusMessage(responseMessage);
+          return response;
+     }
      }
 }
 /**

@@ -32,20 +32,24 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
+using System;
 
-/**
-   Interface to retrieve auto-registered service implementation references.
-   Auto-generated implementation of IAppRegistry specification.
-*/
-public class AppRegistryDelegate implements IAppRegistry {
+namespace Adaptive.Arp.Api
+{
 
      /**
-        Default Constructor.
+        Interface to retrieve auto-registered service implementation references.
+        Auto-generated implementation of IAppRegistry specification.
      */
-     public AppRegistryDelegate() {
-          super();
-     }
+     public class AppRegistryDelegate : IAppRegistry
+     {
+
+          /**
+             Default Constructor.
+          */
+          public AppRegistryDelegate() : base()
+          {
+          }
 
      /**
         Bridge references.
@@ -1188,19 +1192,8 @@ public class AppRegistryDelegate implements IAppRegistry {
      /**
         Method that returns the API version of the implementation.
      */
-     private tringBridge __tringBridge = null;
-
-     /**
-        Method that returns the API version of the implementation.
-
-        @return API Version string.
-        @since v2.0
-     */
-     public tringBridge getAPIVersion() {
-           if(__tringBridge == null) {
-               __tringBridge = new tringBridge(null);
-          }
-          return __tringBridge;
+     public String getAPIVersion() {
+          return "v2.1.1";
      }
 
      /**
@@ -1239,6 +1232,7 @@ public class AppRegistryDelegate implements IAppRegistry {
           return __appcontextwebviewBridge;
      }
 
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

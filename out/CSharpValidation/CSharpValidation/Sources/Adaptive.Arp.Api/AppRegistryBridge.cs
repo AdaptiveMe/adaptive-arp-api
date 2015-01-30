@@ -32,50 +32,59 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
+using System;
 
-import com.google.gson.Gson;
-
-/**
-   Interface to retrieve auto-registered service implementation references.
-   Auto-generated implementation of IAppRegistry specification.
-*/
-public class AppRegistryBridge implements IAppRegistry {
+namespace Adaptive.Arp.Api
+{
 
      /**
-        Group of API.
+        Interface to retrieve auto-registered service implementation references.
+        Auto-generated implementation of IAppRegistry specification.
      */
-     private IAdaptiveRPGroup apiGroup = IAdaptiveRPGroup.Kernel;
+public class AppRegistryBridge : IAppRegistry
+{
+
+          /**
+             Group of API.
+          */
+          private IAdaptiveRPGroup apiGroup = IAdaptiveRPGroup.Kernel;
+
+          /**
+             API Delegate.
+          */
+          private IAppRegistry delegate;
+
+          /**
+             Constructor with delegate.
+
+             @param delegate The delegate implementing platform specific functions.
+          */
+          public AppRegistryBridge(IAppRegistry delegate) : base()
+          {
+               this.delegate = delegate;
+          }
+          /**
+             Get the delegate implementation.
+             @return IAppRegistry delegate that manages platform specific functions..
+          */
+          public sealed IAppRegistry GetDelegate()
+          {
+               return this.delegate;
+          }
+          /**
+             Set the delegate implementation.
+
+             @param delegate The delegate implementing platform specific functions.
+          */
+          public sealed void SetDelegate(IAppRegistry delegate)
+          {
+               this.delegate = delegate;
+          }
 
      /**
-        API Delegate.
+        Common GsonBuilder.
      */
-     private IAppRegistry delegate;
-
-     /**
-        Constructor with delegate.
-
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public AppRegistryBridge(IAppRegistry delegate) {
-          super();
-          this.delegate = delegate;
-     }
-     /**
-        Get the delegate implementation.
-        @return IAppRegistry delegate that manages platform specific functions..
-     */
-     public final IAppRegistry getDelegate() {
-          return this.delegate;
-     }
-     /**
-        Set the delegate implementation.
-
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public final void setDelegate(IAppRegistry delegate) {
-          this.delegate = delegate;
-     }
+     private static GsonBuilder singletonGsonBuilder;
 
      /**
         Singleton instance.
@@ -91,6 +100,17 @@ public class AppRegistryBridge implements IAppRegistry {
                singleton = new AppRegistryBridge(new AppRegistryDelegate());
           }
           return singleton;
+     }
+
+     /**
+        Get singleton GsonBuilder instance.
+        @return GsonBuilder singleton instance.
+     */
+     public static final GsonBuilder getJSONInstance() {
+          if (singletonGsonBuilder == null) {
+               singletonGsonBuilder = new GsonBuilder();
+          }
+          return singletonGsonBuilder;
      }
 
      /**
@@ -847,18 +867,10 @@ public class AppRegistryBridge implements IAppRegistry {
         @return LoggingBridge reference or null if a bridge of this type is not registered.
      */
      public final LoggingBridge getLoggingBridge() {
-          // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
           LoggingBridge result = null;
-
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getLoggingBridge().");
 
           if (this.delegate != null) {
                result = this.delegate.getLoggingBridge();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getLoggingBridge' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getLoggingBridge'.");
           }
           return result;          
      }
@@ -1662,14 +1674,14 @@ public class AppRegistryBridge implements IAppRegistry {
         @return API Version string.
         @since v2.0
      */
-     public tringBridge getAPIVersion() {
+     public string getAPIVersion() {
           // Start logging elapsed time.
           long tIn = System.currentTimeMillis();
           ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
 
           if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getAPIVersion.");
 
-          tringBridge result = null;
+          string result = null;
           if (this.delegate != null) {
                result = this.delegate.getAPIVersion();
                if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getAPIVersion' in "+(System.currentTimeMillis()-tIn)+"ms.");
@@ -1725,6 +1737,7 @@ public class AppRegistryBridge implements IAppRegistry {
           return result;          
      }
 
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

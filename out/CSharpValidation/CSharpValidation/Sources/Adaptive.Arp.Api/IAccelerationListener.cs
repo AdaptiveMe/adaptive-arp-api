@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         Interface defines the response methods of the acceleration operations
 
@@ -43,32 +44,34 @@ namespace Adaptive.Arp.Api
         @since v2.0
         @version 1.0
      */
-     public interface IAccelerationListener : IBaseListener {
-     /**
-        No data received - error condition, not authorized or hardware not available. This will be reported once for the
+     public interface IAccelerationListener : IBaseListener
+     {
+
+          /**
+             No data received - error condition, not authorized or hardware not available. This will be reported once for the
 listener and subsequently, the listener will be deactivated and removed from the internal list of listeners.
 
-        @param error Error fired
-        @since v2.0
-     */
-     void onError(IAccelerationListenerError error);
+             @param error Error fired
+             @since v2.0
+          */
+          void OnError(IAccelerationListenerError error);
 
-     /**
-        Correct data received.
+          /**
+             Correct data received.
 
-        @param acceleration Acceleration received
-        @since v2.0
-     */
-     void onResult(Acceleration acceleration);
+             @param acceleration Acceleration received
+             @since v2.0
+          */
+          void OnResult(Acceleration acceleration);
 
-     /**
-        Data received with warning - ie. Needs calibration.
+          /**
+             Data received with warning - ie. Needs calibration.
 
-        @param acceleration Acceleration received
-        @param warning      Warning fired
-        @since v2.0
-     */
-     void onWarning(Acceleration acceleration, IAccelerationListenerWarning warning);
+             @param acceleration Acceleration received
+             @param warning      Warning fired
+             @since v2.0
+          */
+          void OnWarning(Acceleration acceleration, IAccelerationListenerWarning warning);
 
      }
 }

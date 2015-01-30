@@ -32,29 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
+using System;
+using Adaptive.Arp.Api;
 
-import me.adaptive.arp.api.*;
-
-/**
-   Interface for Managing the Messaging operations
-   Auto-generated implementation of IMessaging specification.
-*/
-public class MessagingDelegate extends BasePIMDelegate implements IMessaging {
+namespace Adaptive.Arp.Api.Impl
+{
 
      /**
-        Register delegate with the Application Registry.
+        Interface for Managing the Messaging operations
+        Auto-generated implementation of IMessaging specification.
      */
-     static {
-          AppRegistryBridge.getInstance().getMessagingBridge().setDelegate(new MessagingDelegate());
-     }
+     public class MessagingDelegate : BasePIMDelegate, IMessaging
+     {
 
-     /**
-        Default Constructor.
-     */
-     public MessagingDelegate() {
-          super();
-     }
+          /**
+             Default Constructor.
+          */
+          public MessagingDelegate() : base()
+          {
+          }
 
      /**
         Send text SMS
@@ -69,6 +65,7 @@ public class MessagingDelegate extends BasePIMDelegate implements IMessaging {
           throw new UnsupportedOperationException(this.getClass().getName()+":sendSMS");
      }
 
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

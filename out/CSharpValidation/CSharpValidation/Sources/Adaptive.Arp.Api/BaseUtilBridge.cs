@@ -32,63 +32,80 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
+using System;
 
-import com.google.gson.Gson;
-
-/**
-   Base application for Utility purposes
-   Auto-generated implementation of IBaseUtil specification.
-*/
-public class BaseUtilBridge implements IBaseUtil {
+namespace Adaptive.Arp.Api
+{
 
      /**
-        Group of API.
+        Base application for Utility purposes
+        Auto-generated implementation of IBaseUtil specification.
      */
-     protected IAdaptiveRPGroup apiGroup;
+     public class BaseUtilBridge : IBaseUtil
+     {
 
-     /**
-        JSON API.
-     */
-     protected Gson gson;
+          /**
+             Group of API.
+          */
+          protected IAdaptiveRPGroup apiGroup;
 
-     /**
-        Default constructor.
-     */
-     public BaseUtilBridge() {
-          this.apiGroup = IAdaptiveRPGroup.Util;
-          this.gson = new Gson();
-     }
+          /**
+             Default constructor.
+          */
+          public BaseUtilBridge()
+          {
+               this.apiGroup = IAdaptiveRPGroup.Util;
+          }
 
-     /**
-        Return the API group for the given interface.
-     */
-     @Override
-     public final IAdaptiveRPGroup getAPIGroup() {
-          return this.apiGroup;
-     }
-     /**
-        Return the JSON serializer.
-        @return Current JSON serializer.
-     */
-     public final Gson getJSONAPI() {
-          return this.gson;
-     }
+          /**
+             Return the API group for the given interface.
+          */
+          public sealed IAdaptiveRPGroup GetAPIGroup()
+          {
+               return this.apiGroup;
+          }
+
+          /**
+             Return the API version for the given interface.
+          */
+          public sealed String GetAPIVersion()
+          {
+               return "v2.1.1";
+          }
+
+          /**
+             Return the JSON deserializer/serializer sourced from the static GsonBuilder.
+             @return Gson new JSON deserializer/serializer instance from factory.
+          */
+          public sealed object GetJSONParser()
+          {
+               // TODO - JSON.net integration
+               // return AppRegistryBridge.getJSONInstance().create();
+               return null;
+          }
 
      /**
         Invokes the given method specified in the API request object.
 
         @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+        @return APIResponse with status code, message and JSON response or a JSON null string for void functions. Status code 200 is OK, all others are HTTP standard error conditions.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public APIResponse invoke(APIRequest request) {
+          APIResponse response = new APIResponse();
+          int responseCode = 200;
+          String responseMessage = "OK";
+          String responseJSON = "null";
           switch (request.getMethodName()) {
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseCode = 404;
+                    responseMessage = "BaseUtilBridge does not provide the function '"+request.getMethodName()+"' Please check your client-side API version; should be API version >= v2.1.1.";
           }
-          return responseJSON;
+          response.setResponse(responseJSON);
+          response.setStatusCode(responseCode);
+          response.setStatusMessage(responseMessage);
+          return response;
+     }
      }
 }
 /**

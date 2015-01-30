@@ -32,22 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
+using System;
+using Adaptive.Arp.Api;
 
-import me.adaptive.arp.api.*;
-
-/**
-   Interface for context management purposes
-   Auto-generated implementation of IAppContext specification.
-*/
-public class AppContextDelegate implements IAppContext {
+namespace Adaptive.Arp.Api.Impl
+{
 
      /**
-        Default Constructor.
+        Interface for context management purposes
+        Auto-generated implementation of IAppContext specification.
      */
-     public AppContextDelegate() {
-          super();
-     }
+     public class AppContextDelegate : IAppContext
+     {
+
+          /**
+             Default Constructor.
+          */
+          public AppContextDelegate() : base()
+          {
+          }
 
      /**
         The main application context. This should be cast to the platform specific implementation.
@@ -75,6 +78,7 @@ public class AppContextDelegate implements IAppContext {
           // return response;
      }
 
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

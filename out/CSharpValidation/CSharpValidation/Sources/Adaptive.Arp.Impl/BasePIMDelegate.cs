@@ -32,36 +32,49 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
+using System;
+using Adaptive.Arp.Api;
 
-import me.adaptive.arp.api.*;
-
-/**
-   Base application for PIM purposes
-   Auto-generated implementation of IBasePIM specification.
-*/
-public class BasePIMDelegate implements IBasePIM {
+namespace Adaptive.Arp.Api.Impl
+{
 
      /**
-        Group of API.
+        Base application for PIM purposes
+        Auto-generated implementation of IBasePIM specification.
      */
-     private IAdaptiveRPGroup apiGroup;
+     public class BasePIMDelegate : IBasePIM
+     {
 
-     /**
-        Default constructor.
-     */
-     public BasePIMDelegate() {
-          this.apiGroup = IAdaptiveRPGroup.PIM;
+          /**
+             Group of API.
+          */
+          private IAdaptiveRPGroup apiGroup;
+
+          /**
+             Default constructor.
+          */
+          public BasePIMDelegate()
+          {
+               this.apiGroup = IAdaptiveRPGroup.PIM;
+          }
+
+          /**
+             Return the API group for the given interface.
+          */
+          public sealed IAdaptiveRPGroup GetAPIGroup()
+          {
+               return this.apiGroup;
+          }
+
+          /**
+             Return the API version for the given interface.
+          */
+          public sealed String GetAPIVersion()
+          {
+               return "v2.1.1";
+          }
+
      }
-
-     /**
-        Return the API group for the given interface.
-     */
-     @Override
-     public final IAdaptiveRPGroup getAPIGroup() {
-          return this.apiGroup;
-     }
-
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

@@ -58,7 +58,7 @@ public class FileDataStoreResultCallbackImpl extends BaseCallbackImpl implements
         @since v2.0
      */
      public void onError(IFileDataStoreResultCallbackError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileDataStoreResultCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleFileDataStoreResultCallbackError( '"+getId()+"', JSON.parse(" + getJSONParser().toJson(error) +") )");
      }
 
      /**
@@ -68,7 +68,7 @@ public class FileDataStoreResultCallbackImpl extends BaseCallbackImpl implements
         @since v2.0
      */
      public void onResult(FileDescriptor file) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileDataStoreResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(file) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleFileDataStoreResultCallbackResult( '"+getId()+"', JSON.parse(" + getJSONParser().toJson(file) +") )");
      }
 
      /**
@@ -79,7 +79,7 @@ public class FileDataStoreResultCallbackImpl extends BaseCallbackImpl implements
         @since v2.0
      */
      public void onWarning(FileDescriptor file, IFileDataStoreResultCallbackWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileDataStoreResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(file) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleFileDataStoreResultCallbackWarning( '"+getId()+"', JSON.parse(" + getJSONParser().toJson(file) +"), JSON.parse(" + getJSONParser().toJson(warning) +") )");
      }
 
 }

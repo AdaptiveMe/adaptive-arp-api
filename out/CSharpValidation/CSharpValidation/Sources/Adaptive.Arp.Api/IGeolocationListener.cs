@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         Interface for Managing the Geolocation results
 
@@ -43,31 +44,33 @@ namespace Adaptive.Arp.Api
         @since v2.0
         @version 1.0
      */
-     public interface IGeolocationListener : IBaseListener {
-     /**
-        No data received - error condition, not authorized or hardware not available.
+     public interface IGeolocationListener : IBaseListener
+     {
 
-        @param error Type of error encountered during reading.
-        @since v2.0
-     */
-     void onError(IGeolocationListenerError error);
+          /**
+             No data received - error condition, not authorized or hardware not available.
 
-     /**
-        Correct data received.
+             @param error Type of error encountered during reading.
+             @since v2.0
+          */
+          void OnError(IGeolocationListenerError error);
 
-        @param geolocation Geolocation Bean
-        @since v2.0
-     */
-     void onResult(Geolocation geolocation);
+          /**
+             Correct data received.
 
-     /**
-        Data received with warning - ie. HighDoP
+             @param geolocation Geolocation Bean
+             @since v2.0
+          */
+          void OnResult(Geolocation geolocation);
 
-        @param geolocation Geolocation Bean
-        @param warning     Type of warning encountered during reading.
-        @since v2.0
-     */
-     void onWarning(Geolocation geolocation, IGeolocationListenerWarning warning);
+          /**
+             Data received with warning - ie. HighDoP
+
+             @param geolocation Geolocation Bean
+             @param warning     Type of warning encountered during reading.
+             @since v2.0
+          */
+          void OnWarning(Geolocation geolocation, IGeolocationListenerWarning warning);
 
      }
 }

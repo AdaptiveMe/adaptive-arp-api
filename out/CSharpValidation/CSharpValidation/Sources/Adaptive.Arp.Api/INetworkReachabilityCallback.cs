@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         Interface for Managing the Network reachability callback result
 
@@ -43,31 +44,33 @@ namespace Adaptive.Arp.Api
         @since v2.0
         @version 1.0
      */
-     public interface INetworkReachabilityCallback : IBaseCallback {
-     /**
-        No data received - error condition, not authorized .
+     public interface INetworkReachabilityCallback : IBaseCallback
+     {
 
-        @param error Error value
-        @since v2.0
-     */
-     void onError(INetworkReachabilityCallbackError error);
+          /**
+             No data received - error condition, not authorized .
 
-     /**
-        Correct data received.
+             @param error Error value
+             @since v2.0
+          */
+          void OnError(INetworkReachabilityCallbackError error);
 
-        @param reachable Indicates if the host is reachable
-        @since v2.0
-     */
-     void onResult(bool reachable);
+          /**
+             Correct data received.
 
-     /**
-        Data received with warning - ie Found entries with existing key and values have been overriden
+             @param reachable Indicates if the host is reachable
+             @since v2.0
+          */
+          void OnResult(bool reachable);
 
-        @param reachable Indicates if the host is reachable
-        @param warning   Warning value
-        @since v2.0
-     */
-     void onWarning(bool reachable, INetworkReachabilityCallbackWarning warning);
+          /**
+             Data received with warning - ie Found entries with existing key and values have been overriden
+
+             @param reachable Indicates if the host is reachable
+             @param warning   Warning value
+             @since v2.0
+          */
+          void OnWarning(bool reachable, INetworkReachabilityCallbackWarning warning);
 
      }
 }

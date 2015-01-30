@@ -32,29 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
+using System;
+using Adaptive.Arp.Api;
 
-import me.adaptive.arp.api.*;
-
-/**
-   Interface for Managing the Globalization results
-   Auto-generated implementation of IGlobalization specification.
-*/
-public class GlobalizationDelegate extends BaseApplicationDelegate implements IGlobalization {
+namespace Adaptive.Arp.Api.Impl
+{
 
      /**
-        Register delegate with the Application Registry.
+        Interface for Managing the Globalization results
+        Auto-generated implementation of IGlobalization specification.
      */
-     static {
-          AppRegistryBridge.getInstance().getGlobalizationBridge().setDelegate(new GlobalizationDelegate());
-     }
+     public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization
+     {
 
-     /**
-        Default Constructor.
-     */
-     public GlobalizationDelegate() {
-          super();
-     }
+          /**
+             Default Constructor.
+          */
+          public GlobalizationDelegate() : base()
+          {
+          }
 
      /**
         Returns the default locale of the application defined in the configuration file
@@ -111,6 +107,7 @@ public class GlobalizationDelegate extends BaseApplicationDelegate implements IG
           // return response;
      }
 
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         Interface for Audio purposes
 
@@ -43,7 +44,9 @@ namespace Adaptive.Arp.Api
         @since v2.0
         @version 1.0
      */
-     public interface IAudio : IBaseMedia {
+     public interface IAudio : IBaseMedia
+     {
+
      }
 }
 

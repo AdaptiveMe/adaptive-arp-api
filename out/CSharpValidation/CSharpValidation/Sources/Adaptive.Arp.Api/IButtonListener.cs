@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         Interface for Managing the button  operations
 
@@ -43,31 +44,33 @@ namespace Adaptive.Arp.Api
         @since v2.0
         @version 1.0
      */
-     public interface IButtonListener : IBaseListener {
-     /**
-        No data received
+     public interface IButtonListener : IBaseListener
+     {
 
-        @param error occurred
-        @since v2.0
-     */
-     void onError(IButtonListenerError error);
+          /**
+             No data received
 
-     /**
-        Called on button pressed
+             @param error occurred
+             @since v2.0
+          */
+          void OnError(IButtonListenerError error);
 
-        @param button pressed
-        @since v2.0
-     */
-     void onResult(Button button);
+          /**
+             Called on button pressed
 
-     /**
-        Data received with warning
+             @param button pressed
+             @since v2.0
+          */
+          void OnResult(Button button);
 
-        @param button  pressed
-        @param warning happened
-        @since v2.0
-     */
-     void onWarning(Button button, IButtonListenerWarning warning);
+          /**
+             Data received with warning
+
+             @param button  pressed
+             @param warning happened
+             @since v2.0
+          */
+          void OnWarning(Button button, IButtonListenerWarning warning);
 
      }
 }

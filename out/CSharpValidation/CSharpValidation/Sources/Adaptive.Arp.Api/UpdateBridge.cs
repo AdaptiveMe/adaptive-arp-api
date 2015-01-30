@@ -32,60 +32,72 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
+using System;
 
-import com.google.gson.Gson;
-
-/**
-   Interface for Managing the Update operations
-   Auto-generated implementation of IUpdate specification.
-*/
-public class UpdateBridge extends BaseApplicationBridge implements IUpdate, APIBridge {
+namespace Adaptive.Arp.Api
+{
 
      /**
-        API Delegate.
+        Interface for Managing the Update operations
+        Auto-generated implementation of IUpdate specification.
      */
-     private IUpdate delegate;
+public class UpdateBridge : BaseApplicationBridge, IUpdate, APIBridge
+{
 
-     /**
-        Constructor with delegate.
+          /**
+             API Delegate.
+          */
+          private IUpdate delegate;
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public UpdateBridge(IUpdate delegate) {
-          super();
-          this.delegate = delegate;
-     }
-     /**
-        Get the delegate implementation.
-        @return IUpdate delegate that manages platform specific functions..
-     */
-     public final IUpdate getDelegate() {
-          return this.delegate;
-     }
-     /**
-        Set the delegate implementation.
+          /**
+             Constructor with delegate.
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public final void setDelegate(IUpdate delegate) {
-          this.delegate = delegate;
-     }
+             @param delegate The delegate implementing platform specific functions.
+          */
+          public UpdateBridge(IUpdate delegate) : base()
+          {
+               this.delegate = delegate;
+          }
+          /**
+             Get the delegate implementation.
+             @return IUpdate delegate that manages platform specific functions..
+          */
+          public sealed IUpdate GetDelegate()
+          {
+               return this.delegate;
+          }
+          /**
+             Set the delegate implementation.
+
+             @param delegate The delegate implementing platform specific functions.
+          */
+          public sealed void SetDelegate(IUpdate delegate)
+          {
+               this.delegate = delegate;
+          }
 
      /**
         Invokes the given method specified in the API request object.
 
         @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+        @return APIResponse with status code, message and JSON response or a JSON null string for void functions. Status code 200 is OK, all others are HTTP standard error conditions.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public APIResponse invoke(APIRequest request) {
+          APIResponse response = new APIResponse();
+          int responseCode = 200;
+          String responseMessage = "OK";
+          String responseJSON = "null";
           switch (request.getMethodName()) {
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseCode = 404;
+                    responseMessage = "UpdateBridge does not provide the function '"+request.getMethodName()+"' Please check your client-side API version; should be API version >= v2.1.1.";
           }
-          return responseJSON;
+          response.setResponse(responseJSON);
+          response.setStatusCode(responseCode);
+          response.setStatusMessage(responseMessage);
+          return response;
+     }
      }
 }
 /**

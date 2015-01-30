@@ -32,45 +32,49 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
+using System;
 
-import com.google.gson.Gson;
-
-/**
-   Interface for Managing the Services operations
-   Auto-generated implementation of IService specification.
-*/
-public class ServiceBridge extends BaseCommunicationBridge implements IService, APIBridge {
+namespace Adaptive.Arp.Api
+{
 
      /**
-        API Delegate.
+        Interface for Managing the Services operations
+        Auto-generated implementation of IService specification.
      */
-     private IService delegate;
+public class ServiceBridge : BaseCommunicationBridge, IService, APIBridge
+{
 
-     /**
-        Constructor with delegate.
+          /**
+             API Delegate.
+          */
+          private IService delegate;
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public ServiceBridge(IService delegate) {
-          super();
-          this.delegate = delegate;
-     }
-     /**
-        Get the delegate implementation.
-        @return IService delegate that manages platform specific functions..
-     */
-     public final IService getDelegate() {
-          return this.delegate;
-     }
-     /**
-        Set the delegate implementation.
+          /**
+             Constructor with delegate.
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public final void setDelegate(IService delegate) {
-          this.delegate = delegate;
-     }
+             @param delegate The delegate implementing platform specific functions.
+          */
+          public ServiceBridge(IService delegate) : base()
+          {
+               this.delegate = delegate;
+          }
+          /**
+             Get the delegate implementation.
+             @return IService delegate that manages platform specific functions..
+          */
+          public sealed IService GetDelegate()
+          {
+               return this.delegate;
+          }
+          /**
+             Set the delegate implementation.
+
+             @param delegate The delegate implementing platform specific functions.
+          */
+          public sealed void SetDelegate(IService delegate)
+          {
+               this.delegate = delegate;
+          }
 
      /**
         Create a service request for the given ServiceToken. This method creates the request, populating
@@ -205,58 +209,60 @@ XML service definition file.
         Invokes the given method specified in the API request object.
 
         @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+        @return APIResponse with status code, message and JSON response or a JSON null string for void functions. Status code 200 is OK, all others are HTTP standard error conditions.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public APIResponse invoke(APIRequest request) {
+          APIResponse response = new APIResponse();
+          int responseCode = 200;
+          String responseMessage = "OK";
+          String responseJSON = "null";
           switch (request.getMethodName()) {
                case "getServiceRequest":
-                    ServiceToken serviceToken0 = this.gson.fromJson(request.getParameters()[0], ServiceToken.class);
+                    ServiceToken serviceToken0 = getJSONParser().fromJson(request.getParameters()[0], ServiceToken.class);
                     ServiceRequest response0 = this.getServiceRequest(serviceToken0);
                     if (response0 != null) {
-                         responseJSON = this.gson.toJson(response0);
-                    } else {
-                         responseJSON = null;
+                         responseJSON = getJSONParser().toJson(response0);
                     }
                     break;
                case "getServiceToken":
-                    string serviceName1 = this.gson.fromJson(request.getParameters()[0], string.class);
-                    string endpointName1 = this.gson.fromJson(request.getParameters()[1], string.class);
-                    string functionName1 = this.gson.fromJson(request.getParameters()[2], string.class);
-                    IServiceMethod method1 = this.gson.fromJson(request.getParameters()[3], IServiceMethod.class);
+                    string serviceName1 = getJSONParser().fromJson(request.getParameters()[0], string.class);
+                    string endpointName1 = getJSONParser().fromJson(request.getParameters()[1], string.class);
+                    string functionName1 = getJSONParser().fromJson(request.getParameters()[2], string.class);
+                    IServiceMethod method1 = getJSONParser().fromJson(request.getParameters()[3], IServiceMethod.class);
                     ServiceToken response1 = this.getServiceToken(serviceName1, endpointName1, functionName1, method1);
                     if (response1 != null) {
-                         responseJSON = this.gson.toJson(response1);
-                    } else {
-                         responseJSON = null;
+                         responseJSON = getJSONParser().toJson(response1);
                     }
                     break;
                case "getServicesRegistered":
                     ServiceToken[] response2 = this.getServicesRegistered();
                     if (response2 != null) {
-                         responseJSON = this.gson.toJson(response2);
-                    } else {
-                         responseJSON = null;
+                         responseJSON = getJSONParser().toJson(response2);
                     }
                     break;
                case "invokeService":
-                    ServiceRequest serviceRequest3 = this.gson.fromJson(request.getParameters()[0], ServiceRequest.class);
+                    ServiceRequest serviceRequest3 = getJSONParser().fromJson(request.getParameters()[0], ServiceRequest.class);
                     IServiceResultCallback callback3 = new ServiceResultCallbackImpl(request.getAsyncId());
                     this.invokeService(serviceRequest3, callback3);
                     break;
                case "isServiceRegistered":
-                    string serviceName4 = this.gson.fromJson(request.getParameters()[0], string.class);
-                    string endpointName4 = this.gson.fromJson(request.getParameters()[1], string.class);
-                    string functionName4 = this.gson.fromJson(request.getParameters()[2], string.class);
-                    IServiceMethod method4 = this.gson.fromJson(request.getParameters()[3], IServiceMethod.class);
+                    string serviceName4 = getJSONParser().fromJson(request.getParameters()[0], string.class);
+                    string endpointName4 = getJSONParser().fromJson(request.getParameters()[1], string.class);
+                    string functionName4 = getJSONParser().fromJson(request.getParameters()[2], string.class);
+                    IServiceMethod method4 = getJSONParser().fromJson(request.getParameters()[3], IServiceMethod.class);
                     bool response4 = this.isServiceRegistered(serviceName4, endpointName4, functionName4, method4);
-                    responseJSON = this.gson.toJson(response4);
+                    responseJSON = getJSONParser().toJson(response4);
                     break;
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseCode = 404;
+                    responseMessage = "ServiceBridge does not provide the function '"+request.getMethodName()+"' Please check your client-side API version; should be API version >= v2.1.1.";
           }
-          return responseJSON;
+          response.setResponse(responseJSON);
+          response.setStatusCode(responseCode);
+          response.setStatusMessage(responseMessage);
+          return response;
+     }
      }
 }
 /**

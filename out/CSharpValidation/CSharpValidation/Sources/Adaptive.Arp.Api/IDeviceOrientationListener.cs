@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         Interface for handling device orientation change events.
 
@@ -43,33 +44,35 @@ namespace Adaptive.Arp.Api
         @since v2.0.5
         @version 1.0
      */
-     public interface IDeviceOrientationListener : IBaseListener {
-     /**
-        Although extremely unlikely, this event will be fired if something beyond the control of the
+     public interface IDeviceOrientationListener : IBaseListener
+     {
+
+          /**
+             Although extremely unlikely, this event will be fired if something beyond the control of the
 platform impedes the rotation of the device.
 
-        @param error The error condition... generally unknown as it is unexpected!
-        @since v2.0.5
-     */
-     void onError(IDeviceOrientationListenerError error);
+             @param error The error condition... generally unknown as it is unexpected!
+             @since v2.0.5
+          */
+          void OnError(IDeviceOrientationListenerError error);
 
-     /**
-        Event fired with the successful start and finish of a rotation.
+          /**
+             Event fired with the successful start and finish of a rotation.
 
-        @param event RotationEvent containing origin, destination and state of the event.
-        @since v2.0.5
-     */
-     void onResult(RotationEvent event);
+             @param event RotationEvent containing origin, destination and state of the event.
+             @since v2.0.5
+          */
+          void OnResult(RotationEvent event);
 
-     /**
-        Event fired with a warning when the rotation is aborted. In specific, this
+          /**
+             Event fired with a warning when the rotation is aborted. In specific, this
 event may be fired if the devices vetoes the rotation before rotation is completed.
 
-        @param event   RotationEvent containing origin, destination and state of the event.
-        @param warning Type of condition that aborted rotation execution.
-        @since v2.0.5
-     */
-     void onWarning(RotationEvent event, IDeviceOrientationListenerWarning warning);
+             @param event   RotationEvent containing origin, destination and state of the event.
+             @param warning Type of condition that aborted rotation execution.
+             @since v2.0.5
+          */
+          void OnWarning(RotationEvent event, IDeviceOrientationListenerWarning warning);
 
      }
 }

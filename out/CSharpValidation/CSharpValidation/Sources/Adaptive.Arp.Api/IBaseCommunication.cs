@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         Base application for Communication purposes
 
@@ -43,7 +44,9 @@ namespace Adaptive.Arp.Api
         @since v2.0
         @version 1.0
      */
-     public interface IBaseCommunication : IAdaptiveRP {
+     public interface IBaseCommunication : IAdaptiveRP
+     {
+
      }
 }
 

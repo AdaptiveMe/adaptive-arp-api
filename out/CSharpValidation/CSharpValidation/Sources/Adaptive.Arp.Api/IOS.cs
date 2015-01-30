@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         Interface for Managing the OS operations
 
@@ -43,14 +44,16 @@ namespace Adaptive.Arp.Api
         @since v2.0
         @version 1.0
      */
-     public interface IOS : IBaseSystem {
-     /**
-        Returns the OSInfo for the current operating system.
+     public interface IOS : IBaseSystem
+     {
 
-        @return OSInfo with name, version and vendor of the OS.
-        @since v2.0
-     */
-     OSInfo getOSInfo();
+          /**
+             Returns the OSInfo for the current operating system.
+
+             @return OSInfo with name, version and vendor of the OS.
+             @since v2.0
+          */
+          OSInfo GetOSInfo();
 
      }
 }

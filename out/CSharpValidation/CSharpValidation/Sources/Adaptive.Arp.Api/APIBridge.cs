@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         This is a marker interface for bridge classes that invoke delegates.
 
@@ -43,15 +44,17 @@ namespace Adaptive.Arp.Api
         @since 1.0
         @version 1.0
      */
-     public interface APIBridge {
-     /**
-        Invokes the given method specified in the API request object.
+     public interface APIBridge
+     {
 
-        @param request APIRequest object containing method name and parameters.
-        @return Object with JSON response or a zero length string is the response is asynchronous.
-        @since v2.0
-     */
-     APIResponse invoke(APIRequest request);
+          /**
+             Invokes the given method specified in the API request object.
+
+             @param request APIRequest object containing method name and parameters.
+             @return Object with JSON response or a zero length string is the response is asynchronous.
+             @since v2.0
+          */
+          APIResponse Invoke(APIRequest request);
 
      }
 }

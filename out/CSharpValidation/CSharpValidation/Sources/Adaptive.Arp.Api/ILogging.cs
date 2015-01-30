@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         Interface for Managing the Logging operations
 
@@ -43,25 +44,27 @@ namespace Adaptive.Arp.Api
         @since v2.0
         @version 1.0
      */
-     public interface ILogging : IBaseUtil {
-     /**
-        Logs the given message, with the given log level if specified, to the standard platform/environment.
+     public interface ILogging : IBaseUtil
+     {
 
-        @param level    Log level
-        @param category Category/tag name to identify/filter the log.
-        @param message  Message to be logged
-        @since v2.0
-     */
-     void log(ILoggingLogLevel level, string category, string message);
+          /**
+             Logs the given message, with the given log level if specified, to the standard platform/environment.
 
-     /**
-        Logs the given message, with the given log level if specified, to the standard platform/environment.
+             @param level    Log level
+             @param category Category/tag name to identify/filter the log.
+             @param message  Message to be logged
+             @since v2.0
+          */
+          void Log(ILoggingLogLevel level, string category, string message);
 
-        @param level   Log level
-        @param message Message to be logged
-        @since v2.0
-     */
-     void log(ILoggingLogLevel level, string message);
+          /**
+             Logs the given message, with the given log level if specified, to the standard platform/environment.
+
+             @param level   Log level
+             @param message Message to be logged
+             @since v2.0
+          */
+          void Log(ILoggingLogLevel level, string message);
 
      }
 }

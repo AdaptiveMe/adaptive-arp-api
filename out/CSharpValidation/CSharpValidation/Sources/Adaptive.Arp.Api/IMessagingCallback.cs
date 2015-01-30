@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         Interface for Managing the Messaging responses
 
@@ -43,31 +44,33 @@ namespace Adaptive.Arp.Api
         @since v2.0
         @version 1.0
      */
-     public interface IMessagingCallback : IBaseCallback {
-     /**
-        This method is called on Error
+     public interface IMessagingCallback : IBaseCallback
+     {
 
-        @param error returned by the platform
-        @since v2.0
-     */
-     void onError(IMessagingCallbackError error);
+          /**
+             This method is called on Error
 
-     /**
-        This method is called on Result
+             @param error returned by the platform
+             @since v2.0
+          */
+          void OnError(IMessagingCallbackError error);
 
-        @param success true if sent;false otherwise
-        @since v2.0
-     */
-     void onResult(bool success);
+          /**
+             This method is called on Result
 
-     /**
-        This method is called on Warning
+             @param success true if sent;false otherwise
+             @since v2.0
+          */
+          void OnResult(bool success);
 
-        @param success true if sent;false otherwise
-        @param warning returned by the platform
-        @since v2.0
-     */
-     void onWarning(bool success, IMessagingCallbackWarning warning);
+          /**
+             This method is called on Warning
+
+             @param success true if sent;false otherwise
+             @param warning returned by the platform
+             @since v2.0
+          */
+          void OnWarning(bool success, IMessagingCallbackWarning warning);
 
      }
 }

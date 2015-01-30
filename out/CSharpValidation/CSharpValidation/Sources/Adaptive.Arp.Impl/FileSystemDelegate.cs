@@ -32,29 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
+using System;
+using Adaptive.Arp.Api;
 
-import me.adaptive.arp.api.*;
-
-/**
-   Interface for Managing the File System operations
-   Auto-generated implementation of IFileSystem specification.
-*/
-public class FileSystemDelegate extends BaseDataDelegate implements IFileSystem {
+namespace Adaptive.Arp.Api.Impl
+{
 
      /**
-        Register delegate with the Application Registry.
+        Interface for Managing the File System operations
+        Auto-generated implementation of IFileSystem specification.
      */
-     static {
-          AppRegistryBridge.getInstance().getFileSystemBridge().setDelegate(new FileSystemDelegate());
-     }
+     public class FileSystemDelegate : BaseDataDelegate, IFileSystem
+     {
 
-     /**
-        Default Constructor.
-     */
-     public FileSystemDelegate() {
-          super();
-     }
+          /**
+             Default Constructor.
+          */
+          public FileSystemDelegate() : base()
+          {
+          }
 
      /**
         Creates a new reference to a new or existing location in the filesystem.
@@ -172,6 +168,7 @@ This path may or may not be writable by the current application.
           // return response;
      }
 
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

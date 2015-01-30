@@ -32,29 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
+using System;
+using Adaptive.Arp.Api;
 
-import me.adaptive.arp.api.*;
-
-/**
-   Interface for Managing the Runtime operations
-   Auto-generated implementation of IRuntime specification.
-*/
-public class RuntimeDelegate extends BaseSystemDelegate implements IRuntime {
+namespace Adaptive.Arp.Api.Impl
+{
 
      /**
-        Register delegate with the Application Registry.
+        Interface for Managing the Runtime operations
+        Auto-generated implementation of IRuntime specification.
      */
-     static {
-          AppRegistryBridge.getInstance().getRuntimeBridge().setDelegate(new RuntimeDelegate());
-     }
+     public class RuntimeDelegate : BaseSystemDelegate, IRuntime
+     {
 
-     /**
-        Default Constructor.
-     */
-     public RuntimeDelegate() {
-          super();
-     }
+          /**
+             Default Constructor.
+          */
+          public RuntimeDelegate() : base()
+          {
+          }
 
      /**
         Dismiss the current Application
@@ -79,6 +75,7 @@ public class RuntimeDelegate extends BaseSystemDelegate implements IRuntime {
           // return response;
      }
 
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

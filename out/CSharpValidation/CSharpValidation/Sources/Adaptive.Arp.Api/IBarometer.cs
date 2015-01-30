@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         Interface for Barometer management purposes
 
@@ -43,7 +44,9 @@ namespace Adaptive.Arp.Api
         @since v2.0
         @version 1.0
      */
-     public interface IBarometer : IBaseSensor {
+     public interface IBarometer : IBaseSensor
+     {
+
      }
 }
 

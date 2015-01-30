@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         Interface for Managing the Video operations
 
@@ -43,14 +44,16 @@ namespace Adaptive.Arp.Api
         @since v2.0
         @version 1.0
      */
-     public interface IVideo : IBaseMedia {
-     /**
-        Play url video stream
+     public interface IVideo : IBaseMedia
+     {
 
-        @param url of the video
-        @since v2.0
-     */
-     void playStream(string url);
+          /**
+             Play url video stream
+
+             @param url of the video
+             @since v2.0
+          */
+          void PlayStream(string url);
 
      }
 }

@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         Interface for Managing the File result operations
 
@@ -43,31 +44,33 @@ namespace Adaptive.Arp.Api
         @since v2.0
         @version 1.0
      */
-     public interface IFileListResultCallback : IBaseCallback {
-     /**
-        On error result of a file operation.
+     public interface IFileListResultCallback : IBaseCallback
+     {
 
-        @param error Error processing the request.
-        @since v2.0
-     */
-     void onError(IFileListResultCallbackError error);
+          /**
+             On error result of a file operation.
 
-     /**
-        On correct result of a file operation.
+             @param error Error processing the request.
+             @since v2.0
+          */
+          void OnError(IFileListResultCallbackError error);
 
-        @param files Array of resulting files/folders.
-        @since v2.0
-     */
-     void onResult(FileDescriptor[] files);
+          /**
+             On correct result of a file operation.
 
-     /**
-        On partial result of a file operation, containing a warning.
+             @param files Array of resulting files/folders.
+             @since v2.0
+          */
+          void OnResult(FileDescriptor[] files);
 
-        @param files   Array of resulting files/folders.
-        @param warning Warning condition encountered.
-        @since v2.0
-     */
-     void onWarning(FileDescriptor[] files, IFileListResultCallbackWarning warning);
+          /**
+             On partial result of a file operation, containing a warning.
+
+             @param files   Array of resulting files/folders.
+             @param warning Warning condition encountered.
+             @since v2.0
+          */
+          void OnWarning(FileDescriptor[] files, IFileListResultCallbackWarning warning);
 
      }
 }

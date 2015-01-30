@@ -32,29 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
+using System;
+using Adaptive.Arp.Api;
 
-import me.adaptive.arp.api.*;
-
-/**
-   Interface for Managing the Telephony operations
-   Auto-generated implementation of ITelephony specification.
-*/
-public class TelephonyDelegate extends BaseCommunicationDelegate implements ITelephony {
+namespace Adaptive.Arp.Api.Impl
+{
 
      /**
-        Register delegate with the Application Registry.
+        Interface for Managing the Telephony operations
+        Auto-generated implementation of ITelephony specification.
      */
-     static {
-          AppRegistryBridge.getInstance().getTelephonyBridge().setDelegate(new TelephonyDelegate());
-     }
+     public class TelephonyDelegate : BaseCommunicationDelegate, ITelephony
+     {
 
-     /**
-        Default Constructor.
-     */
-     public TelephonyDelegate() {
-          super();
-     }
+          /**
+             Default Constructor.
+          */
+          public TelephonyDelegate() : base()
+          {
+          }
 
      /**
         Invoke a phone call
@@ -70,6 +66,7 @@ public class TelephonyDelegate extends BaseCommunicationDelegate implements ITel
           // return response;
      }
 
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

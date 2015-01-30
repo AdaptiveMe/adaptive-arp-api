@@ -32,29 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
+using System;
+using Adaptive.Arp.Api;
 
-import me.adaptive.arp.api.*;
-
-/**
-   Interface for Managing the Display operations
-   Auto-generated implementation of IDisplay specification.
-*/
-public class DisplayDelegate extends BaseSystemDelegate implements IDisplay {
+namespace Adaptive.Arp.Api.Impl
+{
 
      /**
-        Register delegate with the Application Registry.
+        Interface for Managing the Display operations
+        Auto-generated implementation of IDisplay specification.
      */
-     static {
-          AppRegistryBridge.getInstance().getDisplayBridge().setDelegate(new DisplayDelegate());
-     }
+     public class DisplayDelegate : BaseSystemDelegate, IDisplay
+     {
 
-     /**
-        Default Constructor.
-     */
-     public DisplayDelegate() {
-          super();
-     }
+          /**
+             Default Constructor.
+          */
+          public DisplayDelegate() : base()
+          {
+          }
 
      /**
         Add a listener to start receiving display orientation change events.
@@ -102,6 +98,7 @@ of the device. For device orientation, use the IDevice APIs.
           throw new UnsupportedOperationException(this.getClass().getName()+":removeDisplayOrientationListeners");
      }
 
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

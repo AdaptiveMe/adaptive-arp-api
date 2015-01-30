@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         Interface for Managing the Security operations
 
@@ -43,44 +44,46 @@ namespace Adaptive.Arp.Api
         @since v2.0
         @version 1.0
      */
-     public interface ISecurity : IBaseSecurity {
-     /**
-        Deletes from the device internal storage the entry/entries containing the specified key names.
+     public interface ISecurity : IBaseSecurity
+     {
 
-        @param keys             Array with the key names to delete.
-        @param publicAccessName The name of the shared internal storage object (if needed).
-        @param callback         callback to be executed upon function result.
-        @since v2.0
-     */
-     void deleteSecureKeyValuePairs(string[] keys, string publicAccessName, ISecurityResultCallback callback);
+          /**
+             Deletes from the device internal storage the entry/entries containing the specified key names.
 
-     /**
-        Retrieves from the device internal storage the entry/entries containing the specified key names.
+             @param keys             Array with the key names to delete.
+             @param publicAccessName The name of the shared internal storage object (if needed).
+             @param callback         callback to be executed upon function result.
+             @since v2.0
+          */
+          void DeleteSecureKeyValuePairs(string[] keys, string publicAccessName, ISecurityResultCallback callback);
 
-        @param keys             Array with the key names to retrieve.
-        @param publicAccessName The name of the shared internal storage object (if needed).
-        @param callback         callback to be executed upon function result.
-        @since v2.0
-     */
-     void getSecureKeyValuePairs(string[] keys, string publicAccessName, ISecurityResultCallback callback);
+          /**
+             Retrieves from the device internal storage the entry/entries containing the specified key names.
 
-     /**
-        Returns if the device has been modified in anyhow
+             @param keys             Array with the key names to retrieve.
+             @param publicAccessName The name of the shared internal storage object (if needed).
+             @param callback         callback to be executed upon function result.
+             @since v2.0
+          */
+          void GetSecureKeyValuePairs(string[] keys, string publicAccessName, ISecurityResultCallback callback);
 
-        @return true if the device has been modified; false otherwise
-        @since v2.0
-     */
-     bool isDeviceModified();
+          /**
+             Returns if the device has been modified in anyhow
 
-     /**
-        Stores in the device internal storage the specified item/s.
+             @return true if the device has been modified; false otherwise
+             @since v2.0
+          */
+          bool IsDeviceModified();
 
-        @param keyValues        Array containing the items to store on the device internal memory.
-        @param publicAccessName The name of the shared internal storage object (if needed).
-        @param callback         callback to be executed upon function result.
-        @since v2.0
-     */
-     void setSecureKeyValuePairs(SecureKeyPair[] keyValues, string publicAccessName, ISecurityResultCallback callback);
+          /**
+             Stores in the device internal storage the specified item/s.
+
+             @param keyValues        Array containing the items to store on the device internal memory.
+             @param publicAccessName The name of the shared internal storage object (if needed).
+             @param callback         callback to be executed upon function result.
+             @since v2.0
+          */
+          void SetSecureKeyValuePairs(SecureKeyPair[] keyValues, string publicAccessName, ISecurityResultCallback callback);
 
      }
 }

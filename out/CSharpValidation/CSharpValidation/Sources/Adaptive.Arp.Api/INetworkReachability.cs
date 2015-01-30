@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         Interface for Managing the Network reachability operations
 
@@ -43,24 +44,26 @@ namespace Adaptive.Arp.Api
         @since v2.0
         @version 1.0
      */
-     public interface INetworkReachability : IBaseCommunication {
-     /**
-        Whether there is connectivity to a host, via domain name or ip address, or not.
+     public interface INetworkReachability : IBaseCommunication
+     {
 
-        @param host     domain name or ip address of host.
-        @param callback Callback called at the end.
-        @since v2.0
-     */
-     void isNetworkReachable(string host, INetworkReachabilityCallback callback);
+          /**
+             Whether there is connectivity to a host, via domain name or ip address, or not.
 
-     /**
-        Whether there is connectivity to an url of a service or not.
+             @param host     domain name or ip address of host.
+             @param callback Callback called at the end.
+             @since v2.0
+          */
+          void IsNetworkReachable(string host, INetworkReachabilityCallback callback);
 
-        @param url      to look for
-        @param callback Callback called at the end
-        @since v2.0
-     */
-     void isNetworkServiceReachable(string url, INetworkReachabilityCallback callback);
+          /**
+             Whether there is connectivity to an url of a service or not.
+
+             @param url      to look for
+             @param callback Callback called at the end
+             @since v2.0
+          */
+          void IsNetworkServiceReachable(string url, INetworkReachabilityCallback callback);
 
      }
 }

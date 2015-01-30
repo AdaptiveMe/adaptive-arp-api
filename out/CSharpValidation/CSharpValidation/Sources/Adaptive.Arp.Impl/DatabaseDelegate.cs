@@ -32,29 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
+using System;
+using Adaptive.Arp.Api;
 
-import me.adaptive.arp.api.*;
-
-/**
-   Interface for Managing the Cloud operations
-   Auto-generated implementation of IDatabase specification.
-*/
-public class DatabaseDelegate extends BaseDataDelegate implements IDatabase {
+namespace Adaptive.Arp.Api.Impl
+{
 
      /**
-        Register delegate with the Application Registry.
+        Interface for Managing the Cloud operations
+        Auto-generated implementation of IDatabase specification.
      */
-     static {
-          AppRegistryBridge.getInstance().getDatabaseBridge().setDelegate(new DatabaseDelegate());
-     }
+     public class DatabaseDelegate : BaseDataDelegate, IDatabase
+     {
 
-     /**
-        Default Constructor.
-     */
-     public DatabaseDelegate() {
-          super();
-     }
+          /**
+             Default Constructor.
+          */
+          public DatabaseDelegate() : base()
+          {
+          }
 
      /**
         Creates a database on default path for every platform.
@@ -165,6 +161,7 @@ should be passed as a parameter
           // return response;
      }
 
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

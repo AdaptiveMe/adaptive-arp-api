@@ -32,29 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
+using System;
+using Adaptive.Arp.Api;
 
-import me.adaptive.arp.api.*;
-
-/**
-   Interface for Managing the Lifecycle listeners
-   Auto-generated implementation of ILifecycle specification.
-*/
-public class LifecycleDelegate extends BaseApplicationDelegate implements ILifecycle {
+namespace Adaptive.Arp.Api.Impl
+{
 
      /**
-        Register delegate with the Application Registry.
+        Interface for Managing the Lifecycle listeners
+        Auto-generated implementation of ILifecycle specification.
      */
-     static {
-          AppRegistryBridge.getInstance().getLifecycleBridge().setDelegate(new LifecycleDelegate());
-     }
+     public class LifecycleDelegate : BaseApplicationDelegate, ILifecycle
+     {
 
-     /**
-        Default Constructor.
-     */
-     public LifecycleDelegate() {
-          super();
-     }
+          /**
+             Default Constructor.
+          */
+          public LifecycleDelegate() : base()
+          {
+          }
 
      /**
         Add the listener for the lifecycle of the app
@@ -101,6 +97,7 @@ public class LifecycleDelegate extends BaseApplicationDelegate implements ILifec
           throw new UnsupportedOperationException(this.getClass().getName()+":removeLifecycleListeners");
      }
 
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

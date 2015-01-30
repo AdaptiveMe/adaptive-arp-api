@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         Interface for Managing the Contact operations
 
@@ -43,80 +44,82 @@ namespace Adaptive.Arp.Api
         @since v2.0
         @version 1.0
      */
-     public interface IContact : IBasePIM {
-     /**
-        Get the contact photo
+     public interface IContact : IBasePIM
+     {
 
-        @param contact  id to search for
-        @param callback called for return
-        @since v2.0
-     */
-     void getContactPhoto(ContactUid contact, IContactPhotoResultCallback callback);
+          /**
+             Get the contact photo
 
-     /**
-        Get all the details of a contact according to its id
+             @param contact  id to search for
+             @param callback called for return
+             @since v2.0
+          */
+          void GetContactPhoto(ContactUid contact, IContactPhotoResultCallback callback);
 
-        @param contact  id to search for
-        @param callback called for return
-        @since v2.0
-     */
-     void getContact(ContactUid contact, IContactResultCallback callback);
+          /**
+             Get all the details of a contact according to its id
 
-     /**
-        Get marked fields of all contacts
+             @param contact  id to search for
+             @param callback called for return
+             @since v2.0
+          */
+          void GetContact(ContactUid contact, IContactResultCallback callback);
 
-        @param callback called for return
-        @param fields   to get for each Contact
-        @since v2.0
-     */
-     void getContactsForFields(IContactResultCallback callback, IContactFieldGroup[] fields);
+          /**
+             Get marked fields of all contacts
 
-     /**
-        Get marked fields of all contacts according to a filter
+             @param callback called for return
+             @param fields   to get for each Contact
+             @since v2.0
+          */
+          void GetContactsForFields(IContactResultCallback callback, IContactFieldGroup[] fields);
 
-        @param callback called for return
-        @param fields   to get for each Contact
-        @param filter   to search for
-        @since v2.0
-     */
-     void getContactsWithFilter(IContactResultCallback callback, IContactFieldGroup[] fields, IContactFilter[] filter);
+          /**
+             Get marked fields of all contacts according to a filter
 
-     /**
-        Get all contacts
+             @param callback called for return
+             @param fields   to get for each Contact
+             @param filter   to search for
+             @since v2.0
+          */
+          void GetContactsWithFilter(IContactResultCallback callback, IContactFieldGroup[] fields, IContactFilter[] filter);
 
-        @param callback called for return
-        @since v2.0
-     */
-     void getContacts(IContactResultCallback callback);
+          /**
+             Get all contacts
 
-     /**
-        Search contacts according to a term with a filter and send it to the callback
+             @param callback called for return
+             @since v2.0
+          */
+          void GetContacts(IContactResultCallback callback);
 
-        @param term     string to search
-        @param callback called for return
-        @param filter   to search for
-        @since v2.0
-     */
-     void searchContactsWithFilter(string term, IContactResultCallback callback, IContactFilter[] filter);
+          /**
+             Search contacts according to a term with a filter and send it to the callback
 
-     /**
-        Search contacts according to a term and send it to the callback
+             @param term     string to search
+             @param callback called for return
+             @param filter   to search for
+             @since v2.0
+          */
+          void SearchContactsWithFilter(string term, IContactResultCallback callback, IContactFilter[] filter);
 
-        @param term     string to search
-        @param callback called for return
-        @since v2.0
-     */
-     void searchContacts(string term, IContactResultCallback callback);
+          /**
+             Search contacts according to a term and send it to the callback
 
-     /**
-        Set the contact photo
+             @param term     string to search
+             @param callback called for return
+             @since v2.0
+          */
+          void SearchContacts(string term, IContactResultCallback callback);
 
-        @param contact  id to assign the photo
-        @param pngImage photo as byte array
-        @return true if set is successful;false otherwise
-        @since v2.0
-     */
-     bool setContactPhoto(ContactUid contact, byte[] pngImage);
+          /**
+             Set the contact photo
+
+             @param contact  id to assign the photo
+             @param pngImage photo as byte array
+             @return true if set is successful;false otherwise
+             @since v2.0
+          */
+          bool SetContactPhoto(ContactUid contact, byte[] pngImage);
 
      }
 }

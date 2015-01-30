@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         Interface for Managing the Mail operations
 
@@ -43,15 +44,17 @@ namespace Adaptive.Arp.Api
         @since v2.0
         @version 1.0
      */
-     public interface IMail : IBasePIM {
-     /**
-        Send an Email
+     public interface IMail : IBasePIM
+     {
 
-        @param data     Payload of the email
-        @param callback Result callback of the operation
-        @since v2.0
-     */
-     void sendEmail(Email data, IMessagingCallback callback);
+          /**
+             Send an Email
+
+             @param data     Payload of the email
+             @param callback Result callback of the operation
+             @since v2.0
+          */
+          void SendEmail(Email data, IMessagingCallback callback);
 
      }
 }

@@ -32,50 +32,54 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
+using System;
 
-import com.google.gson.Gson;
-
-/**
-   Interface for webview context management purposes
-   Auto-generated implementation of IAppContextWebview specification.
-*/
-public class AppContextWebviewBridge implements IAppContextWebview {
+namespace Adaptive.Arp.Api
+{
 
      /**
-        Group of API.
+        Interface for webview context management purposes
+        Auto-generated implementation of IAppContextWebview specification.
      */
-     private IAdaptiveRPGroup apiGroup = IAdaptiveRPGroup.Kernel;
+public class AppContextWebviewBridge : IAppContextWebview
+{
 
-     /**
-        API Delegate.
-     */
-     private IAppContextWebview delegate;
+          /**
+             Group of API.
+          */
+          private IAdaptiveRPGroup apiGroup = IAdaptiveRPGroup.Kernel;
 
-     /**
-        Constructor with delegate.
+          /**
+             API Delegate.
+          */
+          private IAppContextWebview delegate;
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public AppContextWebviewBridge(IAppContextWebview delegate) {
-          super();
-          this.delegate = delegate;
-     }
-     /**
-        Get the delegate implementation.
-        @return IAppContextWebview delegate that manages platform specific functions..
-     */
-     public final IAppContextWebview getDelegate() {
-          return this.delegate;
-     }
-     /**
-        Set the delegate implementation.
+          /**
+             Constructor with delegate.
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public final void setDelegate(IAppContextWebview delegate) {
-          this.delegate = delegate;
-     }
+             @param delegate The delegate implementing platform specific functions.
+          */
+          public AppContextWebviewBridge(IAppContextWebview delegate) : base()
+          {
+               this.delegate = delegate;
+          }
+          /**
+             Get the delegate implementation.
+             @return IAppContextWebview delegate that manages platform specific functions..
+          */
+          public sealed IAppContextWebview GetDelegate()
+          {
+               return this.delegate;
+          }
+          /**
+             Set the delegate implementation.
+
+             @param delegate The delegate implementing platform specific functions.
+          */
+          public sealed void SetDelegate(IAppContextWebview delegate)
+          {
+               this.delegate = delegate;
+          }
 
      /**
         Additional views may be added to an application - a separate activity - and if these will make calls to the
@@ -217,6 +221,7 @@ ARP functions and release resources. The primary webview can not be removed.
           
      }
 
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

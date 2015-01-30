@@ -32,29 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
+using System;
+using Adaptive.Arp.Api;
 
-import me.adaptive.arp.api.*;
-
-/**
-   Interface for Managing the Geolocation operations
-   Auto-generated implementation of IGeolocation specification.
-*/
-public class GeolocationDelegate extends BaseSensorDelegate implements IGeolocation {
+namespace Adaptive.Arp.Api.Impl
+{
 
      /**
-        Register delegate with the Application Registry.
+        Interface for Managing the Geolocation operations
+        Auto-generated implementation of IGeolocation specification.
      */
-     static {
-          AppRegistryBridge.getInstance().getGeolocationBridge().setDelegate(new GeolocationDelegate());
-     }
+     public class GeolocationDelegate : BaseSensorDelegate, IGeolocation
+     {
 
-     /**
-        Default Constructor.
-     */
-     public GeolocationDelegate() {
-          super();
-     }
+          /**
+             Default Constructor.
+          */
+          public GeolocationDelegate() : base()
+          {
+          }
 
      /**
         Register a new listener that will receive geolocation events.
@@ -88,6 +84,7 @@ public class GeolocationDelegate extends BaseSensorDelegate implements IGeolocat
           throw new UnsupportedOperationException(this.getClass().getName()+":removeGeolocationListeners");
      }
 
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

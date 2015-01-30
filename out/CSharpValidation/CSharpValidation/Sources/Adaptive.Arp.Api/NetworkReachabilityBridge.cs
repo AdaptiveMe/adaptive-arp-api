@@ -32,45 +32,49 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
+using System;
 
-import com.google.gson.Gson;
-
-/**
-   Interface for Managing the Network reachability operations
-   Auto-generated implementation of INetworkReachability specification.
-*/
-public class NetworkReachabilityBridge extends BaseCommunicationBridge implements INetworkReachability, APIBridge {
+namespace Adaptive.Arp.Api
+{
 
      /**
-        API Delegate.
+        Interface for Managing the Network reachability operations
+        Auto-generated implementation of INetworkReachability specification.
      */
-     private INetworkReachability delegate;
+public class NetworkReachabilityBridge : BaseCommunicationBridge, INetworkReachability, APIBridge
+{
 
-     /**
-        Constructor with delegate.
+          /**
+             API Delegate.
+          */
+          private INetworkReachability delegate;
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public NetworkReachabilityBridge(INetworkReachability delegate) {
-          super();
-          this.delegate = delegate;
-     }
-     /**
-        Get the delegate implementation.
-        @return INetworkReachability delegate that manages platform specific functions..
-     */
-     public final INetworkReachability getDelegate() {
-          return this.delegate;
-     }
-     /**
-        Set the delegate implementation.
+          /**
+             Constructor with delegate.
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public final void setDelegate(INetworkReachability delegate) {
-          this.delegate = delegate;
-     }
+             @param delegate The delegate implementing platform specific functions.
+          */
+          public NetworkReachabilityBridge(INetworkReachability delegate) : base()
+          {
+               this.delegate = delegate;
+          }
+          /**
+             Get the delegate implementation.
+             @return INetworkReachability delegate that manages platform specific functions..
+          */
+          public sealed INetworkReachability GetDelegate()
+          {
+               return this.delegate;
+          }
+          /**
+             Set the delegate implementation.
+
+             @param delegate The delegate implementing platform specific functions.
+          */
+          public sealed void SetDelegate(INetworkReachability delegate)
+          {
+               this.delegate = delegate;
+          }
 
      /**
         Whether there is connectivity to a host, via domain name or ip address, or not.
@@ -122,26 +126,34 @@ public class NetworkReachabilityBridge extends BaseCommunicationBridge implement
         Invokes the given method specified in the API request object.
 
         @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+        @return APIResponse with status code, message and JSON response or a JSON null string for void functions. Status code 200 is OK, all others are HTTP standard error conditions.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public APIResponse invoke(APIRequest request) {
+          APIResponse response = new APIResponse();
+          int responseCode = 200;
+          String responseMessage = "OK";
+          String responseJSON = "null";
           switch (request.getMethodName()) {
                case "isNetworkReachable":
-                    string host0 = this.gson.fromJson(request.getParameters()[0], string.class);
+                    string host0 = getJSONParser().fromJson(request.getParameters()[0], string.class);
                     INetworkReachabilityCallback callback0 = new NetworkReachabilityCallbackImpl(request.getAsyncId());
                     this.isNetworkReachable(host0, callback0);
                     break;
                case "isNetworkServiceReachable":
-                    string url1 = this.gson.fromJson(request.getParameters()[0], string.class);
+                    string url1 = getJSONParser().fromJson(request.getParameters()[0], string.class);
                     INetworkReachabilityCallback callback1 = new NetworkReachabilityCallbackImpl(request.getAsyncId());
                     this.isNetworkServiceReachable(url1, callback1);
                     break;
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseCode = 404;
+                    responseMessage = "NetworkReachabilityBridge does not provide the function '"+request.getMethodName()+"' Please check your client-side API version; should be API version >= v2.1.1.";
           }
-          return responseJSON;
+          response.setResponse(responseJSON);
+          response.setStatusCode(responseCode);
+          response.setStatusMessage(responseMessage);
+          return response;
+     }
      }
 }
 /**

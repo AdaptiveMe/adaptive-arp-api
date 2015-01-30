@@ -58,7 +58,7 @@ public class FileListResultCallbackImpl extends BaseCallbackImpl implements IFil
         @since v2.0
      */
      public void onError(IFileListResultCallbackError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileListResultCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleFileListResultCallbackError( '"+getId()+"', JSON.parse(" + getJSONParser().toJson(error) +") )");
      }
 
      /**
@@ -68,7 +68,7 @@ public class FileListResultCallbackImpl extends BaseCallbackImpl implements IFil
         @since v2.0
      */
      public void onResult(FileDescriptor[] files) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileListResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(files) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleFileListResultCallbackResult( '"+getId()+"', JSON.parse(" + getJSONParser().toJson(files) +") )");
      }
 
      /**
@@ -79,7 +79,7 @@ public class FileListResultCallbackImpl extends BaseCallbackImpl implements IFil
         @since v2.0
      */
      public void onWarning(FileDescriptor[] files, IFileListResultCallbackWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileListResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(files) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleFileListResultCallbackWarning( '"+getId()+"', JSON.parse(" + getJSONParser().toJson(files) +"), JSON.parse(" + getJSONParser().toJson(warning) +") )");
      }
 
 }

@@ -32,29 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
+using System;
+using Adaptive.Arp.Api;
 
-import me.adaptive.arp.api.*;
-
-/**
-   Interface for Managing the browser operations
-   Auto-generated implementation of IBrowser specification.
-*/
-public class BrowserDelegate extends BaseUIDelegate implements IBrowser {
+namespace Adaptive.Arp.Api.Impl
+{
 
      /**
-        Register delegate with the Application Registry.
+        Interface for Managing the browser operations
+        Auto-generated implementation of IBrowser specification.
      */
-     static {
-          AppRegistryBridge.getInstance().getBrowserBridge().setDelegate(new BrowserDelegate());
-     }
+     public class BrowserDelegate : BaseUIDelegate, IBrowser
+     {
 
-     /**
-        Default Constructor.
-     */
-     public BrowserDelegate() {
-          super();
-     }
+          /**
+             Default Constructor.
+          */
+          public BrowserDelegate() : base()
+          {
+          }
 
      /**
         Method for opening a URL like a link in the native default browser
@@ -102,6 +98,7 @@ public class BrowserDelegate extends BaseUIDelegate implements IBrowser {
           // return response;
      }
 
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

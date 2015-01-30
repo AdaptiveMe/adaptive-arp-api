@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         Interface for context management purposes
 
@@ -43,22 +44,24 @@ namespace Adaptive.Arp.Api
         @since v2.0
         @version 1.0
      */
-     public interface IAppContext {
-     /**
-        The main application context. This should be cast to the platform specific implementation.
+     public interface IAppContext
+     {
 
-        @return Object representing the specific singleton application context provided by the OS.
-        @since v2.0
-     */
-     Object getContext();
+          /**
+             The main application context. This should be cast to the platform specific implementation.
 
-     /**
-        The type of context provided by the getContext method.
+             @return Object representing the specific singleton application context provided by the OS.
+             @since v2.0
+          */
+          Object GetContext();
 
-        @return Type of platform context.
-        @since v2.0
-     */
-     IOSType getContextType();
+          /**
+             The type of context provided by the getContext method.
+
+             @return Type of platform context.
+             @since v2.0
+          */
+          IOSType GetContextType();
 
      }
 }

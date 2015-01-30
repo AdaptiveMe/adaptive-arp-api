@@ -32,45 +32,49 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
+using System;
 
-import com.google.gson.Gson;
-
-/**
-   Interface for Managing the Contact operations
-   Auto-generated implementation of IContact specification.
-*/
-public class ContactBridge extends BasePIMBridge implements IContact, APIBridge {
+namespace Adaptive.Arp.Api
+{
 
      /**
-        API Delegate.
+        Interface for Managing the Contact operations
+        Auto-generated implementation of IContact specification.
      */
-     private IContact delegate;
+public class ContactBridge : BasePIMBridge, IContact, APIBridge
+{
 
-     /**
-        Constructor with delegate.
+          /**
+             API Delegate.
+          */
+          private IContact delegate;
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public ContactBridge(IContact delegate) {
-          super();
-          this.delegate = delegate;
-     }
-     /**
-        Get the delegate implementation.
-        @return IContact delegate that manages platform specific functions..
-     */
-     public final IContact getDelegate() {
-          return this.delegate;
-     }
-     /**
-        Set the delegate implementation.
+          /**
+             Constructor with delegate.
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public final void setDelegate(IContact delegate) {
-          this.delegate = delegate;
-     }
+             @param delegate The delegate implementing platform specific functions.
+          */
+          public ContactBridge(IContact delegate) : base()
+          {
+               this.delegate = delegate;
+          }
+          /**
+             Get the delegate implementation.
+             @return IContact delegate that manages platform specific functions..
+          */
+          public sealed IContact GetDelegate()
+          {
+               return this.delegate;
+          }
+          /**
+             Set the delegate implementation.
+
+             @param delegate The delegate implementing platform specific functions.
+          */
+          public sealed void SetDelegate(IContact delegate)
+          {
+               this.delegate = delegate;
+          }
 
      /**
         Get all the details of a contact according to its id
@@ -263,18 +267,21 @@ public class ContactBridge extends BasePIMBridge implements IContact, APIBridge 
         Invokes the given method specified in the API request object.
 
         @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+        @return APIResponse with status code, message and JSON response or a JSON null string for void functions. Status code 200 is OK, all others are HTTP standard error conditions.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public APIResponse invoke(APIRequest request) {
+          APIResponse response = new APIResponse();
+          int responseCode = 200;
+          String responseMessage = "OK";
+          String responseJSON = "null";
           switch (request.getMethodName()) {
                case "getContact":
-                    ContactUid contact0 = this.gson.fromJson(request.getParameters()[0], ContactUid.class);
+                    ContactUid contact0 = getJSONParser().fromJson(request.getParameters()[0], ContactUid.class);
                     IContactResultCallback callback0 = new ContactResultCallbackImpl(request.getAsyncId());
                     this.getContact(contact0, callback0);
                     break;
                case "getContactPhoto":
-                    ContactUid contact1 = this.gson.fromJson(request.getParameters()[0], ContactUid.class);
+                    ContactUid contact1 = getJSONParser().fromJson(request.getParameters()[0], ContactUid.class);
                     IContactPhotoResultCallback callback1 = new ContactPhotoResultCallbackImpl(request.getAsyncId());
                     this.getContactPhoto(contact1, callback1);
                     break;
@@ -284,37 +291,42 @@ public class ContactBridge extends BasePIMBridge implements IContact, APIBridge 
                     break;
                case "getContactsForFields":
                     IContactResultCallback callback3 = new ContactResultCallbackImpl(request.getAsyncId());
-                    IContactFieldGroup[] fields3 = this.gson.fromJson(request.getParameters()[1], IContactFieldGroup[].class);
+                    IContactFieldGroup[] fields3 = getJSONParser().fromJson(request.getParameters()[1], IContactFieldGroup[].class);
                     this.getContactsForFields(callback3, fields3);
                     break;
                case "getContactsWithFilter":
                     IContactResultCallback callback4 = new ContactResultCallbackImpl(request.getAsyncId());
-                    IContactFieldGroup[] fields4 = this.gson.fromJson(request.getParameters()[1], IContactFieldGroup[].class);
-                    IContactFilter[] filter4 = this.gson.fromJson(request.getParameters()[2], IContactFilter[].class);
+                    IContactFieldGroup[] fields4 = getJSONParser().fromJson(request.getParameters()[1], IContactFieldGroup[].class);
+                    IContactFilter[] filter4 = getJSONParser().fromJson(request.getParameters()[2], IContactFilter[].class);
                     this.getContactsWithFilter(callback4, fields4, filter4);
                     break;
                case "searchContacts":
-                    string term5 = this.gson.fromJson(request.getParameters()[0], string.class);
+                    string term5 = getJSONParser().fromJson(request.getParameters()[0], string.class);
                     IContactResultCallback callback5 = new ContactResultCallbackImpl(request.getAsyncId());
                     this.searchContacts(term5, callback5);
                     break;
                case "searchContactsWithFilter":
-                    string term6 = this.gson.fromJson(request.getParameters()[0], string.class);
+                    string term6 = getJSONParser().fromJson(request.getParameters()[0], string.class);
                     IContactResultCallback callback6 = new ContactResultCallbackImpl(request.getAsyncId());
-                    IContactFilter[] filter6 = this.gson.fromJson(request.getParameters()[2], IContactFilter[].class);
+                    IContactFilter[] filter6 = getJSONParser().fromJson(request.getParameters()[2], IContactFilter[].class);
                     this.searchContactsWithFilter(term6, callback6, filter6);
                     break;
                case "setContactPhoto":
-                    ContactUid contact7 = this.gson.fromJson(request.getParameters()[0], ContactUid.class);
-                    byte[] pngImage7 = this.gson.fromJson(request.getParameters()[1], byte[].class);
+                    ContactUid contact7 = getJSONParser().fromJson(request.getParameters()[0], ContactUid.class);
+                    byte[] pngImage7 = getJSONParser().fromJson(request.getParameters()[1], byte[].class);
                     bool response7 = this.setContactPhoto(contact7, pngImage7);
-                    responseJSON = this.gson.toJson(response7);
+                    responseJSON = getJSONParser().toJson(response7);
                     break;
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseCode = 404;
+                    responseMessage = "ContactBridge does not provide the function '"+request.getMethodName()+"' Please check your client-side API version; should be API version >= v2.1.1.";
           }
-          return responseJSON;
+          response.setResponse(responseJSON);
+          response.setStatusCode(responseCode);
+          response.setStatusMessage(responseMessage);
+          return response;
+     }
      }
 }
 /**

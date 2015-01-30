@@ -32,29 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
+using System;
+using Adaptive.Arp.Api;
 
-import me.adaptive.arp.api.*;
-
-/**
-   Interface for Managing the Mail operations
-   Auto-generated implementation of IMail specification.
-*/
-public class MailDelegate extends BasePIMDelegate implements IMail {
+namespace Adaptive.Arp.Api.Impl
+{
 
      /**
-        Register delegate with the Application Registry.
+        Interface for Managing the Mail operations
+        Auto-generated implementation of IMail specification.
      */
-     static {
-          AppRegistryBridge.getInstance().getMailBridge().setDelegate(new MailDelegate());
-     }
+     public class MailDelegate : BasePIMDelegate, IMail
+     {
 
-     /**
-        Default Constructor.
-     */
-     public MailDelegate() {
-          super();
-     }
+          /**
+             Default Constructor.
+          */
+          public MailDelegate() : base()
+          {
+          }
 
      /**
         Send an Email
@@ -68,6 +64,7 @@ public class MailDelegate extends BasePIMDelegate implements IMail {
           throw new UnsupportedOperationException(this.getClass().getName()+":sendEmail");
      }
 
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

@@ -32,29 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
+using System;
+using Adaptive.Arp.Api;
 
-import me.adaptive.arp.api.*;
-
-/**
-   Interface for Managing the Network status
-   Auto-generated implementation of INetworkStatus specification.
-*/
-public class NetworkStatusDelegate extends BaseCommunicationDelegate implements INetworkStatus {
+namespace Adaptive.Arp.Api.Impl
+{
 
      /**
-        Register delegate with the Application Registry.
+        Interface for Managing the Network status
+        Auto-generated implementation of INetworkStatus specification.
      */
-     static {
-          AppRegistryBridge.getInstance().getNetworkStatusBridge().setDelegate(new NetworkStatusDelegate());
-     }
+     public class NetworkStatusDelegate : BaseCommunicationDelegate, INetworkStatus
+     {
 
-     /**
-        Default Constructor.
-     */
-     public NetworkStatusDelegate() {
-          super();
-     }
+          /**
+             Default Constructor.
+          */
+          public NetworkStatusDelegate() : base()
+          {
+          }
 
      /**
         Add the listener for network status changes of the app
@@ -88,6 +84,7 @@ public class NetworkStatusDelegate extends BaseCommunicationDelegate implements 
           throw new UnsupportedOperationException(this.getClass().getName()+":removeNetworkStatusListeners");
      }
 
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

@@ -32,45 +32,49 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
+using System;
 
-import com.google.gson.Gson;
-
-/**
-   Interface for Managing the Globalization results
-   Auto-generated implementation of IGlobalization specification.
-*/
-public class GlobalizationBridge extends BaseApplicationBridge implements IGlobalization, APIBridge {
+namespace Adaptive.Arp.Api
+{
 
      /**
-        API Delegate.
+        Interface for Managing the Globalization results
+        Auto-generated implementation of IGlobalization specification.
      */
-     private IGlobalization delegate;
+public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBridge
+{
 
-     /**
-        Constructor with delegate.
+          /**
+             API Delegate.
+          */
+          private IGlobalization delegate;
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public GlobalizationBridge(IGlobalization delegate) {
-          super();
-          this.delegate = delegate;
-     }
-     /**
-        Get the delegate implementation.
-        @return IGlobalization delegate that manages platform specific functions..
-     */
-     public final IGlobalization getDelegate() {
-          return this.delegate;
-     }
-     /**
-        Set the delegate implementation.
+          /**
+             Constructor with delegate.
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public final void setDelegate(IGlobalization delegate) {
-          this.delegate = delegate;
-     }
+             @param delegate The delegate implementing platform specific functions.
+          */
+          public GlobalizationBridge(IGlobalization delegate) : base()
+          {
+               this.delegate = delegate;
+          }
+          /**
+             Get the delegate implementation.
+             @return IGlobalization delegate that manages platform specific functions..
+          */
+          public sealed IGlobalization GetDelegate()
+          {
+               return this.delegate;
+          }
+          /**
+             Set the delegate implementation.
+
+             @param delegate The delegate implementing platform specific functions.
+          */
+          public sealed void SetDelegate(IGlobalization delegate)
+          {
+               this.delegate = delegate;
+          }
 
      /**
         Returns the default locale of the application defined in the configuration file
@@ -171,51 +175,51 @@ public class GlobalizationBridge extends BaseApplicationBridge implements IGloba
         Invokes the given method specified in the API request object.
 
         @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+        @return APIResponse with status code, message and JSON response or a JSON null string for void functions. Status code 200 is OK, all others are HTTP standard error conditions.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public APIResponse invoke(APIRequest request) {
+          APIResponse response = new APIResponse();
+          int responseCode = 200;
+          String responseMessage = "OK";
+          String responseJSON = "null";
           switch (request.getMethodName()) {
                case "getDefaultLocale":
                     Locale response0 = this.getDefaultLocale();
                     if (response0 != null) {
-                         responseJSON = this.gson.toJson(response0);
-                    } else {
-                         responseJSON = null;
+                         responseJSON = getJSONParser().toJson(response0);
                     }
                     break;
                case "getLocaleSupportedDescriptors":
                     Locale[] response1 = this.getLocaleSupportedDescriptors();
                     if (response1 != null) {
-                         responseJSON = this.gson.toJson(response1);
-                    } else {
-                         responseJSON = null;
+                         responseJSON = getJSONParser().toJson(response1);
                     }
                     break;
                case "getResourceLiteral":
-                    string key2 = this.gson.fromJson(request.getParameters()[0], string.class);
-                    Locale locale2 = this.gson.fromJson(request.getParameters()[1], Locale.class);
+                    string key2 = getJSONParser().fromJson(request.getParameters()[0], string.class);
+                    Locale locale2 = getJSONParser().fromJson(request.getParameters()[1], Locale.class);
                     string response2 = this.getResourceLiteral(key2, locale2);
                     if (response2 != null) {
-                         responseJSON = this.gson.toJson(response2);
-                    } else {
-                         responseJSON = null;
+                         responseJSON = getJSONParser().toJson(response2);
                     }
                     break;
                case "getResourceLiterals":
-                    Locale locale3 = this.gson.fromJson(request.getParameters()[0], Locale.class);
+                    Locale locale3 = getJSONParser().fromJson(request.getParameters()[0], Locale.class);
                     KeyPair[] response3 = this.getResourceLiterals(locale3);
                     if (response3 != null) {
-                         responseJSON = this.gson.toJson(response3);
-                    } else {
-                         responseJSON = null;
+                         responseJSON = getJSONParser().toJson(response3);
                     }
                     break;
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseCode = 404;
+                    responseMessage = "GlobalizationBridge does not provide the function '"+request.getMethodName()+"' Please check your client-side API version; should be API version >= v2.1.1.";
           }
-          return responseJSON;
+          response.setResponse(responseJSON);
+          response.setStatusCode(responseCode);
+          response.setStatusMessage(responseMessage);
+          return response;
+     }
      }
 }
 /**

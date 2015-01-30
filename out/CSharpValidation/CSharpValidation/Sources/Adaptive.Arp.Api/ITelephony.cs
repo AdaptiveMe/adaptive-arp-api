@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         Interface for Managing the Telephony operations
 
@@ -43,15 +44,17 @@ namespace Adaptive.Arp.Api
         @since v2.0
         @version 1.0
      */
-     public interface ITelephony : IBaseCommunication {
-     /**
-        Invoke a phone call
+     public interface ITelephony : IBaseCommunication
+     {
 
-        @param number to call
-        @return Status of the call
-        @since v2.0
-     */
-     ITelephonyStatus call(string number);
+          /**
+             Invoke a phone call
+
+             @param number to call
+             @return Status of the call
+             @since v2.0
+          */
+          ITelephonyStatus Call(string number);
 
      }
 }

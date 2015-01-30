@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         Interface for Managing the Network status listener events
 
@@ -43,31 +44,33 @@ namespace Adaptive.Arp.Api
         @since v2.0
         @version 1.0
      */
-     public interface INetworkStatusListener : IBaseListener {
-     /**
-        No data received - error condition, not authorized or hardware not available.
+     public interface INetworkStatusListener : IBaseListener
+     {
 
-        @param error Type of error encountered during reading.
-        @since v2.0
-     */
-     void onError(INetworkStatusListenerError error);
+          /**
+             No data received - error condition, not authorized or hardware not available.
 
-     /**
-        Called when network connection changes somehow.
+             @param error Type of error encountered during reading.
+             @since v2.0
+          */
+          void OnError(INetworkStatusListenerError error);
 
-        @param network Change to this network.
-        @since v2.0
-     */
-     void onResult(ICapabilitiesNet network);
+          /**
+             Called when network connection changes somehow.
 
-     /**
-        Status received with warning
+             @param network Change to this network.
+             @since v2.0
+          */
+          void OnResult(ICapabilitiesNet network);
 
-        @param network Change to this network.
-        @param warning Type of warning encountered during reading.
-        @since v2.0
-     */
-     void onWarning(ICapabilitiesNet network, INetworkStatusListenerWarning warning);
+          /**
+             Status received with warning
+
+             @param network Change to this network.
+             @param warning Type of warning encountered during reading.
+             @since v2.0
+          */
+          void OnWarning(ICapabilitiesNet network, INetworkStatusListenerWarning warning);
 
      }
 }

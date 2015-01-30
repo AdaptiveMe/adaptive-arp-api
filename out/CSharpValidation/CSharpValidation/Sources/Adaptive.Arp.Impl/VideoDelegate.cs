@@ -32,29 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
+using System;
+using Adaptive.Arp.Api;
 
-import me.adaptive.arp.api.*;
-
-/**
-   Interface for Managing the Video operations
-   Auto-generated implementation of IVideo specification.
-*/
-public class VideoDelegate extends BaseMediaDelegate implements IVideo {
+namespace Adaptive.Arp.Api.Impl
+{
 
      /**
-        Register delegate with the Application Registry.
+        Interface for Managing the Video operations
+        Auto-generated implementation of IVideo specification.
      */
-     static {
-          AppRegistryBridge.getInstance().getVideoBridge().setDelegate(new VideoDelegate());
-     }
+     public class VideoDelegate : BaseMediaDelegate, IVideo
+     {
 
-     /**
-        Default Constructor.
-     */
-     public VideoDelegate() {
-          super();
-     }
+          /**
+             Default Constructor.
+          */
+          public VideoDelegate() : base()
+          {
+          }
 
      /**
         Play url video stream
@@ -67,6 +63,7 @@ public class VideoDelegate extends BaseMediaDelegate implements IVideo {
           throw new UnsupportedOperationException(this.getClass().getName()+":playStream");
      }
 
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

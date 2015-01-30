@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         Interface for Managing the Device operations
 
@@ -43,77 +44,79 @@ namespace Adaptive.Arp.Api
         @since v2.0
         @version 1.0
      */
-     public interface IDevice : IBaseSystem {
-     /**
-        Register a new listener that will receive button events.
+     public interface IDevice : IBaseSystem
+     {
 
-        @param listener to be registered.
-        @since v2.0
-     */
-     void addButtonListener(IButtonListener listener);
+          /**
+             Register a new listener that will receive button events.
 
-     /**
-        Add a listener to start receiving device orientation change events.
+             @param listener to be registered.
+             @since v2.0
+          */
+          void AddButtonListener(IButtonListener listener);
 
-        @param listener Listener to add to receive orientation change events.
-        @since v2.0.5
-     */
-     void addDeviceOrientationListener(IDeviceOrientationListener listener);
+          /**
+             Add a listener to start receiving device orientation change events.
 
-     /**
-        Returns the device information for the current device executing the runtime.
+             @param listener Listener to add to receive orientation change events.
+             @since v2.0.5
+          */
+          void AddDeviceOrientationListener(IDeviceOrientationListener listener);
 
-        @return DeviceInfo for the current device.
-        @since v2.0
-     */
-     DeviceInfo getDeviceInfo();
+          /**
+             Returns the device information for the current device executing the runtime.
 
-     /**
-        Gets the current Locale for the device.
+             @return DeviceInfo for the current device.
+             @since v2.0
+          */
+          DeviceInfo GetDeviceInfo();
 
-        @return The current Locale information.
-        @since v2.0
-     */
-     Locale getLocaleCurrent();
+          /**
+             Gets the current Locale for the device.
 
-     /**
-        Returns the current orientation of the device. Please note that this may be different from the orientation
+             @return The current Locale information.
+             @since v2.0
+          */
+          Locale GetLocaleCurrent();
+
+          /**
+             Returns the current orientation of the device. Please note that this may be different from the orientation
 of the display. For display orientation, use the IDisplay APIs.
 
-        @return The current orientation of the device.
-        @since v2.0.5
-     */
-     ICapabilitiesOrientation getOrientationCurrent();
+             @return The current orientation of the device.
+             @since v2.0.5
+          */
+          ICapabilitiesOrientation GetOrientationCurrent();
 
-     /**
-        De-registers an existing listener from receiving button events.
+          /**
+             De-registers an existing listener from receiving button events.
 
-        @param listener to be removed.
-        @since v2.0
-     */
-     void removeButtonListener(IButtonListener listener);
+             @param listener to be removed.
+             @since v2.0
+          */
+          void RemoveButtonListener(IButtonListener listener);
 
-     /**
-        Removed all existing listeners from receiving button events.
+          /**
+             Removed all existing listeners from receiving button events.
 
-        @since v2.0
-     */
-     void removeButtonListeners();
+             @since v2.0
+          */
+          void RemoveButtonListeners();
 
-     /**
-        Remove a listener to stop receiving device orientation change events.
+          /**
+             Remove a listener to stop receiving device orientation change events.
 
-        @param listener Listener to remove from receiving orientation change events.
-        @since v2.0.5
-     */
-     void removeDeviceOrientationListener(IDeviceOrientationListener listener);
+             @param listener Listener to remove from receiving orientation change events.
+             @since v2.0.5
+          */
+          void RemoveDeviceOrientationListener(IDeviceOrientationListener listener);
 
-     /**
-        Remove all listeners receiving device orientation events.
+          /**
+             Remove all listeners receiving device orientation events.
 
-        @since v2.0.5
-     */
-     void removeDeviceOrientationListeners();
+             @since v2.0.5
+          */
+          void RemoveDeviceOrientationListeners();
 
      }
 }

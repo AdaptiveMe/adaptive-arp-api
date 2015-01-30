@@ -32,36 +32,49 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
+using System;
+using Adaptive.Arp.Api;
 
-import me.adaptive.arp.api.*;
-
-/**
-   Base application for Sensor purposes
-   Auto-generated implementation of IBaseSensor specification.
-*/
-public class BaseSensorDelegate implements IBaseSensor {
+namespace Adaptive.Arp.Api.Impl
+{
 
      /**
-        Group of API.
+        Base application for Sensor purposes
+        Auto-generated implementation of IBaseSensor specification.
      */
-     private IAdaptiveRPGroup apiGroup;
+     public class BaseSensorDelegate : IBaseSensor
+     {
 
-     /**
-        Default constructor.
-     */
-     public BaseSensorDelegate() {
-          this.apiGroup = IAdaptiveRPGroup.Sensor;
+          /**
+             Group of API.
+          */
+          private IAdaptiveRPGroup apiGroup;
+
+          /**
+             Default constructor.
+          */
+          public BaseSensorDelegate()
+          {
+               this.apiGroup = IAdaptiveRPGroup.Sensor;
+          }
+
+          /**
+             Return the API group for the given interface.
+          */
+          public sealed IAdaptiveRPGroup GetAPIGroup()
+          {
+               return this.apiGroup;
+          }
+
+          /**
+             Return the API version for the given interface.
+          */
+          public sealed String GetAPIVersion()
+          {
+               return "v2.1.1";
+          }
+
      }
-
-     /**
-        Return the API group for the given interface.
-     */
-     @Override
-     public final IAdaptiveRPGroup getAPIGroup() {
-          return this.apiGroup;
-     }
-
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

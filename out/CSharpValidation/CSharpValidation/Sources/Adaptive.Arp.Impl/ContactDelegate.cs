@@ -32,29 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
+using System;
+using Adaptive.Arp.Api;
 
-import me.adaptive.arp.api.*;
-
-/**
-   Interface for Managing the Contact operations
-   Auto-generated implementation of IContact specification.
-*/
-public class ContactDelegate extends BasePIMDelegate implements IContact {
+namespace Adaptive.Arp.Api.Impl
+{
 
      /**
-        Register delegate with the Application Registry.
+        Interface for Managing the Contact operations
+        Auto-generated implementation of IContact specification.
      */
-     static {
-          AppRegistryBridge.getInstance().getContactBridge().setDelegate(new ContactDelegate());
-     }
+     public class ContactDelegate : BasePIMDelegate, IContact
+     {
 
-     /**
-        Default Constructor.
-     */
-     public ContactDelegate() {
-          super();
-     }
+          /**
+             Default Constructor.
+          */
+          public ContactDelegate() : base()
+          {
+          }
 
      /**
         Get all the details of a contact according to its id
@@ -156,6 +152,7 @@ public class ContactDelegate extends BasePIMDelegate implements IContact {
           // return response;
      }
 
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

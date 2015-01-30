@@ -58,7 +58,7 @@ public class ContactPhotoResultCallbackImpl extends BaseCallbackImpl implements 
         @since v2.0
      */
      public void onError(IContactPhotoResultCallbackError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleContactPhotoResultCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleContactPhotoResultCallbackError( '"+getId()+"', JSON.parse(" + getJSONParser().toJson(error) +") )");
      }
 
      /**
@@ -68,7 +68,7 @@ public class ContactPhotoResultCallbackImpl extends BaseCallbackImpl implements 
         @since v2.0
      */
      public void onResult(byte[] contactPhoto) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleContactPhotoResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(contactPhoto) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleContactPhotoResultCallbackResult( '"+getId()+"', JSON.parse(" + getJSONParser().toJson(contactPhoto) +") )");
      }
 
      /**
@@ -79,7 +79,7 @@ public class ContactPhotoResultCallbackImpl extends BaseCallbackImpl implements 
         @since v2.0
      */
      public void onWarning(byte[] contactPhoto, IContactPhotoResultCallbackWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleContactPhotoResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(contactPhoto) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleContactPhotoResultCallbackWarning( '"+getId()+"', JSON.parse(" + getJSONParser().toJson(contactPhoto) +"), JSON.parse(" + getJSONParser().toJson(warning) +") )");
      }
 
 }

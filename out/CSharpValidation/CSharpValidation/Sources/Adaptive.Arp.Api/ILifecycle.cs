@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         Interface for Managing the Lifecycle listeners
 
@@ -43,37 +44,39 @@ namespace Adaptive.Arp.Api
         @since v2.0
         @version 1.0
      */
-     public interface ILifecycle : IBaseApplication {
-     /**
-        Add the listener for the lifecycle of the app
+     public interface ILifecycle : IBaseApplication
+     {
 
-        @param listener Lifecycle listener
-        @since v2.0
-     */
-     void addLifecycleListener(ILifecycleListener listener);
+          /**
+             Add the listener for the lifecycle of the app
 
-     /**
-        Whether the application is in background or not
+             @param listener Lifecycle listener
+             @since v2.0
+          */
+          void AddLifecycleListener(ILifecycleListener listener);
 
-        @return true if the application is in background;false otherwise
-        @since v2.0
-     */
-     bool isBackground();
+          /**
+             Whether the application is in background or not
 
-     /**
-        Un-registers an existing listener from receiving lifecycle events.
+             @return true if the application is in background;false otherwise
+             @since v2.0
+          */
+          bool IsBackground();
 
-        @param listener Lifecycle listener
-        @since v2.0
-     */
-     void removeLifecycleListener(ILifecycleListener listener);
+          /**
+             Un-registers an existing listener from receiving lifecycle events.
 
-     /**
-        Removes all existing listeners from receiving lifecycle events.
+             @param listener Lifecycle listener
+             @since v2.0
+          */
+          void RemoveLifecycleListener(ILifecycleListener listener);
 
-        @since v2.0
-     */
-     void removeLifecycleListeners();
+          /**
+             Removes all existing listeners from receiving lifecycle events.
+
+             @since v2.0
+          */
+          void RemoveLifecycleListeners();
 
      }
 }

@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         Interface for Managing the browser operations
 
@@ -43,37 +44,39 @@ namespace Adaptive.Arp.Api
         @since v2.0
         @version 1.0
      */
-     public interface IBrowser : IBaseUI {
-     /**
-        Method for opening a URL like a link in the native default browser
+     public interface IBrowser : IBaseUI
+     {
 
-        @param url Url to open
-        @return The result of the operation
-        @since v2.0
-     */
-     bool openExtenalBrowser(string url);
+          /**
+             Method for opening a URL like a link in the native default browser
 
-     /**
-        Method for opening a browser embedded into the application in a modal window
+             @param url Url to open
+             @return The result of the operation
+             @since v2.0
+          */
+          bool OpenExtenalBrowser(string url);
 
-        @param url            Url to open
-        @param title          Title of the Navigation bar
-        @param backButtonText Title of the Back button bar
-        @return The result of the operation
-        @since v2.0
-     */
-     bool openInternalBrowserModal(string url, string title, string backButtonText);
+          /**
+             Method for opening a browser embedded into the application in a modal window
 
-     /**
-        Method for opening a browser embedded into the application
+             @param url            Url to open
+             @param title          Title of the Navigation bar
+             @param backButtonText Title of the Back button bar
+             @return The result of the operation
+             @since v2.0
+          */
+          bool OpenInternalBrowserModal(string url, string title, string backButtonText);
 
-        @param url            Url to open
-        @param title          Title of the Navigation bar
-        @param backButtonText Title of the Back button bar
-        @return The result of the operation
-        @since v2.0
-     */
-     bool openInternalBrowser(string url, string title, string backButtonText);
+          /**
+             Method for opening a browser embedded into the application
+
+             @param url            Url to open
+             @param title          Title of the Navigation bar
+             @param backButtonText Title of the Back button bar
+             @return The result of the operation
+             @since v2.0
+          */
+          bool OpenInternalBrowser(string url, string title, string backButtonText);
 
      }
 }

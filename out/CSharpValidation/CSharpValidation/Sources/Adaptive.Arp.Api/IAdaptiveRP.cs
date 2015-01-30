@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         Master interface for all the Groups and Types of Interfaces os the Project
 
@@ -43,22 +44,24 @@ namespace Adaptive.Arp.Api
         @since v2.0
         @version 1.0
      */
-     public interface IAdaptiveRP {
-     /**
-        Method that returns the API group of the implementation
+     public interface IAdaptiveRP
+     {
 
-        @return API Group name.
-        @since v2.0
-     */
-     IAdaptiveRPGroup getAPIGroup();
+          /**
+             Method that returns the API group of the implementation
 
-     /**
-        Method that returns the API version of the implementation.
+             @return API Group name.
+             @since v2.0
+          */
+          IAdaptiveRPGroup GetAPIGroup();
 
-        @return API Version string.
-        @since v2.0
-     */
-     string getAPIVersion();
+          /**
+             Method that returns the API version of the implementation.
+
+             @return API Version string.
+             @since v2.0
+          */
+          string GetAPIVersion();
 
      }
 }

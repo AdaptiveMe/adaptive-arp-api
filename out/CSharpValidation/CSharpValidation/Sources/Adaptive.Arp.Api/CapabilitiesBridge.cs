@@ -32,45 +32,49 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
+using System;
 
-import com.google.gson.Gson;
-
-/**
-   Interface for testing the Capabilities operations
-   Auto-generated implementation of ICapabilities specification.
-*/
-public class CapabilitiesBridge extends BaseSystemBridge implements ICapabilities, APIBridge {
+namespace Adaptive.Arp.Api
+{
 
      /**
-        API Delegate.
+        Interface for testing the Capabilities operations
+        Auto-generated implementation of ICapabilities specification.
      */
-     private ICapabilities delegate;
+public class CapabilitiesBridge : BaseSystemBridge, ICapabilities, APIBridge
+{
 
-     /**
-        Constructor with delegate.
+          /**
+             API Delegate.
+          */
+          private ICapabilities delegate;
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public CapabilitiesBridge(ICapabilities delegate) {
-          super();
-          this.delegate = delegate;
-     }
-     /**
-        Get the delegate implementation.
-        @return ICapabilities delegate that manages platform specific functions..
-     */
-     public final ICapabilities getDelegate() {
-          return this.delegate;
-     }
-     /**
-        Set the delegate implementation.
+          /**
+             Constructor with delegate.
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public final void setDelegate(ICapabilities delegate) {
-          this.delegate = delegate;
-     }
+             @param delegate The delegate implementing platform specific functions.
+          */
+          public CapabilitiesBridge(ICapabilities delegate) : base()
+          {
+               this.delegate = delegate;
+          }
+          /**
+             Get the delegate implementation.
+             @return ICapabilities delegate that manages platform specific functions..
+          */
+          public sealed ICapabilities GetDelegate()
+          {
+               return this.delegate;
+          }
+          /**
+             Set the delegate implementation.
+
+             @param delegate The delegate implementing platform specific functions.
+          */
+          public sealed void SetDelegate(ICapabilities delegate)
+          {
+               this.delegate = delegate;
+          }
 
      /**
         Obtains the default orientation of the device/display. If no default orientation is available on
@@ -321,72 +325,76 @@ device.
         Invokes the given method specified in the API request object.
 
         @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+        @return APIResponse with status code, message and JSON response or a JSON null string for void functions. Status code 200 is OK, all others are HTTP standard error conditions.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public APIResponse invoke(APIRequest request) {
+          APIResponse response = new APIResponse();
+          int responseCode = 200;
+          String responseMessage = "OK";
+          String responseJSON = "null";
           switch (request.getMethodName()) {
                case "getOrientationDefault":
                     ICapabilitiesOrientation response0 = this.getOrientationDefault();
                     if (response0 != null) {
-                         responseJSON = this.gson.toJson(response0);
-                    } else {
-                         responseJSON = null;
+                         responseJSON = getJSONParser().toJson(response0);
                     }
                     break;
                case "getOrientationsSupported":
                     ICapabilitiesOrientation[] response1 = this.getOrientationsSupported();
                     if (response1 != null) {
-                         responseJSON = this.gson.toJson(response1);
-                    } else {
-                         responseJSON = null;
+                         responseJSON = getJSONParser().toJson(response1);
                     }
                     break;
                case "hasButtonSupport":
-                    ICapabilitiesButton type2 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesButton.class);
+                    ICapabilitiesButton type2 = getJSONParser().fromJson(request.getParameters()[0], ICapabilitiesButton.class);
                     bool response2 = this.hasButtonSupport(type2);
-                    responseJSON = this.gson.toJson(response2);
+                    responseJSON = getJSONParser().toJson(response2);
                     break;
                case "hasCommunicationSupport":
-                    ICapabilitiesCommunication type3 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesCommunication.class);
+                    ICapabilitiesCommunication type3 = getJSONParser().fromJson(request.getParameters()[0], ICapabilitiesCommunication.class);
                     bool response3 = this.hasCommunicationSupport(type3);
-                    responseJSON = this.gson.toJson(response3);
+                    responseJSON = getJSONParser().toJson(response3);
                     break;
                case "hasDataSupport":
-                    ICapabilitiesData type4 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesData.class);
+                    ICapabilitiesData type4 = getJSONParser().fromJson(request.getParameters()[0], ICapabilitiesData.class);
                     bool response4 = this.hasDataSupport(type4);
-                    responseJSON = this.gson.toJson(response4);
+                    responseJSON = getJSONParser().toJson(response4);
                     break;
                case "hasMediaSupport":
-                    ICapabilitiesMedia type5 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesMedia.class);
+                    ICapabilitiesMedia type5 = getJSONParser().fromJson(request.getParameters()[0], ICapabilitiesMedia.class);
                     bool response5 = this.hasMediaSupport(type5);
-                    responseJSON = this.gson.toJson(response5);
+                    responseJSON = getJSONParser().toJson(response5);
                     break;
                case "hasNetSupport":
-                    ICapabilitiesNet type6 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesNet.class);
+                    ICapabilitiesNet type6 = getJSONParser().fromJson(request.getParameters()[0], ICapabilitiesNet.class);
                     bool response6 = this.hasNetSupport(type6);
-                    responseJSON = this.gson.toJson(response6);
+                    responseJSON = getJSONParser().toJson(response6);
                     break;
                case "hasNotificationSupport":
-                    ICapabilitiesNotification type7 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesNotification.class);
+                    ICapabilitiesNotification type7 = getJSONParser().fromJson(request.getParameters()[0], ICapabilitiesNotification.class);
                     bool response7 = this.hasNotificationSupport(type7);
-                    responseJSON = this.gson.toJson(response7);
+                    responseJSON = getJSONParser().toJson(response7);
                     break;
                case "hasOrientationSupport":
-                    ICapabilitiesOrientation orientation8 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesOrientation.class);
+                    ICapabilitiesOrientation orientation8 = getJSONParser().fromJson(request.getParameters()[0], ICapabilitiesOrientation.class);
                     bool response8 = this.hasOrientationSupport(orientation8);
-                    responseJSON = this.gson.toJson(response8);
+                    responseJSON = getJSONParser().toJson(response8);
                     break;
                case "hasSensorSupport":
-                    ICapabilitiesSensor type9 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesSensor.class);
+                    ICapabilitiesSensor type9 = getJSONParser().fromJson(request.getParameters()[0], ICapabilitiesSensor.class);
                     bool response9 = this.hasSensorSupport(type9);
-                    responseJSON = this.gson.toJson(response9);
+                    responseJSON = getJSONParser().toJson(response9);
                     break;
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseCode = 404;
+                    responseMessage = "CapabilitiesBridge does not provide the function '"+request.getMethodName()+"' Please check your client-side API version; should be API version >= v2.1.1.";
           }
-          return responseJSON;
+          response.setResponse(responseJSON);
+          response.setStatusCode(responseCode);
+          response.setStatusMessage(responseMessage);
+          return response;
+     }
      }
 }
 /**

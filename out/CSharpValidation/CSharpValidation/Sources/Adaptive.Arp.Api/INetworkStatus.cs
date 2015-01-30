@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         Interface for Managing the Network status
 
@@ -43,29 +44,31 @@ namespace Adaptive.Arp.Api
         @since v2.0
         @version 1.0
      */
-     public interface INetworkStatus : IBaseCommunication {
-     /**
-        Add the listener for network status changes of the app
+     public interface INetworkStatus : IBaseCommunication
+     {
 
-        @param listener Listener with the result
-        @since v2.0
-     */
-     void addNetworkStatusListener(INetworkStatusListener listener);
+          /**
+             Add the listener for network status changes of the app
 
-     /**
-        Un-registers an existing listener from receiving network status events.
+             @param listener Listener with the result
+             @since v2.0
+          */
+          void AddNetworkStatusListener(INetworkStatusListener listener);
 
-        @param listener Listener with the result
-        @since v2.0
-     */
-     void removeNetworkStatusListener(INetworkStatusListener listener);
+          /**
+             Un-registers an existing listener from receiving network status events.
 
-     /**
-        Removes all existing listeners from receiving network status events.
+             @param listener Listener with the result
+             @since v2.0
+          */
+          void RemoveNetworkStatusListener(INetworkStatusListener listener);
 
-        @since v2.0
-     */
-     void removeNetworkStatusListeners();
+          /**
+             Removes all existing listeners from receiving network status events.
+
+             @since v2.0
+          */
+          void RemoveNetworkStatusListeners();
 
      }
 }

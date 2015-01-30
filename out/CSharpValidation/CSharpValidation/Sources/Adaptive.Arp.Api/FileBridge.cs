@@ -32,45 +32,49 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
+using System;
 
-import com.google.gson.Gson;
-
-/**
-   Interface for Managing the File operations
-   Auto-generated implementation of IFile specification.
-*/
-public class FileBridge extends BaseDataBridge implements IFile, APIBridge {
+namespace Adaptive.Arp.Api
+{
 
      /**
-        API Delegate.
+        Interface for Managing the File operations
+        Auto-generated implementation of IFile specification.
      */
-     private IFile delegate;
+public class FileBridge : BaseDataBridge, IFile, APIBridge
+{
 
-     /**
-        Constructor with delegate.
+          /**
+             API Delegate.
+          */
+          private IFile delegate;
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public FileBridge(IFile delegate) {
-          super();
-          this.delegate = delegate;
-     }
-     /**
-        Get the delegate implementation.
-        @return IFile delegate that manages platform specific functions..
-     */
-     public final IFile getDelegate() {
-          return this.delegate;
-     }
-     /**
-        Set the delegate implementation.
+          /**
+             Constructor with delegate.
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public final void setDelegate(IFile delegate) {
-          this.delegate = delegate;
-     }
+             @param delegate The delegate implementing platform specific functions.
+          */
+          public FileBridge(IFile delegate) : base()
+          {
+               this.delegate = delegate;
+          }
+          /**
+             Get the delegate implementation.
+             @return IFile delegate that manages platform specific functions..
+          */
+          public sealed IFile GetDelegate()
+          {
+               return this.delegate;
+          }
+          /**
+             Set the delegate implementation.
+
+             @param delegate The delegate implementing platform specific functions.
+          */
+          public sealed void SetDelegate(IFile delegate)
+          {
+               this.delegate = delegate;
+          }
 
      /**
         Determine whether the current file/folder can be read from.
@@ -441,110 +445,112 @@ new destination file.
         Invokes the given method specified in the API request object.
 
         @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+        @return APIResponse with status code, message and JSON response or a JSON null string for void functions. Status code 200 is OK, all others are HTTP standard error conditions.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public APIResponse invoke(APIRequest request) {
+          APIResponse response = new APIResponse();
+          int responseCode = 200;
+          String responseMessage = "OK";
+          String responseJSON = "null";
           switch (request.getMethodName()) {
                case "canRead":
-                    FileDescriptor descriptor0 = this.gson.fromJson(request.getParameters()[0], FileDescriptor.class);
+                    FileDescriptor descriptor0 = getJSONParser().fromJson(request.getParameters()[0], FileDescriptor.class);
                     bool response0 = this.canRead(descriptor0);
-                    responseJSON = this.gson.toJson(response0);
+                    responseJSON = getJSONParser().toJson(response0);
                     break;
                case "canWrite":
-                    FileDescriptor descriptor1 = this.gson.fromJson(request.getParameters()[0], FileDescriptor.class);
+                    FileDescriptor descriptor1 = getJSONParser().fromJson(request.getParameters()[0], FileDescriptor.class);
                     bool response1 = this.canWrite(descriptor1);
-                    responseJSON = this.gson.toJson(response1);
+                    responseJSON = getJSONParser().toJson(response1);
                     break;
                case "create":
-                    FileDescriptor descriptor2 = this.gson.fromJson(request.getParameters()[0], FileDescriptor.class);
+                    FileDescriptor descriptor2 = getJSONParser().fromJson(request.getParameters()[0], FileDescriptor.class);
                     IFileResultCallback callback2 = new FileResultCallbackImpl(request.getAsyncId());
                     this.create(descriptor2, callback2);
                     break;
                case "delete":
-                    FileDescriptor descriptor3 = this.gson.fromJson(request.getParameters()[0], FileDescriptor.class);
-                    bool cascade3 = this.gson.fromJson(request.getParameters()[1], boolean.class);
+                    FileDescriptor descriptor3 = getJSONParser().fromJson(request.getParameters()[0], FileDescriptor.class);
+                    bool cascade3 = getJSONParser().fromJson(request.getParameters()[1], boolean.class);
                     bool response3 = this.delete(descriptor3, cascade3);
-                    responseJSON = this.gson.toJson(response3);
+                    responseJSON = getJSONParser().toJson(response3);
                     break;
                case "exists":
-                    FileDescriptor descriptor4 = this.gson.fromJson(request.getParameters()[0], FileDescriptor.class);
+                    FileDescriptor descriptor4 = getJSONParser().fromJson(request.getParameters()[0], FileDescriptor.class);
                     bool response4 = this.exists(descriptor4);
-                    responseJSON = this.gson.toJson(response4);
+                    responseJSON = getJSONParser().toJson(response4);
                     break;
                case "getContent":
-                    FileDescriptor descriptor5 = this.gson.fromJson(request.getParameters()[0], FileDescriptor.class);
+                    FileDescriptor descriptor5 = getJSONParser().fromJson(request.getParameters()[0], FileDescriptor.class);
                     IFileDataLoadResultCallback callback5 = new FileDataLoadResultCallbackImpl(request.getAsyncId());
                     this.getContent(descriptor5, callback5);
                     break;
                case "getFileStorageType":
-                    FileDescriptor descriptor6 = this.gson.fromJson(request.getParameters()[0], FileDescriptor.class);
+                    FileDescriptor descriptor6 = getJSONParser().fromJson(request.getParameters()[0], FileDescriptor.class);
                     IFileSystemStorageType response6 = this.getFileStorageType(descriptor6);
                     if (response6 != null) {
-                         responseJSON = this.gson.toJson(response6);
-                    } else {
-                         responseJSON = null;
+                         responseJSON = getJSONParser().toJson(response6);
                     }
                     break;
                case "getFileType":
-                    FileDescriptor descriptor7 = this.gson.fromJson(request.getParameters()[0], FileDescriptor.class);
+                    FileDescriptor descriptor7 = getJSONParser().fromJson(request.getParameters()[0], FileDescriptor.class);
                     IFileSystemType response7 = this.getFileType(descriptor7);
                     if (response7 != null) {
-                         responseJSON = this.gson.toJson(response7);
-                    } else {
-                         responseJSON = null;
+                         responseJSON = getJSONParser().toJson(response7);
                     }
                     break;
                case "getSecurityType":
-                    FileDescriptor descriptor8 = this.gson.fromJson(request.getParameters()[0], FileDescriptor.class);
+                    FileDescriptor descriptor8 = getJSONParser().fromJson(request.getParameters()[0], FileDescriptor.class);
                     IFileSystemSecurity response8 = this.getSecurityType(descriptor8);
                     if (response8 != null) {
-                         responseJSON = this.gson.toJson(response8);
-                    } else {
-                         responseJSON = null;
+                         responseJSON = getJSONParser().toJson(response8);
                     }
                     break;
                case "isDirectory":
-                    FileDescriptor descriptor9 = this.gson.fromJson(request.getParameters()[0], FileDescriptor.class);
+                    FileDescriptor descriptor9 = getJSONParser().fromJson(request.getParameters()[0], FileDescriptor.class);
                     bool response9 = this.isDirectory(descriptor9);
-                    responseJSON = this.gson.toJson(response9);
+                    responseJSON = getJSONParser().toJson(response9);
                     break;
                case "listFiles":
-                    FileDescriptor descriptor10 = this.gson.fromJson(request.getParameters()[0], FileDescriptor.class);
+                    FileDescriptor descriptor10 = getJSONParser().fromJson(request.getParameters()[0], FileDescriptor.class);
                     IFileListResultCallback callback10 = new FileListResultCallbackImpl(request.getAsyncId());
                     this.listFiles(descriptor10, callback10);
                     break;
                case "listFilesForRegex":
-                    FileDescriptor descriptor11 = this.gson.fromJson(request.getParameters()[0], FileDescriptor.class);
-                    string regex11 = this.gson.fromJson(request.getParameters()[1], string.class);
+                    FileDescriptor descriptor11 = getJSONParser().fromJson(request.getParameters()[0], FileDescriptor.class);
+                    string regex11 = getJSONParser().fromJson(request.getParameters()[1], string.class);
                     IFileListResultCallback callback11 = new FileListResultCallbackImpl(request.getAsyncId());
                     this.listFilesForRegex(descriptor11, regex11, callback11);
                     break;
                case "mkDir":
-                    FileDescriptor descriptor12 = this.gson.fromJson(request.getParameters()[0], FileDescriptor.class);
-                    bool recursive12 = this.gson.fromJson(request.getParameters()[1], boolean.class);
+                    FileDescriptor descriptor12 = getJSONParser().fromJson(request.getParameters()[0], FileDescriptor.class);
+                    bool recursive12 = getJSONParser().fromJson(request.getParameters()[1], boolean.class);
                     bool response12 = this.mkDir(descriptor12, recursive12);
-                    responseJSON = this.gson.toJson(response12);
+                    responseJSON = getJSONParser().toJson(response12);
                     break;
                case "move":
-                    FileDescriptor source13 = this.gson.fromJson(request.getParameters()[0], FileDescriptor.class);
-                    FileDescriptor destination13 = this.gson.fromJson(request.getParameters()[1], FileDescriptor.class);
-                    bool createPath13 = this.gson.fromJson(request.getParameters()[2], boolean.class);
-                    bool overwrite13 = this.gson.fromJson(request.getParameters()[3], boolean.class);
+                    FileDescriptor source13 = getJSONParser().fromJson(request.getParameters()[0], FileDescriptor.class);
+                    FileDescriptor destination13 = getJSONParser().fromJson(request.getParameters()[1], FileDescriptor.class);
+                    bool createPath13 = getJSONParser().fromJson(request.getParameters()[2], boolean.class);
+                    bool overwrite13 = getJSONParser().fromJson(request.getParameters()[3], boolean.class);
                     IFileResultCallback callback13 = new FileResultCallbackImpl(request.getAsyncId());
                     this.move(source13, destination13, createPath13, overwrite13, callback13);
                     break;
                case "setContent":
-                    FileDescriptor descriptor14 = this.gson.fromJson(request.getParameters()[0], FileDescriptor.class);
-                    byte[] content14 = this.gson.fromJson(request.getParameters()[1], byte[].class);
+                    FileDescriptor descriptor14 = getJSONParser().fromJson(request.getParameters()[0], FileDescriptor.class);
+                    byte[] content14 = getJSONParser().fromJson(request.getParameters()[1], byte[].class);
                     IFileDataStoreResultCallback callback14 = new FileDataStoreResultCallbackImpl(request.getAsyncId());
                     this.setContent(descriptor14, content14, callback14);
                     break;
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseCode = 404;
+                    responseMessage = "FileBridge does not provide the function '"+request.getMethodName()+"' Please check your client-side API version; should be API version >= v2.1.1.";
           }
-          return responseJSON;
+          response.setResponse(responseJSON);
+          response.setStatusCode(responseCode);
+          response.setStatusMessage(responseMessage);
+          return response;
+     }
      }
 }
 /**

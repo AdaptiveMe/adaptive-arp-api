@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         Interface for Managing the Runtime operations
 
@@ -43,21 +44,23 @@ namespace Adaptive.Arp.Api
         @since v2.0
         @version 1.0
      */
-     public interface IRuntime : IBaseSystem {
-     /**
-        Dismiss the current Application
+     public interface IRuntime : IBaseSystem
+     {
 
-        @since v2.0
-     */
-     void dismissApplication();
+          /**
+             Dismiss the current Application
 
-     /**
-        Whether the application dismiss the splash screen successfully or not
+             @since v2.0
+          */
+          void DismissApplication();
 
-        @return true if the application has dismissed the splash screen;false otherwise
-        @since v2.0
-     */
-     bool dismissSplashScreen();
+          /**
+             Whether the application dismiss the splash screen successfully or not
+
+             @return true if the application has dismissed the splash screen;false otherwise
+             @since v2.0
+          */
+          bool DismissSplashScreen();
 
      }
 }

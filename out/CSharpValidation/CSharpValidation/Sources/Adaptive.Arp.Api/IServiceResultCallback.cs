@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         Interface for Managing the Services operations
 
@@ -43,31 +44,33 @@ namespace Adaptive.Arp.Api
         @since v2.0
         @version 1.0
      */
-     public interface IServiceResultCallback : IBaseCallback {
-     /**
-        This method is called on Error
+     public interface IServiceResultCallback : IBaseCallback
+     {
 
-        @param error returned by the platform
-        @since v2.0
-     */
-     void onError(IServiceResultCallbackError error);
+          /**
+             This method is called on Error
 
-     /**
-        This method is called on Result
+             @param error returned by the platform
+             @since v2.0
+          */
+          void OnError(IServiceResultCallbackError error);
 
-        @param response data
-        @since v2.0
-     */
-     void onResult(ServiceResponse response);
+          /**
+             This method is called on Result
 
-     /**
-        This method is called on Warning
+             @param response data
+             @since v2.0
+          */
+          void OnResult(ServiceResponse response);
 
-        @param response data
-        @param warning  returned by the platform
-        @since v2.0
-     */
-     void onWarning(ServiceResponse response, IServiceResultCallbackWarning warning);
+          /**
+             This method is called on Warning
+
+             @param response data
+             @param warning  returned by the platform
+             @since v2.0
+          */
+          void OnWarning(ServiceResponse response, IServiceResultCallbackWarning warning);
 
      }
 }

@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         Interface to retrieve auto-registered service implementation references.
 
@@ -43,7 +44,9 @@ namespace Adaptive.Arp.Api
         @since v2.0
         @version 1.0
      */
-     public interface IAppRegistry {
+     public interface IAppRegistry
+     {
+
      /**
         Returns a reference to the registered AccelerationBridge.
 
@@ -542,29 +545,29 @@ namespace Adaptive.Arp.Api
      */
      APIBridge getBridge(String bridgeType);
 
-     /**
-        Method that returns the API version of the implementation.
+          /**
+             Method that returns the API version of the implementation.
 
-        @return API Version string.
-        @since v2.0
-     */
-     tringBridge getAPIVersion();
+             @return API Version string.
+             @since v2.0
+          */
+          tringBridge GetAPIVersion();
 
-     /**
-        Returns a reference to the Platform Context
+          /**
+             Returns a reference to the Platform Context
 
-        @return Reference to the platform context
-        @since v2.0
-     */
-     AppContextBridge getPlatformContext();
+             @return Reference to the platform context
+             @since v2.0
+          */
+          AppContextBridge GetPlatformContext();
 
-     /**
-        Returns a reference to the Webview platform context
+          /**
+             Returns a reference to the Webview platform context
 
-        @return Reference to the Webview Context
-        @since v2.0
-     */
-     AppContextWebviewBridge getPlatformContextWeb();
+             @return Reference to the Webview Context
+             @since v2.0
+          */
+          AppContextWebviewBridge GetPlatformContextWeb();
 
      }
 }

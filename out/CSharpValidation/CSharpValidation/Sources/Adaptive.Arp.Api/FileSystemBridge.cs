@@ -32,45 +32,49 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
+using System;
 
-import com.google.gson.Gson;
-
-/**
-   Interface for Managing the File System operations
-   Auto-generated implementation of IFileSystem specification.
-*/
-public class FileSystemBridge extends BaseDataBridge implements IFileSystem, APIBridge {
+namespace Adaptive.Arp.Api
+{
 
      /**
-        API Delegate.
+        Interface for Managing the File System operations
+        Auto-generated implementation of IFileSystem specification.
      */
-     private IFileSystem delegate;
+public class FileSystemBridge : BaseDataBridge, IFileSystem, APIBridge
+{
 
-     /**
-        Constructor with delegate.
+          /**
+             API Delegate.
+          */
+          private IFileSystem delegate;
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public FileSystemBridge(IFileSystem delegate) {
-          super();
-          this.delegate = delegate;
-     }
-     /**
-        Get the delegate implementation.
-        @return IFileSystem delegate that manages platform specific functions..
-     */
-     public final IFileSystem getDelegate() {
-          return this.delegate;
-     }
-     /**
-        Set the delegate implementation.
+          /**
+             Constructor with delegate.
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public final void setDelegate(IFileSystem delegate) {
-          this.delegate = delegate;
-     }
+             @param delegate The delegate implementing platform specific functions.
+          */
+          public FileSystemBridge(IFileSystem delegate) : base()
+          {
+               this.delegate = delegate;
+          }
+          /**
+             Get the delegate implementation.
+             @return IFileSystem delegate that manages platform specific functions..
+          */
+          public sealed IFileSystem GetDelegate()
+          {
+               return this.delegate;
+          }
+          /**
+             Set the delegate implementation.
+
+             @param delegate The delegate implementing platform specific functions.
+          */
+          public sealed void SetDelegate(IFileSystem delegate)
+          {
+               this.delegate = delegate;
+          }
 
      /**
         Creates a new reference to a new or existing location in the filesystem.
@@ -272,78 +276,72 @@ This path may or may not be writable by the current application.
         Invokes the given method specified in the API request object.
 
         @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+        @return APIResponse with status code, message and JSON response or a JSON null string for void functions. Status code 200 is OK, all others are HTTP standard error conditions.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public APIResponse invoke(APIRequest request) {
+          APIResponse response = new APIResponse();
+          int responseCode = 200;
+          String responseMessage = "OK";
+          String responseJSON = "null";
           switch (request.getMethodName()) {
                case "createFileDescriptor":
-                    FileDescriptor parent0 = this.gson.fromJson(request.getParameters()[0], FileDescriptor.class);
-                    string name0 = this.gson.fromJson(request.getParameters()[1], string.class);
+                    FileDescriptor parent0 = getJSONParser().fromJson(request.getParameters()[0], FileDescriptor.class);
+                    string name0 = getJSONParser().fromJson(request.getParameters()[1], string.class);
                     FileDescriptor response0 = this.createFileDescriptor(parent0, name0);
                     if (response0 != null) {
-                         responseJSON = this.gson.toJson(response0);
-                    } else {
-                         responseJSON = null;
+                         responseJSON = getJSONParser().toJson(response0);
                     }
                     break;
                case "getApplicationCacheFolder":
                     FileDescriptor response1 = this.getApplicationCacheFolder();
                     if (response1 != null) {
-                         responseJSON = this.gson.toJson(response1);
-                    } else {
-                         responseJSON = null;
+                         responseJSON = getJSONParser().toJson(response1);
                     }
                     break;
                case "getApplicationCloudFolder":
                     FileDescriptor response2 = this.getApplicationCloudFolder();
                     if (response2 != null) {
-                         responseJSON = this.gson.toJson(response2);
-                    } else {
-                         responseJSON = null;
+                         responseJSON = getJSONParser().toJson(response2);
                     }
                     break;
                case "getApplicationDocumentsFolder":
                     FileDescriptor response3 = this.getApplicationDocumentsFolder();
                     if (response3 != null) {
-                         responseJSON = this.gson.toJson(response3);
-                    } else {
-                         responseJSON = null;
+                         responseJSON = getJSONParser().toJson(response3);
                     }
                     break;
                case "getApplicationFolder":
                     FileDescriptor response4 = this.getApplicationFolder();
                     if (response4 != null) {
-                         responseJSON = this.gson.toJson(response4);
-                    } else {
-                         responseJSON = null;
+                         responseJSON = getJSONParser().toJson(response4);
                     }
                     break;
                case "getApplicationProtectedFolder":
                     FileDescriptor response5 = this.getApplicationProtectedFolder();
                     if (response5 != null) {
-                         responseJSON = this.gson.toJson(response5);
-                    } else {
-                         responseJSON = null;
+                         responseJSON = getJSONParser().toJson(response5);
                     }
                     break;
                case "getSeparator":
                     char response6 = this.getSeparator();
-                    responseJSON = this.gson.toJson(response6);
+                    responseJSON = getJSONParser().toJson(response6);
                     break;
                case "getSystemExternalFolder":
                     FileDescriptor response7 = this.getSystemExternalFolder();
                     if (response7 != null) {
-                         responseJSON = this.gson.toJson(response7);
-                    } else {
-                         responseJSON = null;
+                         responseJSON = getJSONParser().toJson(response7);
                     }
                     break;
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseCode = 404;
+                    responseMessage = "FileSystemBridge does not provide the function '"+request.getMethodName()+"' Please check your client-side API version; should be API version >= v2.1.1.";
           }
-          return responseJSON;
+          response.setResponse(responseJSON);
+          response.setStatusCode(responseCode);
+          response.setStatusMessage(responseMessage);
+          return response;
+     }
      }
 }
 /**

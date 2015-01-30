@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         Interface for Managing the File loading callback responses
 
@@ -43,31 +44,33 @@ namespace Adaptive.Arp.Api
         @since v2.0
         @version 1.0
      */
-     public interface IFileDataLoadResultCallback : IBaseCallback {
-     /**
-        Error processing data retrieval/storage operation.
+     public interface IFileDataLoadResultCallback : IBaseCallback
+     {
 
-        @param error Error condition encountered.
-        @since v2.0
-     */
-     void onError(IFileDataLoadResultCallbackError error);
+          /**
+             Error processing data retrieval/storage operation.
 
-     /**
-        Result of data retrieval operation.
+             @param error Error condition encountered.
+             @since v2.0
+          */
+          void OnError(IFileDataLoadResultCallbackError error);
 
-        @param data Data loaded.
-        @since v2.0
-     */
-     void onResult(byte[] data);
+          /**
+             Result of data retrieval operation.
 
-     /**
-        Result with warning of data retrieval/storage operation.
+             @param data Data loaded.
+             @since v2.0
+          */
+          void OnResult(byte[] data);
 
-        @param data    File being loaded.
-        @param warning Warning condition encountered.
-        @since v2.0
-     */
-     void onWarning(byte[] data, IFileDataLoadResultCallbackWarning warning);
+          /**
+             Result with warning of data retrieval/storage operation.
+
+             @param data    File being loaded.
+             @param warning Warning condition encountered.
+             @since v2.0
+          */
+          void OnWarning(byte[] data, IFileDataLoadResultCallbackWarning warning);
 
      }
 }

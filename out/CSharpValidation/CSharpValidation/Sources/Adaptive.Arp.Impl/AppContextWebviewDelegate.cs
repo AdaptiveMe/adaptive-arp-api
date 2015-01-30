@@ -32,22 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
+using System;
+using Adaptive.Arp.Api;
 
-import me.adaptive.arp.api.*;
-
-/**
-   Interface for webview context management purposes
-   Auto-generated implementation of IAppContextWebview specification.
-*/
-public class AppContextWebviewDelegate implements IAppContextWebview {
+namespace Adaptive.Arp.Api.Impl
+{
 
      /**
-        Default Constructor.
+        Interface for webview context management purposes
+        Auto-generated implementation of IAppContextWebview specification.
      */
-     public AppContextWebviewDelegate() {
-          super();
-     }
+     public class AppContextWebviewDelegate : IAppContextWebview
+     {
+
+          /**
+             Default Constructor.
+          */
+          public AppContextWebviewDelegate() : base()
+          {
+          }
 
      /**
         Additional views may be added to an application - a separate activity - and if these will make calls to the
@@ -125,6 +128,7 @@ ARP functions and release resources. The primary webview can not be removed.
           throw new UnsupportedOperationException(this.getClass().getName()+":removeWebview");
      }
 
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

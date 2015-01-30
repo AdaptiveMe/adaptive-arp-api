@@ -32,29 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
+using System;
+using Adaptive.Arp.Api;
 
-import me.adaptive.arp.api.*;
-
-/**
-   Interface for Managing the Logging operations
-   Auto-generated implementation of ILogging specification.
-*/
-public class LoggingDelegate extends BaseUtilDelegate implements ILogging {
+namespace Adaptive.Arp.Api.Impl
+{
 
      /**
-        Register delegate with the Application Registry.
+        Interface for Managing the Logging operations
+        Auto-generated implementation of ILogging specification.
      */
-     static {
-          AppRegistryBridge.getInstance().getLoggingBridge().setDelegate(new LoggingDelegate());
-     }
+     public class LoggingDelegate : BaseUtilDelegate, ILogging
+     {
 
-     /**
-        Default Constructor.
-     */
-     public LoggingDelegate() {
-          super();
-     }
+          /**
+             Default Constructor.
+          */
+          public LoggingDelegate() : base()
+          {
+          }
 
      /**
         Logs the given message, with the given log level if specified, to the standard platform/environment.
@@ -81,6 +77,7 @@ public class LoggingDelegate extends BaseUtilDelegate implements ILogging {
           throw new UnsupportedOperationException(this.getClass().getName()+":log");
      }
 
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

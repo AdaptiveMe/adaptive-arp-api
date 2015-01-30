@@ -32,29 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
+using System;
+using Adaptive.Arp.Api;
 
-import me.adaptive.arp.api.*;
-
-/**
-   Interface for testing the Capabilities operations
-   Auto-generated implementation of ICapabilities specification.
-*/
-public class CapabilitiesDelegate extends BaseSystemDelegate implements ICapabilities {
+namespace Adaptive.Arp.Api.Impl
+{
 
      /**
-        Register delegate with the Application Registry.
+        Interface for testing the Capabilities operations
+        Auto-generated implementation of ICapabilities specification.
      */
-     static {
-          AppRegistryBridge.getInstance().getCapabilitiesBridge().setDelegate(new CapabilitiesDelegate());
-     }
+     public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities
+     {
 
-     /**
-        Default Constructor.
-     */
-     public CapabilitiesDelegate() {
-          super();
-     }
+          /**
+             Default Constructor.
+          */
+          public CapabilitiesDelegate() : base()
+          {
+          }
 
      /**
         Obtains the default orientation of the device/display. If no default orientation is available on
@@ -201,6 +197,7 @@ device.
           // return response;
      }
 
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

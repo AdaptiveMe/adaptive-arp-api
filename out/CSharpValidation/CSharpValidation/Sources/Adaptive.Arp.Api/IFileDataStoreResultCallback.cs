@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         Interface for Managing the File store operations callback
 
@@ -43,31 +44,33 @@ namespace Adaptive.Arp.Api
         @since v2.0
         @version 1.0
      */
-     public interface IFileDataStoreResultCallback : IBaseCallback {
-     /**
-        Error processing data retrieval/storage operation.
+     public interface IFileDataStoreResultCallback : IBaseCallback
+     {
 
-        @param error Error condition encountered.
-        @since v2.0
-     */
-     void onError(IFileDataStoreResultCallbackError error);
+          /**
+             Error processing data retrieval/storage operation.
 
-     /**
-        Result of data storage operation.
+             @param error Error condition encountered.
+             @since v2.0
+          */
+          void OnError(IFileDataStoreResultCallbackError error);
 
-        @param file File reference to stored data.
-        @since v2.0
-     */
-     void onResult(FileDescriptor file);
+          /**
+             Result of data storage operation.
 
-     /**
-        Result with warning of data retrieval/storage operation.
+             @param file File reference to stored data.
+             @since v2.0
+          */
+          void OnResult(FileDescriptor file);
 
-        @param file    File being loaded/stored.
-        @param warning Warning condition encountered.
-        @since v2.0
-     */
-     void onWarning(FileDescriptor file, IFileDataStoreResultCallbackWarning warning);
+          /**
+             Result with warning of data retrieval/storage operation.
+
+             @param file    File being loaded/stored.
+             @param warning Warning condition encountered.
+             @since v2.0
+          */
+          void OnWarning(FileDescriptor file, IFileDataStoreResultCallbackWarning warning);
 
      }
 }

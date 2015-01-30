@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         Interface for Managing the Geolocation operations
 
@@ -43,29 +44,31 @@ namespace Adaptive.Arp.Api
         @since v2.0
         @version 1.0
      */
-     public interface IGeolocation : IBaseSensor {
-     /**
-        Register a new listener that will receive geolocation events.
+     public interface IGeolocation : IBaseSensor
+     {
 
-        @param listener to be registered.
-        @since v2.0
-     */
-     void addGeolocationListener(IGeolocationListener listener);
+          /**
+             Register a new listener that will receive geolocation events.
 
-     /**
-        De-registers an existing listener from receiving geolocation events.
+             @param listener to be registered.
+             @since v2.0
+          */
+          void AddGeolocationListener(IGeolocationListener listener);
 
-        @param listener to be registered.
-        @since v2.0
-     */
-     void removeGeolocationListener(IGeolocationListener listener);
+          /**
+             De-registers an existing listener from receiving geolocation events.
 
-     /**
-        Removed all existing listeners from receiving geolocation events.
+             @param listener to be registered.
+             @since v2.0
+          */
+          void RemoveGeolocationListener(IGeolocationListener listener);
 
-        @since v2.0
-     */
-     void removeGeolocationListeners();
+          /**
+             Removed all existing listeners from receiving geolocation events.
+
+             @since v2.0
+          */
+          void RemoveGeolocationListeners();
 
      }
 }

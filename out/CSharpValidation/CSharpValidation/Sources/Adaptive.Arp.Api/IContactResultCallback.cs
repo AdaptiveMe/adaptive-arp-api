@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         Interface for Managing the Contact operations
 
@@ -43,31 +44,33 @@ namespace Adaptive.Arp.Api
         @since v2.0
         @version 1.0
      */
-     public interface IContactResultCallback : IBaseCallback {
-     /**
-        This method is called on Error
+     public interface IContactResultCallback : IBaseCallback
+     {
 
-        @param error returned by the platform
-        @since v2.0
-     */
-     void onError(IContactResultCallbackError error);
+          /**
+             This method is called on Error
 
-     /**
-        This method is called on Result
+             @param error returned by the platform
+             @since v2.0
+          */
+          void OnError(IContactResultCallbackError error);
 
-        @param contacts returned by the platform
-        @since v2.0
-     */
-     void onResult(Contact[] contacts);
+          /**
+             This method is called on Result
 
-     /**
-        This method is called on Warning
+             @param contacts returned by the platform
+             @since v2.0
+          */
+          void OnResult(Contact[] contacts);
 
-        @param contacts returned by the platform
-        @param warning  returned by the platform
-        @since v2.0
-     */
-     void onWarning(Contact[] contacts, IContactResultCallbackWarning warning);
+          /**
+             This method is called on Warning
+
+             @param contacts returned by the platform
+             @param warning  returned by the platform
+             @since v2.0
+          */
+          void OnWarning(Contact[] contacts, IContactResultCallbackWarning warning);
 
      }
 }

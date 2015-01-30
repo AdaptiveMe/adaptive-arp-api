@@ -32,29 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
+using System;
+using Adaptive.Arp.Api;
 
-import me.adaptive.arp.api.*;
-
-/**
-   Interface for Managing the OS operations
-   Auto-generated implementation of IOS specification.
-*/
-public class OSDelegate extends BaseSystemDelegate implements IOS {
+namespace Adaptive.Arp.Api.Impl
+{
 
      /**
-        Register delegate with the Application Registry.
+        Interface for Managing the OS operations
+        Auto-generated implementation of IOS specification.
      */
-     static {
-          AppRegistryBridge.getInstance().getOSBridge().setDelegate(new OSDelegate());
-     }
+     public class OSDelegate : BaseSystemDelegate, IOS
+     {
 
-     /**
-        Default Constructor.
-     */
-     public OSDelegate() {
-          super();
-     }
+          /**
+             Default Constructor.
+          */
+          public OSDelegate() : base()
+          {
+          }
 
      /**
         Returns the OSInfo for the current operating system.
@@ -69,6 +65,7 @@ public class OSDelegate extends BaseSystemDelegate implements IOS {
           // return response;
      }
 
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

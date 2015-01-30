@@ -32,29 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
+using System;
+using Adaptive.Arp.Api;
 
-import me.adaptive.arp.api.*;
-
-/**
-   Interface for Managing the Device operations
-   Auto-generated implementation of IDevice specification.
-*/
-public class DeviceDelegate extends BaseSystemDelegate implements IDevice {
+namespace Adaptive.Arp.Api.Impl
+{
 
      /**
-        Register delegate with the Application Registry.
+        Interface for Managing the Device operations
+        Auto-generated implementation of IDevice specification.
      */
-     static {
-          AppRegistryBridge.getInstance().getDeviceBridge().setDelegate(new DeviceDelegate());
-     }
+     public class DeviceDelegate : BaseSystemDelegate, IDevice
+     {
 
-     /**
-        Default Constructor.
-     */
-     public DeviceDelegate() {
-          super();
-     }
+          /**
+             Default Constructor.
+          */
+          public DeviceDelegate() : base()
+          {
+          }
 
      /**
         Register a new listener that will receive button events.
@@ -160,6 +156,7 @@ of the display. For display orientation, use the IDisplay APIs.
           throw new UnsupportedOperationException(this.getClass().getName()+":removeDeviceOrientationListeners");
      }
 
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

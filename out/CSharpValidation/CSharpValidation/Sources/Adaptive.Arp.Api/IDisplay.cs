@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         Interface for Managing the Display operations
 
@@ -43,38 +44,40 @@ namespace Adaptive.Arp.Api
         @since v2.0
         @version 1.0
      */
-     public interface IDisplay : IBaseSystem {
-     /**
-        Add a listener to start receiving display orientation change events.
+     public interface IDisplay : IBaseSystem
+     {
 
-        @param listener Listener to add to receive orientation change events.
-        @since v2.0.5
-     */
-     void addDisplayOrientationListener(IDisplayOrientationListener listener);
+          /**
+             Add a listener to start receiving display orientation change events.
 
-     /**
-        Returns the current orientation of the display. Please note that this may be different from the orientation
+             @param listener Listener to add to receive orientation change events.
+             @since v2.0.5
+          */
+          void AddDisplayOrientationListener(IDisplayOrientationListener listener);
+
+          /**
+             Returns the current orientation of the display. Please note that this may be different from the orientation
 of the device. For device orientation, use the IDevice APIs.
 
-        @return The current orientation of the display.
-        @since v2.0.5
-     */
-     ICapabilitiesOrientation getOrientationCurrent();
+             @return The current orientation of the display.
+             @since v2.0.5
+          */
+          ICapabilitiesOrientation GetOrientationCurrent();
 
-     /**
-        Remove a listener to stop receiving display orientation change events.
+          /**
+             Remove a listener to stop receiving display orientation change events.
 
-        @param listener Listener to remove from receiving orientation change events.
-        @since v2.0.5
-     */
-     void removeDisplayOrientationListener(IDisplayOrientationListener listener);
+             @param listener Listener to remove from receiving orientation change events.
+             @since v2.0.5
+          */
+          void RemoveDisplayOrientationListener(IDisplayOrientationListener listener);
 
-     /**
-        Remove all listeners receiving display orientation events.
+          /**
+             Remove all listeners receiving display orientation events.
 
-        @since v2.0.5
-     */
-     void removeDisplayOrientationListeners();
+             @since v2.0.5
+          */
+          void RemoveDisplayOrientationListeners();
 
      }
 }

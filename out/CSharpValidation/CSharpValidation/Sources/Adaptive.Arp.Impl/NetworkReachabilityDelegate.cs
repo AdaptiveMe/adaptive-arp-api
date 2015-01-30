@@ -32,29 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
+using System;
+using Adaptive.Arp.Api;
 
-import me.adaptive.arp.api.*;
-
-/**
-   Interface for Managing the Network reachability operations
-   Auto-generated implementation of INetworkReachability specification.
-*/
-public class NetworkReachabilityDelegate extends BaseCommunicationDelegate implements INetworkReachability {
+namespace Adaptive.Arp.Api.Impl
+{
 
      /**
-        Register delegate with the Application Registry.
+        Interface for Managing the Network reachability operations
+        Auto-generated implementation of INetworkReachability specification.
      */
-     static {
-          AppRegistryBridge.getInstance().getNetworkReachabilityBridge().setDelegate(new NetworkReachabilityDelegate());
-     }
+     public class NetworkReachabilityDelegate : BaseCommunicationDelegate, INetworkReachability
+     {
 
-     /**
-        Default Constructor.
-     */
-     public NetworkReachabilityDelegate() {
-          super();
-     }
+          /**
+             Default Constructor.
+          */
+          public NetworkReachabilityDelegate() : base()
+          {
+          }
 
      /**
         Whether there is connectivity to a host, via domain name or ip address, or not.
@@ -80,6 +76,7 @@ public class NetworkReachabilityDelegate extends BaseCommunicationDelegate imple
           throw new UnsupportedOperationException(this.getClass().getName()+":isNetworkServiceReachable");
      }
 
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

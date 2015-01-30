@@ -53,11 +53,6 @@ public class BaseListenerImpl implements IBaseListener {
      private IAdaptiveRPGroup apiGroup;
 
      /**
-        JSON Serializer.
-     */
-     protected Gson gson;
-
-     /**
         Constructor with listener id.
 
         @param id  The id of the listener.
@@ -65,7 +60,6 @@ public class BaseListenerImpl implements IBaseListener {
      public BaseListenerImpl(long id) {
           this.id = id;
           this.apiGroup = IAdaptiveRPGroup.Application;
-          this.gson = new Gson();
      }
 
      /**
@@ -83,12 +77,21 @@ public class BaseListenerImpl implements IBaseListener {
      public final IAdaptiveRPGroup getAPIGroup() {
           return this.apiGroup;
      }
+
      /**
-        Return the JSON serializer.
-        @return Current JSON serializer.
+        Return the API version for the given interface.
      */
-     public final Gson getJSONAPI() {
-          return this.gson;
+     @Override
+     public String getAPIVersion() {
+          return "v2.1.1";
+     }
+
+     /**
+        Return the JSON deserializer/serializer sourced from the static GsonBuilder.
+        @return Gson new JSON deserializer/serializer instance from factory.
+     */
+     public final Gson getJSONParser() {
+          return AppRegistryBridge.getJSONInstance().create();
      }
 
 }

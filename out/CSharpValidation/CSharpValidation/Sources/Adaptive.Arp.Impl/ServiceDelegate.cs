@@ -32,29 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
+using System;
+using Adaptive.Arp.Api;
 
-import me.adaptive.arp.api.*;
-
-/**
-   Interface for Managing the Services operations
-   Auto-generated implementation of IService specification.
-*/
-public class ServiceDelegate extends BaseCommunicationDelegate implements IService {
+namespace Adaptive.Arp.Api.Impl
+{
 
      /**
-        Register delegate with the Application Registry.
+        Interface for Managing the Services operations
+        Auto-generated implementation of IService specification.
      */
-     static {
-          AppRegistryBridge.getInstance().getServiceBridge().setDelegate(new ServiceDelegate());
-     }
+     public class ServiceDelegate : BaseCommunicationDelegate, IService
+     {
 
-     /**
-        Default Constructor.
-     */
-     public ServiceDelegate() {
-          super();
-     }
+          /**
+             Default Constructor.
+          */
+          public ServiceDelegate() : base()
+          {
+          }
 
      /**
         Create a service request for the given ServiceToken. This method creates the request, populating
@@ -134,6 +130,7 @@ XML service definition file.
           // return response;
      }
 
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

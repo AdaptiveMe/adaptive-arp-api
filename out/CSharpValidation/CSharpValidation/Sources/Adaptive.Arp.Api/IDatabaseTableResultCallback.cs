@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         Interface for Managing the Cloud operations
 
@@ -43,31 +44,33 @@ namespace Adaptive.Arp.Api
         @since v2.0
         @version 1.0
      */
-     public interface IDatabaseTableResultCallback : IBaseCallback {
-     /**
-        Result callback for error responses
+     public interface IDatabaseTableResultCallback : IBaseCallback
+     {
 
-        @param error Returned error
-        @since v2.0
-     */
-     void onError(IDatabaseTableResultCallbackError error);
+          /**
+             Result callback for error responses
 
-     /**
-        Result callback for correct responses
+             @param error Returned error
+             @since v2.0
+          */
+          void OnError(IDatabaseTableResultCallbackError error);
 
-        @param databaseTable Returns the databaseTable
-        @since v2.0
-     */
-     void onResult(DatabaseTable databaseTable);
+          /**
+             Result callback for correct responses
 
-     /**
-        Result callback for warning responses
+             @param databaseTable Returns the databaseTable
+             @since v2.0
+          */
+          void OnResult(DatabaseTable databaseTable);
 
-        @param databaseTable Returns the databaseTable
-        @param warning       Returned Warning
-        @since v2.0
-     */
-     void onWarning(DatabaseTable databaseTable, IDatabaseTableResultCallbackWarning warning);
+          /**
+             Result callback for warning responses
+
+             @param databaseTable Returns the databaseTable
+             @param warning       Returned Warning
+             @since v2.0
+          */
+          void OnWarning(DatabaseTable databaseTable, IDatabaseTableResultCallbackWarning warning);
 
      }
 }

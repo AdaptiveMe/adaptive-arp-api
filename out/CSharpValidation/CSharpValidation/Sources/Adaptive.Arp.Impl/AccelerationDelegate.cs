@@ -32,29 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
+using System;
+using Adaptive.Arp.Api;
 
-import me.adaptive.arp.api.*;
-
-/**
-   Interface defining methods about the acceleration sensor
-   Auto-generated implementation of IAcceleration specification.
-*/
-public class AccelerationDelegate extends BaseSensorDelegate implements IAcceleration {
+namespace Adaptive.Arp.Api.Impl
+{
 
      /**
-        Register delegate with the Application Registry.
+        Interface defining methods about the acceleration sensor
+        Auto-generated implementation of IAcceleration specification.
      */
-     static {
-          AppRegistryBridge.getInstance().getAccelerationBridge().setDelegate(new AccelerationDelegate());
-     }
+     public class AccelerationDelegate : BaseSensorDelegate, IAcceleration
+     {
 
-     /**
-        Default Constructor.
-     */
-     public AccelerationDelegate() {
-          super();
-     }
+          /**
+             Default Constructor.
+          */
+          public AccelerationDelegate() : base()
+          {
+          }
 
      /**
         Register a new listener that will receive acceleration events.
@@ -88,6 +84,7 @@ public class AccelerationDelegate extends BaseSensorDelegate implements IAcceler
           throw new UnsupportedOperationException(this.getClass().getName()+":removeAccelerationListeners");
      }
 
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

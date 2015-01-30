@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         Interface defining methods about the acceleration sensor
 
@@ -43,29 +44,31 @@ namespace Adaptive.Arp.Api
         @since v2.0
         @version 1.0
      */
-     public interface IAcceleration : IBaseSensor {
-     /**
-        Register a new listener that will receive acceleration events.
+     public interface IAcceleration : IBaseSensor
+     {
 
-        @param listener to be registered.
-        @since v2.0
-     */
-     void addAccelerationListener(IAccelerationListener listener);
+          /**
+             Register a new listener that will receive acceleration events.
 
-     /**
-        De-registers an existing listener from receiving acceleration events.
+             @param listener to be registered.
+             @since v2.0
+          */
+          void AddAccelerationListener(IAccelerationListener listener);
 
-        @param listener to be registered.
-        @since v2.0
-     */
-     void removeAccelerationListener(IAccelerationListener listener);
+          /**
+             De-registers an existing listener from receiving acceleration events.
 
-     /**
-        Removed all existing listeners from receiving acceleration events.
+             @param listener to be registered.
+             @since v2.0
+          */
+          void RemoveAccelerationListener(IAccelerationListener listener);
 
-        @since v2.0
-     */
-     void removeAccelerationListeners();
+          /**
+             Removed all existing listeners from receiving acceleration events.
+
+             @since v2.0
+          */
+          void RemoveAccelerationListeners();
 
      }
 }

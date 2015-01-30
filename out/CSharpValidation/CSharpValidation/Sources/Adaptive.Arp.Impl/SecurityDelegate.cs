@@ -32,29 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
+using System;
+using Adaptive.Arp.Api;
 
-import me.adaptive.arp.api.*;
-
-/**
-   Interface for Managing the Security operations
-   Auto-generated implementation of ISecurity specification.
-*/
-public class SecurityDelegate extends BaseSecurityDelegate implements ISecurity {
+namespace Adaptive.Arp.Api.Impl
+{
 
      /**
-        Register delegate with the Application Registry.
+        Interface for Managing the Security operations
+        Auto-generated implementation of ISecurity specification.
      */
-     static {
-          AppRegistryBridge.getInstance().getSecurityBridge().setDelegate(new SecurityDelegate());
-     }
+     public class SecurityDelegate : BaseSecurityDelegate, ISecurity
+     {
 
-     /**
-        Default Constructor.
-     */
-     public SecurityDelegate() {
-          super();
-     }
+          /**
+             Default Constructor.
+          */
+          public SecurityDelegate() : base()
+          {
+          }
 
      /**
         Deletes from the device internal storage the entry/entries containing the specified key names.
@@ -108,6 +104,7 @@ public class SecurityDelegate extends BaseSecurityDelegate implements ISecurity 
           throw new UnsupportedOperationException(this.getClass().getName()+":setSecureKeyValuePairs");
      }
 
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

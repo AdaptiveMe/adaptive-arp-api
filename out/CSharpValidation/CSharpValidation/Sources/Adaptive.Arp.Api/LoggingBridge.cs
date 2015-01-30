@@ -32,45 +32,49 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
+using System;
 
-import com.google.gson.Gson;
-
-/**
-   Interface for Managing the Logging operations
-   Auto-generated implementation of ILogging specification.
-*/
-public class LoggingBridge extends BaseUtilBridge implements ILogging, APIBridge {
+namespace Adaptive.Arp.Api
+{
 
      /**
-        API Delegate.
+        Interface for Managing the Logging operations
+        Auto-generated implementation of ILogging specification.
      */
-     private ILogging delegate;
+public class LoggingBridge : BaseUtilBridge, ILogging, APIBridge
+{
 
-     /**
-        Constructor with delegate.
+          /**
+             API Delegate.
+          */
+          private ILogging delegate;
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public LoggingBridge(ILogging delegate) {
-          super();
-          this.delegate = delegate;
-     }
-     /**
-        Get the delegate implementation.
-        @return ILogging delegate that manages platform specific functions..
-     */
-     public final ILogging getDelegate() {
-          return this.delegate;
-     }
-     /**
-        Set the delegate implementation.
+          /**
+             Constructor with delegate.
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public final void setDelegate(ILogging delegate) {
-          this.delegate = delegate;
-     }
+             @param delegate The delegate implementing platform specific functions.
+          */
+          public LoggingBridge(ILogging delegate) : base()
+          {
+               this.delegate = delegate;
+          }
+          /**
+             Get the delegate implementation.
+             @return ILogging delegate that manages platform specific functions..
+          */
+          public sealed ILogging GetDelegate()
+          {
+               return this.delegate;
+          }
+          /**
+             Set the delegate implementation.
+
+             @param delegate The delegate implementing platform specific functions.
+          */
+          public sealed void SetDelegate(ILogging delegate)
+          {
+               this.delegate = delegate;
+          }
 
      /**
         Logs the given message, with the given log level if specified, to the standard platform/environment.
@@ -80,17 +84,8 @@ public class LoggingBridge extends BaseUtilBridge implements ILogging, APIBridge
         @since v2.0
      */
      public void log(ILoggingLogLevel level, string message) {
-          // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing log({"+level+"},{"+message+"}).");
-
           if (this.delegate != null) {
                this.delegate.log(level, message);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'log' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'log'.");
           }
           
      }
@@ -104,17 +99,8 @@ public class LoggingBridge extends BaseUtilBridge implements ILogging, APIBridge
         @since v2.0
      */
      public void log(ILoggingLogLevel level, string category, string message) {
-          // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing log({"+level+"},{"+category+"},{"+message+"}).");
-
           if (this.delegate != null) {
                this.delegate.log(level, category, message);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'log' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'log'.");
           }
           
      }
@@ -123,27 +109,35 @@ public class LoggingBridge extends BaseUtilBridge implements ILogging, APIBridge
         Invokes the given method specified in the API request object.
 
         @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+        @return APIResponse with status code, message and JSON response or a JSON null string for void functions. Status code 200 is OK, all others are HTTP standard error conditions.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public APIResponse invoke(APIRequest request) {
+          APIResponse response = new APIResponse();
+          int responseCode = 200;
+          String responseMessage = "OK";
+          String responseJSON = "null";
           switch (request.getMethodName()) {
                case "log_level_message":
-                    ILoggingLogLevel level0 = this.gson.fromJson(request.getParameters()[0], ILoggingLogLevel.class);
-                    string message0 = this.gson.fromJson(request.getParameters()[1], string.class);
+                    ILoggingLogLevel level0 = getJSONParser().fromJson(request.getParameters()[0], ILoggingLogLevel.class);
+                    string message0 = getJSONParser().fromJson(request.getParameters()[1], string.class);
                     this.log(level0, message0);
                     break;
                case "log_level_category_message":
-                    ILoggingLogLevel level1 = this.gson.fromJson(request.getParameters()[0], ILoggingLogLevel.class);
-                    string category1 = this.gson.fromJson(request.getParameters()[1], string.class);
-                    string message1 = this.gson.fromJson(request.getParameters()[2], string.class);
+                    ILoggingLogLevel level1 = getJSONParser().fromJson(request.getParameters()[0], ILoggingLogLevel.class);
+                    string category1 = getJSONParser().fromJson(request.getParameters()[1], string.class);
+                    string message1 = getJSONParser().fromJson(request.getParameters()[2], string.class);
                     this.log(level1, category1, message1);
                     break;
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseCode = 404;
+                    responseMessage = "LoggingBridge does not provide the function '"+request.getMethodName()+"' Please check your client-side API version; should be API version >= v2.1.1.";
           }
-          return responseJSON;
+          response.setResponse(responseJSON);
+          response.setStatusCode(responseCode);
+          response.setStatusMessage(responseMessage);
+          return response;
+     }
      }
 }
 /**

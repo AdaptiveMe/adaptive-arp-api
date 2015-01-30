@@ -32,29 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
+using System;
+using Adaptive.Arp.Api;
 
-import me.adaptive.arp.api.*;
-
-/**
-   Interface for Managing the File operations
-   Auto-generated implementation of IFile specification.
-*/
-public class FileDelegate extends BaseDataDelegate implements IFile {
+namespace Adaptive.Arp.Api.Impl
+{
 
      /**
-        Register delegate with the Application Registry.
+        Interface for Managing the File operations
+        Auto-generated implementation of IFile specification.
      */
-     static {
-          AppRegistryBridge.getInstance().getFileBridge().setDelegate(new FileDelegate());
-     }
+     public class FileDelegate : BaseDataDelegate, IFile
+     {
 
-     /**
-        Default Constructor.
-     */
-     public FileDelegate() {
-          super();
-     }
+          /**
+             Default Constructor.
+          */
+          public FileDelegate() : base()
+          {
+          }
 
      /**
         Determine whether the current file/folder can be read from.
@@ -265,6 +261,7 @@ new destination file.
           throw new UnsupportedOperationException(this.getClass().getName()+":setContent");
      }
 
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

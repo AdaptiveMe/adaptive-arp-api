@@ -32,45 +32,49 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
+using System;
 
-import com.google.gson.Gson;
-
-/**
-   Interface for Managing the browser operations
-   Auto-generated implementation of IBrowser specification.
-*/
-public class BrowserBridge extends BaseUIBridge implements IBrowser, APIBridge {
+namespace Adaptive.Arp.Api
+{
 
      /**
-        API Delegate.
+        Interface for Managing the browser operations
+        Auto-generated implementation of IBrowser specification.
      */
-     private IBrowser delegate;
+public class BrowserBridge : BaseUIBridge, IBrowser, APIBridge
+{
 
-     /**
-        Constructor with delegate.
+          /**
+             API Delegate.
+          */
+          private IBrowser delegate;
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public BrowserBridge(IBrowser delegate) {
-          super();
-          this.delegate = delegate;
-     }
-     /**
-        Get the delegate implementation.
-        @return IBrowser delegate that manages platform specific functions..
-     */
-     public final IBrowser getDelegate() {
-          return this.delegate;
-     }
-     /**
-        Set the delegate implementation.
+          /**
+             Constructor with delegate.
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public final void setDelegate(IBrowser delegate) {
-          this.delegate = delegate;
-     }
+             @param delegate The delegate implementing platform specific functions.
+          */
+          public BrowserBridge(IBrowser delegate) : base()
+          {
+               this.delegate = delegate;
+          }
+          /**
+             Get the delegate implementation.
+             @return IBrowser delegate that manages platform specific functions..
+          */
+          public sealed IBrowser GetDelegate()
+          {
+               return this.delegate;
+          }
+          /**
+             Set the delegate implementation.
+
+             @param delegate The delegate implementing platform specific functions.
+          */
+          public sealed void SetDelegate(IBrowser delegate)
+          {
+               this.delegate = delegate;
+          }
 
      /**
         Method for opening a URL like a link in the native default browser
@@ -152,35 +156,43 @@ public class BrowserBridge extends BaseUIBridge implements IBrowser, APIBridge {
         Invokes the given method specified in the API request object.
 
         @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+        @return APIResponse with status code, message and JSON response or a JSON null string for void functions. Status code 200 is OK, all others are HTTP standard error conditions.
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
+     public APIResponse invoke(APIRequest request) {
+          APIResponse response = new APIResponse();
+          int responseCode = 200;
+          String responseMessage = "OK";
+          String responseJSON = "null";
           switch (request.getMethodName()) {
                case "openExtenalBrowser":
-                    string url0 = this.gson.fromJson(request.getParameters()[0], string.class);
+                    string url0 = getJSONParser().fromJson(request.getParameters()[0], string.class);
                     bool response0 = this.openExtenalBrowser(url0);
-                    responseJSON = this.gson.toJson(response0);
+                    responseJSON = getJSONParser().toJson(response0);
                     break;
                case "openInternalBrowser":
-                    string url1 = this.gson.fromJson(request.getParameters()[0], string.class);
-                    string title1 = this.gson.fromJson(request.getParameters()[1], string.class);
-                    string backButtonText1 = this.gson.fromJson(request.getParameters()[2], string.class);
+                    string url1 = getJSONParser().fromJson(request.getParameters()[0], string.class);
+                    string title1 = getJSONParser().fromJson(request.getParameters()[1], string.class);
+                    string backButtonText1 = getJSONParser().fromJson(request.getParameters()[2], string.class);
                     bool response1 = this.openInternalBrowser(url1, title1, backButtonText1);
-                    responseJSON = this.gson.toJson(response1);
+                    responseJSON = getJSONParser().toJson(response1);
                     break;
                case "openInternalBrowserModal":
-                    string url2 = this.gson.fromJson(request.getParameters()[0], string.class);
-                    string title2 = this.gson.fromJson(request.getParameters()[1], string.class);
-                    string backButtonText2 = this.gson.fromJson(request.getParameters()[2], string.class);
+                    string url2 = getJSONParser().fromJson(request.getParameters()[0], string.class);
+                    string title2 = getJSONParser().fromJson(request.getParameters()[1], string.class);
+                    string backButtonText2 = getJSONParser().fromJson(request.getParameters()[2], string.class);
                     bool response2 = this.openInternalBrowserModal(url2, title2, backButtonText2);
-                    responseJSON = this.gson.toJson(response2);
+                    responseJSON = getJSONParser().toJson(response2);
                     break;
                default:
                     // 404 - response null.
-                    responseJSON = null;
+                    responseCode = 404;
+                    responseMessage = "BrowserBridge does not provide the function '"+request.getMethodName()+"' Please check your client-side API version; should be API version >= v2.1.1.";
           }
-          return responseJSON;
+          response.setResponse(responseJSON);
+          response.setStatusCode(responseCode);
+          response.setStatusMessage(responseMessage);
+          return response;
+     }
      }
 }
 /**

@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         Interface for Managing the Security result callback
 
@@ -43,31 +44,33 @@ namespace Adaptive.Arp.Api
         @since v2.0
         @version 1.0
      */
-     public interface ISecurityResultCallback : IBaseCallback {
-     /**
-        No data received - error condition, not authorized .
+     public interface ISecurityResultCallback : IBaseCallback
+     {
 
-        @param error Error values
-        @since v2.0
-     */
-     void onError(ISecurityResultCallbackError error);
+          /**
+             No data received - error condition, not authorized .
 
-     /**
-        Correct data received.
+             @param error Error values
+             @since v2.0
+          */
+          void OnError(ISecurityResultCallbackError error);
 
-        @param keyValues key and values
-        @since v2.0
-     */
-     void onResult(SecureKeyPair[] keyValues);
+          /**
+             Correct data received.
 
-     /**
-        Data received with warning - ie Found entries with existing key and values have been overriden
+             @param keyValues key and values
+             @since v2.0
+          */
+          void OnResult(SecureKeyPair[] keyValues);
 
-        @param keyValues key and values
-        @param warning   Warning values
-        @since v2.0
-     */
-     void onWarning(SecureKeyPair[] keyValues, ISecurityResultCallbackWarning warning);
+          /**
+             Data received with warning - ie Found entries with existing key and values have been overriden
+
+             @param keyValues key and values
+             @param warning   Warning values
+             @since v2.0
+          */
+          void OnWarning(SecureKeyPair[] keyValues, ISecurityResultCallbackWarning warning);
 
      }
 }

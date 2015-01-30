@@ -32,50 +32,54 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
+using System;
 
-import com.google.gson.Gson;
-
-/**
-   Interface for context management purposes
-   Auto-generated implementation of IAppContext specification.
-*/
-public class AppContextBridge implements IAppContext {
+namespace Adaptive.Arp.Api
+{
 
      /**
-        Group of API.
+        Interface for context management purposes
+        Auto-generated implementation of IAppContext specification.
      */
-     private IAdaptiveRPGroup apiGroup = IAdaptiveRPGroup.Kernel;
+public class AppContextBridge : IAppContext
+{
 
-     /**
-        API Delegate.
-     */
-     private IAppContext delegate;
+          /**
+             Group of API.
+          */
+          private IAdaptiveRPGroup apiGroup = IAdaptiveRPGroup.Kernel;
 
-     /**
-        Constructor with delegate.
+          /**
+             API Delegate.
+          */
+          private IAppContext delegate;
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public AppContextBridge(IAppContext delegate) {
-          super();
-          this.delegate = delegate;
-     }
-     /**
-        Get the delegate implementation.
-        @return IAppContext delegate that manages platform specific functions..
-     */
-     public final IAppContext getDelegate() {
-          return this.delegate;
-     }
-     /**
-        Set the delegate implementation.
+          /**
+             Constructor with delegate.
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public final void setDelegate(IAppContext delegate) {
-          this.delegate = delegate;
-     }
+             @param delegate The delegate implementing platform specific functions.
+          */
+          public AppContextBridge(IAppContext delegate) : base()
+          {
+               this.delegate = delegate;
+          }
+          /**
+             Get the delegate implementation.
+             @return IAppContext delegate that manages platform specific functions..
+          */
+          public sealed IAppContext GetDelegate()
+          {
+               return this.delegate;
+          }
+          /**
+             Set the delegate implementation.
+
+             @param delegate The delegate implementing platform specific functions.
+          */
+          public sealed void SetDelegate(IAppContext delegate)
+          {
+               this.delegate = delegate;
+          }
 
      /**
         The main application context. This should be cast to the platform specific implementation.
@@ -123,6 +127,7 @@ public class AppContextBridge implements IAppContext {
           return result;          
      }
 
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

@@ -59,7 +59,7 @@ platform impedes the rotation of the device.
         @since v2.0.5
      */
      public void onError(IDeviceOrientationListenerError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleDeviceOrientationListenerError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleDeviceOrientationListenerError( '"+getId()+"', JSON.parse(" + getJSONParser().toJson(error) +") )");
      }
 
      /**
@@ -69,7 +69,7 @@ platform impedes the rotation of the device.
         @since v2.0.5
      */
      public void onResult(RotationEvent event) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleDeviceOrientationListenerResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(event) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleDeviceOrientationListenerResult( '"+getId()+"', JSON.parse(" + getJSONParser().toJson(event) +") )");
      }
 
      /**
@@ -81,7 +81,7 @@ event may be fired if the devices vetoes the rotation before rotation is complet
         @since v2.0.5
      */
      public void onWarning(RotationEvent event, IDeviceOrientationListenerWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleDeviceOrientationListenerWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(event) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("Adaptive.handleDeviceOrientationListenerWarning( '"+getId()+"', JSON.parse(" + getJSONParser().toJson(event) +"), JSON.parse(" + getJSONParser().toJson(warning) +") )");
      }
 
 }

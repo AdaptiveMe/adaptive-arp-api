@@ -36,6 +36,7 @@ using System;
 
 namespace Adaptive.Arp.Api
 {
+
      /**
         Interface for Managing the Messaging operations
 
@@ -43,16 +44,18 @@ namespace Adaptive.Arp.Api
         @since v2.0
         @version 1.0
      */
-     public interface IMessaging : IBasePIM {
-     /**
-        Send text SMS
+     public interface IMessaging : IBasePIM
+     {
 
-        @param number   to send
-        @param text     to send
-        @param callback with the result
-        @since v2.0
-     */
-     void sendSMS(string number, string text, IMessagingCallback callback);
+          /**
+             Send text SMS
+
+             @param number   to send
+             @param text     to send
+             @param callback with the result
+             @since v2.0
+          */
+          void SendSMS(string number, string text, IMessagingCallback callback);
 
      }
 }
