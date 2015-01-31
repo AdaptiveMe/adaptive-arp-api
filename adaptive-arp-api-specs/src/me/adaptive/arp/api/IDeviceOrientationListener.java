@@ -40,20 +40,20 @@ public interface IDeviceOrientationListener extends IBaseListener {
     /**
      * Event fired with the successful start and finish of a rotation.
      *
-     * @param event RotationEvent containing origin, destination and state of the event.
+     * @param rotationEvent RotationEvent containing origin, destination and state of the event.
      * @since v2.0.5
      */
-    public void onResult(RotationEvent event);
+    public void onResult(RotationEvent rotationEvent);
 
     /**
      * Event fired with a warning when the rotation is aborted. In specific, this
      * event may be fired if the devices vetoes the rotation before rotation is completed.
      *
-     * @param event   RotationEvent containing origin, destination and state of the event.
+     * @param rotationEvent   RotationEvent containing origin, destination and state of the event.
      * @param warning Type of condition that aborted rotation execution.
      * @since v2.0.5
      */
-    public void onWarning(RotationEvent event, Warning warning);
+    public void onWarning(RotationEvent rotationEvent, Warning warning);
 
     /**
      * Although extremely unlikely, this event will be fired if something beyond the control of the
