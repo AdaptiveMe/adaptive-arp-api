@@ -33,16 +33,19 @@ Release:
 */
 
 #import <Foundation/Foundation.h>
-#import <IAdaptiveRP.h>
 
 /**
-Base application for Data purposes
+The IAppResourceManager is the interface that must be followed for the implementation of secure resource
+reading from the application data container. Implementations of this class should provide the logic
+to read data from the application container (that may be compressed and encrypted in different formats)
+and return the uncompressed data in each case. Implementation specifics may vary between platforms but
+the ResourceData and formats returned must be coherent between platforms.
 
 @author Carlos Lozano Diez
-@since v2.0
+@since v2.1.3
 @version 1.0
 */
-@protocol IBaseData <IAdaptiveRP>
+@protocol IAppResourceManager <NSObject>
 
 @end
 

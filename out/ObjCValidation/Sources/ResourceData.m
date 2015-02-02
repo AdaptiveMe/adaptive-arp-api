@@ -32,17 +32,54 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-#import <Foundation/Foundation.h>
-#import <IAdaptiveRP.h>
+#import <ResourceData.h>
 
 /**
-Base application for Data purposes
 
 @author Carlos Lozano Diez
-@since v2.0
+@since v2.1.3
 @version 1.0
 */
-@protocol IBaseData <IAdaptiveRP>
+@implementation ResourceData
+
+
+     /**
+        Default constructor.
+
+        @since v2.1.3
+     */
+     - (id) init {
+          self = [self init];
+          return self;
+     }
+
+     /**
+        Convenience constructor.
+
+        @param id           The id or path of the resource retrieved.
+        @param data         The payload data of the resource (uncooked).
+        @param rawType      The raw type/mimetype of the resource.
+        @param rawLength    The raw length/original length in bytes of the resource.
+        @param cooked       True if the resource is cooked.
+        @param cookedType   Type of recipe used for cooking.
+        @param cookedLength The cooked length in bytes of the resource.
+        @since v2.1.3
+     */
+     - (id) initWithIdDataRawTypeRawLengthCookedCookedTypeCookedLength:(NSString*)id data:(NSArray*)data rawType:(NSString*)rawType rawLength:(long*)rawLength cooked:(bool*)cooked cookedType:(NSString*)cookedType cookedLength:(long*)cookedLength {
+          self = [self init];
+          if (self) {
+               [self setId:id];
+               [self setData:data];
+               [self setRawType:rawType];
+               [self setRawLength:rawLength];
+               [self setCooked:cooked];
+               [self setCookedType:cookedType];
+               [self setCookedLength:cookedLength];
+          }
+          return self;
+     }
+
+
 
 @end
 
