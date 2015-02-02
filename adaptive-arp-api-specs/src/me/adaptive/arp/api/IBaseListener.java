@@ -48,5 +48,11 @@ package me.adaptive.arp.api;
  */
 public interface IBaseListener extends IAdaptiveRP {
 
-
+    /**
+     * Return the unique listener identifier. This is used to check if two listeners are the same
+     * in every platform. This id is populated by the Javascript platform
+     *
+     * @return Unique Listener identifier
+     */
+    long getId();
 }
