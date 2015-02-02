@@ -27,12 +27,12 @@ Contributors:
 
 Release:
 
-    * @version v2.1.2
+    * @version v2.1.3
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-#import <ResourceData.h>
+#import <AppResourceData.h>
 
 /**
 
@@ -40,7 +40,7 @@ Release:
 @since v2.1.3
 @version 1.0
 */
-@implementation ResourceData
+@implementation AppResourceData
 
 
      /**

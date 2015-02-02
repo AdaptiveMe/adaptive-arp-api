@@ -44,7 +44,7 @@ package me.adaptive.arp.api;
  *
  * @since v2.1.3
  */
-public class ResourceData {
+public class AppResourceData {
 
     /**
      * The id or path identifier of the resource.
@@ -99,7 +99,7 @@ public class ResourceData {
      *
      * @since v2.1.3
      */
-    public ResourceData() {
+    public AppResourceData() {
     }
 
     /**
@@ -114,7 +114,7 @@ public class ResourceData {
      * @param cookedLength The cooked length in bytes of the resource.
      * @since v2.1.3
      */
-    public ResourceData(String id, byte[] data, String rawType, long rawLength, boolean cooked, String cookedType, long cookedLength) {
+    public AppResourceData(String id, byte[] data, String rawType, long rawLength, boolean cooked, String cookedType, long cookedLength) {
         this.id = id;
         this.data = data;
         this.rawType = rawType;

@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.2
+    * @version v2.1.3
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -41,7 +41,7 @@ This class represents a resource provided by the platform from the application's
 @since v2.1.3
 @version 1.0
 */
-@interface ResourceData : NSObject
+@interface AppResourceData : NSObject
 
      /**
         Marker to indicate whether the resource is cooked in some way (compressed, encrypted, etc.) If true, the

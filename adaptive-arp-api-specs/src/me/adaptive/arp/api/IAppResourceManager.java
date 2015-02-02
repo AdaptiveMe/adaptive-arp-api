@@ -48,7 +48,7 @@ public interface IAppResourceManager {
      * @return ResourceData with the web resource payload.
      * @since v2.1.3
      */
-    ResourceData retrieveWebResource(String id);
+    AppResourceData retrieveWebResource(String id);
 
     /**
      * Retrieve a configuration resource from the secure application data container.
@@ -57,5 +57,5 @@ public interface IAppResourceManager {
      * @return ResourceData with the configuration resource payload.
      * @since v2.1.3
      */
-    ResourceData retrieveConfigResource(String id);
+    AppResourceData retrieveConfigResource(String id);
 }
