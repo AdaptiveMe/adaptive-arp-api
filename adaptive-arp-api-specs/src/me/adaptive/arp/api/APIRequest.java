@@ -69,6 +69,11 @@ public class APIRequest {
     private long asyncId;
 
     /**
+     * Identifier of API version of this request.
+     */
+    private String apiVersion;
+
+    /**
      * Default constructor
      *
      * @since v2.0
@@ -184,4 +189,22 @@ public class APIRequest {
         this.asyncId = asyncId;
     }
 
+    /**
+     * Returns the request's API version. This should be the same or higher than the platform managing the
+     * request.
+     *
+     * @return String with the API version of the request.
+     */
+    public String getApiVersion() {
+        return apiVersion;
+    }
+
+    /**
+     * Sets the request's API version. This should be the same or higher than the platform managing the
+     * request.
+     * @param apiVersion String with the API version of the request.
+     */
+    public void setApiVersion(String apiVersion) {
+        this.apiVersion = apiVersion;
+    }
 }

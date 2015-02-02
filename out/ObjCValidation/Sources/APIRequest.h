@@ -44,6 +44,10 @@ Structure representing a HTML5 request to the native API.
 @interface APIRequest : NSObject
 
      /**
+        Identifier of API version of this request.
+     */
+     @property NSString *apiVersion;
+     /**
         Identifier of callback or listener for async operations.
      */
      @property long *asyncId;
