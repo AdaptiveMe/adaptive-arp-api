@@ -92,6 +92,13 @@ public class ServiceResponse extends APIBean {
     private ServiceSession serviceSession;
 
     /**
+     * HTTP Status code of the response. With this status code it is possible to perform some actions, redirects, authentication, etc.
+     *
+     * @since v2.1.4
+     */
+    private int statusCode;
+
+    /**
      * Default constructor.
      *
      * @since v2.0
@@ -109,15 +116,17 @@ public class ServiceResponse extends APIBean {
      * @param contentLength   The length in bytes for the Content field.
      * @param serviceHeaders  The serviceHeaders array (name,value pairs) to be included on the I/O service request.
      * @param serviceSession  Information about the session
+     * @param statusCode      HTTP Status code of the response.
      * @since v2.0
      */
-    public ServiceResponse(String content, String contentType, String contentEncoding, int contentLength, ServiceHeader[] serviceHeaders, ServiceSession serviceSession) {
+    public ServiceResponse(String content, String contentType, String contentEncoding, int contentLength, ServiceHeader[] serviceHeaders, ServiceSession serviceSession, int statusCode) {
         this.content = content;
         this.contentType = contentType;
         this.contentEncoding = contentEncoding;
         this.contentLength = contentLength;
         this.serviceHeaders = serviceHeaders;
         this.serviceSession = serviceSession;
+        this.statusCode = statusCode;
     }
 
     /**
@@ -220,7 +229,6 @@ public class ServiceResponse extends APIBean {
         this.serviceSession = serviceSession;
     }
 
-
     /**
      * Returns the content length
      *
@@ -232,12 +240,32 @@ public class ServiceResponse extends APIBean {
     }
 
     /**
-     * Set the content length
+     * Set the content length.
      *
      * @param contentLength The length in bytes for the Content field.
      * @since v2.0
      */
     public void setContentLength(int contentLength) {
         this.contentLength = contentLength;
+    }
+
+    /**
+     * Returns the status code of the response.
+     *
+     * @return HTTP status code
+     * @since v2.1.4
+     */
+    public int getStatusCode() {
+        return statusCode;
+    }
+
+    /**
+     * Sets the status code of the response
+     *
+     * @param statusCode HTTP status code
+     * @since v2.1.4
+     */
+    public void setStatusCode(int statusCode) {
+        this.statusCode = statusCode;
     }
 }
