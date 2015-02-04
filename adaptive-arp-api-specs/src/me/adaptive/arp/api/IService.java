@@ -83,6 +83,18 @@ public interface IService extends IBaseCommunication {
     ServiceToken getServiceToken(String serviceName, String endpointName, String functionName, Method method);
 
     /**
+     * Obtains a Service token by a concrete uri (http://domain.com/path). This method would be useful when
+     * a service response is a redirect (3XX) and it is necessary to make a request to another host and we
+     * don't know by advance the name of the service.
+     *
+     * @param uri Unique Resource Identifier for a Service-Endpoint-Path-Method
+     * @return ServiceToken to create a service request or null if the given parameter is not
+     * configured in the platform's XML service definition file.
+     * @since v2.1.4
+     */
+    ServiceToken getServiceTokenByUri(String uri);
+
+    /**
      * Create a service request for the given ServiceToken. This method creates the request, populating
      * existing headers and cookies for the same service. The request is populated with all the defaults
      * for the service being invoked and requires only the request body to be set. Headers and cookies may be

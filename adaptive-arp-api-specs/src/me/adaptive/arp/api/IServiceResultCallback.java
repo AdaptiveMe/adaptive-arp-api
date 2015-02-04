@@ -79,7 +79,7 @@ public interface IServiceResultCallback extends IBaseCallback {
      * @since v2.0
      */
     public enum Warning {
-        CertificateUntrusted, NotSecure, Redirected, Wrong_Params, Unknown
+        CertificateUntrusted, NotSecure, Redirected, Wrong_Params, Forbidden, NotFound, MethodNotAllowed, NotAllowed, NotAuthenticated, PaymentRequired, ServerError, Unknown
     }
 
     /**
@@ -88,6 +88,6 @@ public interface IServiceResultCallback extends IBaseCallback {
      * @since v2.0
      */
     public enum Error {
-        Forbidden, NotFound, MethodNotAllowed, NotAllowed, NotAuthenticated, PaymentRequired, TimeOut, NoResponse, ServerError, Unreachable, MalformedUrl, NotRegisteredService, Unknown
+        TimeOut, NoResponse, Unreachable, MalformedUrl, NotRegisteredService, Unknown
     }
 }

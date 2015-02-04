@@ -133,6 +133,13 @@ public class ServiceRequest extends APIBean {
     private ServiceToken serviceToken;
 
     /**
+     * This host indicates the origin host of the request. This, could be useful in case of redirected requests.
+     *
+     * @since v2.1.4
+     */
+    private String refererHost;
+
+    /**
      * Default constructor.
      *
      * @since v2.0
@@ -354,5 +361,25 @@ public class ServiceRequest extends APIBean {
      */
     public void setUserAgent(String userAgent) {
         this.userAgent = userAgent;
+    }
+
+    /**
+     * Returns the referer host (origin) of the request.
+     *
+     * @return Referer host of the request
+     * @since v2.1.4
+     */
+    public String getRefererHost() {
+        return refererHost;
+    }
+
+    /**
+     * Sets the value for the referer host of the request.
+     *
+     * @param refererHost Referer host of the request
+     * @since v2.1.4
+     */
+    public void setRefererHost(String refererHost) {
+        this.refererHost = refererHost;
     }
 }
