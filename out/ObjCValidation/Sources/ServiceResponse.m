@@ -62,9 +62,10 @@ Release:
         @param contentLength   The length in bytes for the Content field.
         @param serviceHeaders  The serviceHeaders array (name,value pairs) to be included on the I/O service request.
         @param serviceSession  Information about the session
+        @param statusCode      HTTP Status code of the response.
         @since v2.0
      */
-     - (id) initWithContentContentTypeContentEncodingContentLengthServiceHeadersServiceSession:(NSString*)content contentType:(NSString*)contentType contentEncoding:(NSString*)contentEncoding contentLength:(int*)contentLength serviceHeaders:(NSArray*)serviceHeaders serviceSession:(ServiceSession*)serviceSession {
+     - (id) initWithContentContentTypeContentEncodingContentLengthServiceHeadersServiceSessionStatusCode:(NSString*)content contentType:(NSString*)contentType contentEncoding:(NSString*)contentEncoding contentLength:(int*)contentLength serviceHeaders:(NSArray*)serviceHeaders serviceSession:(ServiceSession*)serviceSession statusCode:(int*)statusCode {
           self = [self init];
           if (self) {
                [self setContent:content];
@@ -73,6 +74,7 @@ Release:
                [self setContentLength:contentLength];
                [self setServiceHeaders:serviceHeaders];
                [self setServiceSession:serviceSession];
+               [self setStatusCode:statusCode];
           }
           return self;
      }

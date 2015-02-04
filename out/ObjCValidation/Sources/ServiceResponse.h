@@ -72,6 +72,10 @@ should be encoded in base64.
         Information about the session.
      */
      @property ServiceSession *serviceSession;
+     /**
+        HTTP Status code of the response. With this status code it is possible to perform some actions, redirects, authentication, etc.
+     */
+     @property int *statusCode;
 
      /**
         Default constructor.
@@ -89,9 +93,10 @@ should be encoded in base64.
         @param contentLength   The length in bytes for the Content field.
         @param serviceHeaders  The serviceHeaders array (name,value pairs) to be included on the I/O service request.
         @param serviceSession  Information about the session
+        @param statusCode      HTTP Status code of the response.
         @since v2.0
      */
-     - (id) initWithContentContentTypeContentEncodingContentLengthServiceHeadersServiceSession:(NSString*)content contentType:(NSString*)contentType contentEncoding:(NSString*)contentEncoding contentLength:(int*)contentLength serviceHeaders:(NSArray*)serviceHeaders serviceSession:(ServiceSession*)serviceSession;
+     - (id) initWithContentContentTypeContentEncodingContentLengthServiceHeadersServiceSessionStatusCode:(NSString*)content contentType:(NSString*)contentType contentEncoding:(NSString*)contentEncoding contentLength:(int*)contentLength serviceHeaders:(NSArray*)serviceHeaders serviceSession:(ServiceSession*)serviceSession statusCode:(int*)statusCode;
 
 
 @end

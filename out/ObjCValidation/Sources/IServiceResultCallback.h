@@ -45,19 +45,12 @@ Interface for Managing the Services operations
 @protocol IServiceResultCallback <IBaseCallback>
 
      typedef NS_OPTIONS(NSUInteger, IServiceResultCallbackError) {
-          IServiceResultCallbackError_Forbidden = 0,
-          IServiceResultCallbackError_NotFound = 1,
-          IServiceResultCallbackError_MethodNotAllowed = 2,
-          IServiceResultCallbackError_NotAllowed = 3,
-          IServiceResultCallbackError_NotAuthenticated = 4,
-          IServiceResultCallbackError_PaymentRequired = 5,
-          IServiceResultCallbackError_TimeOut = 6,
-          IServiceResultCallbackError_NoResponse = 7,
-          IServiceResultCallbackError_ServerError = 8,
-          IServiceResultCallbackError_Unreachable = 9,
-          IServiceResultCallbackError_MalformedUrl = 10,
-          IServiceResultCallbackError_NotRegisteredService = 11,
-          IServiceResultCallbackError_Unknown = 12
+          IServiceResultCallbackError_TimeOut = 0,
+          IServiceResultCallbackError_NoResponse = 1,
+          IServiceResultCallbackError_Unreachable = 2,
+          IServiceResultCallbackError_MalformedUrl = 3,
+          IServiceResultCallbackError_NotRegisteredService = 4,
+          IServiceResultCallbackError_Unknown = 5
      };
 
      typedef NS_OPTIONS(NSUInteger, IServiceResultCallbackWarning) {
@@ -65,7 +58,14 @@ Interface for Managing the Services operations
           IServiceResultCallbackWarning_NotSecure = 1,
           IServiceResultCallbackWarning_Redirected = 2,
           IServiceResultCallbackWarning_Wrong_Params = 3,
-          IServiceResultCallbackWarning_Unknown = 4
+          IServiceResultCallbackWarning_Forbidden = 4,
+          IServiceResultCallbackWarning_NotFound = 5,
+          IServiceResultCallbackWarning_MethodNotAllowed = 6,
+          IServiceResultCallbackWarning_NotAllowed = 7,
+          IServiceResultCallbackWarning_NotAuthenticated = 8,
+          IServiceResultCallbackWarning_PaymentRequired = 9,
+          IServiceResultCallbackWarning_ServerError = 10,
+          IServiceResultCallbackWarning_Unknown = 11
      };
 
 @end

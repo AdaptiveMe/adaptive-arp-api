@@ -82,6 +82,10 @@ during GET/POST operations. No query parameters are appended if this array is nu
      */
      @property NSArray *queryParameters;
      /**
+        This host indicates the origin host of the request. This, could be useful in case of redirected requests.
+     */
+     @property NSString *refererHost;
+     /**
         The serviceHeaders array (name,value pairs) to be included in the request. This may be populated by the
 application, the platform populates this field with defaults for the service and the previous headers.
 In specific, the platform maintains request and response state automatically.
