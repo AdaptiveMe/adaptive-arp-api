@@ -78,7 +78,7 @@ public class ServiceRequest extends APIBean {
      *
      * @since v2.0
      */
-    private String contentEncoding;
+    private IService.ContentEncoding contentEncoding;
 
     /**
      * The length in bytes of the content. This may be populated by the application, the platform
@@ -248,7 +248,7 @@ public class ServiceRequest extends APIBean {
      * @return contentEncoding
      * @since v2.0
      */
-    public String getContentEncoding() {
+    public IService.ContentEncoding getContentEncoding() {
         return contentEncoding;
     }
 
@@ -258,7 +258,7 @@ public class ServiceRequest extends APIBean {
      * @param contentEncoding Encoding of the binary payload - by default assumed to be UTF8.
      * @since v2.0
      */
-    public void setContentEncoding(String contentEncoding) {
+    public void setContentEncoding(IService.ContentEncoding contentEncoding) {
         this.contentEncoding = contentEncoding;
     }
 

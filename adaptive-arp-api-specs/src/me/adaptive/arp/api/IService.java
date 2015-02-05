@@ -156,4 +156,13 @@ public interface IService extends IBaseCommunication {
     public enum CertificateValidation {
         None, Normal, Extended, Extreme, Unknown
     }
+
+    /**
+     * Enum to define the content encoding for service requests and responses
+     *
+     * @since v2.1.5
+     */
+    public enum ContentEncoding {
+        ASCII, UTF8, ISOLatin1, Unicode, Unknown
+    }
 }
