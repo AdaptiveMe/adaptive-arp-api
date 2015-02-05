@@ -68,7 +68,7 @@ public class ServiceResponse extends APIBean {
      *
      * @since v2.0
      */
-    private String contentEncoding;
+    private IService.ContentEncoding contentEncoding;
 
     /**
      * The length in bytes for the Content field.
@@ -119,7 +119,7 @@ public class ServiceResponse extends APIBean {
      * @param statusCode      HTTP Status code of the response.
      * @since v2.0
      */
-    public ServiceResponse(String content, String contentType, String contentEncoding, int contentLength, ServiceHeader[] serviceHeaders, ServiceSession serviceSession, int statusCode) {
+    public ServiceResponse(String content, String contentType, IService.ContentEncoding contentEncoding, int contentLength, ServiceHeader[] serviceHeaders, ServiceSession serviceSession, int statusCode) {
         this.content = content;
         this.contentType = contentType;
         this.contentEncoding = contentEncoding;
@@ -195,7 +195,7 @@ public class ServiceResponse extends APIBean {
      * @return contentEncoding
      * @since v2.0
      */
-    public String getContentEncoding() {
+    public IService.ContentEncoding getContentEncoding() {
         return contentEncoding;
     }
 
@@ -205,7 +205,7 @@ public class ServiceResponse extends APIBean {
      * @param contentEncoding Encoding of the binary payload - by default assumed to be UTF8.
      * @since v2.0
      */
-    public void setContentEncoding(String contentEncoding) {
+    public void setContentEncoding(IService.ContentEncoding contentEncoding) {
         this.contentEncoding = contentEncoding;
     }
 
