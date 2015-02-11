@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.3
+    * @version v2.1.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -49,6 +49,19 @@ Represents a local or remote service request.
 @interface ServiceRequest : APIBean
 
      /**
+        Encoding of the content - by default assumed to be UTF8. This may be populated by the application, the platform
+populates this field with defaults for the service.
+     */
+     typedef NS_OPTIONS(NSUInteger, IServiceContentEncoding) {
+          IServiceContentEncoding_ASCII = 0,
+          IServiceContentEncoding_UTF8 = 1,
+          IServiceContentEncoding_ISOLatin1 = 2,
+          IServiceContentEncoding_Unicode = 3,
+          IServiceContentEncoding_Unknown = 4
+     };
+
+     @property IServiceContentEncoding *contentEncoding;
+     /**
         Body parameters to be included in the body of the request to a service. These may be applied
 during GET/POST operations. No body parameters are included if this array is null or length zero.
         Array objects must be of ServiceRequestParameter type.
@@ -60,11 +73,6 @@ in some well-known web format - in specific, binaries submitted should be encode
 type should be set respectively by the application.
      */
      @property NSString *content;
-     /**
-        Encoding of the content - by default assumed to be UTF8. This may be populated by the application, the platform
-populates this field with defaults for the service.
-     */
-     @property NSString *contentEncoding;
      /**
         The length in bytes of the content. This may be populated by the application, the platform
 calculates this length automatically if a specific contentLength is not specified.

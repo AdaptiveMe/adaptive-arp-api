@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.3
+    * @version v2.1.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -65,7 +65,7 @@ Release:
         @param statusCode      HTTP Status code of the response.
         @since v2.0
      */
-     - (id) initWithContentContentTypeContentEncodingContentLengthServiceHeadersServiceSessionStatusCode:(NSString*)content contentType:(NSString*)contentType contentEncoding:(NSString*)contentEncoding contentLength:(int*)contentLength serviceHeaders:(NSArray*)serviceHeaders serviceSession:(ServiceSession*)serviceSession statusCode:(int*)statusCode {
+     - (id) initWithContentContentTypeContentEncodingContentLengthServiceHeadersServiceSessionStatusCode:(NSString*)content contentType:(NSString*)contentType contentEncoding:(IServiceContentEncoding*)contentEncoding contentLength:(int*)contentLength serviceHeaders:(NSArray*)serviceHeaders serviceSession:(ServiceSession*)serviceSession statusCode:(int*)statusCode {
           self = [self init];
           if (self) {
                [self setContent:content];

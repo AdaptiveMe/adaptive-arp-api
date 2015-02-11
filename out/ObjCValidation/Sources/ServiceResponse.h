@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.3
+    * @version v2.1.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -47,14 +47,22 @@ Represents a local or remote service response.
 @interface ServiceResponse : APIBean
 
      /**
+        Encoding of the binary payload - by default assumed to be UTF8.
+     */
+     typedef NS_OPTIONS(NSUInteger, IServiceContentEncoding) {
+          IServiceContentEncoding_ASCII = 0,
+          IServiceContentEncoding_UTF8 = 1,
+          IServiceContentEncoding_ISOLatin1 = 2,
+          IServiceContentEncoding_Unicode = 3,
+          IServiceContentEncoding_Unknown = 4
+     };
+
+     @property IServiceContentEncoding *contentEncoding;
+     /**
         Response data content. The content should be in some well-known web format - in specific, binaries returned
 should be encoded in base64.
      */
      @property NSString *content;
-     /**
-        Encoding of the binary payload - by default assumed to be UTF8.
-     */
-     @property NSString *contentEncoding;
      /**
         The length in bytes for the Content field.
      */
@@ -96,7 +104,7 @@ should be encoded in base64.
         @param statusCode      HTTP Status code of the response.
         @since v2.0
      */
-     - (id) initWithContentContentTypeContentEncodingContentLengthServiceHeadersServiceSessionStatusCode:(NSString*)content contentType:(NSString*)contentType contentEncoding:(NSString*)contentEncoding contentLength:(int*)contentLength serviceHeaders:(NSArray*)serviceHeaders serviceSession:(ServiceSession*)serviceSession statusCode:(int*)statusCode;
+     - (id) initWithContentContentTypeContentEncodingContentLengthServiceHeadersServiceSessionStatusCode:(NSString*)content contentType:(NSString*)contentType contentEncoding:(IServiceContentEncoding*)contentEncoding contentLength:(int*)contentLength serviceHeaders:(NSArray*)serviceHeaders serviceSession:(ServiceSession*)serviceSession statusCode:(int*)statusCode;
 
 
 @end
