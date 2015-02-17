@@ -4,6 +4,8 @@
 
 ### About This Project
 
+![Overview](https://raw.githubusercontent.com/AdaptiveMe/adaptive-arp-api/gh-pages/assets/arp-summary.png)
+
 ### About Adaptive Runtime Platform
 
 Hybrid apps are applications that are built using HTML5/CSS3/JavaScript web technologies and use a native "containers" to package the app to enable access to the native functionalities of a device. In essence, you can write a rich mobile/wearable/tv application using HTML and JavaScript and package that application as a native app for multiple mobile/wearable/tv platforms and distribute them on the different app stores and markets.
