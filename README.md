@@ -21,24 +21,6 @@ Please refer to the [project site](http://adaptiveme.github.io) for more informa
 
 We'd *love to accept your patches and contributions to this project*.  There are a just a few small guidelines you need to follow to ensure that you and/or your company and our project are safeguarded from inadvertent copyright infringement. I know, this can be a pain but we want fair-play from the very start so that we're all on the same page. Please refer to the [project site](http://adaptiveme.github.io) for more information.
 
-### Submitting a patch
-
-  1. It's generally best to start by opening a new issue describing the bug or feature you're intending to fix or add.  Even if you think it's relatively minor, it's helpful to know what people are working on.  Mention in the initial issue that you are planning to work on that bug or feature so that it can be assigned to you.
-
-  1. Follow the normal process of [forking][] the project, and setup a new
-     branch to work in.  It's important that each group of changes be done in
-     separate branches in order to ensure that a pull request only includes the
-     commits related to that bug or feature.
-
-  1. Any significant changes should almost always be accompanied by tests.  We aim to have a good test coverage, so look at some of the existing tests if you're unsure how to go about it. If the project has no tests, feel free to contribute them. Tests are contributions too!
-
-  1. Do your best to have well-formed commit messages for each change. If you're closing an issue with the commit, include the words "Fixes #<issuenumber>" in your comment where <issuenumber> is the number of the issue or feature being fixed or added. This provides consistency throughout the project, and ensures that commit messages are able to be formatted properly by various git tools and that issues are automatically closed by github.
-
-  1. Finally, push the commits to your fork and submit a [pull request][].
-  
-[forking]: https://help.github.com/articles/fork-a-repo
-[pull request]: https://help.github.com/articles/creating-a-pull-request
-
 ## License
 All the source code of the Adaptive Runtime Platform (ARP), including all Adaptive Runtime Platform (ARP) sub-projects curated by @carloslozano, are distributed, and must be contributed to, under the terms of the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html). Included here verbatim for convenience:
 
