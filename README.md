@@ -224,6 +224,23 @@ Apache License
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
+   
+   APPENDIX: Adaptive.me Trademarks and Logos
+   
+   This license does not grant you any rights to use the denominations 
+   "Adaptive", "Adaptive.me" or "Adaptive Runtime Platform" and/or "Adaptive”, 
+   "Adaptive.me"“, "Adaptive Runtime Platform" logos and/or trademarks even if 
+   such marks are included in the Original Code or Modifications. In particular, 
+   but not limited to, this License does not allow you to register or use any domain 
+   name and/or sub-domain name on the Internet related with or which totally or partially 
+   includes the denomination "Adaptive", "Adaptive.me" or "Adaptive Runtime Platform" 
+   and the "Adaptive", "Adaptive.me" or "Adaptive Runtime Platform" logos.
+   
 ```
+## Attributions
+
+* Adaptive Runtime Platform (ARP) artwork by [Jennifer Lasso](https://github.com/Jlassobb).
+* Project badge artwork by [shields.io](http://shields.io/).
+* All other logos are copyright of their respective owners.
 
 Forged with :heart: in Barcelona, Catalonia · © 2013 - 2015 [adaptive.me](http://adaptive.me) / [Carlos Lozano Diez](http://google.com/+CarlosLozano).
