@@ -1,83 +1,24 @@
-## Adaptive Runtime Platform (ARP) [![Build Status](https://travis-ci.org/AdaptiveMe/adaptive-arp-api.svg?branch=master)](https://travis-ci.org/AdaptiveMe/adaptive-arp-api)
-# API Projects
+# Adaptive Runtime Platform API [![Build Status](https://travis-ci.org/AdaptiveMe/adaptive-arp-api.svg?branch=master)](https://travis-ci.org/AdaptiveMe/adaptive-arp-api)
+## Introduction
 
-Hybrid apps are applications that are build using HTML5/CSS3/JavaScript web technologies that use a native “container” to present the content to a user and to access – bridging web and native contexts - the native functionalities of the device for which the application is built. 
+### About This Project
 
-The Adaptive Runtime Platform (ARP) provides these native “containers” for the main mobile and desktop platforms so that Hybrid apps can be compiled and deployed on a multiplicity of devices leveraging the same code developed using modern web technologies. Adaptive Runtime Platform (ARP) and sub-projects are open-source under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html).
+### About Adaptive Runtime Platform
+
+Hybrid apps are applications that are built using HTML5/CSS3/JavaScript web technologies and use a native "containers" to package the app to enable access to the native functionalities of a device. In essence, you can write a rich mobile/wearable/tv application using HTML and JavaScript and package that application as a native app for multiple mobile/wearable/tv platforms and distribute them on the different app stores and markets.
+
+The Adaptive Runtime Platform (ARP) provides these native "containers" to package apps for the main mobile, wearable and desktop platforms... and other platforms as they emerge. Adaptive Runtime Platform (ARP) and sub-projects are open-source under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html). The Adaptive Runtime Platform (ARP) project was created by [Carlos Lozano Diez](https://github.com/carloslozano) as part of the [adaptive.me](http://adaptive.me) set of products.
 
 Please refer to the [project site](http://adaptiveme.github.io) for more information.
 
-## Projects
+## Support and Contact
 
-#### adaptive-arp-api-java
+* If you're amending or proposing APIs, open an issue [here](https://github.com/AdaptiveMe/adaptive-arp-api/issues) with a **detailed** description. Also, in addition to opening the issue you send me a pull request with your amendment/proposal.
+* If you're seeking help, head over to [StackOverflow](http://stackoverflow.com/) to ask your question and tag it as **adaptiveme** - I might not see the question if you don't tag it. 
 
-* **IDE**
-	* JetBrains [Intellij IDEA 13.1](http://www.jetbrains.com/idea/download/) or higher.
-* **Dependencies**
-	* Java [JDK 1.7.0_51](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html?ssSourceSiteId=otnes) or higher. 
-
-###### Artefacts
-Maven:
-
-```java
-<dependency>
-        <groupId>adaptive-arp-api-java</groupId>
-        <artifactId>arp-api-specs</artifactId>
-        <version>2.0.0</version>
-        <type>jar</type>
-</dependency>
-
-```
-
-Gradle:
-
-```
-compile(group: 'adaptive-arp-api-java', name: 'arp-api-specs', version: '2.0.0', ext: 'jar')
-```
-
-[ ![Download](https://api.bintray.com/packages/adaptiveme/arp/arp-api-java/images/download.svg) ](https://bintray.com/adaptiveme/arp/arp-api-java/_latestVersion)
-
-#### adaptive-arp-api-objc
-
-* **IDE** 
-	* JetBrains [AppCode 3.0.2](http://www.jetbrains.com/objc/) or higher, or,
-	* Apple [Xcode 6.0 beta 6](https://developer.apple.com/xcode/) or higher.
-* **Dependencies**
-	* Java [JDK 1.7.0_51](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html?ssSourceSiteId=otnes) or higher. 
-	* j2objc [0.9.3](https://github.com/google/j2objc/releases/tag/0.9.3) or higher.
-
-#### adaptive-arp-api-csharp
-
-* **IDE**
-	* Microsoft Visual Studio 2013 [Update 3](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200395108) or higher.
-* **Dependencies**
-    * Microsoft Windows Phone SDK [8.1](http://dev.windows.com/en-us/develop/download-phone-sdk) or higher.
-	* Microsoft .NET Framework [4.5.2](http://www.microsoft.com/en-us/download/details.aspx?id=42642) or higher.
-
-###### Artefacts
-Nuget:
-```
-PM> Install-Package Adaptive.Arp.Api
-```
-
-#### adaptive-arp-api-swift
-
-* **IDE** 
-	* JetBrains [AppCode 3.0.2](http://www.jetbrains.com/objc/) or higher, or,
-	* Apple [Xcode 6.0 beta 6](https://developer.apple.com/xcode/) or higher.
-* **Dependencies**
-	* Java [JDK 1.7.0_51](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html?ssSourceSiteId=otnes) or higher.
-
-###### Artefacts
-CocoaPod:
-
-```
-pod 'AdaptiveArpApi', '~> 1.0'
-```
-	
 ## Contributing
-We'd *love to accept your patches and contributions to this project*.  There are a just a few small guidelines you need to follow to ensure that you and/or your company and our project are safeguarded from inadvertent copyright infringement. I know, this can be a pain but we want fair-play from the very start so that we're all on the same page. Please refer to the [project site](http://adaptiveme.github.io) for more information.
 
+We'd *love to accept your patches and contributions to this project*.  There are a just a few small guidelines you need to follow to ensure that you and/or your company and our project are safeguarded from inadvertent copyright infringement. I know, this can be a pain but we want fair-play from the very start so that we're all on the same page. Please refer to the [project site](http://adaptiveme.github.io) for more information.
 
 ### Submitting a patch
 
@@ -97,37 +38,8 @@ We'd *love to accept your patches and contributions to this project*.  There are
 [forking]: https://help.github.com/articles/fork-a-repo
 [pull request]: https://help.github.com/articles/creating-a-pull-request
 
-## Support and Contact
-
-***Adaptive General Q&A***
-
-* **Forum:** <https://groups.google.com/forum/#!forum/adaptive-general>
-* **Mailing list:** <mailto:adaptive-general@googlegroups.com>
-
-***Adaptive API Discussion***
-
-For matters pertaining to the cross-platform APIs (interfaces and common code), please use the following communication channels.
-
-* **Forum:** <https://groups.google.com/forum/#!forum/adaptive-api>
-* **Mailing list:** <mailto:adaptive-api@googlegroups.com>
-
-
-***Adaptive Implementation Discussion***
-
-For matters pertaining to platform specific implementation of the APIs.
-
-* **Forum:** <https://groups.google.com/forum/#!forum/adaptive-impl>
-* **Mailing list:** <mailto:adaptive-impl@googlegroups.com>
-
-***Adaptive Runtime Discussion***
-
-For matters pertaining to platform specific build and runtime topics.
-
-* **Forum:** <https://groups.google.com/forum/#!forum/adaptive-runtime>
-* **Mailing list:** <mailto:adaptive-runtime@googlegroups.com>
-
 ## License
-All the source code of the Adaptive Runtime Platform (ARP), including all sub-projects curated by @carloslozano, are distributed, and must be contributed, under the terms of the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html). Included here verbatim for convenience:
+All the source code of the Adaptive Runtime Platform (ARP), including all Adaptive Runtime Platform (ARP) sub-projects curated by @carloslozano, are distributed, and must be contributed to, under the terms of the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html). Included here verbatim for convenience:
 
 ```
 Apache License
