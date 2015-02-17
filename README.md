@@ -1,5 +1,5 @@
 
-# Adaptive Runtime Platform API [![Build Status](https://travis-ci.org/AdaptiveMe/adaptive-arp-api.svg?branch=master)](https://travis-ci.org/AdaptiveMe/adaptive-arp-api) [![Stories in Ready](https://badge.waffle.io/AdaptiveMe/adaptive-arp-api.svg?label=ready&title=Ready)](https://waffle.io/AdaptiveMe/adaptive-arp-api)
+# Adaptive Runtime Platform API [![Build Status](https://travis-ci.org/AdaptiveMe/adaptive-arp-api.svg?branch=master)](https://travis-ci.org/AdaptiveMe/adaptive-arp-api) 
 ![Adaptive Runtime Platform](https://raw.githubusercontent.com/AdaptiveMe/adaptive-arp-api/gh-pages/assets/arp-logo.png)
 ## Introduction
 
@@ -20,6 +20,8 @@ Please refer to the [project site](http://adaptiveme.github.io) for more informa
 * If you're seeking help, head over to [StackOverflow](http://stackoverflow.com/) to ask your question and tag it as **adaptiveme** - I might not see the question if you don't tag it. 
 
 ## Progress
+
+#### Board: [![Stories in Ready](https://badge.waffle.io/AdaptiveMe/adaptive-arp-api.svg?label=ready&title=Ready)](https://waffle.io/AdaptiveMe/adaptive-arp-api)
 
 [![Throughput Graph](https://graphs.waffle.io/adaptiveme/adaptive-arp-api/throughput.svg)](https://waffle.io/adaptiveme/adaptive-arp-api/metrics)
 
