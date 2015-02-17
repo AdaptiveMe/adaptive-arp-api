@@ -19,6 +19,10 @@ Please refer to the [project site](http://adaptiveme.github.io) for more informa
 * If you're amending or proposing APIs, open an issue [here](https://github.com/AdaptiveMe/adaptive-arp-api/issues) with a **detailed** description. Also, in addition to opening the issue you send me a pull request with your amendment/proposal.
 * If you're seeking help, head over to [StackOverflow](http://stackoverflow.com/) to ask your question and tag it as **adaptiveme** - I might not see the question if you don't tag it. 
 
+## Progress
+
+[![Throughput Graph](https://graphs.waffle.io/adaptiveme/adaptive-arp-api/throughput.svg)](https://waffle.io/adaptiveme/adaptive-arp-api/metrics)
+
 ## Contributing
 
 We'd *love to accept your patches and contributions to this project*.  There are a just a few small guidelines you need to follow to ensure that you and/or your company and our project are safeguarded from inadvertent copyright infringement. I know, this can be a pain but we want fair-play from the very start so that we're all on the same page. Please refer to the [project site](http://adaptiveme.github.io) for more information.
