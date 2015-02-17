@@ -19,7 +19,7 @@ Please refer to the [project site](http://adaptiveme.github.io) for more informa
 * If you're amending or proposing APIs, open an issue [here](https://github.com/AdaptiveMe/adaptive-arp-api/issues) with a **detailed** description. Also, in addition to opening the issue you send me a pull request with your amendment/proposal.
 * If you're seeking help, head over to [StackOverflow](http://stackoverflow.com/) to ask your question and tag it as **adaptiveme** - I might not see the question if you don't tag it. 
 
-## Progress
+## Work Backlog
 
 #### Board: [![Stories in Ready](https://badge.waffle.io/AdaptiveMe/adaptive-arp-api.svg?label=ready&title=Ready)](https://waffle.io/AdaptiveMe/adaptive-arp-api)
 
