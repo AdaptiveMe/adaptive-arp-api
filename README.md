@@ -5,7 +5,7 @@
 ## Introduction
 
 ### About This Project
-![Overview](https://raw.githubusercontent.com/AdaptiveMe/adaptive-arp-api/gh-pages/assets/arp-summary.png?1)
+[![Overview](https://raw.githubusercontent.com/AdaptiveMe/adaptive-arp-api/gh-pages/assets/arp-summary.png?1)](#)
 
 ### About Adaptive Runtime Platform
 
