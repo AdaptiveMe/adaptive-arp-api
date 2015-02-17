@@ -1,4 +1,5 @@
 # Adaptive Runtime Platform API [![Build Status](https://travis-ci.org/AdaptiveMe/adaptive-arp-api.svg?branch=master)](https://travis-ci.org/AdaptiveMe/adaptive-arp-api)
+![Adaptive Runtime Platform](https://raw.githubusercontent.com/AdaptiveMe/adaptive-arp-api/gh-pages/assets/arp-logo.png)
 ## Introduction
 
 ### About This Project
@@ -219,7 +220,7 @@ Apache License
 
    END OF TERMS AND CONDITIONS
 
-   Copyright 2013-2014 Carlos Lozano Diez
+   Copyright 2013-2015 Carlos Lozano Diez
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -234,4 +235,4 @@ Apache License
    limitations under the License.
 ```
 
-##### Forged with ♥ in Barcelona · © 2013 - 2015 [adaptive.me](http://adaptive.me) / [Carlos Lozano Diez](http://google.com/+CarlosLozano).
+###### Forged with ♥ in Barcelona · © 2013 - 2015 [adaptive.me](http://adaptive.me) / [Carlos Lozano Diez](http://google.com/+CarlosLozano).
