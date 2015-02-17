@@ -30,6 +30,12 @@ Please refer to the [project site](http://adaptiveme.github.io) for more informa
 
 We'd *love to accept your patches and contributions to this project*.  There are a just a few small guidelines you need to follow to ensure that you and/or your company and our project are safeguarded from inadvertent copyright infringement. I know, this can be a pain but we want fair-play from the very start so that we're all on the same page. Please refer to the [project site](http://adaptiveme.github.io) for more information.
 
+## Attributions
+
+* Adaptive Runtime Platform (ARP) artwork by [Jennifer Lasso](https://github.com/Jlassobb).
+* Project badge artwork by [shields.io](http://shields.io/).
+* All other logos are copyright of their respective owners.
+
 ## License
 All the source code of the Adaptive Runtime Platform (ARP), including all Adaptive Runtime Platform (ARP) sub-projects curated by @carloslozano, are distributed, and must be contributed to, under the terms of the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html). Included here verbatim for convenience:
 
@@ -237,10 +243,5 @@ Apache License
    and the "Adaptive", "Adaptive.me" or "Adaptive Runtime Platform" logos.
    
 ```
-## Attributions
-
-* Adaptive Runtime Platform (ARP) artwork by [Jennifer Lasso](https://github.com/Jlassobb).
-* Project badge artwork by [shields.io](http://shields.io/).
-* All other logos are copyright of their respective owners.
 
 Forged with :heart: in Barcelona, Catalonia · © 2013 - 2015 [adaptive.me](http://adaptive.me) / [Carlos Lozano Diez](http://google.com/+CarlosLozano).
