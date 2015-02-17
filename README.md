@@ -1,5 +1,5 @@
 
-# Adaptive Runtime Platform API [![Build Status](https://travis-ci.org/AdaptiveMe/adaptive-arp-api.svg?branch=master)](https://travis-ci.org/AdaptiveMe/adaptive-arp-api) [![Stories in Ready](https://badge.waffle.io/AdaptiveMe/adaptive-arp-api.png?label=ready&title=Ready)](https://waffle.io/AdaptiveMe/adaptive-arp-api)
+# Adaptive Runtime Platform API [![Build Status](https://travis-ci.org/AdaptiveMe/adaptive-arp-api.svg?branch=master)](https://travis-ci.org/AdaptiveMe/adaptive-arp-api) [![Stories in Ready](https://badge.waffle.io/AdaptiveMe/adaptive-arp-api.svg?label=ready&title=Ready)](https://waffle.io/AdaptiveMe/adaptive-arp-api)
 ![Adaptive Runtime Platform](https://raw.githubusercontent.com/AdaptiveMe/adaptive-arp-api/gh-pages/assets/arp-logo.png)
 ## Introduction
 
