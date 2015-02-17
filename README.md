@@ -1,4 +1,4 @@
-## Adaptive Runtime Platform (ARP)
+## Adaptive Runtime Platform (ARP) [![Build Status](https://travis-ci.org/AdaptiveMe/adaptive-arp-api.svg?branch=master)](https://travis-ci.org/AdaptiveMe/adaptive-arp-api)
 # API Projects
 
 Hybrid apps are applications that are build using HTML5/CSS3/JavaScript web technologies that use a native “container” to present the content to a user and to access – bridging web and native contexts - the native functionalities of the device for which the application is built. 
