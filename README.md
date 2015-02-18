@@ -15,9 +15,23 @@ Five of the biggest challenges you will encounter in multi-platform development 
 
 There are obviously more challenges but one that clearly deserves specific mention is the rate of change of platform specific API’s – not to mention language syntax changes! We :heart: Swift.
 
-To work mitigate these challenges to the maximum extent possible, we chose a nice, stable and tool-rich language – Java – to define and document the APIs that our platforms must support (** that's this project**) and, instead of embarking on the task of implementing those APIs in different languages and platforms by hand, we created a code generator to implement > 90% of the code for us. Our generator converts the Java API code defined in this project to the different languages our platforms must support along with the conversion of documentation tags for those languages. 
+To work mitigate these challenges to the maximum extent possible, we chose a nice, stable and tool-rich language – Java – to define and document the APIs that our platforms must support (**that's this project**) and, instead of embarking on the task of implementing those APIs in different languages and platforms by hand, we created a code generator to implement > 90% of the code for us. Our generator converts the Java API code defined in this project to the different languages our platforms must support along with the conversion of documentation tags for those languages. The general workflow is as follows:
 
 [![Overview](https://raw.githubusercontent.com/AdaptiveMe/adaptive-arp-api/gh-pages/assets/arp-summary.png?1)](#)
+
+1. API specifications are agreed, implemented and documented in the Java language.
+  * The new API specification is tagged with a new version.
+2. API specifications are pushed to this repository.
+  * The API specifications go through CI and on passing, the generator is notified.
+3. The Generator is executed on the API specifications.
+  * TypeScript code and documentation is generated for hybrid-app HTML5 applications.
+    * TypeScript code is compiled to JavaScript/ECMAScript 5.
+  * Swift code and documentation is generated for iOS and OS X platforms.
+  * Java code and documentation is generated for Android mobile, wear and tv platforms.
+  * C# code and documentation is generated for Windows 10 platforms.
+  * Etc...
+4. After generation, each platform repo contains skeleton classes with stub-methods to be implemented.
+  * On completing, the platform repo is tagged with the same version as the API specification.
 
 ### About Adaptive Runtime Platform
 
@@ -44,7 +58,7 @@ We'd *love to accept your patches and contributions to this project*.  There are
 
 ## Attributions
 
-* Adaptive Runtime Platform (ARP) artwork by [Jennifer Lasso](https://github.com/Jlassobb).
+* Adaptive Runtime Platform (ARP) artwork by [Jennifer Lasso](https://github.com/Jlassob).
 * Project badge artwork by [shields.io](http://shields.io/).
 * All other logos are copyright of their respective owners.
 
