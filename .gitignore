@@ -96,11 +96,6 @@ adaptive-arp-api-specs/.idea/
 adaptive-arp-api-java/arp-api-java/build/
 tools/osx/jenerator/out/
 
-*.java.new
-*.swift.new
-
-
-
-update_repo.sh
-
 adaptive-arp-api-specs/build/
+
+out/
