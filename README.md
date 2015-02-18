@@ -20,18 +20,18 @@ To work mitigate these challenges to the maximum extent possible, we chose a nic
 [![Overview](https://raw.githubusercontent.com/AdaptiveMe/adaptive-arp-api/gh-pages/assets/arp-summary.png?1)](#)
 
 1. API specifications are agreed, implemented and documented in the Java language.
-  * The new API specification is tagged with a new version.
+ - [x] The new API specification is tagged with a new version.
 2. API specifications are pushed to this repository.
-  * The API specifications go through CI and on passing, the generator is notified.
+ - [x] The API specifications go through CI and on passing, the generator is notified.
 3. The Generator is executed on the API specifications.
-  * TypeScript code and documentation is generated for hybrid-app HTML5 applications.
-    * TypeScript code is compiled to JavaScript/ECMAScript 5.
-  * Swift code and documentation is generated for iOS and OS X platforms.
-  * Java code and documentation is generated for Android mobile, wear and tv platforms.
-  * C# code and documentation is generated for Windows 10 platforms.
-  * Etc...
+ - [x] **TypeScript** code and documentation is generated for hybrid-app **HTML5** applications.
+ - [x] **TypeScript** code is compiled to **JavaScript**/**ECMAScript 5**.
+ - [x] **Swift** code and documentation is generated for **iOS** and **OS X** platforms.
+ - [x] **Java** code and documentation is generated for **Android** mobile, wear and tv platforms.
+ - [x] **C#** code and documentation is generated for **Windows 10** platforms.
+ - [x] Etc...
 4. After generation, each platform repo contains skeleton classes with stub-methods to be implemented.
-  * On completing, the platform repo is tagged with the same version as the API specification.
+ - [x] On completing, the platform repo is tagged with the same version as the API specification.
 
 ### About Adaptive Runtime Platform
 
