@@ -108,32 +108,6 @@ public class Contact extends ContactUid {
     }
 
     /**
-     * Constructor with all the fields
-     *
-     * @param contactId        Identifier of the contact
-     * @param personalInfo     Personal Information
-     * @param professionalInfo Professional Information
-     * @param contactAddresses Addresses of the contact
-     * @param contactPhones    Phones of the contact
-     * @param contactEmails    Emails of the contact
-     * @param contactWebsites  Websites of the contact
-     * @param contactSocials   Social Networks of the contact
-     * @param contactTags      Tags of the contact
-     * @since v2.0
-     */
-    public Contact(String contactId, ContactPersonalInfo personalInfo, ContactProfessionalInfo professionalInfo, ContactAddress[] contactAddresses, ContactPhone[] contactPhones, ContactEmail[] contactEmails, ContactWebsite[] contactWebsites, ContactSocial[] contactSocials, ContactTag[] contactTags) {
-        super(contactId);
-        this.personalInfo = personalInfo;
-        this.professionalInfo = professionalInfo;
-        this.contactAddresses = contactAddresses;
-        this.contactPhones = contactPhones;
-        this.contactEmails = contactEmails;
-        this.contactWebsites = contactWebsites;
-        this.contactSocials = contactSocials;
-        this.contactTags = contactTags;
-    }
-
-    /**
      * Returns the personal info of the Contact
      *
      * @return ContactPersonalInfo of the Contact
