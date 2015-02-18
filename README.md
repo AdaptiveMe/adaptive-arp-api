@@ -43,7 +43,7 @@ Please refer to the [project site](http://adaptiveme.github.io) for more informa
 
 ## Support and Contact
 
-* If you're amending or proposing APIs, open an issue [here](issues) with a **detailed** description. Also, in addition to opening the issue you send me a pull request with your amendment/proposal.
+* If you're amending or proposing APIs, open an issue [here](https://github.com/AdaptiveMe/adaptive-arp-api/issues) with a **detailed** description. Also, in addition to opening the issue you send me a pull request with your amendment/proposal.
 * If you're seeking help, head over to [StackOverflow](http://stackoverflow.com/) to ask your question and tag it as **adaptiveme** - I might not see the question if you don't tag it. 
 
 ## Work Backlog
@@ -63,6 +63,6 @@ We'd *love to accept your patches and contributions to this project*.  There are
 * All other logos are copyright of their respective owners.
 
 ## License
-All the source code of the Adaptive Runtime Platform (ARP), including all Adaptive Runtime Platform (ARP) sub-projects curated by @carloslozano, are distributed, and must be contributed to, under the terms of the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html). The [license](https://raw.githubusercontent.com/AdaptiveMe/adaptive-arp-api/master/LICENSE) is included in this [repository](https://raw.githubusercontent.com/AdaptiveMe/adaptive-arp-api/master/LICENSE).
+All the source code of the Adaptive Runtime Platform (ARP), including all Adaptive Runtime Platform (ARP) sub-projects curated by [Carlos Lozano Diez](https://github.com/carloslozano), are distributed, and must be contributed to, under the terms of the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html). The [license](https://raw.githubusercontent.com/AdaptiveMe/adaptive-arp-api/master/LICENSE) is included in this [repository](https://raw.githubusercontent.com/AdaptiveMe/adaptive-arp-api/master/LICENSE).
 
 Forged with :heart: in Barcelona, Catalonia · © 2013 - 2015 [adaptive.me](http://adaptive.me) / [Carlos Lozano Diez](http://google.com/+CarlosLozano).
