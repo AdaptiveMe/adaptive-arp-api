@@ -13,7 +13,7 @@ Five of the biggest challenges you will encounter in multi-platform development 
 4. that APIs are well documented for and specific to all language domains, and, 
 5. that APIs enforce the desired behaviour from the implementation as much as possible. 
 
-There are obviously more challenges but one that clearly deserves specific mention is the rate of change of platform specific API’s – not to mention language syntax changes! We :heart: Swift.
+There are obviously more challenges but one that clearly deserves specific mention is the rate of change of platform specific APIs – not to mention language syntax changes! We :heart: Swift.
 
 To work mitigate these challenges to the maximum extent possible, we chose a nice, stable and tool-rich language – Java – to define and document the APIs that our platforms must support (**that's this project**) and, instead of embarking on the task of implementing those APIs in different languages and platforms by hand, we created a code generator to implement > 90% of the code for us. Our generator converts the Java API code defined in this project to the different languages our platforms must support along with the conversion of documentation tags for those languages. The general workflow is as follows:
 
