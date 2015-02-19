@@ -79,6 +79,6 @@ public interface IGeolocation extends IBaseSensor {
      * @since v2.0
      */
     public enum Status {
-        Success, Unauthorized, HighDoP, Unavailable, GPS_Not_Enabled, Unknown
+        Success, Unauthorized, HighDoP, Unavailable, GPSNotEnabled, Unknown
     }
 }

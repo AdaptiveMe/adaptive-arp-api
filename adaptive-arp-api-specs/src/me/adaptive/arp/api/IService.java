@@ -130,7 +130,7 @@ public interface IService extends IBaseCommunication {
      * @since v2.0.6
      */
     public enum ProtocolVersion {
-        HTTP_1_0, HTTP_1_1, Unknown
+        Http10, Http11, Unknown
     }
 
     /**
@@ -139,7 +139,7 @@ public interface IService extends IBaseCommunication {
      * @since v2.0.6
      */
     public enum Method {
-        POST, GET, HEAD, Unknown
+        Post, Get, Head, Unknown
     }
 
     /**
@@ -163,6 +163,6 @@ public interface IService extends IBaseCommunication {
      * @since v2.1.5
      */
     public enum ContentEncoding {
-        ASCII, UTF8, ISOLatin1, Unicode, Unknown
+        Ascii, Utf8, IsoLatin1, Unicode, Unknown
     }
 }
