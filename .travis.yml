@@ -1,0 +1,4 @@
+before_install: cd adaptive-arp-api-specs
+language: java
+jdk:
+  - oraclejdk8
