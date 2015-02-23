@@ -79,6 +79,6 @@ public interface IDisplayOrientationListener extends IBaseListener {
      * @since v2.0.5
      */
     public enum Warning {
-        Application_Vetoed, Unknown
+        ApplicationVetoed, Unknown
     }
 }

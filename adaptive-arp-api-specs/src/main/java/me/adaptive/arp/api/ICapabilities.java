@@ -176,7 +176,7 @@ public interface ICapabilities extends IBaseSystem {
      * @since v2.0
      */
     public enum Media {
-        Audio_Playback, Audio_Recording, Camera, Video_Playback, Video_Recording, Unknown
+        AudioPlayback, AudioRecording, Camera, VideoPlayback, VideoRecording, Unknown
     }
 
     /**
@@ -212,7 +212,7 @@ public interface ICapabilities extends IBaseSystem {
      * @since v2.0.5
      */
     public enum Orientation {
-        Portrait_Up, Portrait_Down, Landscape_Left, Landscape_Right, Unknown
+        PortraitUp, PortraitDown, LandscapeLeft, LandscapeRight, Unknown
     }
 
     ;

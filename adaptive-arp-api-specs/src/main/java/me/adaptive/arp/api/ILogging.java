@@ -74,6 +74,6 @@ public interface ILogging extends IBaseUtil {
      * @since v2.0
      */
     public enum LogLevel {
-        DEBUG, WARN, ERROR, INFO, Unknown
+        Debug, Warn, Error, Info, Unknown
     }
 }

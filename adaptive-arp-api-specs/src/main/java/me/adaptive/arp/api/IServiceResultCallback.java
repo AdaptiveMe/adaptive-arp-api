@@ -79,7 +79,7 @@ public interface IServiceResultCallback extends IBaseCallback {
      * @since v2.0
      */
     public enum Warning {
-        CertificateUntrusted, NotSecure, Redirected, Wrong_Params, Forbidden, NotFound, MethodNotAllowed, NotAllowed, NotAuthenticated, PaymentRequired, ServerError, Unknown
+        CertificateUntrusted, NotSecure, Redirected, WrongParams, Forbidden, NotFound, MethodNotAllowed, NotAllowed, NotAuthenticated, PaymentRequired, ServerError, Unknown
     }
 
     /**

@@ -79,7 +79,7 @@ public interface IButtonListener extends IBaseListener {
      * @since v2.0
      */
     public enum Error {
-        Not_Present, Unknown
+        NotPresent, Unknown
     }
 
     /**
@@ -88,6 +88,6 @@ public interface IButtonListener extends IBaseListener {
      * @since v2.0
      */
     public enum Warning {
-        Not_Implemented, Unknown
+        NotImplemented, Unknown
     }
 }
