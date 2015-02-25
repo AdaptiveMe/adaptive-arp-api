@@ -15,6 +15,7 @@ then
 
     echo $HOME_DIR
     echo $API_VERSION
+    rm -rf $HOME_DIR/generate
 fi
 
 exit 0
