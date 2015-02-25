@@ -2,5 +2,7 @@ before_install: cd adaptive-arp-api-specs
 language: java
 jdk:
 - oraclejdk8
+script: gradle assemble build
 after_success:
+- cd ..
 - ./generate.sh 
