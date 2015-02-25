@@ -17,3 +17,4 @@ then
     echo $API_VERSION
 fi
 
+exit 0
