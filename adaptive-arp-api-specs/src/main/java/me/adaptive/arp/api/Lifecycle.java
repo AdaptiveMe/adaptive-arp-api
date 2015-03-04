@@ -67,6 +67,13 @@ public class Lifecycle extends APIBean {
     private State state;
 
     /**
+     * The timestamps in milliseconds when the event was fired.
+     *
+     * @since v2.2.1
+     */
+    private long timestamp;
+
+    /**
      * Default constructor
      *
      * @since v2.0
@@ -78,10 +85,12 @@ public class Lifecycle extends APIBean {
      * Constructor used by the implementation
      *
      * @param state of the app
+     * @param timestamp Timestamp of the event
      * @since v2.0
      */
-    public Lifecycle(State state) {
+    public Lifecycle(State state, long timestamp) {
         this.state = state;
+        this.timestamp = timestamp;
     }
 
     /**
@@ -102,6 +111,26 @@ public class Lifecycle extends APIBean {
      */
     public void setState(State state) {
         this.state = state;
+    }
+
+    /**
+     * Gets the timestamp in milliseconds of the event.
+     *
+     * @return Timestamp of the event.
+     * @since v2.2.1
+     */
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    /**
+     * Sets the timestamp in milliseconds of the event.
+     *
+     * @param timestamp Timestamp of the event.
+     * @since v2.2.1
+     */
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
     }
 
     /**

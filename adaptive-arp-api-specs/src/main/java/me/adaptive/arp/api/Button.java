@@ -54,6 +54,13 @@ public class Button extends APIBean {
     private ICapabilities.Button type;
 
     /**
+     * Timestamp of the button event.
+     *
+     * @since v2.2.1
+     */
+    private long timestamp;
+
+    /**
      * Default constructor
      *
      * @since v2.0
@@ -65,10 +72,12 @@ public class Button extends APIBean {
      * Constructor with fields
      *
      * @param type Button type.
+     * @param timestamp Timestamp of the event
      * @since v2.0
      */
-    public Button(ICapabilities.Button type) {
+    public Button(ICapabilities.Button type, long timestamp) {
         this.type = type;
+        this.timestamp = timestamp;
     }
 
     /**
@@ -89,6 +98,26 @@ public class Button extends APIBean {
      */
     public void setType(ICapabilities.Button type) {
         this.type = type;
+    }
+
+    /**
+     * Timestamp Getter
+     *
+     * @return Timestamp
+     * @since v2.2.1
+     */
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    /**
+     * Timestamp Setter
+     *
+     * @param timestamp Timestamp
+     * @since v2.2.1
+     */
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
     }
 
 
