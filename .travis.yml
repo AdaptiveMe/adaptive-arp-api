@@ -2,11 +2,12 @@ before_install: cd adaptive-arp-api-specs
 language: java
 jdk: oraclejdk8
 before_script:
+- export HOME=`pwd`
+- mkdir -p .git
+- git config --global credential.helper "store --file=$HOME/.git/credentials"
 - git config --global user.email "carlos@adaptive.me"
 - git config --global user.name "carloslozano"
-- mkdir -p .git
-- git config --global credential.helper "store --file=.git/credentials"
-- echo "https://${GH_TOKEN}:@github.com" > .git/credentials
+- echo "https://${GH_TOKEN}:@github.com" > $HOME/.git/credentials
 after_success:
 - mkdir temp
 - cd temp
