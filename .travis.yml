@@ -1,4 +1,6 @@
-before_install: cd adaptive-arp-api-specs
+before_install: 
+- cd adaptive-arp-api-specs
+- git describe --abbrev=0
 language: java
 jdk: oraclejdk8
 after_script:
