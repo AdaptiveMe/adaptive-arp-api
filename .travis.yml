@@ -4,9 +4,6 @@ language: java
 jdk: oraclejdk8
 node_js:
 - '0.12'
-install:
-- npm install -g typescript
-- npm install -g replace
 before_script:
 - export HOME=`pwd`
 - export TIMESTAMP=`date`
