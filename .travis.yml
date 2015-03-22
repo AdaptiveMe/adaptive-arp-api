@@ -18,22 +18,34 @@ before_script:
 - git config --global push.default simple
 - echo "https://${GH_TOKEN}:@github.com" > $HOME/.git/credentials
 after_success:
-- mkdir temp
-- cd temp
-- git clone https://github.com/AdaptiveMe/adaptive-arp-tools-generator.git
-- cd adaptive-arp-tools-generator
-- export GENERATOR_HOME=`pwd`
-- ./gradlew assemble
-- ./gradlew installDist
-- ./build/install/jenerator/bin/jenerator
-- cd $GENERATOR_HOME/work/adaptive-arp-api-lib-java
-- git add -v -A .
-- git commit -a -m "Updates sourced from ${CURRENT_TAG} at ${TIMESTAMP}."
-- git push origin
-- cd $GENERATOR_HOME/work/adaptive-arp-api-lib-dotnet
-- git add -v -A .
-- git commit -a -m "Updates sourced from ${CURRENT_TAG} at ${TIMESTAMP}."
-- git push origin
+  if [ "$TRAVIS_BRANCH" == "$TRAVIS_TAG" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+
+  - echo "Tagged release..."
+
+  elif [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+  
+  - mkdir temp
+  - cd temp
+  - git clone https://github.com/AdaptiveMe/adaptive-arp-tools-generator.git
+  - cd adaptive-arp-tools-generator
+  - export GENERATOR_HOME=`pwd`
+  - ./gradlew assemble
+  - ./gradlew installDist
+  - ./build/install/jenerator/bin/jenerator
+  - cd $GENERATOR_HOME/work/adaptive-arp-api-lib-java
+  - git add -v -A .
+  - git commit -a -m "Updates sourced from ${CURRENT_TAG} at ${TIMESTAMP}."
+  - git push origin
+  - cd $GENERATOR_HOME/work/adaptive-arp-api-lib-dotnet
+  - git add -v -A .
+  - git commit -a -m "Updates sourced from ${CURRENT_TAG} at ${TIMESTAMP}."
+  - git push origin
+  
+  else
+  
+  - echo "Nothing else to do..."
+  
+  fi
 env:
   global:
     secure: WIeNLQk7nYe/3JCSyBk1IRTJLlFHkQyKyWmpd6a5VD1uDNDRbtR/sDb/1TdcU4NWg9Uc0s3ZVHvvnFF0pqxJO5WcQ7eJReva27D3igIZBbLhaMONYg1O7I2MVzKxgMCRfhGexnz9UcEzZR/UrcjMxVh4qmx0X5K18Q2R5wVZpPI=
