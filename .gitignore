@@ -99,3 +99,5 @@ tools/osx/jenerator/out/
 adaptive-arp-api-specs/build/
 
 out/
+
+*.iml
