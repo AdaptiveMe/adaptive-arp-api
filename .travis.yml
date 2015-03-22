@@ -4,6 +4,8 @@ language: java
 jdk: oraclejdk8
 before_script:
 - export HOME=`pwd`
+- export TIMESTAMP=`date`
+- export CURRENT_TAG=`git describe --abbrev=0`
 - mkdir -p .git
 - git config --global credential.helper "store --file=$HOME/.git/credentials"
 - git config --global user.email "carlos@adaptive.me"
@@ -17,8 +19,10 @@ after_success:
 - ./gradlew assemble
 - ./gradlew installDist
 - ./build/install/jenerator/bin/jenerator
-- cd ..
-- cd ..
+- cd work/adaptive-arp-api-lib-java
+- git add -v
+- git commit -a -m 'Updated sourced from $CURRENT_TAG at $TIMESTAMP'
+- git push origin
 env:
   global:
     secure: WIeNLQk7nYe/3JCSyBk1IRTJLlFHkQyKyWmpd6a5VD1uDNDRbtR/sDb/1TdcU4NWg9Uc0s3ZVHvvnFF0pqxJO5WcQ7eJReva27D3igIZBbLhaMONYg1O7I2MVzKxgMCRfhGexnz9UcEzZR/UrcjMxVh4qmx0X5K18Q2R5wVZpPI=
