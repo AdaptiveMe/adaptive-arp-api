@@ -28,7 +28,7 @@ after_success:
     
     cd temp
   
-    git clone https://github.com/AdaptiveMe/adaptive-arp-tools-generator.git
+    git clone https://github.com/AdaptiveMe/adaptive-arp-tools-generator.git --quiet
   
     cd adaptive-arp-tools-generator
   
@@ -49,6 +49,14 @@ after_success:
     git push origin
   
     cd $GENERATOR_HOME/work/adaptive-arp-api-lib-dotnet
+  
+    git add -v -A .
+    
+    git commit -a -m "Updates sourced from ${CURRENT_TAG} at ${TIMESTAMP}."
+  
+    git push origin
+    
+    cd $GENERATOR_HOME/work/adaptive-arp-typescript
   
     git add -v -A .
     
