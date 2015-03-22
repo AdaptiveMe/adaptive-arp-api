@@ -9,7 +9,6 @@ before_script:
 - git config credential.helper "store --file=.git/credentials"
 - echo "https://${GH_TOKEN}:@github.com" >> .git/credentials
 after_success:
-- cat .git/credentials
 - mkdir temp
 - cd temp
 - git clone https://${GH_TOKEN}:@github.com/AdaptiveMe/adaptive-arp-tools-generator.git
