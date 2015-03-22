@@ -10,7 +10,7 @@ before_script:
 after_success:
 - mkdir temp
 - cd temp
-- git clone https://github.com/AdaptiveMe/adaptive-arp-tools-generator.git
+- git clone https://${GH_TOKEN}:@github.com/AdaptiveMe/adaptive-arp-tools-generator.git
 - cd adaptive-arp-tools-generator
 - ./gradlew assemble
 - ./gradlew installDist
