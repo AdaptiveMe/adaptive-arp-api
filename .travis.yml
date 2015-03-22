@@ -5,7 +5,7 @@ jdk: oraclejdk8
 before_script:
 - git config --global user.email "carlos@adaptive.me"
 - git config --global user.name "carloslozano"
-- mkdir -p .git
+- git config --global credential.helper "store --file=.git/credentials"
 after_success:
 - git config credential.helper "store --file=.git/credentials"
 - mkdir temp
