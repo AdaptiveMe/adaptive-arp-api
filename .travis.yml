@@ -1,6 +1,7 @@
 sudo: false
 before_install: 
 - git checkout master
+- git tag -l
 - cd adaptive-arp-api-specs
 - git describe --abbrev=0
 language: java
