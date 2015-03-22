@@ -2,7 +2,7 @@ sudo: false
 before_install: cd adaptive-arp-api-specs
 language: java
 jdk: oraclejdk8
-before_script:
+after_script:
 - export HOME=`pwd`
 - export TIMESTAMP=`date`
 - export CURRENT_TAG=`git describe --abbrev=0`
