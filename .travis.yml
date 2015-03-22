@@ -10,6 +10,7 @@ before_script:
 - git config --global credential.helper "store --file=$HOME/.git/credentials"
 - git config --global user.email "carlos@adaptive.me"
 - git config --global user.name "carloslozano"
+- git config --global push.default simple
 - echo "https://${GH_TOKEN}:@github.com" > $HOME/.git/credentials
 after_success:
 - mkdir temp
