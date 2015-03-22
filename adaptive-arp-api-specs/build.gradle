@@ -1,9 +1,23 @@
+def getVersionName = { ->
+    def stdout = new ByteArrayOutputStream()
+    exec {
+        commandLine 'git', 'describe', '--tags'
+        standardOutput = stdout
+    }
+    if (stdout.toString().trim().indexOf('-') > 0) {
+        return stdout.toString().trim().substring(0, stdout.toString().trim().indexOf('-'))
+    } else {
+        return stdout.toString().trim()
+    }
+}
 apply plugin: 'java'
 
 sourceCompatibility = 1.7
 targetCompatibility = 1.8
 
-version = '2.2.0'
+group = "me.adaptive"
+archivesBaseName = "adaptive-arp-api"
+version = getVersionName()
 
 repositories {
     mavenCentral()

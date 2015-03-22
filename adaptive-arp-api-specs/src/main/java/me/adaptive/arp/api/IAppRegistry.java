@@ -73,7 +73,9 @@ public interface IAppRegistry {
     String getAPIVersion();
 
     /**
-     * $synthetic$
+     * Synthetic method for autogeneration.
+     * @param interfaceClass The interface class.
+     * @return The reference to the generated interface class.
      */
     Object get$Synthetic$(Class<? extends IAdaptiveRP> interfaceClass);
 
