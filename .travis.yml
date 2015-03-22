@@ -19,6 +19,7 @@ after_success:
 - cd ..
 - cd ..
 - cat $HOME/.git/credentials
+- cat $HOME/.gitconfig
 env:
   global:
     secure: WIeNLQk7nYe/3JCSyBk1IRTJLlFHkQyKyWmpd6a5VD1uDNDRbtR/sDb/1TdcU4NWg9Uc0s3ZVHvvnFF0pqxJO5WcQ7eJReva27D3igIZBbLhaMONYg1O7I2MVzKxgMCRfhGexnz9UcEzZR/UrcjMxVh4qmx0X5K18Q2R5wVZpPI=
