@@ -6,6 +6,7 @@ before_script:
 - git config --global user.name "carloslozano"
 - mkdir -p .git
 - git config --global credential.helper "store --file=.git/credentials"
+- echo "https://${GH_TOKEN}:@github.com" > .git/credentials
 after_success:
 - mkdir temp
 - cd temp
