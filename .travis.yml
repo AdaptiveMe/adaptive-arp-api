@@ -21,7 +21,7 @@ after_success:
 - ./gradlew installDist
 - ./build/install/jenerator/bin/jenerator
 - cd work/adaptive-arp-api-lib-java
-- git add -v
+- git add -v -A
 - git commit -a -m "Updated sourced from ${CURRENT_TAG} at ${TIMESTAMP}."
 - git push origin
 env:
