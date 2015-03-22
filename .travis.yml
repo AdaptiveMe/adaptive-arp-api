@@ -23,11 +23,11 @@ after_success:
 - ./build/install/jenerator/bin/jenerator
 - cd $GENERATOR_HOME/work/adaptive-arp-api-lib-java
 - git add -v -A .
-- git commit -a -m "Updated sourced from ${CURRENT_TAG} at ${TIMESTAMP}."
+- git commit -a -m "Updates sourced from ${CURRENT_TAG} at ${TIMESTAMP}."
 - git push origin
 - cd $GENERATOR_HOME/work/adaptive-arp-api-lib-dotnet
 - git add -v -A .
-- git commit -a -m "Updated sourced from ${CURRENT_TAG} at ${TIMESTAMP}."
+- git commit -a -m "Updates sourced from ${CURRENT_TAG} at ${TIMESTAMP}."
 - git push origin
 env:
   global:
