@@ -2,23 +2,21 @@ sudo: false
 before_install: 
 - git pull --depth=200 --quiet
 - cd adaptive-arp-api-specs
-- git describe --abbrev=0
-language: java
-node_js:
-- '0.12'
-jdk: oraclejdk8
-after_script:
 - npm install -g typescript
 - npm install -g replace
 - export HOME=`pwd`
 - export TIMESTAMP=`date`
 - export CURRENT_TAG=`git describe --abbrev=0`
 - mkdir -p .git
-- git config --global credential.helper "store --file=$HOME/.git/credentials"
+- git config --global credential.helper "store --file=$HOME/.git/credentials" 
 - git config --global user.email "carlos@adaptive.me"
 - git config --global user.name "carloslozano"
 - git config --global push.default simple
 - echo "https://${GH_TOKEN}:@github.com" > $HOME/.git/credentials
+language: java
+node_js:
+- '0.12'
+jdk: oraclejdk8
 after_success:
   if [ "$TRAVIS_BRANCH" == "$TRAVIS_TAG" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
 
@@ -51,4 +49,7 @@ after_success:
 env:
   global:
     secure: WIeNLQk7nYe/3JCSyBk1IRTJLlFHkQyKyWmpd6a5VD1uDNDRbtR/sDb/1TdcU4NWg9Uc0s3ZVHvvnFF0pqxJO5WcQ7eJReva27D3igIZBbLhaMONYg1O7I2MVzKxgMCRfhGexnz9UcEzZR/UrcjMxVh4qmx0X5K18Q2R5wVZpPI=
-
+cache:
+  directories:
+    .gradle/
+    .npm/
