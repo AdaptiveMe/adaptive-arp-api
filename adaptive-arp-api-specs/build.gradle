@@ -1,7 +1,7 @@
 def getVersionName = { ->
     def stdout = new ByteArrayOutputStream()
     exec {
-        commandLine 'git', 'describe', '--tags'
+        commandLine 'git', 'describe', '--abbrev=0'
         standardOutput = stdout
     }
     if (stdout.toString().trim().indexOf('-') > 0) {

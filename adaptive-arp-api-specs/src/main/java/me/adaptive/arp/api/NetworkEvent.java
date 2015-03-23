@@ -41,53 +41,84 @@
 package me.adaptive.arp.api;
 
 /**
- * Interface for Managing the Network status listener networkEvents
+ * Represents a network handover event on the system.
  *
- * @author Carlos Lozano Diez
- * @since v2.0
+ * @author Ferran Vila Conesa
+ * @since v2.2.1
  */
-public interface INetworkStatusListener extends IBaseListener {
+public class NetworkEvent extends APIBean {
 
     /**
-     * Called when network connection changes somehow.
+     * New type of network of the event
      *
-     * @param networkEvent Change to this network.
-     * @since v2.0
+     * @since v2.2.1
      */
-    public void onResult(NetworkEvent networkEvent);
+    private ICapabilities.Net network;
 
     /**
-     * Status received with warning
+     * The timestamps in milliseconds when the event was fired.
      *
-     * @param networkEvent Change to this network.
-     * @param warning Type of warning encountered during reading.
-     * @since v2.0
+     * @since v2.2.1
      */
-    public void onWarning(NetworkEvent networkEvent, Warning warning);
+    private long timestamp;
 
     /**
-     * No data received - error condition, not authorized or hardware not available.
+     * Default constructor
      *
-     * @param error Type of error encountered during reading.
-     * @since v2.0
+     * @since v2.2.1
      */
-    public void onError(Error error);
-
-    /**
-     * Possible Errors
-     *
-     * @since v2.0
-     */
-    public enum Error {
-        NoPermission, Unreachable, Unknown
+    public NetworkEvent() {
     }
 
     /**
-     * Possible Warnings
+     * Constructor used by the implementation
      *
-     * @since v2.0
+     * @param network   of the app
+     * @param timestamp Timestamp of the event
+     * @since v2.2.1
      */
-    public enum Warning {
-        IpAddressNotAssigned, IpAddressChanged, Unknown
+    public NetworkEvent(ICapabilities.Net network, long timestamp) {
+        this.network = network;
+        this.timestamp = timestamp;
+    }
+
+    /**
+     * Network event getter
+     *
+     * @return New network switched
+     * @since v2.2.1
+     */
+    public ICapabilities.Net getNetwork() {
+        return network;
+    }
+
+    /**
+     * Network setter
+     *
+     * @param network New network switched
+     * @since v2.2.1
+     */
+    public void setNetwork(ICapabilities.Net network) {
+        this.network = network;
+    }
+
+    /**
+     * Returns the timestamp of the event
+     *
+     * @return Timestamp of the event
+     * @since v2.2.1
+     */
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    /**
+     * Sets the timestamp of the event
+     *
+     * @param timestamp Timestamp of the event
+     * @since v2.2.1
+     */
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
     }
 }
