@@ -20,7 +20,45 @@ jdk: oraclejdk8
 after_success:
   if [ "$TRAVIS_BRANCH" == "$TRAVIS_TAG" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
 
-    echo "Tagged release..."
+    mkdir temp
+    
+    cd temp
+  
+    git clone https://github.com/AdaptiveMe/adaptive-arp-tools-generator.git --quiet
+  
+    cd adaptive-arp-tools-generator
+  
+    export GENERATOR_HOME=`pwd`
+  
+    ./gradlew assemble
+  
+    ./gradlew installDist
+  
+    ./build/install/jenerator/bin/jenerator
+  
+    cd $GENERATOR_HOME/work/adaptive-arp-api-lib-java
+  
+    git add -v -A .
+  
+    git commit -a -m "Updated from API ${CURRENT_TAG} at ${TIMESTAMP}."
+  
+    git push origin
+  
+    cd $GENERATOR_HOME/work/adaptive-arp-api-lib-dotnet
+  
+    git add -v -A .
+    
+    git commit -a -m "Updated from API ${CURRENT_TAG} at ${TIMESTAMP}."
+  
+    git push origin
+    
+    cd $GENERATOR_HOME/work/adaptive-arp-typescript
+  
+    git add -v -A .
+    
+    git commit -a -m "Updated from API ${CURRENT_TAG} at ${TIMESTAMP}."
+  
+    git push origin
 
   elif [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
   
