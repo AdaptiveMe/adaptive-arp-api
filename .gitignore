@@ -99,3 +99,7 @@ tools/osx/jenerator/out/
 adaptive-arp-api-specs/build/
 
 out/
+
+adaptive-arp-api-specs/adaptive-arp-api-specs.iml
+
+adaptive-arp-api-specs/adaptive-arp-api-specs.ipr
