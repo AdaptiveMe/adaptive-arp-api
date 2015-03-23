@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/badge/license-apache%202-blue.svg)](https://raw.githubusercontent.com/AdaptiveMe/adaptive-arp-api/master/LICENSE) 
 [![ARP](https://img.shields.io/badge/arp-specs-lightgrey.svg)](#) 
 [![adaptive.me](https://img.shields.io/badge/adaptive-me-fdcb0e.svg)](http://adaptive.me)
-[![Adaptive Runtime Platform](https://raw.githubusercontent.com/AdaptiveMe/AdaptiveMe.github.io/master/assets/logos/transparent/arp_for_Runtime.png)](#)
+[![Adaptive Runtime Platform](https://raw.githubusercontent.com/AdaptiveMe/AdaptiveMe.github.io/master/assets/logos/normal/arp_for_Runtime.png)](#)
 
 ## Introduction
 
