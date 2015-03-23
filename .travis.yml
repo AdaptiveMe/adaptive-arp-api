@@ -1,5 +1,5 @@
 sudo: false
-before_install: 
+before_install:
 - git pull --depth=200 --quiet
 - cd adaptive-arp-api-specs
 - npm install -g typescript
@@ -9,7 +9,7 @@ before_install:
 - export CURRENT_TAG=`git describe --abbrev=0`
 - export CURRENT_TAG=`echo ${CURRENT_TAG//[v]/ }`
 - mkdir -p .git
-- git config --global credential.helper "store --file=$HOME/.git/credentials" 
+- git config --global credential.helper "store --file=$HOME/.git/credentials"
 - git config --global user.email "carlos@adaptive.me"
 - git config --global user.name "carloslozano"
 - git config --global push.default simple
@@ -18,118 +18,65 @@ language: java
 node_js:
 - '0.12'
 jdk: oraclejdk8
-after_success:
+after_success: |-
   if [ "$TRAVIS_BRANCH" == "$TRAVIS_TAG" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
-
-    mkdir temp
-    
-    cd temp
-  
-    git clone https://github.com/AdaptiveMe/adaptive-arp-tools-generator.git --quiet
-  
-    cd adaptive-arp-tools-generator
-  
-    export GENERATOR_HOME=`pwd`
-  
-    ./gradlew assemble
-  
-    ./gradlew installDist
-  
-    ./build/install/jenerator/bin/jenerator
-  
-    cd $GENERATOR_HOME/work/adaptive-arp-api-lib-java
-  
-    git add -v -A .
-  
-    git commit -a -m "Release from API ${CURRENT_TAG} at ${TIMESTAMP}."
-  
-    git push origin
-  
-    cd $GENERATOR_HOME/work/adaptive-arp-api-lib-dotnet
-  
-    git add -v -A .
-    
-    git commit -a -m "Release from API ${CURRENT_TAG} at ${TIMESTAMP}."
-  
-    git push origin
-    
-    cd $GENERATOR_HOME/work/adaptive-arp-typescript
-  
-    git add -v -A .
-    
-    git commit -a -m "Release from API ${CURRENT_TAG} at ${TIMESTAMP}."
-  
-    git push origin
-    
-    cd $GENERATOR_HOME/work/adaptive-arp-android
-  
-    git add -v -A .
-    
-    git commit -a -m "Release from API ${CURRENT_TAG} at ${TIMESTAMP}."
-  
-    git push origin
-
+  mkdir temp
+  cd temp
+  git clone https://github.com/AdaptiveMe/adaptive-arp-tools-generator.git --quiet
+  cd adaptive-arp-tools-generator
+  export GENERATOR_HOME=`pwd`
+  ./gradlew assemble
+  ./gradlew installDist
+  ./build/install/jenerator/bin/jenerator
+  cd $GENERATOR_HOME/work/adaptive-arp-api-lib-java
+  git add -v -A .
+  git commit -a -m "Release from API ${CURRENT_TAG} at ${TIMESTAMP}."
+  git push origin
+  cd $GENERATOR_HOME/work/adaptive-arp-api-lib-dotnet
+  git add -v -A .
+  git commit -a -m "Release from API ${CURRENT_TAG} at ${TIMESTAMP}."
+  git push origin
+  cd $GENERATOR_HOME/work/adaptive-arp-typescript
+  git add -v -A .
+  git commit -a -m "Release from API ${CURRENT_TAG} at ${TIMESTAMP}."
+  git push origin
+  cd $GENERATOR_HOME/work/adaptive-arp-android
+  git add -v -A .
+  git commit -a -m "Release from API ${CURRENT_TAG} at ${TIMESTAMP}."
+  git push origin
   elif [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
-  
-    mkdir temp
-    
-    cd temp
-  
-    git clone https://github.com/AdaptiveMe/adaptive-arp-tools-generator.git --quiet
-  
-    cd adaptive-arp-tools-generator
-  
-    export GENERATOR_HOME=`pwd`
-  
-    ./gradlew assemble
-  
-    ./gradlew installDist
-  
-    ./build/install/jenerator/bin/jenerator
-  
-    cd $GENERATOR_HOME/work/adaptive-arp-api-lib-java
-  
-    git add -v -A .
-  
-    git commit -a -m "Updated from API ${CURRENT_TAG} at ${TIMESTAMP}."
-  
-    git push origin
-  
-    cd $GENERATOR_HOME/work/adaptive-arp-api-lib-dotnet
-  
-    git add -v -A .
-    
-    git commit -a -m "Updated from API ${CURRENT_TAG} at ${TIMESTAMP}."
-  
-    git push origin
-    
-    cd $GENERATOR_HOME/work/adaptive-arp-typescript
-  
-    git add -v -A .
-    
-    git commit -a -m "Updated from API ${CURRENT_TAG} at ${TIMESTAMP}."
-  
-    git push origin
-    
-    cd $GENERATOR_HOME/work/adaptive-arp-android
-  
-    git add -v -A .
-    
-    git commit -a -m "Updated from API ${CURRENT_TAG} at ${TIMESTAMP}."
-  
-    git push origin
-  
+  mkdir temp
+  cd temp
+  git clone https://github.com/AdaptiveMe/adaptive-arp-tools-generator.git --quiet
+  cd adaptive-arp-tools-generator
+  export GENERATOR_HOME=`pwd`
+  ./gradlew assemble
+  ./gradlew installDist
+  ./build/install/jenerator/bin/jenerator
+  cd $GENERATOR_HOME/work/adaptive-arp-api-lib-java
+  git add -v -A .
+  git commit -a -m "Updated from API ${CURRENT_TAG} at ${TIMESTAMP}."
+  git push origin
+  cd $GENERATOR_HOME/work/adaptive-arp-api-lib-dotnet
+  git add -v -A .
+  git commit -a -m "Updated from API ${CURRENT_TAG} at ${TIMESTAMP}."
+  git push origin
+  cd $GENERATOR_HOME/work/adaptive-arp-typescript
+  git add -v -A .
+  git commit -a -m "Updated from API ${CURRENT_TAG} at ${TIMESTAMP}."
+  git push origin
+  cd $GENERATOR_HOME/work/adaptive-arp-android
+  git add -v -A .
+  git commit -a -m "Updated from API ${CURRENT_TAG} at ${TIMESTAMP}."
+  git push origin
   else
-  
-    echo "Nothing else to do..."
-  
+  echo "Nothing else to do..."
   fi
-env:
-  global:
-    secure: WIeNLQk7nYe/3JCSyBk1IRTJLlFHkQyKyWmpd6a5VD1uDNDRbtR/sDb/1TdcU4NWg9Uc0s3ZVHvvnFF0pqxJO5WcQ7eJReva27D3igIZBbLhaMONYg1O7I2MVzKxgMCRfhGexnz9UcEzZR/UrcjMxVh4qmx0X5K18Q2R5wVZpPI=
 cache:
   directories:
-    - $HOME/.gradle/caches/
-    - $HOME/.gradle/wrapper/
-    - $HOME/.npm/
-    
+  - $HOME/.gradle/caches/
+  - $HOME/.gradle/wrapper/
+  - $HOME/.npm/
+env:
+  global:
+    secure: W4/j5NW+URP85LYVcTgLMxXRJtYN4bTS959V238oQ2uJNXJRTYAplhXijRf07CVoi4KJTHwDat1eK47rw2kC7tSrFM/wvf9Y8gluXZluXk1gbDzcHLEhRHh/dQIXvEXGEGguQxA26z+P5L/40hIB/R8vzdwZKTbc7mVu3g6zA24=
