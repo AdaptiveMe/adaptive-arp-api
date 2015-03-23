@@ -60,6 +60,14 @@ after_success:
     git commit -a -m "Release from API ${CURRENT_TAG} at ${TIMESTAMP}."
   
     git push origin
+    
+    cd $GENERATOR_HOME/work/adaptive-arp-android
+  
+    git add -v -A .
+    
+    git commit -a -m "Release from API ${CURRENT_TAG} at ${TIMESTAMP}."
+  
+    git push origin
 
   elif [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
   
@@ -96,6 +104,14 @@ after_success:
     git push origin
     
     cd $GENERATOR_HOME/work/adaptive-arp-typescript
+  
+    git add -v -A .
+    
+    git commit -a -m "Updated from API ${CURRENT_TAG} at ${TIMESTAMP}."
+  
+    git push origin
+    
+    cd $GENERATOR_HOME/work/adaptive-arp-android
   
     git add -v -A .
     
