@@ -41,7 +41,7 @@
 package me.adaptive.arp.api;
 
 /**
- * Interface for Managing the Network status listener events
+ * Interface for Managing the Network status listener networkEvents
  *
  * @author Carlos Lozano Diez
  * @since v2.0
@@ -51,19 +51,19 @@ public interface INetworkStatusListener extends IBaseListener {
     /**
      * Called when network connection changes somehow.
      *
-     * @param event Change to this network.
+     * @param networkEvent Change to this network.
      * @since v2.0
      */
-    public void onResult(NetworkEvent event);
+    public void onResult(NetworkEvent networkEvent);
 
     /**
      * Status received with warning
      *
-     * @param event Change to this network.
+     * @param networkEvent Change to this network.
      * @param warning Type of warning encountered during reading.
      * @since v2.0
      */
-    public void onWarning(NetworkEvent event, Warning warning);
+    public void onWarning(NetworkEvent networkEvent, Warning warning);
 
     /**
      * No data received - error condition, not authorized or hardware not available.
