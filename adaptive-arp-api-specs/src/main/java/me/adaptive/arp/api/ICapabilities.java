@@ -214,6 +214,4 @@ public interface ICapabilities extends IBaseSystem {
     public enum Orientation {
         PortraitUp, PortraitDown, LandscapeLeft, LandscapeRight, Unknown
     }
-
-    ;
 }
