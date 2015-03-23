@@ -40,7 +40,7 @@ after_success:
   
     git add -v -A .
   
-    git commit -a -m "Updated from API ${CURRENT_TAG} at ${TIMESTAMP}."
+    git commit -a -m "Release from API ${CURRENT_TAG} at ${TIMESTAMP}."
   
     git push origin
   
@@ -48,7 +48,7 @@ after_success:
   
     git add -v -A .
     
-    git commit -a -m "Updated from API ${CURRENT_TAG} at ${TIMESTAMP}."
+    git commit -a -m "Release from API ${CURRENT_TAG} at ${TIMESTAMP}."
   
     git push origin
     
@@ -56,7 +56,7 @@ after_success:
   
     git add -v -A .
     
-    git commit -a -m "Updated from API ${CURRENT_TAG} at ${TIMESTAMP}."
+    git commit -a -m "Release from API ${CURRENT_TAG} at ${TIMESTAMP}."
   
     git push origin
 
