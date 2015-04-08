@@ -1,4 +1,3 @@
-
 # Adaptive Runtime Platform API 
 [![Build Status](https://travis-ci.org/AdaptiveMe/adaptive-arp-api.svg?branch=master)](https://travis-ci.org/AdaptiveMe/adaptive-arp-api) 
 [![GitHub tag](https://img.shields.io/github/tag/AdaptiveMe/adaptive-arp-api.svg)](https://github.com/AdaptiveMe/adaptive-arp-api) 
