@@ -72,11 +72,6 @@ after_success: |-
   else
   echo "Nothing else to do..."
   fi
-cache:
-  directories:
-  - $HOME/.gradle/caches/
-  - $HOME/.gradle/wrapper/
-  - $HOME/.npm/
 env:
   global:
     secure: W4/j5NW+URP85LYVcTgLMxXRJtYN4bTS959V238oQ2uJNXJRTYAplhXijRf07CVoi4KJTHwDat1eK47rw2kC7tSrFM/wvf9Y8gluXZluXk1gbDzcHLEhRHh/dQIXvEXGEGguQxA26z+P5L/40hIB/R8vzdwZKTbc7mVu3g6zA24=
