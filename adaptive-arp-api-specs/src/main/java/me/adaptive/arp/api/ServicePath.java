@@ -46,7 +46,7 @@ package me.adaptive.arp.api;
  * @author fnva
  * @since v2.0.4
  */
-public class ServicePath {
+public class ServicePath extends APIBean {
 
     /**
      * The path for the endpoint.

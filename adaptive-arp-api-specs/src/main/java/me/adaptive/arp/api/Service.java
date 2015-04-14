@@ -46,7 +46,7 @@ package me.adaptive.arp.api;
  * @author Aryslan
  * @since v2.0
  */
-public class Service {
+public class Service extends APIBean {
 
     /**
      * Endpoint of the service
